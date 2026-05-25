@@ -1,234 +1,890 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-interface DropdownItem {
+interface MegaCol { heading: string; links: { label: string; href: string }[]; }
+interface BannerItem { icon: string; label: string; href: string; }
+interface NavEntry {
   label: string;
-  href: string;
+  key: string;
+  cols: MegaCol[];
+  banner?: { text: string; items: BannerItem[] };
 }
+
+/* ── NAV DATA ────────────────────────────────────────────────── */
+const secondaryNavLinks: NavEntry[] = [
+  {
+    label: "ABOUT",
+    key: "about",
+    cols: [
+      { heading: "UNIVERSITY", links: [
+        { label: "About Geeta University", href: "#" },
+        { label: "Vision & Mission", href: "#" },
+        { label: "Leadership & Governance", href: "#" },
+        { label: "Accreditations & Rankings", href: "#" },
+        { label: "Campus Infrastructure", href: "#" },
+      ]},
+      { heading: "RECOGNITIONS", links: [
+        { label: "NAAC Accreditation", href: "#" },
+        { label: "NIRF Rankings", href: "#" },
+        { label: "State University Status", href: "#" },
+        { label: "Industry Partnerships", href: "#" },
+      ]},
+    ],
+    banner: { text: "Discover Our Legacy", items: [
+      { icon: "🏛️", label: "Campus Tour", href: "#" },
+      { icon: "📊", label: "Rankings", href: "#" },
+      { icon: "🤝", label: "Partners", href: "#" },
+    ]},
+  },
+  {
+    label: "PROGRAMS",
+    key: "programs",
+    cols: [
+      { heading: "ENGINEERING & TECH", links: [
+        { label: "School of CSE", href: "/programs/school-of-computer-science-and-engineering" },
+        { label: "School of Sciences", href: "#" },
+        { label: "School of Agricultural Sciences", href: "#" },
+      ]},
+      { heading: "MANAGEMENT & LAW", links: [
+        { label: "School of Commerce & Business", href: "#" },
+        { label: "SP Bansal School of Business", href: "#" },
+        { label: "Geeta Global Law School", href: "#" },
+      ]},
+      { heading: "HEALTH & HUMANITIES", links: [
+        { label: "Geeta Institute of Pharmacy", href: "#" },
+        { label: "Geeta Nursing College", href: "#" },
+        { label: "School of Humanities & Social Sciences", href: "#" },
+        { label: "School of Hospitality & Hotel Mgmt", href: "#" },
+      ]},
+    ],
+    banner: { text: "Find Your Perfect Program", items: [
+      { icon: "🎓", label: "UG Programs", href: "#" },
+      { icon: "📚", label: "PG Programs", href: "#" },
+      { icon: "🔬", label: "PhD Programs", href: "#" },
+    ]},
+  },
+  {
+    label: "ACADEMICS",
+    key: "academics",
+    cols: [
+      { heading: "RESOURCES", links: [
+        { label: "Academic Calendar", href: "#" },
+        { label: "Examination & Results", href: "#" },
+        { label: "Library", href: "#" },
+        { label: "e-Learning Resources", href: "#" },
+      ]},
+      { heading: "RESEARCH", links: [
+        { label: "Research & Publications", href: "#" },
+        { label: "Funded Projects", href: "#" },
+        { label: "Patents", href: "#" },
+        { label: "Journals", href: "#" },
+      ]},
+    ],
+    banner: { text: "Academic Excellence", items: [
+      { icon: "📖", label: "E-Library", href: "#" },
+      { icon: "🧪", label: "Labs", href: "#" },
+      { icon: "📝", label: "Results", href: "#" },
+    ]},
+  },
+  {
+    label: "ADMISSIONS",
+    key: "admissions",
+    cols: [
+      { heading: "JOB ORIENTED PROGRAMS", links: [
+        { label: "Programs After 12th", href: "#" },
+        { label: "Post Graduate Programs", href: "#" },
+        { label: "Integrated Programs", href: "#" },
+        { label: "Doctoral Programs PhD", href: "#" },
+        { label: "GU Advantages", href: "#" },
+      ]},
+      { heading: "ADMISSION", links: [
+        { label: "Overview", href: "#" },
+        { label: "Course Fee", href: "#" },
+        { label: "How to Apply?", href: "#" },
+        { label: "Admission Criteria", href: "#" },
+        { label: "GU Scholarship", href: "#" },
+        { label: "Education Loan", href: "#" },
+      ]},
+      { heading: "MORE INFO", links: [
+        { label: "National Admissions", href: "#" },
+        { label: "International Admissions", href: "#" },
+        { label: "Admission Offices", href: "#" },
+        { label: "Visit the Campus", href: "#" },
+        { label: "Refund Policy", href: "#" },
+      ]},
+    ],
+    banner: { text: "Unlock Your Career Goals", items: [
+      { icon: "🏆", label: "Scholarships", href: "#" },
+      { icon: "💰", label: "Education Loan", href: "#" },
+      { icon: "📋", label: "CUET", href: "#" },
+    ]},
+  },
+  {
+    label: "CAMPUS LIFE",
+    key: "campuslife",
+    cols: [
+      { heading: "FACILITIES", links: [
+        { label: "Hostel & Accommodation", href: "#" },
+        { label: "Sports & Fitness", href: "#" },
+        { label: "Medical Facilities", href: "#" },
+        { label: "Cafeteria & Food", href: "#" },
+      ]},
+      { heading: "ACTIVITIES", links: [
+        { label: "Cultural Activities", href: "#" },
+        { label: "Student Clubs", href: "#" },
+        { label: "Fests & Events", href: "#" },
+        { label: "NSS & NCC", href: "#" },
+      ]},
+    ],
+    banner: { text: "Experience Campus Life", items: [
+      { icon: "🏠", label: "Hostels", href: "#" },
+      { icon: "⚽", label: "Sports", href: "#" },
+      { icon: "🎭", label: "Fests", href: "#" },
+    ]},
+  },
+  {
+    label: "PLACEMENTS",
+    key: "placements",
+    cols: [
+      { heading: "PLACEMENT CELL", links: [
+        { label: "Placement Cell", href: "#" },
+        { label: "Top Recruiters", href: "#" },
+        { label: "Placement Statistics", href: "#" },
+        { label: "Industry Connect", href: "#" },
+        { label: "Internship Programs", href: "#" },
+      ]},
+      { heading: "ACHIEVEMENTS", links: [
+        { label: "Highest Package", href: "#" },
+        { label: "Alumni Success Stories", href: "#" },
+        { label: "MoU Partners", href: "#" },
+        { label: "Career Guidance", href: "#" },
+      ]},
+    ],
+    banner: { text: "Build Your Career", items: [
+      { icon: "💼", label: "Recruiters", href: "#" },
+      { icon: "📈", label: "Statistics", href: "#" },
+      { icon: "🌟", label: "Alumni", href: "#" },
+    ]},
+  },
+  {
+    label: "RESEARCH & INNOVATION",
+    key: "research",
+    cols: [
+      { heading: "RESEARCH", links: [
+        { label: "Research Centers", href: "#" },
+        { label: "Funded Projects", href: "#" },
+        { label: "Patents & Publications", href: "#" },
+        { label: "Collaborative Research", href: "#" },
+      ]},
+      { heading: "INNOVATION", links: [
+        { label: "Startup & Incubation", href: "#" },
+        { label: "International Collaborations", href: "#" },
+        { label: "Industry Projects", href: "#" },
+        { label: "Tech Conferences", href: "#" },
+      ]},
+    ],
+    banner: { text: "Innovate with Us", items: [
+      { icon: "🔬", label: "Research", href: "#" },
+      { icon: "🚀", label: "Startups", href: "#" },
+      { icon: "🌐", label: "Global Tie-ups", href: "#" },
+    ]},
+  },
+];
 
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [announcementIndex, setAnnouncementIndex] = useState(0);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const schoolItems: DropdownItem[] = [
-    { label: "School of CSE", href: "/programs/school-of-computer-science-and-engineering" },
-    { label: "School of Commerce & Business Management", href: "#" },
-    { label: "Geeta Institute of Pharmacy", href: "#" },
-    { label: "School of Sciences", href: "#" },
-    { label: "School of Agricultural Sciences", href: "#" },
-    { label: "School of Hospitality & Hotel Management", href: "#" },
-    { label: "Geeta Global Law School", href: "#" },
-    { label: "School of Humanities & Social Sciences", href: "#" },
-    { label: "Geeta Nursing College", href: "#" },
-    { label: "SP Bansal School of Business", href: "#" },
+  const announcements = [
+    "🎓 Admissions Open 2025-26 — Apply Now for UG, PG & PhD Programs",
+    "🏆 Geeta University Ranked Among Top Universities in Haryana — NIRF 2024",
+    "📢 Joint Campus Placement Drive — 500+ Companies Visiting This Season",
+    "🌐 International Student Exchange Program Now Open for Applications",
   ];
 
-  const admissionItems: DropdownItem[] = [
-    { label: "Programs After 12th", href: "#" },
-    { label: "Post Graduate Programs", href: "#" },
-    { label: "Doctoral Programs PhD", href: "#" },
-    { label: "Confused About Courses", href: "#" },
-    { label: "GUTS", href: "#" },
-    { label: "Fee Structure & Scholarships", href: "#" },
-    { label: "CUET", href: "#" },
-  ];
+  useEffect(() => {
+    const id = setInterval(() => {
+      setAnnouncementIndex((p) => (p + 1) % announcements.length);
+    }, 4000);
+    return () => clearInterval(id);
+  }, []);
 
-  const edgeItems: DropdownItem[] = [
-    { label: "Design Your Own Degree", href: "#" },
-    { label: "Geeta Finishing School", href: "#" },
-    { label: "Geeta Technical Hub", href: "#" },
-    { label: "New Education Policy", href: "#" },
-    { label: "Vocational Skills", href: "#" },
-    { label: "GU Global Edge", href: "#" },
-  ];
+  useEffect(() => {
+    if (searchOpen && searchRef.current) searchRef.current.focus();
+  }, [searchOpen]);
 
-  const toggleMobileDropdown = (section: string) => {
-    setMobileExpandedSection(mobileExpandedSection === section ? null : section);
+  const handleMouseEnter = (key: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveDropdown(key);
+  };
+  const handleMouseLeave = () => {
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 120);
   };
 
   return (
-    <header style={{ width: "100%", display: "flex", flexDirection: "column", position: "sticky", top: 0, zIndex: 1000, boxShadow: "0 2px 10px rgba(10,31,68,0.1)" }}>
-      {/* 2. Main Navbar (White Background) */}
-      <div style={{ backgroundColor: "var(--gu-white)", padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "3px solid var(--gu-gold)" }}>
-        {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "8px" }}>
-          <span style={{ color: "var(--gu-navy)", fontSize: "22px", fontWeight: 800, letterSpacing: "-0.5px" }}>
-            Geeta <span style={{ color: "var(--gu-gold)" }}>University</span>
-          </span>
-        </Link>
+    <>
+      <style>{`
+        /* ─── ROOT ───────────────────────────────────────────── */
+        .gu-root {
+          width: 100%;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          font-family: 'Segoe UI', Arial, sans-serif;
+        }
 
-        {/* Desktop Menu links */}
-        <nav style={{ display: "none", alignItems: "center", gap: "24px" }} className="desktop-menu">
-          {/* Schools Dropdown */}
-          <div onMouseEnter={() => setActiveDropdown("schools")} onMouseLeave={() => setActiveDropdown(null)} style={{ position: "relative", padding: "8px 0" }}>
-            <span style={{ color: "var(--gu-navy)", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: "4px", fontSize: "14px" }}>
-              Our Schools <span style={{ fontSize: "10px" }}>▼</span>
-            </span>
-            {activeDropdown === "schools" && (
-              <div style={{ position: "absolute", top: "100%", left: 0, width: "320px", backgroundColor: "var(--gu-white)", boxShadow: "0 10px 25px rgba(0,0,0,0.15)", borderRadius: "6px", overflow: "hidden", display: "flex", flexDirection: "column", padding: "8px 0", borderTop: "3px solid var(--gu-gold)" }}>
-                {schoolItems.map((item) => (
-                  <Link key={item.label} href={item.href} style={{ padding: "10px 20px", color: "var(--gu-navy)", textDecoration: "none", fontSize: "13px", fontWeight: 600, transition: "background 0.2s, color 0.2s" }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--gu-bg)"; e.currentTarget.style.color = "var(--gu-gold)"; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "var(--gu-navy)"; }}>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
+        /* ─── TOP ANNOUNCEMENT BAR ───────────────────────────── */
+        .gu-topbar {
+          background: #111;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 20px;
+          height: 36px;
+          font-size: 12px;
+          border-bottom: 1px solid #2a2a2a;
+        }
+        .gu-topbar-left {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          flex: 1;
+          overflow: hidden;
+        }
+        .gu-ticker-nav { display: flex; gap: 2px; }
+        .gu-ticker-btn {
+          background: none; border: none; color: #999;
+          cursor: pointer; padding: 2px 6px; font-size: 15px;
+          transition: color .15s;
+        }
+        .gu-ticker-btn:hover { color: #e8871a; }
+        .gu-ticker { flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 12.5px; }
+        .gu-apply-pill {
+          background: #e8871a; color: #fff; text-decoration: none;
+          padding: 3px 13px; font-size: 11px; font-weight: 700;
+          border-radius: 2px; white-space: nowrap; margin-left: 8px;
+          transition: background .2s; letter-spacing: .5px;
+        }
+        .gu-apply-pill:hover { background: #c9710f; }
 
-          {/* Admissions Dropdown */}
-          <div onMouseEnter={() => setActiveDropdown("admissions")} onMouseLeave={() => setActiveDropdown(null)} style={{ position: "relative", padding: "8px 0" }}>
-            <span style={{ color: "var(--gu-navy)", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: "4px", fontSize: "14px" }}>
-              Admissions <span style={{ fontSize: "10px" }}>▼</span>
-            </span>
-            {activeDropdown === "admissions" && (
-              <div style={{ position: "absolute", top: "100%", left: 0, width: "240px", backgroundColor: "var(--gu-white)", boxShadow: "0 10px 25px rgba(0,0,0,0.15)", borderRadius: "6px", overflow: "hidden", display: "flex", flexDirection: "column", padding: "8px 0", borderTop: "3px solid var(--gu-gold)" }}>
-                {admissionItems.map((item) => (
-                  <Link key={item.label} href={item.href} style={{ padding: "10px 20px", color: "var(--gu-navy)", textDecoration: "none", fontSize: "13px", fontWeight: 600, transition: "background 0.2s, color 0.2s" }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--gu-bg)"; e.currentTarget.style.color = "var(--gu-gold)"; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "var(--gu-navy)"; }}>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
+        .gu-topbar-right {
+          display: flex; align-items: center; gap: 12px; margin-left: 20px;
+        }
+        .gu-topbar-ico {
+          color: #bbb; text-decoration: none; font-size: 12.5px;
+          display: flex; align-items: center; gap: 4px; transition: color .2s;
+          white-space: nowrap;
+        }
+        .gu-topbar-ico:hover { color: #e8871a; }
+        .gu-vdivider { width: 1px; height: 14px; background: #3a3a3a; }
+        .gu-socials { display: flex; align-items: center; gap: 9px; }
+        .gu-socials a { color: #bbb; transition: color .2s; }
+        .gu-socials a:hover { color: #e8871a; }
 
-          {/* Placements (Direct) */}
-          <Link href="#" style={{ color: "var(--gu-navy)", textDecoration: "none", fontWeight: 700, fontSize: "14px" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gu-gold)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--gu-navy)")}>
-            Placements
-          </Link>
+        /* ─── LOGO / HELPLINE BAR ────────────────────────────── */
+        .gu-mainbar {
+          background: #1a1a1a;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 24px;
+          height: 66px;
+        }
 
-          {/* Campus Life (Direct) */}
-          <Link href="#" style={{ color: "var(--gu-navy)", textDecoration: "none", fontWeight: 700, fontSize: "14px" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gu-gold)")} onMouseLeave={(e) => (e.currentTarget.style.color = "var(--gu-navy)")}>
-            Campus Life
-          </Link>
+        /* Logo */
+        .gu-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+        .gu-logo-img {
+          width: 52px; height: 52px; border-radius: 4px; overflow: hidden;
+          background: #0a1f44; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+        }
+        .gu-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+        .gu-logo-name { font-size: 21px; font-weight: 900; color: #fff; letter-spacing: -.4px; text-transform: uppercase; }
+        .gu-logo-gold { color: #e8871a; }
+        .gu-logo-tag { font-size: 9px; color: #999; letter-spacing: 1.6px; text-transform: uppercase; margin-top: 1px; }
 
-          {/* GU Edge Dropdown */}
-          <div onMouseEnter={() => setActiveDropdown("edge")} onMouseLeave={() => setActiveDropdown(null)} style={{ position: "relative", padding: "8px 0" }}>
-            <span style={{ color: "var(--gu-navy)", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: "4px", fontSize: "14px" }}>
-              GU Edge <span style={{ fontSize: "10px" }}>▼</span>
-            </span>
-            {activeDropdown === "edge" && (
-              <div style={{ position: "absolute", top: "100%", right: 0, width: "240px", backgroundColor: "var(--gu-white)", boxShadow: "0 10px 25px rgba(0,0,0,0.15)", borderRadius: "6px", overflow: "hidden", display: "flex", flexDirection: "column", padding: "8px 0", borderTop: "3px solid var(--gu-gold)" }}>
-                {edgeItems.map((item) => (
-                  <Link key={item.label} href={item.href} style={{ padding: "10px 20px", color: "var(--gu-navy)", textDecoration: "none", fontSize: "13px", fontWeight: 600, transition: "background 0.2s, color 0.2s" }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--gu-bg)"; e.currentTarget.style.color = "var(--gu-gold)"; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "var(--gu-navy)"; }}>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-        </nav>
+        /* Centre quick-nav */
+        .gu-main-quicknav {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+          flex: 1;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .gu-qnav-btn {
+          background: none;
+          border: none;
+          color: #bbb;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: .6px;
+          text-transform: uppercase;
+          padding: 6px 10px;
+          border-radius: 4px;
+          cursor: pointer;
+          white-space: nowrap;
+          transition: color .18s, background .18s;
+          position: relative;
+        }
+        .gu-qnav-btn::after {
+          content: '';
+          position: absolute;
+          bottom: 2px; left: 10px; right: 10px;
+          height: 2px;
+          background: #e8871a;
+          border-radius: 2px;
+          transform: scaleX(0);
+          transition: transform .2s;
+          transform-origin: center;
+        }
+        .gu-qnav-btn:hover { color: #fff; background: rgba(255,255,255,.06); }
+        .gu-qnav-btn:hover::after { transform: scaleX(1); }
 
-        {/* Apply Now button (Desktop) */}
-        <div style={{ display: "none", alignItems: "center", gap: "16px" }} className="desktop-actions">
-          <Link href="https://admissions.geetauniversity.edu.in/" target="_blank" rel="noreferrer" style={{ backgroundColor: "var(--gu-gold)", color: "var(--gu-white)", padding: "10px 22px", borderRadius: "6px", textDecoration: "none", fontWeight: 700, fontSize: "14px", transition: "background-color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--gu-gold-light)")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "var(--gu-gold)")}>
-            Apply Now
-          </Link>
-        </div>
+        /* Helpline + search */
+        .gu-mainbar-right { display: flex; align-items: center; gap: 14px; }
+        .gu-helpline {
+          display: flex; align-items: center; gap: 9px;
+          background: #e8871a; color: #fff; border-radius: 4px;
+          padding: 6px 13px 6px 9px; text-decoration: none; transition: background .2s;
+        }
+        .gu-helpline:hover { background: #c9710f; }
+        .gu-helpline-ico {
+          width: 34px; height: 34px; border-radius: 50%; background: rgba(0,0,0,.2);
+          display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .gu-helpline-info { display: flex; flex-direction: column; line-height: 1.2; }
+        .gu-helpline-lbl { font-size: 9px; letter-spacing: .5px; opacity: .9; }
+        .gu-helpline-num { font-size: 16px; font-weight: 800; letter-spacing: -.3px; }
+        .gu-helpline-lines { display: flex; flex-direction: column; gap: 4px; margin-left: 4px; }
+        .gu-helpline-lines span { display: block; width: 18px; height: 2px; background: rgba(255,255,255,.8); border-radius: 2px; }
 
-        {/* Mobile Hamburger Button */}
-        <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} style={{ background: "none", border: "none", color: "var(--gu-navy)", cursor: "pointer", display: "block" }} className="mobile-toggle" aria-label="Toggle menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            {isMobileMenuOpen ? (
-              <path d="M18 6L6 18M6 6l12 12" />
-            ) : (
-              <path d="M3 12h18M3 6h18M3 18h18" />
-            )}
-          </svg>
-        </button>
-      </div>
+        .gu-search-btn {
+          background: none; border: none; color: #bbb; cursor: pointer;
+          display: flex; flex-direction: column; align-items: center; gap: 2px;
+          padding: 6px; transition: color .2s;
+        }
+        .gu-search-btn:hover { color: #e8871a; }
+        .gu-search-btn span { font-size: 9px; letter-spacing: .5px; }
 
-      {/* 3. Mobile Sidebar (Full Overlay / Sidebar Drawer) */}
-      {isMobileMenuOpen && (
-        <div style={{ position: "fixed", top: "75px", left: 0, right: 0, bottom: 0, backgroundColor: "var(--gu-white)", zIndex: 999, overflowY: "auto", display: "flex", flexDirection: "column", padding: "24px", borderTop: "1px solid var(--gu-border)" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "32px" }}>
-            
-            {/* Our Schools Accordion */}
-            <div>
-              <button onClick={() => toggleMobileDropdown("schools")} style={{ width: "100%", background: "none", border: "none", display: "flex", justifyContent: "space-between", alignItems: "center", color: "var(--gu-navy)", fontWeight: 700, fontSize: "16px", padding: "12px 0", borderBottom: "1px solid var(--gu-border)" }}>
-                <span>Our Schools</span>
-                <span style={{ fontSize: "12px" }}>{mobileExpandedSection === "schools" ? "▲" : "▼"}</span>
-              </button>
-              {mobileExpandedSection === "schools" && (
-                <div style={{ display: "flex", flexDirection: "column", gap: "8px", padding: "12px 16px 8px", backgroundColor: "var(--gu-bg)", borderRadius: "6px", marginTop: "8px" }}>
-                  {schoolItems.map((item) => (
-                    <Link key={item.label} href={item.href} onClick={() => setIsMobileMenuOpen(false)} style={{ color: "var(--gu-navy)", textDecoration: "none", fontSize: "14px", padding: "6px 0", display: "block" }}>
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+        .gu-mob-toggle {
+          display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 6px;
+        }
 
-            {/* Admissions Accordion */}
-            <div>
-              <button onClick={() => toggleMobileDropdown("admissions")} style={{ width: "100%", background: "none", border: "none", display: "flex", justifyContent: "space-between", alignItems: "center", color: "var(--gu-navy)", fontWeight: 700, fontSize: "16px", padding: "12px 0", borderBottom: "1px solid var(--gu-border)" }}>
-                <span>Admissions</span>
-                <span style={{ fontSize: "12px" }}>{mobileExpandedSection === "admissions" ? "▲" : "▼"}</span>
-              </button>
-              {mobileExpandedSection === "admissions" && (
-                <div style={{ display: "flex", flexDirection: "column", gap: "8px", padding: "12px 16px 8px", backgroundColor: "var(--gu-bg)", borderRadius: "6px", marginTop: "8px" }}>
-                  {admissionItems.map((item) => (
-                    <Link key={item.label} href={item.href} onClick={() => setIsMobileMenuOpen(false)} style={{ color: "var(--gu-navy)", textDecoration: "none", fontSize: "14px", padding: "6px 0", display: "block" }}>
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+        /* ─── SECONDARY NAV BAR (the new style) ─────────────── */
+        .gu-secbar {
+          background: #2b2b2b;
+          border-top: 1px solid #3a3a3a;
+          border-bottom: 2px solid #e8871a;
+          display: flex;
+          align-items: stretch;
+          position: relative;
+          overflow: visible;
+        }
 
-            {/* Placements (Direct Link) */}
-            <Link href="#" onClick={() => setIsMobileMenuOpen(false)} style={{ color: "var(--gu-navy)", textDecoration: "none", fontWeight: 700, fontSize: "16px", padding: "12px 0", borderBottom: "1px solid var(--gu-border)", display: "block" }}>
-              Placements
-            </Link>
+        .gu-sec-item {
+          position: relative;
+          display: flex;
+          align-items: stretch;
+          flex: 1;
+        }
+        /* Vertical pipe dividers between items */
+        .gu-sec-item:not(:last-child)::after {
+          content: '';
+          position: absolute;
+          right: 0;
+          top: 20%;
+          height: 60%;
+          width: 1px;
+          background: #4a4a4a;
+        }
 
-            {/* Campus Life (Direct Link) */}
-            <Link href="#" onClick={() => setIsMobileMenuOpen(false)} style={{ color: "var(--gu-navy)", textDecoration: "none", fontWeight: 700, fontSize: "16px", padding: "12px 0", borderBottom: "1px solid var(--gu-border)", display: "block" }}>
-              Campus Life
-            </Link>
+        .gu-sec-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          width: 100%;
+          padding: 0 8px;
+          height: 40px;
+          color: #d8d8d8;
+          text-decoration: none;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: .8px;
+          white-space: nowrap;
+          cursor: pointer;
+          background: none;
+          border: none;
+          text-transform: uppercase;
+          transition: color .18s, background .18s;
+          position: relative;
+        }
+        .gu-sec-link::before {
+          content: '';
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          height: 2px;
+          background: #e8871a;
+          transform: scaleX(0);
+          transition: transform .2s;
+          transform-origin: center;
+        }
+        .gu-sec-link:hover,
+        .gu-sec-link.open {
+          color: #fff;
+          background: #222;
+        }
+        .gu-sec-link:hover::before,
+        .gu-sec-link.open::before {
+          transform: scaleX(1);
+        }
 
-            {/* GU Edge Accordion */}
-            <div>
-              <button onClick={() => toggleMobileDropdown("edge")} style={{ width: "100%", background: "none", border: "none", display: "flex", justifyContent: "space-between", alignItems: "center", color: "var(--gu-navy)", fontWeight: 700, fontSize: "16px", padding: "12px 0", borderBottom: "1px solid var(--gu-border)" }}>
-                <span>GU Edge</span>
-                <span style={{ fontSize: "12px" }}>{mobileExpandedSection === "edge" ? "▲" : "▼"}</span>
-              </button>
-              {mobileExpandedSection === "edge" && (
-                <div style={{ display: "flex", flexDirection: "column", gap: "8px", padding: "12px 16px 8px", backgroundColor: "var(--gu-bg)", borderRadius: "6px", marginTop: "8px" }}>
-                  {edgeItems.map((item) => (
-                    <Link key={item.label} href={item.href} onClick={() => setIsMobileMenuOpen(false)} style={{ color: "var(--gu-navy)", textDecoration: "none", fontSize: "14px", padding: "6px 0", display: "block" }}>
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+        .gu-sec-chevron {
+          display: inline-flex;
+          align-items: center;
+          font-size: 8px;
+          opacity: .7;
+          transition: transform .2s, opacity .2s;
+        }
+        .gu-sec-link.open .gu-sec-chevron,
+        .gu-sec-link:hover .gu-sec-chevron {
+          transform: rotate(180deg);
+          opacity: 1;
+        }
 
-          </div>
+        /* ── MEGA MENU ────────────────────────────────── */
+        @keyframes gu-drop {
+          from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+          to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
 
-          {/* Apply Button in Mobile sidebar */}
-          <Link href="https://admissions.geetauniversity.edu.in/" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} style={{ backgroundColor: "var(--gu-gold)", color: "var(--gu-white)", padding: "14px", borderRadius: "6px", textDecoration: "none", fontWeight: 700, fontSize: "16px", textAlign: "center", display: "block" }}>
-            Apply Now
-          </Link>
-        </div>
-      )}
+        /* Page-wide blur backdrop */
+        .gu-mega-backdrop {
+          position: fixed;
+          inset: 0;
+          top: 142px;
+          background: rgba(0,0,0,.25);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          z-index: 699;
+          animation: gu-fade .18s ease;
+        }
+        @keyframes gu-fade {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
 
-      {/* Global CSS Inject for Responsive Styles via Standard Style Tag */}
-      <style jsx global>{`
-        @media (min-width: 992px) {
-          .desktop-menu {
-            display: flex !important;
-          }
-          .desktop-actions {
-            display: flex !important;
-          }
-          .mobile-toggle {
-            display: none !important;
-          }
+        /* Compact panel */
+        .gu-mega {
+          position: fixed;
+          top: 142px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: min(900px, 92vw);
+          background: #fff;
+          border-radius: 0 0 10px 10px;
+          border-top: 3px solid #e8871a;
+          box-shadow: 0 16px 40px rgba(0,0,0,.28);
+          z-index: 700;
+          animation: gu-drop .22s cubic-bezier(.22,.61,.36,1);
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+        }
+
+        .gu-mega-body {
+          display: flex;
+          padding: 20px 28px 16px;
+          gap: 0;
+        }
+
+        .gu-mega-col {
+          flex: 1;
+          padding: 0 18px 0 0;
+          border-right: 1px solid #eee;
+          margin-right: 18px;
+        }
+        .gu-mega-col:last-child {
+          border-right: none;
+          margin-right: 0;
+          padding-right: 0;
+        }
+
+        .gu-mega-col-heading {
+          font-size: 9.5px;
+          font-weight: 800;
+          letter-spacing: 1.1px;
+          text-transform: uppercase;
+          color: #e8871a;
+          margin-bottom: 10px;
+          padding-bottom: 6px;
+          border-bottom: 2px solid #f0f0f0;
+        }
+
+        .gu-mega-link {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          padding: 5px 0;
+          color: #333;
+          text-decoration: none;
+          font-size: 12px;
+          font-weight: 500;
+          transition: color .15s, padding-left .15s;
+          position: relative;
+        }
+        .gu-mega-link::before {
+          content: '';
+          display: inline-block;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background: #e8871a;
+          opacity: 0;
+          flex-shrink: 0;
+          transition: opacity .15s;
+        }
+        .gu-mega-link:hover { color: #e8871a; padding-left: 5px; }
+        .gu-mega-link:hover::before { opacity: 1; }
+
+        /* Banner strip */
+        .gu-mega-banner {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0;
+          background: linear-gradient(135deg, #e8871a 0%, #c9710f 100%);
+          padding: 11px 28px;
+          position: relative;
+          overflow: hidden;
+        }
+        .gu-mega-banner::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='28'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+          opacity: .4;
+        }
+        .gu-mega-banner-title {
+          font-size: 12px;
+          font-weight: 800;
+          color: #fff;
+          letter-spacing: .4px;
+          margin-right: 24px;
+          position: relative;
+          white-space: nowrap;
+        }
+        .gu-mega-banner-items {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          position: relative;
+        }
+        .gu-mega-banner-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 3px;
+          padding: 6px 16px;
+          border-radius: 5px;
+          text-decoration: none;
+          color: #fff;
+          background: rgba(255,255,255,.12);
+          border: 1px solid rgba(255,255,255,.22);
+          transition: background .18s, transform .18s;
+          min-width: 76px;
+        }
+        .gu-mega-banner-item:hover {
+          background: rgba(255,255,255,.24);
+          transform: translateY(-2px);
+        }
+        .gu-mega-banner-icon { font-size: 16px; line-height: 1; }
+        .gu-mega-banner-lbl { font-size: 10px; font-weight: 600; letter-spacing: .3px; }
+
+        /* ─── SEARCH OVERLAY ─────────────────────────────────── */
+        .gu-search-overlay {
+          position: fixed; inset: 0;
+          background: rgba(0,0,0,.88);
+          z-index: 2000;
+          display: flex; align-items: flex-start; justify-content: center;
+          padding-top: 110px;
+          animation: gu-drop .2s ease;
+        }
+        .gu-search-box {
+          background: #222; border-radius: 8px; padding: 24px;
+          width: 100%; max-width: 600px; position: relative;
+        }
+        .gu-search-box input {
+          width: 100%; background: #333;
+          border: 2px solid #e8871a; color: #fff; font-size: 18px;
+          padding: 14px 50px 14px 18px; border-radius: 6px; outline: none;
+        }
+        .gu-search-box input::placeholder { color: #777; }
+        .gu-search-close {
+          position: absolute; top: 10px; right: 14px;
+          background: none; border: none; color: #777; font-size: 22px;
+          cursor: pointer; transition: color .2s;
+        }
+        .gu-search-close:hover { color: #e8871a; }
+
+        /* ─── MOBILE DRAWER ──────────────────────────────────── */
+        .gu-mob-drawer {
+          position: fixed;
+          top: 142px; left: 0; right: 0; bottom: 0;
+          background: #1a1a1a;
+          z-index: 999; overflow-y: auto;
+          padding: 16px 20px 32px;
+          animation: gu-drop .2s ease;
+        }
+        .gu-mob-row { border-bottom: 1px solid #2e2e2e; }
+        .gu-mob-btn {
+          width: 100%; background: none; border: none;
+          display: flex; justify-content: space-between; align-items: center;
+          color: #ddd; font-size: 13px; font-weight: 700; letter-spacing: .6px;
+          padding: 13px 4px; cursor: pointer; text-transform: uppercase;
+          transition: color .2s; text-align: left;
+        }
+        .gu-mob-btn:hover { color: #e8871a; }
+        .gu-mob-sub {
+          display: flex; flex-direction: column; gap: 2px;
+          padding: 8px 16px 12px; background: #252525;
+          border-radius: 6px; margin-bottom: 6px;
+        }
+        .gu-mob-sub-link {
+          color: #bbb; text-decoration: none; font-size: 13px;
+          padding: 7px 8px; border-radius: 4px;
+          transition: background .15s, color .15s; display: block;
+        }
+        .gu-mob-sub-link:hover { background: rgba(232,135,26,.15); color: #e8871a; }
+        .gu-mob-apply {
+          display: block; background: #e8871a; color: #fff;
+          text-align: center; padding: 13px; border-radius: 6px;
+          font-weight: 700; font-size: 15px; text-decoration: none; margin-top: 18px;
+        }
+
+        /* ─── RESPONSIVE ─────────────────────────────────────── */
+        @media (max-width: 1100px) {
+          .gu-helpline { display: none; }
+        }
+        @media (max-width: 900px) {
+          .gu-secbar { display: none; }
+          .gu-mob-toggle { display: flex !important; }
+          .gu-topbar-right { display: none; }
+        }
+        @media (min-width: 901px) {
+          .gu-mob-toggle { display: none !important; }
+          .gu-mob-drawer { display: none !important; }
         }
       `}</style>
-    </header>
+
+      <header className="gu-root">
+
+        {/* ── TOP ANNOUNCEMENT BAR ── */}
+        <div className="gu-topbar">
+          <div className="gu-topbar-left">
+            <div className="gu-ticker-nav">
+              <button className="gu-ticker-btn" onClick={() => setAnnouncementIndex(p => (p - 1 + announcements.length) % announcements.length)} aria-label="Previous">‹</button>
+              <button className="gu-ticker-btn" onClick={() => setAnnouncementIndex(p => (p + 1) % announcements.length)} aria-label="Next">›</button>
+            </div>
+            <span className="gu-ticker">{announcements[announcementIndex]}</span>
+            <Link href="https://admissions.geetauniversity.edu.in/" target="_blank" rel="noreferrer" className="gu-apply-pill">APPLY NOW</Link>
+          </div>
+          <div className="gu-topbar-right">
+            <Link href="https://wa.me/919812345678" target="_blank" rel="noreferrer" className="gu-topbar-ico">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </Link>
+            <div className="gu-vdivider" />
+            <Link href="tel:01742639100" className="gu-topbar-ico">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.06 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+              Call Us
+            </Link>
+            <div className="gu-vdivider" />
+            <div className="gu-socials">
+              <Link href="https://www.facebook.com/geetauniversity" target="_blank" rel="noreferrer" title="Facebook">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </Link>
+              <Link href="https://twitter.com/geetauniversity" target="_blank" rel="noreferrer" title="X">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </Link>
+              <Link href="https://www.instagram.com/geetauniversity" target="_blank" rel="noreferrer" title="Instagram">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </Link>
+              <Link href="https://www.linkedin.com/school/geetauniversity" target="_blank" rel="noreferrer" title="LinkedIn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </Link>
+              <Link href="https://www.youtube.com/@geetauniversity" target="_blank" rel="noreferrer" title="YouTube">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* ── LOGO / HELPLINE BAR ── */}
+        <div className="gu-mainbar">
+          <Link href="/" className="gu-logo">
+            <div className="gu-logo-img">
+              <Image src="/gu_logo.png" alt="Geeta University Logo" width={52} height={52} style={{ objectFit: "cover", width: "100%", height: "100%" }} priority />
+            </div>
+            <div className="gu-logo-text">
+              <span className="gu-logo-name">GEETA <span className="gu-logo-gold">UNIVERSITY</span></span>
+              <span className="gu-logo-tag">Discover. Learn. Empower.</span>
+            </div>
+          </Link>
+
+          {/* ── CENTRE QUICK-NAV ── */}
+          <nav className="gu-main-quicknav" aria-label="Page sections">
+            {["Overview", "Programs", "Faculty", "Highlights", "Certifications", "Placements", "FAQ"].map((label) => (
+              <button
+                key={label}
+                className="gu-qnav-btn"
+                onClick={() => {
+                  const el = document.getElementById(label);
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </nav>
+
+          <div className="gu-mainbar-right">
+            <Link href="tel:01742639100" className="gu-helpline">
+              <div className="gu-helpline-ico">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.06 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+                </svg>
+              </div>
+              <div className="gu-helpline-info">
+                <span className="gu-helpline-lbl">Admission Helpline</span>
+                <span className="gu-helpline-num">01742639100</span>
+              </div>
+              <div className="gu-helpline-lines" aria-hidden="true"><span /><span /><span /></div>
+            </Link>
+
+            <button className="gu-search-btn" onClick={() => setSearchOpen(true)} aria-label="Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <span>Search</span>
+            </button>
+
+            {/* Mobile hamburger */}
+            <button className="gu-mob-toggle" onClick={() => setIsMobileMenuOpen(v => !v)} aria-label="Toggle menu">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                {isMobileMenuOpen ? <path d="M18 6L6 18M6 6l12 12" /> : <path d="M3 12h18M3 6h18M3 18h18" />}
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* ── SECONDARY NAV BAR ── */}
+        <nav className="gu-secbar" aria-label="Main navigation">
+          {secondaryNavLinks.map((link) => {
+            const isOpen = activeDropdown === link.key;
+            return (
+              <div
+                key={link.key}
+                className="gu-sec-item"
+                onMouseEnter={() => handleMouseEnter(link.key)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button className={`gu-sec-link${isOpen ? " open" : ""}`} aria-haspopup="true" aria-expanded={isOpen}>
+                  {link.label}
+                  <span className="gu-sec-chevron">▼</span>
+                </button>
+
+                {isOpen && (
+                  <>
+                    {/* Blur backdrop */}
+                    <div className="gu-mega-backdrop" onMouseEnter={handleMouseLeave} />
+
+                    {/* Compact mega panel */}
+                    <div className="gu-mega" role="menu">
+                      {/* Columns */}
+                      <div className="gu-mega-body">
+                        {link.cols.map((col) => (
+                          <div key={col.heading} className="gu-mega-col">
+                            <div className="gu-mega-col-heading">{col.heading}</div>
+                            {col.links.map((item) => (
+                              <Link key={item.label} href={item.href} className="gu-mega-link" role="menuitem">
+                                {item.label}
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Banner footer */}
+                      {link.banner && (
+                        <div className="gu-mega-banner">
+                          <span className="gu-mega-banner-title">{link.banner.text}</span>
+                          <div className="gu-mega-banner-items">
+                            {link.banner.items.map((bi) => (
+                              <Link key={bi.label} href={bi.href} className="gu-mega-banner-item">
+                                <span className="gu-mega-banner-icon">{bi.icon}</span>
+                                <span className="gu-mega-banner-lbl">{bi.label}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </nav>
+
+        {/* ── MOBILE DRAWER ── */}
+        {isMobileMenuOpen && (
+          <div className="gu-mob-drawer">
+            {secondaryNavLinks.map((link) => {
+              const isExpanded = mobileExpanded === link.key;
+              return (
+                <div key={link.key} className="gu-mob-row">
+                  <button className="gu-mob-btn" onClick={() => setMobileExpanded(isExpanded ? null : link.key)}>
+                    <span>{link.label}</span>
+                    <span style={{ fontSize: "10px" }}>{isExpanded ? "▲" : "▼"}</span>
+                  </button>
+                  {isExpanded && (
+                    <div className="gu-mob-sub">
+                      {link.cols.flatMap((col) => col.links).map((item) => (
+                        <Link key={item.label} href={item.href} className="gu-mob-sub-link" onClick={() => setIsMobileMenuOpen(false)}>
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            <Link href="https://admissions.geetauniversity.edu.in/" target="_blank" rel="noreferrer" className="gu-mob-apply" onClick={() => setIsMobileMenuOpen(false)}>
+              Apply Now
+            </Link>
+          </div>
+        )}
+      </header>
+
+      {/* ── SEARCH OVERLAY ── */}
+      {searchOpen && (
+        <div className="gu-search-overlay" onClick={() => setSearchOpen(false)}>
+          <div className="gu-search-box" onClick={(e) => e.stopPropagation()}>
+            <button className="gu-search-close" onClick={() => setSearchOpen(false)}>✕</button>
+            <input ref={searchRef} type="text" placeholder="Search programs, schools, events…" />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

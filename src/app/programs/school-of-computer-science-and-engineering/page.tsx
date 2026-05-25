@@ -54,9 +54,6 @@ interface FAQItem {
 }
 
 
-
-const NAV_LINKS = ["Overview", "Programs", "Faculty", "Highlights", "Certifications", "Placements", "FAQ"];
-
 const PROGRAMS: Program[] = [
   { level: "B.Tech", name: "CSE", specializations: ["AI & Machine Learning", "Cyber Security", "Full Stack Web Dev", "Data Science & Analytics", "Quantum Computing", "NIAT Upskilling"], duration: "4 Years", eligibility: "10+2 with Phy + Math, 55%" },
   { level: "B.Tech", name: "Civil Engineering", specializations: ["General Civil", "AI & Digital Transformation"], duration: "4 Years", eligibility: "10+2 with Phy + Chem + Math, 45%" },
@@ -285,18 +282,6 @@ export default function Page() {
   return (
     <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", color: "#1A1A2E", background: "#F7F9FC", minHeight: "100vh" }}>
 
-      {/* ── STICKY NAV ──────────────────────────────────────────────────────── */}
-      <nav style={{ position: "sticky", top: "75px", zIndex: 99, background: "#0A1F44", borderBottom: "3px solid #E8871A" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", gap: 4, overflowX: "auto" }}>
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, whiteSpace: "nowrap", marginRight: 16, padding: "14px 0" }}>SCSE</span>
-          {NAV_LINKS.map((link) => (
-            <button key={link} onClick={() => scrollTo(link)}
-              style={{ background: "none", border: "none", color: activeSection === link ? "#E8871A" : "#CBD5E0", fontSize: 13, fontWeight: activeSection === link ? 600 : 400, padding: "14px 12px", cursor: "pointer", whiteSpace: "nowrap", borderBottom: activeSection === link ? "3px solid #E8871A" : "3px solid transparent", marginBottom: -3, transition: "all 0.2s" }}>
-              {link}
-            </button>
-          ))}
-        </div>
-      </nav>
 
       {/* ── HERO ────────────────────────────────────────────────────────────── */}
       <section id="Overview" className="relative w-full min-h-[92vh] lg:h-[calc(100vh-80px)] flex items-stretch overflow-hidden bg-[#050f24]">
