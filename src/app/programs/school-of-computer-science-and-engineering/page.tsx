@@ -169,9 +169,15 @@ const HERO_SLIDES: HeroSlide[] = [
 function AdmissionFormWrapper() {
   const [mounted, setMounted] = useState(false);
 
+  // Step 1: mount the widget div into the DOM
   useEffect(() => {
     setMounted(true);
-    
+  }, []);
+
+  // Step 2: only inject scripts AFTER the npf_wgts div is actually rendered
+  useEffect(() => {
+    if (!mounted) return;
+
     // Set global NPF tracking variables
     (window as any).npf_d = 'https://admissions.geetauniversity.edu.in';
     (window as any).npf_c = '6438';
@@ -192,7 +198,7 @@ function AdmissionFormWrapper() {
       document.body.removeChild(script);
       document.body.removeChild(trackScript);
     };
-  }, []);
+  }, [mounted]);
 
   if (!mounted) return null;
 
