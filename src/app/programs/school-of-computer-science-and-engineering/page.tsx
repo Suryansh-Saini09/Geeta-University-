@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useLenis } from "lenis/react";
@@ -8,6 +8,8 @@ import {
   ArrowRight,
   Award
 } from "lucide-react";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
+import LearningOutcomes from "@/components/sections/LearningOutcomes";
 
 // ─── COLOR TOKENS (Geeta University Brand) ───────────────────────────────────
 // Navy: #0A1F44   Gold/Orange: #E8871A   Light Gold: #F5A623
@@ -51,6 +53,7 @@ interface Testimonial {
 interface FAQItem {
   q: string;
   a: string;
+  category: string;
 }
 
 
@@ -107,14 +110,362 @@ const TESTIMONIALS: Testimonial[] = [
 ];
 
 const FAQS: FAQItem[] = [
-  { q: "Are placements specific to SCSE or university-wide?", a: "Placement stories in the brochure clearly include SCSE students and alumni. Some statistics are institution-wide and are labelled accordingly. School-specific outcomes are presented separately." },
-  { q: "Is there practical skill development beyond theory?", a: "Yes. Official content strongly indicates practical orientation through projects, internships, hackathons, coding tracks, certification programs, professors of practice, and Geeta Technical Hub support." },
-  { q: "What emerging technologies are covered?", a: "AI, machine learning, cybersecurity, data science, cloud tools, full stack development, and quantum computing are all part of the official specialization and training offerings." },
-  { q: "What industry-linked learning opportunities exist?", a: "Certifications, bootcamps, domain trainers, tool-integrated learning, and partnerships with AWS, Cisco, Oracle, Microsoft Azure, GitHub, Red Hat Academy, and others." },
-  { q: "Is there mentorship beyond regular faculty?", a: "Yes — the school provides academic faculty, professors of practice with industry backgrounds, technical hub trainers, and leadership support through the Associate Dean and HOD." },
-  { q: "Can different backgrounds apply to PG computing programs?", a: "For M.Tech CSE and MCA, eligibility includes different graduation backgrounds. Mathematics-related conditions apply where specified in official criteria." },
+  {
+    q: "Are placements mentioned on the page specific to SCSE or to the university as a whole?",
+    a: "Placement stories in the brochure clearly include SCSE students and alumni, while some placement statistics on official university pages are institution-wide. The webpage should therefore label school-specific success stories separately from university-wide placement data.",
+    category: "Placements & Careers"
+  },
+  {
+    q: "Does SCSE focus only on theory or is there practical skill development too?",
+    a: "Official content strongly indicates practical orientation through projects, internships, hackathons, coding tracks, certification programs, professors of practice, and Geeta Technical Hub support.",
+    category: "Curriculum & Learning"
+  },
+  {
+    q: "Are there opportunities to learn emerging technologies beyond the core syllabus?",
+    a: "Yes, the official material highlights specialisations and training exposure in AI, machine learning, cybersecurity, data science, cloud-related tools, full stack development, and quantum computing.",
+    category: "Specializations & Technology"
+  },
+  {
+    q: "What kinds of industry-linked learning opportunities are visible in the official content?",
+    a: "The brochure points to certifications, bootcamps, domain trainers, tool-integrated learning, coding ecosystems, and partnerships with organizations such as AWS, Cisco, Oracle, Microsoft Azure, GitHub, Red Hat Academy, and others.",
+    category: "Industry & Certifications"
+  },
+  {
+    q: "Is there mentorship beyond regular faculty teaching?",
+    a: "Yes, the official content presents a mix of academic faculty, professors of practice, technical hub trainers, and leadership support through the associate dean and HOD.",
+    category: "Mentorship & Faculty"
+  },
+  {
+    q: "Can students from different academic backgrounds apply to postgraduate computing programs?",
+    a: "For M.Tech CSE and MCA, the brochure specifies eligibility routes that include different graduation backgrounds, with mathematics-related conditions where applicable.",
+    category: "Admissions & Eligibility"
+  },
+  {
+    q: "How should the “international partners” section be interpreted on the webpage?",
+    a: "The safest interpretation, based on the brochure, is that these are learning, certification, and training ecosystem partners or platforms featured in student skill development. The page should avoid presenting them as exchange or dual-degree partners unless separately verified by official university documentation.",
+    category: "General"
+  },
+  {
+    q: "What makes SCSE distinct in a competitive private university landscape?",
+    a: "Official content consistently emphasizes future-ready domains, applied learning, mentorship, certifications, coding culture, and placement support, which together create its positioning. Any competitive comparison language on the webpage should stay generic unless backed by official comparative data.",
+    category: "General"
+  },
+  {
+    q: "Which categories are considered under the “reserved category” mentioned in the eligibility criteria?",
+    a: "Only SC and ST categories are considered under the “reserved category” mentioned in the eligibility criteria.",
+    category: "Admissions & Eligibility"
+  },
+  {
+    q: "Is the 40% eligibility criteria applicable to all Computer Science programs or only selected courses?",
+    a: "40% eligibility criteria are applicable only in the case of B.Tech Civil Engineering.",
+    category: "Admissions & Eligibility"
+  },
+  {
+    q: "Can students from non-medical, medical, or commerce backgrounds apply for Computer Science programs?",
+    a: "Yes, but the answer depends on the program. For B.Tech. CSE, the official page requires Physics and Mathematics, plus one additional subject from a listed group that includes Chemistry, Computer Science, Electronics, IT, Biology, Biotechnology, Agriculture, Engineering Graphics, Business Studies, and Entrepreneurship. That means the route is not limited only to one school stream, but it does require the specific subject combination.\n\nFor BCA, the brochure states eligibility as 10+2 with at least 50% marks, or a diploma in Commercial Practice or equivalent with at least 50% marks, which makes it much more open to non-engineering backgrounds. For postgraduate programs, the eligibility widens further, subject to graduation and mathematics conditions where applicable.",
+    category: "Admissions & Eligibility"
+  },
+  {
+    q: "Is Mathematics compulsory for admission to all Computer Science programs?",
+    a: "No, mathematics is not treated the same way for every program. For B.Tech. CSE, Mathematics is compulsory because the eligibility specifically requires Physics and Mathematics at 10+2 level.\n\nFor MCA and M.Tech. CSE, Mathematics is also important, but non-maths students may still be considered in some cases if they complete a compulsory mathematics course as per university norms. For BCA, Math is not compulsory in the same way.",
+    category: "Admissions & Eligibility"
+  },
+  {
+    q: "What is the difference between B.Tech CSE and BCA programs offered on this page?",
+    a: "B.Tech CSE is an engineering degree built around deeper computer science foundations, core technical study, and specializations such as AI & ML, Cyber Security, Data Science & Business Analytics, Full Stack Web Development, and Quantum Computing. It is a 4-year program with Physics and Mathematics-based eligibility.\n\nBCA is a computer applications degree with a more application-oriented structure, and the brochure lists special options such as AI & ML, Cyber Security, and Data Science & Business Analytics under BCA as well. It is generally more accessible for students from varied academic backgrounds and is not presented with the same engineering-entry requirement as B.Tech.",
+    category: "Admissions & Eligibility"
+  },
+  {
+    q: "How should a student choose between AI & ML, Data Science, Cyber Security, and Full Stack Development specializations?",
+    a: "The best choice depends on the kind of problems the student wants to solve. AI & ML suits students who enjoy logic, automation, prediction, and intelligent systems; Data Science suits students who like patterns, analysis, and business insight; Cyber Security suits students interested in protection, digital risk, and systems safety; and Full Stack Development suits students who want to build complete web applications end to end.\n\nA simple way to choose is this: if the student wants to create intelligent systems, choose AI & ML; if the student enjoys working with data, choose Data Science; if the student is interested in digital defense, choose Cyber Security; and if the student wants to build websites and software products, choose Full Stack Development.",
+    category: "Specializations & Technology"
+  },
+  {
+    q: "Will the specialization degree name remain “B.Tech CSE” or will the specialization appear separately on the final degree?",
+    a: "The specialization degree name will remain “B.Tech CSE”.",
+    category: "Curriculum & Learning"
+  },
+  {
+    q: "Can students change their specialization after taking admission?",
+    a: "Specialization change, if permitted, would depend on seat availability, academic performance, and university rules at the time of request.",
+    category: "Curriculum & Learning"
+  },
+  {
+    q: "Are the industry certifications mentioned on the page included in the course fee or charged separately?",
+    a: "Certification inclusion can vary by course, track, platform, or training model, and students should confirm the exact fee coverage during counseling.",
+    category: "Admissions & Eligibility"
+  },
+  {
+    q: "Are internships mandatory or optional in Computer Science programs?",
+    a: "500+ internships have been secured, while internships are clearly encouraged and actively supported by the school, and students are exposed to them through the ecosystem, but the mandatory or optional nature depends on the exact program structure.",
+    category: "Placements & Careers"
+  },
+  {
+    q: "Does the university help students get internships, or do students need to find them independently?",
+    a: "The university does help students through internships, mentorship, training, and placement support. So students should understand that internship support is part of the school’s ecosystem, not something they are expected to handle entirely alone. At the same time, individual initiative still matters because final internship selection usually depends on student performance and fit.",
+    category: "Placements & Careers"
+  },
+  {
+    q: "Are placements available for all Computer Science specializations equally?",
+    a: "Geeta University provides placement assistance through training, internships, and recruitment drives, with 100+ companies visiting in 2024–25. Placement support is available across SCSE, but final placement outcomes depend on the student’s skills, performance, recruiter demand, and chosen career path.",
+    category: "Placements & Careers"
+  },
+  {
+    q: "What kind of roles do students usually get after completing different CSE specializations?",
+    a: "There is a broad career map rather than a fixed job guarantee. Potential roles could be programmer, web developer, and e-commerce specialist roles, alongwith career opportunities in design, development, assembly, manufacture, and maintenance across sectors like telecom, automotive, and aerospace. Using the specializations, the likely mapping is straightforward: AI & ML for intelligent systems and automation roles, Data Science for data analysis and analytics roles, Cyber Security for security-focused roles, and Full Stack Development for software and web development roles.",
+    category: "Placements & Careers"
+  },
+  {
+    q: "Are coding skills required before joining the program?",
+    a: "No advanced coding background is required before joining, but willingness to learn is important. The school emphasize skill-building, hands-on learning, DSA, coding practice, projects, and competitive coding, which indicates that beginners are expected to grow into the subject during the program. So students should not hesitate if they are beginners. The more important requirement is interest, consistency, and readiness to learn technical concepts step by step.",
+    category: "Curriculum & Learning"
+  },
+  {
+    q: "Does the curriculum focus more on theory or practical learning?",
+    a: "There is a clear balance, but with strong practical emphasis. The curriculum is aligned with industry relevance, projects, hackathons, internships, certification tracks, drive-ready tracks, and training through technical hub support. It is a blend of conceptual learning and applied, employability-focused training.",
+    category: "Curriculum & Learning"
+  },
+  {
+    q: "Are laptops compulsory for Computer Science students?",
+    a: "A laptop is highly useful and often expected for coding, project work, and certification-based learning, but the exact requirement should be confirmed with the department or admissions office.",
+    category: "Student Facilities"
+  },
+  {
+    q: "Is hostel facility available for Computer Science students from other states?",
+    a: "Yes, hostel accommodation is part of the university’s student facilities, and out-of-state students can inquire about room types, charges, and availability during admission counseling.",
+    category: "Student Facilities"
+  },
+  {
+    q: "How are students prepared for placements and technical interviews during the course?",
+    a: "A multi-layered preparation model: industry collaborations, placement support, internships, technical hub training, certification tracks, DSA and competitive coding, and role-oriented learning pathways is emphasized. We also make students job-ready through practical skill development. That means placement preparation is not left to the final semester alone. It is built into the learning ecosystem through training, coding culture, certifications, and project exposure.",
+    category: "Placements & Careers"
+  },
+  {
+    q: "Are scholarships applicable to all CSE specializations?",
+    a: "Scholarships can be availed across programs of the university, subject to eligibility, merit, entrance tests, and related criteria. Scholarships are generally applicable to eligible programs, including B.Tech-related study pathways, but the exact amount and criteria depend on the student’s admission route and score profile.",
+    category: "Admissions & Eligibility"
+  },
+  {
+    q: "If a student is weak in coding initially, will additional support be provided?",
+    a: "Yes, a student does not need to hesitate if he or she is initially weak in coding, the student will be given a supportive and conducive environment to learn and grow.",
+    category: "Curriculum & Learning"
+  },
+  {
+    q: "Which specialization has better future scope: AI & ML, Cyber Security, or Data Science?",
+    a: "The Future scope depends on student interest, skill fit, and market demand at the time of graduation. In general, AI & ML suits automation and intelligent systems, Cyber Security suits protection and digital defense, and Data Science suits analytics and decision support.",
+    category: "Specializations & Technology"
+  },
+  {
+    q: "Are live projects and hackathons compulsory parts of the curriculum?",
+    a: "Live projects and hackathons are strongly encouraged and visibly embedded in the school culture, but compulsory status should be checked program-wise.",
+    category: "Curriculum & Learning"
+  },
+  {
+    q: "Will students get opportunities to work on real industry projects?",
+    a: "Yes, through projects, internships, certification-aligned learning, expert lectures, technical training, and strong industry collaboration. The school reinforces applied, industry-aligned education. In each case, “opportunities are provided”.",
+    category: "Curriculum & Learning"
+  }
 ];
 
+// ─── TOP RECRUITERS MARQUEE ───────────────────────────────────────────────────
+
+// Real brand logos from public CDN (Wikimedia / Simple Icons)
+const BRAND_DATA: Record<string, { src: string; width: number; height: number; label: string }> = {
+  "Amazon AWS": {
+    src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+    width: 80, height: 48, label: "Amazon AWS",
+  },
+  "RedHat": {
+    src: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg",
+    width: 100, height: 36, label: "Red Hat",
+  },
+  "Cisco": {
+    src: "https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg",
+    width: 90, height: 46, label: "Cisco",
+  },
+  "Oracle": {
+    src: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",
+    width: 100, height: 34, label: "Oracle",
+  },
+  "Microsoft Azure": {
+    src: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg",
+    width: 46, height: 46, label: "Microsoft Azure",
+  },
+  "GitHub": {
+    src: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
+    width: 46, height: 46, label: "GitHub",
+  },
+  "HubSpot": {
+    src: "https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg",
+    width: 100, height: 36, label: "HubSpot",
+  },
+  "EC-Council": {
+    src: "https://upload.wikimedia.org/wikipedia/commons/e/e5/EC-Council_logo.png",
+    width: 90, height: 46, label: "EC-Council",
+  },
+};
+
+const BRAND_KEYS = ["Amazon AWS", "RedHat", "Cisco", "Oracle", "Microsoft Azure", "GitHub", "HubSpot", "EC-Council"] as const;
+
+function RecruiterCard({ name }: { name: string }) {
+  const brand = BRAND_DATA[name];
+  return (
+    <div
+      style={{
+        display: "inline-flex",
+        flexShrink: 0,
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 10,
+        width: 220,
+        height: 110,
+        margin: "0 12px",
+        padding: "0 28px",
+        borderRadius: 16,
+        background: "#FFFFFF",
+        boxShadow: "0 4px 20px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06)",
+        border: "1px solid rgba(0,0,0,0.04)",
+        position: "relative",
+        overflow: "hidden",
+        cursor: "default",
+        transition: "transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease",
+      }}
+      onMouseEnter={e => {
+        (e.currentTarget as HTMLDivElement).style.transform = "translateY(-6px) scale(1.03)";
+        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 16px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08)";
+      }}
+      onMouseLeave={e => {
+        (e.currentTarget as HTMLDivElement).style.transform = "none";
+        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06)";
+      }}
+    >
+      {brand ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={brand.src}
+          alt={brand.label}
+          width={brand.width}
+          height={brand.height}
+          style={{ objectFit: "contain", maxWidth: "100%", maxHeight: 56 }}
+          onError={e => {
+            // Fallback to text if image fails
+            const t = e.currentTarget.parentElement;
+            if (t) {
+              e.currentTarget.style.display = "none";
+              const span = document.createElement("span");
+              span.textContent = name;
+              span.style.cssText = "font-size:14px;font-weight:700;color:#1A1A2E;text-align:center;";
+              t.appendChild(span);
+            }
+          }}
+        />
+      ) : (
+        <span style={{ fontSize: 14, fontWeight: 700, color: "#1A1A2E", textAlign: "center" }}>{name}</span>
+      )}
+    </div>
+  );
+}
+
+function TopRecruiters() {
+  return (
+    <section
+      id="TopRecruiters"
+      style={{
+        background: "linear-gradient(135deg, #C94210 0%, #D94E1A 35%, #E8771A 70%, #D4500F 100%)",
+        padding: "80px 0 76px",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      <style>{`
+        @keyframes marqueeLoop {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marqueeLoopRev {
+          0%   { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        .rec-marquee:hover { animation-play-state: paused !important; }
+        @keyframes recFadeUp {
+          from { opacity: 0; transform: translateY(22px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+
+      {/* Subtle noise overlay */}
+      <div style={{
+        position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`,
+        backgroundSize: "200px 200px", opacity: 0.5, mixBlendMode: "overlay",
+      }} />
+      {/* Light radial highlight top-left */}
+      <div style={{ position: "absolute", top: -120, left: "5%", width: 480, height: 480, borderRadius: "50%",
+        background: "radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 65%)", pointerEvents: "none", zIndex: 0 }} />
+
+      {/* Header */}
+      <div style={{ textAlign: "center", marginBottom: 52, padding: "0 24px",
+        position: "relative", zIndex: 1, animation: "recFadeUp 0.6s ease both" }}>
+        <p style={{ margin: "0 0 10px", fontSize: 11, letterSpacing: "0.24em",
+          color: "rgba(255,255,255,0.65)", textTransform: "uppercase", fontWeight: 600 }}>
+          Placement Partners
+        </p>
+        <h2 style={{ margin: "0 0 10px", fontSize: 36, fontWeight: 800, color: "#FFFFFF",
+          lineHeight: 1.1, letterSpacing: "-0.5px", textShadow: "0 2px 12px rgba(0,0,0,0.2)" }}>
+          Our Top Recruiters
+        </h2>
+        <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.72)", lineHeight: 1.7 }}>
+          Global technology leaders hiring Geeta University graduates
+        </p>
+      </div>
+
+      {/* Row 1 — scrolls left */}
+      <div style={{ position: "relative", overflow: "hidden", paddingBottom: 8, zIndex: 1 }}>
+        <div style={{ position: "absolute", inset: 0, width: 180, zIndex: 2, pointerEvents: "none",
+          background: "linear-gradient(90deg, #D94E1A 0%, transparent 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, left: "auto", right: 0, width: 180, zIndex: 2, pointerEvents: "none",
+          background: "linear-gradient(-90deg, #D94E1A 0%, transparent 100%)" }} />
+        <div className="rec-marquee" style={{ display: "flex", width: "max-content",
+          padding: "10px 0", animation: "marqueeLoop 30s linear infinite" }}>
+          {[...BRAND_KEYS, ...BRAND_KEYS].map((name, i) => (
+            <RecruiterCard key={`r1-${name}-${i}`} name={name} />
+          ))}
+        </div>
+      </div>
+
+      {/* Row 2 — scrolls right */}
+      <div style={{ position: "relative", overflow: "hidden", marginTop: 16, zIndex: 1 }}>
+        <div style={{ position: "absolute", inset: 0, width: 180, zIndex: 2, pointerEvents: "none",
+          background: "linear-gradient(90deg, #D94E1A 0%, transparent 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, left: "auto", right: 0, width: 180, zIndex: 2, pointerEvents: "none",
+          background: "linear-gradient(-90deg, #D94E1A 0%, transparent 100%)" }} />
+        <div className="rec-marquee" style={{ display: "flex", width: "max-content",
+          padding: "10px 0", animation: "marqueeLoopRev 36s linear infinite" }}>
+          {[...BRAND_KEYS, ...BRAND_KEYS].map((name, i) => (
+            <RecruiterCard key={`r2-${name}-${i}`} name={name} />
+          ))}
+        </div>
+      </div>
+
+      {/* Badge */}
+      <div style={{ textAlign: "center", marginTop: 48, position: "relative", zIndex: 1,
+        animation: "recFadeUp 0.8s 0.1s ease both" }}>
+        <span style={{
+          display: "inline-flex", alignItems: "center", gap: 10,
+          background: "rgba(255,255,255,0.18)",
+          border: "1px solid rgba(255,255,255,0.35)",
+          backdropFilter: "blur(8px)",
+          borderRadius: 32, padding: "10px 28px",
+          color: "#FFFFFF", fontWeight: 700, fontSize: 13, letterSpacing: 0.4,
+          textShadow: "0 1px 4px rgba(0,0,0,0.15)",
+        }}>
+          🏆 &nbsp;8 Global Tech Partners &nbsp;·&nbsp; ₹1.4 Cr Highest Package
+        </span>
+      </div>
+    </section>
+  );
+}
 
 
 interface HeroSlide {
@@ -142,7 +493,7 @@ const HERO_SLIDES: HeroSlide[] = [
     titleThin: "Shape the Future of",
     titleBoldLine1: "Computing",
     titleBoldLine2: "at Geeta University",
-    subtitle: "Discover. Learn. Empower.",
+    subtitle: "POWERING EDUCATION, EMPOWERING MINDS",
     description: "Geeta University's School of Computer Science & Engineering integrates intensive coding bootcamps, hands-on hackathons and placement mentoring.",
     bgImage: "/campus_bg_1.png",
     cta: "Apply Today",
@@ -253,10 +604,2014 @@ function getCompanyLogo(company: string) {
   );
 }
 
+const BrandLogo = ({ title, subtitleLine1, subtitleLine2, subtitleLine3 }: { title: string, subtitleLine1: string, subtitleLine2?: string, subtitleLine3?: string }) => (
+  <div style={{ display: "inline-flex", alignItems: "center", gap: 12 }}>
+    <div style={{ background: "#F1B434", color: "white", padding: "10px 14px", fontWeight: 900, fontSize: 36, letterSpacing: -1, lineHeight: 1 }}>
+      {title}
+    </div>
+    <div style={{ color: "#000", fontWeight: 800, fontSize: 13, lineHeight: 1.2, letterSpacing: 0.5, display: "flex", flexDirection: "column" }}>
+      <span>{subtitleLine1}</span>
+      {subtitleLine2 && <span>{subtitleLine2}</span>}
+      {subtitleLine3 && <span style={{ fontFamily: "cursive", fontSize: 18, fontWeight: 400, marginTop: 2, color: "#333", letterSpacing: 0 }}>{subtitleLine3}</span>}
+    </div>
+  </div>
+);
+
+const RANKINGS_DATA = [
+  {
+    logo: <BrandLogo title="CSR" subtitleLine1="COMPETITION" subtitleLine2="SUCCESS REVIEW" subtitleLine3="by ranking" />,
+    rankLabel: "Ranked",
+    rankValue: "#6",
+    desc: "Among top universities in India by Competition Success Review",
+    highlight: "(Top University)"
+  },
+  {
+    logo: <BrandLogo title="UGC" subtitleLine1="UNIVERSITY" subtitleLine2="GRANTS COMMISSION" subtitleLine3="approved" />,
+    rankLabel: "Status",
+    rankValue: "Recognized",
+    desc: "Recognised by the University Grants Commission as a trusted institution of higher education",
+    highlight: "(Government Recognized)"
+  },
+  {
+    logo: <BrandLogo title="OBE" subtitleLine1="OUTCOME BASED" subtitleLine2="EDUCATION" subtitleLine3="excellence 2022" />,
+    rankLabel: "Awarded",
+    rankValue: "Excellence",
+    desc: "Awarded the Certificate of Excellence in Outcome-Based Education (OBE) Rankings 2022",
+    highlight: "(Education Excellence)"
+  },
+  {
+    logo: <BrandLogo title="C360" subtitleLine1="CAREER 360" subtitleLine2="ACADEMIC RATING" subtitleLine3="premium" />,
+    rankLabel: "Rating",
+    rankValue: "AAA",
+    desc: "Received a prestigious rating from Career360 for academic excellence",
+    highlight: "(Overall Excellence)"
+  },
+  {
+    logo: <BrandLogo title="IEEA" subtitleLine1="INDIAN EDUCATION" subtitleLine2="EXCELLENCE AWARDS" subtitleLine3="2022" />,
+    rankLabel: "Awarded",
+    rankValue: "Best",
+    desc: "Emerging Private University with best infrastructure and faculty in Panipat",
+    highlight: "(Infrastructure & Faculty)"
+  },
+  {
+    logo: <BrandLogo title="AICTE" subtitleLine1="ALL INDIA COUNCIL" subtitleLine2="FOR TECHNICAL ED." subtitleLine3="approved" />,
+    rankLabel: "Status",
+    rankValue: "Approved",
+    desc: "Technical programs are approved by the All India Council for Technical Education",
+    highlight: "(Technical Education)"
+  },
+  {
+    logo: <BrandLogo title="NIRF" subtitleLine1="NATIONAL INSTITUTIONAL" subtitleLine2="RANKING FRAMEWORK" subtitleLine3="active" />,
+    rankLabel: "Status",
+    rankValue: "Participant",
+    desc: "Active participant in the National Institutional Ranking Framework",
+    highlight: "(National Framework)"
+  }
+];
+
+function RankingsAndAccreditations() {
+  return (
+    <section
+      id="Rankings"
+      style={{
+        background: "#FDF1D6",
+        padding: "80px 0 100px",
+        position: "relative",
+      }}
+    >
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
+        
+        <div style={{ textAlign: "center", marginBottom: 70 }}>
+          <h2 style={{ fontSize: 46, color: "#000", lineHeight: 1.2, letterSpacing: "-1px" }}>
+            <span style={{ fontWeight: 300 }}>Proudly Distinguished</span> <span style={{ fontWeight: 800 }}>by Our</span><br/>
+            <span style={{ fontWeight: 800 }}>Prestigious Rankings</span>
+          </h2>
+        </div>
+
+        <div>
+          {RANKINGS_DATA.map((item, idx) => (
+            <div key={idx} style={{ 
+              display: "flex", 
+              alignItems: "center", 
+              borderBottom: idx === RANKINGS_DATA.length - 1 ? "none" : "1px solid rgba(0,0,0,0.8)", 
+              padding: "40px 0",
+              gap: 40
+            }}
+            className="ranking-row"
+            >
+              <div style={{ flex: "0 0 260px" }}>
+                {item.logo}
+              </div>
+
+              <div style={{ flex: "0 0 180px" }}>
+                <div style={{ fontWeight: 800, fontSize: 14, color: "#000" }}>{item.rankLabel}</div>
+                <div style={{ fontWeight: 900, fontSize: 48, color: "#000", lineHeight: 1, marginTop: 4, letterSpacing: -1.5 }}>
+                  {item.rankValue}
+                </div>
+              </div>
+
+              <div style={{ flex: "1", paddingRight: 32 }}>
+                <div style={{ fontSize: 15, color: "#111", lineHeight: 1.5, fontWeight: 500 }}>
+                  {item.desc}
+                </div>
+                <div style={{ fontSize: 14, color: "#E31E24", fontWeight: 800, marginTop: 6 }}>
+                  {item.highlight}
+                </div>
+              </div>
+
+              <div style={{ opacity: 0.6 }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .ranking-row {
+            flex-direction: column;
+            align-items: flex-start !important;
+            gap: 24px !important;
+            padding: 32px 0 !important;
+          }
+          .ranking-row > div {
+            flex: auto !important;
+            padding-right: 0 !important;
+          }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+const ABOUT_ROWS = [
+  {
+    num: "01",
+    title: "Strong Academic Foundations",
+    desc: "The School of Computer Science & Engineering is positioned as a future-focused academic school where students learn to work with contemporary technologies. We are designed to combine conceptual depth with future-ready computing education, ensuring you build a robust theoretical base.",
+    images: ["/dummy.png", "/dummy.png"]
+  },
+  {
+    num: "02",
+    title: "Real-World Project Experience",
+    desc: "We focus heavily on hands-on learning, coding practice, and applied exposure. Through intensive projects and industry-relevant tools, students are equipped with practical, in-demand skills to solve contemporary tech challenges.",
+    images: ["/dummy.png", "/dummy.png"]
+  },
+  {
+    num: "03",
+    title: "Global Certifications & Relevance",
+    desc: "Our curriculum emphasizes strong industry collaborations, allowing students to earn globally recognized certifications in fields like AI, cybersecurity, and cloud computing—bridging the gap between academia and industry.",
+    images: ["/dummy.png", "/dummy.png"]
+  },
+  {
+    num: "04",
+    title: "Expert Faculty & Infrastructure",
+    desc: "Learn directly from an exceptional roster of expert faculty and industry mentors within our world-class infrastructure. Our dynamic ecosystem is designed to nurture innovation and equip you for the digital economy.",
+    images: ["/dummy.png", "/dummy.png"]
+  },
+  {
+    num: "05",
+    title: "Strong Placement Support",
+    desc: "Through a blend of classroom knowledge and career preparation, we aim to help learners become job-ready professionals. Our dedicated placement support ensures graduates are ready to contribute from day one.",
+    images: ["/dummy.png", "/dummy.png"]
+  }
+];
+
+function AboutSchoolSection() {
+  const [expandedRow, setExpandedRow] = useState<string>("01");
+
+  return (
+    <section id="About" style={{ padding: "100px 0", background: "#FFFFFF", color: "#000" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+        
+        <div style={{ marginBottom: 80 }}>
+          <h2 style={{ fontSize: 52, color: "#000", lineHeight: 1.1, letterSpacing: "-1.5px" }}>
+            <span style={{ fontWeight: 300 }}>Why Should You Choose</span><br/>
+            <span style={{ fontWeight: 800 }}>Geeta University's SCSE?</span>
+          </h2>
+        </div>
+
+        <div 
+          style={{ display: "flex", flexDirection: "column", gap: 0, borderTop: "1px solid #111" }}
+        >
+          {ABOUT_ROWS.map((row) => {
+            const isExpanded = expandedRow === row.num;
+            return (
+              <motion.div 
+                key={row.num}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: (expandedRow !== "" && !isExpanded) ? 0.25 : 1, y: 0 }}
+                viewport={{ once: false, margin: "-10%" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="about-row group"
+                style={{ 
+                  borderBottom: "1px solid #111",
+                  borderLeft: isExpanded ? "4px solid #E8871A" : "4px solid transparent",
+                  overflow: "hidden",
+                  transition: "border-left 0.3s ease"
+                }}
+              >
+                {/* Collapsed/Header State */}
+                <div 
+                  onClick={() => setExpandedRow(isExpanded ? "" : row.num)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    padding: isExpanded ? "40px 0 24px 20px" : "40px 0 40px 20px",
+                    cursor: "pointer",
+                    gap: 48
+                  }}
+                >
+                  <div
+                    className="about-row-num"
+                    style={{ fontWeight: 800, fontSize: 64, color: isExpanded ? "#E8871A" : "#F3F4F6", lineHeight: 0.8, letterSpacing: "-2px", transition: "color 0.3s", width: 85, flexShrink: 0 }}
+                  >
+                    {row.num}
+                  </div>
+                  
+                  <h3
+                    className="about-row-title"
+                    style={{ flex: 1, fontSize: 24, fontWeight: 800, color: isExpanded ? "#E8871A" : "#000", margin: 0, lineHeight: 1.2, letterSpacing: "-0.5px", transition: "color 0.3s" }}
+                  >
+                    {row.title}
+                  </h3>
+
+                  <div style={{ opacity: 0.8 }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={isExpanded ? "#E8871A" : "#000"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" 
+                         style={{ transform: isExpanded ? "rotate(90deg)" : "none", transition: "all 0.3s ease" }}>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Expanded Content State */}
+                <div style={{ 
+                  display: "flex", 
+                  alignItems: "flex-start", 
+                  gap: 48,
+                  maxHeight: isExpanded ? "1000px" : "0",
+                  opacity: isExpanded ? 1 : 0,
+                  overflow: "hidden",
+                  transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+                  padding: isExpanded ? "0 0 60px 20px" : "0 0 0 20px"
+                }}>
+                  {/* Spacer aligned with number */}
+                  <div style={{ width: 85, flexShrink: 0 }} className="about-num-spacer"></div>
+
+                  <div style={{ flex: "1", maxWidth: 450 }}>
+                    <p style={{ fontSize: 15, color: "#555", lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
+                      {row.desc}
+                    </p>
+                  </div>
+
+                  <div style={{ flex: "1", display: "flex", gap: 16 }} className="about-images">
+                    {row.images.map((img, i) => (
+                      <div key={i} style={{ 
+                        flex: 1, 
+                        height: 220, 
+                        borderRadius: 12, 
+                        overflow: "hidden",
+                        background: "#F3F4F6",
+                        position: "relative"
+                      }}>
+                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)" }} />
+                        <img src={img} alt="Campus life" style={{ width: "100%", height: "100%", objectFit: "cover", position: "relative", zIndex: 1, mixBlendMode: "multiply", opacity: 0.7 }} />
+                        <div style={{ position: "absolute", inset: 0, background: i === 0 ? "rgba(232,135,26,0.15)" : "rgba(10,31,68,0.15)", zIndex: 2 }} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+      <style>{`
+        .about-row {
+          transition: background-color 0.3s ease, border-left-color 0.3s ease !important;
+        }
+        .about-row:hover {
+          background-color: rgba(232, 135, 26, 0.04) !important;
+        }
+        .about-row:hover .about-row-num {
+          color: #E8871A !important;
+        }
+        .about-row:hover .about-row-title {
+          color: #E8871A !important;
+        }
+        .about-row:hover svg {
+          stroke: #E8871A !important;
+        }
+        @media (max-width: 900px) {
+          .about-num-spacer {
+            display: none !important;
+          }
+          .about-row > div:nth-child(2) {
+            flex-direction: column !important;
+            gap: 24px !important;
+          }
+          .about-images {
+            width: 100%;
+          }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+const SPECIALISATIONS = [
+  { name: "Artificial Intelligence", desc: "Build intelligent systems and advanced neural networks.", icon: "🤖" },
+  { name: "Machine Learning", desc: "Develop algorithms that learn and predict from data.", icon: "🧠" },
+  { name: "Data Science", desc: "Extract insights from complex datasets to drive decisions.", icon: "📊" },
+  { name: "Cyber Security", desc: "Protect digital infrastructure and defend against cyber threats.", icon: "🔐" },
+  { name: "Cloud Computing", desc: "Design and manage scalable cloud architectures and services.", icon: "☁️" },
+  { name: "Full Stack Development", desc: "Master both front-end interfaces and back-end logic.", icon: "💻" },
+  { name: "Quantum Computing", desc: "Explore the next frontier of computational power.", icon: "⚛️" },
+  { name: "Software Engineering", desc: "Engineer robust, scalable, and efficient software solutions.", icon: "⚙️" }
+];
+
+function SpecialisationsSection() {
+  return (
+    <section style={{ padding: "100px 0", background: "#F8FAFC", position: "relative" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+        <div style={{ textAlign: "center", marginBottom: 60 }}>
+          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Specialisations</span>
+          <h2 style={{ fontSize: 48, fontWeight: 800, color: "#0A1F44", margin: "12px 0 0", lineHeight: 1.1, letterSpacing: "-1px" }}>
+            In-Demand Tech Domains
+          </h2>
+        </div>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: 24
+        }}>
+          {SPECIALISATIONS.map((spec, i) => (
+            <div key={i} className="spec-card group">
+              <div style={{ fontSize: 36, background: "rgba(232,135,26,0.1)", width: 64, height: 64, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, marginBottom: 16 }}>
+                {spec.icon}
+              </div>
+              <h3 style={{ fontSize: 20, fontWeight: 800, color: "#0A1F44", margin: 0, transition: "color 0.3s" }} className="spec-title">
+                {spec.name}
+              </h3>
+              
+              <div className="spec-desc-container" style={{ display: "grid" }}>
+                <div style={{ overflow: "hidden", minHeight: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
+                  <p style={{ margin: "12px 0 0", color: "#64748B", lineHeight: 1.6, fontSize: 14 }}>
+                    {spec.desc}
+                  </p>
+                  <div style={{ marginTop: 16, color: "#E8871A", fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", gap: 6, textTransform: "uppercase", letterSpacing: 1 }}>
+                    Explore <span style={{ fontSize: 16 }}>→</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <style>{`
+        .spec-card {
+          background: #FFFFFF;
+          border-radius: 16px;
+          padding: 32px 28px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+          border-bottom: 4px solid transparent;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+        }
+        .spec-desc-container {
+          grid-template-rows: 0fr;
+          transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .spec-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+          border-bottom: 4px solid #E8871A;
+        }
+        .spec-card:hover .spec-desc-container {
+          grid-template-rows: 1fr;
+        }
+        .spec-card:hover .spec-title {
+          color: #E8871A !important;
+        }
+      `}</style>
+    </section>
+  );
+}
+
+const MENTORS = [
+  { name: "Dr. Kapil Saini", role: "Head of Department, Ph.D.", img: "/dummy.png" },
+  { name: "Mr. Hemant Singh", role: "Assistant Professor, M.Tech.", img: "/dummy.png" },
+  { name: "Ms. Rakhi Chauhan", role: "Assistant Professor, M.Tech., Ph.D. (Pursuing)", img: "/dummy.png" },
+  { name: "Dr. Poonam", role: "Associate Professor, Ph.D.", img: "/dummy.png" },
+  { name: "Dr. Amit Jain", role: "Associate Dean, School of Computer Science & Engineering", img: "/dummy.png" },
+  { name: "Ms. Richa Jain", role: "Assistant Professor", img: "/dummy.png" },
+  { name: "Mr. Pankaj Bajaj", role: "Chief Operating Officer, Geeta Technical Hub (GTH)", img: "/dummy.png" },
+  { name: "Mr. Vishal Jain", role: "Professor of Practice", img: "/dummy.png" },
+  { name: "Mr. Sunny Pathak", role: "Professor of Practice", img: "/dummy.png" },
+  { name: "Mr. Kartik Mathur", role: "Professor of Practice", img: "/dummy.png" },
+  { name: "Mr. Varun Kohli", role: "Professor of Practice", img: "/dummy.png" },
+  { name: "Ms. Jyoti", role: "Professor of Practice", img: "/dummy.png" },
+  { name: "Mohammad Aslam", role: "Technical Hub Trainer", img: "/dummy.png" },
+  { name: "Ronak Duggar", role: "Technical Hub Trainer", img: "/dummy.png" },
+  { name: "Sanyam Ahuja", role: "Technical Hub Trainer", img: "/dummy.png" },
+  { name: "Ram Mohan Dixit", role: "Technical Hub Trainer", img: "/dummy.png" },
+  { name: "Gautam Mukherjee", role: "Technical Hub Trainer", img: "/dummy.png" },
+  { name: "Maninder Singh", role: "Technical Hub Trainer", img: "/dummy.png" }
+];
+
+function MentorsSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
+  };
+
+  return (
+    <section id="Mentors" style={{ padding: "80px 0", background: "#FFFFFF", overflow: "hidden" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+        <h2 style={{ fontSize: 44, fontWeight: 800, color: "#003B5C", lineHeight: 1.2, letterSpacing: "-1px" }}>
+          Meet Our Mentors
+        </h2>
+        <p style={{ fontSize: 20, color: "#64748B", marginTop: 8, fontWeight: 500 }}>
+          Guiding Futures with Expertise, Experience & Empathy
+        </p>
+        
+        <div style={{ position: "relative", marginTop: 48 }}>
+          <div 
+            ref={scrollRef}
+            className="hide-scroll"
+            style={{ 
+              display: "flex", 
+              gap: 24, 
+              overflowX: "auto", 
+              paddingBottom: 32,
+              scrollSnapType: "x mandatory",
+              scrollBehavior: "smooth"
+            }}
+          >
+            {MENTORS.map((m, i) => (
+              <div 
+                key={i} 
+                style={{ 
+                  scrollSnapAlign: "start",
+                  flexShrink: 0,
+                }}
+              >
+                <CardContainer containerClassName="py-0" className="w-[280px]">
+                  <CardBody className="bg-[#F3F4F6] relative group/card w-full rounded-2xl flex flex-col overflow-hidden border border-black/5 hover:shadow-2xl hover:shadow-[#E8871A]/20 pb-6 transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.03)] h-auto">
+                    <CardItem translateZ="150" className="w-full h-[300px] bg-[#E5E7EB] relative">
+                      <img src={m.img} alt={m.name} className="w-full h-full object-cover mix-blend-multiply opacity-80" />
+                    </CardItem>
+                    
+                    <div className="px-5 pt-6 text-center flex flex-col flex-1 relative z-10 w-full items-center">
+                      <CardItem translateZ="80">
+                        <h3 className="text-[20px] font-extrabold text-[#0A1F44] m-0">{m.name}</h3>
+                      </CardItem>
+                      
+                      <CardItem translateZ="90" as="p" className="text-[13px] text-[#64748B] mt-2 min-h-[40px] leading-relaxed w-full">
+                        {m.role}
+                      </CardItem>
+                      
+                      <div className="w-full border-b border-dashed border-[#CBD5E1] my-5" />
+                      
+                      <CardItem translateZ="70" className="mt-auto text-[#64748B] text-sm font-semibold flex items-center justify-center cursor-pointer transition-colors hover:text-[#E8871A] w-full">
+                        → Read More
+                      </CardItem>
+                    </div>
+                  </CardBody>
+                </CardContainer>
+              </div>
+            ))}
+          </div>
+
+          <button 
+            onClick={scrollLeft}
+            style={{ position: "absolute", left: -24, top: "150px", background: "white", width: 48, height: 48, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #E2E8F0", cursor: "pointer", boxShadow: "0 4px 12px rgba(0,0,0,0.05)", color: "#2563EB", zIndex: 10 }}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+
+          <button 
+            onClick={scrollRight}
+            style={{ position: "absolute", right: -24, top: "150px", background: "white", width: 48, height: 48, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #E2E8F0", cursor: "pointer", boxShadow: "0 4px 12px rgba(0,0,0,0.05)", color: "#2563EB", zIndex: 10 }}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+      <style>{`
+        .hide-scroll::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scroll {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+    </section>
+  );
+}
+
+const NEW_PROGRAMS_DATA = [
+  {
+    level: "Under-Graduate",
+    items: [
+      {
+        program: "B.Tech CSE",
+        duration: "4 years",
+        details: <><strong>Specializations:</strong> AI & ML, Cyber Security, Data Science & Business Analytics with HCL, Full Stack Web Development, and Quantum Computing and NIAT Upskilling.<br/><br/><strong>Requirement:</strong> Passed 10+2 with Physics and Math as compulsory subjects and one of the following subjects: Chemistry / Computer Science / Electronics / IT / Biology / Informatics Practices / Biotechnology / Technical / Vocational subject / Agriculture / Engineering Graphics / Business Studies / Entrepreneurship with a minimum 55% marks.<br/><strong style={{ color: "#E8871A" }}>OR</strong><br/>Passed D.Voc. Stream with a minimum 55% marks in the same or allied sector.</>
+      },
+      {
+        program: "B.Tech Civil Engineering",
+        duration: "4 years",
+        details: <>Also includes B.Tech Hons. Civil Engineering (AI & Digital Transformation).<br/><br/><strong>Requirement:</strong> Passed 10+2 with Physics, Chemistry, Mathematics.<br/><strong style={{ color: "#E8871A" }}>OR</strong><br/>Passed D.Voc. Stream in the same or allied sector. Obtained at least 45% marks (40% marks in case of candidates belonging to reserved category).</>
+      },
+      {
+        program: "BCA",
+        duration: "3/4 years",
+        details: <><strong>Options listed include:</strong> Computer Applications, AI & ML, Cyber Security, and Data Science & Business Analytics.<br/><br/><strong>Requirement:</strong> Passed 10+2 examination with at least 50% marks.<br/><strong style={{ color: "#E8871A" }}>OR</strong><br/>Passed Diploma in Commercial Practice or equivalent with at least 50% marks.</>
+      }
+    ]
+  },
+  {
+    level: "Post-Graduate",
+    items: [
+      {
+        program: "M.Tech CSE",
+        duration: "2 years",
+        details: <>Bachelor’s degree in any stream with minimum 50% marks; mathematics preferred at 10+2 or graduation level.</>
+      },
+      {
+        program: "M.Tech Civil Engineering",
+        duration: "2 years",
+        details: <>Passed Bachelor’s Degree or equivalent. Obtained at least 50% marks (45% marks in case of candidates belonging to reserved category) in the qualifying examination.</>
+      },
+      {
+        program: "MCA",
+        duration: "2 years",
+        details: <>BCA/B.Sc. (CS)/equivalent or graduate degree with mathematics at 10+2 or graduation level and minimum 50% marks.</>
+      }
+    ]
+  },
+  {
+    level: "Doctoral (Ph.D.)",
+    items: [
+      {
+        program: "Ph.D.",
+        duration: "Minimum 3 years",
+        details: <>Offered in Computer Applications and Computer Science & Engineering for candidates with a relevant master’s degree and minimum 55% marks.</>
+      }
+    ]
+  }
+];
+
+function ProgramsOfferedSection() {
+  const [activeTab, setActiveTab] = useState(0);
+
+  return (
+    <section id="Programs" style={{ padding: "100px 0", background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)", position: "relative" }}>
+      
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          style={{ marginBottom: 56 }}
+        >
+          <h2 style={{ fontSize: 48, fontWeight: 900, color: "#0A1F44", margin: "0 0 12px", lineHeight: 1.1, letterSpacing: "-1px" }}>
+            Programs Offered
+          </h2>
+          <p style={{ fontSize: 16, color: "#64748B", margin: 0, letterSpacing: 0.5 }}>
+            Geeta University SCSE Programs | Duration | Eligibility
+          </p>
+          <div style={{ marginTop: 24, fontSize: 15, color: "#4A5568", fontWeight: 400, maxWidth: 800, lineHeight: 1.6 }}>
+            <span style={{ fontWeight: 700, color: "#E8871A", letterSpacing: 0.5, textTransform: "uppercase", fontSize: 13, marginRight: 8 }}>Level of Study: </span>
+            There are five core academic offerings under SCSE: B.Tech CSE, M.Tech CSE, BCA, MCA, and Ph.D. in Computer Applications / Computer Science & Engineering.
+          </div>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          style={{ display: "flex", gap: 16, borderBottom: "1px solid #E2E8F0", paddingBottom: 20, marginBottom: 40, overflowX: "auto" }} className="hide-scroll"
+        >
+          {NEW_PROGRAMS_DATA.map((cat, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveTab(idx)}
+              style={{
+                padding: "14px 32px",
+                borderRadius: 12,
+                background: activeTab === idx ? "#0A1F44" : "#F1F5F9",
+                color: activeTab === idx ? "#FFFFFF" : "#475569",
+                border: "1px solid",
+                borderColor: activeTab === idx ? "#0A1F44" : "#E2E8F0",
+                fontSize: 15,
+                fontWeight: 700,
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                boxShadow: activeTab === idx ? "0 8px 24px rgba(10,31,68,0.25)" : "none"
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== idx) {
+                  e.currentTarget.style.background = "#E2E8F0";
+                  e.currentTarget.style.color = "#0A1F44";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== idx) {
+                  e.currentTarget.style.background = "#F1F5F9";
+                  e.currentTarget.style.color = "#475569";
+                }
+              }}
+            >
+              <div style={{ fontSize: 20, opacity: activeTab === idx ? 1 : 0.6 }}>{idx === 0 ? "🎓" : idx === 1 ? "🔬" : "📚"}</div>
+              {cat.level}
+            </button>
+          ))}
+        </motion.div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <div style={{
+              background: "#FDF1D6",
+              border: "1px solid #FCD34D",
+              borderRadius: 10,
+              padding: "16px 24px",
+              textAlign: "center",
+              fontWeight: 800,
+              color: "#92400E",
+              fontSize: 18,
+              marginBottom: 32,
+              letterSpacing: 0.5,
+              boxShadow: "0 4px 12px rgba(245, 158, 11, 0.05)"
+            }}>
+              {NEW_PROGRAMS_DATA[activeTab].level} Courses
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 24 }}>
+              {NEW_PROGRAMS_DATA[activeTab].items.map((prog, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  style={{
+                    background: "#FFFFFF",
+                    border: "1px solid #E2E8F0",
+                    borderRadius: 16,
+                    padding: "28px 36px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 18,
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
+                    transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.boxShadow = "0 20px 40px rgba(0,0,0,0.08)";
+                    e.currentTarget.style.borderColor = "#E8871A";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = "none";
+                    e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.03)";
+                    e.currentTarget.style.borderColor = "#E2E8F0";
+                  }}
+                >
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 16 }}>
+                    <div>
+                      <h3 style={{ fontSize: 26, fontWeight: 800, color: "#0A1F44", margin: "0 0 10px", letterSpacing: "-0.5px" }}>
+                        {prog.program}
+                      </h3>
+                      <div style={{ display: "inline-block", background: "#FEF3C7", color: "#92400E", padding: "6px 14px", borderRadius: 20, fontSize: 13, fontWeight: 700, border: "1px solid #FDE68A" }}>
+                        Duration: {prog.duration}
+                      </div>
+                    </div>
+                    <a href="https://admissions.geetauniversity.edu.in/" target="_blank" rel="noreferrer" style={{
+                      background: "#E8871A",
+                      color: "#FFFFFF",
+                      padding: "12px 28px",
+                      borderRadius: 8,
+                      fontSize: 14,
+                      fontWeight: 800,
+                      textDecoration: "none",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 8,
+                      transition: "all 0.3s",
+                      textTransform: "uppercase",
+                      letterSpacing: 1
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = "#0A1F44";
+                      e.currentTarget.style.boxShadow = "0 8px 20px rgba(10,31,68,0.2)";
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = "#E8871A";
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
+                    >
+                      Apply Now <ArrowRight size={16} />
+                    </a>
+                  </div>
+                  
+                  <div style={{ height: 1, background: "#F1F5F9", width: "100%", margin: "4px 0" }} />
+                  
+                  <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.8, fontWeight: 400 }}>
+                    {prog.details}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+      </div>
+    </section>
+  );
+}
+
+const DEPT_HIGHLIGHTS_DATA = [
+  {
+    title: "Hackforge ’25",
+    desc: "A 24-hour tech marathon focused on coding, creation, innovation, teamwork, and mentor-guided problem solving.",
+    image: "/dummy.png",
+  },
+  {
+    title: "SIH 2024 Finalists",
+    desc: "A proud Geeta University moment supporting innovation-led student participation in the Smart India Hackathon.",
+    image: "/dummy.png",
+  },
+  {
+    title: "Cybersecurity Awareness",
+    desc: "Comprehensive awareness program hosted by Geeta Technical Hub for students and the wider campus.",
+    image: "/dummy.png",
+  },
+  {
+    title: "Global Certification Tracks",
+    desc: "AWS, Red Hat, Cisco, HubSpot, GitHub, Oracle, and Microsoft Azure certifications directly integrated into the curriculum.",
+    image: "/dummy.png",
+  },
+  {
+    title: "Outcomes & Scale",
+    desc: "25+ Hackathons Conducted • 150+ Projects Delivered • 500+ Internships Secured • 3000+ Global Certifications.",
+    image: "/dummy.png",
+  },
+  {
+    title: "Drive-Ready Tech & DSA",
+    desc: "Focus on MEAN/MERN Stack, Python, AI/ML, logic building, advanced algorithms, and competitive programming.",
+    image: "/dummy.png",
+  }
+];
+
+function TestimonialsSection() {
+  return (
+    <section
+      id="Testimonials"
+      style={{
+        background: "#0A1F44",
+        padding: "100px 0",
+        position: "relative",
+        overflow: "hidden",
+        borderTop: "1px solid rgba(255, 255, 255, 0.05)"
+      }}
+    >
+      {/* Decorative Blur Spheres */}
+      <div style={{ position: "absolute", top: "-10%", left: "-10%", width: 500, height: 500, background: "radial-gradient(circle, rgba(232,135,26,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: 500, height: 500, background: "radial-gradient(circle, rgba(232,135,26,0.06) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: 60 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
+            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+            <span style={{
+              color: "#E8871A", fontWeight: 700, fontSize: 11,
+              letterSpacing: "0.22em", textTransform: "uppercase",
+            }}>
+              Voices of Success
+            </span>
+            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+          </div>
+          <h2 style={{
+            fontSize: 44, fontWeight: 900, color: "#FFFFFF",
+            margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-1.5px"
+          }}>
+            Student Testimonials
+          </h2>
+          <p style={{ fontSize: 16, color: "rgba(255, 255, 255, 0.7)", maxWidth: 750, margin: "0 auto", lineHeight: 1.7, fontWeight: 450 }}>
+            Read first-hand accounts from our alumni and students about their career transformations, academic mentorship, and experiential journey at SCSE.
+          </p>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+          gap: 28,
+          position: "relative",
+          zIndex: 2
+        }}>
+          {TESTIMONIALS.map((item, idx) => {
+            const initials = item.name.split(" ").map(n => n[0]).join("");
+            const displayRole = `${item.role}, ${item.company}`;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                style={{
+                  background: "rgba(255, 255, 255, 0.03)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.06)",
+                  borderRadius: "24px",
+                  padding: "36px 32px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  position: "relative",
+                  overflow: "hidden",
+                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                  transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                  cursor: "default"
+                }}
+                className="testimonial-card"
+              >
+                <div>
+                  {/* Quote Icon */}
+                  <svg className="quote-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(232, 135, 26, 0.25)" strokeWidth="2.5" style={{ transition: "all 0.3s ease" }}>
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1zm12 0c3 0 7-1 7-8V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1z" />
+                  </svg>
+
+                  {/* Quote Text */}
+                  <p style={{
+                    fontSize: "14.5px",
+                    color: "rgba(255, 255, 255, 0.8)",
+                    margin: "20px 0 28px",
+                    lineHeight: 1.65,
+                    fontWeight: 450,
+                    fontStyle: "italic"
+                  }}>
+                    "{item.quote}"
+                  </p>
+                </div>
+
+                {/* User Profile */}
+                <div style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 16,
+                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                  paddingTop: 20
+                }}>
+                  {/* Avatar Initials */}
+                  <div style={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: "50%",
+                    background: "rgba(232, 135, 26, 0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    border: "1px solid rgba(232, 135, 26, 0.3)"
+                  }}>
+                    <span style={{ color: "#E8871A", fontWeight: 800, fontSize: 15 }}>
+                      {initials}
+                    </span>
+                  </div>
+
+                  {/* Meta Details */}
+                  <div>
+                    <h4 style={{ color: "#FFFFFF", fontSize: "15.5px", fontWeight: 750, margin: "0 0 3px" }}>
+                      {item.name}
+                    </h4>
+                    <p style={{ color: "rgba(255, 255, 255, 0.5)", fontSize: "12.5px", margin: 0, fontWeight: 450, lineHeight: 1.3 }}>
+                      B.Tech CSE · {displayRole}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      <style>{`
+        .testimonial-card:hover {
+          background: rgba(255, 255, 255, 0.06) !important;
+          border-color: rgba(232, 135, 26, 0.35) !important;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(232, 135, 26, 0.05) !important;
+        }
+        .testimonial-card:hover .quote-icon {
+          stroke: rgba(232, 135, 26, 0.6) !important;
+          transform: scale(1.1) rotate(-5deg);
+        }
+      `}</style>
+    </section>
+  );
+}
+
+function DepartmentHighlightsSection() {
+  return (
+    <section id="DepartmentHighlights" style={{ padding: "100px 0", background: "#FDF1D6", position: "relative", overflow: "hidden" }}>
+      {/* Decorative Background Elements */}
+      <div style={{ position: "absolute", top: "-20%", left: "-10%", width: 600, height: 600, background: "radial-gradient(circle, rgba(232,135,26,0.1) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: "-20%", right: "-10%", width: 800, height: 800, background: "radial-gradient(circle, rgba(10,31,68,0.04) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          style={{ textAlign: "center", marginBottom: 60 }}
+        >
+          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Ecosystem & Initiatives</span>
+          <h2 style={{ fontSize: 44, fontWeight: 900, color: "#0A1F44", margin: "12px 0 16px", lineHeight: 1.1, letterSpacing: "-1px" }}>
+            Department Highlights
+          </h2>
+          <p style={{ fontSize: 18, color: "#4A5568", maxWidth: 800, margin: "0 auto", lineHeight: 1.6 }}>
+            Visual evidence of an active technical ecosystem through hackathons, certifications, internships, and drive-ready coding tracks.
+          </p>
+        </motion.div>
+      </div>
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          style={{ display: "flex", overflow: "hidden", padding: "10px 0 30px", gap: 32 }}
+        >
+          {[0, 1].map((setIndex) => (
+            <motion.div
+              key={setIndex}
+              animate={{ x: ["0%", "calc(-100% - 32px)"] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+              style={{ display: "flex", gap: 32, flexShrink: 0 }}
+            >
+              {DEPT_HIGHLIGHTS_DATA.map((item, i) => (
+                <div
+                  key={`${setIndex}-${i}`}
+                  style={{
+                    width: 360,
+                    flexShrink: 0,
+                    background: "#FFFFFF",
+                    borderRadius: 16,
+                    overflow: "hidden",
+                    border: "1px solid #E2E8F0",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
+                    display: "flex",
+                    flexDirection: "column",
+                    transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-8px)";
+                    e.currentTarget.style.boxShadow = "0 20px 40px rgba(10,31,68,0.1)";
+                    const img = e.currentTarget.querySelector("img");
+                    if (img) img.style.transform = "scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "none";
+                    e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.04)";
+                    const img = e.currentTarget.querySelector("img");
+                    if (img) img.style.transform = "scale(1)";
+                  }}
+                >
+                  {/* Image Placeholder */}
+                  <div style={{ width: "100%", height: 220, position: "relative", overflow: "hidden", background: "#F1F5F9" }}>
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                        e.currentTarget.parentElement!.innerHTML = '<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #E2E8F0; color: #94A3B8; font-weight: 600; font-size: 14px;">[ Image Placeholder ]</div>';
+                      }}
+                    />
+                  </div>
+                  
+                  {/* Content */}
+                  <div style={{ padding: "24px 28px", flex: 1, display: "flex", flexDirection: "column" }}>
+                    <h3 style={{ fontSize: 20, fontWeight: 800, color: "#0A1F44", margin: "0 0 12px" }}>
+                      {item.title}
+                    </h3>
+                    <p style={{ fontSize: 15, color: "#4A5568", margin: 0, lineHeight: 1.6, flex: 1 }}>
+                      {item.desc}
+                    </p>
+                    <div style={{ marginTop: 20 }}>
+                      <span style={{ fontSize: 13, fontWeight: 700, color: "#E8871A", textTransform: "uppercase", letterSpacing: 1 }}>Read More →</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function LearningSpacesSection() {
+  const spaces = [
+    { title: "AI Labs", desc: "Advanced neural networks, machine learning models, and robotics setup.", icon: "🤖" },
+    { title: "IoT Labs", desc: "Embedded systems, sensor networks, and smart automation hardware.", icon: "🔌" },
+    { title: "Cloud Labs", desc: "Industry-aligned platform training using AWS and Azure clouds.", icon: "☁️" },
+    { title: "Cyber Security Labs", desc: "Network defense, vulnerability analysis, and digital forensics.", icon: "🔒" },
+    { title: "Coding Labs", desc: "High-end development systems optimized for DSA and coding practice.", icon: "💻" },
+    { title: "Project Studios", desc: "Collaborative workspaces dedicated to real-world product delivery.", icon: "🎨" },
+    { title: "Smart Classrooms", desc: "Multimedia-equipped interactive classrooms for hybrid learning.", icon: "🎓" },
+    { title: "Innovation Spaces", desc: "Open research labs and ideation zones for incubator startups.", icon: "🚀" }
+  ];
+
+  const galleryImages = [
+    { src: "/scse_ai_lab.png", title: "AI & Robotics Lab", caption: "Students working on computer vision, deep learning models, and robotic integrations." },
+    { src: "/scse_cyber_lab.png", title: "Cybersecurity Command Center", caption: "High-tech environment dedicated to network threat analysis and security audits." },
+    { src: "/scse_coding_lab.png", title: "Coding & Collaborative Studio", caption: "Interactive programming space designed for logic building, DSA, and group projects." }
+  ];
+
+  return (
+    <section
+      id="LearningSpaces"
+      style={{
+        background: "linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)",
+        padding: "100px 0",
+        position: "relative",
+        borderTop: "1px solid #E2E8F0"
+      }}
+    >
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: 60 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
+            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+            <span style={{
+              color: "#E8871A", fontWeight: 700, fontSize: 11,
+              letterSpacing: "0.22em", textTransform: "uppercase",
+            }}>
+              World-Class Infrastructure
+            </span>
+            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+          </div>
+          <h2 style={{
+            fontSize: 48, fontWeight: 900, color: "#0A1F44",
+            margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-1.5px"
+          }}>
+            Highlights of Learning Spaces
+          </h2>
+          <p style={{ fontSize: 16, color: "#475569", maxWidth: 850, margin: "0 auto", lineHeight: 1.7, fontWeight: 450 }}>
+            The expert faculty and world-class infrastructure have played a major role in the school’s growth. SCSE provides a highly practical learning environment built around certifications, coding tracks, real-world projects, hackathons, expert trainers, and tool-integrated learning.
+          </p>
+          <p style={{ fontSize: 15, color: "#E8871A", fontWeight: 700, marginTop: 12, textTransform: "uppercase", letterSpacing: 1 }}>
+            All Designed for Experiential Learning
+          </p>
+        </div>
+
+        {/* Labs Grid */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: 24,
+          marginBottom: 64
+        }}>
+          {spaces.map((space, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              style={{
+                background: "#FFFFFF",
+                borderRadius: "16px",
+                padding: "28px 24px",
+                border: "1px solid #E2E8F0",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.02)",
+                transition: "all 0.3s ease",
+                cursor: "default"
+              }}
+              className="space-card"
+            >
+              <div style={{
+                fontSize: "28px",
+                marginBottom: "16px",
+                background: "rgba(232, 135, 26, 0.08)",
+                width: "56px",
+                height: "56px",
+                borderRadius: "12px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#E8871A"
+              }}>
+                {space.icon}
+              </div>
+              <h3 style={{ fontSize: "18px", fontWeight: 800, color: "#0A1F44", margin: "0 0 8px" }}>
+                {space.title}
+              </h3>
+              <p style={{ fontSize: "13.5px", color: "#64748B", margin: 0, lineHeight: 1.5 }}>
+                {space.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Experiential Gallery Showcase */}
+        <div>
+          <h3 style={{ fontSize: "22px", fontWeight: 800, color: "#0A1F44", marginBottom: 28, display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ width: 4, height: 18, background: "#E8871A", borderRadius: 2 }} />
+            Department Showcase
+          </h3>
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: 32
+          }}>
+            {galleryImages.map((img, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                style={{
+                  background: "#FFFFFF",
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  border: "1px solid #E2E8F0",
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.04)",
+                  display: "flex",
+                  flexDirection: "column",
+                  transition: "all 0.3s ease"
+                }}
+                className="gallery-card"
+              >
+                {/* Image Wrap */}
+                <div style={{ overflow: "hidden", position: "relative", height: "240px", background: "#F1F5F9" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={img.src}
+                    alt={img.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      transition: "transform 0.5s ease"
+                    }}
+                    className="gallery-img"
+                  />
+                  <div style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(180deg, transparent 40%, rgba(10, 31, 68, 0.8) 100%)",
+                    display: "flex",
+                    alignItems: "flex-end",
+                    padding: "20px 24px"
+                  }}>
+                    <h4 style={{ color: "#FFFFFF", fontSize: "18px", fontWeight: 800, margin: 0, textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
+                      {img.title}
+                    </h4>
+                  </div>
+                </div>
+                {/* Description */}
+                <div style={{ padding: "20px 24px", flex: 1, display: "flex", alignItems: "center" }}>
+                  <p style={{ fontSize: "14px", color: "#475569", margin: 0, lineHeight: 1.6 }}>
+                    {img.caption}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        .space-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 16px 32px rgba(10, 31, 68, 0.06);
+          border-color: #E8871A !important;
+        }
+        .gallery-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(10, 31, 68, 0.08);
+          border-color: #E8871A !important;
+        }
+        .gallery-card:hover .gallery-img {
+          transform: scale(1.05);
+        }
+      `}</style>
+    </section>
+  );
+}
+
+interface PathwayItem {
+  area: string;
+  pathway: string;
+  icon: string;
+}
+
+const PATHWAYS: PathwayItem[] = [
+  {
+    area: "Core Computer Science & Engineering",
+    pathway: "Software development, programming, systems-oriented technical roles, and applied computing careers.",
+    icon: "💻"
+  },
+  {
+    area: "Full Stack Web Development",
+    pathway: "Web developer and full stack application development roles.",
+    icon: "🌐"
+  },
+  {
+    area: "AI & Machine Learning",
+    pathway: "Emerging roles aligned with intelligent systems, machine learning applications, and analytics-led technology work.",
+    icon: "🤖"
+  },
+  {
+    area: "Cyber Security",
+    pathway: "Security-focused technical pathways supported by cybersecurity training exposure.",
+    icon: "🔒"
+  },
+  {
+    area: "Data Science & Business Analytics",
+    pathway: "Data-oriented and business insight roles connected with analytics-led learning.",
+    icon: "📊"
+  },
+  {
+    area: "Cloud / Certification-Linked Training",
+    pathway: "Technical roles needing cloud, platform, and tool familiarity.",
+    icon: "☁️"
+  },
+  {
+    area: "Higher Study / Research",
+    pathway: "M.Tech, MCA, and Ph.D. pathways for advanced academic or research progression.",
+    icon: "🔬"
+  }
+];
+
+const NOTABLE_ROLES_DATA = [
+  {
+    name: "Software Developer",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+    )
+  },
+  {
+    name: "Full Stack Developer",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+        <polyline points="2 17 12 22 22 17"></polyline>
+        <polyline points="2 12 12 17 22 12"></polyline>
+      </svg>
+    )
+  },
+  {
+    name: "App Developer",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+      </svg>
+    )
+  },
+  {
+    name: "Data Scientist",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10"></line>
+        <line x1="12" y1="20" x2="12" y2="4"></line>
+        <line x1="6" y1="20" x2="6" y2="14"></line>
+      </svg>
+    )
+  },
+  {
+    name: "AI Engineer",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+      </svg>
+    )
+  },
+  {
+    name: "ML Engineer",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+    )
+  },
+  {
+    name: "Cybersecurity Analyst",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+    )
+  },
+  {
+    name: "Cloud Architect",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+      </svg>
+    )
+  },
+  {
+    name: "Systems Engineer",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+        <line x1="6" y1="6" x2="6.01" y2="6"></line>
+        <line x1="6" y1="18" x2="6.01" y2="18"></line>
+      </svg>
+    )
+  },
+  {
+    name: "Product Engineer",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+      </svg>
+    )
+  },
+  {
+    name: "Researcher",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+        <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+      </svg>
+    )
+  },
+  {
+    name: "Entrepreneur",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+    )
+  }
+];
+
+function CareerPathwaysSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: -360, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: 360, behavior: "smooth" });
+  };
+
+  return (
+    <section
+      id="CareerPathways"
+      style={{
+        background: "#FDF1D6",
+        padding: "100px 0",
+        position: "relative",
+        borderTop: "1px solid rgba(0, 0, 0, 0.06)",
+        overflow: "hidden"
+      }}
+    >
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative" }}>
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: 56 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
+            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+            <span style={{
+              color: "#E8871A", fontWeight: 700, fontSize: 11,
+              letterSpacing: "0.22em", textTransform: "uppercase",
+            }}>
+              Future Opportunities
+            </span>
+            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+          </div>
+          <h2 style={{
+            fontSize: 48, fontWeight: 900, color: "#0A1F44",
+            margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-1.5px"
+          }}>
+            Career Pathways
+          </h2>
+          <p style={{ fontSize: 16, color: "#64748B", maxWidth: 850, margin: "0 auto", lineHeight: 1.7, fontWeight: 450 }}>
+            The booming IT sector creates opportunities for computer science graduates across design, development, assembly, manufacturing, and maintenance functions. Graduates pursue careers as programmers, web developers, and e-commerce specialists across industries including telecommunications, automotive, and aerospace.
+          </p>
+          <p style={{ fontSize: 14, color: "#94A3B8", marginTop: 12, fontStyle: "italic" }}>
+            Academic exposure maps to broad career directions without claiming guaranteed job titles.
+          </p>
+        </div>
+
+        {/* Carousel Slider */}
+        <div style={{ position: "relative", marginTop: 40, padding: "0 20px" }}>
+          <div
+            ref={scrollRef}
+            className="hide-scroll"
+            style={{
+              display: "flex",
+              gap: 28,
+              overflowX: "auto",
+              paddingBottom: "32px",
+              scrollSnapType: "x mandatory",
+              scrollBehavior: "smooth",
+            }}
+          >
+            {PATHWAYS.map((item, idx) => {
+              const numStr = `0${idx + 1}`;
+              return (
+                <div
+                  key={idx}
+                  style={{
+                    scrollSnapAlign: "start",
+                    flexShrink: 0,
+                    width: "320px",
+                    height: "440px",
+                    background: "linear-gradient(180deg, #F5E6C9 0%, #EAD7B2 100%)",
+                    borderRadius: "24px",
+                    padding: "40px 32px",
+                    position: "relative",
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.02)",
+                    border: "1px solid rgba(0, 0, 0, 0.03)",
+                    transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                  }}
+                  className="pathway-slider-card"
+                >
+                  <div style={{
+                    fontSize: 24,
+                    background: "rgba(255, 255, 255, 0.35)",
+                    width: 48,
+                    height: 48,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "12px",
+                    marginBottom: 24,
+                  }}>
+                    {item.icon}
+                  </div>
+                  
+                  <h3 style={{
+                    fontSize: 20,
+                    fontWeight: 800,
+                    color: "#0A1F44",
+                    margin: "0 0 16px",
+                    lineHeight: 1.35,
+                    position: "relative",
+                    zIndex: 2,
+                  }}>
+                    {item.area}
+                  </h3>
+                  
+                  <p style={{
+                    fontSize: 14.5,
+                    color: "#475569",
+                    margin: 0,
+                    lineHeight: 1.6,
+                    fontWeight: 450,
+                    position: "relative",
+                    zIndex: 2,
+                  }}>
+                    {item.pathway}
+                  </p>
+                  
+                  {/* Huge ghost number at the bottom */}
+                  <div
+                    className="ghost-number"
+                    style={{
+                      position: "absolute",
+                      bottom: "-10px",
+                      left: "24px",
+                      fontSize: "96px",
+                      fontWeight: 900,
+                      color: "rgba(255, 255, 255, 0.16)",
+                      lineHeight: 1,
+                      userSelect: "none",
+                      zIndex: 1,
+                      transition: "color 0.4s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                    }}
+                  >
+                    {numStr}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Left Arrow Button */}
+          <button
+            onClick={scrollLeft}
+            style={{
+              position: "absolute",
+              left: "-16px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "#FFFFFF",
+              width: 48,
+              height: 48,
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "1px solid #E2E8F0",
+              cursor: "pointer",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+              color: "#0A1F44",
+              zIndex: 10,
+              transition: "transform 0.2s",
+            }}
+            className="slider-nav-btn"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={scrollRight}
+            style={{
+              position: "absolute",
+              right: "-16px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "#FFFFFF",
+              width: 48,
+              height: 48,
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "1px solid #E2E8F0",
+              cursor: "pointer",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+              color: "#0A1F44",
+              zIndex: 10,
+              transition: "transform 0.2s",
+            }}
+            className="slider-nav-btn"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        {/* Notable Career Roles Band */}
+        <div
+          style={{
+            marginTop: 80,
+            background: "rgba(255, 255, 255, 0.45)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            border: "1px solid rgba(232, 135, 26, 0.15)",
+            borderRadius: "32px",
+            padding: "48px 32px",
+            boxShadow: "0 15px 35px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
+          }}
+        >
+          <div style={{ textAlign: "center", marginBottom: 36 }}>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
+              <span style={{
+                background: "rgba(232, 135, 26, 0.1)",
+                color: "#E8871A",
+                padding: "6px 18px",
+                borderRadius: "100px",
+                fontSize: 12,
+                fontWeight: 750,
+                textTransform: "uppercase",
+                letterSpacing: "0.12em"
+              }}>
+                High-Demand Fields
+              </span>
+            </div>
+            <h3 style={{ fontSize: 26, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.6px", margin: "0 0 10px" }}>
+              Notable Career Roles
+            </h3>
+            <p style={{ fontSize: 15, color: "#64748B", maxWidth: 700, margin: "0 auto", lineHeight: 1.6, fontWeight: 450 }}>
+              Our graduates are highly sought after across major global technology domains, filling crucial technical, research, and leadership roles.
+            </p>
+          </div>
+          
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", maxWidth: 1080, margin: "0 auto" }}>
+            {NOTABLE_ROLES_DATA.map((role, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ scale: 1.04, y: -2 }}
+                transition={{ type: "spring", stiffness: 450, damping: 15 }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  padding: "12px 22px",
+                  background: "#FFFFFF",
+                  border: "1px solid rgba(232, 135, 26, 0.08)",
+                  borderRadius: "16px",
+                  color: "#0A1F44",
+                  fontSize: "14.5px",
+                  fontWeight: 650,
+                  cursor: "pointer",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.015)",
+                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                }}
+                className="career-role-badge"
+              >
+                <span className="career-role-icon" style={{
+                  color: "#E8871A",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transition: "all 0.3s ease",
+                }}>
+                  {role.icon}
+                </span>
+                <span>{role.name}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        .pathway-slider-card:hover {
+          border-color: rgba(232, 135, 26, 0.18) !important;
+          box-shadow: 0 15px 30px rgba(232, 135, 26, 0.07), 0 0 18px rgba(232, 135, 26, 0.04) !important;
+        }
+        .pathway-slider-card:hover .ghost-number {
+          color: rgba(255, 255, 255, 0.28) !important;
+          text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        .career-role-badge:hover {
+          background: #0A1F44 !important;
+          color: #FFFFFF !important;
+          border-color: #E8871A !important;
+          box-shadow: 0 12px 24px rgba(232, 135, 26, 0.16) !important;
+        }
+        .career-role-badge:hover .career-role-icon {
+          color: #E8871A !important;
+          transform: scale(1.15) rotate(8deg);
+        }
+        .slider-nav-btn:hover {
+          transform: translateY(-50%) scale(1.08) !important;
+          color: #E8871A !important;
+        }
+        .slider-nav-btn:active {
+          transform: translateY(-50%) scale(0.95) !important;
+        }
+      `}</style>
+    </section>
+  );
+}
+
+function FAQSection() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+
+  const categories = [
+    "All",
+    "Admissions & Eligibility",
+    "Specializations & Technology",
+    "Curriculum & Learning",
+    "Placements & Careers",
+    "Student Facilities",
+    "General"
+  ];
+
+  const filteredFaqs = FAQS.filter((faq) => {
+    const matchesCategory = activeCategory === "All" || faq.category === activeCategory;
+    const matchesSearch =
+      faq.q.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      faq.a.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  return (
+    <section
+      id="FAQ"
+      style={{
+        background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)",
+        padding: "100px 0",
+        position: "relative",
+        borderTop: "1px solid #E2E8F0"
+      }}
+    >
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: 56 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
+            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+            <span style={{
+              color: "#E8871A", fontWeight: 700, fontSize: 11,
+              letterSpacing: "0.22em", textTransform: "uppercase",
+            }}>
+              Have Questions?
+            </span>
+            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+          </div>
+          <h2 style={{
+            fontSize: 48, fontWeight: 900, color: "#0A1F44",
+            margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-1.5px"
+          }}>
+            Frequently Asked Questions
+          </h2>
+          <p style={{ fontSize: 16, color: "#64748B", maxWidth: 600, margin: "0 auto", lineHeight: 1.6 }}>
+            Find answers to common questions about eligibility, courses, placements, and campus facilities.
+          </p>
+        </div>
+
+        {/* Search Bar */}
+        <div style={{ maxWidth: 600, margin: "0 auto 48px", position: "relative" }}>
+          <div style={{ position: "relative" }}>
+            <input
+              type="text"
+              placeholder="Search questions or keywords..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="faq-search-input"
+              style={{
+                width: "100%",
+                padding: "16px 20px 16px 52px",
+                borderRadius: "16px",
+                border: "2px solid #E2E8F0",
+                fontSize: "16px",
+                fontWeight: 500,
+                color: "#0A1F44",
+                outline: "none",
+                background: "#FFFFFF",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.02)",
+                transition: "all 0.3s ease",
+              }}
+            />
+            {/* Search Icon */}
+            <div style={{ position: "absolute", left: 18, top: "50%", transform: "translateY(-50%)", color: "#64748B" }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+            {/* Clear Button */}
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm("")}
+                style={{
+                  position: "absolute",
+                  right: 18,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "#94A3B8",
+                  padding: 4,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Categories Tabs */}
+        <div 
+          className="faq-categories-scroll hide-scroll"
+          style={{ 
+            display: "flex", 
+            gap: 10, 
+            marginBottom: 40, 
+            overflowX: "auto", 
+            paddingBottom: 12, 
+            justifyContent: "flex-start",
+            flexWrap: "nowrap"
+          }}
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setActiveCategory(cat);
+                setOpenQuestion(null);
+              }}
+              style={{
+                padding: "10px 20px",
+                borderRadius: "100px",
+                background: activeCategory === cat ? "#0A1F44" : "#FFFFFF",
+                color: activeCategory === cat ? "#FFFFFF" : "#475569",
+                border: "1.5px solid",
+                borderColor: activeCategory === cat ? "#0A1F44" : "#E2E8F0",
+                fontSize: "14px",
+                fontWeight: 650,
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                boxShadow: activeCategory === cat ? "0 4px 12px rgba(10,31,68,0.15)" : "none",
+              }}
+              onMouseEnter={(e) => {
+                if (activeCategory !== cat) {
+                  e.currentTarget.style.borderColor = "#0A1F44";
+                  e.currentTarget.style.color = "#0A1F44";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeCategory !== cat) {
+                  e.currentTarget.style.borderColor = "#E2E8F0";
+                  e.currentTarget.style.color = "#475569";
+                }
+              }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* FAQ Accordion List */}
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          {filteredFaqs.length > 0 ? (
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              {filteredFaqs.map((faq, idx) => {
+                const isOpen = openQuestion === faq.q;
+                return (
+                  <div
+                    key={idx}
+                    style={{
+                      background: "#FFFFFF",
+                      borderRadius: "16px",
+                      border: "1px solid #E2E8F0",
+                      boxShadow: isOpen ? "0 10px 25px rgba(10,31,68,0.05)" : "0 2px 8px rgba(0,0,0,0.01)",
+                      overflow: "hidden",
+                      transition: "all 0.3s ease",
+                    }}
+                  >
+                    <button
+                      onClick={() => setOpenQuestion(isOpen ? null : faq.q)}
+                      style={{
+                        width: "100%",
+                        background: "none",
+                        border: "none",
+                        padding: "24px 28px",
+                        cursor: "pointer",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        gap: 20,
+                        textAlign: "left",
+                        outline: "none",
+                      }}
+                    >
+                      <span style={{
+                        fontSize: "17px",
+                        fontWeight: 750,
+                        color: isOpen ? "#E8871A" : "#0A1F44",
+                        lineHeight: 1.4,
+                        transition: "color 0.25s ease",
+                      }}>
+                        {faq.q}
+                      </span>
+                      {/* Plus/Minus Indicator */}
+                      <div style={{
+                        width: 32,
+                        height: 32,
+                        borderRadius: "50%",
+                        background: isOpen ? "rgba(232,135,26,0.1)" : "#F1F5F9",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        transition: "all 0.25s ease",
+                        color: isOpen ? "#E8871A" : "#64748B",
+                      }}>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          style={{
+                            transform: isOpen ? "rotate(180deg)" : "none",
+                            transition: "transform 0.3s ease"
+                          }}
+                        >
+                          {isOpen ? (
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                          ) : (
+                            <>
+                              <line x1="12" y1="5" x2="12" y2="19" />
+                              <line x1="5" y1="12" x2="19" y2="12" />
+                            </>
+                          )}
+                        </svg>
+                      </div>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.28, ease: "easeInOut" }}
+                        >
+                          <div style={{
+                            padding: "0 28px 24px",
+                            fontSize: "15px",
+                            lineHeight: 1.7,
+                            color: "#475569",
+                            fontWeight: 450,
+                            borderTop: "1px solid #F1F5F9",
+                            whiteSpace: "pre-line",
+                          }}>
+                            {faq.a}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div style={{ textAlign: "center", padding: "48px 24px", background: "#FFFFFF", borderRadius: "16px", border: "1px dashed #CBD5E1" }}>
+              <div style={{ fontSize: "40px", marginBottom: 16 }}>🔍</div>
+              <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A1F44", margin: "0 0 8px" }}>No Results Found</h3>
+              <p style={{ color: "#64748B", fontSize: "14px", margin: 0 }}>
+                We couldn't find any questions matching "{searchTerm}". Try another search term or clear the filter.
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+      <style>{`
+        .faq-search-input:focus {
+          border-color: #E8871A !important;
+          box-shadow: 0 4px 20px rgba(232,135,26,0.1) !important;
+        }
+        @media (max-width: 768px) {
+          .faq-categories-scroll {
+            justify-content: flex-start !important;
+            padding-left: 4px;
+          }
+        }
+      `}</style>
+    </section>
+  );
+}
+
 export default function Page() {
   const [activeSection, setActiveSection] = useState("Overview");
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [activeProgram, setActiveProgram] = useState(0);
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
 
   const lenis = useLenis();
@@ -547,261 +2902,41 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── RECOGNITION STRIP ───────────────────────────────────────────────── */}
-      <div style={{ background: "#0A1F44", borderTop: "1px solid #1A3A6B", padding: "12px 24px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", justifyContent: "center" }}>
-          {["UGC Recognised", "AICTE Approved", "OBE Excellence 2022", "6th — Competition Success Review", "AAA by Career360", "NIRF Participant"].map((r) => (
-            <span key={r} style={{ color: "#94A3B8", fontSize: 12, display: "flex", alignItems: "center", gap: 6 }}>
-              <span style={{ color: "#E8871A", fontSize: 14 }}>✦</span> {r}
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* ── TOP RECRUITERS ────────────────────────────────────────────────────── */}
+      <TopRecruiters />
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+      {/* ── RANKINGS & ACCREDITATIONS ───────────────────────────────────────────────── */}
+      <RankingsAndAccreditations />
 
-        {/* ── ABOUT SCHOOL ──────────────────────────────────────────────────── */}
-        <section style={{ padding: "64px 0 48px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }} className="about-grid">
-            <div>
-              <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase" }}>About the School</span>
-              <h2 style={{ fontSize: 32, fontWeight: 800, color: "#0A1F44", margin: "8px 0 16px", lineHeight: 1.2 }}>Future-Focused Tech Education at Geeta University</h2>
-              <p style={{ color: "#4A5568", lineHeight: 1.8, marginBottom: 16 }}>
-                The School of Computer Science &amp; Engineering is a future-focused academic school where students learn to work with contemporary technologies and industry-relevant tools. Through classroom knowledge, hands-on exposure, certifications, coding practice, projects, and placement support, SCSE prepares learners to become job-ready professionals.
-              </p>
-              <p style={{ color: "#4A5568", lineHeight: 1.8 }}>
-                The school emphasizes learning by doing — from AI labs and cloud labs to cybersecurity simulations and competitive coding environments — ensuring graduates are ready to contribute from day one.
-              </p>
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-              {[["🎓", "Expert Faculty", "Academic leaders + Professors of Practice from IIT, IIM & industry"], ["🏭", "Industry Curriculum", "Collaborations with HCL, Coding Blocks, Samatrix and global tech leaders"], ["🧪", "Applied Labs", "AI, IoT, Cloud, Cybersecurity, Coding Labs & Innovation Spaces"], ["🌍", "Global Certifications", "AWS, Azure, Cisco, Oracle, Red Hat, EC-Council and more"]].map(([icon, title, desc]) => (
-                <div key={title} style={{ background: "white", border: "1px solid #E2E8F0", borderRadius: 12, padding: "20px 16px", borderTop: "3px solid #E8871A" }}>
-                  <div style={{ fontSize: 24, marginBottom: 8 }}>{icon}</div>
-                  <div style={{ fontWeight: 700, fontSize: 14, color: "#0A1F44", marginBottom: 6 }}>{title}</div>
-                  <div style={{ fontSize: 12, color: "#64748B", lineHeight: 1.5 }}>{desc}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+      {/* ── ABOUT SCHOOL ──────────────────────────────────────────────────── */}
+      <AboutSchoolSection />
+      
+      {/* ── SPECIALISATIONS ──────────────────────────────────────────────────── */}
+      <SpecialisationsSection />
 
-        {/* ── PROGRAMS ──────────────────────────────────────────────────────── */}
-        <section id="Programs" style={{ padding: "48px 0" }}>
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase" }}>Academic Offerings</span>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: "#0A1F44", margin: "8px 0 32px" }}>Programs Offered</h2>
+      {/* ── MENTORS ──────────────────────────────────────────────────────────── */}
+      <MentorsSection />
 
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
-            {PROGRAMS.map((p, i) => (
-              <button key={i} onClick={() => setActiveProgram(i)}
-                style={{ padding: "8px 18px", borderRadius: 20, border: "2px solid", borderColor: activeProgram === i ? "#0A1F44" : "#E2E8F0", background: activeProgram === i ? "#0A1F44" : "white", color: activeProgram === i ? "white" : "#4A5568", fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.2s" }}>
-                {p.level} {p.name !== p.level ? p.name : ""}
-              </button>
-            ))}
-          </div>
+      {/* ── PROGRAMS ──────────────────────────────────────────────────────── */}
+      <ProgramsOfferedSection />
 
-          {PROGRAMS[activeProgram] && (
-            <div style={{ background: "white", border: "1px solid #E2E8F0", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 24px rgba(10,31,68,0.08)" }}>
-              <div style={{ background: "#0A1F44", padding: "24px 32px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-                <div>
-                  <div style={{ color: "#E8871A", fontSize: 12, fontWeight: 700, letterSpacing: 1, marginBottom: 4 }}>{PROGRAMS[activeProgram].level}</div>
-                  <h3 style={{ color: "white", fontSize: 22, fontWeight: 800, margin: 0 }}>{PROGRAMS[activeProgram].name}</h3>
-                </div>
-                <div style={{ display: "flex", gap: 16 }}>
-                  <div style={{ textAlign: "center" }}>
-                    <div style={{ color: "#E8871A", fontWeight: 800, fontSize: 20 }}>{PROGRAMS[activeProgram].duration}</div>
-                    <div style={{ color: "#94A3B8", fontSize: 11 }}>Duration</div>
-                  </div>
-                </div>
-              </div>
-              <div style={{ padding: "28px 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }} className="program-details-grid">
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: 13, color: "#0A1F44", marginBottom: 12, textTransform: "uppercase", letterSpacing: 1 }}>Specializations</div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                    {PROGRAMS[activeProgram].specializations.map((s) => (
-                      <span key={s} style={{ background: "#EFF6FF", color: "#1D4ED8", fontSize: 12, padding: "5px 12px", borderRadius: 20, fontWeight: 500 }}>{s}</span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: 13, color: "#0A1F44", marginBottom: 12, textTransform: "uppercase", letterSpacing: 1 }}>Eligibility</div>
-                  <p style={{ color: "#4A5568", fontSize: 14, lineHeight: 1.7, margin: 0 }}>{PROGRAMS[activeProgram].eligibility}</p>
-                  <a href="https://admissions.geetauniversity.edu.in/" target="_blank" rel="noreferrer"
-                    style={{ display: "inline-block", marginTop: 16, background: "#E8871A", color: "white", padding: "10px 22px", borderRadius: 6, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>
-                    Apply for this Program →
-                  </a>
-                </div>
-              </div>
-            </div>
-          )}
-        </section>
+      {/* ── STUDENT TESTIMONIALS ─────────────────────────────────────────────────── */}
+      <TestimonialsSection />
 
-        {/* ── SPECIALIZATIONS ───────────────────────────────────────────────── */}
-        <section style={{ padding: "48px 0" }}>
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase" }}>New Age Learning</span>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: "#0A1F44", margin: "8px 0 32px" }}>Specializations</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
-            {SPECIALIZATIONS.map((s) => (
-              <div key={s.title} style={{ background: "white", border: "1px solid #E2E8F0", borderRadius: 12, padding: "24px", transition: "box-shadow 0.2s, transform 0.2s", cursor: "default" }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(10,31,68,0.12)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "none"; }}>
-                <div style={{ fontSize: 32, marginBottom: 12 }}>{s.icon}</div>
-                <h3 style={{ fontSize: 16, fontWeight: 700, color: "#0A1F44", marginBottom: 8 }}>{s.title}</h3>
-                <p style={{ fontSize: 13, color: "#64748B", lineHeight: 1.6, margin: 0 }}>{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+      {/* ── DEPARTMENT HIGHLIGHTS ──────────────────────────────────────────────────────── */}
+      <DepartmentHighlightsSection />
 
-        {/* ── HIGHLIGHTS ────────────────────────────────────────────────────── */}
-        <section id="Highlights" style={{ padding: "48px 0" }}>
-          <div style={{ background: "#0A1F44", borderRadius: 20, padding: "48px 40px", color: "white" }}>
-            <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase" }}>Department in Numbers</span>
-            <h2 style={{ fontSize: 28, fontWeight: 800, margin: "8px 0 32px" }}>SCSE Highlights</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 24, marginBottom: 40 }} className="highlights-grid">
-              {HIGHLIGHTS.map(({ stat, label }) => (
-                <div key={label} style={{ textAlign: "center", borderRight: "1px solid #1A3A6B" }} className="highlight-item">
-                  <div style={{ fontSize: 36, fontWeight: 800, color: "#E8871A" }}>{stat}</div>
-                  <div style={{ fontSize: 13, color: "#94A3B8", marginTop: 4 }}>{label}</div>
-                </div>
-              ))}
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16 }}>
-              {[["🏆 Hackforge '25", "24-hour tech marathon — coding, innovation, teamwork, mentor-guided problem solving."], ["🎖 SIH 2024 Finalists", "Students participated as Smart India Hackathon 2024 Finalists."], ["🛡 Cybersecurity Awareness", "Hosted by Geeta Technical Hub for students and the wider campus."], ["💻 DSA & Competitive Coding", "Logic building, problem-solving, advanced algorithms, and competitive programming tracks."]].map(([title, desc]) => (
-                <div key={title} style={{ background: "rgba(255,255,255,0.06)", border: "1px solid #1A3A6B", borderRadius: 10, padding: 20 }}>
-                  <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 6 }}>{title}</div>
-                  <div style={{ fontSize: 12, color: "#94A3B8", lineHeight: 1.6 }}>{desc}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+      {/* ── LEARNING OUTCOMES ────────────────────────────────────────────────── */}
+      <LearningOutcomes />
 
-        {/* ── CERTIFICATIONS / GTH ──────────────────────────────────────────── */}
-        <section id="Certifications" style={{ padding: "48px 0" }}>
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase" }}>Centre of Excellence</span>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: "#0A1F44", margin: "8px 0 8px" }}>Geeta Technical Hub (GTH)</h2>
-          <p style={{ color: "#64748B", marginBottom: 32, maxWidth: 600 }}>GTH powers technical excellence through certification tracks, coding ecosystems, and industry-readiness programs.</p>
+      {/* ── HIGHLIGHTS OF LEARNING SPACES ─────────────────────────────────────── */}
+      <LearningSpacesSection />
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20, marginBottom: 32 }}>
-            {[{ title: "Certification Tracks", items: ["AWS", "Azure", "Oracle", "Cisco", "Red Hat Academy", "EC-Council Academia", "GitHub", "HubSpot"] }, { title: "Coding Excellence", items: ["DSA & Data Structures", "Competitive Programming", "Logic Building", "Coding Platforms"] }, { title: "Drive-Ready Tech Tracks", items: ["MEAN/MERN Stack", "PHP & MySQL", "Python Development", "Cyber Security Fundamentals", "Artificial Intelligence", "Machine Learning"] }].map(({ title, items }) => (
-              <div key={title} style={{ background: "white", border: "1px solid #E2E8F0", borderRadius: 12, padding: "24px" }}>
-                <div style={{ fontWeight: 800, fontSize: 15, color: "#0A1F44", marginBottom: 16, borderBottom: "2px solid #E8871A", paddingBottom: 8 }}>{title}</div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                  {items.map(item => (
-                    <span key={item} style={{ background: "#F0F4FF", color: "#1A3A6B", fontSize: 12, padding: "4px 10px", borderRadius: 16, fontWeight: 500 }}>{item}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* ── CAREER PATHWAYS ─────────────────────────────────────────────────── */}
+      <CareerPathwaysSection />
 
-          <div>
-            <div style={{ fontWeight: 700, fontSize: 14, color: "#0A1F44", marginBottom: 14 }}>All Partner Organizations & Platforms</div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-              {CERTIFICATIONS.map(c => (
-                <span key={c} style={{ background: "white", border: "1px solid #E2E8F0", color: "#334155", fontSize: 12, padding: "6px 14px", borderRadius: 20, fontWeight: 600 }}>{c}</span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── FACULTY ───────────────────────────────────────────────────────── */}
-        <section id="Faculty" style={{ padding: "48px 0" }}>
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase" }}>Academic Leadership</span>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: "#0A1F44", margin: "8px 0 32px" }}>Faculty & Leadership</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
-            {FACULTY.map((f) => {
-              const initials = f.name.split(" ").map(w => w[0]).slice(0, 2).join("");
-              return (
-                <div key={f.name} style={{ background: "white", border: "1px solid #E2E8F0", borderRadius: 12, padding: "24px", display: "flex", gap: 16 }}>
-                  <div style={{ width: 48, height: 48, borderRadius: "50%", background: "#0A1F44", color: "#E8871A", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14, flexShrink: 0 }}>{initials}</div>
-                  <div>
-                    <div style={{ marginBottom: 4 }}>
-                      <span style={{ fontWeight: 700, fontSize: 14, color: "#0A1F44" }}>{f.name}</span>
-                    </div>
-                    <div style={{ fontSize: 12, color: "#E8871A", fontWeight: 600, marginBottom: 6 }}>{f.role}</div>
-                    <p style={{ fontSize: 12, color: "#64748B", lineHeight: 1.5, margin: 0 }}>{f.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* ── PLACEMENTS ────────────────────────────────────────────────────── */}
-        <section id="Placements" style={{ padding: "48px 0" }}>
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase" }}>Campus to Corporate</span>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: "#0A1F44", margin: "8px 0 12px" }}>Placement Success Stories</h2>
-          <p style={{ color: "#64748B", marginBottom: 32, fontSize: 14 }}>* Package figures are from official SCSE brochure and university placement communications.</p>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
-            {TESTIMONIALS.map((t) => {
-              const initials = t.name.split(" ").map(w => w[0]).slice(0, 2).join("");
-              return (
-                <div key={t.name} style={{ background: "white", border: "1px solid #E2E8F0", borderRadius: 12, padding: "24px", position: "relative", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 4, background: "linear-gradient(90deg, #0A1F44, #E8871A)" }} />
-                  <div style={{ fontSize: 36, color: "#E8871A", fontWeight: 800, lineHeight: 1, marginBottom: 12 }}>"</div>
-                  <p style={{ fontSize: 13, color: "#4A5568", lineHeight: 1.7, marginBottom: 20 }}>{t.quote}</p>
-                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#0A1F44", color: "#E8871A", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 12 }}>{initials}</div>
-                    <div>
-                      <div style={{ fontWeight: 700, fontSize: 13, color: "#0A1F44" }}>{t.name}</div>
-                      <div style={{ fontSize: 11, color: "#64748B" }}>{t.company} · {t.role}</div>
-                    </div>
-                    <div style={{ marginLeft: "auto", background: "#FEF3C7", color: "#92400E", fontSize: 11, fontWeight: 800, padding: "4px 10px", borderRadius: 20 }}>{t.pkg}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Top Recruiters */}
-          <div style={{ marginTop: 40 }}>
-            <div style={{ fontWeight: 700, fontSize: 15, color: "#0A1F44", marginBottom: 16 }}>Top Recruiters (SCSE)</div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-              {["Cincooni Systems", "Kerakoll India", "Tenhard India", "Edu-Versity", "Academor Edutech", "Hoping Minds", "Chegg India", "Profunnel Technology", "Hike Education", "Centricity Wealth Tech", "PayU Payments", "Thales", "Tech Mahindra", "Ernst & Young", "Wabtec Corp"].map(r => (
-                <span key={r} style={{ background: "#F7F9FC", border: "1px solid #E2E8F0", color: "#334155", fontSize: 12, padding: "6px 14px", borderRadius: 6, fontWeight: 500 }}>{r}</span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── CAREER PATHWAYS ───────────────────────────────────────────────── */}
-        <section style={{ padding: "48px 0" }}>
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase" }}>After Graduation</span>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: "#0A1F44", margin: "8px 0 32px" }}>Career Pathways</h2>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-            {["Software Developer", "Full Stack Developer", "App Developer", "Data Scientist", "AI Engineer", "ML Engineer", "Cybersecurity Analyst", "Cloud Architect", "Systems Engineer", "Product Engineer", "Researcher", "Entrepreneur", "Web Developer", "DevOps Engineer", "UI/UX Developer"].map(role => (
-              <span key={role} style={{ background: "white", border: "2px solid #E2E8F0", color: "#1A3A6B", fontSize: 13, padding: "10px 18px", borderRadius: 8, fontWeight: 600, transition: "border-color 0.2s", cursor: "default" }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = "#E8871A"}
-                onMouseLeave={e => e.currentTarget.style.borderColor = "#E2E8F0"}>
-                {role}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        {/* ── FAQ ───────────────────────────────────────────────────────────── */}
-        <section id="FAQ" style={{ padding: "48px 0 64px" }}>
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase" }}>Common Questions</span>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: "#0A1F44", margin: "8px 0 32px" }}>Frequently Asked Questions</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 800 }}>
-            {FAQS.map((faq, i) => (
-              <div key={i} style={{ background: "white", border: "1px solid #E2E8F0", borderRadius: 10, overflow: "hidden" }}>
-                <button onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
-                  style={{ width: "100%", padding: "18px 20px", background: "none", border: "none", display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", textAlign: "left", gap: 16 }}>
-                  <span style={{ fontWeight: 600, fontSize: 14, color: "#0A1F44" }}>{faq.q}</span>
-                  <span style={{ color: "#E8871A", fontSize: 20, transform: expandedFaq === i ? "rotate(45deg)" : "none", transition: "transform 0.2s", flexShrink: 0 }}>+</span>
-                </button>
-                {expandedFaq === i && (
-                  <div style={{ padding: "0 20px 18px", fontSize: 14, color: "#4A5568", lineHeight: 1.7 }}>{faq.a}</div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
-      </div>
+      {/* ── FAQ SECTION ──────────────────────────────────────────────────────── */}
+      <FAQSection />
 
       {/* ── CTA FOOTER BAND ─────────────────────────────────────────────────── */}
       <section style={{ background: "#E8871A", padding: "48px 24px", textAlign: "center" }}>
@@ -823,7 +2958,7 @@ export default function Page() {
       </section>
 
       {/* ── PAGE FOOTER ─────────────────────────────────────────────────────── */}
-      <footer style={{ background: "#0A1F44", color: "#94A3B8", padding: "24px", textAlign: "center", fontSize: 12 }}>
+      <footer style={{ background: "#0A1F44", color: "#94A3B8", padding: "10px", textAlign: "center", fontSize: 12 }}>
         © 2026 Geeta University · School of Computer Science &amp; Engineering ·{" "}
         <a href="https://geetauniversity.edu.in" style={{ color: "#E8871A" }}>geetauniversity.edu.in</a>
       </footer>

@@ -303,8 +303,8 @@ export default function Navbar() {
         /* Logo */
         .gu-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
         .gu-logo-img {
-          width: 52px; height: 52px; border-radius: 4px; overflow: hidden;
-          background: #0a1f44; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+          width: 140px; height: 44px; overflow: hidden;
+          background: transparent; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
         }
         .gu-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
         .gu-logo-name { font-size: 21px; font-weight: 900; color: #fff; letter-spacing: -.4px; text-transform: uppercase; }
@@ -733,22 +733,23 @@ export default function Navbar() {
         <div className="gu-mainbar">
           <Link href="/" className="gu-logo">
             <div className="gu-logo-img">
-              <Image src="/gu_logo.png" alt="Geeta University Logo" width={52} height={52} style={{ objectFit: "cover", width: "100%", height: "100%" }} priority />
+              <Image src="/GU-Logo.webp" alt="Geeta University Logo" width={140} height={44} style={{ objectFit: "contain", width: "100%", height: "100%" }} priority />
             </div>
             <div className="gu-logo-text">
               <span className="gu-logo-name">GEETA <span className="gu-logo-gold">UNIVERSITY</span></span>
-              <span className="gu-logo-tag">Discover. Learn. Empower.</span>
+              <span className="gu-logo-tag">POWERING EDUCATION, EMPOWERING MINDS</span>
             </div>
           </Link>
 
           {/* ── CENTRE QUICK-NAV ── */}
           <nav className="gu-main-quicknav" aria-label="Page sections">
-            {["Overview", "Programs", "Faculty", "Highlights", "Certifications", "Placements", "FAQ"].map((label) => (
+            {["Overview", "Programs", "Faculty", "Highlights", "Certifications", "Placements", "Careers", "FAQ"].map((label) => (
               <button
                 key={label}
                 className="gu-qnav-btn"
                 onClick={() => {
-                  const el = document.getElementById(label);
+                  const id = label === "Careers" ? "CareerPathways" : label;
+                  const el = document.getElementById(id);
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
               >
