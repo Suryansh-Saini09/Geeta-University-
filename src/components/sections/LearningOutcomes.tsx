@@ -23,7 +23,7 @@ const OUTCOMES = [
     num: "03",
     title: "Coding & DSA Excellence",
     short: "Algorithms, Logic & Problem Solving",
-    desc: "Build logical thinking, coding proficiency, and data structure and algorithm capability through structured practice.",
+    desc: "Build logical thinking, coding proficiency, and Data Structure & Algorithm capability through structured practice.",
     tags: ["DSA", "Competitive Coding", "Time Complexity", "Data Structures"],
   },
   {
@@ -37,7 +37,7 @@ const OUTCOMES = [
     num: "05",
     title: "Career & Placement Readiness",
     short: "Mentorship, Interviews & Hiring",
-    desc: "Develop readiness for technology careers through industry-linked learning, mentorship, and placement support.",
+    desc: "Step into technology careers with the industry-linked learning, mentorship, and placement support needed to grow from day one.",
     tags: ["Industry Mentorship", "Mock Interviews", "Placement Support", "Resume Building"],
   },
 ];
@@ -186,7 +186,7 @@ export default function LearningOutcomes() {
               color: "#E8871A", fontWeight: 700, fontSize: 11,
               letterSpacing: "0.22em", textTransform: "uppercase",
             }}>
-              Academic Excellence · SCSE
+              LEARNING OUTCOMES
             </span>
           </div>
 
@@ -194,11 +194,10 @@ export default function LearningOutcomes() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "flex-end" }}
             className="lo-header-grid">
             <h2 style={{
-              fontSize: 58, fontWeight: 900, color: "#FFFFFF",
-              margin: 0, lineHeight: 1.05, letterSpacing: "-2px",
+              fontSize: 52, fontWeight: 950, color: "#FFFFFF",
+              margin: 0, lineHeight: 1.1, letterSpacing: "-1.5px",
             }}>
-              Learning{" "}
-              <span style={{ color: "#E8871A" }}>Outcomes</span>
+              What You'll <span style={{ color: "#E8871A" }}>Be Able to Do</span>
             </h2>
             <p style={{
               color: "rgba(255,255,255,0.55)", fontSize: 15.5,

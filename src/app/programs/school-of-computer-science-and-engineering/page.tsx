@@ -6,7 +6,12 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { useLenis } from "lenis/react";
 import {
   ArrowRight,
-  Award
+  Award,
+  Code2,
+  Briefcase,
+  Terminal,
+  ExternalLink,
+  BookOpen
 } from "lucide-react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import LearningOutcomes from "@/components/sections/LearningOutcomes";
@@ -101,168 +106,168 @@ const HIGHLIGHTS: Highlight[] = [
 ];
 
 const TESTIMONIALS: Testimonial[] = [
-  { name: "Vaibhav Arora", pkg: "1.4 Cr PA", company: "Wabtec Corp", role: "Principal Solution Architect", quote: "The 360-degree development, mentorship programs, and industry interactions helped me become an entrepreneur instead of seeking a job." },
-  { name: "Vikas Bareja", pkg: "33–34 LPA", company: "Tech Mahindra", role: "B.Tech CSE Alumni", quote: "Rigorous training and mentorship here empowered me with technical expertise and leadership qualities needed in the real world." },
-  { name: "Shantanu Ojha", pkg: "30 LPA", company: "Ernst & Young", role: "B.Tech CSE Alumni", quote: "Campus support and mentorship at Geeta University laid the true foundation of my professional career." },
-  { name: "Prikshit", pkg: "30 LPA", company: "Thales", role: "B.Tech CSE Alumni", quote: "My time here helped me bridge the gap between theory-based and practical learning like nothing else could." },
-  { name: "Saransh", pkg: "30 LPA", company: "PayU Payments", role: "B.Tech CSE Alumni", quote: "GU individually helped me grow. The environment here kept me determined towards my goals and real-world readiness." },
-  { name: "Monty", pkg: "24 LPA", company: "Hike Edu", role: "B.Tech CSE Alumni", quote: "Confidence and perseverance from Geeta University's campus culture and industry-focused approach shaped my career." },
+  { name: "Vaibhav Arora", pkg: "₹1.4 Cr PA", company: "Wabtec Corp", role: "Principal Solution Architect", quote: "Geeta University's 360-degree development approach, mentorship programs, and industry interactions helped me think like an entrepreneur rather than just a job seeker." },
+  { name: "Vikas Bareja", pkg: "₹33–34 LPA", company: "Tech Mahindra", role: "B.Tech CSE Alumni", quote: "The rigorous training and mentorship I received empowered me with both the technical expertise and leadership qualities I needed to succeed at a global firm." },
+  { name: "Shantanu Ojha", pkg: "₹30 LPA", company: "Ernst & Young", role: "B.Tech CSE Alumni", quote: "The campus support and mentorship gave me the foundation I needed to build a strong career from the ground up." },
+  { name: "Prikshit", pkg: "₹30 LPA", company: "Thales", role: "B.Tech CSE Alumni", quote: "My time at the university helped me bridge the gap between theory-based and practical learning — something that made a real difference when I entered the industry." },
+  { name: "Saransh", pkg: "₹30 LPA", company: "PayU Payments", role: "B.Tech CSE Alumni", quote: "The campus environment pushed me to grow as an individual, developed my determination, and made me genuinely ready for the real world." },
+  { name: "Monty", pkg: "₹24 LPA", company: "Hike Edu", role: "B.Tech CSE Alumni", quote: "The industry-focused learning culture built my confidence and gave me the perseverance to push through and achieve what I set out to do." },
 ];
 
 const FAQS: FAQItem[] = [
   {
-    q: "Are placements mentioned on the page specific to SCSE or to the university as a whole?",
-    a: "Placement stories in the brochure clearly include SCSE students and alumni, while some placement statistics on official university pages are institution-wide. The webpage should therefore label school-specific success stories separately from university-wide placement data.",
+    q: "Are the placement stories on this page specific to SCSE students?",
+    a: "Placement stories featured in this section include SCSE students and alumni. Some university-wide placement statistics reflect broader institutional data. School-specific success stories are labelled separately.",
     category: "Placements & Careers"
   },
   {
-    q: "Does SCSE focus only on theory or is there practical skill development too?",
-    a: "Official content strongly indicates practical orientation through projects, internships, hackathons, coding tracks, certification programs, professors of practice, and Geeta Technical Hub support.",
+    q: "Does SCSE focus only on theory, or is there practical skill development too?",
+    a: "SCSE has a strong practical orientation. Students engage with projects, internships, hackathons, coding tracks, certification programs, professors of practice, and the Geeta Technical Hub — all designed to build applied, job-ready skills alongside academic knowledge.",
     category: "Curriculum & Learning"
   },
   {
     q: "Are there opportunities to learn emerging technologies beyond the core syllabus?",
-    a: "Yes, the official material highlights specialisations and training exposure in AI, machine learning, cybersecurity, data science, cloud-related tools, full stack development, and quantum computing.",
+    a: "Yes. Official specialisations and training tracks cover AI, Machine Learning, Cybersecurity, Data Science, Cloud Computing, Full Stack Development, and Quantum Computing — giving students exposure to in-demand, future-facing areas.",
     category: "Specializations & Technology"
   },
   {
-    q: "What kinds of industry-linked learning opportunities are visible in the official content?",
-    a: "The brochure points to certifications, bootcamps, domain trainers, tool-integrated learning, coding ecosystems, and partnerships with organizations such as AWS, Cisco, Oracle, Microsoft Azure, GitHub, Red Hat Academy, and others.",
-    category: "Industry & Certifications"
+    q: "What kinds of industry-linked learning opportunities are available?",
+    a: "Students have access to certifications, bootcamps, domain trainers, tool-integrated learning, a competitive coding ecosystem, and training partnerships with organizations such as AWS, Cisco, Oracle, Microsoft Azure, GitHub, and Red Hat Academy, among others.",
+    category: "Curriculum & Learning"
   },
   {
     q: "Is there mentorship beyond regular faculty teaching?",
-    a: "Yes, the official content presents a mix of academic faculty, professors of practice, technical hub trainers, and leadership support through the associate dean and HOD.",
-    category: "Mentorship & Faculty"
+    a: "Yes. SCSE offers a multi-layered mentorship model including academic faculty, professors of practice from industry, technical hub trainers, and leadership support from the Associate Dean and Head of Department.",
+    category: "Curriculum & Learning"
   },
   {
-    q: "Can students from different academic backgrounds apply to postgraduate computing programs?",
-    a: "For M.Tech CSE and MCA, the brochure specifies eligibility routes that include different graduation backgrounds, with mathematics-related conditions where applicable.",
+    q: "Can students from non-engineering backgrounds apply to postgraduate programs?",
+    a: "For M.Tech CSE and MCA, eligibility includes different graduation backgrounds, with mathematics-related conditions where applicable. Students are encouraged to review program-specific eligibility requirements or speak with the admissions team.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "How should the “international partners” section be interpreted on the webpage?",
-    a: "The safest interpretation, based on the brochure, is that these are learning, certification, and training ecosystem partners or platforms featured in student skill development. The page should avoid presenting them as exchange or dual-degree partners unless separately verified by official university documentation.",
+    q: "How should the \"International Partners\" section be understood?",
+    a: "These are learning, certification, and training ecosystem partners whose platforms and programs feature in student skill development. They represent technology and certification associations, not exchange or dual-degree partnerships unless separately verified.",
     category: "General"
   },
   {
-    q: "What makes SCSE distinct in a competitive private university landscape?",
-    a: "Official content consistently emphasizes future-ready domains, applied learning, mentorship, certifications, coding culture, and placement support, which together create its positioning. Any competitive comparison language on the webpage should stay generic unless backed by official comparative data.",
+    q: "What makes SCSE distinct in the private university landscape?",
+    a: "SCSE's positioning is built on future-ready domains, applied learning, mentorship, certifications, a strong coding culture, and dedicated placement support — working together as an integrated ecosystem rather than standalone features.",
     category: "General"
   },
   {
-    q: "Which categories are considered under the “reserved category” mentioned in the eligibility criteria?",
-    a: "Only SC and ST categories are considered under the “reserved category” mentioned in the eligibility criteria.",
+    q: "Which categories are considered \"reserved category\" for eligibility purposes?",
+    a: "Only SC and ST categories are considered under the reserved category mentioned in eligibility criteria.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "Is the 40% eligibility criteria applicable to all Computer Science programs or only selected courses?",
-    a: "40% eligibility criteria are applicable only in the case of B.Tech Civil Engineering.",
+    q: "Is the 40% eligibility criteria applicable to all Computer Science programs?",
+    a: "No. The 40% marks eligibility is applicable only to B.Tech Civil Engineering. All Computer Science programs follow their own stated eligibility requirements.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "Can students from non-medical, medical, or commerce backgrounds apply for Computer Science programs?",
-    a: "Yes, but the answer depends on the program. For B.Tech. CSE, the official page requires Physics and Mathematics, plus one additional subject from a listed group that includes Chemistry, Computer Science, Electronics, IT, Biology, Biotechnology, Agriculture, Engineering Graphics, Business Studies, and Entrepreneurship. That means the route is not limited only to one school stream, but it does require the specific subject combination.\n\nFor BCA, the brochure states eligibility as 10+2 with at least 50% marks, or a diploma in Commercial Practice or equivalent with at least 50% marks, which makes it much more open to non-engineering backgrounds. For postgraduate programs, the eligibility widens further, subject to graduation and mathematics conditions where applicable.",
+    q: "Can students from non-medical, medical, or commerce backgrounds apply for CSE programs?",
+    a: "It depends on the program. B.Tech CSE requires Physics and Mathematics at 10+2 level, plus one additional subject from a listed group that includes Chemistry, Computer Science, Electronics, IT, Biology, Biotechnology, Agriculture, Engineering Graphics, Business Studies, and Entrepreneurship — so it is not limited to one school stream, but does require the specific subject combination. BCA is more open, requiring 10+2 with 50% marks regardless of stream. Postgraduate programs widen eligibility further, subject to graduation and mathematics conditions.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "Is Mathematics compulsory for admission to all Computer Science programs?",
-    a: "No, mathematics is not treated the same way for every program. For B.Tech. CSE, Mathematics is compulsory because the eligibility specifically requires Physics and Mathematics at 10+2 level.\n\nFor MCA and M.Tech. CSE, Mathematics is also important, but non-maths students may still be considered in some cases if they complete a compulsory mathematics course as per university norms. For BCA, Math is not compulsory in the same way.",
+    q: "Is Mathematics compulsory for all Computer Science programs?",
+    a: "Not uniformly. For B.Tech CSE, Mathematics is compulsory at 10+2 level. For MCA and M.Tech CSE, Mathematics is important and non-mathematics students may be considered subject to completing a compulsory mathematics course as per university norms. For BCA, Mathematics is not compulsory in the same way.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "What is the difference between B.Tech CSE and BCA programs offered on this page?",
-    a: "B.Tech CSE is an engineering degree built around deeper computer science foundations, core technical study, and specializations such as AI & ML, Cyber Security, Data Science & Business Analytics, Full Stack Web Development, and Quantum Computing. It is a 4-year program with Physics and Mathematics-based eligibility.\n\nBCA is a computer applications degree with a more application-oriented structure, and the brochure lists special options such as AI & ML, Cyber Security, and Data Science & Business Analytics under BCA as well. It is generally more accessible for students from varied academic backgrounds and is not presented with the same engineering-entry requirement as B.Tech.",
+    q: "What is the difference between B.Tech CSE and BCA?",
+    a: "B.Tech CSE is an engineering degree with deeper computer science foundations, core technical study, and specializations such as AI & ML, Cyber Security, Data Science & Business Analytics, Full Stack Web Development, and Quantum Computing. It requires Physics and Mathematics at 10+2 level. BCA is a computer applications degree with an application-oriented structure, available to students from varied academic backgrounds, and does not carry the same engineering entry requirement.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "How should a student choose between AI & ML, Data Science, Cyber Security, and Full Stack Development specializations?",
-    a: "The best choice depends on the kind of problems the student wants to solve. AI & ML suits students who enjoy logic, automation, prediction, and intelligent systems; Data Science suits students who like patterns, analysis, and business insight; Cyber Security suits students interested in protection, digital risk, and systems safety; and Full Stack Development suits students who want to build complete web applications end to end.\n\nA simple way to choose is this: if the student wants to create intelligent systems, choose AI & ML; if the student enjoys working with data, choose Data Science; if the student is interested in digital defense, choose Cyber Security; and if the student wants to build websites and software products, choose Full Stack Development.",
+    q: "How should a student choose between AI & ML, Data Science, Cyber Security, and Full Stack Development?",
+    a: "The choice depends on the kind of problems you want to solve. If you enjoy logic, automation, and intelligent systems — choose AI & ML. If you like patterns, analysis, and business insight — choose Data Science. If you are interested in digital defense and systems security — choose Cyber Security. If you want to build websites and software products end to end — choose Full Stack Development.",
     category: "Specializations & Technology"
   },
   {
-    q: "Will the specialization degree name remain “B.Tech CSE” or will the specialization appear separately on the final degree?",
-    a: "The specialization degree name will remain “B.Tech CSE”.",
+    q: "Will the specialization appear separately on the final degree?",
+    a: "No. The degree will remain titled \"B.Tech CSE\" regardless of specialization.",
     category: "Curriculum & Learning"
   },
   {
-    q: "Can students change their specialization after taking admission?",
-    a: "Specialization change, if permitted, would depend on seat availability, academic performance, and university rules at the time of request.",
+    q: "Can students change their specialization after admission?",
+    a: "Any specialization change would be subject to seat availability, academic performance, and university rules at the time of the request. Students should confirm the process directly with the department.",
     category: "Curriculum & Learning"
   },
   {
-    q: "Are the industry certifications mentioned on the page included in the course fee or charged separately?",
-    a: "Certification inclusion can vary by course, track, platform, or training model, and students should confirm the exact fee coverage during counseling.",
+    q: "Are the industry certifications included in the course fee or charged separately?",
+    a: "Certification coverage can vary by course, track, platform, or training model. Students should confirm the exact fee structure during counseling before admission.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "Are internships mandatory or optional in Computer Science programs?",
-    a: "500+ internships have been secured, while internships are clearly encouraged and actively supported by the school, and students are exposed to them through the ecosystem, but the mandatory or optional nature depends on the exact program structure.",
+    q: "Are internships mandatory or optional?",
+    a: "Internship support is actively embedded in the school's ecosystem, with 500+ internships secured by students. Whether internships are mandatory or optional depends on the exact program structure — students should confirm this with the department.",
     category: "Placements & Careers"
   },
   {
-    q: "Does the university help students get internships, or do students need to find them independently?",
-    a: "The university does help students through internships, mentorship, training, and placement support. So students should understand that internship support is part of the school’s ecosystem, not something they are expected to handle entirely alone. At the same time, individual initiative still matters because final internship selection usually depends on student performance and fit.",
+    q: "Does the university help students find internships?",
+    a: "Yes. The university supports students through placement assistance, mentorship, training, and recruitment drives. Students benefit from an ecosystem designed to connect them with opportunities, though individual initiative and performance also play a role in final selection.",
     category: "Placements & Careers"
   },
   {
-    q: "Are placements available for all Computer Science specializations equally?",
-    a: "Geeta University provides placement assistance through training, internships, and recruitment drives, with 100+ companies visiting in 2024–25. Placement support is available across SCSE, but final placement outcomes depend on the student’s skills, performance, recruiter demand, and chosen career path.",
+    q: "Are placements available equally across all CSE specializations?",
+    a: "Geeta University provides placement assistance across SCSE through training, internships, and recruitment drives, with 100+ companies visiting in 2024–25. Final placement outcomes depend on individual skills, performance, recruiter demand, and chosen career path.",
     category: "Placements & Careers"
   },
   {
-    q: "What kind of roles do students usually get after completing different CSE specializations?",
-    a: "There is a broad career map rather than a fixed job guarantee. Potential roles could be programmer, web developer, and e-commerce specialist roles, alongwith career opportunities in design, development, assembly, manufacture, and maintenance across sectors like telecom, automotive, and aerospace. Using the specializations, the likely mapping is straightforward: AI & ML for intelligent systems and automation roles, Data Science for data analysis and analytics roles, Cyber Security for security-focused roles, and Full Stack Development for software and web development roles.",
+    q: "What roles do students typically get after completing different CSE specializations?",
+    a: "AI & ML graduates typically move toward intelligent systems and automation roles; Data Science graduates toward analytics and data-oriented roles; Cyber Security graduates toward security-focused technical roles; and Full Stack Development graduates toward software and web development roles. The school presents a broad career map to guide students rather than guaranteeing specific outcomes.",
     category: "Placements & Careers"
   },
   {
-    q: "Are coding skills required before joining the program?",
-    a: "No advanced coding background is required before joining, but willingness to learn is important. The school emphasize skill-building, hands-on learning, DSA, coding practice, projects, and competitive coding, which indicates that beginners are expected to grow into the subject during the program. So students should not hesitate if they are beginners. The more important requirement is interest, consistency, and readiness to learn technical concepts step by step.",
+    q: "Is prior coding experience required before joining?",
+    a: "No advanced coding background is required. SCSE is designed to build skills through structured practice, DSA training, coding platforms, and project exposure. What matters most is interest, consistency, and a willingness to learn step by step.",
     category: "Curriculum & Learning"
   },
   {
-    q: "Does the curriculum focus more on theory or practical learning?",
-    a: "There is a clear balance, but with strong practical emphasis. The curriculum is aligned with industry relevance, projects, hackathons, internships, certification tracks, drive-ready tracks, and training through technical hub support. It is a blend of conceptual learning and applied, employability-focused training.",
+    q: "Does the curriculum lean more toward theory or practical learning?",
+    a: "The curriculum is designed as a blend of conceptual learning and applied, employability-focused training — with a clear emphasis on practical outcomes through projects, hackathons, internships, certification tracks, and technical hub support.",
     category: "Curriculum & Learning"
   },
   {
     q: "Are laptops compulsory for Computer Science students?",
-    a: "A laptop is highly useful and often expected for coding, project work, and certification-based learning, but the exact requirement should be confirmed with the department or admissions office.",
+    a: "A laptop is highly useful and often expected for coding, projects, and certification-based learning. Students should confirm the exact requirement with the department or admissions office during counseling.",
     category: "Student Facilities"
   },
   {
-    q: "Is hostel facility available for Computer Science students from other states?",
-    a: "Yes, hostel accommodation is part of the university’s student facilities, and out-of-state students can inquire about room types, charges, and availability during admission counseling.",
+    q: "Is hostel accommodation available for students from other states?",
+    a: "Yes. Hostel accommodation is available as part of the university's student facilities. Out-of-state students can inquire about room types, charges, and availability during the admissions process.",
     category: "Student Facilities"
   },
   {
-    q: "How are students prepared for placements and technical interviews during the course?",
-    a: "A multi-layered preparation model: industry collaborations, placement support, internships, technical hub training, certification tracks, DSA and competitive coding, and role-oriented learning pathways is emphasized. We also make students job-ready through practical skill development. That means placement preparation is not left to the final semester alone. It is built into the learning ecosystem through training, coding culture, certifications, and project exposure.",
+    q: "How are students prepared for placements and technical interviews?",
+    a: "Placement preparation is built into the learning ecosystem from the beginning — through industry collaborations, placement support, internships, technical hub training, certification tracks, DSA and competitive coding, and role-oriented learning pathways. It is not limited to a final-semester activity.",
     category: "Placements & Careers"
   },
   {
     q: "Are scholarships applicable to all CSE specializations?",
-    a: "Scholarships can be availed across programs of the university, subject to eligibility, merit, entrance tests, and related criteria. Scholarships are generally applicable to eligible programs, including B.Tech-related study pathways, but the exact amount and criteria depend on the student’s admission route and score profile.",
+    a: "Scholarships are generally applicable to eligible programs including B.Tech-related pathways, subject to eligibility, merit, entrance tests, and related criteria. The exact amount and criteria depend on the student's admission route and score profile.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "If a student is weak in coding initially, will additional support be provided?",
-    a: "Yes, a student does not need to hesitate if he or she is initially weak in coding, the student will be given a supportive and conducive environment to learn and grow.",
+    q: "Will additional support be provided if a student is weak in coding initially?",
+    a: "Yes. Students who are initially weak in coding are supported through the school's structured learning environment, which includes foundational skill-building, mentorship, and practice-based progression. No student need hesitate on account of a weaker starting point.",
     category: "Curriculum & Learning"
   },
   {
-    q: "Which specialization has better future scope: AI & ML, Cyber Security, or Data Science?",
-    a: "The Future scope depends on student interest, skill fit, and market demand at the time of graduation. In general, AI & ML suits automation and intelligent systems, Cyber Security suits protection and digital defense, and Data Science suits analytics and decision support.",
+    q: "Which specialization has better future scope — AI & ML, Cyber Security, or Data Science?",
+    a: "All three have strong and growing demand. The best choice depends on your interests and strengths: AI & ML suits automation and intelligent systems; Cyber Security suits digital protection and defense; Data Science suits analytics and decision support. Future scope ultimately depends on skill development, market conditions at graduation, and individual career direction.",
     category: "Specializations & Technology"
   },
   {
     q: "Are live projects and hackathons compulsory parts of the curriculum?",
-    a: "Live projects and hackathons are strongly encouraged and visibly embedded in the school culture, but compulsory status should be checked program-wise.",
+    a: "Live projects and hackathons are strongly encouraged and embedded in the school's culture. Whether they carry a compulsory status should be confirmed program-wise with the department.",
     category: "Curriculum & Learning"
   },
   {
     q: "Will students get opportunities to work on real industry projects?",
-    a: "Yes, through projects, internships, certification-aligned learning, expert lectures, technical training, and strong industry collaboration. The school reinforces applied, industry-aligned education. In each case, “opportunities are provided”.",
+    a: "Yes. Through projects, internships, certification-aligned learning, expert lectures, technical training, and strong industry collaboration, the school actively provides students with opportunities to engage with real-world problems and applications.",
     category: "Curriculum & Learning"
   }
 ];
@@ -271,41 +276,112 @@ const FAQS: FAQItem[] = [
 
 // Real brand logos from public CDN (Wikimedia / Simple Icons)
 const BRAND_DATA: Record<string, { src: string; width: number; height: number; label: string }> = {
-  "Amazon AWS": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-    width: 80, height: 48, label: "Amazon AWS",
+  "Cincooni Systems": {
+    src: "/cincooni.svg",
+    width: 140, height: 44, label: "Cincooni Systems",
   },
-  "RedHat": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg",
-    width: 100, height: 36, label: "Red Hat",
+  "Kerakoll India": {
+    src: "/kerakoll.svg",
+    width: 110, height: 32, label: "Kerakoll India",
+  },
+  "Tenhard India": {
+    src: "/tenhard_india.svg",
+    width: 140, height: 44, label: "Tenhard India",
+  },
+  "Edu-Versity": {
+    src: "/edu_versity.svg",
+    width: 150, height: 44, label: "Edu-Versity",
+  },
+  "Academor Edutech": {
+    src: "/academor.svg",
+    width: 140, height: 44, label: "Academor Edutech",
+  },
+  "Hoping Minds": {
+    src: "/hoping_minds.png",
+    width: 110, height: 32, label: "Hoping Minds",
+  },
+  "Chegg India": {
+    src: "/chegg.svg",
+    width: 90, height: 34, label: "Chegg India",
+  },
+  "Profunnel Technology": {
+    src: "/profunnel.svg",
+    width: 100, height: 32, label: "Profunnel Technology",
+  },
+  "Hike Education": {
+    src: "/hike_education.png",
+    width: 110, height: 36, label: "Hike Education",
+  },
+  "Centricity Wealth Tech": {
+    src: "/centricity.svg",
+    width: 120, height: 32, label: "Centricity Wealth Tech",
+  },
+  "PayU Payments": {
+    src: "/payu.svg",
+    width: 80, height: 32, label: "PayU Payments",
+  },
+  "Thales": {
+    src: "/thales.svg",
+    width: 100, height: 32, label: "Thales",
+  },
+  "Amazon AWS": {
+    src: "/aws.svg",
+    width: 80, height: 42, label: "Amazon AWS",
+  },
+  "Red Hat": {
+    src: "/redhat.svg",
+    width: 100, height: 32, label: "Red Hat",
   },
   "Cisco": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg",
-    width: 90, height: 46, label: "Cisco",
+    src: "/cisco.svg",
+    width: 90, height: 40, label: "Cisco",
   },
   "Oracle": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",
-    width: 100, height: 34, label: "Oracle",
+    src: "/oracle.svg",
+    width: 100, height: 30, label: "Oracle",
   },
   "Microsoft Azure": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg",
-    width: 46, height: 46, label: "Microsoft Azure",
+    src: "/azure.svg",
+    width: 44, height: 44, label: "Microsoft Azure",
   },
   "GitHub": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
-    width: 46, height: 46, label: "GitHub",
+    src: "/github.svg",
+    width: 44, height: 44, label: "GitHub",
   },
   "HubSpot": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg",
-    width: 100, height: 36, label: "HubSpot",
+    src: "/hubspot.svg",
+    width: 100, height: 32, label: "HubSpot",
   },
   "EC-Council": {
-    src: "https://upload.wikimedia.org/wikipedia/commons/e/e5/EC-Council_logo.png",
-    width: 90, height: 46, label: "EC-Council",
+    src: "/eccouncil.png",
+    width: 90, height: 40, label: "EC-Council",
   },
 };
 
-const BRAND_KEYS = ["Amazon AWS", "RedHat", "Cisco", "Oracle", "Microsoft Azure", "GitHub", "HubSpot", "EC-Council"] as const;
+const BRAND_KEYS_ROW1 = [
+  "Cincooni Systems",
+  "Kerakoll India",
+  "Chegg India",
+  "PayU Payments",
+  "Amazon AWS",
+  "Cisco",
+  "Microsoft Azure",
+  "HubSpot",
+  "Tenhard India",
+  "Edu-Versity",
+];
+
+const BRAND_KEYS_ROW2 = [
+  "Academor Edutech",
+  "Hoping Minds",
+  "Profunnel Technology",
+  "Centricity Wealth Tech",
+  "Thales",
+  "Red Hat",
+  "Oracle",
+  "GitHub",
+  "EC-Council",
+];
 
 function RecruiterCard({ name }: { name: string }) {
   const brand = BRAND_DATA[name];
@@ -413,10 +489,10 @@ function TopRecruiters() {
         </p>
         <h2 style={{ margin: "0 0 10px", fontSize: 36, fontWeight: 800, color: "#FFFFFF",
           lineHeight: 1.1, letterSpacing: "-0.5px", textShadow: "0 2px 12px rgba(0,0,0,0.2)" }}>
-          Our Top Recruiters
+          100+ Companies. Endless Possibilities.
         </h2>
         <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.72)", lineHeight: 1.7 }}>
-          Global technology leaders hiring Geeta University graduates
+          Global technology and industry leaders hiring Geeta University graduates
         </p>
       </div>
 
@@ -428,7 +504,7 @@ function TopRecruiters() {
           background: "linear-gradient(-90deg, #D94E1A 0%, transparent 100%)" }} />
         <div className="rec-marquee" style={{ display: "flex", width: "max-content",
           padding: "10px 0", animation: "marqueeLoop 30s linear infinite" }}>
-          {[...BRAND_KEYS, ...BRAND_KEYS].map((name, i) => (
+          {[...BRAND_KEYS_ROW1, ...BRAND_KEYS_ROW1].map((name, i) => (
             <RecruiterCard key={`r1-${name}-${i}`} name={name} />
           ))}
         </div>
@@ -442,7 +518,7 @@ function TopRecruiters() {
           background: "linear-gradient(-90deg, #D94E1A 0%, transparent 100%)" }} />
         <div className="rec-marquee" style={{ display: "flex", width: "max-content",
           padding: "10px 0", animation: "marqueeLoopRev 36s linear infinite" }}>
-          {[...BRAND_KEYS, ...BRAND_KEYS].map((name, i) => (
+          {[...BRAND_KEYS_ROW2, ...BRAND_KEYS_ROW2].map((name, i) => (
             <RecruiterCard key={`r2-${name}-${i}`} name={name} />
           ))}
         </div>
@@ -460,7 +536,7 @@ function TopRecruiters() {
           color: "#FFFFFF", fontWeight: 700, fontSize: 13, letterSpacing: 0.4,
           textShadow: "0 1px 4px rgba(0,0,0,0.15)",
         }}>
-          🏆 &nbsp;8 Global Tech Partners &nbsp;·&nbsp; ₹1.4 Cr Highest Package
+          🏆 &nbsp;100+ Corporate Recruiters &nbsp;·&nbsp; ₹1.4 Cr Highest Package
         </span>
       </div>
     </section>
@@ -619,53 +695,53 @@ const BrandLogo = ({ title, subtitleLine1, subtitleLine2, subtitleLine3 }: { tit
 
 const RANKINGS_DATA = [
   {
-    logo: <BrandLogo title="CSR" subtitleLine1="COMPETITION" subtitleLine2="SUCCESS REVIEW" subtitleLine3="by ranking" />,
-    rankLabel: "Ranked",
-    rankValue: "#6",
-    desc: "Among top universities in India by Competition Success Review",
-    highlight: "(Top University)"
-  },
-  {
     logo: <BrandLogo title="UGC" subtitleLine1="UNIVERSITY" subtitleLine2="GRANTS COMMISSION" subtitleLine3="approved" />,
     rankLabel: "Status",
-    rankValue: "Recognized",
-    desc: "Recognised by the University Grants Commission as a trusted institution of higher education",
+    rankValue: "Approved",
+    desc: "UGC-Approved University",
     highlight: "(Government Recognized)"
-  },
-  {
-    logo: <BrandLogo title="OBE" subtitleLine1="OUTCOME BASED" subtitleLine2="EDUCATION" subtitleLine3="excellence 2022" />,
-    rankLabel: "Awarded",
-    rankValue: "Excellence",
-    desc: "Awarded the Certificate of Excellence in Outcome-Based Education (OBE) Rankings 2022",
-    highlight: "(Education Excellence)"
-  },
-  {
-    logo: <BrandLogo title="C360" subtitleLine1="CAREER 360" subtitleLine2="ACADEMIC RATING" subtitleLine3="premium" />,
-    rankLabel: "Rating",
-    rankValue: "AAA",
-    desc: "Received a prestigious rating from Career360 for academic excellence",
-    highlight: "(Overall Excellence)"
-  },
-  {
-    logo: <BrandLogo title="IEEA" subtitleLine1="INDIAN EDUCATION" subtitleLine2="EXCELLENCE AWARDS" subtitleLine3="2022" />,
-    rankLabel: "Awarded",
-    rankValue: "Best",
-    desc: "Emerging Private University with best infrastructure and faculty in Panipat",
-    highlight: "(Infrastructure & Faculty)"
   },
   {
     logo: <BrandLogo title="AICTE" subtitleLine1="ALL INDIA COUNCIL" subtitleLine2="FOR TECHNICAL ED." subtitleLine3="approved" />,
     rankLabel: "Status",
     rankValue: "Approved",
-    desc: "Technical programs are approved by the All India Council for Technical Education",
+    desc: "AICTE Approved (applicable programs)",
     highlight: "(Technical Education)"
+  },
+  {
+    logo: <BrandLogo title="OBE" subtitleLine1="OUTCOME BASED" subtitleLine2="EDUCATION" subtitleLine3="excellence 2022" />,
+    rankLabel: "Awarded",
+    rankValue: "Excellence",
+    desc: "Certificate of Excellence — OBE Rankings 2022",
+    highlight: "(Education Excellence)"
+  },
+  {
+    logo: <BrandLogo title="CSR" subtitleLine1="COMPETITION" subtitleLine2="SUCCESS REVIEW" subtitleLine3="by ranking" />,
+    rankLabel: "Ranked",
+    rankValue: "#6",
+    desc: "Ranked 6th Among Top Universities of India — Competition Success Review",
+    highlight: "(Top University)"
+  },
+  {
+    logo: <BrandLogo title="C360" subtitleLine1="CAREER 360" subtitleLine2="ACADEMIC RATING" subtitleLine3="premium" />,
+    rankLabel: "Rating",
+    rankValue: "AAA",
+    desc: "AAA Rating — Career360",
+    highlight: "(Overall Excellence)"
   },
   {
     logo: <BrandLogo title="NIRF" subtitleLine1="NATIONAL INSTITUTIONAL" subtitleLine2="RANKING FRAMEWORK" subtitleLine3="active" />,
     rankLabel: "Status",
     rankValue: "Participant",
-    desc: "Active participant in the National Institutional Ranking Framework",
+    desc: "NIRF Participant",
     highlight: "(National Framework)"
+  },
+  {
+    logo: <BrandLogo title="IEEA" subtitleLine1="INDIAN EDUCATION" subtitleLine2="EXCELLENCE AWARDS" subtitleLine3="2022" />,
+    rankLabel: "Awarded",
+    rankValue: "Best",
+    desc: "Recognized as an Emerging Private University with Best Infrastructure and Faculty in Panipat — Indian Education Excellence Awards 2022",
+    highlight: "(Infrastructure & Faculty)"
   }
 ];
 
@@ -682,10 +758,12 @@ function RankingsAndAccreditations() {
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
         
         <div style={{ textAlign: "center", marginBottom: 70 }}>
-          <h2 style={{ fontSize: 46, color: "#000", lineHeight: 1.2, letterSpacing: "-1px" }}>
-            <span style={{ fontWeight: 300 }}>Proudly Distinguished</span> <span style={{ fontWeight: 800 }}>by Our</span><br/>
-            <span style={{ fontWeight: 800 }}>Prestigious Rankings</span>
+          <h2 style={{ fontSize: 46, color: "#000", lineHeight: 1.2, letterSpacing: "-1px", marginBottom: 20 }}>
+            <span style={{ fontWeight: 800 }}>Trusted. Recognised. Ranked.</span>
           </h2>
+          <p style={{ fontSize: 18, color: "#333333", maxWidth: 800, margin: "0 auto", lineHeight: 1.6, fontWeight: 500 }}>
+            Geeta University's academic quality and institutional standing are reflected across multiple independent assessments:
+          </p>
         </div>
 
         <div>
@@ -787,11 +865,16 @@ function AboutSchoolSection() {
     <section id="About" style={{ padding: "100px 0", background: "#FFFFFF", color: "#000" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         
-        <div style={{ marginBottom: 80 }}>
-          <h2 style={{ fontSize: 52, color: "#000", lineHeight: 1.1, letterSpacing: "-1.5px" }}>
-            <span style={{ fontWeight: 300 }}>Why Should You Choose</span><br/>
-            <span style={{ fontWeight: 800 }}>Geeta University's SCSE?</span>
+        {/* Header Block */}
+        <div style={{ marginBottom: 60, maxWidth: 900 }}>
+          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", display: "block", marginBottom: 12 }}>About SCSE</span>
+          <h2 style={{ fontSize: 48, fontWeight: 800, color: "#0A1F44", lineHeight: 1.15, letterSpacing: "-1px", marginBottom: 24 }}>
+            A School Built for the<br/>
+            <span style={{ color: "#E8871A" }}>Digital Age</span>
           </h2>
+          <p style={{ fontSize: 17, color: "#4A5568", lineHeight: 1.75, fontWeight: 500 }}>
+            The School of Computer Science & Engineering at Geeta University is a future-focused academic school where students learn to work with contemporary technologies and industry-relevant tools. Through a blend of classroom knowledge, hands-on exposure, certifications, coding practice, projects, and placement support, SCSE prepares learners to become job-ready professionals in a fast-changing digital economy.
+          </p>
         </div>
 
         <div 
@@ -924,82 +1007,67 @@ function AboutSchoolSection() {
 }
 
 const SPECIALISATIONS = [
-  { name: "Artificial Intelligence", desc: "Build intelligent systems and advanced neural networks.", icon: "🤖" },
-  { name: "Machine Learning", desc: "Develop algorithms that learn and predict from data.", icon: "🧠" },
-  { name: "Data Science", desc: "Extract insights from complex datasets to drive decisions.", icon: "📊" },
-  { name: "Cyber Security", desc: "Protect digital infrastructure and defend against cyber threats.", icon: "🔐" },
-  { name: "Cloud Computing", desc: "Design and manage scalable cloud architectures and services.", icon: "☁️" },
-  { name: "Full Stack Development", desc: "Master both front-end interfaces and back-end logic.", icon: "💻" },
-  { name: "Quantum Computing", desc: "Explore the next frontier of computational power.", icon: "⚛️" },
-  { name: "Software Engineering", desc: "Engineer robust, scalable, and efficient software solutions.", icon: "⚙️" }
+  { name: "Artificial Intelligence & Machine Learning", desc: "Intelligent systems, data-driven decision-making, and practical exposure to modern AI/ML applications" },
+  { name: "Cyber Security", desc: "Secure systems design, cyber hygiene, and security-oriented technical foundations" },
+  { name: "Data Science & Business Analytics with HCL", desc: "Data analysis connected with business insight and industry-linked skill development" },
+  { name: "Full Stack Web Development", desc: "End-to-end web application development through hands-on, stack-based learning" },
+  { name: "Quantum Computing", desc: "Emerging frontier concepts in computing and future-oriented technology" },
+  { name: "Computer Applications", desc: "Application-oriented computing foundations for software and digital tools" }
 ];
 
 function SpecialisationsSection() {
   return (
-    <section style={{ padding: "100px 0", background: "#F8FAFC", position: "relative" }}>
+    <section id="Specialisations" style={{ padding: "100px 0", background: "#F8FAFC", position: "relative" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ textAlign: "center", marginBottom: 60 }}>
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Specialisations</span>
-          <h2 style={{ fontSize: 48, fontWeight: 800, color: "#0A1F44", margin: "12px 0 0", lineHeight: 1.1, letterSpacing: "-1px" }}>
-            In-Demand Tech Domains
+        <div style={{ textAlign: "center", marginBottom: 56 }}>
+          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>
+            NEW-AGE SPECIALISATIONS
+          </span>
+          <h2 style={{ fontSize: 44, fontWeight: 900, color: "#0A1F44", margin: "12px 0 0", lineHeight: 1.1, letterSpacing: "-1px" }}>
+            Master the Technologies That Define Tomorrow
           </h2>
         </div>
 
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: 24
-        }}>
-          {SPECIALISATIONS.map((spec, i) => (
-            <div key={i} className="spec-card group">
-              <div style={{ fontSize: 36, background: "rgba(232,135,26,0.1)", width: 64, height: 64, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, marginBottom: 16 }}>
-                {spec.icon}
-              </div>
-              <h3 style={{ fontSize: 20, fontWeight: 800, color: "#0A1F44", margin: 0, transition: "color 0.3s" }} className="spec-title">
-                {spec.name}
-              </h3>
-              
-              <div className="spec-desc-container" style={{ display: "grid" }}>
-                <div style={{ overflow: "hidden", minHeight: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
-                  <p style={{ margin: "12px 0 0", color: "#64748B", lineHeight: 1.6, fontSize: 14 }}>
+        <div style={{ width: "100%", overflowX: "auto", borderRadius: 16, boxShadow: "0 10px 30px rgba(10,31,68,0.05)", border: "1px solid #E2E8F0", background: "#FFFFFF" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", minWidth: 600 }}>
+            <thead>
+              <tr style={{ background: "#0A1F44", color: "#FFFFFF" }}>
+                <th style={{ padding: "20px 28px", fontSize: 15, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1, width: "35%" }}>
+                  Specialisation
+                </th>
+                <th style={{ padding: "20px 28px", fontSize: 15, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1 }}>
+                  What You'll Learn
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {SPECIALISATIONS.map((spec, i) => (
+                <tr 
+                  key={i} 
+                  className="spec-table-row"
+                  style={{ 
+                    borderBottom: i < SPECIALISATIONS.length - 1 ? "1px solid #E2E8F0" : "none",
+                    background: i % 2 === 0 ? "#FFFFFF" : "#F8FAFC",
+                    transition: "all 0.2s ease"
+                  }}
+                >
+                  <td style={{ padding: "24px 28px", fontSize: 16, fontWeight: 800, color: "#0A1F44" }}>
+                    {spec.name}
+                  </td>
+                  <td style={{ padding: "24px 28px", fontSize: 15, color: "#4A5568", lineHeight: 1.6, fontWeight: 500 }}>
                     {spec.desc}
-                  </p>
-                  <div style={{ marginTop: 16, color: "#E8871A", fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", gap: 6, textTransform: "uppercase", letterSpacing: 1 }}>
-                    Explore <span style={{ fontSize: 16 }}>→</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
       <style>{`
-        .spec-card {
-          background: #FFFFFF;
-          border-radius: 16px;
-          padding: 32px 28px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-          border-bottom: 4px solid transparent;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          cursor: pointer;
-          position: relative;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
+        .spec-table-row:hover {
+          background-color: rgba(232, 135, 26, 0.04) !important;
         }
-        .spec-desc-container {
-          grid-template-rows: 0fr;
-          transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .spec-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-          border-bottom: 4px solid #E8871A;
-        }
-        .spec-card:hover .spec-desc-container {
-          grid-template-rows: 1fr;
-        }
-        .spec-card:hover .spec-title {
+        .spec-table-row:hover td:first-child {
           color: #E8871A !important;
         }
       `}</style>
@@ -1007,29 +1075,663 @@ function SpecialisationsSection() {
   );
 }
 
+// ─── GEETA TECHNICAL HUB (GTH) CONSTANTS & COMPONENTS ────────────────────────
+
+const GTH_PILLARS = [
+  {
+    title: "Certification Tracks",
+    icon: Award,
+    description: "Prepare for globally recognized industry credentials that validate your skills.",
+    pills: [
+      "AWS", "Oracle", "Cisco", "Red Hat Academy", 
+      "Microsoft Azure", "EC-Council Academia", 
+      "HubSpot", "GitHub", "Microsoft", "Automation Anywhere"
+    ]
+  },
+  {
+    title: "Coding Excellence",
+    icon: Code2,
+    description: "Hone logical thinking and competitive programming skills on leading platforms.",
+    pills: [
+      "Data Structures & Algorithms (DSA)", 
+      "Competitive Programming", 
+      "Logic Building", "Coding Platforms"
+    ]
+  },
+  {
+    title: "Industry Readiness",
+    icon: Briefcase,
+    description: "Develop T-shaped skills and holistic placement preparation for top employers.",
+    pills: [
+      "T-shaped learning", 
+      "Multi-skill development", 
+      "Placement preparation"
+    ]
+  }
+];
+
+const PLATFORMS_LIST = [
+  { name: "GitHub", brandKey: "GitHub" },
+  { name: "Visual Studio", brandKey: null },
+  { name: "Docker", brandKey: null },
+  { name: "AWS", brandKey: "Amazon AWS" },
+  { name: "Oracle", brandKey: "Oracle" },
+  { name: "Red Hat Academy", brandKey: "Red Hat" },
+  { name: "Microsoft Azure", brandKey: "Microsoft Azure" },
+  { name: "Cisco", brandKey: "Cisco" },
+  { name: "SAP", brandKey: null },
+  { name: "Coursera", brandKey: null },
+  { name: "edX", brandKey: null },
+  { name: "EC-Council Academia", brandKey: "EC-Council" },
+  { name: "VMware", brandKey: null },
+  { name: "CompTIA", brandKey: null },
+  { name: "HubSpot", brandKey: "HubSpot" }
+];
+
+function PlatformCard({ name, brandKey }: { name: string; brandKey: string | null }) {
+  const brand = brandKey ? BRAND_DATA[brandKey] : null;
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: 52,
+        padding: "0 20px",
+        borderRadius: 12,
+        background: "rgba(255, 255, 255, 0.03)",
+        border: "1px solid rgba(255, 255, 255, 0.08)",
+        backdropFilter: "blur(8px)",
+        transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+        cursor: "default",
+      }}
+      className="gth-platform-card"
+    >
+      {brand ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={brand.src}
+          alt={brand.label}
+          style={{
+            height: 24,
+            width: "auto",
+            maxWidth: 120,
+            objectFit: "contain",
+            opacity: 0.8,
+            transition: "opacity 0.3s ease, filter 0.3s ease",
+            filter: "brightness(0) invert(1)",
+          }}
+          className="gth-platform-img"
+        />
+      ) : (
+        <span
+          style={{
+            fontSize: 13,
+            fontWeight: 700,
+            color: "rgba(255, 255, 255, 0.8)",
+            letterSpacing: "0.03em",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {name}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function GeetaTechnicalHubSection() {
+  return (
+    <section
+      id="GeetaTechnicalHub"
+      style={{
+        background: "linear-gradient(180deg, #0A1F44 0%, #071530 100%)",
+        padding: "100px 0",
+        position: "relative",
+        overflow: "hidden",
+        borderTop: "3px solid #E8871A",
+      }}
+    >
+      {/* Decorative background glow elements */}
+      <div style={{
+        position: "absolute",
+        top: "-10%",
+        right: "-10%",
+        width: "50%",
+        height: "50%",
+        borderRadius: "50%",
+        background: "radial-gradient(circle, rgba(232, 135, 26, 0.08) 0%, transparent 70%)",
+        pointerEvents: "none",
+        zIndex: 0
+      }} />
+      <div style={{
+        position: "absolute",
+        bottom: "-10%",
+        left: "-10%",
+        width: "50%",
+        height: "50%",
+        borderRadius: "50%",
+        background: "radial-gradient(circle, rgba(23, 82, 130, 0.15) 0%, transparent 70%)",
+        pointerEvents: "none",
+        zIndex: 0
+      }} />
+
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
+        
+        {/* Header Block */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.65 }}
+          style={{ marginBottom: 60 }}
+        >
+          {/* Eyebrow */}
+          <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
+            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+            <span style={{
+              color: "#E8871A", fontWeight: 700, fontSize: 11,
+              letterSpacing: "0.22em", textTransform: "uppercase",
+            }}>
+              CENTRE OF EXCELLENCE
+            </span>
+          </div>
+
+          {/* Heading + Subheading + Description Grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "flex-end" }}
+            className="gth-header-grid">
+            <div>
+              <h2 style={{
+                fontSize: 52, fontWeight: 950, color: "#FFFFFF",
+                margin: 0, lineHeight: 1.1, letterSpacing: "-1.5px",
+              }}>
+                Geeta Technical <span style={{ color: "#E8871A" }}>Hub (GTH)</span>
+              </h2>
+              <p style={{
+                fontSize: 20, fontWeight: 600, color: "rgba(255,255,255,0.85)",
+                margin: "12px 0 0", lineHeight: 1.3
+              }}>
+                The Engine Behind SCSE's Technical Edge
+              </p>
+            </div>
+            <p style={{
+              color: "rgba(255,255,255,0.6)", fontSize: 16,
+              lineHeight: 1.8, margin: 0, fontWeight: 400,
+            }}>
+              The Geeta Technical Hub (GTH) is SCSE's Centre of Excellence — a dedicated ecosystem that powers technical learning, certification, and placement readiness.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Pillars Grid */}
+        <div 
+          style={{ 
+            display: "grid", 
+            gridTemplateColumns: "repeat(3, 1fr)", 
+            gap: 28,
+            marginBottom: 72 
+          }}
+          className="gth-pillars-grid"
+        >
+          {GTH_PILLARS.map((pillar, index) => {
+            const IconComponent = pillar.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="gth-pillar-card"
+                style={{
+                  background: "rgba(255, 255, 255, 0.02)",
+                  border: "1px solid rgba(255, 255, 255, 0.05)",
+                  borderRadius: 20,
+                  padding: 32,
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                  transition: "all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                }}
+              >
+                {/* Icon Wrapper */}
+                <div 
+                  className="gth-icon-box"
+                  style={{
+                    width: 52,
+                    height: 52,
+                    borderRadius: 14,
+                    background: "rgba(232, 135, 26, 0.1)",
+                    border: "1px solid rgba(232, 135, 26, 0.3)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: 24,
+                    transition: "all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                  }}
+                >
+                  <IconComponent style={{ width: 24, height: 24, color: "#E8871A" }} />
+                </div>
+
+                {/* Title */}
+                <h3 style={{ fontSize: 22, fontWeight: 800, color: "#FFFFFF", marginBottom: 12, letterSpacing: "-0.5px" }}>
+                  {pillar.title}
+                </h3>
+
+                {/* Description */}
+                <p style={{ fontSize: 14, color: "rgba(255, 255, 255, 0.5)", lineHeight: 1.6, marginBottom: 28 }}>
+                  {pillar.description}
+                </p>
+
+                {/* Pills Container */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: "auto" }}>
+                  {pillar.pills.map((pill, pIndex) => (
+                    <span 
+                      key={pIndex} 
+                      className="gth-pill"
+                      style={{
+                        padding: "6px 14px",
+                        background: "rgba(255, 255, 255, 0.04)",
+                        border: "1px solid rgba(255, 255, 255, 0.08)",
+                        borderRadius: 100,
+                        color: "rgba(255, 255, 255, 0.8)",
+                        fontSize: 12,
+                        fontWeight: 600,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 6
+                      }}
+                    >
+                      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#E8871A" }} />
+                      {pill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Supported Platforms Container */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.7 }}
+          style={{
+            borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+            paddingTop: 48,
+          }}
+        >
+          <div style={{ textAlign: "center", marginBottom: 32 }}>
+            <p style={{ margin: 0, fontSize: 13, color: "rgba(255, 255, 255, 0.5)", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>
+              Tool-Integrated & Certification-Aligned Platforms
+            </p>
+          </div>
+
+          <div 
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(5, 1fr)",
+              gap: 16,
+            }}
+            className="gth-platforms-grid"
+          >
+            {PLATFORMS_LIST.map((platform, idx) => (
+              <PlatformCard key={idx} name={platform.name} brandKey={platform.brandKey} />
+            ))}
+          </div>
+        </motion.div>
+
+      </div>
+
+      {/* Embedded CSS styles */}
+      <style>{`
+        @media (max-width: 960px) {
+          .gth-header-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .gth-pillars-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .gth-platforms-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .gth-platforms-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        .gth-pillar-card:hover {
+          border-color: rgba(232, 135, 26, 0.4) !important;
+          background: rgba(255, 255, 255, 0.04) !important;
+          transform: translateY(-6px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+        }
+        .gth-pillar-card:hover .gth-icon-box {
+          transform: scale(1.1) rotate(5deg);
+          border-color: rgba(232, 135, 26, 0.8) !important;
+          background: rgba(232, 135, 26, 0.2) !important;
+        }
+        .gth-pill {
+          transition: all 0.2s ease;
+        }
+        .gth-pill:hover {
+          background: rgba(232, 135, 26, 0.15) !important;
+          border-color: rgba(232, 135, 26, 0.5) !important;
+          color: #FFFFFF !important;
+        }
+      `}</style>
+    </section>
+  );
+}
+
+// ─── INTERNATIONAL & INDUSTRY PARTNERS CONSTANTS & COMPONENTS ───────────────
+
+const PARTNERS_LIST = [
+  { name: "Cisco", brandKey: "Cisco" },
+  { name: "Oracle", brandKey: "Oracle" },
+  { name: "Amazon AWS", brandKey: "Amazon AWS" },
+  { name: "Microsoft Azure", brandKey: "Microsoft Azure" },
+  { name: "GitHub", brandKey: "GitHub" },
+  { name: "Red Hat Academy", brandKey: "Red Hat" },
+  { name: "EC-Council Academia", brandKey: "EC-Council" },
+  { name: "VMware", brandKey: null },
+  { name: "CompTIA", brandKey: null },
+  { name: "HubSpot", brandKey: "HubSpot" },
+  { name: "SAP", brandKey: null },
+  { name: "Coursera", brandKey: null },
+  { name: "edX", brandKey: null },
+  { name: "Autodesk", brandKey: null }
+];
+
+function PartnerLogoCard({ name, brandKey }: { name: string; brandKey: string | null }) {
+  const brand = brandKey ? BRAND_DATA[brandKey] : null;
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: 64,
+        padding: "0 24px",
+        borderRadius: 14,
+        background: "#FFFFFF",
+        border: "1px solid #E2E8F0",
+        boxShadow: "0 4px 12px rgba(10,31,68,0.03)",
+        transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+        cursor: "default",
+      }}
+      className="gth-partner-card"
+    >
+      {brand ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={brand.src}
+          alt={brand.label}
+          style={{
+            height: 28,
+            width: "auto",
+            maxWidth: 130,
+            objectFit: "contain",
+            opacity: 0.85,
+            transition: "all 0.3s ease",
+          }}
+          className="gth-partner-img"
+        />
+      ) : (
+        <span
+          style={{
+            fontSize: 14,
+            fontWeight: 800,
+            color: "#0A1F44",
+            letterSpacing: "0.02em",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {name}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function InternationalPartnersSection() {
+  return (
+    <section
+      id="InternationalPartners"
+      style={{
+        background: "#F8FAFC",
+        padding: "90px 0",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Decorative radial glows */}
+      <div style={{
+        position: "absolute",
+        top: 0,
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "70%",
+        height: "100%",
+        background: "radial-gradient(circle, rgba(232, 135, 26, 0.03) 0%, transparent 80%)",
+        pointerEvents: "none",
+        zIndex: 0
+      }} />
+
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
+        
+        {/* Header Block */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          style={{ textAlign: "center", marginBottom: 52 }}
+        >
+          {/* Eyebrow */}
+          <span style={{
+            color: "#E8871A", fontWeight: 700, fontSize: 11,
+            letterSpacing: "0.22em", textTransform: "uppercase",
+            display: "block", marginBottom: 12
+          }}>
+            GLOBAL REACH & INDUSTRY LINKS
+          </span>
+
+          {/* Heading */}
+          <h2 style={{
+            fontSize: 44, fontWeight: 900, color: "#0A1F44",
+            margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-1px"
+          }}>
+            International & Industry Partners
+          </h2>
+
+          <p style={{
+            color: "#4A5568", fontSize: 16,
+            lineHeight: 1.7, margin: "0 auto", fontWeight: 500,
+            maxWidth: 800
+          }}>
+            Learning Powered by Global Ecosystems — SCSE's skill development and certification programs are supported by a robust ecosystem of globally recognized learning, certification, and training partners.
+          </p>
+        </motion.div>
+
+        {/* Partners Grid */}
+        <div 
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(5, 1fr)",
+            gap: 18,
+            marginBottom: 44
+          }}
+          className="partners-grid"
+        >
+          {PARTNERS_LIST.map((partner, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+            >
+              <PartnerLogoCard name={partner.name} brandKey={partner.brandKey} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom Banner info */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 12,
+            background: "rgba(232, 135, 26, 0.06)",
+            border: "1px solid rgba(232, 135, 26, 0.15)",
+            borderRadius: 14,
+            padding: "16px 24px",
+            maxWidth: 720,
+            margin: "0 auto"
+          }}
+        >
+          <Award style={{ width: 20, height: 20, color: "#E8871A", flexShrink: 0 }} />
+          <span style={{ fontSize: 14, color: "#2D3748", fontWeight: 600, lineHeight: 1.5, textAlign: "center" }}>
+            These partnerships support student skill development through certifications, training programs, and platform-integrated learning.
+          </span>
+        </motion.div>
+
+      </div>
+
+      {/* Embedded CSS styles */}
+      <style>{`
+        @media (max-width: 960px) {
+          .partners-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .partners-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        .gth-partner-card:hover {
+          border-color: #E8871A !important;
+          transform: translateY(-3px);
+          box-shadow: 0 12px 24px rgba(10,31,68,0.08) !important;
+        }
+        .gth-partner-card:hover .gth-partner-img {
+          opacity: 1 !important;
+        }
+      `}</style>
+    </section>
+  );
+}
+
 const MENTORS = [
-  { name: "Dr. Kapil Saini", role: "Head of Department, Ph.D.", img: "/dummy.png" },
-  { name: "Mr. Hemant Singh", role: "Assistant Professor, M.Tech.", img: "/dummy.png" },
-  { name: "Ms. Rakhi Chauhan", role: "Assistant Professor, M.Tech., Ph.D. (Pursuing)", img: "/dummy.png" },
-  { name: "Dr. Poonam", role: "Associate Professor, Ph.D.", img: "/dummy.png" },
-  { name: "Dr. Amit Jain", role: "Associate Dean, School of Computer Science & Engineering", img: "/dummy.png" },
-  { name: "Ms. Richa Jain", role: "Assistant Professor", img: "/dummy.png" },
-  { name: "Mr. Pankaj Bajaj", role: "Chief Operating Officer, Geeta Technical Hub (GTH)", img: "/dummy.png" },
-  { name: "Mr. Vishal Jain", role: "Professor of Practice", img: "/dummy.png" },
-  { name: "Mr. Sunny Pathak", role: "Professor of Practice", img: "/dummy.png" },
-  { name: "Mr. Kartik Mathur", role: "Professor of Practice", img: "/dummy.png" },
-  { name: "Mr. Varun Kohli", role: "Professor of Practice", img: "/dummy.png" },
-  { name: "Ms. Jyoti", role: "Professor of Practice", img: "/dummy.png" },
-  { name: "Mohammad Aslam", role: "Technical Hub Trainer", img: "/dummy.png" },
-  { name: "Ronak Duggar", role: "Technical Hub Trainer", img: "/dummy.png" },
-  { name: "Sanyam Ahuja", role: "Technical Hub Trainer", img: "/dummy.png" },
-  { name: "Ram Mohan Dixit", role: "Technical Hub Trainer", img: "/dummy.png" },
-  { name: "Gautam Mukherjee", role: "Technical Hub Trainer", img: "/dummy.png" },
-  { name: "Maninder Singh", role: "Technical Hub Trainer", img: "/dummy.png" }
+  {
+    name: "Dr. Shamneesh Sharma",
+    role: "Associate Dean, School of Computer Science & Engineering",
+    desc: "A highly experienced academic leader committed to building an innovation-led learning environment at SCSE.",
+    img: "/dummy.png"
+  },
+  {
+    name: "Dr. Kapil Saini",
+    role: "Head of Department",
+    desc: "An accomplished academician and researcher with 25+ Scopus/WoS publications and multiple patents, bringing strong research and teaching leadership to the school.",
+    img: "/dummy.png"
+  },
+  {
+    name: "Dr. Poonam",
+    role: "Associate Professor",
+    img: "/dummy.png"
+  },
+  {
+    name: "Pankaj Bajaj",
+    role: "Chief Operating Officer, Geeta Technical Hub (GTH)",
+    img: "/dummy.png"
+  },
+  {
+    name: "Rakhi Chauhan",
+    role: "Assistant Professor (Ph.D. Pursuing)",
+    img: "/dummy.png"
+  },
+  {
+    name: "Richa Jain",
+    role: "Assistant Professor",
+    img: "/dummy.png"
+  },
+  {
+    name: "Hemant Kumar",
+    role: "Assistant Professor",
+    img: "/dummy.png"
+  },
+  {
+    name: "Vishal Jain",
+    role: "Professor of Practice",
+    desc: "Founder, Samatrix Consulting; IIT Kharagpur & IIM Ahmedabad alumnus; specializes in Data Analytics, Machine Learning, Deep Learning, and Blockchain",
+    img: "/dummy.png"
+  },
+  {
+    name: "Sunny Pathak",
+    role: "Professor of Practice",
+    desc: "Co-Founder, Samatrix Consulting; expertise in Market Research, Brand Positioning, Analytics, and Pricing",
+    img: "/dummy.png"
+  },
+  {
+    name: "Kartik Mathur",
+    role: "Professor of Practice",
+    desc: "Founding Member, Coding Blocks; NSUT graduate; Competitive Programmer and Full Stack Developer; has trained 40,000+ students",
+    img: "/dummy.png"
+  },
+  {
+    name: "Varun Kohli",
+    role: "Professor of Practice",
+    desc: "CEO, Coding Blocks; experience in large-scale applications, startups, and EdTech",
+    img: "/dummy.png"
+  },
+  {
+    name: "Jyoti",
+    role: "Professor of Practice",
+    img: "/dummy.png"
+  },
+  {
+    name: "Mohammad Aslam",
+    role: "Technical Hub Trainer",
+    img: "/dummy.png"
+  },
+  {
+    name: "Ronak Duggar",
+    role: "Technical Hub Trainer",
+    img: "/dummy.png"
+  },
+  {
+    name: "Maninder Singh",
+    role: "Technical Hub Trainer",
+    img: "/dummy.png"
+  },
+  {
+    name: "Ram Mohan Dixit",
+    role: "Technical Hub Trainer",
+    img: "/dummy.png"
+  },
+  {
+    name: "Gautam Mukherjee",
+    role: "Technical Hub Trainer",
+    img: "/dummy.png"
+  }
 ];
 
 function MentorsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedMentor, setSelectedMentor] = useState<typeof MENTORS[0] | null>(null);
 
   const scrollLeft = () => {
     if (scrollRef.current) scrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
@@ -1039,15 +1741,23 @@ function MentorsSection() {
     if (scrollRef.current) scrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
   };
 
+  const getMentorDesc = (m: typeof MENTORS[0]) => {
+    if (m.desc) return m.desc;
+    if (m.role.includes("Trainer")) {
+      return "Technical hub trainer delivering hands-on instruction and industry upskilling in coding labs.";
+    }
+    return "Academic educator dedicated to student mentorship, research, and software engineering foundations.";
+  };
+
   return (
     <section id="Mentors" style={{ padding: "80px 0", background: "#FFFFFF", overflow: "hidden" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
-        <h2 style={{ fontSize: 44, fontWeight: 800, color: "#003B5C", lineHeight: 1.2, letterSpacing: "-1px" }}>
-          Meet Our Mentors
+        <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", display: "block", marginBottom: 12 }}>
+          ACADEMIC LEADERSHIP & FACULTY
+        </span>
+        <h2 style={{ fontSize: 44, fontWeight: 800, color: "#0A1F44", lineHeight: 1.2, letterSpacing: "-1px" }}>
+          Led by Experts, Guided by Industry.
         </h2>
-        <p style={{ fontSize: 20, color: "#64748B", marginTop: 8, fontWeight: 500 }}>
-          Guiding Futures with Expertise, Experience & Empathy
-        </p>
         
         <div style={{ position: "relative", marginTop: 48 }}>
           <div 
@@ -1070,29 +1780,63 @@ function MentorsSection() {
                   flexShrink: 0,
                 }}
               >
-                <CardContainer containerClassName="py-0" className="w-[280px]">
-                  <CardBody className="bg-[#F3F4F6] relative group/card w-full rounded-2xl flex flex-col overflow-hidden border border-black/5 hover:shadow-2xl hover:shadow-[#E8871A]/20 pb-6 transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.03)] h-auto">
-                    <CardItem translateZ="150" className="w-full h-[300px] bg-[#E5E7EB] relative">
-                      <img src={m.img} alt={m.name} className="w-full h-full object-cover mix-blend-multiply opacity-80" />
-                    </CardItem>
-                    
-                    <div className="px-5 pt-6 text-center flex flex-col flex-1 relative z-10 w-full items-center">
-                      <CardItem translateZ="80">
-                        <h3 className="text-[20px] font-extrabold text-[#0A1F44] m-0">{m.name}</h3>
-                      </CardItem>
+                <div 
+                  className="mentor-card"
+                  style={{
+                    width: 280,
+                    height: 500,
+                    background: "#F3F4F6",
+                    borderRadius: 16,
+                    display: "flex",
+                    flexDirection: "column",
+                    overflow: "hidden",
+                    border: "1px solid rgba(0,0,0,0.05)",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+                  }}
+                >
+                  <div style={{ width: "100%", height: 200, background: "#E5E7EB", position: "relative" }}>
+                    <img src={m.img} alt={m.name} style={{ width: "100%", height: "100%", objectFit: "cover", mixBlendMode: "multiply", opacity: 0.8 }} />
+                  </div>
+                  
+                  <div style={{ padding: "20px 20px 24px", textAlign: "center", display: "flex", flexDirection: "column", flex: 1, justifyContent: "space-between", alignItems: "center" }}>
+                    <div style={{ width: "100%" }}>
+                      <h3 style={{ fontSize: 20, fontWeight: 800, color: "#0A1F44", margin: 0, minHeight: 52, display: "flex", alignItems: "center", justifyContent: "center", lineHeight: 1.2 }}>
+                        {m.name}
+                      </h3>
                       
-                      <CardItem translateZ="90" as="p" className="text-[13px] text-[#64748B] mt-2 min-h-[40px] leading-relaxed w-full">
+                      <p style={{ fontSize: 14, color: "#E8871A", fontWeight: 700, margin: "6px 0 0", minHeight: 40, display: "flex", alignItems: "center", justifyContent: "center", lineHeight: 1.3 }}>
                         {m.role}
-                      </CardItem>
-                      
-                      <div className="w-full border-b border-dashed border-[#CBD5E1] my-5" />
-                      
-                      <CardItem translateZ="70" className="mt-auto text-[#64748B] text-sm font-semibold flex items-center justify-center cursor-pointer transition-colors hover:text-[#E8871A] w-full">
-                        → Read More
-                      </CardItem>
+                      </p>
+
+                      <p style={{ fontSize: 13, color: "#64748B", margin: "10px 0 0", lineHeight: 1.5, minHeight: 60, display: "flex", alignItems: "center", justifyContent: "center" }} className="line-clamp-3">
+                        {getMentorDesc(m)}
+                      </p>
                     </div>
-                  </CardBody>
-                </CardContainer>
+                    
+                    <div style={{ width: "100%" }}>
+                      <div style={{ width: "100%", borderBottom: "1px dashed #CBD5E1", margin: "14px 0" }} />
+                      
+                      <button 
+                        onClick={() => setSelectedMentor(m)}
+                        className="read-more-btn"
+                        style={{
+                          background: "none",
+                          border: "none",
+                          color: "#64748B",
+                          fontSize: 14,
+                          fontWeight: 700,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          cursor: "pointer",
+                          width: "100%",
+                        }}
+                      >
+                        → Read More
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -1111,6 +1855,130 @@ function MentorsSection() {
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
         </div>
+
+        {/* Modal */}
+        <AnimatePresence>
+          {selectedMentor && (
+            <div 
+              style={{
+                position: "fixed",
+                inset: 0,
+                zIndex: 999,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: 24,
+              }}
+            >
+              {/* Backdrop */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedMentor(null)}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "rgba(10,31,68,0.5)",
+                  backdropFilter: "blur(8px)",
+                }}
+              />
+
+              {/* Modal Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ type: "spring", duration: 0.5 }}
+                style={{
+                  position: "relative",
+                  background: "#FFFFFF",
+                  borderRadius: 24,
+                  padding: "40px 32px 32px",
+                  maxWidth: 480,
+                  width: "100%",
+                  boxShadow: "0 24px 60px rgba(0,0,0,0.18)",
+                  zIndex: 1000,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center"
+                }}
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setSelectedMentor(null)}
+                  style={{
+                    position: "absolute",
+                    top: 20,
+                    right: 20,
+                    background: "#F1F5F9",
+                    border: "none",
+                    width: 36,
+                    height: 36,
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    color: "#64748B",
+                    fontSize: 16,
+                    transition: "all 0.2s"
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "#E2E8F0"; e.currentTarget.style.color = "#0F172A"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "#F1F5F9"; e.currentTarget.style.color = "#64748B"; }}
+                >
+                  ✕
+                </button>
+
+                {/* Profile Image */}
+                <div style={{ width: 120, height: 120, borderRadius: "50%", overflow: "hidden", background: "#E5E7EB", marginBottom: 24, border: "4px solid #F1F5F9", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
+                  <img src={selectedMentor.img} alt={selectedMentor.name} style={{ width: "100%", height: "100%", objectFit: "cover", mixBlendMode: "multiply", opacity: 0.9 }} />
+                </div>
+
+                {/* Name */}
+                <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", margin: 0 }}>
+                  {selectedMentor.name}
+                </h3>
+
+                {/* Role */}
+                <p style={{ fontSize: 14, fontWeight: 700, color: "#E8871A", marginTop: 8, marginBottom: 20, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                  {selectedMentor.role}
+                </p>
+
+                {/* Divider */}
+                <div style={{ width: "100%", borderBottom: "1px solid #E2E8F0", marginBottom: 20 }} />
+
+                {/* Description */}
+                <p style={{ fontSize: 14, color: "#4A5568", lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+                  {getMentorDesc(selectedMentor)}
+                </p>
+
+                {/* Action Button */}
+                <button
+                  onClick={() => setSelectedMentor(null)}
+                  style={{
+                    marginTop: 28,
+                    padding: "12px 36px",
+                    background: "#0A1F44",
+                    color: "#FFFFFF",
+                    border: "none",
+                    borderRadius: 12,
+                    fontWeight: 700,
+                    fontSize: 14,
+                    cursor: "pointer",
+                    transition: "all 0.2s"
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.background = "#E8871A"}
+                  onMouseLeave={e => e.currentTarget.style.background = "#0A1F44"}
+                >
+                  Close Profile
+                </button>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+
       </div>
       <style>{`
         .hide-scroll::-webkit-scrollbar {
@@ -1119,6 +1987,19 @@ function MentorsSection() {
         .hide-scroll {
           -ms-overflow-style: none;
           scrollbar-width: none;
+        }
+        .mentor-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        .mentor-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 12px 24px rgba(232,135,26,0.12) !important;
+        }
+        .read-more-btn {
+          transition: color 0.2s ease !important;
+        }
+        .read-more-btn:hover {
+          color: #E8871A !important;
         }
       `}</style>
     </section>
@@ -1130,19 +2011,42 @@ const NEW_PROGRAMS_DATA = [
     level: "Under-Graduate",
     items: [
       {
-        program: "B.Tech CSE",
-        duration: "4 years",
-        details: <><strong>Specializations:</strong> AI & ML, Cyber Security, Data Science & Business Analytics with HCL, Full Stack Web Development, and Quantum Computing and NIAT Upskilling.<br/><br/><strong>Requirement:</strong> Passed 10+2 with Physics and Math as compulsory subjects and one of the following subjects: Chemistry / Computer Science / Electronics / IT / Biology / Informatics Practices / Biotechnology / Technical / Vocational subject / Agriculture / Engineering Graphics / Business Studies / Entrepreneurship with a minimum 55% marks.<br/><strong style={{ color: "#E8871A" }}>OR</strong><br/>Passed D.Voc. Stream with a minimum 55% marks in the same or allied sector.</>
+        program: "B.Tech — Computer Science & Engineering",
+        duration: "4 Years",
+        details: (
+          <>
+            An engineering degree built around core computer science, advanced technical study, and specializations in high-demand domains.
+            <br />
+            <br />
+            <strong>Specializations available:</strong>
+            <ul style={{ margin: "8px 0 0 20px", padding: 0, listStyleType: "disc" }}>
+              <li>Artificial Intelligence & Machine Learning</li>
+              <li>Cyber Security</li>
+              <li>Data Science & Business Analytics (with HCL)</li>
+              <li>Full Stack Web Development</li>
+              <li>Quantum Computing</li>
+              <li>NIAT Upskilling</li>
+            </ul>
+            <br />
+            <strong>Eligibility:</strong> Passed 10+2 with Physics and Mathematics as compulsory subjects plus one of: Chemistry / Computer Science / Electronics / IT / Biology / Informatics Practices / Biotechnology / Technical/Vocational Subject / Agriculture / Engineering Graphics / Business Studies / Entrepreneurship — with a minimum of 55% marks.
+            <br />
+            <strong style={{ color: "#E8871A" }}>OR</strong> Passed D.Voc. Stream with a minimum of 55% marks in the same or allied sector.
+          </>
+        )
       },
       {
-        program: "B.Tech Civil Engineering",
-        duration: "4 years",
-        details: <>Also includes B.Tech Hons. Civil Engineering (AI & Digital Transformation).<br/><br/><strong>Requirement:</strong> Passed 10+2 with Physics, Chemistry, Mathematics.<br/><strong style={{ color: "#E8871A" }}>OR</strong><br/>Passed D.Voc. Stream in the same or allied sector. Obtained at least 45% marks (40% marks in case of candidates belonging to reserved category).</>
-      },
-      {
-        program: "BCA",
-        duration: "3/4 years",
-        details: <><strong>Options listed include:</strong> Computer Applications, AI & ML, Cyber Security, and Data Science & Business Analytics.<br/><br/><strong>Requirement:</strong> Passed 10+2 examination with at least 50% marks.<br/><strong style={{ color: "#E8871A" }}>OR</strong><br/>Passed Diploma in Commercial Practice or equivalent with at least 50% marks.</>
+        program: "BCA — Bachelor of Computer Applications",
+        duration: "3/4 Years",
+        details: (
+          <>
+            Application-oriented computing with specialization options in Computer Applications, AI & ML, Cyber Security, and Data Science & Business Analytics.
+            <br />
+            <br />
+            <strong>Eligibility:</strong> Passed 10+2 with a minimum of 50% marks.
+            <br />
+            <strong style={{ color: "#E8871A" }}>OR</strong> Passed Diploma in Commercial Practice or equivalent with a minimum of 50% marks.
+          </>
+        )
       }
     ]
   },
@@ -1150,19 +2054,22 @@ const NEW_PROGRAMS_DATA = [
     level: "Post-Graduate",
     items: [
       {
-        program: "M.Tech CSE",
-        duration: "2 years",
-        details: <>Bachelor’s degree in any stream with minimum 50% marks; mathematics preferred at 10+2 or graduation level.</>
+        program: "M.Tech — Computer Science & Engineering",
+        duration: "2 Years",
+        details: (
+          <>
+            <strong>Eligibility:</strong> Bachelor's degree in any stream with a minimum of 50% marks; Mathematics preferred at 10+2 or graduation level.
+          </>
+        )
       },
       {
-        program: "M.Tech Civil Engineering",
-        duration: "2 years",
-        details: <>Passed Bachelor’s Degree or equivalent. Obtained at least 50% marks (45% marks in case of candidates belonging to reserved category) in the qualifying examination.</>
-      },
-      {
-        program: "MCA",
-        duration: "2 years",
-        details: <>BCA/B.Sc. (CS)/equivalent or graduate degree with mathematics at 10+2 or graduation level and minimum 50% marks.</>
+        program: "MCA — Master of Computer Applications",
+        duration: "2 Years",
+        details: (
+          <>
+            <strong>Eligibility:</strong> BCA / B.Sc. (CS) / equivalent, or a graduate degree with Mathematics at 10+2 or graduation level, and a minimum of 50% marks.
+          </>
+        )
       }
     ]
   },
@@ -1170,9 +2077,13 @@ const NEW_PROGRAMS_DATA = [
     level: "Doctoral (Ph.D.)",
     items: [
       {
-        program: "Ph.D.",
-        duration: "Minimum 3 years",
-        details: <>Offered in Computer Applications and Computer Science & Engineering for candidates with a relevant master’s degree and minimum 55% marks.</>
+        program: "Ph.D. — Computer Applications / Computer Science & Engineering",
+        duration: "Minimum 3 Years",
+        details: (
+          <>
+            <strong>Eligibility:</strong> Relevant master's degree with a minimum of 55% marks.
+          </>
+        )
       }
     ]
   }
@@ -1361,33 +2272,43 @@ function ProgramsOfferedSection() {
 
 const DEPT_HIGHLIGHTS_DATA = [
   {
-    title: "Hackforge ’25",
+    title: "Hackforge '25",
     desc: "A 24-hour tech marathon focused on coding, creation, innovation, teamwork, and mentor-guided problem solving.",
     image: "/dummy.png",
   },
   {
     title: "SIH 2024 Finalists",
-    desc: "A proud Geeta University moment supporting innovation-led student participation in the Smart India Hackathon.",
+    desc: "Proud representation by Geeta University students at the Smart India Hackathon 2024.",
     image: "/dummy.png",
   },
   {
-    title: "Cybersecurity Awareness",
-    desc: "Comprehensive awareness program hosted by Geeta Technical Hub for students and the wider campus.",
+    title: "Cybersecurity Awareness Program",
+    desc: "Hosted by Geeta Technical Hub.",
     image: "/dummy.png",
   },
   {
-    title: "Global Certification Tracks",
-    desc: "AWS, Red Hat, Cisco, HubSpot, GitHub, Oracle, and Microsoft Azure certifications directly integrated into the curriculum.",
+    title: "Certification Tracks",
+    desc: "In AWS, Red Hat, Cisco, HubSpot, GitHub, Oracle, and Microsoft Azure.",
+    image: "/dummy.png",
+  },
+  {
+    title: "Drive-Ready Tracks",
+    desc: "In MEAN/MERN Stack, PHP & MySQL, Python Development, Cyber Security Fundamentals, Artificial Intelligence, and Machine Learning.",
+    image: "/dummy.png",
+  },
+  {
+    title: "DSA & Competitive Coding",
+    desc: "Logic building, problem-solving techniques, advanced algorithms, and competitive programming.",
+    image: "/dummy.png",
+  },
+  {
+    title: "Milestone Actions",
+    desc: "G-connect, Alumni Connect, T Shaped Technocrat, Multi-Skill Development, Project Roundup, Techno Coders, Midnight Syntax.",
     image: "/dummy.png",
   },
   {
     title: "Outcomes & Scale",
-    desc: "25+ Hackathons Conducted • 150+ Projects Delivered • 500+ Internships Secured • 3000+ Global Certifications.",
-    image: "/dummy.png",
-  },
-  {
-    title: "Drive-Ready Tech & DSA",
-    desc: "Focus on MEAN/MERN Stack, Python, AI/ML, logic building, advanced algorithms, and competitive programming.",
+    desc: "25+ Hackathons conducted • 350+ Projects delivered • 500+ Internships secured • 3,000+ Global Certifications earned.",
     image: "/dummy.png",
   }
 ];
@@ -1417,7 +2338,7 @@ function TestimonialsSection() {
               color: "#E8871A", fontWeight: 700, fontSize: 11,
               letterSpacing: "0.22em", textTransform: "uppercase",
             }}>
-              Voices of Success
+              STUDENT TESTIMONIALS
             </span>
             <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
           </div>
@@ -1425,7 +2346,7 @@ function TestimonialsSection() {
             fontSize: 44, fontWeight: 900, color: "#FFFFFF",
             margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-1.5px"
           }}>
-            Student Testimonials
+            Straight from Those Who've Been There
           </h2>
           <p style={{ fontSize: 16, color: "rgba(255, 255, 255, 0.7)", maxWidth: 750, margin: "0 auto", lineHeight: 1.7, fontWeight: 450 }}>
             Read first-hand accounts from our alumni and students about their career transformations, academic mentorship, and experiential journey at SCSE.
@@ -1442,7 +2363,11 @@ function TestimonialsSection() {
         }}>
           {TESTIMONIALS.map((item, idx) => {
             const initials = item.name.split(" ").map(n => n[0]).join("");
-            const displayRole = `${item.role}, ${item.company}`;
+            const displayDetails = [
+              "B.Tech CSE",
+              item.role && item.role !== "B.Tech CSE Alumni" ? `${item.role}, ${item.company}` : item.company,
+              item.pkg
+            ].filter(Boolean).join(" | ");
             return (
               <motion.div
                 key={idx}
@@ -1517,7 +2442,7 @@ function TestimonialsSection() {
                       {item.name}
                     </h4>
                     <p style={{ color: "rgba(255, 255, 255, 0.5)", fontSize: "12.5px", margin: 0, fontWeight: 450, lineHeight: 1.3 }}>
-                      B.Tech CSE · {displayRole}
+                      {displayDetails}
                     </p>
                   </div>
                 </div>
@@ -1558,12 +2483,12 @@ function DepartmentHighlightsSection() {
           transition={{ duration: 0.6 }}
           style={{ textAlign: "center", marginBottom: 60 }}
         >
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>Ecosystem & Initiatives</span>
+          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>DEPARTMENT HIGHLIGHTS</span>
           <h2 style={{ fontSize: 44, fontWeight: 900, color: "#0A1F44", margin: "12px 0 16px", lineHeight: 1.1, letterSpacing: "-1px" }}>
-            Department Highlights
+            Where Learning Meets Achievement
           </h2>
           <p style={{ fontSize: 18, color: "#4A5568", maxWidth: 800, margin: "0 auto", lineHeight: 1.6 }}>
-            Visual evidence of an active technical ecosystem through hackathons, certifications, internships, and drive-ready coding tracks.
+            SCSE is an active, achievement-driven school — not just a classroom environment. Here's a glimpse of what students experience:
           </p>
         </motion.div>
       </div>
@@ -1683,7 +2608,7 @@ function LearningSpacesSection() {
               color: "#E8871A", fontWeight: 700, fontSize: 11,
               letterSpacing: "0.22em", textTransform: "uppercase",
             }}>
-              World-Class Infrastructure
+              LEARNING SPACES & INFRASTRUCTURE
             </span>
             <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
           </div>
@@ -1691,13 +2616,10 @@ function LearningSpacesSection() {
             fontSize: 48, fontWeight: 900, color: "#0A1F44",
             margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-1.5px"
           }}>
-            Highlights of Learning Spaces
+            Infrastructure Built for Experiential Learning
           </h2>
           <p style={{ fontSize: 16, color: "#475569", maxWidth: 850, margin: "0 auto", lineHeight: 1.7, fontWeight: 450 }}>
-            The expert faculty and world-class infrastructure have played a major role in the school’s growth. SCSE provides a highly practical learning environment built around certifications, coding tracks, real-world projects, hackathons, expert trainers, and tool-integrated learning.
-          </p>
-          <p style={{ fontSize: 15, color: "#E8871A", fontWeight: 700, marginTop: 12, textTransform: "uppercase", letterSpacing: 1 }}>
-            All Designed for Experiential Learning
+            SCSE students learn in advanced, purpose-built environments designed not just as physical spaces but as active arenas for coding, mentorship, technical training, and applied experimentation:
           </p>
         </div>
 
@@ -1706,7 +2628,7 @@ function LearningSpacesSection() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
           gap: 24,
-          marginBottom: 64
+          marginBottom: 40
         }}>
           {spaces.map((space, idx) => (
             <motion.div
@@ -1748,6 +2670,18 @@ function LearningSpacesSection() {
               </p>
             </motion.div>
           ))}
+        </div>
+
+        <div style={{
+          textAlign: "center",
+          fontSize: 16,
+          color: "#475569",
+          fontWeight: 650,
+          maxWidth: 900,
+          margin: "0 auto 64px auto",
+          lineHeight: 1.6
+        }}>
+          Every space is designed to support hands-on learning, project delivery, internships, certification-backed exposure, and technology-enabled training.
         </div>
 
         {/* Experiential Gallery Showcase */}
@@ -1848,37 +2782,37 @@ interface PathwayItem {
 const PATHWAYS: PathwayItem[] = [
   {
     area: "Core Computer Science & Engineering",
-    pathway: "Software development, programming, systems-oriented technical roles, and applied computing careers.",
+    pathway: "Software development, programming, systems-oriented technical roles, and applied computing careers",
     icon: "💻"
   },
   {
     area: "Full Stack Web Development",
-    pathway: "Web developer and full stack application development roles.",
+    pathway: "Web developer and full stack application development roles",
     icon: "🌐"
   },
   {
     area: "AI & Machine Learning",
-    pathway: "Emerging roles aligned with intelligent systems, machine learning applications, and analytics-led technology work.",
+    pathway: "Intelligent systems, machine learning applications, and analytics-led technology roles",
     icon: "🤖"
   },
   {
     area: "Cyber Security",
-    pathway: "Security-focused technical pathways supported by cybersecurity training exposure.",
+    pathway: "Security-focused technical pathways supported by cybersecurity training and certifications",
     icon: "🔒"
   },
   {
     area: "Data Science & Business Analytics",
-    pathway: "Data-oriented and business insight roles connected with analytics-led learning.",
+    pathway: "Data-oriented and business insight roles connected with analytics-led learning",
     icon: "📊"
   },
   {
-    area: "Cloud / Certification-Linked Training",
-    pathway: "Technical roles needing cloud, platform, and tool familiarity.",
+    area: "Cloud & Certification-Linked Training",
+    pathway: "Technical roles requiring cloud, platform, and tool familiarity",
     icon: "☁️"
   },
   {
     area: "Higher Study / Research",
-    pathway: "M.Tech, MCA, and Ph.D. pathways for advanced academic or research progression.",
+    pathway: "M.Tech, MCA, and Ph.D. pathways for advanced academic or research progression",
     icon: "🔬"
   }
 ];
@@ -2026,7 +2960,7 @@ function CareerPathwaysSection() {
               color: "#E8871A", fontWeight: 700, fontSize: 11,
               letterSpacing: "0.22em", textTransform: "uppercase",
             }}>
-              Future Opportunities
+              CAREER PATHWAYS
             </span>
             <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
           </div>
@@ -2034,13 +2968,10 @@ function CareerPathwaysSection() {
             fontSize: 48, fontWeight: 900, color: "#0A1F44",
             margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-1.5px"
           }}>
-            Career Pathways
+            Your Degree. Your Direction.
           </h2>
-          <p style={{ fontSize: 16, color: "#64748B", maxWidth: 850, margin: "0 auto", lineHeight: 1.7, fontWeight: 450 }}>
-            The booming IT sector creates opportunities for computer science graduates across design, development, assembly, manufacturing, and maintenance functions. Graduates pursue careers as programmers, web developers, and e-commerce specialists across industries including telecommunications, automotive, and aerospace.
-          </p>
-          <p style={{ fontSize: 14, color: "#94A3B8", marginTop: 12, fontStyle: "italic" }}>
-            Academic exposure maps to broad career directions without claiming guaranteed job titles.
+          <p style={{ fontSize: 16, color: "#4A5568", maxWidth: 850, margin: "0 auto", lineHeight: 1.7, fontWeight: 450 }}>
+            SCSE opens doors across a wide range of technology careers. Here's how academic paths map to professional outcomes:
           </p>
         </div>
 
@@ -2215,26 +3146,9 @@ function CareerPathwaysSection() {
           }}
         >
           <div style={{ textAlign: "center", marginBottom: 36 }}>
-            <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
-              <span style={{
-                background: "rgba(232, 135, 26, 0.1)",
-                color: "#E8871A",
-                padding: "6px 18px",
-                borderRadius: "100px",
-                fontSize: 12,
-                fontWeight: 750,
-                textTransform: "uppercase",
-                letterSpacing: "0.12em"
-              }}>
-                High-Demand Fields
-              </span>
-            </div>
-            <h3 style={{ fontSize: 26, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.6px", margin: "0 0 10px" }}>
-              Notable Career Roles
+            <h3 style={{ fontSize: 26, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.6px", margin: "0" }}>
+              Notable Career Roles Our Graduates Pursue:
             </h3>
-            <p style={{ fontSize: 15, color: "#64748B", maxWidth: 700, margin: "0 auto", lineHeight: 1.6, fontWeight: 450 }}>
-              Our graduates are highly sought after across major global technology domains, filling crucial technical, research, and leadership roles.
-            </p>
           </div>
           
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", maxWidth: 1080, margin: "0 auto" }}>
@@ -2913,6 +3827,12 @@ export default function Page() {
       
       {/* ── SPECIALISATIONS ──────────────────────────────────────────────────── */}
       <SpecialisationsSection />
+
+      {/* ── GEETA TECHNICAL HUB (GTH) ─────────────────────────────────────────── */}
+      <GeetaTechnicalHubSection />
+
+      {/* ── INTERNATIONAL & INDUSTRY PARTNERS ──────────────────────────────────── */}
+      <InternationalPartnersSection />
 
       {/* ── MENTORS ──────────────────────────────────────────────────────────── */}
       <MentorsSection />
