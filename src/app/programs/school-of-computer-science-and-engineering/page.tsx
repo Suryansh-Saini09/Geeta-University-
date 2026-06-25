@@ -101,7 +101,7 @@ const CERTIFICATIONS = [
 const HIGHLIGHTS: Highlight[] = [
   { stat: "500+", label: "Internships Secured" },
   { stat: "3000+", label: "Global Certifications" },
-  { stat: "150+", label: "Projects Delivered" },
+  { stat: "350+", label: "Projects Delivered" },
   { stat: "25+", label: "Hackathons Conducted" },
 ];
 
@@ -483,10 +483,7 @@ function TopRecruiters() {
       {/* Header */}
       <div style={{ textAlign: "center", marginBottom: 52, padding: "0 24px",
         position: "relative", zIndex: 1, animation: "recFadeUp 0.6s ease both" }}>
-        <p style={{ margin: "0 0 10px", fontSize: 11, letterSpacing: "0.24em",
-          color: "rgba(255,255,255,0.65)", textTransform: "uppercase", fontWeight: 600 }}>
-          Placement Partners
-        </p>
+       
         <h2 style={{ margin: "0 0 10px", fontSize: 36, fontWeight: 800, color: "#FFFFFF",
           lineHeight: 1.1, letterSpacing: "-0.5px", textShadow: "0 2px 12px rgba(0,0,0,0.2)" }}>
           100+ Companies. Endless Possibilities.
@@ -844,7 +841,6 @@ function AboutSchoolSection() {
 
         {/* Header Block */}
         <div style={{ marginBottom: 64, maxWidth: 900 }}>
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", display: "block", marginBottom: 12 }}>About SCSE</span>
           <h2 style={{ fontSize: 48, fontWeight: 800, color: "#0A1F44", lineHeight: 1.15, letterSpacing: "-1px", marginBottom: 24 }}>
             A School Built for the<br/>
             <span style={{ color: "#E8871A" }}>Digital Age</span>
@@ -934,9 +930,6 @@ function BrochureDownloadSection() {
           
           {/* Left: Text */}
           <div style={{ flex: 1, minWidth: 280 }}>
-            <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", display: "block", marginBottom: 14 }}>
-              BROCHURE DOWNLOAD
-            </span>
             <h2 style={{ fontSize: 40, fontWeight: 800, color: "#FFFFFF", lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: 16 }}>
             Want the Full Picture?
             </h2>
@@ -1524,13 +1517,6 @@ function InternationalPartnersSection() {
           style={{ textAlign: "center", marginBottom: 52 }}
         >
           {/* Eyebrow */}
-          <span style={{
-            color: "#E8871A", fontWeight: 700, fontSize: 11,
-            letterSpacing: "0.22em", textTransform: "uppercase",
-            display: "block", marginBottom: 12
-          }}>
-            GLOBAL REACH & INDUSTRY LINKS
-          </span>
 
           {/* Heading */}
           <h2 style={{
@@ -1741,9 +1727,6 @@ function MentorsSection() {
   return (
     <section id="Mentors" style={{ padding: "80px 0", background: "#FFFFFF", overflow: "hidden" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
-        <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", display: "block", marginBottom: 12 }}>
-          ACADEMIC LEADERSHIP & FACULTY
-        </span>
         <h2 style={{ fontSize: 44, fontWeight: 800, color: "#0A1F44", lineHeight: 1.2, letterSpacing: "-1px" }}>
           Led by Experts, Guided by Industry.
         </h2>
@@ -2322,14 +2305,9 @@ function TestimonialsSection() {
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 60 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
-            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-            <span style={{
-              color: "#E8871A", fontWeight: 700, fontSize: 11,
-              letterSpacing: "0.22em", textTransform: "uppercase",
-            }}>
-              STUDENT TESTIMONIALS
-            </span>
-            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+            <div style={{ width: 32, height: 2, borderRadius: 2 }} />
+            
+            <div style={{ width: 32, height: 2, borderRadius: 2 }} />
           </div>
           <h2 style={{
             fontSize: 44, fontWeight: 900, color: "#FFFFFF",
@@ -2472,7 +2450,6 @@ function DepartmentHighlightsSection() {
           transition={{ duration: 0.6 }}
           style={{ textAlign: "center", marginBottom: 60 }}
         >
-          <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>DEPARTMENT HIGHLIGHTS</span>
           <h2 style={{ fontSize: 44, fontWeight: 900, color: "#0A1F44", margin: "12px 0 16px", lineHeight: 1.1, letterSpacing: "-1px" }}>
             Where Learning Meets Achievement
           </h2>
@@ -2592,14 +2569,9 @@ function LearningSpacesSection() {
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 60 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
-            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-            <span style={{
-              color: "#E8871A", fontWeight: 700, fontSize: 11,
-              letterSpacing: "0.22em", textTransform: "uppercase",
-            }}>
-              LEARNING SPACES & INFRASTRUCTURE
-            </span>
-            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+            <div style={{ width: 32, height: 2, borderRadius: 2 }} />
+            
+            <div style={{ width: 32, height: 2, borderRadius: 2 }} />
           </div>
           <h2 style={{
             fontSize: 48, fontWeight: 900, color: "#0A1F44",

@@ -182,12 +182,7 @@ export default function LearningOutcomes() {
           {/* eyebrow */}
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
             <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-            <span style={{
-              color: "#E8871A", fontWeight: 700, fontSize: 11,
-              letterSpacing: "0.22em", textTransform: "uppercase",
-            }}>
-              LEARNING OUTCOMES
-            </span>
+          
           </div>
 
           {/* two-col heading + intro */}
