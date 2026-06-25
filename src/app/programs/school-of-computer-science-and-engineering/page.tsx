@@ -536,7 +536,7 @@ function TopRecruiters() {
           color: "#FFFFFF", fontWeight: 700, fontSize: 13, letterSpacing: 0.4,
           textShadow: "0 1px 4px rgba(0,0,0,0.15)",
         }}>
-          🏆 &nbsp;100+ Corporate Recruiters &nbsp;·&nbsp; ₹1.4 Cr Highest Package
+          🏆 &nbsp;100+ Corporate Recruiters
         </span>
       </div>
     </section>
@@ -825,194 +825,180 @@ function RankingsAndAccreditations() {
   );
 }
 
-const ABOUT_ROWS = [
-  {
-    num: "01",
-    title: "Strong Academic Foundations",
-    desc: "The School of Computer Science & Engineering is positioned as a future-focused academic school where students learn to work with contemporary technologies. We are designed to combine conceptual depth with future-ready computing education, ensuring you build a robust theoretical base.",
-    images: ["/dummy.png", "/dummy.png"]
-  },
-  {
-    num: "02",
-    title: "Real-World Project Experience",
-    desc: "We focus heavily on hands-on learning, coding practice, and applied exposure. Through intensive projects and industry-relevant tools, students are equipped with practical, in-demand skills to solve contemporary tech challenges.",
-    images: ["/dummy.png", "/dummy.png"]
-  },
-  {
-    num: "03",
-    title: "Global Certifications & Relevance",
-    desc: "Our curriculum emphasizes strong industry collaborations, allowing students to earn globally recognized certifications in fields like AI, cybersecurity, and cloud computing—bridging the gap between academia and industry.",
-    images: ["/dummy.png", "/dummy.png"]
-  },
-  {
-    num: "04",
-    title: "Expert Faculty & Infrastructure",
-    desc: "Learn directly from an exceptional roster of expert faculty and industry mentors within our world-class infrastructure. Our dynamic ecosystem is designed to nurture innovation and equip you for the digital economy.",
-    images: ["/dummy.png", "/dummy.png"]
-  },
-  {
-    num: "05",
-    title: "Strong Placement Support",
-    desc: "Through a blend of classroom knowledge and career preparation, we aim to help learners become job-ready professionals. Our dedicated placement support ensures graduates are ready to contribute from day one.",
-    images: ["/dummy.png", "/dummy.png"]
-  }
-];
 
 function AboutSchoolSection() {
-  const [expandedRow, setExpandedRow] = useState<string>("01");
+  const careers = [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Data Science",
+    "Cyber Security",
+    "Cloud Computing",
+    "Full Stack Development",
+    "Quantum Computing",
+    "Software Engineering",
+  ];
 
   return (
     <section id="About" style={{ padding: "100px 0", background: "#FFFFFF", color: "#000" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
-        
+
         {/* Header Block */}
-        <div style={{ marginBottom: 60, maxWidth: 900 }}>
+        <div style={{ marginBottom: 64, maxWidth: 900 }}>
           <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", display: "block", marginBottom: 12 }}>About SCSE</span>
           <h2 style={{ fontSize: 48, fontWeight: 800, color: "#0A1F44", lineHeight: 1.15, letterSpacing: "-1px", marginBottom: 24 }}>
             A School Built for the<br/>
             <span style={{ color: "#E8871A" }}>Digital Age</span>
           </h2>
           <p style={{ fontSize: 17, color: "#4A5568", lineHeight: 1.75, fontWeight: 500 }}>
-            The School of Computer Science & Engineering at Geeta University is a future-focused academic school where students learn to work with contemporary technologies and industry-relevant tools. Through a blend of classroom knowledge, hands-on exposure, certifications, coding practice, projects, and placement support, SCSE prepares learners to become job-ready professionals in a fast-changing digital economy.
+            The School of Computer Science &amp; Engineering at Geeta University is a future-focused academic school where students learn to work with contemporary technologies and industry-relevant tools. Through a blend of classroom knowledge, hands-on exposure, certifications, coding practice, projects, and placement support, SCSE prepares learners to become job-ready professionals in a fast-changing digital economy.
           </p>
         </div>
 
-        <div 
-          style={{ display: "flex", flexDirection: "column", gap: 0, borderTop: "1px solid #111" }}
-        >
-          {ABOUT_ROWS.map((row) => {
-            const isExpanded = expandedRow === row.num;
-            return (
-              <motion.div 
-                key={row.num}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: (expandedRow !== "" && !isExpanded) ? 0.25 : 1, y: 0 }}
-                viewport={{ once: false, margin: "-10%" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="about-row group"
-                style={{ 
-                  borderBottom: "1px solid #111",
-                  borderLeft: isExpanded ? "4px solid #E8871A" : "4px solid transparent",
-                  overflow: "hidden",
-                  transition: "border-left 0.3s ease"
+        {/* Career Cards */}
+        <div>
+          <p style={{ fontSize: 13, fontWeight: 700, color: "#E8871A", letterSpacing: 2, textTransform: "uppercase", marginBottom: 20 }}>
+            Students are prepared for careers in:
+          </p>
+          <div style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 16,
+          }}>
+            {careers.map((career) => (
+              <div
+                key={career}
+                className="career-card"
+                style={{
+                  padding: "18px 28px",
+                  borderRadius: 12,
+                  border: "1.5px solid #E2E8F0",
+                  background: "#F8FAFC",
+                  fontSize: 15,
+                  fontWeight: 700,
+                  color: "#0A1F44",
+                  cursor: "default",
+                  transition: "all 0.25s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
                 }}
               >
-                {/* Collapsed/Header State */}
-                <div 
-                  onClick={() => setExpandedRow(isExpanded ? "" : row.num)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    padding: isExpanded ? "40px 0 24px 20px" : "40px 0 40px 20px",
-                    cursor: "pointer",
-                    gap: 48
-                  }}
-                >
-                  <div
-                    className="about-row-num"
-                    style={{ fontWeight: 800, fontSize: 64, color: isExpanded ? "#E8871A" : "#F3F4F6", lineHeight: 0.8, letterSpacing: "-2px", transition: "color 0.3s", width: 85, flexShrink: 0 }}
-                  >
-                    {row.num}
-                  </div>
-                  
-                  <h3
-                    className="about-row-title"
-                    style={{ flex: 1, fontSize: 24, fontWeight: 800, color: isExpanded ? "#E8871A" : "#000", margin: 0, lineHeight: 1.2, letterSpacing: "-0.5px", transition: "color 0.3s" }}
-                  >
-                    {row.title}
-                  </h3>
-
-                  <div style={{ opacity: 0.8 }}>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={isExpanded ? "#E8871A" : "#000"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" 
-                         style={{ transform: isExpanded ? "rotate(90deg)" : "none", transition: "all 0.3s ease" }}>
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Expanded Content State */}
-                <div style={{ 
-                  display: "flex", 
-                  alignItems: "flex-start", 
-                  gap: 48,
-                  maxHeight: isExpanded ? "1000px" : "0",
-                  opacity: isExpanded ? 1 : 0,
-                  overflow: "hidden",
-                  transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-                  padding: isExpanded ? "0 0 60px 20px" : "0 0 0 20px"
-                }}>
-                  {/* Spacer aligned with number */}
-                  <div style={{ width: 85, flexShrink: 0 }} className="about-num-spacer"></div>
-
-                  <div style={{ flex: "1", maxWidth: 450 }}>
-                    <p style={{ fontSize: 15, color: "#555", lineHeight: 1.6, fontWeight: 400, margin: 0 }}>
-                      {row.desc}
-                    </p>
-                  </div>
-
-                  <div style={{ flex: "1", display: "flex", gap: 16 }} className="about-images">
-                    {row.images.map((img, i) => (
-                      <div key={i} style={{ 
-                        flex: 1, 
-                        height: 220, 
-                        borderRadius: 12, 
-                        overflow: "hidden",
-                        background: "#F3F4F6",
-                        position: "relative"
-                      }}>
-                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)" }} />
-                        <img src={img} alt="Campus life" style={{ width: "100%", height: "100%", objectFit: "cover", position: "relative", zIndex: 1, mixBlendMode: "multiply", opacity: 0.7 }} />
-                        <div style={{ position: "absolute", inset: 0, background: i === 0 ? "rgba(232,135,26,0.15)" : "rgba(10,31,68,0.15)", zIndex: 2 }} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+                <span style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  background: "#E8871A",
+                  flexShrink: 0,
+                  display: "inline-block",
+                }} />
+                {career}
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* Closing line */}
+        <p style={{ fontSize: 16, color: "#6B7280", lineHeight: 1.75, fontWeight: 400, marginTop: 32 }}>
+          SCSE's learning environment combines strong academic foundations, real-world project experience, global certifications, expert mentorship, and dedicated placement support — ensuring graduates are ready to contribute from day one.
+        </p>
+
       </div>
       <style>{`
-        .about-row {
-          transition: background-color 0.3s ease, border-left-color 0.3s ease !important;
-        }
-        .about-row:hover {
-          background-color: rgba(232, 135, 26, 0.04) !important;
-        }
-        .about-row:hover .about-row-num {
+        .career-card:hover {
+          background: #fff7ed !important;
+          border-color: #E8871A !important;
           color: #E8871A !important;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(232,135,26,0.12);
         }
-        .about-row:hover .about-row-title {
-          color: #E8871A !important;
-        }
-        .about-row:hover svg {
-          stroke: #E8871A !important;
-        }
-        @media (max-width: 900px) {
-          .about-num-spacer {
-            display: none !important;
-          }
-          .about-row > div:nth-child(2) {
-            flex-direction: column !important;
-            gap: 24px !important;
-          }
-          .about-images {
-            width: 100%;
-          }
+        .career-card:hover span {
+          background: #E8871A !important;
         }
       `}</style>
     </section>
   );
 }
 
-const SPECIALISATIONS = [
+
+// ─── BROCHURE DOWNLOAD SECTION ────────────────────────────────────────────────
+
+function BrochureDownloadSection() {
+  return (
+    <section id="Brochure" style={{ padding: "80px 0", background: "#0A1F44", position: "relative", overflow: "hidden" }}>
+      {/* Background decoration */}
+      <div style={{ position: "absolute", top: -80, right: -80, width: 320, height: 320, borderRadius: "50%", background: "rgba(232,135,26,0.08)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: -60, left: -60, width: 240, height: 240, borderRadius: "50%", background: "rgba(232,135,26,0.05)", pointerEvents: "none" }} />
+
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 40 }}>
+          
+          {/* Left: Text */}
+          <div style={{ flex: 1, minWidth: 280 }}>
+            <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase", display: "block", marginBottom: 14 }}>
+              BROCHURE DOWNLOAD
+            </span>
+            <h2 style={{ fontSize: 40, fontWeight: 800, color: "#FFFFFF", lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: 16 }}>
+            Want the Full Picture?
+            </h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.72)", lineHeight: 1.75, fontWeight: 400, maxWidth: 560 }}>
+              Download the official School of Computer Science &amp; Engineering brochure for detailed information on programs, specialisations, placements, certifications, and student outcomes.
+            </p>
+          </div>
+
+          {/* Right: Download Button */}
+          <div style={{ flexShrink: 0 }}>
+            <a
+              href="/cse brochure.pdf"
+              download="SCSE_Brochure.pdf"
+              className="brochure-btn"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 12,
+                padding: "18px 36px",
+                background: "#E8871A",
+                color: "#FFFFFF",
+                borderRadius: 12,
+                fontWeight: 800,
+                fontSize: 16,
+                textDecoration: "none",
+                transition: "all 0.25s ease",
+                boxShadow: "0 8px 24px rgba(232,135,26,0.35)",
+                letterSpacing: 0.3,
+              }}
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download SCSE Brochure 
+            </a>
+          </div>
+
+        </div>
+      </div>
+      <style>{`
+        .brochure-btn:hover {
+          background: #d4751a !important;
+          transform: translateY(-2px);
+          box-shadow: 0 12px 32px rgba(232,135,26,0.45) !important;
+        }
+      `}</style>
+    </section>
+  );
+}
+
+
+// ─── SPECIALISATIONS SECTION ─────────────────────────────────────────────────
+
+const SPECIALISATIONS_DATA = [
   { name: "Artificial Intelligence & Machine Learning", desc: "Intelligent systems, data-driven decision-making, and practical exposure to modern AI/ML applications" },
   { name: "Cyber Security", desc: "Secure systems design, cyber hygiene, and security-oriented technical foundations" },
   { name: "Data Science & Business Analytics with HCL", desc: "Data analysis connected with business insight and industry-linked skill development" },
   { name: "Full Stack Web Development", desc: "End-to-end web application development through hands-on, stack-based learning" },
   { name: "Quantum Computing", desc: "Emerging frontier concepts in computing and future-oriented technology" },
-  { name: "Computer Applications", desc: "Application-oriented computing foundations for software and digital tools" }
+  { name: "Computer Applications", desc: "Application-oriented computing foundations for software and digital tools" },
 ];
 
 function SpecialisationsSection() {
@@ -1028,11 +1014,11 @@ function SpecialisationsSection() {
           </h2>
         </div>
 
-        <div style={{ width: "100%", overflowX: "auto", borderRadius: 16, boxShadow: "0 10px 30px rgba(10,31,68,0.05)", border: "1px solid #E2E8F0", background: "#FFFFFF" }}>
+        <div style={{ width: "100%", overflowX: "auto", borderRadius: 16, boxShadow: "0 10px 30px rgba(10,31,68,0.07)", border: "1px solid #E2E8F0", background: "#FFFFFF" }}>
           <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", minWidth: 600 }}>
             <thead>
               <tr style={{ background: "#0A1F44", color: "#FFFFFF" }}>
-                <th style={{ padding: "20px 28px", fontSize: 15, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1, width: "35%" }}>
+                <th style={{ padding: "20px 28px", fontSize: 15, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1, width: "38%" }}>
                   Specialisation
                 </th>
                 <th style={{ padding: "20px 28px", fontSize: 15, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1 }}>
@@ -1041,20 +1027,23 @@ function SpecialisationsSection() {
               </tr>
             </thead>
             <tbody>
-              {SPECIALISATIONS.map((spec, i) => (
-                <tr 
-                  key={i} 
-                  className="spec-table-row"
-                  style={{ 
-                    borderBottom: i < SPECIALISATIONS.length - 1 ? "1px solid #E2E8F0" : "none",
+              {SPECIALISATIONS_DATA.map((spec, i) => (
+                <tr
+                  key={i}
+                  className="spec-row"
+                  style={{
+                    borderBottom: i < SPECIALISATIONS_DATA.length - 1 ? "1px solid #E2E8F0" : "none",
                     background: i % 2 === 0 ? "#FFFFFF" : "#F8FAFC",
-                    transition: "all 0.2s ease"
+                    transition: "all 0.2s ease",
                   }}
                 >
-                  <td style={{ padding: "24px 28px", fontSize: 16, fontWeight: 800, color: "#0A1F44" }}>
-                    {spec.name}
+                  <td style={{ padding: "24px 28px", fontSize: 16, fontWeight: 800, color: "#0A1F44", verticalAlign: "top" }}>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#E8871A", flexShrink: 0, display: "inline-block", marginTop: 2 }} />
+                      {spec.name}
+                    </span>
                   </td>
-                  <td style={{ padding: "24px 28px", fontSize: 15, color: "#4A5568", lineHeight: 1.6, fontWeight: 500 }}>
+                  <td style={{ padding: "24px 28px", fontSize: 15, color: "#4A5568", lineHeight: 1.65, fontWeight: 500, verticalAlign: "top" }}>
                     {spec.desc}
                   </td>
                 </tr>
@@ -1064,10 +1053,10 @@ function SpecialisationsSection() {
         </div>
       </div>
       <style>{`
-        .spec-table-row:hover {
+        .spec-row:hover {
           background-color: rgba(232, 135, 26, 0.04) !important;
         }
-        .spec-table-row:hover td:first-child {
+        .spec-row:hover td:first-child {
           color: #E8871A !important;
         }
       `}</style>
@@ -3822,9 +3811,26 @@ export default function Page() {
       {/* ── RANKINGS & ACCREDITATIONS ───────────────────────────────────────────────── */}
       <RankingsAndAccreditations />
 
+
       {/* ── ABOUT SCHOOL ──────────────────────────────────────────────────── */}
       <AboutSchoolSection />
-      
+
+      {/* ── MENTORS ──────────────────────────────────────────────────────────── */}
+      <MentorsSection />
+
+        {/* ── PROGRAMS ──────────────────────────────────────────────────────── */}
+      <ProgramsOfferedSection />
+
+      {/* ── DEPARTMENT HIGHLIGHTS ──────────────────────────────────────────────────────── */}
+      <DepartmentHighlightsSection />
+
+      {/* ── BROCHURE DOWNLOAD ────────────────────────────────────────────────── */}
+      <BrochureDownloadSection />
+
+{/* ── LEARNING OUTCOMES ────────────────────────────────────────────────── */}
+      <LearningOutcomes />
+
+     
       {/* ── SPECIALISATIONS ──────────────────────────────────────────────────── */}
       <SpecialisationsSection />
 
@@ -3834,26 +3840,15 @@ export default function Page() {
       {/* ── INTERNATIONAL & INDUSTRY PARTNERS ──────────────────────────────────── */}
       <InternationalPartnersSection />
 
-      {/* ── MENTORS ──────────────────────────────────────────────────────────── */}
-      <MentorsSection />
-
-      {/* ── PROGRAMS ──────────────────────────────────────────────────────── */}
-      <ProgramsOfferedSection />
-
       {/* ── STUDENT TESTIMONIALS ─────────────────────────────────────────────────── */}
       <TestimonialsSection />
-
-      {/* ── DEPARTMENT HIGHLIGHTS ──────────────────────────────────────────────────────── */}
-      <DepartmentHighlightsSection />
-
-      {/* ── LEARNING OUTCOMES ────────────────────────────────────────────────── */}
-      <LearningOutcomes />
 
       {/* ── HIGHLIGHTS OF LEARNING SPACES ─────────────────────────────────────── */}
       <LearningSpacesSection />
 
-      {/* ── CAREER PATHWAYS ─────────────────────────────────────────────────── */}
+           {/* ── CAREER PATHWAYS ─────────────────────────────────────────────────── */}
       <CareerPathwaysSection />
+      
 
       {/* ── FAQ SECTION ──────────────────────────────────────────────────────── */}
       <FAQSection />
@@ -3867,9 +3862,10 @@ export default function Page() {
             style={{ background: "#0A1F44", color: "white", padding: "14px 32px", borderRadius: 6, fontWeight: 700, fontSize: 14, textDecoration: "none" }}>
             Apply Now →
           </a>
-          <button style={{ background: "white", color: "#E8871A", border: "none", padding: "14px 28px", borderRadius: 6, fontWeight: 700, fontSize: 14, cursor: "pointer" }}>
+          <a href="/cse brochure.pdf" download="SCSE_Brochure.pdf"
+            style={{ background: "white", color: "#E8871A", border: "none", padding: "14px 28px", borderRadius: 6, fontWeight: 700, fontSize: 14, cursor: "pointer", textDecoration: "none", display: "inline-block" }}>
             Download Brochure
-          </button>
+          </a>
           <a href="https://geetauniversity.edu.in/contact-us" target="_blank" rel="noreferrer"
             style={{ background: "transparent", border: "2px solid white", color: "white", padding: "14px 24px", borderRadius: 6, fontWeight: 600, fontSize: 14, textDecoration: "none" }}>
             Contact Admissions
