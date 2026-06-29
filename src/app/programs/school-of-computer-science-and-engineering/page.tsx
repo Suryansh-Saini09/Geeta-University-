@@ -558,31 +558,31 @@ interface HeroSlide {
 
 const HERO_SLIDES: HeroSlide[] = [
   {
-    studentName: "Vaibhav Arora",
-    pkg: "1.4 Crore PA",
+    studentName: "Saransh",
+    pkg: "30 Lakh PA",
     company: "Wabtec Corp",
     program: "B.Tech CSE Alumni",
-    image: "/dummy.png",
+    image: "/saransh.png",
     titleThin: "Shape the Future of",
     titleBoldLine1: "Computing",
     titleBoldLine2: "at Geeta University",
     subtitle: "POWERING EDUCATION, EMPOWERING MINDS",
     description: "Geeta University's School of Computer Science & Engineering integrates intensive coding bootcamps, hands-on hackathons and placement mentoring.",
-    bgImage: "/campus_bg_1.png",
+    bgImage: "/hero-full.webp",
     cta: "Apply Today",
   },
   {
-    studentName: "Priya Sharma",
-    pkg: "28 Lakhs PA",
+    studentName: "Prikshit",
+    pkg: "30 Lakhs PA",
     company: "Microsoft India",
     program: "B.Tech CSE Alumni",
-    image: "/du.png",
+    image: "/prikshit.png",
     titleThin: "Earn Global",
     titleBoldLine1: "Certifications",
     titleBoldLine2: "AWS, Azure & Cisco",
     subtitle: "Excellence & Industry Links",
     description: "Earn credentials from AWS, Microsoft Azure, Cisco, Oracle, and Red Hat. Step out ready to contribute from day one in the digital economy.",
-    bgImage: "/campus_bg_2.png",
+    bgImage: "/hero-full.webp",
     cta: "Apply Online",
   },
 ];
@@ -1615,92 +1615,75 @@ const MENTORS = [
     name: "Dr. Shamneesh Sharma",
     role: "Associate Dean, School of Computer Science & Engineering",
     desc: "A highly experienced academic leader committed to building an innovation-led learning environment at SCSE.",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-011.jpg"
   },
   {
     name: "Dr. Kapil Saini",
     role: "Head of Department",
     desc: "An accomplished academician and researcher with 25+ Scopus/WoS publications and multiple patents, bringing strong research and teaching leadership to the school.",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-008.png"
   },
   {
     name: "Dr. Poonam",
     role: "Associate Professor",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-010.jpg"
   },
   {
     name: "Pankaj Bajaj",
     role: "Chief Operating Officer, Geeta Technical Hub (GTH)",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-033.png"
   },
   {
     name: "Rakhi Chauhan",
     role: "Assistant Professor (Ph.D. Pursuing)",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-035.png"
   },
   {
     name: "Richa Jain",
     role: "Assistant Professor",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-019.png"
   },
   {
     name: "Hemant Kumar",
     role: "Assistant Professor",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-017.png"
   },
   {
     name: "Vishal Jain",
     role: "Professor of Practice",
     desc: "Founder, Samatrix Consulting; IIT Kharagpur & IIM Ahmedabad alumnus; specializes in Data Analytics, Machine Learning, Deep Learning, and Blockchain",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-021.png"
   },
   {
     name: "Sunny Pathak",
     role: "Professor of Practice",
     desc: "Co-Founder, Samatrix Consulting; expertise in Market Research, Brand Positioning, Analytics, and Pricing",
-    img: "/dummy.png"
-  },
-  {
-    name: "Kartik Mathur",
-    role: "Professor of Practice",
-    desc: "Founding Member, Coding Blocks; NSUT graduate; Competitive Programmer and Full Stack Developer; has trained 40,000+ students",
-    img: "/dummy.png"
-  },
-  {
-    name: "Varun Kohli",
-    role: "Professor of Practice",
-    desc: "CEO, Coding Blocks; experience in large-scale applications, startups, and EdTech",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-028.png"
   },
   {
     name: "Jyoti",
     role: "Professor of Practice",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-014.png"
   },
   {
     name: "Mohammad Aslam",
     role: "Technical Hub Trainer",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-032.jpg"
   },
   {
     name: "Ronak Duggar",
     role: "Technical Hub Trainer",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-013.jpg"
   },
-  {
-    name: "Maninder Singh",
-    role: "Technical Hub Trainer",
-    img: "/dummy.png"
-  },
+  // {
+  //   name: "Maninder Singh",
+  //   role: "Technical Hub Trainer",
+  //   img: "/dummy.png"
+  // },
   {
     name: "Ram Mohan Dixit",
     role: "Technical Hub Trainer",
-    img: "/dummy.png"
-  },
-  {
-    name: "Gautam Mukherjee",
-    role: "Technical Hub Trainer",
-    img: "/dummy.png"
+    img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-040.jpg"
   }
 ];
 
@@ -2246,17 +2229,17 @@ const DEPT_HIGHLIGHTS_DATA = [
   {
     title: "Hackforge '25",
     desc: "A 24-hour tech marathon focused on coding, creation, innovation, teamwork, and mentor-guided problem solving.",
-    image: "/dummy.png",
+    image: "/hackforge.jpg",
   },
   {
     title: "SIH 2024 Finalists",
     desc: "Proud representation by Geeta University students at the Smart India Hackathon 2024.",
-    image: "/dummy.png",
+    image: "/sih.jpg",
   },
   {
     title: "Cybersecurity Awareness Program",
     desc: "Hosted by Geeta Technical Hub.",
-    image: "/dummy.png",
+    image: "/cyber.jpg",
   },
   {
     title: "Certification Tracks",
@@ -2281,7 +2264,7 @@ const DEPT_HIGHLIGHTS_DATA = [
   {
     title: "Outcomes & Scale",
     desc: "25+ Hackathons conducted • 350+ Projects delivered • 500+ Internships secured • 3,000+ Global Certifications earned.",
-    image: "/dummy.png",
+    image: "/outcome.jpg",
   }
 ];
 
