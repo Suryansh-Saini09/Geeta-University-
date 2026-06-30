@@ -735,10 +735,6 @@ export default function Navbar() {
             <div className="gu-logo-img">
               <Image src="/GU-Logo.webp" alt="Geeta University Logo" width={140} height={44} style={{ objectFit: "contain", width: "100%", height: "100%" }} priority />
             </div>
-            <div className="gu-logo-text">
-              <span className="gu-logo-name">GEETA <span className="gu-logo-gold">UNIVERSITY</span></span>
-              <span className="gu-logo-tag">POWERING EDUCATION, EMPOWERING MINDS</span>
-            </div>
           </Link>
 
           {/* ── CENTRE QUICK-NAV ── */}

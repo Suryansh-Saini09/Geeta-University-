@@ -53,6 +53,7 @@ interface Testimonial {
   company: string;
   role: string;
   quote: string;
+  image?: string;
 }
 
 interface FAQItem {
@@ -106,12 +107,12 @@ const HIGHLIGHTS: Highlight[] = [
 ];
 
 const TESTIMONIALS: Testimonial[] = [
-  { name: "Vaibhav Arora", pkg: "₹1.4 Cr PA", company: "Wabtec Corp", role: "Principal Solution Architect", quote: "Geeta University's 360-degree development approach, mentorship programs, and industry interactions helped me think like an entrepreneur rather than just a job seeker." },
-  { name: "Vikas Bareja", pkg: "₹33–34 LPA", company: "Tech Mahindra", role: "B.Tech CSE Alumni", quote: "The rigorous training and mentorship I received empowered me with both the technical expertise and leadership qualities I needed to succeed at a global firm." },
-  { name: "Shantanu Ojha", pkg: "₹30 LPA", company: "Ernst & Young", role: "B.Tech CSE Alumni", quote: "The campus support and mentorship gave me the foundation I needed to build a strong career from the ground up." },
-  { name: "Prikshit", pkg: "₹30 LPA", company: "Thales", role: "B.Tech CSE Alumni", quote: "My time at the university helped me bridge the gap between theory-based and practical learning — something that made a real difference when I entered the industry." },
-  { name: "Saransh", pkg: "₹30 LPA", company: "PayU Payments", role: "B.Tech CSE Alumni", quote: "The campus environment pushed me to grow as an individual, developed my determination, and made me genuinely ready for the real world." },
-  { name: "Monty", pkg: "₹24 LPA", company: "Hike Edu", role: "B.Tech CSE Alumni", quote: "The industry-focused learning culture built my confidence and gave me the perseverance to push through and achieve what I set out to do." },
+  { name: "Vaibhav Arora", pkg: "₹1.4 Cr PA", company: "Wabtec Corp", role: "Principal Solution Architect", quote: "Geeta University's 360-degree development approach, mentorship programs, and industry interactions helped me think like an entrepreneur rather than just a job seeker.", image: "/Vaibhav.webp" },
+  { name: "Vikas Bareja", pkg: "₹33–34 LPA", company: "Tech Mahindra", role: "B.Tech CSE Alumni", quote: "The rigorous training and mentorship I received empowered me with both the technical expertise and leadership qualities I needed to succeed at a global firm.", image: "/Vikas.webp" },
+  { name: "Shantanu Ojha", pkg: "₹30 LPA", company: "Ernst & Young", role: "B.Tech CSE Alumni", quote: "The campus support and mentorship gave me the foundation I needed to build a strong career from the ground up.", image: "/shantanu.webp" },
+  { name: "Prikshit", pkg: "₹30 LPA", company: "Thales", role: "B.Tech CSE Alumni", quote: "My time at the university helped me bridge the gap between theory-based and practical learning — something that made a real difference when I entered the industry.", image: "/prikshit.png" },
+  { name: "Saransh", pkg: "₹30 LPA", company: "PayU Payments", role: "B.Tech CSE Alumni", quote: "The campus environment pushed me to grow as an individual, developed my determination, and made me genuinely ready for the real world.", image: "/saransh.png" },
+  { name: "Monty", pkg: "₹24 LPA", company: "Hike Edu", role: "B.Tech CSE Alumni", quote: "The industry-focused learning culture built my confidence and gave me the perseverance to push through and achieve what I set out to do.", image: "/monty.webp" },
 ];
 
 const FAQS: FAQItem[] = [
@@ -488,9 +489,7 @@ function TopRecruiters() {
           lineHeight: 1.1, letterSpacing: "-0.5px", textShadow: "0 2px 12px rgba(0,0,0,0.2)" }}>
           100+ Companies. Endless Possibilities.
         </h2>
-        <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.72)", lineHeight: 1.7 }}>
-          Global technology and industry leaders hiring Geeta University graduates
-        </p>
+  
       </div>
 
       {/* Row 1 — scrolls left */}
@@ -699,20 +698,6 @@ const RANKINGS_DATA = [
     highlight: "(Government Recognized)"
   },
   {
-    logo: <BrandLogo title="AICTE" subtitleLine1="ALL INDIA COUNCIL" subtitleLine2="FOR TECHNICAL ED." subtitleLine3="approved" />,
-    rankLabel: "Status",
-    rankValue: "Approved",
-    desc: "AICTE Approved (applicable programs)",
-    highlight: "(Technical Education)"
-  },
-  {
-    logo: <BrandLogo title="OBE" subtitleLine1="OUTCOME BASED" subtitleLine2="EDUCATION" subtitleLine3="excellence 2022" />,
-    rankLabel: "Awarded",
-    rankValue: "Excellence",
-    desc: "Certificate of Excellence — OBE Rankings 2022",
-    highlight: "(Education Excellence)"
-  },
-  {
     logo: <BrandLogo title="CSR" subtitleLine1="COMPETITION" subtitleLine2="SUCCESS REVIEW" subtitleLine3="by ranking" />,
     rankLabel: "Ranked",
     rankValue: "#6",
@@ -725,20 +710,6 @@ const RANKINGS_DATA = [
     rankValue: "AAA",
     desc: "AAA Rating — Career360",
     highlight: "(Overall Excellence)"
-  },
-  {
-    logo: <BrandLogo title="NIRF" subtitleLine1="NATIONAL INSTITUTIONAL" subtitleLine2="RANKING FRAMEWORK" subtitleLine3="active" />,
-    rankLabel: "Status",
-    rankValue: "Participant",
-    desc: "NIRF Participant",
-    highlight: "(National Framework)"
-  },
-  {
-    logo: <BrandLogo title="IEEA" subtitleLine1="INDIAN EDUCATION" subtitleLine2="EXCELLENCE AWARDS" subtitleLine3="2022" />,
-    rankLabel: "Awarded",
-    rankValue: "Best",
-    desc: "Recognized as an Emerging Private University with Best Infrastructure and Faculty in Panipat — Indian Education Excellence Awards 2022",
-    highlight: "(Infrastructure & Faculty)"
   }
 ];
 
@@ -1335,37 +1306,6 @@ function GeetaTechnicalHubSection() {
           })}
         </div>
 
-        {/* Supported Platforms Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.7 }}
-          style={{
-            borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-            paddingTop: 48,
-          }}
-        >
-          <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <p style={{ margin: 0, fontSize: 13, color: "rgba(255, 255, 255, 0.5)", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>
-              Tool-Integrated & Certification-Aligned Platforms
-            </p>
-          </div>
-
-          <div 
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(5, 1fr)",
-              gap: 16,
-            }}
-            className="gth-platforms-grid"
-          >
-            {PLATFORMS_LIST.map((platform, idx) => (
-              <PlatformCard key={idx} name={platform.name} brandKey={platform.brandKey} />
-            ))}
-          </div>
-        </motion.div>
-
       </div>
 
       {/* Embedded CSS styles */}
@@ -1378,14 +1318,6 @@ function GeetaTechnicalHubSection() {
           .gth-pillars-grid {
             grid-template-columns: 1fr !important;
             gap: 24px !important;
-          }
-          .gth-platforms-grid {
-            grid-template-columns: repeat(3, 1fr) !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .gth-platforms-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
           }
         }
         .gth-pillar-card:hover {
@@ -1749,8 +1681,8 @@ function MentorsSection() {
                     boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
                   }}
                 >
-                  <div style={{ width: "100%", height: 200, background: "#E5E7EB", position: "relative" }}>
-                    <img src={m.img} alt={m.name} style={{ width: "100%", height: "100%", objectFit: "cover", mixBlendMode: "multiply", opacity: 0.8 }} />
+                  <div style={{ width: "100%", height: 200, background: "#E5E7EB", position: "relative", flexShrink: 0 }}>
+                    <img src={m.img} alt={m.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", mixBlendMode: "multiply", opacity: 0.8 }} />
                   </div>
                   
                   <div style={{ padding: "20px 20px 24px", textAlign: "center", display: "flex", flexDirection: "column", flex: 1, justifyContent: "space-between", alignItems: "center" }}>
@@ -1888,7 +1820,7 @@ function MentorsSection() {
 
                 {/* Profile Image */}
                 <div style={{ width: 120, height: 120, borderRadius: "50%", overflow: "hidden", background: "#E5E7EB", marginBottom: 24, border: "4px solid #F1F5F9", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
-                  <img src={selectedMentor.img} alt={selectedMentor.name} style={{ width: "100%", height: "100%", objectFit: "cover", mixBlendMode: "multiply", opacity: 0.9 }} />
+                  <img src={selectedMentor.img} alt={selectedMentor.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", mixBlendMode: "multiply", opacity: 0.9 }} />
                 </div>
 
                 {/* Name */}
@@ -1994,8 +1926,16 @@ const NEW_PROGRAMS_DATA = [
         duration: "3/4 Years",
         details: (
           <>
-            Application-oriented computing with specialization options in Computer Applications, AI & ML, Cyber Security, and Data Science & Business Analytics.
+            Application-oriented computing with specialisation options in high-demand domains.
             <br />
+            <br />
+            <strong>Specialisations available:</strong>
+            <ul style={{ margin: "8px 0 0 20px", padding: 0, listStyleType: "disc" }}>
+              <li>Computer Applications</li>
+              <li>Artificial Intelligence & Machine Learning</li>
+              <li>Cyber Security</li>
+              <li>Data Science & Business Analytics</li>
+            </ul>
             <br />
             <strong>Eligibility:</strong> Passed 10+2 with a minimum of 50% marks.
             <br />
@@ -2241,26 +2181,26 @@ const DEPT_HIGHLIGHTS_DATA = [
     desc: "Hosted by Geeta Technical Hub.",
     image: "/cyber.jpg",
   },
-  {
-    title: "Certification Tracks",
-    desc: "In AWS, Red Hat, Cisco, HubSpot, GitHub, Oracle, and Microsoft Azure.",
-    image: "/dummy.png",
-  },
-  {
-    title: "Drive-Ready Tracks",
-    desc: "In MEAN/MERN Stack, PHP & MySQL, Python Development, Cyber Security Fundamentals, Artificial Intelligence, and Machine Learning.",
-    image: "/dummy.png",
-  },
-  {
-    title: "DSA & Competitive Coding",
-    desc: "Logic building, problem-solving techniques, advanced algorithms, and competitive programming.",
-    image: "/dummy.png",
-  },
-  {
-    title: "Milestone Actions",
-    desc: "G-connect, Alumni Connect, T Shaped Technocrat, Multi-Skill Development, Project Roundup, Techno Coders, Midnight Syntax.",
-    image: "/dummy.png",
-  },
+  // {
+  //   title: "Certification Tracks",
+  //   desc: "In AWS, Red Hat, Cisco, HubSpot, GitHub, Oracle, and Microsoft Azure.",
+  //   image: "/dummy.png",
+  // },
+  // {
+  //   title: "Drive-Ready Tracks",
+  //   desc: "In MEAN/MERN Stack, PHP & MySQL, Python Development, Cyber Security Fundamentals, Artificial Intelligence, and Machine Learning.",
+  //   image: "/dummy.png",
+  // },
+  // {
+  //   title: "DSA & Competitive Coding",
+  //   desc: "Logic building, problem-solving techniques, advanced algorithms, and competitive programming.",
+  //   image: "/dummy.png",
+  // },
+  // {
+  //   title: "Milestone Actions",
+  //   desc: "G-connect, Alumni Connect, T Shaped Technocrat, Multi-Skill Development, Project Roundup, Techno Coders, Midnight Syntax.",
+  //   image: "/dummy.png",
+  // },
   {
     title: "Outcomes & Scale",
     desc: "25+ Hackathons conducted • 350+ Projects delivered • 500+ Internships secured • 3,000+ Global Certifications earned.",
@@ -2370,18 +2310,39 @@ function TestimonialsSection() {
                   borderTop: "1px solid rgba(255, 255, 255, 0.08)",
                   paddingTop: 20
                 }}>
-                  {/* Avatar Initials */}
+                  {/* Avatar Image / Fallback Initials */}
                   <div style={{
                     width: 48,
                     height: 48,
                     borderRadius: "50%",
+                    overflow: "hidden",
                     background: "rgba(232, 135, 26, 0.15)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    border: "1px solid rgba(232, 135, 26, 0.3)"
+                    border: "1px solid rgba(232, 135, 26, 0.3)",
+                    flexShrink: 0,
+                    position: "relative"
                   }}>
-                    <span style={{ color: "#E8871A", fontWeight: 800, fontSize: 15 }}>
+                    {item.image && (
+                      <img 
+                        src={item.image} 
+                        alt={item.name} 
+                        style={{ 
+                          width: "100%", 
+                          height: "100%", 
+                          objectFit: "cover", 
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          zIndex: 2 
+                        }} 
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                      />
+                    )}
+                    <span style={{ color: "#E8871A", fontWeight: 800, fontSize: 15, position: "relative", zIndex: 1 }}>
                       {initials}
                     </span>
                   </div>
@@ -2448,13 +2409,13 @@ function DepartmentHighlightsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
+          className="marquee-container"
           style={{ display: "flex", overflow: "hidden", padding: "10px 0 30px", gap: 32 }}
         >
           {[0, 1].map((setIndex) => (
-            <motion.div
+            <div
               key={setIndex}
-              animate={{ x: ["0%", "calc(-100% - 32px)"] }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+              className="marquee-track"
               style={{ display: "flex", gap: 32, flexShrink: 0 }}
             >
               {DEPT_HIGHLIGHTS_DATA.map((item, i) => (
@@ -2512,10 +2473,23 @@ function DepartmentHighlightsSection() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </div>
           ))}
         </motion.div>
       </div>
+
+      <style jsx>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-100% - 32px)); }
+        }
+        .marquee-track {
+          animation: marquee 25s linear infinite;
+        }
+        .marquee-container:hover .marquee-track {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 }
@@ -3543,7 +3517,7 @@ export default function Page() {
             <div className="relative w-full h-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-20 pb-12 lg:py-0">
               
               {/* Left text area */}
-              <div className="lg:col-start-2 lg:col-span-6 pl-8 sm:pl-16 lg:pl-20 xl:pl-24 flex flex-col justify-center text-left text-white max-w-xl relative z-10">
+              <div className="lg:col-start-2 lg:col-span-5 pl-4 sm:pl-8 lg:pl-12 flex flex-col justify-center text-left text-white max-w-[480px] relative z-10">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentHeroSlide}
@@ -3554,7 +3528,7 @@ export default function Page() {
                       hidden: { opacity: 0 },
                       visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.1 } }
                     }}
-                    className="space-y-7"
+                    className="flex flex-col gap-5"
                   >
                     {/* Bold Heading (Format matches CU: Thin-Bold L1, Bold L2) */}
                     <motion.h1 
@@ -3578,7 +3552,7 @@ export default function Page() {
                         hidden: { opacity: 0, scaleX: 0 },
                         visible: { opacity: 1, scaleX: 1, transition: { duration: 0.4 } }
                       }} 
-                      className="w-[50px] h-[1px] bg-white/70 origin-left mt-8 mb-6"
+                      className="w-[50px] h-0.5 bg-[#E8871A] origin-left my-2"
                     />
 
                     {/* Description: Indented to align with line end (70px) */}
@@ -3587,7 +3561,7 @@ export default function Page() {
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70 } }
                       }} 
-                      className="text-gray-200 text-sm sm:text-base leading-relaxed max-w-lg font-medium pl-[70px]"
+                      className="text-gray-200 text-sm sm:text-base leading-relaxed max-w-[460px] font-medium"
                     >
                       {HERO_SLIDES[currentHeroSlide].description}
                     </motion.p>
@@ -3598,7 +3572,7 @@ export default function Page() {
                         hidden: { opacity: 0, y: 20 },
                         visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70 } }
                       }} 
-                      className="flex justify-center pt-4 max-w-lg pl-[70px]"
+                      className="flex justify-start pt-3"
                     >
                       <a
                         href="https://admissions.geetauniversity.edu.in/"
@@ -3619,7 +3593,7 @@ export default function Page() {
 
             </div>
 
-            {/* Star Placement Overlay: shifted right and added spacing */}
+            {/* Star Placement Overlay: shifted left to align with text */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentHeroSlide}
@@ -3627,42 +3601,32 @@ export default function Page() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute bottom-6 left-8 sm:left-16 lg:left-[140px] xl:left-[190px] z-20 flex items-center space-x-8 sm:space-x-10"
+                className="absolute bottom-6 left-6 sm:left-12 lg:left-[110px] xl:left-[150px] z-20 flex items-center gap-8 sm:gap-10"
               >
                 {/* Name & Subtitle block */}
-                <div className="text-left text-white leading-none">
-                  <div className="text-2xl sm:text-3xl font-black uppercase tracking-tight">
+                <div className="text-left text-white flex flex-col justify-center flex-shrink-0">
+                  <div className="text-2xl sm:text-3xl font-black uppercase tracking-tight leading-tight">
                     {HERO_SLIDES[currentHeroSlide].studentName.split(" ")[0]}
                   </div>
-                  <div className="text-2xl sm:text-3xl font-light uppercase tracking-tight mt-0.5">
-                    {HERO_SLIDES[currentHeroSlide].studentName.split(" ").slice(1).join(" ")}
-                  </div>
-                  <div className="text-[10px] sm:text-[11px] font-semibold text-gray-400 mt-2 tracking-wide uppercase">
+                  {HERO_SLIDES[currentHeroSlide].studentName.split(" ").length > 1 && (
+                    <div className="text-2xl sm:text-3xl font-light uppercase tracking-tight mt-1 leading-tight">
+                      {HERO_SLIDES[currentHeroSlide].studentName.split(" ").slice(1).join(" ")}
+                    </div>
+                  )}
+                  <div className="text-[11px] sm:text-xs font-bold text-gray-400 mt-3 tracking-wider uppercase leading-normal">
                     {HERO_SLIDES[currentHeroSlide].program}
                   </div>
                 </div>
 
-                {/* Arrow indicator */}
-                <div className="flex items-center justify-center">
-                  <svg className="w-8 h-8 text-white/60" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </div>
-
-                {/* Corporate Achievement Logo */}
-                <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  {getCompanyLogo(HERO_SLIDES[currentHeroSlide].company)}
-                </div>
-
-                {/* Divider Line in between logo and stat block */}
-                <div className="w-[1px] h-8 bg-white/20 self-center" />
+                {/* Divider Line in between student info and stat block */}
+                <div className="w-[1px] h-12 bg-white/40 self-center flex-shrink-0" />
 
                 {/* Stat Block: Placement Package */}
-                <div className="text-left text-white leading-tight">
-                  <div className="text-[10px] sm:text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+                <div className="text-left text-white flex flex-col justify-center flex-shrink-0">
+                  <div className="text-[11px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider leading-normal">
                     Highest Package
                   </div>
-                  <div className="text-lg sm:text-xl font-black text-white mt-0.5">
+                  <div className="text-lg sm:text-xl font-black text-white mt-3 leading-tight">
                     {HERO_SLIDES[currentHeroSlide].pkg}
                   </div>
                 </div>
@@ -3670,8 +3634,8 @@ export default function Page() {
             </AnimatePresence>
           </div>
 
-          {/* Center cutout student: Centered relative to outer container, z-index z-10 puts it behind text and form */}
-          <div className="relative lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 w-full lg:w-[520px] xl:w-[600px] h-[320px] sm:h-[420px] lg:h-[88%] xl:h-[92%] flex items-end justify-center z-10 pointer-events-none">
+          {/* Center cutout student: Shifted slightly to the right, z-index z-10 puts it behind text and form */}
+          <div className="relative lg:absolute lg:bottom-0 lg:left-[56%] lg:-translate-x-1/2 w-full lg:w-[520px] xl:w-[600px] h-[320px] sm:h-[420px] lg:h-[88%] xl:h-[92%] flex items-end justify-center z-10 pointer-events-none">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentHeroSlide}

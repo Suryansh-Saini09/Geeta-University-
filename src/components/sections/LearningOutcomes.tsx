@@ -45,7 +45,7 @@ const OUTCOMES = [
 const STATS = [
   { value: "500+",    label: "Internships Secured"  },
   { value: "3,000+", label: "Global Certifications" },
-  { value: "150+",   label: "Projects Delivered"    },
+  { value: "350+",   label: "Projects Delivered"    },
   { value: "25+",    label: "Hackathons Conducted"  },
   { value: "₹1.4 Cr", label: "Highest Package"      },
 ];
