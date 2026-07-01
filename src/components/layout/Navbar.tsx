@@ -49,7 +49,7 @@ const secondaryNavLinks: NavEntry[] = [
         { label: "School of Agricultural Sciences", href: "#" },
       ]},
       { heading: "MANAGEMENT & LAW", links: [
-        { label: "School of Commerce & Business", href: "#" },
+        { label: "School of Commerce & Business Management", href: "/programs/school-of-management-and-business-studies" },
         { label: "SP Bansal School of Business", href: "#" },
         { label: "Geeta Global Law School", href: "#" },
       ]},
@@ -243,15 +243,15 @@ export default function Navbar() {
 
         /* ─── TOP ANNOUNCEMENT BAR ───────────────────────────── */
         .gu-topbar {
-          background: #111;
-          color: #fff;
+          background: #EDE9DF;
+          color: #0A1F44;
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding: 0 20px;
           height: 36px;
           font-size: 12px;
-          border-bottom: 1px solid #2a2a2a;
+          border-bottom: 1px solid #DFD9CB;
         }
         .gu-topbar-left {
           display: flex;
@@ -262,12 +262,12 @@ export default function Navbar() {
         }
         .gu-ticker-nav { display: flex; gap: 2px; }
         .gu-ticker-btn {
-          background: none; border: none; color: #999;
+          background: none; border: none; color: #555555;
           cursor: pointer; padding: 2px 6px; font-size: 15px;
           transition: color .15s;
         }
         .gu-ticker-btn:hover { color: #e8871a; }
-        .gu-ticker { flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 12.5px; }
+        .gu-ticker { flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 12.5px; color: #0A1F44; }
         .gu-apply-pill {
           background: #e8871a; color: #fff; text-decoration: none;
           padding: 3px 13px; font-size: 11px; font-weight: 700;
@@ -280,19 +280,19 @@ export default function Navbar() {
           display: flex; align-items: center; gap: 12px; margin-left: 20px;
         }
         .gu-topbar-ico {
-          color: #bbb; text-decoration: none; font-size: 12.5px;
+          color: #4A5568; text-decoration: none; font-size: 12.5px;
           display: flex; align-items: center; gap: 4px; transition: color .2s;
           white-space: nowrap;
         }
         .gu-topbar-ico:hover { color: #e8871a; }
-        .gu-vdivider { width: 1px; height: 14px; background: #3a3a3a; }
+        .gu-vdivider { width: 1px; height: 14px; background: #DFD9CB; }
         .gu-socials { display: flex; align-items: center; gap: 9px; }
-        .gu-socials a { color: #bbb; transition: color .2s; }
+        .gu-socials a { color: #4A5568; transition: color .2s; }
         .gu-socials a:hover { color: #e8871a; }
 
         /* ─── LOGO / HELPLINE BAR ────────────────────────────── */
         .gu-mainbar {
-          background: #1a1a1a;
+          background: #FAF7F2;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -307,9 +307,9 @@ export default function Navbar() {
           background: transparent; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
         }
         .gu-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
-        .gu-logo-name { font-size: 21px; font-weight: 900; color: #fff; letter-spacing: -.4px; text-transform: uppercase; }
+        .gu-logo-name { font-size: 21px; font-weight: 900; color: #0A1F44; letter-spacing: -.4px; text-transform: uppercase; }
         .gu-logo-gold { color: #e8871a; }
-        .gu-logo-tag { font-size: 9px; color: #999; letter-spacing: 1.6px; text-transform: uppercase; margin-top: 1px; }
+        .gu-logo-tag { font-size: 9px; color: #64748B; letter-spacing: 1.6px; text-transform: uppercase; margin-top: 1px; }
 
         /* Centre quick-nav */
         .gu-main-quicknav {
@@ -323,7 +323,7 @@ export default function Navbar() {
         .gu-qnav-btn {
           background: none;
           border: none;
-          color: #bbb;
+          color: #4A5568;
           font-size: 11px;
           font-weight: 600;
           letter-spacing: .6px;
@@ -346,7 +346,7 @@ export default function Navbar() {
           transition: transform .2s;
           transform-origin: center;
         }
-        .gu-qnav-btn:hover { color: #fff; background: rgba(255,255,255,.06); }
+        .gu-qnav-btn:hover { color: #0A1F44; background: rgba(10,31,68,0.06); }
         .gu-qnav-btn:hover::after { transform: scaleX(1); }
 
         /* Helpline + search */
@@ -368,7 +368,7 @@ export default function Navbar() {
         .gu-helpline-lines span { display: block; width: 18px; height: 2px; background: rgba(255,255,255,.8); border-radius: 2px; }
 
         .gu-search-btn {
-          background: none; border: none; color: #bbb; cursor: pointer;
+          background: none; border: none; color: #4A5568; cursor: pointer;
           display: flex; flex-direction: column; align-items: center; gap: 2px;
           padding: 6px; transition: color .2s;
         }
@@ -376,13 +376,13 @@ export default function Navbar() {
         .gu-search-btn span { font-size: 9px; letter-spacing: .5px; }
 
         .gu-mob-toggle {
-          display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 6px;
+          display: none; background: none; border: none; color: #0A1F44; cursor: pointer; padding: 6px;
         }
 
         /* ─── SECONDARY NAV BAR (the new style) ─────────────── */
         .gu-secbar {
-          background: #2b2b2b;
-          border-top: 1px solid #3a3a3a;
+          background: #EFEAE0;
+          border-top: 1px solid #DFD9CB;
           border-bottom: 2px solid #e8871a;
           display: flex;
           align-items: stretch;
@@ -404,7 +404,7 @@ export default function Navbar() {
           top: 20%;
           height: 60%;
           width: 1px;
-          background: #4a4a4a;
+          background: #DFD9CB;
         }
 
         .gu-sec-link {
@@ -415,7 +415,7 @@ export default function Navbar() {
           width: 100%;
           padding: 0 8px;
           height: 40px;
-          color: #d8d8d8;
+          color: #2D3748;
           text-decoration: none;
           font-size: 11px;
           font-weight: 700;
@@ -440,8 +440,8 @@ export default function Navbar() {
         }
         .gu-sec-link:hover,
         .gu-sec-link.open {
-          color: #fff;
-          background: #222;
+          color: #0A1F44;
+          background: #E5DFC9;
         }
         .gu-sec-link:hover::before,
         .gu-sec-link.open::before {
@@ -640,27 +640,27 @@ export default function Navbar() {
         .gu-mob-drawer {
           position: fixed;
           top: 142px; left: 0; right: 0; bottom: 0;
-          background: #1a1a1a;
+          background: #FAF7F2;
           z-index: 999; overflow-y: auto;
           padding: 16px 20px 32px;
           animation: gu-drop .2s ease;
         }
-        .gu-mob-row { border-bottom: 1px solid #2e2e2e; }
+        .gu-mob-row { border-bottom: 1px solid #EAE5DA; }
         .gu-mob-btn {
           width: 100%; background: none; border: none;
           display: flex; justify-content: space-between; align-items: center;
-          color: #ddd; font-size: 13px; font-weight: 700; letter-spacing: .6px;
+          color: #333333; font-size: 13px; font-weight: 700; letter-spacing: .6px;
           padding: 13px 4px; cursor: pointer; text-transform: uppercase;
           transition: color .2s; text-align: left;
         }
         .gu-mob-btn:hover { color: #e8871a; }
         .gu-mob-sub {
           display: flex; flex-direction: column; gap: 2px;
-          padding: 8px 16px 12px; background: #252525;
+          padding: 8px 16px 12px; background: #EDE9DF;
           border-radius: 6px; margin-bottom: 6px;
         }
         .gu-mob-sub-link {
-          color: #bbb; text-decoration: none; font-size: 13px;
+          color: #4A5568; text-decoration: none; font-size: 13px;
           padding: 7px 8px; border-radius: 4px;
           transition: background .15s, color .15s; display: block;
         }
@@ -763,7 +763,7 @@ export default function Navbar() {
               </div>
               <div className="gu-helpline-info">
                 <span className="gu-helpline-lbl">Admission Helpline</span>
-                <span className="gu-helpline-num">01742639100</span>
+                <span className="gu-helpline-num">092787 68000</span>
               </div>
               <div className="gu-helpline-lines" aria-hidden="true"><span /><span /><span /></div>
             </Link>
