@@ -3466,6 +3466,23 @@ export default function Page() {
     setActiveSection(id);
   };
 
+  // Handle hash-based navigation from other pages (e.g., homepage quick-nav buttons)
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      // Delay to allow page to fully render before scrolling
+      const timer = setTimeout(() => {
+        if (lenis) {
+          lenis.scrollTo(`#${hash}`, { offset: -130 });
+        } else {
+          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+        }
+        setActiveSection(hash);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [lenis]);
+
   return (
     <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", color: "#1A1A2E", background: "#F7F9FC", minHeight: "100vh" }}>
 

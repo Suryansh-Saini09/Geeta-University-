@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { TrendingUp, Users, GraduationCap, BookOpen, HardHat, Award } from "lucide-react";
+import { TrendingUp, Users, GraduationCap, BookOpen, HardHat } from "lucide-react";
 
 const categories = [
   {
@@ -16,8 +16,7 @@ const categories = [
       "Academic and career mentoring",
     ],
     icon: TrendingUp,
-    ribbon: "#172A4F",
-    ribbonDark: "#0A1428", // Darker shade for the 3D fold
+    ribbon: "#0A1F44",
   },
   {
     number: 2,
@@ -30,8 +29,7 @@ const categories = [
       "Broader perspective for modern business challenges",
     ],
     icon: Users,
-    ribbon: "#22447A",
-    ribbonDark: "#102342",
+    ribbon: "#0F2A56",
   },
   {
     number: 3,
@@ -44,8 +42,7 @@ const categories = [
       "Digital Marketing and Automation Tools",
     ],
     icon: GraduationCap,
-    ribbon: "#2D62B5",
-    ribbonDark: "#15315E",
+    ribbon: "#1B4B8F",
   },
   {
     number: 4,
@@ -58,8 +55,7 @@ const categories = [
       "Interview and placement preparation",
     ],
     icon: BookOpen,
-    ribbon: "#427FD9",
-    ribbonDark: "#1E4175",
+    ribbon: "#2E63B8",
   },
   {
     number: 5,
@@ -72,70 +68,63 @@ const categories = [
       "Data Analytics, Python & Digital Marketing",
     ],
     icon: HardHat,
-    ribbon: "#659CE8",
-    ribbonDark: "#2B4B7A",
+    ribbon: "#5B8FD9",
   },
 ];
 
 function ExpertCard({ category }: { category: any }) {
   const Icon = category.icon;
   return (
-    // The generous padding-left (pl-[84px]) guarantees the text will NEVER overlap with the ribbon
-    <div className="relative bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#EDF1F7] p-6 lg:p-7 pl-[84px] lg:pl-[96px] h-full flex flex-col mt-4 ml-4 transition-transform hover:-translate-y-1 duration-300">
+    <div className="w-full bg-white rounded-xl shadow-[0_2px_20px_rgba(10,31,68,0.06)] hover:shadow-[0_8px_30px_rgba(10,31,68,0.1)] border border-[#EDF1F7] p-5 sm:p-6 flex gap-4 sm:gap-5 h-full transition-all hover:-translate-y-1 duration-300">
       
-      {/* Main Ribbon Body */}
-      <div
-        className="absolute top-6 -left-4 w-[72px] h-[80px] shadow-lg flex items-center justify-center rounded-r-md"
-        style={{ backgroundColor: category.ribbon }}
-      >
-        {/* 3D Ribbon Fold (Connecting Ribbon to Card back) */}
-        <div 
-          className="absolute -top-4 left-0 w-0 h-0 border-b-[16px] border-l-[16px] border-l-transparent"
-          style={{ borderBottomColor: category.ribbonDark }}
-        />
-        
-        <span className="text-white text-3xl font-black">{category.number}</span>
+      {/* V-Cut Ribbon Container */}
+      <div className="flex-shrink-0 w-16 sm:w-[72px] flex flex-col">
+        <div
+          className="w-full h-24 flex items-start justify-center pt-4 shadow-sm"
+          style={{
+            backgroundColor: category.ribbon,
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%)",
+          }}
+        >
+          <span className="text-white text-3xl sm:text-4xl font-extrabold">{category.number}</span>
+        </div>
       </div>
 
-      {/* Content wrapper */}
-      <div className="flex flex-col h-full w-full min-w-0">
-        
-        {/* Title */}
-        <h3 className="text-[#0A1F44] font-extrabold text-[1.1rem] leading-tight mb-1 break-words">
-          {category.title}
-        </h3>
+      {/* Text Content Area */}
+      <div className="flex-1 min-w-0 flex flex-col">
+        <div className="flex items-start justify-between gap-2 mb-1">
+          <h3 className="text-[#0A1F44] font-extrabold text-[1.05rem] lg:text-[1.1rem] leading-snug break-words">
+            {category.title}
+          </h3>
+        </div>
 
-        {/* Subtitle with border line */}
-        <p className="text-[#4A78C4] text-[0.85rem] font-semibold mb-4 pb-3 border-b border-[#E7ECF4]">
+        <p className="text-[#4A78C4] text-[0.85rem] lg:text-[0.9rem] font-semibold mb-4 pb-3 border-b border-[#E7ECF4]">
           {category.subtitle}
         </p>
 
-        {/* Points & Icon Container */}
         <div className="flex justify-between items-end gap-3 flex-grow">
-          <ul className="space-y-2.5 flex-1 min-w-0">
+          <ul className="space-y-2.5 flex-1 min-w-0 pr-2">
             {category.points.map((point: string, i: number) => (
-              <li key={i} className="flex items-start gap-2 text-[0.8rem] text-[#33415C]">
+              <li key={i} className="flex items-start gap-2 text-[0.8rem] lg:text-[0.85rem] text-[#33415C]">
                 <span className="text-[#4A78C4] mt-[3px] font-bold text-[0.65rem] flex-shrink-0">▷</span>
                 <span className="leading-snug break-words">{point}</span>
               </li>
             ))}
           </ul>
           
-          <div className="flex-shrink-0 ml-1 opacity-20">
-            <Icon className="w-10 h-10 text-[#0A1F44]" strokeWidth={2} />
+          <div className="flex-shrink-0 opacity-20">
+
           </div>
         </div>
-        
       </div>
+      
     </div>
   );
 }
 
 export default function SchoolOfManagementAndBusinessStudies() {
-  const [row1, row2] = [categories.slice(0, 2), categories.slice(2, 5)];
-
   return (
-    <div className="bg-white min-h-screen text-[#1A1A2E] overflow-x-hidden selection:bg-[#E8871A] selection:text-white font-sans">
+    <div className="w-full flex-1 block bg-white min-h-screen text-[#1A1A2E] overflow-x-hidden selection:bg-[#E8871A] selection:text-white font-sans">
       
       {/* ── BANNER IMAGE SECTION ── */}
       <div className="relative w-full min-h-[92vh] lg:h-[calc(100vh-80px)] overflow-hidden flex flex-col">
@@ -150,7 +139,7 @@ export default function SchoolOfManagementAndBusinessStudies() {
       </div>
 
       {/* ── BLUE SECTION ── */}
-      <section className="w-full bg-[#0A1F44] text-white min-h-[92vh] lg:min-h-[calc(100vh-80px)] py-20 lg:py-28 flex flex-col items-center justify-center relative overflow-hidden">
+      <section className="w-full flex flex-col items-center justify-center bg-[#0A1F44] text-white min-h-[92vh] lg:min-h-[calc(100vh-80px)] py-20 lg:py-28 relative overflow-hidden">
         <div className="w-full max-w-6xl mx-auto px-4 flex flex-col items-center justify-center text-center relative z-10">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8 leading-tight tracking-tight max-w-4xl mx-auto mt-4">
             <span className="text-blue-400 font-serif mr-2">&ldquo;</span> Your Future in <br className="hidden sm:inline" />
@@ -190,55 +179,65 @@ export default function SchoolOfManagementAndBusinessStudies() {
                 <span className="text-center whitespace-nowrap">Agriculture</span><span className="text-[#3B82F6] font-normal select-none">|</span>
                 <span className="text-center whitespace-nowrap">Psychology</span>
               </div>
+              <br />
             </div>
           </div>
         </div>
       </section>
 
       {/* ── EXPERTS SECTION ── */}
-      <section className="w-full bg-[#FAFCFF] py-24 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col items-center">
+      <section className="w-full flex flex-col items-center justify-center bg-[#FAFCFF] py-24 px-4 sm:px-8">
+        <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
+          <br />
           
-          {/* Header Area */}
-          <div className="text-center mb-8">
-            <h2 className="text-[#0A1F44] font-extrabold text-3xl sm:text-4xl leading-tight inline-flex items-start justify-center">
+          {/* Main Title Section */}
+          <div className="text-center mb-10">
+            <h2 className="text-[#0A1F44] font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight inline-flex items-start justify-center">
               <span className="text-[#4A78C4] text-5xl mr-3 font-serif leading-[0.8] mt-1">“</span>
               <span className="text-left">
-                Learn from <br />
-                5 Categories of Experts
+                Learn from 5 Categories of Experts
               </span>
             </h2>
+            <br />
             <div className="mx-auto mt-10 w-32 border-t-2 border-dashed border-[#C9D5E8]" />
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <Award className="w-12 h-12 text-[#0A1F44] flex-shrink-0" strokeWidth={1.5} />
-            <div className="text-center sm:text-left">
-              <span className="block text-[#33415C] text-lg font-medium">
-                One Program. Five Learning Ecosystems.
-              </span>
-              <span className="block text-[#0A1F44] font-black text-2xl tracking-wide">
-                Unlimited Career Opportunities
-              </span>
-            </div>
+          {/* 🔥 THE PERFECT RED BOX LAYOUT 🔥 */}
+          <div className="w-full flex flex-col items-center justify-center text-center mb-16">
+            <span className="block text-[#1B4B8F] text-xl sm:text-xl font-semibold tracking-wide mb-2">
+              One Program. Five Learning Ecosystems.
+            </span>
+            <span className="block text-[#0A1F44] font-black text-3xl sm:text-4xl lg:text-[2.5rem] tracking-tight">
+              Unlimited Career Opportunities
+            </span>
+            <br />
           </div>
 
-          {/* Row 1 - 2 cards centered */}
-          <div className="w-full max-w-4xl mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-              {row1.map((cat) => (
-                <ExpertCard key={cat.number} category={cat} />
-              ))}
-            </div>
-          </div>
+          {/* 🔥 THE BERSERK MODE, UNBREAKABLE GRID 🔥 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full relative">
+            
+            {/* Top 4 Cards */}
+            <div className="w-full"><ExpertCard category={categories[0]} /></div>
+            <div className="w-full"><ExpertCard category={categories[1]} /></div>
+            <div className="w-full"><ExpertCard category={categories[2]} /></div>
+            <div className="w-full"><ExpertCard category={categories[3]} /></div>
 
-          {/* Row 2 - 3 cards */}
-          <div className="w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-              {row2.map((cat) => (
-                <ExpertCard key={cat.number} category={cat} />
-              ))}
+            {/* The 5th Card - FORCED to span both columns and center perfectly */}
+            <div className="w-full md:col-span-2 flex justify-center items-center">
+              
+              {/* Desktop & Tablet: Hardcoded math to exactly match 1 column width */}
+              <div className="hidden md:block w-full" style={{ maxWidth: 'calc(50% - 16px)' }}>
+                <ExpertCard category={categories[4]} />
+              </div>
+              
+              {/* Mobile: Full width stacking */}
+              <div className="block md:hidden w-full">
+                <ExpertCard category={categories[4]} />
+              </div>
+
             </div>
+            <br />
+
           </div>
 
         </div>
@@ -246,4 +245,3 @@ export default function SchoolOfManagementAndBusinessStudies() {
     </div>
   );
 }
-

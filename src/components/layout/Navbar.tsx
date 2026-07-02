@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
 
 interface MegaCol { heading: string; links: { label: string; href: string }[]; }
 interface BannerItem { icon: string; label: string; href: string; }
@@ -202,6 +203,8 @@ export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const announcements = [
     "🎓 Admissions Open 2025-26 — Apply Now for UG, PG & PhD Programs",
@@ -738,6 +741,7 @@ export default function Navbar() {
           </Link>
 
           {/* ── CENTRE QUICK-NAV ── */}
+          {/* 
           <nav className="gu-main-quicknav" aria-label="Page sections">
             {["Overview", "Programs", "Faculty", "Highlights", "Certifications", "Placements", "Careers", "FAQ"].map((label) => (
               <button
@@ -746,13 +750,19 @@ export default function Navbar() {
                 onClick={() => {
                   const id = label === "Careers" ? "CareerPathways" : label;
                   const el = document.getElementById(id);
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    // Section not on current page — navigate to CSE program page with anchor
+                    router.push(`/programs/school-of-computer-science-and-engineering#${id}`);
+                  }
                 }}
               >
                 {label}
               </button>
             ))}
           </nav>
+          */}
 
           <div className="gu-mainbar-right">
             <Link href="tel:01742639100" className="gu-helpline">
