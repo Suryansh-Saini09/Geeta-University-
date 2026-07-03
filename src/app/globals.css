@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Zilla+Slab:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -11,7 +12,7 @@
   --gu-text: #1A1A2E;
   --gu-text-muted: #64748B;
   --gu-border: #E2E8F0;
-  
+
   --background: var(--gu-bg);
   --foreground: var(--gu-text);
 }
@@ -36,13 +37,16 @@ body {
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--gu-bg);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--gu-navy-steel);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gu-gold);
 }

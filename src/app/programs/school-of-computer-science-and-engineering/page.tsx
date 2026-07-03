@@ -357,6 +357,30 @@ const BRAND_DATA: Record<string, { src: string; width: number; height: number; l
     src: "/eccouncil.png",
     width: 90, height: 40, label: "EC-Council",
   },
+  "VMware": {
+    src: "/vmware.svg",
+    width: 120, height: 28, label: "VMware",
+  },
+  "CompTIA": {
+    src: "/comptia.svg",
+    width: 110, height: 32, label: "CompTIA",
+  },
+  "SAP": {
+    src: "/sap.svg",
+    width: 90, height: 44, label: "SAP",
+  },
+  "Coursera": {
+    src: "/coursera.svg",
+    width: 140, height: 30, label: "Coursera",
+  },
+  "edX": {
+    src: "/edx.svg",
+    width: 80, height: 40, label: "edX",
+  },
+  "Autodesk": {
+    src: "/autodesk.svg",
+    width: 140, height: 30, label: "Autodesk",
+  },
 };
 
 const BRAND_KEYS_ROW1 = [
@@ -1354,13 +1378,13 @@ const PARTNERS_LIST = [
   { name: "GitHub", brandKey: "GitHub" },
   { name: "Red Hat Academy", brandKey: "Red Hat" },
   { name: "EC-Council Academia", brandKey: "EC-Council" },
-  { name: "VMware", brandKey: null },
-  { name: "CompTIA", brandKey: null },
+  { name: "VMware", brandKey: "VMware" },
+  { name: "CompTIA", brandKey: "CompTIA" },
   { name: "HubSpot", brandKey: "HubSpot" },
-  { name: "SAP", brandKey: null },
-  { name: "Coursera", brandKey: null },
-  { name: "edX", brandKey: null },
-  { name: "Autodesk", brandKey: null }
+  { name: "SAP", brandKey: "SAP" },
+  { name: "Coursera", brandKey: "Coursera" },
+  { name: "edX", brandKey: "edX" },
+  { name: "Autodesk", brandKey: "Autodesk" }
 ];
 
 function PartnerLogoCard({ name, brandKey }: { name: string; brandKey: string | null }) {
@@ -1388,9 +1412,10 @@ function PartnerLogoCard({ name, brandKey }: { name: string; brandKey: string | 
           src={brand.src}
           alt={brand.label}
           style={{
-            height: 28,
-            width: "auto",
-            maxWidth: 130,
+            width: brand.width,
+            height: brand.height,
+            maxWidth: "150px",
+            maxHeight: "55px",
             objectFit: "contain",
             opacity: 0.85,
             transition: "all 0.3s ease",

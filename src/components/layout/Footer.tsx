@@ -32,34 +32,16 @@ export default function Footer() {
         
         {/* Row 1: Logo + Tagline + Social Icons */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "24px", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "32px" }}>
-          <div>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-              <div style={{ display: "inline-flex", width: "36px", height: "36px", borderRadius: "50%", backgroundColor: "var(--gu-white)", alignItems: "center", justifyContent: "center", color: "var(--gu-navy)", fontWeight: 800, fontSize: "16px" }}>
-                GU
-              </div>
-              <span style={{ color: "var(--gu-white)", fontSize: "24px", fontWeight: 800 }}>
-                Geeta <span style={{ color: "var(--gu-gold)" }}>University</span>
-              </span>
-            </div>
+          
+
+          <img src="/GU-Logo.webp" alt="" />
             <p style={{ fontSize: "14px", color: "#94A3B8", maxWidth: "450px" }}>
               A premier state university in Panipat, Haryana, committed to academic excellence, industry-linked training, and holistic student development.
             </p>
-          </div>
+
           
           {/* Social Icons */}
-          <div style={{ display: "flex", gap: "12px" }}>
-            {[
-              { name: "FB", icon: "🌐" },
-              { name: "YT", icon: "📺" },
-              { name: "IG", icon: "📸" },
-              { name: "LN", icon: "💼" },
-              { name: "WA", icon: "💬" }
-            ].map((social) => (
-              <a key={social.name} href="#" style={{ width: "40px", height: "40px", borderRadius: "50%", backgroundColor: "rgba(255,255,255,0.05)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", color: "var(--gu-white)", textDecoration: "none", transition: "all 0.2s" }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--gu-gold)"; e.currentTarget.style.transform = "translateY(-3px)"; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}>
-                {social.icon}
-              </a>
-            ))}
-          </div>
+          
         </div>
 
         {/* Row 2: Four Link Columns */}
