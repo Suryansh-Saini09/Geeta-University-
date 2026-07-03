@@ -1302,7 +1302,7 @@ function GeetaTechnicalHubSection() {
                 </p>
 
                 {/* Pills Container */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: "auto" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
                   {pillar.pills.map((pill, pIndex) => (
                     <span 
                       key={pIndex} 
