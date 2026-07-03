@@ -108,7 +108,7 @@ const HIGHLIGHTS: Highlight[] = [
 
 const TESTIMONIALS: Testimonial[] = [
   { name: "Vaibhav Arora", pkg: "₹1.4 Cr PA", company: "Wabtec Corp", role: "Principal Solution Architect", quote: "Geeta University's 360-degree development approach, mentorship programs, and industry interactions helped me think like an entrepreneur rather than just a job seeker.", image: "/Vaibhav.webp" },
-  { name: "Vikas Bareja", pkg: "₹33–34 LPA", company: "Tech Mahindra", role: "B.Tech CSE Alumni", quote: "The rigorous training and mentorship I received empowered me with both the technical expertise and leadership qualities I needed to succeed at a global firm.", image: "/Vikas.webp" },
+  { name: "Vikas Bareja", pkg: "₹33–34 LPA", company: "Tech Mahindra", role: "B.Tech CSE Alumni", quote: "The rigorous training and mentorship I received empowered me with both the technical expertise and leadership qualities I needed to succeed at a global firm.", image: "/vikas.webp" },
   { name: "Shantanu Ojha", pkg: "₹30 LPA", company: "Ernst & Young", role: "B.Tech CSE Alumni", quote: "The campus support and mentorship gave me the foundation I needed to build a strong career from the ground up.", image: "/shantanu.webp" },
   { name: "Prikshit", pkg: "₹30 LPA", company: "Thales", role: "B.Tech CSE Alumni", quote: "My time at the university helped me bridge the gap between theory-based and practical learning — something that made a real difference when I entered the industry.", image: "/prikshit.png" },
   { name: "Saransh", pkg: "₹30 LPA", company: "PayU Payments", role: "B.Tech CSE Alumni", quote: "The campus environment pushed me to grow as an individual, developed my determination, and made me genuinely ready for the real world.", image: "/saransh.png" },
