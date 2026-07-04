@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Zilla+Slab:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Source Sans 3', sans-serif;
+  --font-serif: 'Zilla Slab', serif;
+}
+
 :root {
   --gu-navy: #0A1F44;
   --gu-navy-mid: #1A3A6B;
@@ -26,10 +31,14 @@
 body {
   background: var(--gu-bg);
   color: var(--gu-text);
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6, .heading, .title {
+  font-family: 'Zilla Slab', serif;
 }
 
 /* Custom Scrollbar */

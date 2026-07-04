@@ -97,12 +97,17 @@ export default function CommerceProgramsSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <br />
-          <h3 className="text-[#D89A2B] font-medium tracking-[0.5px]" style={{ fontSize: "30px", marginBottom: "8px" }}>
-            Master of Commerce (M.Com)
-          </h3>
-          <h2 className="text-white font-[800]" style={{ fontSize: "72px", lineHeight: 1.1, marginBottom: "28px" }}>
-            Bachelor of Commerce (B.Com)
-          </h2>
+          <br />
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 w-full" style={{ marginBottom: "28px" }}>
+            <h2 className="text-white font-[800] text-center" style={{ fontSize: "48px", lineHeight: 1.1 }}>
+              Bachelor of Commerce <span className="text-[#D89A2B]">(B.Com)</span>
+            </h2>
+            <div className="hidden md:block w-[2px] h-[50px] bg-white/20"></div>
+            <div className="md:hidden w-[60px] h-[2px] bg-white/20 my-2"></div>
+            <h2 className="text-white font-[800] text-center" style={{ fontSize: "48px", lineHeight: 1.1 }}>
+              Master of Commerce <span className="text-[#D89A2B]">(M.Com)</span>
+            </h2>
+          </div>
           
           <p className="font-medium m-auto" style={{ fontSize: "22px", lineHeight: 1.8, color: "rgba(255,255,255,0.82)", maxWidth: "760px", marginBottom: "24px" }}>
             Build expertise in accounting, finance, taxation and global business practices with industry-focused learning.
@@ -141,8 +146,9 @@ export default function CommerceProgramsSection() {
                   WebkitBackdropFilter: "blur(16px)",
                   border: "1px solid rgba(255,255,255,0.12)",
                   borderRadius: "24px",
-                  padding: "32px",
-                  height: "350px",
+                  padding: "40px 32px",
+                  height: "100%",
+                  minHeight: "440px",
                   boxShadow: "0 20px 45px rgba(0,0,0,0.18)",
                   transition: "all 350ms ease",
                 }}
@@ -159,26 +165,26 @@ export default function CommerceProgramsSection() {
               >
                 {/* 72x72 Icon Circle */}
                 <div 
-                  className="flex flex-col items-center justify-center rounded-full bg-[rgba(255,255,255,0.06)] mb-5"
+                  className="flex flex-col items-center justify-center rounded-full bg-[rgba(255,255,255,0.06)] mb-6"
                   style={{ width: "72px", height: "72px" }}
                 >
                   <Icon className="text-[#D89A2B]" size={34} strokeWidth={1.5} />
                 </div>
                 
                 {/* Gold Accent Line */}
-                <div className="w-[48px] h-[2px] bg-[#D89A2B] mb-5 rounded-full" />
+                <div className="w-[48px] h-[2px] bg-[#D89A2B] mb-6 rounded-full" />
                 
                 {/* Title */}
-                <h4 className="text-white font-bold leading-tight" style={{ fontSize: "19px", marginBottom: "20px" }}>
+                <h4 className="text-white font-bold leading-snug text-center" style={{ fontSize: "20px", minHeight: "56px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "28px" }}>
                   {spec.title}
                 </h4>
 
                 {/* Bullets */}
-                <ul className="flex flex-col mt-auto w-full items-start" style={{ gap: "16px" }}>
+                <ul className="flex flex-col mt-auto w-full items-start" style={{ gap: "20px" }}>
                   {spec.points.slice(0, 3).map((point, i) => (
-                    <li key={i} className="flex items-start text-left" style={{ gap: "12px" }}>
-                      <CheckCircle2 size={20} className="text-[#306DC7] shrink-0 mt-[2px]" strokeWidth={2.5} />
-                      <span className="text-white font-medium" style={{ fontSize: "18px", lineHeight: 1.8 }}>
+                    <li key={i} className="flex items-start text-left" style={{ gap: "14px" }}>
+                      <CheckCircle2 size={22} className="text-[#306DC7] shrink-0 mt-[2px]" strokeWidth={2.5} />
+                      <span className="text-white/95 font-medium" style={{ fontSize: "16px", lineHeight: 1.6 }}>
                         {point}
                       </span>
                     </li>

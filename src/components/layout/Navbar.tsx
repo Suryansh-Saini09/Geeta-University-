@@ -241,7 +241,7 @@ export default function Navbar() {
           position: sticky;
           top: 0;
           z-index: 1000;
-          font-family: 'Segoe UI', Arial, sans-serif;
+          font-family: 'Source Sans 3', sans-serif;
         }
 
         /* ─── TOP ANNOUNCEMENT BAR ───────────────────────────── */

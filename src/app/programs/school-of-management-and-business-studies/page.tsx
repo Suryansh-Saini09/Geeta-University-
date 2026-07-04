@@ -25,6 +25,8 @@ import {
   Landmark,
   Target,
   UsersRound,
+  Phone,
+  MapPin,
   type LucideIcon,
 } from "lucide-react";
 import CommerceProgramsSection from "../../../components/sections/CommerceProgramsSection";
@@ -128,7 +130,7 @@ const recruiters = [
   { name: "jaro education", color: "#5c6b7a", logo: "/images/recruiters/jaro-education.png" },
   { name: "policybazaar", color: "#2b66c2", logo: "/images/recruiters/policybazaar.png" },
   { name: "Aditya Birla Capital", color: "#c4242d", logo: "/images/recruiters/aditya-birla-capital.png" },
-  { name: "Axis Bank", color: "#9d245d", logo: "/images/recruiters/axis-bank.png" },
+  { name: "Axis Bank", color: "#9d245d", logo: null },
   { name: "HDFC Life", color: "#d71f26", logo: "/images/recruiters/hdfc-life.png" },
   { name: "paytm", color: "#1d4f9a", logo: "/images/recruiters/paytm.png" },
   { name: "Bajaj Capital", color: "#e32126", logo: "/images/recruiters/bajaj-capital.png" },
@@ -159,39 +161,39 @@ function ExpertCard({ category }: { category: ExpertCategory }) {
   const formattedNumber = category.number.toString().padStart(2, "0");
 
   return (
-    <div className="group w-full h-full bg-[#FFFFFF] rounded-[20px] overflow-hidden flex flex-col sm:flex-row border border-[rgba(15,45,82,0.08)] shadow-[0_10px_30px_rgba(15,45,82,0.06)] hover:-translate-y-[4px] hover:shadow-[0_16px_45px_rgba(15,45,82,0.1)] transition-all duration-300 ease-in-out">
+    <div className="group w-full h-full bg-[#FFFFFF] rounded-[24px] overflow-hidden flex flex-col sm:flex-row border border-[rgba(15,45,82,0.06)] shadow-[0_8px_24px_rgba(15,45,82,0.04)] hover:-translate-y-[4px] hover:shadow-[0_12px_36px_rgba(15,45,82,0.08)] transition-all duration-300 ease-in-out">
       
       {/* LEFT SIDE: Identity Column */}
-      <div className="w-full sm:w-[90px] flex-shrink-0 flex sm:flex-col flex-row items-center sm:justify-start justify-center gap-[12px] p-[16px] sm:p-0 sm:pt-[32px] bg-gradient-to-b from-[#0F2D52] to-[#194B82]">
-        <span className="text-white text-[32px] sm:text-[38px] font-[800] leading-none">{formattedNumber}</span>
-        <div className="w-[3px] h-[20px] sm:w-[20px] sm:h-[3px] bg-[#D89A2B] opacity-80 group-hover:opacity-100 group-hover:bg-[#F2B64B] transition-colors duration-300 rounded-full" />
+      <div className="w-full sm:w-[84px] flex-shrink-0 flex sm:flex-col flex-row items-center sm:justify-start justify-center gap-[12px] p-[16px] sm:p-0 sm:pt-[32px] bg-gradient-to-b from-[#0F2D52] to-[#143B6B]">
+        <span className="text-white text-[28px] sm:text-[34px] font-[800] leading-none tracking-tight">{formattedNumber}</span>
+        <div className="w-[3px] h-[20px] sm:w-[24px] sm:h-[3px] bg-[#D89A2B] opacity-90 group-hover:bg-[#F2B64B] transition-colors duration-300 rounded-full" />
       </div>
 
       {/* RIGHT SIDE: Content */}
-      <div className="flex-1 p-[24px_24px] sm:p-[28px_28px] flex flex-col bg-[#FFFFFF]">
+      <div className="flex-1 p-[24px] sm:p-[28px_32px] flex flex-col bg-[#FFFFFF]">
         
         {/* Header Section */}
-        <div className="flex items-start gap-4 mb-[24px]">
+        <div className="flex items-start gap-4 mb-[22px]">
           {/* Small Icon */}
-          <div className="w-[40px] h-[40px] rounded-[8px] bg-[#F4F7FC] border border-[#E8EDF4] flex items-center justify-center flex-shrink-0 mt-[2px]">
-            <Icon className="w-[20px] h-[20px] text-[#3569B7]" strokeWidth={2} />
+          <div className="w-[44px] h-[44px] rounded-[10px] bg-gradient-to-br from-[#F4F7FC] to-[#EAF0F8] border border-white shadow-sm flex items-center justify-center flex-shrink-0 mt-[2px]">
+            <Icon className="w-[22px] h-[22px] text-[#2F65B5]" strokeWidth={2} />
           </div>
           
           <div className="flex flex-col">
-            <h3 className="text-[#0F2D52] font-[750] text-[22px] sm:text-[24px] leading-tight">
+            <h3 className="text-[#0F2D52] font-[800] text-[20px] sm:text-[22px] leading-[1.2] tracking-tight">
               {category.title}
             </h3>
-            <p className="text-[#2F65B5] font-[600] text-[15px] sm:text-[16px] leading-[1.4] mt-[5px]">
+            <p className="text-[#2F65B5] font-[600] text-[14px] sm:text-[15px] leading-[1.4] mt-[6px]">
               {category.subtitle}
             </p>
           </div>
         </div>
 
         {/* Bullet Points */}
-        <ul className="flex flex-col gap-[14px]">
+        <ul className="flex flex-col gap-[12px] mt-auto">
           {category.points.map((point: string, i: number) => (
-            <li key={i} className="flex items-start gap-[13px] text-[15px] sm:text-[16px] text-[#4B5870] leading-[1.5]">
-              <Check className="text-[#2F65B5] w-[20px] h-[20px] flex-shrink-0 mt-[2px]" strokeWidth={2.5} />
+            <li key={i} className="flex items-start gap-[12px] text-[14px] sm:text-[15px] text-[#4B5870] leading-[1.5]">
+              <Check className="text-[#2F65B5] w-[18px] h-[18px] flex-shrink-0 mt-[2px]" strokeWidth={3} />
               <span className="font-[500]">{point}</span>
             </li>
           ))}
@@ -204,40 +206,33 @@ function ExpertCard({ category }: { category: ExpertCategory }) {
 }
 
 const mentorsData = [
-  {
-    name: "Dr. A. K. Sharma",
-    designation: "Dean, School of Commerce",
-    description: "Expert in Corporate Finance and Strategic Management with over 20 years of academic experience.",
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
-    name: "Prof. Ritu Desai",
-    designation: "Professor of Marketing",
-    description: "Specializes in Consumer Behavior and Digital Marketing strategies for modern enterprises.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2076&auto=format&fit=crop"
-  },
-  {
-    name: "Dr. Vikram Singh",
-    designation: "Associate Professor, HR",
-    description: "Focuses on Organizational Behavior, Leadership Development, and Talent Management.",
-    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
-    name: "Dr. Meera Nanda",
-    designation: "Assistant Professor, Economics",
-    description: "Research interests include International Trade, Macroeconomics, and Public Policy.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop"
-  },
-  {
-    name: "Prof. Sanjay Gupta",
-    designation: "Professor of Practice",
-    description: "Brings 25+ years of corporate experience in Supply Chain and Operations Management.",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop"
-  }
+  { name: "Ms. Anjali Ahuja", designation: "Faculty Member", description: "Dedicated to academic excellence and student mentorship in business studies.", image: "/bba faulty/Anjali.webp" },
+  { name: "Dr. Anupama", designation: "Faculty Member", description: "Specializes in modern business practices and organizational behavior.", image: "/bba faulty/Anupama.webp" },
+  { name: "Ms. Indu Aggarwal", designation: "Faculty Member", description: "Expert in strategic management and corporate governance.", image: "/bba faulty/Indu.webp" },
+  { name: "Dr. Neeraj Rana", designation: "Faculty Member", description: "Focuses on operations management and business analytics.", image: "/bba faulty/Neeraj Rana.webp" },
+  { name: "Parul S. Ghangas", designation: "Faculty Member", description: "Experienced in consumer behavior and market research methodologies.", image: "/bba faulty/Parul.webp" },
+  { name: "Dr. Pooja Gupta", designation: "Faculty Member", description: "Brings extensive industry experience to classroom learning.", image: "/bba faulty/Pooja-Gupta.webp" },
+  { name: "Dr. Poonam", designation: "Faculty Member", description: "Passionate about entrepreneurship and innovation in business.", image: "/bba faulty/Poonam.webp" },
+  { name: "Mr. Sanjay Aggarwal", designation: "Faculty Member", description: "Specializes in financial accounting and corporate finance.", image: "/bba faulty/Sanjay.webp" },
+  { name: "Ms. Shivani Taya", designation: "Faculty Member", description: "Focuses on human resource management and talent acquisition.", image: "/bba faulty/Shivani.webp" },
+  { name: "Mr. Anil Kumar Shahi", designation: "Faculty Member", description: "Expert in international business and global supply chain.", image: "/bba faulty/anil.webp" },
+  { name: "Ms. Arpana Mutt", designation: "Faculty Member", description: "Dedicated to research in behavioral economics and public policy.", image: "/bba faulty/arpana.webp" },
+  { name: "Dr. Ashutosh Srivastav", designation: "Faculty Member", description: "Specializes in digital marketing and e-commerce strategies.", image: "/bba faulty/ashutosh.webp" },
+  { name: "Ms. Divya", designation: "Faculty Member", description: "Brings expertise in brand management and retail marketing.", image: "/bba faulty/divya.webp" },
+  { name: "Mr. Harkamal", designation: "Faculty Member", description: "Focuses on leadership development and organizational change.", image: "/bba faulty/harmangat.webp" },
+  { name: "Mr. Karan", designation: "Faculty Member", description: "Expert in investment analysis and portfolio management.", image: "/bba faulty/karan.webp" },
+  { name: "Mr. Manish", designation: "Faculty Member", description: "Specializes in strategic human resource management.", image: "/bba faulty/manish.webp" },
+  { name: "Dr. Neha", designation: "Faculty Member", description: "Dedicated to advancing research in sustainable business practices.", image: "/bba faulty/neha.webp" },
+  { name: "Dr. Nidhi Gehlawat", designation: "Faculty Member", description: "Focuses on corporate law and business ethics.", image: "/bba faulty/nidhi g.webp" },
+  { name: "Dr. Nidhi Gupta", designation: "Faculty Member", description: "Expert in organizational psychology and team dynamics.", image: "/bba faulty/nidhi gupta.webp" },
+  { name: "Ms. Prerna", designation: "Faculty Member", description: "Specializes in service marketing and customer relationship management.", image: "/bba faulty/prerna.webp" },
+  { name: "Dr. Rekha Narang", designation: "Faculty Member", description: "Brings deep knowledge in financial modeling and risk management.", image: "/bba faulty/rekha.webp" },
+  { name: "Dr. Sangeeta", designation: "Faculty Member", description: "Focuses on cross-cultural management and diversity.", image: "/bba faulty/sangeeta.webp" },
+  { name: "Dr. Vivek", designation: "Faculty Member", description: "Expert in business intelligence and data-driven decision making.", image: "/bba faulty/vivek .webp" },
 ];
 
 function MeetOurMentorsSection() {
-  const [currentIndex, setCurrentIndex] = React.useState(3); // Start at real first slide
+  const [currentIndex, setCurrentIndex] = React.useState(4); // Start at real first slide
   const [isTransitioning, setIsTransitioning] = React.useState(false);
   const [translationAmount, setTranslationAmount] = React.useState(0);
   
@@ -251,8 +246,8 @@ function MeetOurMentorsSection() {
         const vwWidth = viewportRef.current.getBoundingClientRect().width;
         let cardW = 0;
         const gap = 30;
-        if (window.innerWidth >= 992) {
-          cardW = (vwWidth - 60) / 3;
+        if (window.innerWidth >= 1024) {
+          cardW = (vwWidth - 90) / 4;
         } else if (window.innerWidth >= 768) {
           cardW = (vwWidth - 30) / 2;
         } else {
@@ -271,9 +266,9 @@ function MeetOurMentorsSection() {
   }, []);
 
   const extendedMentors = [
-    ...mentorsData.slice(-3),
+    ...mentorsData.slice(-4),
     ...mentorsData,
-    ...mentorsData.slice(0, 3)
+    ...mentorsData.slice(0, 4)
   ];
 
   const handleNext = () => {
@@ -293,11 +288,11 @@ function MeetOurMentorsSection() {
     if (!trackRef.current) return;
     
     // Genuine infinite loop reset seamlessly
-    if (currentIndex >= mentorsData.length + 3) {
+    if (currentIndex >= mentorsData.length + 4) {
       trackRef.current.style.transition = 'none';
       setCurrentIndex(currentIndex - mentorsData.length);
       void trackRef.current.offsetHeight; // Force reflow
-    } else if (currentIndex <= 2) {
+    } else if (currentIndex <= 3) {
       trackRef.current.style.transition = 'none';
       setCurrentIndex(currentIndex + mentorsData.length);
       void trackRef.current.offsetHeight; // Force reflow
@@ -357,7 +352,7 @@ function MeetOurMentorsSection() {
           align-items: stretch;
         }
         .mentor-card-slide {
-          flex: 0 0 calc((100% - 60px) / 3);
+          flex: 0 0 calc((100% - 90px) / 4);
           min-width: 0;
           box-sizing: border-box;
         }
@@ -431,7 +426,7 @@ function MeetOurMentorsSection() {
         }
 
         /* Responsive Breakpoints */
-        @media (max-width: 991px) and (min-width: 768px) {
+        @media (max-width: 1023px) and (min-width: 768px) {
           .mentor-card-slide {
             flex: 0 0 calc((100% - 30px) / 2);
           }
@@ -559,7 +554,7 @@ function PlacementExcellenceSection() {
           --placement-muted: #5E6B82;
           background: var(--placement-white);
           color: var(--placement-text);
-          font-family: Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+          font-family: 'Source Sans 3', sans-serif;
         }
         .placement-container {
           width: min(1280px, calc(100% - 48px));
@@ -1041,20 +1036,9 @@ function PlacementExcellenceSection() {
             </div>
           </motion.div>
         </div>
-      </div>
+
 
       <div className="placement-container placement-section">
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.55 }}
-          className="placement-section-head"
-        >
-          <span className="placement-eyebrow">Outcomes</span>
-          <h3>Placement performance at a glance</h3>
-        </motion.div>
-
         <div className="placement-stats-grid">
           {placementStats.map((stat, index) => {
             const Icon = stat.icon;
@@ -1078,7 +1062,7 @@ function PlacementExcellenceSection() {
           })}
         </div>
       </div>
-
+        </div>
       <div className="placement-recruiters-wrap">
         <div className="placement-container placement-section">
           <motion.div
@@ -1179,7 +1163,14 @@ function PlacementExcellenceSection() {
             <p className="placement-card-copy">A broad spread of outcomes across business, technology, operations, and consulting domains.</p>
 
             <div className="placement-sector-layout">
-              <div className="placement-pie" />
+              <div className="w-full h-full min-h-[300px] flex justify-center items-center relative scale-[1.25] md:scale-[1.4] origin-center mt-4 md:mt-0">
+                <Image
+                  src="/chart.png"
+                  alt="Sector-wise placement chart"
+                  fill
+                  className="object-contain drop-shadow-2xl p-0"
+                />
+              </div>
 
               <div className="placement-sector-legend">
                 {sectorLegend.map((sector) => (
@@ -1736,9 +1727,9 @@ export default function SchoolOfManagementAndBusinessStudies() {
 
       <SchoolAboutSection />
 
-      <CommerceProgramsSection />
-
       <BBASpecialisationsSection />
+
+      <CommerceProgramsSection />
 
       <MeetOurMentorsSection />
 
@@ -1843,7 +1834,14 @@ export default function SchoolOfManagementAndBusinessStudies() {
             background-color: #0A1F44;
             overflow: hidden;
             padding: 110px 0;
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'Source Sans 3', sans-serif;
+          }
+          
+          .scbm-about-section {
+            width: 100%;
+            background-color: #FFFFFF;
+            padding: 80px 0;
+            font-family: "Source Sans 3", sans-serif;
           }
           
           .cta-bg-glow {
@@ -1893,7 +1891,8 @@ export default function SchoolOfManagementAndBusinessStudies() {
           .cta-right-col {
             flex: 0 0 300px;
             display: flex;
-            justify-content: flex-end;
+            flex-direction: column;
+            align-items: flex-end;
           }
           
           .cta-accent-line {
@@ -2022,6 +2021,13 @@ export default function SchoolOfManagementAndBusinessStudies() {
             position: relative;
           }
           
+          .scbm-highlight-text {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #1A3A6B;
+            font-family: "Source Sans 3", sans-serif;
+          }
+
           .qr-apply-text {
             font-size: 18px;
             font-weight: 700;
@@ -2105,6 +2111,41 @@ export default function SchoolOfManagementAndBusinessStudies() {
                 <Image src="/qr.png" alt="Apply QR Code" fill className="object-contain" />
               </div>
               <a className="qr-apply-text">Apply Now</a>
+            </div>
+            <br />
+            <br />
+            <br />
+            {/* Contact Details */}
+            <div className="flex flex-col gap-[16px] mt-[56px] w-full self-start text-left">
+              <div className="flex items-start gap-[12px]">
+                <div className="mt-[4px] w-[32px] h-[32px] rounded-full bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center shrink-0">
+                  <Phone size={16} className="text-[#D89A2B]" />
+                </div>
+                <div>
+                  <div className="text-[12px] uppercase tracking-wider text-white/50 font-bold mb-[2px]">Admission Helpline</div>
+                  <a href="tel:+919278768000" className="text-white font-medium hover:text-[#D89A2B] transition-colors text-[16px]">+91 92787 68000</a>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-[12px]">
+                <div className="mt-[4px] w-[32px] h-[32px] rounded-full bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center shrink-0">
+                  <Globe2 size={16} className="text-[#D89A2B]" />
+                </div>
+                <div>
+                  <div className="text-[12px] uppercase tracking-wider text-white/50 font-bold mb-[2px]">Website</div>
+                  <a href="https://www.geetauniversity.edu.in" target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:text-[#D89A2B] transition-colors text-[16px]">www.geetauniversity.edu.in</a>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-[12px]">
+                <div className="mt-[4px] w-[32px] h-[32px] rounded-full bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center shrink-0">
+                  <MapPin size={16} className="text-[#D89A2B]" />
+                </div>
+                <div>
+                  <div className="text-[12px] uppercase tracking-wider text-white/50 font-bold mb-[2px]">Campus Address</div>
+                  <p className="text-white/90 text-[16px] leading-snug">NH-71A, Naultha Panipat, Haryana (132145), India.</p>
+                </div>
+              </div>
             </div>
           </div>
 

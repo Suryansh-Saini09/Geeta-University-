@@ -2532,9 +2532,9 @@ function LearningSpacesSection() {
   ];
 
   const galleryImages = [
-    { src: "/scse_ai_lab.png", title: "AI & Robotics Lab", caption: "Students working on computer vision, deep learning models, and robotic integrations." },
-    { src: "/scse_cyber_lab.png", title: "Cybersecurity Command Center", caption: "High-tech environment dedicated to network threat analysis and security audits." },
-    { src: "/scse_coding_lab.png", title: "Coding & Collaborative Studio", caption: "Interactive programming space designed for logic building, DSA, and group projects." }
+    { src: "/ai.JPG.jpeg", title: "AI & Robotics Lab", caption: "Students working on computer vision, deep learning models, and robotic integrations." },
+    { src: "/cyber.JPG.jpeg", title: "Cybersecurity Command Center", caption: "High-tech environment dedicated to network threat analysis and security audits." },
+    { src: "/coding.JPG.jpeg", title: "Coding & Collaborative Studio", caption: "Interactive programming space designed for logic building, DSA, and group projects." }
   ];
 
   return (
@@ -3666,7 +3666,7 @@ export default function Page() {
                 {/* Stat Block: Placement Package */}
                 <div className="text-left text-white flex flex-col justify-center flex-shrink-0">
                   <div className="text-[11px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider leading-normal">
-                    Highest Package
+                   Package
                   </div>
                   <div className="text-lg sm:text-xl font-black text-white mt-3 leading-tight">
                     {HERO_SLIDES[currentHeroSlide].pkg}
