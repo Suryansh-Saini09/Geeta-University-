@@ -7504,13 +7504,14 @@ export default function SPBansalSchoolOfBusiness() {
     <div className="w-full flex-1 block bg-white min-h-screen text-[#1A1A2E] overflow-x-hidden selection:bg-[#E8871A] selection:text-white font-sans">
       
       {/* ── BANNER IMAGE SECTION ── */}
-      <div className="relative w-full min-h-[92vh] lg:h-[calc(100vh-80px)] overflow-hidden flex flex-col">
+      <div className="relative w-full overflow-hidden flex flex-col">
         <Image
           src="/spbsp/banner.jpeg"
           alt="SP Bansal School of Business - Shaping Tech-Empowered Decision Makers for New-Age Business"
-          fill
+          width={2560}
+          height={1441}
           priority
-          className="object-cover object-center"
+          className="w-full h-auto block"
           sizes="100vw"
         />
       </div>
