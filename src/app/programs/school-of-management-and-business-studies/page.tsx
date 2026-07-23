@@ -157,51 +157,30 @@ const sectorLegend = [
 
 function ExpertCard({ category }: { category: ExpertCategory }) {
   const Icon = category.icon;
-  // Format number to "01", "02"
   const formattedNumber = category.number.toString().padStart(2, "0");
 
   return (
-    <div className="group w-full h-full bg-[#FFFFFF] rounded-[24px] overflow-hidden flex flex-col sm:flex-row border border-[rgba(15,45,82,0.06)] shadow-[0_8px_24px_rgba(15,45,82,0.04)] hover:-translate-y-[4px] hover:shadow-[0_12px_36px_rgba(15,45,82,0.08)] transition-all duration-300 ease-in-out">
-      
-      {/* LEFT SIDE: Identity Column */}
-      <div className="w-full sm:w-[84px] flex-shrink-0 flex sm:flex-col flex-row items-center sm:justify-start justify-center gap-[12px] p-[16px] sm:p-0 sm:pt-[32px] bg-gradient-to-b from-[#0F2D52] to-[#143B6B]">
-        <span className="text-white text-[28px] sm:text-[34px] font-[800] leading-none tracking-tight">{formattedNumber}</span>
-        <div className="w-[3px] h-[20px] sm:w-[24px] sm:h-[3px] bg-[#D89A2B] opacity-90 group-hover:bg-[#F2B64B] transition-colors duration-300 rounded-full" />
-      </div>
-
-      {/* RIGHT SIDE: Content */}
-      <div className="flex-1 p-[24px] sm:p-[28px_32px] flex flex-col bg-[#FFFFFF]">
-        
-        {/* Header Section */}
-        <div className="flex items-start gap-4 mb-[22px]">
-          {/* Small Icon */}
-          <div className="w-[44px] h-[44px] rounded-[10px] bg-gradient-to-br from-[#F4F7FC] to-[#EAF0F8] border border-white shadow-sm flex items-center justify-center flex-shrink-0 mt-[2px]">
-            <Icon className="w-[22px] h-[22px] text-[#2F65B5]" strokeWidth={2} />
-          </div>
-          
-          <div className="flex flex-col">
-            <h3 className="text-[#0F2D52] font-[800] text-[20px] sm:text-[22px] leading-[1.2] tracking-tight">
-              {category.title}
-            </h3>
-            <p className="text-[#2F65B5] font-[600] text-[14px] sm:text-[15px] leading-[1.4] mt-[6px]">
-              {category.subtitle}
-            </p>
-          </div>
+    <article className="expert-card group">
+      <div className="expert-card-topline" style={{ backgroundColor: category.ribbon }} />
+      <div className="expert-card-header">
+        <div className="expert-card-icon">
+          <Icon className="w-[20px] h-[20px]" strokeWidth={2} />
         </div>
-
-        {/* Bullet Points */}
-        <ul className="flex flex-col gap-[12px] mt-auto">
-          {category.points.map((point: string, i: number) => (
-            <li key={i} className="flex items-start gap-[12px] text-[14px] sm:text-[15px] text-[#4B5870] leading-[1.5]">
-              <Check className="text-[#2F65B5] w-[18px] h-[18px] flex-shrink-0 mt-[2px]" strokeWidth={3} />
-              <span className="font-[500]">{point}</span>
-            </li>
-          ))}
-        </ul>
-        
+        <span className="expert-card-number">{formattedNumber}</span>
       </div>
-      
-    </div>
+      <div className="expert-card-copy">
+        <h3>{category.title}</h3>
+        <p>{category.subtitle}</p>
+      </div>
+      <ul>
+        {category.points.map((point: string, i: number) => (
+          <li key={i}>
+            <Check className="w-[14px] h-[14px]" strokeWidth={3} />
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
   );
 }
 
@@ -1736,92 +1715,358 @@ export default function SchoolOfManagementAndBusinessStudies() {
       <PlacementExcellenceSection />
 
       {/* ── EXPERTS SECTION ── */}
-      <section 
-        className="w-full flex flex-col items-center justify-center font-sans relative overflow-hidden bg-[#F7F9FC]"
-        style={{ padding: "90px 0 120px 0" }}
-      >
+      <section className="scbm-experts-section">
         <style>{`
-          @media (max-width: 768px) {
-            .experts-section-mobile {
-              padding: 64px 20px !important;
+          .scbm-experts-section {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background:
+              linear-gradient(135deg, rgba(248, 243, 233, 0.96), rgba(255, 255, 255, 0.98) 42%, rgba(244, 248, 252, 0.96)),
+              #fbf8f1;
+            padding: 88px 0 96px;
+            font-family: "Source Sans 3", sans-serif;
+          }
+          .scbm-experts-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+              linear-gradient(rgba(13, 48, 83, 0.045) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(13, 48, 83, 0.045) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: linear-gradient(to bottom, transparent, black 16%, black 82%, transparent);
+            pointer-events: none;
+          }
+          .scbm-experts-shell {
+            width: min(100% - 48px, 1180px);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+          }
+          .scbm-experts-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.7fr);
+            gap: 42px;
+            align-items: end;
+            margin-bottom: 34px;
+          }
+          .scbm-experts-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: #bf7a19;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+          }
+          .scbm-experts-eyebrow::before {
+            content: "";
+            width: 42px;
+            height: 1px;
+            background: #bf7a19;
+          }
+          .scbm-experts-title {
+            margin: 0;
+            color: #082b53;
+            font-family: "Zilla Slab", serif;
+            font-size: clamp(34px, 4vw, 54px);
+            line-height: 1.02;
+            font-weight: 800;
+            letter-spacing: 0;
+          }
+          .scbm-experts-title span {
+            color: #c7831f;
+          }
+          .scbm-experts-intro {
+            margin: 0;
+            color: #536176;
+            font-size: 17px;
+            line-height: 1.65;
+            max-width: 460px;
+          }
+          .scbm-experts-layout {
+            display: grid;
+            grid-template-columns: 0.78fr 1.22fr;
+            gap: 24px;
+            align-items: stretch;
+          }
+          .scbm-experts-feature {
+            position: relative;
+            min-height: 100%;
+            border-radius: 26px;
+            padding: 34px;
+            background: #082b53;
+            color: #fff;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(8, 43, 83, 0.18);
+          }
+          .scbm-experts-feature::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            right: -100px;
+            top: -90px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+          }
+          .scbm-experts-feature::after {
+            content: "";
+            position: absolute;
+            inset: auto 28px 28px auto;
+            width: 92px;
+            height: 92px;
+            border-radius: 999px;
+            background: rgba(216, 154, 43, 0.16);
+            filter: blur(2px);
+          }
+          .scbm-experts-feature-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+          }
+          .scbm-experts-feature-kicker {
+            width: fit-content;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            padding: 8px 14px;
+            color: #f5c46d;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 34px;
+          }
+          .scbm-experts-feature h3 {
+            margin: 0;
+            max-width: 330px;
+            font-family: "Zilla Slab", serif;
+            font-size: clamp(28px, 3vw, 42px);
+            line-height: 1.08;
+            font-weight: 800;
+            letter-spacing: 0;
+          }
+          .scbm-experts-feature p {
+            margin: 18px 0 0;
+            color: rgba(255, 255, 255, 0.76);
+            font-size: 16px;
+            line-height: 1.7;
+          }
+          .scbm-experts-stat-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: auto;
+            padding-top: 34px;
+          }
+          .scbm-experts-stat {
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            padding-top: 14px;
+          }
+          .scbm-experts-stat strong {
+            display: block;
+            color: #f5c46d;
+            font-family: "Zilla Slab", serif;
+            font-size: 34px;
+            line-height: 1;
+          }
+          .scbm-experts-stat span {
+            display: block;
+            margin-top: 6px;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 13px;
+            line-height: 1.35;
+          }
+          .scbm-experts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+          }
+          .expert-card {
+            position: relative;
+            min-height: 244px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid rgba(8, 43, 83, 0.08);
+            box-shadow: 0 16px 42px rgba(8, 43, 83, 0.08);
+            padding: 22px;
+            overflow: hidden;
+            transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
+          }
+          .expert-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(191, 122, 25, 0.28);
+            box-shadow: 0 22px 54px rgba(8, 43, 83, 0.12);
+          }
+          .expert-card-topline {
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%;
+            height: 4px;
+            opacity: 0.8;
+          }
+          .expert-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+          }
+          .expert-card-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            color: #0d4c8e;
+            background: #f3f7fb;
+            border: 1px solid rgba(8, 43, 83, 0.08);
+          }
+          .expert-card-number {
+            color: rgba(8, 43, 83, 0.16);
+            font-family: "Zilla Slab", serif;
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 1;
+          }
+          .expert-card-copy h3 {
+            margin: 0;
+            color: #082b53;
+            font-family: "Zilla Slab", serif;
+            font-size: 23px;
+            line-height: 1.16;
+            font-weight: 800;
+            letter-spacing: 0;
+          }
+          .expert-card-copy p {
+            margin: 8px 0 16px;
+            color: #b16f16;
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.35;
+          }
+          .expert-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 8px;
+          }
+          .expert-card li {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            color: #536176;
+            font-size: 14px;
+            line-height: 1.42;
+            font-weight: 500;
+          }
+          .expert-card li svg {
+            color: #c7831f;
+            flex: 0 0 auto;
+            margin-top: 3px;
+          }
+          @media (max-width: 1024px) {
+            .scbm-experts-heading,
+            .scbm-experts-layout {
+              grid-template-columns: 1fr;
             }
-            .experts-heading-mobile {
-              font-size: clamp(32px, 8vw, 38px) !important;
+            .scbm-experts-intro {
+              max-width: 760px;
+            }
+            .scbm-experts-feature {
+              min-height: 360px;
+            }
+          }
+          @media (max-width: 720px) {
+            .scbm-experts-section {
+              padding: 66px 0 74px;
+            }
+            .scbm-experts-shell {
+              width: min(100% - 32px, 1180px);
+            }
+            .scbm-experts-heading {
+              gap: 18px;
+              margin-bottom: 26px;
+            }
+            .scbm-experts-grid {
+              grid-template-columns: 1fr;
+            }
+            .scbm-experts-feature {
+              padding: 26px;
+              min-height: 0;
+            }
+            .scbm-experts-stat-row {
+              grid-template-columns: 1fr;
+              padding-top: 26px;
             }
           }
         `}</style>
 
-        {/* Subtle Decorative Elements */}
-        <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(#1B4B8F_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03]" />
-          
-          {/* Soft Navy Glow in Top Left */}
-          <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(15,45,82,0.04),transparent_60%)]" />
-          
-          {/* Soft Gold Glow in Bottom Right */}
-          <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(216,154,43,0.03),transparent_60%)]" />
-        </div>
-
-        <div className="w-full max-w-[1240px] mx-auto px-[20px] sm:px-[32px] flex flex-col items-center relative z-10 experts-section-mobile">
-          
-          {/* Main Title Section */}
-          <motion.div 
-            className="flex flex-col items-center text-center w-full mb-[36px]"
+        <div className="scbm-experts-shell">
+          <motion.div
+            className="scbm-experts-heading"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <h3 className="text-[#D89A2B] text-center font-[700] uppercase mb-[16px]" style={{ fontSize: "14px", letterSpacing: "2.5px" }}>
-              OUR LEARNING ECOSYSTEM
-            </h3>
-            <br />
-            <h2 className="text-[#0F2D52] text-center font-[800] mb-[24px] experts-heading-mobile" style={{ fontSize: "clamp(34px, 4vw, 48px)", lineHeight: 1.1, letterSpacing: "-1.5px" }}>
-              Learn from 5 Categories of Experts
-            </h2>
-
-
-            {/* Refined Gold Divider */}
-            <div className="flex items-center justify-center gap-[6px]" style={{ width: "120px" }}>
-              <div className="h-[1px] flex-1 bg-[#D89A2B]" />
-              <div className="w-[8px] h-[8px] rotate-45 bg-[#D89A2B] shrink-0" />
-              <div className="h-[1px] flex-1 bg-[#D89A2B]" />
+            <div>
+              <div className="scbm-experts-eyebrow">School of Business & Management</div>
+              <h2 className="scbm-experts-title">
+                Learn from <span>5 Categories</span> of Experts
+              </h2>
             </div>
+            <p className="scbm-experts-intro">
+              A layered learning ecosystem where academic depth, professional readiness, technical fluency, and industry insight come together without overwhelming the student journey.
+            </p>
           </motion.div>
-          <br />
 
-          {/* 2 + 2 + 1 GRID */}
-          <div 
-            className="grid grid-cols-1 lg:grid-cols-2 w-full relative items-stretch"
-            style={{ columnGap: "30px", rowGap: "26px" }}
-          >
-            {/* Top 4 Cards */}
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.55, delay: 0.08, ease: "easeOut" }} className="w-full h-full">
-              <ExpertCard category={categories[0]} />
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.55, delay: 0.16, ease: "easeOut" }} className="w-full h-full">
-              <ExpertCard category={categories[1]} />
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.55, delay: 0.24, ease: "easeOut" }} className="w-full h-full">
-              <ExpertCard category={categories[2]} />
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.55, delay: 0.32, ease: "easeOut" }} className="w-full h-full">
-              <ExpertCard category={categories[3]} />
-            </motion.div>
-
-            {/* The 5th Card - Centered */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true, margin: "-50px" }} 
-              transition={{ duration: 0.55, delay: 0.40, ease: "easeOut" }} 
-              className="w-full lg:col-span-2 justify-self-center lg:w-[calc(50%-15px)] h-full mt-[6px]"
+          <div className="scbm-experts-layout">
+            <motion.div
+              className="scbm-experts-feature"
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <ExpertCard category={categories[4]} />
+              <div className="scbm-experts-feature-content">
+                <div className="scbm-experts-feature-kicker">Curated Mentorship</div>
+                <h3>Five expert streams. One confident business graduate.</h3>
+                <p>
+                  Students learn from faculty, technologists, finishing-school coaches, and industry practitioners so classroom concepts turn into workplace capability.
+                </p>
+                <div className="scbm-experts-stat-row">
+                  <div className="scbm-experts-stat">
+                    <strong>5</strong>
+                    <span>Expert categories shaping the curriculum</span>
+                  </div>
+                  <div className="scbm-experts-stat">
+                    <strong>360°</strong>
+                    <span>Academic, technical, and career readiness</span>
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
+            <div className="scbm-experts-grid">
+              {categories.map((category, index) => (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.48, delay: index * 0.06, ease: "easeOut" }}
+                >
+                  <ExpertCard category={category} />
+                </motion.div>
+              ))}
+            </div>
           </div>
-
         </div>
       </section>
 
