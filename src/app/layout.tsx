@@ -16,12 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, padding: 0, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <body>
         <LenisProvider>
           <Navbar />
-          <main style={{ flex: "1 0 auto", display: "flex", flexDirection: "column" }}>
+
+          <main className="w-full min-w-0 flex-1">
             {children}
           </main>
+
           <Footer />
         </LenisProvider>
       </body>

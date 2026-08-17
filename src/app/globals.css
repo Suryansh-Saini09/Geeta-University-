@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Zilla+Slab:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
 @theme {
@@ -22,26 +23,63 @@
   --foreground: var(--gu-text);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
   background: var(--gu-bg);
   color: var(--gu-text);
   font-family: 'Source Sans 3', sans-serif;
-  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6, .heading, .title {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading,
+.title {
   font-family: 'Zilla Slab', serif;
 }
 
-/* Custom Scrollbar */
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* Custom scrollbar */
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -58,4 +96,22 @@ h1, h2, h3, h4, h5, h6, .heading, .title {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gu-gold);
+}
+
+.gu-container {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .gu-container {
+    width: min(100% - 32px, 1200px);
+  }
+}
+
+@media (max-width: 480px) {
+  .gu-container {
+    width: calc(100% - 24px);
+  }
 }
