@@ -73,6 +73,9 @@ export default function AwardsRankingsSection() {
   const [isTransitioning, setIsTransitioning] =
     useState(true);
 
+  const [isAnimating, setIsAnimating] =
+    useState(false);
+
   /*
    * =========================================================
    * RESET POSITION WHEN RESPONSIVE BREAKPOINT CHANGES
@@ -89,6 +92,7 @@ export default function AwardsRankingsSection() {
      */
     const timeout = window.setTimeout(() => {
       setIsTransitioning(true);
+      setIsAnimating(false);
     }, 50);
 
     return () => {
@@ -103,14 +107,14 @@ export default function AwardsRankingsSection() {
    */
 
   const nextSlide = () => {
-    if (!isTransitioning) return;
-
+    if (isAnimating) return;
+    setIsAnimating(true);
     setCurrentIndex((prev) => prev + 1);
   };
 
   const previousSlide = () => {
-    if (!isTransitioning) return;
-
+    if (isAnimating) return;
+    setIsAnimating(true);
     setCurrentIndex((prev) => prev - 1);
   };
 
@@ -136,7 +140,9 @@ export default function AwardsRankingsSection() {
    * =========================================================
    */
 
-  const handleTransitionEnd = () => {
+  const handleTransitionEnd = (e: React.TransitionEvent) => {
+    if (e.target !== e.currentTarget) return;
+
     /*
      * Moved past the final real award.
      */
@@ -148,6 +154,7 @@ export default function AwardsRankingsSection() {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setIsTransitioning(true);
+          setIsAnimating(false);
         });
       });
 
@@ -167,9 +174,14 @@ export default function AwardsRankingsSection() {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setIsTransitioning(true);
+          setIsAnimating(false);
         });
       });
+      
+      return;
     }
+
+    setIsAnimating(false);
   };
 
   /*
@@ -419,29 +431,7 @@ export default function AwardsRankingsSection() {
                         "
                       />
 
-                      {/* Award icon */}
 
-                      <div
-                        className="
-                          absolute
-                          left-5
-                          top-5
-                          flex
-                          h-10
-                          w-10
-                          items-center
-                          justify-center
-                          rounded-full
-                          bg-[#0A1F44]
-                          text-[#E8871A]
-                          shadow-lg
-                        "
-                      >
-                        <Award
-                          size={18}
-                          strokeWidth={1.8}
-                        />
-                      </div>
                     </div>
 
                     {/* =======================================
@@ -667,6 +657,8 @@ export default function AwardsRankingsSection() {
                   : undefined
               }
               onClick={() => {
+                if (isAnimating) return;
+                setIsAnimating(true);
                 setIsTransitioning(true);
                 setCurrentIndex(
                   visibleCards + index

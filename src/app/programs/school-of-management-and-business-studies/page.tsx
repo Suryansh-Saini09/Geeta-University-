@@ -1654,7 +1654,7 @@ function SchoolAboutSection() {
             The School of Commerce & Business Management at Geeta University goes beyond teaching top-notch management skills to students - it helps create industry leaders. As one of the <strong>top Universities for Management in Panipat</strong>, we offer a comprehensive curriculum that blends academic excellence with real-world exposure to make you job-ready from day one.
           </p>
           <p className="scbm-about-paragraph">
-            We have emerged as the <strong>best University for Management in Delhi NCR</strong> thanks to our industry-driven approach and great focus on experiential learning. Our programs are designed to help you adapt a strategic mindset, acquire key leadership skills, and develop innovative thinking necessary for thriving in today’s competitive business world.
+            We have emerged as the <strong>best University for Management in Delhi NCR</strong> thanks to our industry-driven approach and great focus on experiential learning. Our programs are designed to help you adapt a strategic mindset, acquire key leadership skills, and develop innovative thinking necessary for thriving in today's competitive business world.
           </p>
           <p className="scbm-about-paragraph" style={{ marginBottom: 0 }}>
             Being a <strong>top Management University in Panipat</strong> and ranked among the <strong>best Management Universities in North India</strong>, Geeta University offers unparalleled learning experiences through its expert faculty, complimented by global career opportunities. If you’re ready to transform your ambitions into success, enrol now at Geeta University—where future leaders are made!

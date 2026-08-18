@@ -669,26 +669,6 @@ function LeaderCard({
 
         <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[#0A1F44]/65 to-transparent" />
 
-        <div
-          className="
-            absolute
-            left-4
-            top-4
-            flex
-            h-8
-            w-8
-            items-center
-            justify-center
-            rounded-full
-            bg-[#0A1F44]/90
-            text-[10px]
-            font-bold
-            text-[#E8871A]
-            backdrop-blur-sm
-          "
-        >
-          {String(leader.id).padStart(2, "0")}
-        </div>
       </div>
 
       {/* BASIC INFO */}

@@ -10,8 +10,9 @@ interface BannerItem { icon: string; label: string; href: string; }
 interface NavEntry {
   label: string;
   key: string;
-  cols: MegaCol[];
+  cols?: MegaCol[];
   banner?: { text: string; items: BannerItem[] };
+  href?: string;
 }
 
 /* ── NAV DATA ────────────────────────────────────────────────── */
@@ -19,26 +20,7 @@ const secondaryNavLinks: NavEntry[] = [
   {
     label: "ABOUT",
     key: "about",
-    cols: [
-      { heading: "UNIVERSITY", links: [
-        { label: "About Geeta University", href: "#" },
-        { label: "Vision & Mission", href: "#" },
-        { label: "Leadership & Governance", href: "#" },
-        { label: "Accreditations & Rankings", href: "#" },
-        { label: "Campus Infrastructure", href: "#" },
-      ]},
-      { heading: "RECOGNITIONS", links: [
-        { label: "NAAC Accreditation", href: "#" },
-        { label: "NIRF Rankings", href: "#" },
-        { label: "State University Status", href: "#" },
-        { label: "Industry Partnerships", href: "#" },
-      ]},
-    ],
-    banner: { text: "Discover Our Legacy", items: [
-      { icon: "🏛️", label: "Campus Tour", href: "#" },
-      { icon: "📊", label: "Rankings", href: "#" },
-      { icon: "🤝", label: "Partners", href: "#" },
-    ]},
+    href: "/about",
   },
   {
     label: "PROGRAMS",
@@ -229,7 +211,8 @@ export default function Navbar() {
     setActiveDropdown(key);
   };
   const handleMouseLeave = () => {
-    closeTimer.current = setTimeout(() => setActiveDropdown(null), 120);
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 350);
   };
 
   return (
@@ -797,6 +780,16 @@ export default function Navbar() {
         {/* ── SECONDARY NAV BAR ── */}
         <nav className="gu-secbar" aria-label="Main navigation">
           {secondaryNavLinks.map((link) => {
+            if (link.href) {
+              return (
+                <div key={link.key} className="gu-sec-item">
+                  <Link href={link.href} className="gu-sec-link">
+                    {link.label}
+                  </Link>
+                </div>
+              );
+            }
+
             const isOpen = activeDropdown === link.key;
             return (
               <div
@@ -816,10 +809,14 @@ export default function Navbar() {
                     <div className="gu-mega-backdrop" onMouseEnter={handleMouseLeave} />
 
                     {/* Compact mega panel */}
-                    <div className="gu-mega" role="menu">
+                    <div 
+                      className="gu-mega" 
+                      role="menu"
+                      onMouseEnter={() => handleMouseEnter(link.key)}
+                    >
                       {/* Columns */}
                       <div className="gu-mega-body">
-                        {link.cols.map((col) => (
+                        {link.cols?.map((col) => (
                           <div key={col.heading} className="gu-mega-col">
                             <div className="gu-mega-col-heading">{col.heading}</div>
                             {col.links.map((item) => (
@@ -857,6 +854,16 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div className="gu-mob-drawer">
             {secondaryNavLinks.map((link) => {
+              if (link.href) {
+                return (
+                  <div key={link.key} className="gu-mob-row">
+                    <Link href={link.href} className="gu-mob-btn" style={{ textDecoration: "none", display: "block" }} onClick={() => setIsMobileMenuOpen(false)}>
+                      <span>{link.label}</span>
+                    </Link>
+                  </div>
+                );
+              }
+
               const isExpanded = mobileExpanded === link.key;
               return (
                 <div key={link.key} className="gu-mob-row">
@@ -866,7 +873,7 @@ export default function Navbar() {
                   </button>
                   {isExpanded && (
                     <div className="gu-mob-sub">
-                      {link.cols.flatMap((col) => col.links).map((item) => (
+                      {link.cols?.flatMap((col) => col.links).map((item) => (
                         <Link key={item.label} href={item.href} className="gu-mob-sub-link" onClick={() => setIsMobileMenuOpen(false)}>
                           {item.label}
                         </Link>

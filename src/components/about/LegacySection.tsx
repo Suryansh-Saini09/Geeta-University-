@@ -1,631 +1,323 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
-import {
-  ArrowRight,
-  Building2,
-  MapPin,
-  Sparkles,
-} from "lucide-react";
-
-import {
-  legacyIntro,
-  legacyMilestones,
-} from "@/data/legacy";
-
-const fadeUp: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: "easeOut",
-    },
-  },
-};
+import { motion } from "framer-motion";
+import { legacyIntro, legacyMilestones } from "@/data/legacy";
 
 export default function LegacySection() {
+  const legacyItems = legacyMilestones.map((milestone, index) => {
+    const title = milestone.institutions.map(inst => {
+      let text = inst.name;
+      if (inst.location) text += `, ${inst.location}`;
+      if (inst.note) text += `\n(${inst.note})`;
+      return text;
+    }).join('\n\n');
+    
+    return {
+      year: milestone.year,
+      title: title,
+      side: index % 2 === 0 ? "right" : "left"
+    };
+  });
+
   return (
-    <section
-      id="legacy"
-      className="
-        scroll-mt-20
-        relative
-        overflow-hidden
-        bg-white
-        py-24
-        md:py-28
-        lg:py-32
-      "
-    >
-      {/* =====================================================
-          BACKGROUND DECORATION
-      ===================================================== */}
+    <section id="legacy" className="spbsb-legacy-section scroll-mt-20">
+      <style>{`
+        .spbsb-legacy-section {
+          width: 100%;
+          background:
+            linear-gradient(180deg, #FFFFFF 0%, #F7FAFE 54%, #FFFFFF 100%);
+          color: #0A1F44;
+          padding: 76px 24px 86px;
+          font-family: 'Sapient', 'Source Sans 3', sans-serif;
+          overflow: hidden;
+          position: relative;
+        }
+        .spbsb-legacy-section::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(90deg, rgba(15, 45, 82, 0.045) 1px, transparent 1px),
+            linear-gradient(180deg, rgba(15, 45, 82, 0.035) 1px, transparent 1px);
+          background-size: 72px 72px;
+          mask-image: radial-gradient(circle at 50% 30%, black, transparent 72%);
+          pointer-events: none;
+        }
+        .spbsb-legacy-container {
+          width: min(1120px, 100%);
+          margin: 0 auto;
+          position: relative;
+          z-index: 1;
+        }
+        .spbsb-legacy-intro {
+          max-width: 960px;
+          margin-bottom: 42px;
+        }
+        .spbsb-legacy-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          color: #D99A24;
+          font-family: 'Sapient', 'Source Sans 3', sans-serif;
+          font-size: 11px;
+          font-weight: 800;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          margin-bottom: 12px;
+        }
+        .spbsb-legacy-eyebrow::before {
+          content: '';
+          width: 38px;
+          height: 2px;
+          background: #D99A24;
+          display: block;
+        }
+        .spbsb-legacy-title {
+          font-family: 'Zilla Slab', serif;
+          font-size: clamp(36px, 4.2vw, 56px);
+          line-height: 1;
+          font-weight: 700;
+          letter-spacing: 0;
+          color: #07325E;
+          margin: 0 0 14px;
+        }
+        .spbsb-legacy-copy {
+          max-width: 920px;
+          color: #242832;
+          font-family: 'Sapient', 'Source Sans 3', sans-serif;
+          font-size: clamp(15px, 1.5vw, 18px);
+          line-height: 1.58;
+          letter-spacing: 0;
+          font-weight: 500;
+          margin: 0;
+        }
+        .spbsb-legacy-timeline {
+          position: relative;
+          width: min(920px, 100%);
+          margin: 0 auto;
+          padding: 8px 0 4px;
+        }
+        .spbsb-legacy-rail {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 50%;
+          width: 8px;
+          border-radius: 999px;
+          background: linear-gradient(180deg, #6C85BE, #263A92 58%, #062A58);
+          transform: translateX(-50%);
+          box-shadow: 0 18px 40px rgba(6, 42, 88, 0.26);
+          overflow: hidden;
+        }
+        .spbsb-legacy-rail::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, transparent, rgba(255,255,255,0.55), transparent);
+          animation: spbsbRailShine 4.8s ease-in-out infinite;
+        }
+        .spbsb-legacy-item {
+          position: relative;
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) 68px minmax(0, 1fr);
+          min-height: 72px;
+          align-items: center;
+        }
+        .spbsb-legacy-item + .spbsb-legacy-item {
+          margin-top: 8px;
+        }
+        .spbsb-legacy-node {
+          grid-column: 2;
+          justify-self: center;
+          width: 26px;
+          height: 14px;
+          border-radius: 999px;
+          background: #FFFFFF;
+          border: 5px solid #5269B1;
+          box-shadow: 0 8px 22px rgba(14, 35, 91, 0.20);
+          z-index: 2;
+        }
+        .spbsb-legacy-content {
+          position: relative;
+          background: rgba(255, 255, 255, 0.76);
+          border: 1px solid rgba(82, 105, 177, 0.12);
+          border-radius: 8px;
+          padding: 12px 16px;
+          box-shadow: 0 14px 34px rgba(15, 45, 82, 0.08);
+          backdrop-filter: blur(10px);
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .spbsb-legacy-content:hover {
+          transform: translateY(-4px);
+          border-color: rgba(217, 154, 36, 0.35);
+          box-shadow: 0 24px 60px rgba(15, 45, 82, 0.14);
+        }
+        .spbsb-legacy-content::before {
+          content: '';
+          position: absolute;
+          top: 25px;
+          width: 68px;
+          border-top: 1.5px dashed rgba(36, 40, 50, 0.46);
+        }
+        .spbsb-legacy-content::after {
+          content: '';
+          position: absolute;
+          top: 20px;
+          border-top: 6px solid transparent;
+          border-bottom: 6px solid transparent;
+        }
+        .spbsb-legacy-item.right .spbsb-legacy-content {
+          grid-column: 3;
+          margin-left: 24px;
+        }
+        .spbsb-legacy-item.right .spbsb-legacy-content::before {
+          left: -92px;
+        }
+        .spbsb-legacy-item.right .spbsb-legacy-content::after {
+          left: -20px;
+          border-left: 15px solid #5269B1;
+        }
+        .spbsb-legacy-item.left .spbsb-legacy-content {
+          grid-column: 1;
+          margin-right: 24px;
+          text-align: right;
+        }
+        .spbsb-legacy-item.left .spbsb-legacy-content::before {
+          right: -92px;
+        }
+        .spbsb-legacy-item.left .spbsb-legacy-content::after {
+          right: -20px;
+          border-right: 15px solid #5269B1;
+        }
+        .spbsb-legacy-year {
+          display: block;
+          color: #243A9A;
+          font-family: 'Zilla Slab', serif;
+          font-size: clamp(22px, 2.3vw, 28px);
+          line-height: 1;
+          font-weight: 700;
+          letter-spacing: 0.02em;
+          margin-bottom: 5px;
+        }
+        .spbsb-legacy-text {
+          color: #535760;
+          font-family: 'Sapient', 'Source Sans 3', sans-serif;
+          font-size: clamp(13px, 1.2vw, 15px);
+          line-height: 1.45;
+          letter-spacing: 0;
+          font-weight: 500;
+          margin: 0;
+          white-space: pre-line;
+        }
+        @keyframes spbsbRailShine {
+          0%, 100% {
+            transform: translateY(-70%);
+          }
+          50% {
+            transform: translateY(70%);
+          }
+        }
+        @media (max-width: 900px) {
+          .spbsb-legacy-section {
+            padding: 62px 20px 72px;
+          }
+          .spbsb-legacy-intro {
+            margin-bottom: 34px;
+          }
+          .spbsb-legacy-copy {
+            letter-spacing: 0;
+          }
+          .spbsb-legacy-timeline {
+            width: 100%;
+          }
+          .spbsb-legacy-rail {
+            left: 18px;
+            width: 7px;
+          }
+          .spbsb-legacy-item {
+            grid-template-columns: 38px minmax(0, 1fr);
+            min-height: auto;
+          }
+          .spbsb-legacy-item + .spbsb-legacy-item {
+            margin-top: 14px;
+          }
+          .spbsb-legacy-node {
+            grid-column: 1;
+            width: 24px;
+            height: 14px;
+            border-width: 5px;
+          }
+          .spbsb-legacy-item.left .spbsb-legacy-content,
+          .spbsb-legacy-item.right .spbsb-legacy-content {
+            grid-column: 2;
+            margin: 0 0 0 14px;
+            text-align: left;
+          }
+          .spbsb-legacy-content::before,
+          .spbsb-legacy-content::after {
+            display: none;
+          }
+          .spbsb-legacy-content {
+            padding: 14px 15px;
+          }
+          .spbsb-legacy-year {
+            font-size: 22px;
+          }
+          .spbsb-legacy-text {
+            font-size: 13.5px;
+            letter-spacing: 0;
+          }
+        }
+      `}</style>
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -right-32
-          top-24
-          h-105
-          w-105
-          rounded-full
-          bg-[#E8871A]/[0.035]
-          blur-3xl
-        "
-      />
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -left-40
-          bottom-20
-          h-90
-          w-90
-          rounded-full
-          bg-[#0A1F44]/2.5
-          blur-3xl
-        "
-      />
-
-      <div className="gu-container relative z-10">
-
-        {/* ===================================================
-            INTRODUCTION
-        =================================================== */}
-
+      <div className="spbsb-legacy-container">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true,
-            amount: 0.2,
-          }}
-          variants={fadeUp}
-          className="
-            mx-auto
-            mb-20
-            max-w-225
-            text-center
-            md:mb-24
-          "
+          className="spbsb-legacy-intro"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          {/* Eyebrow */}
-
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <span className="h-0.5 w-9 bg-[#E8871A]" />
-
-            <span
-              className="
-                text-[11px]
-                font-bold
-                uppercase
-                tracking-[3px]
-                text-[#E8871A]
-              "
-            >
-              {legacyIntro.eyebrow}
-            </span>
-
-            <span className="h-0.5 w-9 bg-[#E8871A]" />
-          </div>
-
-          {/* Heading */}
-
-          <h2
-            className="
-              font-serif
-              text-[42px]
-              font-black
-              leading-[1.04]
-              tracking-[-1.5px]
-              text-[#0A1F44]
-              sm:text-[50px]
-              md:text-[58px]
-              lg:text-[64px]
-            "
-          >
-            {legacyIntro.title}
-
-            <br />
-
-            <span className="text-[#E8871A]">
-              {legacyIntro.highlightedTitle}
-            </span>
-          </h2>
-
-          {/* Description */}
-
-          <p
-            className="
-              mx-auto
-              mt-7
-              max-w-205
-              text-[16px]
-              leading-[1.85]
-              text-[#64748B]
-              md:text-[17px]
-            "
-          >
+          <div className="spbsb-legacy-eyebrow">{legacyIntro.eyebrow}</div>
+          <h2 className="spbsb-legacy-title">{legacyIntro.title} <span style={{color: '#D99A24'}}>{legacyIntro.highlightedTitle}</span></h2>
+          <p className="spbsb-legacy-copy">
             {legacyIntro.description}
           </p>
-
-          {/* Journey badge */}
-
-          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-[#E8871A]/20 bg-[#E8871A]/6 px-5 py-2.5">
-            <Sparkles
-              size={16}
-              className="text-[#E8871A]"
-            />
-
-            <span className="text-[12px] font-bold uppercase tracking-[1.5px] text-[#0A1F44]">
-              A journey from 1985 to today
-            </span>
-          </div>
         </motion.div>
 
-        {/* ===================================================
-            TIMELINE
-        =================================================== */}
-
-        <div className="relative">
-
-          {/* =================================================
-              CENTRAL TIMELINE LINE
-          ================================================= */}
-
-          <div
-            className="
-              absolute
-              bottom-0
-              left-4.5
-              top-0
-              w-0.5
-              bg-linear-to-b
-              from-[#E8871A]
-              via-[#DCE2EB]
-              to-[#0A1F44]
-              md:left-1/2
-              md:-translate-x-1/2
-            "
+        <div className="spbsb-legacy-timeline">
+          <motion.div
+            className="spbsb-legacy-rail"
+            initial={{ scaleY: 0, transformOrigin: "top" }}
+            whileInView={{ scaleY: 1, transformOrigin: "top" }}
+            viewport={{ once: true, margin: "-120px" }}
+            transition={{ duration: 1.1, ease: "easeOut" }}
           />
 
-          {/* =================================================
-              TIMELINE ITEMS
-          ================================================= */}
-
-          <div className="space-y-12 md:space-y-16">
-            {legacyMilestones.map(
-              (milestone, index) => {
-                const isEven = index % 2 === 0;
-
-                return (
-                  <motion.div
-                    key={milestone.year}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{
-                      once: true,
-                      amount: 0.15,
-                    }}
-                    variants={fadeUp}
-                    transition={{
-                      delay: index * 0.04,
-                    }}
-                    className="
-                      relative
-                      grid
-                      grid-cols-[38px_minmax(0,1fr)]
-                      gap-5
-                      md:grid-cols-[1fr_90px_1fr]
-                      md:gap-0
-                    "
-                  >
-
-                    {/* =======================================
-                        LEFT SIDE
-                    ======================================= */}
-
-                    <div
-                      className={`
-                        hidden
-                        md:flex
-                        ${
-                          isEven
-                            ? "justify-end pr-12"
-                            : "justify-start pl-12"
-                        }
-                      `}
-                    >
-                      {isEven && (
-                        <LegacyContent
-                          milestone={milestone}
-                          align="right"
-                        />
-                      )}
-                    </div>
-
-                    {/* =======================================
-                        CENTER YEAR
-                    ======================================= */}
-
-                    <div className="relative flex justify-center">
-
-                      {/* Timeline node */}
-
-                      <div
-                        className="
-                          relative
-                          z-10
-                          flex
-                          h-9.5
-                          w-9.5
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-full
-                          border-[3px]
-                          border-[#E8871A]
-                          bg-white
-                          shadow-[0_0_0_6px_rgba(232,135,26,0.08)]
-                          md:h-14.5
-                          md:w-14.5
-                          md:border-4
-                          md:shadow-[0_0_0_8px_rgba(232,135,26,0.08)]
-                        "
-                      >
-                        <span
-                          className="
-                            font-serif
-                            text-[10px]
-                            font-black
-                            text-[#0A1F44]
-                            md:text-[13px]
-                          "
-                        >
-                          {milestone.year}
-                        </span>
-                      </div>
-
-                    </div>
-
-                    {/* =======================================
-                        RIGHT SIDE
-                    ======================================= */}
-
-                    <div
-                      className={`
-                        hidden
-                        md:flex
-                        ${
-                          !isEven
-                            ? "justify-start pl-12"
-                            : "justify-start pl-12"
-                        }
-                      `}
-                    >
-                      {!isEven && (
-                        <LegacyContent
-                          milestone={milestone}
-                          align="left"
-                        />
-                      )}
-                    </div>
-
-                    {/* =======================================
-                        MOBILE CONTENT
-                    ======================================= */}
-
-                    <div className="md:hidden">
-                      <LegacyContent
-                        milestone={milestone}
-                        align="left"
-                      />
-                    </div>
-                  </motion.div>
-                );
-              }
-            )}
-          </div>
+          {legacyItems.map((item, index) => (
+            <motion.article
+              key={`${item.year}-${item.title}`}
+              className={`spbsb-legacy-item ${item.side}`}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.55, delay: Math.min(index * 0.06, 0.35), ease: "easeOut" }}
+            >
+              <motion.div
+                className="spbsb-legacy-node"
+                initial={{ scale: 0.7 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.35) + 0.08 }}
+              />
+              <div className="spbsb-legacy-content">
+                <span className="spbsb-legacy-year">{item.year}</span>
+                <p className="spbsb-legacy-text">{item.title}</p>
+              </div>
+            </motion.article>
+          ))}
         </div>
-
-        {/* ===================================================
-            END OF JOURNEY
-        =================================================== */}
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true,
-            amount: 0.3,
-          }}
-          variants={fadeUp}
-          className="mt-20 text-center md:mt-24"
-        >
-          <div
-            className="
-              mx-auto
-              flex
-              max-w-190
-              flex-col
-              items-center
-              rounded-[20px]
-              border
-              border-[#DCE2EB]
-              bg-[#F7F9FC]
-              px-7
-              py-10
-              shadow-[0_12px_35px_rgba(10,31,68,0.045)]
-              md:px-12
-              md:py-12
-            "
-          >
-            <div
-              className="
-                flex
-                h-14
-                w-14
-                items-center
-                justify-center
-                rounded-full
-                bg-[#0A1F44]
-                text-[#E8871A]
-              "
-            >
-              <Building2
-                size={24}
-                strokeWidth={1.7}
-              />
-            </div>
-
-            <span
-              className="
-                mt-5
-                text-[11px]
-                font-bold
-                uppercase
-                tracking-[2.5px]
-                text-[#E8871A]
-              "
-            >
-              The Journey Continues
-            </span>
-
-            <h3
-              className="
-                mt-3
-                font-serif
-                text-[27px]
-                font-black
-                text-[#0A1F44]
-                md:text-[34px]
-              "
-            >
-              From One Institution
-              <br />
-              <span className="text-[#E8871A]">
-                to an Educational Ecosystem.
-              </span>
-            </h3>
-
-            <p
-              className="
-                mt-5
-                max-w-150
-                text-[15px]
-                leading-[1.8]
-                text-[#64748B]
-              "
-            >
-              Four decades of growth, learning and
-              transformation continue to shape the future
-              of education.
-            </p>
-
-            <div className="mt-7 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[1.5px] text-[#0A1F44]">
-              Discover the legacy
-
-              <ArrowRight
-                size={16}
-                className="text-[#E8871A]"
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
-  );
-}
-
-/* ============================================================
-   TIMELINE CONTENT
-============================================================ */
-
-function LegacyContent({
-  milestone,
-  align,
-}: {
-  milestone: {
-    year: string;
-    institutions: {
-      name: string;
-      location?: string;
-      note?: string;
-    }[];
-    featured?: boolean;
-  };
-  align: "left" | "right";
-}) {
-  const isRight = align === "right";
-
-  return (
-    <div
-      className={`
-        w-full
-        max-w-120
-        rounded-[18px]
-        border
-        ${
-          milestone.featured
-            ? "border-[#E8871A]/35"
-            : "border-[#DCE2EB]"
-        }
-        bg-white
-        p-6
-        shadow-[0_10px_30px_rgba(10,31,68,0.045)]
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:border-[#E8871A]/40
-        hover:shadow-[0_16px_40px_rgba(10,31,68,0.08)]
-        ${
-          isRight
-            ? "text-right"
-            : "text-left"
-        }
-      `}
-    >
-      {/* Year label */}
-
-      <div
-        className={`
-          mb-5
-          flex
-          items-center
-          gap-3
-          ${
-            isRight
-              ? "justify-end"
-              : "justify-start"
-          }
-        `}
-      >
-        <span className="h-0.5 w-8 bg-[#E8871A]" />
-
-        <span className="text-[11px] font-bold uppercase tracking-[2px] text-[#E8871A]">
-          {milestone.year}
-        </span>
-      </div>
-
-      {/* Institutions */}
-
-      <div className="space-y-5">
-        {milestone.institutions.map(
-          (institution, index) => (
-            <div
-              key={`${institution.name}-${index}`}
-              className={`
-                ${
-                  index > 0
-                    ? "border-t border-[#EEF1F5] pt-5"
-                    : ""
-                }
-              `}
-            >
-              {/* Institution */}
-
-              <div
-                className={`
-                  flex
-                  gap-3
-                  ${
-                    isRight
-                      ? "flex-row-reverse"
-                      : "flex-row"
-                  }
-                `}
-              >
-                <div
-                  className="
-                    mt-1
-                    flex
-                    h-8
-                    w-8
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-[9px]
-                    bg-[#0A1F44]
-                    text-[#E8871A]
-                  "
-                >
-                  <Building2
-                    size={15}
-                    strokeWidth={1.8}
-                  />
-                </div>
-
-                <div className="min-w-0">
-                  <h3
-                    className="
-                      font-serif
-                      text-[19px]
-                      font-black
-                      leading-[1.3]
-                      text-[#0A1F44]
-                    "
-                  >
-                    {institution.name}
-                  </h3>
-
-                  {/* Location */}
-
-                  {institution.location && (
-                    <div
-                      className={`
-                        mt-2
-                        flex
-                        items-center
-                        gap-1.5
-                        text-[13px]
-                        text-[#64748B]
-                        ${
-                          isRight
-                            ? "justify-end"
-                            : "justify-start"
-                        }
-                      `}
-                    >
-                      <MapPin
-                        size={13}
-                        className="shrink-0 text-[#E8871A]"
-                      />
-
-                      <span>
-                        {institution.location}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Note */}
-
-                  {institution.note && (
-                    <p
-                      className="
-                        mt-2
-                        text-[12px]
-                        font-medium
-                        italic
-                        leading-[1.6]
-                        text-[#94A3B8]
-                      "
-                    >
-                      {institution.note}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-          )
-        )}
-      </div>
-    </div>
   );
 }

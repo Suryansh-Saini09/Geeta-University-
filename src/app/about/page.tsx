@@ -60,6 +60,14 @@ const fadeUp: Variants = {
 };
 
 export default function AboutPage() {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth"});
+    }
+  };
+
   return (
     <div className="min-w-0 overflow-x-hidden bg-[#F7F9FC] text-[#0A1F44]">
       {/* =========================================================
@@ -123,6 +131,7 @@ export default function AboutPage() {
               <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-4">
                 <a
                   href="#recognitions"
+                  onClick={(e) => scrollToSection(e, "recognitions")}
                   className="group inline-flex items-center gap-3 rounded-[10px] bg-[#E8871A] px-7 py-4 text-[15px] font-extrabold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#F5A623]"
                 >
                   Explore Our Story
@@ -134,6 +143,7 @@ export default function AboutPage() {
 
                 <a
                   href="#vision-mission"
+                  onClick={(e) => scrollToSection(e, "vision-mission")}
                   className="inline-flex items-center gap-3 rounded-[10px] border border-white/30 bg-white/10 px-7 py-4 text-[15px] font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-[#E8871A] hover:bg-white/15"
                 >
                   Vision & Mission
@@ -145,6 +155,7 @@ export default function AboutPage() {
           {/* Scroll indicator */}
           <motion.a
             href="#recognitions"
+            onClick={(e) => scrollToSection(e, "recognitions")}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.6 }}
@@ -178,6 +189,7 @@ export default function AboutPage() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
+                onClick={(e) => scrollToSection(e, item.id)}
                 className="group relative whitespace-nowrap px-4 py-3 text-[13px] font-bold text-[#64748B] transition-colors duration-300 hover:text-[#0A1F44]"
               >
                 {item.label}
