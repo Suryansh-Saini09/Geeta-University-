@@ -1,20 +1,53 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
+import HomeHeroSection from "@/components/home/HomeHeroSection";
+import SmartCampusSection from "@/components/home/SmartCampusSection";
+import HomeStatsSection from "@/components/home/HomeStatsSection";
+import TopRecruitersSection from "@/components/home/TopRecruitersSection";
+import VirtualCampusTourSection from "@/components/home/VirtualCampusTourSection";
+import HomeProgramsSection from "@/components/home/HomeProgramsSection";
+import AwardsRankingsSection from "@/components/about/AwardsRankingsSection";
+import HomeFeedbackSection from "@/components/home/HomeFeedbackSection";
+import HomeGlobalEducationSection from "@/components/home/HomeGlobalEducationSection";
+import HomeUniverseSection from "@/components/home/HomeUniverseSection";
+import HomeUpdatesSection from "@/components/home/HomeUpdatesSection";
+import WhyJoinGeetaSection from "@/components/home/WhyJoinGeetaSection";
+import ScholarshipsSection from "@/components/home/ScholarshipsSection";
+import IndustryIntegrationSection from "@/components/home/IndustryIntegrationSection";
+import StarPerformancesSection from "@/components/home/StarPerformancesSection";
 
 export default function Home() {
   return (
-    <div style={{ display: "flex", flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "60vh", padding: "40px 24px", textAlign: "center", backgroundColor: "var(--gu-bg)" }}>
-      <h1 style={{ color: "var(--gu-navy)", fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 800, marginBottom: "16px" }}>
-        Homepage — Coming Soon
-      </h1>
-      <p style={{ color: "var(--gu-text-muted)", fontSize: "16px", maxWidth: "600px", lineHeight: "1.6", marginBottom: "32px" }}>
-        We are building the brand new Geeta University digital experience. In the meantime, you can explore the programs currently offered by our schools.
-      </p>
-      <Link href="/programs/school-of-computer-science-and-engineering" style={{ backgroundColor: "var(--gu-gold)", color: "var(--gu-white)", padding: "14px 28px", borderRadius: "6px", textDecoration: "none", fontWeight: 700, fontSize: "14px", boxShadow: "0 4px 12px rgba(232, 135, 26, 0.2)", transition: "background-color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--gu-gold-light)")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "var(--gu-gold)")}>
-        Visit School of CSE →
-      </Link>
-    </div>
+    <main className="bg-white">
+      <HomeHeroSection />
+
+      <SmartCampusSection />
+
+      <HomeStatsSection />
+
+      <TopRecruitersSection />
+
+      <VirtualCampusTourSection />
+
+      <HomeProgramsSection />
+
+      <AwardsRankingsSection />
+
+      <HomeFeedbackSection />
+
+      <HomeGlobalEducationSection />
+
+      <HomeUniverseSection />
+
+      <HomeUpdatesSection />
+
+      <WhyJoinGeetaSection />
+
+      <ScholarshipsSection />
+
+      <IndustryIntegrationSection />
+
+      <StarPerformancesSection />
+    </main>
   );
 }

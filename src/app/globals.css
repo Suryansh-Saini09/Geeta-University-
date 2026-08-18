@@ -115,3 +115,29 @@ button {
     width: calc(100% - 24px);
   }
 }
+
+
+/* ========================================
+   Home Updates - Continuous Vertical Scroll
+   ======================================== */
+
+.updates-track {
+  width: 100%;
+  animation: gu-updates-scroll 30s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.updates-column:hover .updates-track {
+  animation-play-state: paused;
+}
+
+@keyframes gu-updates-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
