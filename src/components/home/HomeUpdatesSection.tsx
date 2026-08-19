@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import {
   eventUpdates,
   placementUpdates,
@@ -17,67 +18,220 @@ function UpdateColumn({
   accent,
   updates,
 }: UpdateColumnProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isHoveredRef = useRef(false);
+  const isDraggingRef = useRef(false);
+  const startYRef = useRef(0);
+  const scrollTopStartRef = useRef(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    // Start at middle copy so user can scroll both up and down infinitely
+    const setInitialPos = () => {
+      const singleHeight = el.scrollHeight / 3;
+      if (singleHeight > 0 && el.scrollTop === 0) {
+        el.scrollTop = singleHeight;
+      }
+    };
+
+    setInitialPos();
+    const timer = setTimeout(setInitialPos, 100);
+
+    let animationFrameId: number;
+    let lastTime = performance.now();
+    const speed = 28; // pixels per second for silky smooth continuous auto-scroll
+
+    const step = (currentTime: number) => {
+      const delta = Math.min((currentTime - lastTime) / 1000, 0.1);
+      lastTime = currentTime;
+
+      if (!isHoveredRef.current && !isDraggingRef.current && el) {
+        const singleHeight = el.scrollHeight / 3;
+        if (singleHeight > 0) {
+          el.scrollTop += speed * delta;
+          if (el.scrollTop >= 2 * singleHeight) {
+            el.scrollTop -= singleHeight;
+          }
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => {
+      clearTimeout(timer);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  // Global mousemove and mouseup listeners for smooth dragging anywhere
+  useEffect(() => {
+    const handleGlobalMouseMove = (e: MouseEvent) => {
+      if (!isDraggingRef.current) return;
+      const el = scrollRef.current;
+      if (!el) return;
+      const deltaY = e.clientY - startYRef.current;
+      el.scrollTop = scrollTopStartRef.current - deltaY;
+    };
+
+    const handleGlobalMouseUp = () => {
+      if (isDraggingRef.current) {
+        isDraggingRef.current = false;
+        setIsDragging(false);
+      }
+    };
+
+    window.addEventListener("mousemove", handleGlobalMouseMove, { passive: true });
+    window.addEventListener("mouseup", handleGlobalMouseUp);
+
+    return () => {
+      window.removeEventListener("mousemove", handleGlobalMouseMove);
+      window.removeEventListener("mouseup", handleGlobalMouseUp);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const singleHeight = el.scrollHeight / 3;
+    if (singleHeight <= 0) return;
+
+    if (el.scrollTop >= 2 * singleHeight) {
+      el.scrollTop -= singleHeight;
+    } else if (el.scrollTop <= 0) {
+      el.scrollTop += singleHeight;
+    }
+  };
+
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTop += e.deltaY;
+    handleScroll();
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    isHoveredRef.current = true;
+    isDraggingRef.current = true;
+    startYRef.current = e.touches[0].clientY;
+    scrollTopStartRef.current = el.scrollTop;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDraggingRef.current || !scrollRef.current) return;
+    const deltaY = e.touches[0].clientY - startYRef.current;
+    scrollRef.current.scrollTop = scrollTopStartRef.current - deltaY;
+  };
+
+  const handleTouchEnd = () => {
+    isDraggingRef.current = false;
+    isHoveredRef.current = false;
+  };
+
+  const handleMouseEnter = () => {
+    isHoveredRef.current = true;
+  };
+
+  const handleMouseLeave = () => {
+    isHoveredRef.current = false;
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    isDraggingRef.current = true;
+    setIsDragging(true);
+    startYRef.current = e.clientY;
+    scrollTopStartRef.current = el.scrollTop;
+  };
+
   return (
     <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className="updates-column overflow-hidden rounded-3xl border border-[#D9E2EC] bg-white shadow-xl"
     >
       {/* Header */}
       <div className="border-b border-[#E2E8F0] bg-[#F8FAFC] px-6 py-6 sm:px-8">
-        <div className="flex items-center gap-4">
-          <span
-            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-lg ${
-              accent === "orange"
-                ? "bg-[#F28C18] text-white"
-                : "bg-[#06355F] text-white"
-            }`}
-          >
-            {accent === "orange" ? "◈" : "↗"}
-          </span>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#F28C18]">
+            Latest
+          </p>
 
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#F28C18]">
-              Latest
-            </p>
-
-            <h3 className="font-serif text-2xl font-bold text-[#06355F] sm:text-3xl">
-              {title}
-            </h3>
-          </div>
+          <h3 className="font-serif text-2xl font-bold text-[#06355F] sm:text-3xl">
+            {title}
+          </h3>
         </div>
       </div>
 
       {/* Scrolling viewport */}
-      <div className="updates-viewport relative h-[500px] overflow-hidden bg-white">
+      <div className="relative h-[500px] overflow-hidden bg-white">
         {/* Top fade */}
         <div className="pointer-events-none absolute left-0 right-0 top-0 z-20 h-16 bg-gradient-to-b from-white via-white/80 to-transparent" />
 
         {/* Bottom fade */}
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-20 bg-gradient-to-t from-white via-white/80 to-transparent" />
 
-        {/* Animated track */}
-        <div className="updates-track">
-          {/* FIRST COPY */}
-          <div className="updates-list">
-            {updates.map((update, index) => (
-              <UpdateItem
-                key={`first-${update.title}-${index}`}
-                update={update}
-                accent={accent}
-                isLast={index === updates.length - 1}
-              />
-            ))}
-          </div>
+        {/* Scrollable Container with hidden scrollbar and Lenis-prevent */}
+        <div
+          ref={scrollRef}
+          data-lenis-prevent="true"
+          data-lenis-prevent-wheel="true"
+          data-lenis-prevent-touch="true"
+          onScroll={handleScroll}
+          onWheel={handleWheel}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          className={`h-full overflow-y-auto overscroll-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${
+            isDragging ? "cursor-grabbing select-none" : "cursor-grab"
+          }`}
+        >
+          {/* Animated track with 3 copies for seamless bi-directional scroll */}
+          <div className="updates-track pointer-events-auto">
+            {/* COPY 1 */}
+            <div className="updates-list">
+              {updates.map((update, index) => (
+                <UpdateItem
+                  key={`copy1-${update.title}-${index}`}
+                  update={update}
+                  accent={accent}
+                  isLast={index === updates.length - 1}
+                />
+              ))}
+            </div>
 
-          {/* SECOND COPY */}
-          <div className="updates-list">
-            {updates.map((update, index) => (
-              <UpdateItem
-                key={`second-${update.title}-${index}`}
-                update={update}
-                accent={accent}
-                isLast={index === updates.length - 1}
-              />
-            ))}
+            {/* COPY 2 */}
+            <div className="updates-list">
+              {updates.map((update, index) => (
+                <UpdateItem
+                  key={`copy2-${update.title}-${index}`}
+                  update={update}
+                  accent={accent}
+                  isLast={index === updates.length - 1}
+                />
+              ))}
+            </div>
+
+            {/* COPY 3 */}
+            <div className="updates-list">
+              {updates.map((update, index) => (
+                <UpdateItem
+                  key={`copy3-${update.title}-${index}`}
+                  update={update}
+                  accent={accent}
+                  isLast={index === updates.length - 1}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
