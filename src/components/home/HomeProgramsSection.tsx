@@ -624,12 +624,11 @@ export default function HomeProgramsSection() {
                             {category.shortTitle}
                           </span>
 
+                          {/* Arrow hidden by default, visible on hover */}
                           <span
-                            className="ml-auto hidden text-lg transition-transform duration-200 group-hover:translate-x-1 sm:block"
+                            className="ml-auto hidden text-lg opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 sm:block"
                             style={{
-                              color: isActive
-                                ? "var(--gu-gold)"
-                                : "var(--gu-text-muted)",
+                              color: "var(--gu-gold)",
                             }}
                           >
                             →
@@ -665,15 +664,6 @@ export default function HomeProgramsSection() {
                   >
                     <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-start">
                       <div>
-                        <p
-                          className="text-xs font-bold uppercase tracking-[0.2em]"
-                          style={{
-                            color: "var(--gu-gold)",
-                          }}
-                        >
-                          {activeProgramCategory.number} / 12
-                        </p>
-
                         <h3
                           className="mt-2 font-serif text-3xl font-bold leading-tight sm:text-4xl"
                           style={{
@@ -709,31 +699,35 @@ export default function HomeProgramsSection() {
                     {/* Programs */}
                     <div className="mt-8 grid gap-3 sm:grid-cols-2">
                       {activeProgramCategory.programs.map((program, index) => {
+                        const isLink = !!program.href;
+
                         const content = (
                           <>
                             <span
-                              className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold"
+                              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors duration-200 ${
+                                isLink
+                                  ? "group-hover:bg-[var(--gu-gold)] group-hover:text-white"
+                                  : ""
+                              }`}
                               style={{
-                                backgroundColor:
-                                  index === 0
-                                    ? "var(--gu-gold)"
-                                    : "rgba(6, 53, 95, 0.07)",
-                                color:
-                                  index === 0
-                                    ? "white"
-                                    : "var(--gu-navy)",
+                                backgroundColor: "rgba(6, 53, 95, 0.07)",
+                                color: "var(--gu-navy)",
                               }}
                             >
                               {String(index + 1).padStart(2, "0")}
                             </span>
 
-                            <span className="flex-1 text-sm font-semibold leading-6">
+                            <span
+                              className={`flex-1 text-sm font-semibold leading-6 transition-colors duration-200 ${
+                                isLink ? "group-hover:text-[var(--gu-gold)]" : ""
+                              }`}
+                            >
                               {program.name}
                             </span>
 
-                            {program.href && (
+                            {isLink && (
                               <span
-                                className="text-lg transition-transform duration-200 group-hover:translate-x-1"
+                                className="text-lg opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100"
                                 style={{
                                   color: "var(--gu-gold)",
                                 }}
@@ -744,11 +738,11 @@ export default function HomeProgramsSection() {
                           </>
                         );
 
-                        if (program.href) {
+                        if (isLink) {
                           return (
                             <Link
                               key={program.name}
-                              href={program.href}
+                              href={program.href as string}
                               className="group flex items-center gap-3 rounded-2xl border bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                               style={{
                                 borderColor: "rgba(6, 53, 95, 0.10)",
@@ -799,16 +793,15 @@ export default function HomeProgramsSection() {
                         </div>
 
                         <Link
-  href={activeProgramCategory.schoolHref}
-  className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-  style={{
-    backgroundColor: "var(--gu-navy)",
-    color: "#ffffff",
-  }}
->
-  Explore School
-  <span style={{ color: "#ffffff" }}>→</span>
-</Link>
+                          href={activeProgramCategory.schoolHref}
+                          className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                          style={{
+                            backgroundColor: "var(--gu-navy)",
+                            color: "#ffffff",
+                          }}
+                        >
+                          Explore School
+                        </Link>
                       </div>
                     )}
                   </motion.div>

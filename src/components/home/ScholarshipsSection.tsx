@@ -53,15 +53,6 @@ export default function ScholarshipsSection() {
             />
 
             <div className="relative z-10">
-              {/* Label */}
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2">
-                <span className="h-2 w-2 rounded-full bg-[#F28C18]" />
-
-                <span className="text-xs font-bold uppercase tracking-[0.18em] text-white">
-                  Financial Assistance
-                </span>
-              </div>
-
               <h3 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
                 {scholarshipData.title}
               </h3>
@@ -131,18 +122,14 @@ export default function ScholarshipsSection() {
             />
 
             <div className="relative z-10">
-              {/* GUTS badge */}
-              <div className="flex items-center justify-between">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F28C18] shadow-lg">
-                  <span className="text-xl font-black text-white">G</span>
-                </div>
-
+              {/* GUTS badge (Aligned to the right) */}
+              <div className="flex items-center justify-end">
                 <span className="rounded-full bg-[#06355F] px-4 py-2 text-xs font-bold tracking-[0.2em] text-white">
                   {gutsData.label}
                 </span>
               </div>
 
-              <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[#F28C18]">
+              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#F28C18]">
                 Scholarship Entrance Test
               </p>
 
@@ -192,18 +179,6 @@ export default function ScholarshipsSection() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom reassurance */}
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 text-center sm:flex-row">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#F28C18]/10 text-[#F28C18]">
-            ✓
-          </span>
-
-          <p className="text-sm font-medium text-[#526579]">
-            Explore the scholarship options that can help make your Geeta
-            University journey more accessible.
-          </p>
         </div>
       </div>
     </section>

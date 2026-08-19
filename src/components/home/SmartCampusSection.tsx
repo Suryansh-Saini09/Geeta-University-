@@ -264,16 +264,14 @@ export default function SmartCampusSection() {
                             </span>
                           </span>
 
+                          {/* Arrow only visible on hover */}
                           <span
                             aria-hidden="true"
-                            className="text-lg transition-transform duration-300"
+                            className="text-lg opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
                             style={{
                               color: isActive
                                 ? "var(--gu-gold)"
                                 : "var(--gu-text-muted)",
-                              transform: isActive
-                                ? "translateX(2px)"
-                                : "translateX(0)",
                             }}
                           >
                             →
@@ -312,71 +310,44 @@ export default function SmartCampusSection() {
                 </div>
 
                 {/* Content */}
-                <div className="relative flex h-full min-h-96 flex-col justify-between p-7 sm:p-10 lg:min-h-128 lg:p-12">
-                  <div>
-                    <motion.div
-                      key={selectedFeature.id}
-                      variants={featureVariants}
-                      initial="hidden"
-                      animate="visible"
-                    >
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="text-sm font-bold tracking-[0.2em]"
-                          style={{
-                            color: "var(--gu-gold)",
-                          }}
-                        >
-                          {selectedFeature.number}
-                        </span>
+                <div className="relative flex h-full min-h-96 flex-col justify-center p-7 sm:p-10 lg:min-h-128 lg:p-12">
+                  <motion.div
+                    key={selectedFeature.id}
+                    variants={featureVariants}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span
+                        className="text-sm font-bold tracking-[0.2em]"
+                        style={{
+                          color: "var(--gu-gold)",
+                        }}
+                      >
+                        {selectedFeature.number}
+                      </span>
 
-                        <span className="h-px w-12 bg-white/30" />
+                      <span className="h-px w-12 bg-white/30" />
 
-                        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
-                          Smart Campus
-                        </span>
-                      </div>
-
-                      <h3 className="mt-7 max-w-2xl font-serif text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-                        {selectedFeature.title}
-                      </h3>
-
-                      <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
-                        {selectedFeature.description}
-                      </p>
-
-                      <div className="mt-7 border-l-2 pl-5" style={{ borderColor: "var(--gu-gold)" }}>
-                        <p className="text-sm leading-7 text-white/65">
-                          {selectedFeature.detail}
-                        </p>
-                      </div>
-                    </motion.div>
-                  </div>
-
-                  {/* Bottom information */}
-                  <div className="mt-10 flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
-                        Built for
-                      </p>
-
-                      <p className="mt-1 text-sm font-semibold text-white">
-                        A connected student experience
-                      </p>
-                    </div>
-
-                    <div
-                      className="flex h-12 w-12 items-center justify-center rounded-full border"
-                      style={{
-                        borderColor: "rgba(232, 135, 26, 0.5)",
-                        color: "var(--gu-gold)",
-                      }}
-                    >
-                      <span aria-hidden="true" className="text-xl">
-                        ↗
+                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+                        Smart Campus
                       </span>
                     </div>
-                  </div>
+
+                    <h3 className="mt-7 max-w-2xl font-serif text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+                      {selectedFeature.title}
+                    </h3>
+
+                    <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
+                      {selectedFeature.description}
+                    </p>
+
+                    <div className="mt-7 border-l-2 pl-5" style={{ borderColor: "var(--gu-gold)" }}>
+                      <p className="text-sm leading-7 text-white/65">
+                        {selectedFeature.detail}
+                      </p>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -395,7 +366,7 @@ export default function SmartCampusSection() {
                   key={feature.id}
                   type="button"
                   onClick={() => setActiveFeature(feature.id)}
-                  className="group rounded-2xl border p-5 text-left transition-all duration-300 hover:-translate-y-1"
+                  className="group rounded-2xl border p-5 text-left transition-all duration-300 hover:-translate-y-1 sm:p-6"
                   style={{
                     borderColor: isActive
                       ? "rgba(232, 135, 26, 0.45)"
@@ -408,28 +379,8 @@ export default function SmartCampusSection() {
                       : "0 8px 25px rgba(6, 53, 95, 0.05)",
                   }}
                 >
-                  <div className="flex items-center justify-between">
-                    <span
-                      className="text-xs font-bold tracking-[0.15em]"
-                      style={{
-                        color: "var(--gu-gold)",
-                      }}
-                    >
-                      {feature.number}
-                    </span>
-
-                    <span
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                      style={{
-                        color: "var(--gu-navy)",
-                      }}
-                    >
-                      →
-                    </span>
-                  </div>
-
                   <h4
-                    className="mt-4 font-serif text-xl font-bold"
+                    className="font-serif text-xl font-bold"
                     style={{
                       color: "var(--gu-navy)",
                     }}

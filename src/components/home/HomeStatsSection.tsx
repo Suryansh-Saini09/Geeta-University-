@@ -9,7 +9,6 @@ type Stat = {
   label: string;
   prefix?: string;
   description: string;
-  symbol: string;
 };
 
 const stats: Stat[] = [
@@ -18,21 +17,18 @@ const stats: Stat[] = [
     suffix: " LPA",
     label: "Highest Package",
     description: "A strong launchpad for ambitious careers.",
-    symbol: "₹",
   },
   {
     value: 550,
     suffix: "+",
     label: "Recruiters",
     description: "Industry connections creating career opportunities.",
-    symbol: "↗",
   },
   {
     value: 3500,
     suffix: "+",
     label: "Job Offers",
     description: "Opportunities generated for our students.",
-    symbol: "✓",
   },
 ];
 
@@ -250,38 +246,9 @@ export default function HomeStatsSection() {
                   }}
                 />
 
-                <div className="flex items-start justify-between">
-                  {/* Symbol */}
-                  <div
-                    className="flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold"
-                    style={{
-                      backgroundColor:
-                        index === 1
-                          ? "rgba(232, 135, 26, 0.10)"
-                          : "rgba(6, 53, 95, 0.06)",
-                      color:
-                        index === 1
-                          ? "var(--gu-gold)"
-                          : "var(--gu-navy)",
-                    }}
-                  >
-                    {stat.symbol}
-                  </div>
-
-                  {/* Number */}
-                  <span
-                    className="text-xs font-bold uppercase tracking-[0.16em]"
-                    style={{
-                      color: "var(--gu-text-muted)",
-                    }}
-                  >
-                    0{index + 1}
-                  </span>
-                </div>
-
-                <div className="mt-8">
+                <div className="mt-2 flex flex-col justify-center">
                   <p
-                    className="font-serif text-5xl font-bold tracking-tight sm:text-6xl"
+                    className="font-sans text-5xl font-bold tracking-tight sm:text-6xl"
                     style={{
                       color: "var(--gu-navy)",
                     }}
@@ -294,7 +261,7 @@ export default function HomeStatsSection() {
                   </p>
 
                   <h3
-                    className="mt-3 text-sm font-bold uppercase tracking-[0.12em]"
+                    className="mt-4 text-sm font-bold uppercase tracking-[0.12em]"
                     style={{
                       color: "var(--gu-navy)",
                     }}
@@ -303,32 +270,13 @@ export default function HomeStatsSection() {
                   </h3>
 
                   <p
-                    className="mt-4 max-w-sm text-sm leading-7"
+                    className="mt-3 max-w-sm text-sm leading-7"
                     style={{
                       color: "var(--gu-text-muted)",
                     }}
                   >
                     {stat.description}
                   </p>
-                </div>
-
-                {/* Bottom accent */}
-                <div className="mt-7 flex items-center gap-3">
-                  <div
-                    className="h-px flex-1"
-                    style={{
-                      backgroundColor: "rgba(6, 53, 95, 0.10)",
-                    }}
-                  />
-
-                  <span
-                    className="text-lg transition-transform duration-300 group-hover:translate-x-1"
-                    style={{
-                      color: "var(--gu-gold)",
-                    }}
-                  >
-                    →
-                  </span>
                 </div>
               </motion.article>
             ))}

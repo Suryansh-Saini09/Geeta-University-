@@ -73,7 +73,7 @@ export default function HomeFeedbackSection() {
           {desktopItems.map((student, index) => (
             <article
               key={`${student.name}-${activeIndex}`}
-              className={`group relative flex min-h-[430px] flex-col overflow-hidden rounded-3xl border bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+              className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border bg-white p-7 pb-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
                 index === 1
                   ? "border-[#F28C18]/50"
                   : "border-[#DCE5ED]"
@@ -110,7 +110,7 @@ export default function HomeFeedbackSection() {
               </div>
 
               {/* Quote */}
-              <div className="mt-8 flex flex-1 flex-col">
+              <div className="mt-8 flex flex-col">
                 <span
                   aria-hidden="true"
                   className="font-serif text-6xl font-bold leading-none text-[#F28C18]/20"
@@ -122,27 +122,13 @@ export default function HomeFeedbackSection() {
                   {student.testimonial}
                 </p>
               </div>
-
-              {/* Footer */}
-              <div className="mt-7 flex items-center justify-between border-t border-[#E8EEF3] pt-5">
-                <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8A9AAC]">
-                  Geeta University
-                </span>
-
-                <span
-                  aria-hidden="true"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F5F8FB] text-[#06355F] transition-colors duration-300 group-hover:bg-[#F28C18] group-hover:text-white"
-                >
-                  ↗
-                </span>
-              </div>
             </article>
           ))}
         </div>
 
         {/* Mobile card */}
         <div className="md:hidden">
-          <article className="relative overflow-hidden rounded-3xl border border-[#DCE5ED] bg-white p-6 shadow-lg">
+          <article className="relative overflow-hidden rounded-3xl border border-[#DCE5ED] bg-white p-6 pb-8 shadow-lg">
             <div className="absolute left-0 top-0 h-1.5 w-full bg-[#F28C18]" />
 
             <div className="flex items-center gap-4">
@@ -178,12 +164,6 @@ export default function HomeFeedbackSection() {
               <p className="mt-[-8px] text-[15px] leading-7 text-[#536B83]">
                 {homeFeedback[activeIndex]?.testimonial}
               </p>
-            </div>
-
-            <div className="mt-7 border-t border-[#E8EEF3] pt-5">
-              <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#8A9AAC]">
-                Geeta University
-              </span>
             </div>
           </article>
         </div>
