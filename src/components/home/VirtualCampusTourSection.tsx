@@ -137,20 +137,23 @@ export default function VirtualCampusTourSection() {
                   className="group mt-9 flex items-center gap-4 rounded-full border border-white/30 bg-white/10 px-5 py-3 text-left backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white/15"
                 >
                   <span
-                    className="flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110"
-                    style={{
-                      backgroundColor: "var(--gu-gold)",
-                    }}
+                    className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center transition-transform duration-300 group-hover:scale-110"
                   >
+                    {/* Authentic YouTube Icon SVG */}
                     <svg
-                      width="18"
-                      height="18"
+                      width="42"
+                      height="42"
                       viewBox="0 0 24 24"
                       fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                       aria-hidden="true"
                     >
                       <path
-                        d="M8 5.14V18.86C8 19.65 8.87 20.13 9.54 19.68L20.03 12.82C20.65 12.41 20.65 11.59 20.03 11.18L9.54 4.32C8.87 3.87 8 4.35 8 5.14Z"
+                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"
+                        fill="#FF0000"
+                      />
+                      <path
+                        d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"
                         fill="white"
                       />
                     </svg>
@@ -232,7 +235,7 @@ export default function VirtualCampusTourSection() {
               <div className="aspect-video w-full">
                 <iframe
                   title="Geeta University Virtual Campus Tour"
-                  src="https://www.youtube.com/embed/arnFS6rf454"
+                  src="https://www.youtube.com/embed/arnFS6rf454?autoplay=1"
                   className="h-full w-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen

@@ -169,25 +169,6 @@ export default function WhyJoinGeetaSection() {
                   priority={false}
                 />
               </div>
-
-              {/* Bottom information card */}
-              <div className="absolute -bottom-5 left-1/2 w-[85%] -translate-x-1/2 rounded-2xl border border-[#DCE5EC] bg-white p-4 shadow-xl sm:p-5">
-                <div className="flex items-center justify-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#06355F] text-lg text-white">
-                    ✦
-                  </div>
-
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#F28C18]">
-                      Beyond Academics
-                    </p>
-
-                    <p className="text-sm font-semibold text-[#06355F]">
-                      Learn. Grow. Lead.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

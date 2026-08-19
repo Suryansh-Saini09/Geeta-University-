@@ -4,14 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
-import {
-  ArrowRight,
-  Building2,
-  GraduationCap,
-  Play,
-  Trophy,
-  Users,
-} from "lucide-react";
+import { ArrowRight, Play, ChevronDown } from "lucide-react";
 
 /* =========================================================
    ANIMATION VARIANTS
@@ -43,61 +36,17 @@ const itemVariants: Variants = {
   },
 };
 
-const statsContainerVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      delay: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
-
-/* =========================================================
-   STATISTICS DATA
-========================================================= */
-
-const universityStats = [
-  {
-    id: 1,
-    value: "40+",
-    label: "Acres Smart Campus",
-    icon: Building2,
-  },
-  {
-    id: 2,
-    value: "100+",
-    label: "Global Academic Partners",
-    icon: Users,
-  },
-  {
-    id: 3,
-    value: "70+",
-    label: "Industry-Ready Programs",
-    icon: GraduationCap,
-  },
-  {
-    id: 4,
-    value: "Top",
-    label: "Placement Records",
-    icon: Trophy,
-  },
-];
-
 export default function HomeHeroSection() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="relative flex min-h-[100dvh] flex-col justify-center bg-[#0A1F44] lg:mb-24 lg:min-h-[850px]">
+    <section className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden bg-[#0A1F44]">
       
       {/* =====================================================
-          FULL-SCREEN BACKGROUND (Overflow Hidden strictly here)
+          FULL-SCREEN BACKGROUND
       ===================================================== */}
       
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      <div className="absolute inset-0 z-0">
         <Image
           src="/about/campus.webp"
           alt="Geeta University Campus"
@@ -107,9 +56,9 @@ export default function HomeHeroSection() {
           sizes="100vw"
         />
 
-        {/* Deep gradient overlays for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44] via-[#0A1F44]/85 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44] via-transparent to-transparent" />
+        {/* Deep gradient overlays for text readability & grand feel */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44] via-[#0A1F44]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/60 via-transparent to-[#0A1F44]/10" />
 
         {/* Dramatic glowing ambient orbs */}
         <div className="absolute -top-40 right-10 h-125 w-125 rounded-full bg-[#E8871A] opacity-20 blur-[120px]" />
@@ -120,7 +69,7 @@ export default function HomeHeroSection() {
           MAIN HERO CONTENT
       ===================================================== */}
       
-      <div className="gu-container relative z-10 flex w-full flex-1 flex-col justify-center pb-32 pt-32 lg:pb-40 lg:pt-40">
+      <div className="gu-container relative z-10 flex w-full flex-1 flex-col justify-center pb-20 pt-32 lg:pt-40">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -234,66 +183,24 @@ export default function HomeHeroSection() {
       </div>
 
       {/* =====================================================
-          FLOATING STATS BAR (Desktop)
+          ANIMATED SCROLL INDICATOR
       ===================================================== */}
-      
-      <motion.div
-        variants={statsContainerVariants}
-        initial="hidden"
-        animate="visible"
-        className="absolute bottom-0 left-0 right-0 z-20 hidden w-full translate-y-1/2 px-6 lg:block"
+      {/* <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-8 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 lg:flex"
       >
-        <div className="mx-auto max-w-7xl rounded-3xl border border-white/20 bg-[#0A1F44]/60 p-2 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] backdrop-blur-2xl">
-          <div className="grid grid-cols-4 divide-x divide-white/10 rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5">
-            {universityStats.map((stat) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={stat.id}
-                  className="group flex items-center gap-5 p-7 transition-colors duration-300 hover:bg-white/5"
-                >
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#E8871A] shadow-inner transition-transform duration-500 group-hover:scale-110 group-hover:bg-[#E8871A] group-hover:text-[#0A1F44] group-hover:shadow-[0_0_20px_rgba(232,135,26,0.4)]">
-                    <Icon size={24} strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <p className="font-serif text-3xl font-black text-white">
-                      {stat.value}
-                    </p>
-                    <p className="mt-1 text-xs font-semibold uppercase tracking-[1px] text-[#94A3B8]">
-                      {stat.label}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </motion.div>
-      
-      {/* =====================================================
-          MOBILE STATS BAR (Stacks cleanly inside section)
-      ===================================================== */}
-
-      <div className="relative z-10 mt-10 w-full border-t border-white/10 bg-white/5 px-6 py-12 backdrop-blur-xl lg:hidden">
-        <div className="grid grid-cols-2 gap-x-4 gap-y-10">
-          {universityStats.map((stat) => {
-            const Icon = stat.icon;
-            return (
-              <div key={stat.id} className="flex flex-col items-center text-center">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#E8871A] shadow-inner">
-                  <Icon size={22} strokeWidth={1.5} />
-                </div>
-                <p className="font-serif text-3xl font-black text-white">
-                  {stat.value}
-                </p>
-                <p className="mt-1 max-w-[120px] text-[10px] font-semibold uppercase tracking-[1.5px] text-[#94A3B8]">
-                  {stat.label}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+        <span className="text-[9px] font-bold uppercase tracking-[0.3em]">
+          Scroll to Explore
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown size={20} strokeWidth={1.5} />
+        </motion.div>
+      </motion.div> */}
 
       {/* =====================================================
           YOUTUBE VIDEO MODAL

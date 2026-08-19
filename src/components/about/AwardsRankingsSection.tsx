@@ -1,12 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef, useCallback } from "react";
 import Image from "next/image";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Award,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Award } from "lucide-react";
 import { awards } from "@/data/awards";
 import ImpactRankings from "@/components/about/ImpactRankings";
 
@@ -31,7 +27,6 @@ export default function AwardsRankingsSection() {
     };
 
     updateVisibleCards();
-
     window.addEventListener("resize", updateVisibleCards);
 
     return () => {
@@ -41,161 +36,127 @@ export default function AwardsRankingsSection() {
 
   /*
    * =========================================================
-   * INFINITE CAROUSEL
-   *
-   * We clone cards at both ends.
-   *
-   * Example with 3 visible cards:
-   *
-   * [5,6,7] [1,2,3,4,5,6,7] [1,2,3]
-   *          ↑
-   *       starting point
-   *
-   * This allows the carousel to move continuously
-   * without visibly jumping from the last item to first.
+   * INFINITE CAROUSEL SETUP
    * =========================================================
    */
 
   const clonedAwards = useMemo(() => {
-    const before = awards.slice(-visibleCards);
-    const after = awards.slice(0, visibleCards);
+    // 1. Ensure we have enough cards to clone securely
+    let repeatedAwards = [...awards];
+    while (repeatedAwards.length < visibleCards) {
+      repeatedAwards = [...repeatedAwards, ...awards];
+    }
+
+    // 2. Clone the buffer for the infinite loop
+    const before = repeatedAwards.slice(-visibleCards);
+    const after = repeatedAwards.slice(0, visibleCards);
 
     return [...before, ...awards, ...after];
   }, [visibleCards]);
 
-  /*
-   * The real awards begin after the prepended clones.
-   */
-
-  const [currentIndex, setCurrentIndex] =
-    useState(visibleCards);
-
-  const [isTransitioning, setIsTransitioning] =
-    useState(true);
-
-  const [isAnimating, setIsAnimating] =
-    useState(false);
+  const [currentIndex, setCurrentIndex] = useState(visibleCards);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  
+  // Ref lock to prevent users from breaking the animation by clicking too fast
+  const isAnimating = useRef(false);
+  const slideDuration = 400; // Butter-smooth & fast duration
 
   /*
    * =========================================================
-   * RESET POSITION WHEN RESPONSIVE BREAKPOINT CHANGES
+   * NEXT / PREVIOUS LOGIC
+   * =========================================================
+   */
+
+  const nextSlide = useCallback(() => {
+    if (isAnimating.current) return;
+    
+    isAnimating.current = true;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  }, []);
+
+  const previousSlide = useCallback(() => {
+    if (isAnimating.current) return;
+    
+    isAnimating.current = true;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+  }, []);
+
+  /*
+   * =========================================================
+   * AUTO-PLAY CAROUSEL
    * =========================================================
    */
 
   useEffect(() => {
-    setIsTransitioning(false);
-    setCurrentIndex(visibleCards);
+    // Pause auto-play if user is interacting
+    if (isHovered) return;
+    
+    const intervalId = setInterval(() => {
+      nextSlide();
+    }, 3500); // Auto-scrolls every 3.5 seconds
 
-    /*
-     * Re-enable transition after browser has applied
-     * the new position.
-     */
-    const timeout = window.setTimeout(() => {
-      setIsTransitioning(true);
-      setIsAnimating(false);
-    }, 50);
-
-    return () => {
-      window.clearTimeout(timeout);
-    };
-  }, [visibleCards]);
+    return () => clearInterval(intervalId);
+  }, [isHovered, nextSlide]);
 
   /*
    * =========================================================
-   * NEXT / PREVIOUS
+   * HANDLE INFINITE LOOP WRAP-AROUND
    * =========================================================
    */
 
-  const nextSlide = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentIndex((prev) => prev + 1);
-  };
+  const handleTransitionEnd = () => {
+    isAnimating.current = false;
 
-  const previousSlide = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentIndex((prev) => prev - 1);
-  };
-
-  /*
-   * =========================================================
-   * HANDLE INFINITE LOOP
-   * =========================================================
-   *
-   * Real indexes:
-   *
-   * 3 → award 1
-   * 4 → award 2
-   * 5 → award 3
-   * ...
-   * 9 → award 7
-   *
-   * Then:
-   *
-   * 10 → cloned award 1
-   *
-   * Once that animation finishes we silently move back
-   * to index 3.
-   * =========================================================
-   */
-
-  const handleTransitionEnd = (e: React.TransitionEvent) => {
-    if (e.target !== e.currentTarget) return;
-
-    /*
-     * Moved past the final real award.
-     */
+    // Jump from the cloned end back to the real beginning
     if (currentIndex >= awards.length + visibleCards) {
       setIsTransitioning(false);
-
       setCurrentIndex(visibleCards);
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setIsTransitioning(true);
-          setIsAnimating(false);
-        });
-      });
-
-      return;
-    }
-
-    /*
-     * Moved before the first real award.
-     */
-    if (currentIndex < visibleCards) {
+    } 
+    // Jump from the cloned beginning back to the real end
+    else if (currentIndex < visibleCards) {
       setIsTransitioning(false);
-
-      setCurrentIndex(
-        awards.length + currentIndex
-      );
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setIsTransitioning(true);
-          setIsAnimating(false);
-        });
-      });
-      
-      return;
+      setCurrentIndex(awards.length + currentIndex);
     }
-
-    setIsAnimating(false);
   };
 
   /*
    * =========================================================
-   * CURRENT REAL AWARD
-   *
-   * Used only for pagination indicators.
+   * MANUAL SCROLL / SWIPE FUNCTIONALITY
    * =========================================================
    */
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsHovered(true); // Pause auto-play while swiping
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    setIsHovered(false); // Resume auto-play
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      previousSlide();
+    }
+  };
 
   const currentRealIndex =
-    ((currentIndex - visibleCards) % awards.length +
-      awards.length) %
-    awards.length;
+    ((currentIndex - visibleCards) % awards.length + awards.length) % awards.length;
 
   return (
     <section
@@ -218,10 +179,8 @@ export default function AwardsRankingsSection() {
         <div className="mx-auto mb-16 max-w-[900px] text-center">
 
           {/* Eyebrow */}
-
           <div className="mb-5 flex items-center justify-center gap-3">
-            <span className="h-[2px] w-9 bg-[#E8871A]" />
-
+            <span className="h-0.5 w-9 bg-[#E8871A]" />
             <span
               className="
                 text-[11px]
@@ -233,12 +192,10 @@ export default function AwardsRankingsSection() {
             >
               Awards &amp; Rankings
             </span>
-
-            <span className="h-[2px] w-9 bg-[#E8871A]" />
+            <span className="h-0.5 w-9 bg-[#E8871A]" />
           </div>
 
           {/* Heading */}
-
           <h2
             className="
               font-serif
@@ -254,14 +211,12 @@ export default function AwardsRankingsSection() {
           >
             Excellence.
             <br />
-
             <span className="text-[#E8871A]">
               Recognised &amp; Celebrated.
             </span>
           </h2>
 
           {/* Description */}
-
           <p
             className="
               mx-auto
@@ -283,12 +238,13 @@ export default function AwardsRankingsSection() {
             CAROUSEL
         ===================================================== */}
 
-        <div className="relative">
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
 
-          {/* ===================================================
-              LEFT ARROW
-          =================================================== */}
-
+          {/* Left Arrow (Desktop) */}
           <button
             type="button"
             onClick={previousSlide}
@@ -319,36 +275,29 @@ export default function AwardsRankingsSection() {
               md:flex
             "
           >
-            <ChevronLeft
-              size={21}
-              strokeWidth={1.8}
-            />
+            <ChevronLeft size={21} strokeWidth={1.8} />
           </button>
 
-          {/* ===================================================
-              VIEWPORT
-          =================================================== */}
-
-          <div className="overflow-hidden">
-
-            {/* =================================================
-                TRACK
-            ================================================= */}
-
+          {/* Viewport Track (Includes Touch Swipe functionality) */}
+          <div 
+            className="overflow-hidden touch-pan-y select-none"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
               onTransitionEnd={handleTransitionEnd}
               className={`
                 flex
                 ${
                   isTransitioning
-                    ? "transition-transform duration-[750ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                    ? "transition-transform duration-[400ms] ease-in-out"
                     : ""
                 }
               `}
               style={{
                 transform: `translateX(-${
-                  currentIndex *
-                  (100 / visibleCards)
+                  currentIndex * (100 / visibleCards)
                 }%)`,
               }}
             >
@@ -382,20 +331,8 @@ export default function AwardsRankingsSection() {
                       hover:shadow-[0_18px_45px_rgba(10,31,68,0.10)]
                     "
                   >
-
-                    {/* =======================================
-                        IMAGE
-                    ======================================= */}
-
-                    <div
-                      className="
-                        relative
-                        aspect-[1.65/1]
-                        w-full
-                        overflow-hidden
-                        bg-[#EEF1F5]
-                      "
-                    >
+                    {/* Image */}
+                    <div className="relative aspect-[1.65/1] w-full overflow-hidden bg-[#EEF1F5]">
                       <Image
                         src={award.image}
                         alt={award.title}
@@ -414,134 +351,38 @@ export default function AwardsRankingsSection() {
                         "
                       />
 
-                      {/* Image overlay */}
-
-                      <div
-                        className="
-                          absolute
-                          inset-0
-                          bg-gradient-to-t
-                          from-[#0A1F44]/20
-                          via-transparent
-                          to-transparent
-                          opacity-0
-                          transition-opacity
-                          duration-500
-                          group-hover:opacity-100
-                        "
-                      />
-
-
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                     </div>
 
-                    {/* =======================================
-                        CONTENT
-                    ======================================= */}
-
-                    <div
-                      className="
-                        flex
-                        flex-1
-                        flex-col
-                        px-6
-                        pb-8
-                        pt-7
-                        text-center
-                        md:px-7
-                      "
-                    >
-
-                      {/* Category */}
-
-                      <span
-                        className="
-                          text-[10px]
-                          font-bold
-                          uppercase
-                          tracking-[2.5px]
-                          text-[#E8871A]
-                        "
-                      >
+                    {/* Content */}
+                    <div className="flex flex-1 flex-col px-6 pb-8 pt-7 text-center md:px-7">
+                      <span className="text-[10px] font-bold uppercase tracking-[2.5px] text-[#E8871A]">
                         Institutional Recognition
                       </span>
 
-                      {/* Title */}
-
-                      <h3
-                        className="
-                          mt-3
-                          min-h-[54px]
-                          font-serif
-                          text-[17px]
-                          font-bold
-                          leading-[1.35]
-                          text-[#0A1F44]
-                        "
-                      >
+                      <h3 className="mt-3 min-h-[54px] font-serif text-[17px] font-bold leading-[1.35] text-[#0A1F44]">
                         {award.title}
                       </h3>
 
-                      {/* Divider */}
-
                       <div className="my-5 flex items-center justify-center gap-2">
                         <span className="h-px w-16 bg-[#DCE2EB]" />
-
-                        <span className="h-[4px] w-[4px] rounded-full bg-[#E8871A]" />
-
+                        <span className="h-1 w-1 rounded-full bg-[#E8871A]" />
                         <span className="h-px w-16 bg-[#DCE2EB]" />
                       </div>
 
-                      {/* Presented by */}
-
-                      <p
-                        className="
-                          text-[11px]
-                          font-bold
-                          uppercase
-                          tracking-[2px]
-                          text-[#94A3B8]
-                        "
-                      >
+                      <p className="text-[11px] font-bold uppercase tracking-[2px] text-[#94A3B8]">
                         Presented By
                       </p>
 
-                      <p
-                        className="
-                          mt-2
-                          font-serif
-                          text-[16px]
-                          font-bold
-                          text-[#0A1F44]
-                        "
-                      >
+                      <p className="mt-2 font-serif text-[16px] font-bold text-[#0A1F44]">
                         {award.presentedBy}
                       </p>
 
-                      <p
-                        className="
-                          mt-1
-                          text-[13px]
-                          leading-[1.6]
-                          text-[#64748B]
-                        "
-                      >
+                      <p className="mt-1 text-[13px] leading-[1.6] text-[#64748B]">
                         {award.designation}
                       </p>
 
-                      {/* Bottom accent */}
-
-                      <div
-                        className="
-                          mx-auto
-                          mt-6
-                          h-[2px]
-                          w-0
-                          bg-[#E8871A]
-                          transition-all
-                          duration-500
-                          group-hover:w-16
-                        "
-                      />
+                      <div className="mx-auto mt-6 h-0.5 w-0 bg-[#E8871A] transition-all duration-500 group-hover:w-16" />
                     </div>
                   </article>
                 </div>
@@ -549,10 +390,7 @@ export default function AwardsRankingsSection() {
             </div>
           </div>
 
-          {/* ===================================================
-              RIGHT ARROW
-          =================================================== */}
-
+          {/* Right Arrow (Desktop) */}
           <button
             type="button"
             onClick={nextSlide}
@@ -583,36 +421,20 @@ export default function AwardsRankingsSection() {
               md:flex
             "
           >
-            <ChevronRight
-              size={21}
-              strokeWidth={1.8}
-            />
+            <ChevronRight size={21} strokeWidth={1.8} />
           </button>
         </div>
 
         {/* =====================================================
-            MOBILE CONTROLS
+            MOBILE CONTROLS (Buttons)
         ===================================================== */}
 
         <div className="mt-8 flex justify-center gap-3 md:hidden">
-
           <button
             type="button"
             onClick={previousSlide}
             aria-label="Previous award"
-            className="
-              flex
-              h-11
-              w-11
-              items-center
-              justify-center
-              rounded-full
-              bg-[#0A1F44]
-              text-white
-              transition-all
-              duration-300
-              hover:bg-[#E8871A]
-            "
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0A1F44] text-white transition-all duration-300 hover:bg-[#E8871A]"
           >
             <ChevronLeft size={19} />
           </button>
@@ -621,23 +443,10 @@ export default function AwardsRankingsSection() {
             type="button"
             onClick={nextSlide}
             aria-label="Next award"
-            className="
-              flex
-              h-11
-              w-11
-              items-center
-              justify-center
-              rounded-full
-              bg-[#0A1F44]
-              text-white
-              transition-all
-              duration-300
-              hover:bg-[#E8871A]
-            "
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0A1F44] text-white transition-all duration-300 hover:bg-[#E8871A]"
           >
             <ChevronRight size={19} />
           </button>
-
         </div>
 
         {/* =====================================================
@@ -645,48 +454,38 @@ export default function AwardsRankingsSection() {
         ===================================================== */}
 
         <div className="mt-8 flex items-center justify-center gap-2">
-
           {awards.map((award, index) => (
             <button
               key={award.id}
               type="button"
               aria-label={`Go to award ${index + 1}`}
-              aria-current={
-                index === currentRealIndex
-                  ? "true"
-                  : undefined
-              }
+              aria-current={index === currentRealIndex ? "true" : undefined}
               onClick={() => {
-                if (isAnimating) return;
-                setIsAnimating(true);
+                if (isAnimating.current || index === currentRealIndex) return;
+                isAnimating.current = true;
                 setIsTransitioning(true);
-                setCurrentIndex(
-                  visibleCards + index
-                );
+                setCurrentIndex(visibleCards + index);
               }}
               className={`
-                h-[6px]
+                h-1.5
                 rounded-full
                 transition-all
                 duration-300
                 ${
                   index === currentRealIndex
                     ? "w-9 bg-[#E8871A]"
-                    : "w-[6px] bg-[#B8C0CD] hover:bg-[#0A1F44]"
+                    : "w-1.5 bg-[#B8C0CD] hover:bg-[#0A1F44]"
                 }
               `}
             />
           ))}
-
         </div>
 
         {/* =====================================================
-    IMPACT RANKINGS
-===================================================== */}
+            IMPACT RANKINGS
+        ===================================================== */}
 
-<ImpactRankings />
-
-
+        <ImpactRankings />
 
       </div>
     </section>
