@@ -69,9 +69,9 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
           }}
           className="mx-auto max-w-4xl divide-y divide-[#E2E8F0] border-y border-[#DCE2EB]"
         >
-          {faqs.map((faq, index) => (
+          {faqList.map((faq: FAQItem, index: number) => (
             <motion.details
-              key={faq.question}
+              key={`${faq.question}-${index}`}
               variants={faqItem}
               className="group relative"
             >

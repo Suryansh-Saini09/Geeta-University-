@@ -16,7 +16,8 @@ import FAQSection from "./FAQSection";
 import ProgramFinalCTA from "./ProgramFinalCTA";
 
 interface ProgramPageProps {
-  data: ProgramPageData;
+  data?: ProgramData | ProgramPageData;
+  program?: ProgramData | ProgramPageData;
 }
 
 export default function ProgramPage({ data }: ProgramPageProps) {
