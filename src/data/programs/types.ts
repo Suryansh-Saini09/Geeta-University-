@@ -9,9 +9,19 @@ export interface ProgramPageData {
   };
 
   hero: {
-    title: string;
-    description?: string;
+    bannerOnly?: boolean;
     image: string;
+    title?: string;
+    eyebrow?: string;
+    description?: string;
+  };
+
+  about?: {
+    eyebrow?: string;
+    title: string;
+    paragraphs: string[];
+    image: string;
+    badgeText?: string;
   };
 
   intro?: {
@@ -19,11 +29,29 @@ export interface ProgramPageData {
     paragraphs: string[];
   };
 
+  specialisations?: {
+    eyebrow?: string;
+    title: string;
+    subtitle?: string;
+    items: SpecialisationItem[];
+  };
+
+  featuredPrograms?: {
+    title1: string;
+    tag1?: string;
+    title2?: string;
+    tag2?: string;
+    description?: string;
+    cards: FeaturedProgramCard[];
+    studentImage?: string;
+  };
+
   dean?: {
     name: string;
     designation: string;
     image: string;
     message: string;
+    schoolName?: string;
   };
 
   enquiry?: {
@@ -33,30 +61,41 @@ export interface ProgramPageData {
 
   courses?: CourseCategory[];
 
-  gallery?: {
-    images: string[];
-  };
-
-  transformation?: {
-    title: string;
-    cards: {
-      title: string;
-      points: string[];
-    }[];
-  };
-
-  corporateConnect?: {
-    title: string;
-    videos: string[];
-  };
-
   faculty?: FacultyMember[];
 
-  testimonials?: Testimonial[];
+  mentorsSection?: {
+    eyebrow?: string;
+    title?: string;
+    faculty: FacultyMember[];
+  };
 
-  learningSpaces?: {
-    title: string;
-    images: string[];
+  placement?: {
+    eyebrow?: string;
+    title?: string;
+    subtitle?: string;
+    heroImage?: string;
+    heroNoteTitle?: string;
+    heroNoteText?: string;
+    stats?: {
+      value: string;
+      label: string;
+      iconName?: string;
+    }[];
+    recruiters?: RecruiterItem[];
+    avgPackage?: string;
+    avgPackageNote?: string;
+    packageBars?: {
+      label: string;
+      value: number;
+      width: string;
+    }[];
+    disclaimer?: string;
+    sectorChartImage?: string;
+    sectorLegend?: {
+      label: string;
+      value: string;
+      color: string;
+    }[];
   };
 
   career?: {
@@ -69,12 +108,23 @@ export interface ProgramPageData {
     }[];
   };
 
-  faqs?: FAQ[];
-
-  visionMission?: {
-    vision?: string;
-    mission?: string[];
+  experts?: {
+    eyebrow?: string;
+    title?: string;
+    intro?: string;
+    feature: {
+      kicker: string;
+      title: string;
+      description: string;
+      stats: {
+        value: string;
+        label: string;
+      }[];
+    };
+    categories: ExpertCategoryItem[];
   };
+
+  faqs?: FAQ[];
 
   legacy?: {
     title: string;
@@ -85,6 +135,47 @@ export interface ProgramPageData {
     }[];
     image?: string;
   };
+
+  cta?: {
+    heading?: string;
+    quote?: string;
+    paragraphs?: string[];
+    otherPrograms?: string[];
+    qrLabel?: string;
+    qrCta?: string;
+    qrImage?: string;
+    applyLink?: string;
+    helpline?: string;
+    website?: string;
+    campusAddress?: string;
+  };
+}
+
+export interface SpecialisationItem {
+  title: string;
+  iconName?: string;
+  points: string[];
+}
+
+export interface FeaturedProgramCard {
+  title: string;
+  iconName?: string;
+  points: string[];
+}
+
+export interface ExpertCategoryItem {
+  number: number;
+  title: string;
+  subtitle: string;
+  points: string[];
+  iconName?: string;
+  ribbon?: string;
+}
+
+export interface RecruiterItem {
+  name: string;
+  color?: string;
+  logo?: string | null;
 }
 
 export interface CourseCategory {
@@ -103,14 +194,6 @@ export interface FacultyMember {
   designation: string;
   image: string;
   description: string;
-}
-
-export interface Testimonial {
-  name: string;
-  program?: string;
-  package?: string;
-  image: string;
-  text: string;
 }
 
 export interface FAQ {

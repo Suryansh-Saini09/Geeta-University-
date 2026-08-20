@@ -1,57 +1,67 @@
 "use client";
 
+import React from "react";
 import type { ProgramPageData } from "@/data/programs/types";
 
 import ProgramHero from "./ProgramHero";
-import ProgramIntro from "./ProgramIntro";
-import DeanMessage from "./DeanMessage";
+import ProgramAbout from "./ProgramAbout";
+import ProgramSpecialisations from "./ProgramSpecialisations";
+import ProgramFeaturedPrograms from "./ProgramFeaturedPrograms";
+import ProgramMentors from "./ProgramMentors";
+import ProgramPlacement from "./ProgramPlacement";
+import ProgramExperts from "./ProgramExperts";
 import ProgramCourses from "./ProgramCourses";
-import CareerPathway from "./CareerPathway";
+import DeanMessage from "./DeanMessage";
 import FAQSection from "./FAQSection";
-import LegacyEcosystem from "./LegacyEcosystem";
+import ProgramFinalCTA from "./ProgramFinalCTA";
 
 interface ProgramPageProps {
   data: ProgramPageData;
 }
 
-export default function ProgramPage({
-  data,
-}: ProgramPageProps) {
+export default function ProgramPage({ data }: ProgramPageProps) {
   return (
-    <main>
-      <ProgramHero {...data.hero} />
+    <div className="w-full flex-1 block bg-white min-h-screen text-[#1A1A2E] overflow-x-hidden selection:bg-[#E8871A] selection:text-white font-sans">
+      {/* 1. HERO BANNER SECTION */}
+      {data.hero && <ProgramHero hero={data.hero} />}
 
-      {data.intro && (
-        <ProgramIntro {...data.intro} />
+      {/* 2. ABOUT THE SCHOOL SECTION */}
+      {(data.about || data.intro) && (
+        <ProgramAbout about={data.about} intro={data.intro} />
       )}
 
-      {data.dean && (
-        <DeanMessage {...data.dean} />
+      {/* 3. EXPLORE SPECIALISATIONS / PROGRAMS DIRECTORY */}
+      {data.specialisations && (
+        <ProgramSpecialisations specialisations={data.specialisations} />
       )}
 
-      {data.courses && (
-        <ProgramCourses
-          courses={data.courses}
-        />
+      {/* 4. FEATURED PROGRAMS (COMMERCE / DEGREE HIGHLIGHTS) */}
+      {data.featuredPrograms && (
+        <ProgramFeaturedPrograms featuredPrograms={data.featuredPrograms} />
       )}
 
-      {data.career && (
-        <CareerPathway
-          data={data.career}
-        />
+      {/* 5. MEET OUR MENTORS (INFINITE FACULTY CAROUSEL) */}
+      {(data.mentorsSection || data.faculty) && (
+        <ProgramMentors mentorsSection={data.mentorsSection} faculty={data.faculty} />
       )}
 
-      {data.faqs && (
-        <FAQSection
-          faqs={data.faqs}
-        />
-      )}
+      {/* 6. PLACEMENT EXCELLENCE & ANALYTICS */}
+      <ProgramPlacement placement={data.placement} />
 
-      {data.legacy && (
-        <LegacyEcosystem
-          data={data.legacy}
-        />
-      )}
-    </main>
+      {/* 7. 5 CATEGORIES OF EXPERTS */}
+      <ProgramExperts experts={data.experts} />
+
+      {/* 8. ACADEMIC DEGREE COURSES (IF CONFIGURED) */}
+      {data.courses && <ProgramCourses courses={data.courses} />}
+
+      {/* 9. DEAN'S MESSAGE (IF CONFIGURED) */}
+      {data.dean && <DeanMessage dean={data.dean} />}
+
+      {/* 10. FAQS (IF CONFIGURED) */}
+      {data.faqs && <FAQSection faqs={data.faqs} />}
+
+      {/* 11. FINAL CTA & APPLICATION SECTION */}
+      <ProgramFinalCTA cta={data.cta} />
+    </div>
   );
 }
