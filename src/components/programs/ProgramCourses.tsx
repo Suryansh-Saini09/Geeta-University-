@@ -6,7 +6,8 @@ import { motion, type Variants } from "framer-motion";
 import type { CourseCategory } from "@/data/programs/types";
 
 interface ProgramCoursesProps {
-  courses: CourseCategory[];
+  data?: ProgramCoursesData;
+  courses?: CourseCategoryItem[];
 }
 
 const fadeUp: Variants = {
@@ -71,9 +72,9 @@ export default function ProgramCourses({ courses }: ProgramCoursesProps) {
           whileInView="visible"
           viewport={{ once: true, amount: 0.12 }}
           variants={cardContainer}
-          className="grid gap-6 md:grid-cols-2 lg:gap-8"
+          className="grid gap-6 md:grid-cols-2 lg:gap-8 max-w-5xl mx-auto"
         >
-          {courses.map((category, categoryIndex) => (
+          {categories.map((category: CourseCategoryItem, categoryIndex: number) => (
             <motion.article
               key={category.title}
               variants={cardItem}
@@ -97,7 +98,6 @@ export default function ProgramCourses({ courses }: ProgramCoursesProps) {
                     </h3>
                   </div>
                 </div>
-              </div>
 
               {category.duration && (
                 <div className="mt-4 flex flex-wrap gap-2 text-[13px] font-semibold text-[#64748B]">
