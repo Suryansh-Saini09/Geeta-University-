@@ -6,8 +6,7 @@ import { motion, type Variants } from "framer-motion";
 import type { CourseCategory } from "@/data/programs/types";
 
 interface ProgramCoursesProps {
-  data?: ProgramCoursesData;
-  courses?: CourseCategoryItem[];
+  courses?: CourseCategory[];
 }
 
 const fadeUp: Variants = {
@@ -74,9 +73,9 @@ export default function ProgramCourses({ courses }: ProgramCoursesProps) {
           variants={cardContainer}
           className="grid gap-6 md:grid-cols-2 lg:gap-8 max-w-5xl mx-auto"
         >
-          {categories.map((category: CourseCategoryItem, categoryIndex: number) => (
+          {courses.map((category, categoryIndex) => (
             <motion.article
-              key={category.title}
+              key={category.title || categoryIndex}
               variants={cardItem}
               className="group relative overflow-hidden rounded-[20px] border border-[#E2E8F0] bg-white p-6 shadow-[0_8px_30px_rgba(10,31,68,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#D89A2B]/40 hover:shadow-[0_16px_38px_rgba(10,31,68,0.08)] md:p-8"
             >
@@ -98,6 +97,7 @@ export default function ProgramCourses({ courses }: ProgramCoursesProps) {
                     </h3>
                   </div>
                 </div>
+              </div>
 
               {category.duration && (
                 <div className="mt-4 flex flex-wrap gap-2 text-[13px] font-semibold text-[#64748B]">
@@ -114,9 +114,9 @@ export default function ProgramCourses({ courses }: ProgramCoursesProps) {
               )}
 
               <div className="mt-6 space-y-3">
-                {category.programs.map((program, programIndex) => (
+                {category.programs?.map((program, programIndex) => (
                   <div
-                    key={program.name}
+                    key={program.name || programIndex}
                     className="group/program flex items-center justify-between gap-4 rounded-[12px] border border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3.5 transition-all duration-300 hover:border-[#D89A2B]/40 hover:bg-white hover:shadow-[0_6px_20px_rgba(10,31,68,0.05)]"
                   >
                     <div className="flex min-w-0 items-center gap-3">

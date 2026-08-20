@@ -94,7 +94,7 @@ const defaultExperts: NonNullable<ProgramPageData["experts"]> = {
 
 function ExpertCard({ category }: { category: ExpertCategoryItem }) {
   const Icon = getProgramIcon(category.iconName);
-  const formattedNumber = category.number.toString().padStart(2, "0");
+  const formattedNumber = (category.number ?? 1).toString().padStart(2, "0");
 
   return (
     <article className="expert-card group">
@@ -110,7 +110,7 @@ function ExpertCard({ category }: { category: ExpertCategoryItem }) {
         <p>{category.subtitle}</p>
       </div>
       <ul>
-        {category.points.map((point: string, i: number) => (
+        {category.points?.map((point: string, i: number) => (
           <li key={i}>
             <Check className="w-[14px] h-[14px]" strokeWidth={3} />
             <span>{point}</span>
@@ -123,7 +123,11 @@ function ExpertCard({ category }: { category: ExpertCategoryItem }) {
 
 export default function ProgramExperts({ experts }: ProgramExpertsProps) {
   const data = experts || defaultExperts;
-  const { eyebrow, title, intro, feature, categories } = data;
+  const eyebrow = data.eyebrow || defaultExperts.eyebrow;
+  const title = data.title || defaultExperts.title;
+  const intro = data.intro || defaultExperts.intro;
+  const feature = data.feature || defaultExperts.feature;
+  const categories = data.categories && data.categories.length > 0 ? data.categories : defaultExperts.categories;
 
   return (
     <section className="scbm-experts-section">
@@ -427,9 +431,9 @@ export default function ProgramExperts({ experts }: ProgramExpertsProps) {
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
           <div>
-            <div className="scbm-experts-eyebrow">{eyebrow || "Faculty & Mentorship Streams"}</div>
+            <div className="scbm-experts-eyebrow">{eyebrow}</div>
             <h2 className="scbm-experts-title">
-              {title || "Learn from 5 Categories of Experts"}
+              {title}
             </h2>
           </div>
           {intro && (
@@ -455,7 +459,7 @@ export default function ProgramExperts({ experts }: ProgramExpertsProps) {
                 {feature?.description || "Students learn from faculty, technologists, finishing-school coaches, and industry practitioners so classroom concepts turn into workplace capability."}
               </p>
               <div className="scbm-experts-stat-row">
-                {feature?.stats?.map((stat, i) => (
+                {feature?.stats?.map((stat: { value: string; label: string }, i: number) => (
                   <div key={i} className="scbm-experts-stat">
                     <strong>{stat.value}</strong>
                     <span>{stat.label}</span>
@@ -467,9 +471,9 @@ export default function ProgramExperts({ experts }: ProgramExpertsProps) {
 
           {/* Right Grid of Category Cards */}
           <div className="scbm-experts-grid">
-            {categories.map((category, index) => (
+            {categories.map((category: ExpertCategoryItem, index: number) => (
               <motion.div
-                key={category.title}
+                key={category.title || index}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}

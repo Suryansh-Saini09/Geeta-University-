@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import type { ProgramPageData } from "@/data/programs/types";
+import type { ProgramPageData, SpecialisationItem } from "@/data/programs/types";
 import { getProgramIcon } from "./iconHelper";
 
 interface ProgramSpecialisationsProps {
@@ -191,8 +191,10 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
             }}
           />
 
-          {items.map((spec, idx) => {
-            const Icon = getProgramIcon(spec.iconName);
+          {items.map((spec: SpecialisationItem, idx: number) => {
+            const Icon = typeof spec.icon === "function" 
+              ? spec.icon 
+              : getProgramIcon(spec.iconName || (typeof spec.icon === "string" ? spec.icon : undefined));
             const formattedNumber = (idx + 1).toString().padStart(2, "0");
             const isOdd = (idx + 1) % 2 !== 0; // left column
             const isLast = idx === items.length - 1 && items.length % 2 !== 0;

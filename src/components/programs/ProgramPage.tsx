@@ -16,53 +16,56 @@ import FAQSection from "./FAQSection";
 import ProgramFinalCTA from "./ProgramFinalCTA";
 
 interface ProgramPageProps {
-  data?: ProgramData | ProgramPageData;
-  program?: ProgramData | ProgramPageData;
+  data?: ProgramPageData;
+  program?: ProgramPageData;
 }
 
-export default function ProgramPage({ data }: ProgramPageProps) {
+export default function ProgramPage({ data, program }: ProgramPageProps) {
+  const pageData = data || program;
+  if (!pageData) return null;
+
   return (
     <div className="w-full flex-1 block bg-white min-h-screen text-[#1A1A2E] overflow-x-hidden selection:bg-[#E8871A] selection:text-white font-sans">
       {/* 1. HERO BANNER SECTION */}
-      {data.hero && <ProgramHero hero={data.hero} />}
+      {pageData.hero && <ProgramHero hero={pageData.hero} />}
 
       {/* 2. ABOUT THE SCHOOL SECTION */}
-      {(data.about || data.intro) && (
-        <ProgramAbout about={data.about} intro={data.intro} />
+      {(pageData.about || pageData.intro) && (
+        <ProgramAbout about={pageData.about} intro={pageData.intro} />
       )}
 
       {/* 3. EXPLORE SPECIALISATIONS / PROGRAMS DIRECTORY */}
-      {data.specialisations && (
-        <ProgramSpecialisations specialisations={data.specialisations} />
+      {pageData.specialisations && (
+        <ProgramSpecialisations specialisations={pageData.specialisations} />
       )}
 
       {/* 4. FEATURED PROGRAMS (COMMERCE / DEGREE HIGHLIGHTS) */}
-      {data.featuredPrograms && (
-        <ProgramFeaturedPrograms featuredPrograms={data.featuredPrograms} />
+      {pageData.featuredPrograms && (
+        <ProgramFeaturedPrograms featuredPrograms={pageData.featuredPrograms} />
       )}
 
       {/* 5. MEET OUR MENTORS (INFINITE FACULTY CAROUSEL) */}
-      {(data.mentorsSection || data.faculty) && (
-        <ProgramMentors mentorsSection={data.mentorsSection} faculty={data.faculty} />
+      {(pageData.mentorsSection || pageData.faculty) && (
+        <ProgramMentors mentorsSection={pageData.mentorsSection} faculty={pageData.faculty} />
       )}
 
       {/* 6. PLACEMENT EXCELLENCE & ANALYTICS */}
-      <ProgramPlacement placement={data.placement} />
+      <ProgramPlacement placement={pageData.placement} />
 
       {/* 7. 5 CATEGORIES OF EXPERTS */}
-      <ProgramExperts experts={data.experts} />
+      <ProgramExperts experts={pageData.experts} />
 
       {/* 8. ACADEMIC DEGREE COURSES (IF CONFIGURED) */}
-      {data.courses && <ProgramCourses courses={data.courses} />}
+      {pageData.courses && <ProgramCourses courses={pageData.courses} />}
 
       {/* 9. DEAN'S MESSAGE (IF CONFIGURED) */}
-      {data.dean && <DeanMessage dean={data.dean} />}
+      {pageData.dean && <DeanMessage dean={pageData.dean} />}
 
       {/* 10. FAQS (IF CONFIGURED) */}
-      {data.faqs && <FAQSection faqs={data.faqs} />}
+      {pageData.faqs && <FAQSection faqs={pageData.faqs} />}
 
       {/* 11. FINAL CTA & APPLICATION SECTION */}
-      <ProgramFinalCTA cta={data.cta} />
+      <ProgramFinalCTA cta={pageData.cta} />
     </div>
   );
 }

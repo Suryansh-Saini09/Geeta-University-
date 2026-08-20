@@ -1,5 +1,3 @@
-export * from "@/components/programs/types";
-
 export interface ProgramPageData {
   slug: string;
   name?: string;
@@ -41,17 +39,6 @@ export interface ProgramPageData {
     eyebrow?: string;
     title?: string;
     subtitle?: string;
-    items: {
-      title: string;
-      icon?: any;
-      points: string[];
-    }[];
-  };
-
-  specialisations?: {
-    eyebrow?: string;
-    title: string;
-    subtitle?: string;
     items: SpecialisationItem[];
   };
 
@@ -79,10 +66,10 @@ export interface ProgramPageData {
     title?: string;
   };
 
-  courses?: CourseCategory[] | any;
+  courses?: CourseCategory[];
 
   faculty?: FacultyMember[];
-  mentors?: FacultyMember[] | any;
+  mentors?: FacultyMember[];
 
   mentorsSection?: {
     eyebrow?: string;
@@ -118,9 +105,6 @@ export interface ProgramPageData {
       color: string;
     }[];
   };
-
-  placement?: any;
-  experts?: any;
 
   career?: {
     eyebrow?: string;
@@ -190,12 +174,14 @@ export interface ProgramPageData {
 
 export interface SpecialisationItem {
   title: string;
+  icon?: any;
   iconName?: string;
   points: string[];
 }
 
 export interface FeaturedProgramCard {
   title: string;
+  icon?: any;
   iconName?: string;
   points: string[];
 }
@@ -205,6 +191,7 @@ export interface ExpertCategoryItem {
   title: string;
   subtitle: string;
   points: string[];
+  icon?: any;
   iconName?: string;
   ribbon?: string;
 }
