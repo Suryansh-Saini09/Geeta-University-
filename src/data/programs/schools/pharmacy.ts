@@ -5,8 +5,8 @@ export const pharmacySchool: ProgramPageData = {
   type: "school",
 
   seo: {
-    title: "Best Pharmacy College in Haryana & Delhi NCR | Geeta Institute of Pharmacy",
-    description: "Best Pharmacy University in Haryana & Delhi NCR. PCI approved, industry-ready curriculum, top faculty & advanced research labs. Start your pharmaceutical career at Geeta University.",
+    title: "Best Pharmacy College in Haryana & Delhi NCR | Get Admissions",
+    description: "Best Pharmacy University in Haryana & Delhi NCR. Industry-ready curriculum, top faculty & research labs. Start your pharma career at Geeta University",
     keywords: [
       "GEETA INSTITUTE OF PHARMACY",
       "best pharmacy University in haryana",
@@ -19,7 +19,6 @@ export const pharmacySchool: ProgramPageData = {
       "Best B.Pharmacy University in haryana",
       "Top B.Pharmacy University in Haryana",
       "b pharmacy colleges in haryana",
-      "d pharmacy colleges in delhi ncr",
     ],
   },
 
@@ -28,7 +27,7 @@ export const pharmacySchool: ProgramPageData = {
     image: "/programs/pharmacy/hero.webp",
     title: "Care Beyond Prescriptions. Create a Better Tomorrow",
     eyebrow: "Geeta Institute of Pharmacy",
-    description: "Graduate with the skills, confidence, and opportunities to excel globally. Learn through advanced laboratories, research projects, and hands-on pharmaceutical training.",
+    description: "Graduate with the skills, confidence, and opportunities to excel globally. Learn through advanced laboratories, research projects, and hands-on pharmaceutical training. Develop into a trusted healthcare professional committed to serving society.",
   },
 
   about: {
@@ -37,9 +36,9 @@ export const pharmacySchool: ProgramPageData = {
     paragraphs: [
       "Geeta Institute of Pharmacy at Geeta University stands out as the best university for Pharmacy in Haryana, offering world-class education, cutting-edge research opportunities, and industry-driven programs. We have come to be recognized as the top university for pharmacy in Delhi NCR for providing a dynamic learning environment that nurtures innovation in drug discovery, clinical trials, and pharmaceutical marketing.",
       "Our team of expert faculty, an industry-focused research-oriented pedagogy, and state-of-the-art infrastructure have played a vital role in helping us evolve into the top private university for pharmacy in Panipat. Our PCI-approved programs are designed to ensure that our students are market-ready for taking up various roles in the constantly evolving pharmaceutical industry.",
-      "With our commitment to excellence and unique global exposure opportunities, we empower aspiring pharmacists to excel in their careers. Enroll with us today and take the first step towards a rewarding future in pharmacy!",
+      "With our commitment to excellence and the unique global exposure opportunities, we empower aspiring pharmacists like you to excel in your careers. Enroll with us today and take the first step towards a rewarding future in pharmacy!",
     ],
-    image: "/programs/pharmacy/hero.webp",
+    image: "/programs/pharmacy/pharmacy2-thumb.webp",
     badgeText: "PCI Approved Excellence",
   },
 
@@ -153,14 +152,116 @@ export const pharmacySchool: ProgramPageData = {
 
   mentorsSection: {
     eyebrow: "EXPERT FACULTY",
-    title: "Meet Our Pharmacy Mentors",
+    title: "Meet Our Mentors",
     faculty: [
-      { name: "Prof. Dr. Sunil Jawla", designation: "Principal & Professor", description: "Expert in medicinal chemistry, pharmacology research, and academic leadership.", image: "/programs/pharmacy/principal.webp" },
-      { name: "Dr. Neeraj Rana", designation: "Associate Professor", description: "Specializes in pharmaceutics, formulation development, and clinical research.", image: "/bba faulty/Neeraj Rana.webp" },
-      { name: "Dr. Pooja Gupta", designation: "Professor", description: "Brings extensive pharmaceutical industry and analytical chemistry research background.", image: "/bba faulty/Pooja-Gupta.webp" },
-      { name: "Dr. Ashutosh Srivastav", designation: "Associate Professor", description: "Specializes in pharmaceutical biotechnology and modern drug development.", image: "/bba faulty/ashutosh.webp" },
-      { name: "Dr. Nidhi Gupta", designation: "Associate Professor", description: "Focuses on pharmacognosy, natural product screening, and phytochemistry.", image: "/bba faulty/nidhi gupta.webp" },
-      { name: "Dr. Rekha Narang", designation: "Faculty Member", description: "Dedicated to academic excellence and pharmacological research.", image: "/bba faulty/rekha.webp" },
+      { 
+        name: "Dr. Seema Rohilla", 
+        designation: "Professor, M.Pharm (Pharmaceutics), Ph.D.", 
+        description: "Expertise: Pharmaceutics. Research Interest: Qbd, Cancer. Award: Extra Ordinary Researcher.", 
+        image: "/programs/pharmacy/seema.webp" 
+      },
+      { 
+        name: "Dr. Sarita", 
+        designation: "Professor, Ph.D.", 
+        description: "Pharmacognosy and Phytochemistry, inslico design and novel extraction methods and biological evaluations. 32 publications in international journal with total impact factor more than 25 , 10 books , 18 book chapters published , 5 patents granted and 714 citations.", 
+        image: "/programs/pharmacy/Sarita.webp" 
+      },
+      { 
+        name: "Dr. Priyanka Rathee", 
+        designation: "Associate Professor, Ph.D.", 
+        description: "In silico screening, Phytochemical research, Medicinal Chemistry, Preservation & Enzyme Inhibition, Nanotechnology.", 
+        image: "/programs/pharmacy/Priyanka.webp" 
+      },
+      { 
+        name: "Mr. Rakesh Redhu", 
+        designation: "Associate Professor, M.Pharmacy (Pharmaceutics)", 
+        description: "Specialised in Solubility Enhancement, Nano-carriers, and Formulation Development; Skilled in Design of Experiment (DOE) methodology.", 
+        image: "/programs/pharmacy/Rakesh.webp" 
+      },
+      { 
+        name: "Mr. Ajay", 
+        designation: "Assistant Professor, M.Pharmacy", 
+        description: "Pharmaceutical educator and researcher with 5 years' experience specializing in pharmaceutics, pharmacology, medicinal chemistry, advanced formulation design for maximized activity, and patent filings.", 
+        image: "/programs/pharmacy/Ajay.webp" 
+      },
+      { 
+        name: "Ms. Manita", 
+        designation: "Assistant Professor, M.Pharmacy, Ph.D. (Pursuing)", 
+        description: "Ms. Manita, Assistant Professor in Geeta Institute of Pharmacy with 3.9 years of academic experience in pharmaceutical Sciences. I am currently pursuing PhD in pharmaceutical Sciences. I have published 1 research article and 6 review articles in Q1 journals indexed in Scopus and PubMed. I am a co-inventor of 3 patents which landscape my dedication to innovation and advancement in nanoformulations , Dermatology and advanced drug delivery system.", 
+        image: "/programs/pharmacy/Manita.webp" 
+      },
+      { 
+        name: "Ms. Ranjna Rani", 
+        designation: "Assistant Professor, M.Pharm. (Industrial Pharmacy), Ph.D. (Pursuing)", 
+        description: "Pharmacy professional specializing in drug formulation, solubility enhancement and bioavailability improvement. 6 patents, 1 book, 2 book chapters.", 
+        image: "/programs/pharmacy/Ranjna.webp" 
+      },
+      { 
+        name: "Ms. Twinkle Chadda", 
+        designation: "Assistant Professor, M. Pharm. (Pursuing Ph.D.)", 
+        description: "Masters in Pharmacology, File 10 patents, 3 Bentham and 1 Scopus.", 
+        image: "/programs/pharmacy/Twinkle.webp" 
+      },
+      { 
+        name: "Mr. Charit Kumar", 
+        designation: "Associate Professor, M.Pharm.", 
+        description: "Solid dispersions, Solubility enhancement, Microwave assisted techniques, DoE, Formulation design.", 
+        image: "/programs/pharmacy/Charit.webp" 
+      },
+      { 
+        name: "Mr. Rahul Dhounchak", 
+        designation: "Assistant Professor, M.Pharmacy", 
+        description: "Focused on Solubility Enhancement, Drug Development, and Formulation Development; Contributor to pharmaceutical academic research.", 
+        image: "/programs/pharmacy/Rahul.webp" 
+      },
+      { 
+        name: "Ms. Anjali Saini", 
+        designation: "Assistant Professor, Ph.D. (Pursuing)", 
+        description: "Neurobiology, Neuroscience, Pathophysiology of neural disorder and their herbal and non herbal treatment.", 
+        image: "/programs/pharmacy/Anjali.webp" 
+      },
+      { 
+        name: "Mr. Karan Jangra", 
+        designation: "Assistant Professor, M.Pharmacy (Pharmaceutics)", 
+        description: "Published 1 research paper, and expert in Pharmacovigilance with hands-on experience in product development and research.", 
+        image: "/programs/pharmacy/Karan.webp" 
+      },
+      { 
+        name: "Ms. Nikita Sharma", 
+        designation: "Assistant Professor, M.Pharmacy (Pharmaceutical Chemistry)", 
+        description: "Specializes in heterocyclic compound synthesis, molecular docking, and synthetic chemistry.", 
+        image: "/programs/pharmacy/Nikita.webp" 
+      },
+      { 
+        name: "Mr. Arun", 
+        designation: "Assistant Professor", 
+        description: "Drug Regulatory Affairs expert skilled in novel molecule synthesis and molecular docking, with 5+ Research & Review Articles, 5+ Book chapters and 1 Book.", 
+        image: "/programs/pharmacy/Arun.webp" 
+      },
+      { 
+        name: "Mr. Shamsher Singh", 
+        designation: "Assistant Professor", 
+        description: "Interested in novel compound synthesis, I have all ready published in bentham publication of review/research article.", 
+        image: "/programs/pharmacy/Shamsher.webp" 
+      },
+      { 
+        name: "Dr. Neelam Malik", 
+        designation: "Professor", 
+        description: "Area of expertise - Medicinal chemistry, Drug Design, Artificial intelligence, synthetic chemistry, Enzyme inhibition. Published more than 35 papers in indexed journal 15 book chapter, 3 books and patents. Got silver medal and best thesis award in PhD.", 
+        image: "/programs/pharmacy/Neelam.webp" 
+      },
+      { 
+        name: "Dr. Anil Kumar", 
+        designation: "Associate Professor", 
+        description: "Ph.D in Pharmaceutics.", 
+        image: "/programs/pharmacy/Anil.webp" 
+      },
+      { 
+        name: "Dr. Ravinder", 
+        designation: "Professor", 
+        description: "M.Pharm Ph.D; Pharmacology.", 
+        image: "/programs/pharmacy/Ravinder.webp" 
+      }
     ],
   },
 
@@ -168,22 +269,22 @@ export const pharmacySchool: ProgramPageData = {
     eyebrow: "Career Outcomes",
     title: "Pharma Placements & Global Opportunities",
     subtitle: "Empowering pharmacy graduates to join top pharmaceutical firms, clinical research organizations, hospitals, and regulatory bodies.",
-    heroImage: "/programs/pharmacy/hero.webp",
+    heroImage: "/about/campus.webp",
     heroNoteTitle: "PCI-Approved Industry Readiness",
     heroNoteText: "Graduates equipped with practical lab expertise, compliance training, and strong corporate exposure.",
     stats: [
-      { value: "12 LPA", label: "Highest Pharma Package", iconName: "Award" },
+      { value: "1.4 Crore PA", label: "Highest Pharma Package", iconName: "Award" },
       { value: "250+", label: "Pharma Recruiters", iconName: "Building2" },
       { value: "1200+", label: "Placements & Internships", iconName: "BriefcaseBusiness" },
     ],
     recruiters: [
-      { name: "Sun Pharma", color: "#e8871a", logo: null },
-      { name: "Cipla", color: "#1b4b8f", logo: null },
-      { name: "Dr. Reddy's", color: "#0a1f44", logo: null },
-      { name: "Lupin", color: "#d89a2b", logo: null },
-      { name: "Mankind", color: "#ef3340", logo: null },
-      { name: "Zydus", color: "#1476bd", logo: null },
-      { name: "Torrent Pharma", color: "#232f3e", logo: null },
+      { name: "Zentech Pharma", color: "#e8871a", logo: null },
+      { name: "Pfizer", color: "#1b4b8f", logo: null },
+      { name: "Trueworth Healthcare", color: "#0a1f44", logo: null },
+      { name: "Alembic Pharmaceuticals", color: "#d89a2b", logo: null },
+      { name: "Sun Pharma", color: "#ef3340", logo: null },
+      { name: "Laborate Pharmaceuticals", color: "#1476bd", logo: null },
+      { name: "Stenkem Biolife Privated Limited", color: "#232f3e", logo: null },
       { name: "Abbott", color: "#1c6dd0", logo: null },
       { name: "Glenmark", color: "#9d245d", logo: null },
       { name: "Apollo Hospitals", color: "#168acb", logo: null },
@@ -320,7 +421,7 @@ export const pharmacySchool: ProgramPageData = {
     {
       title: "Diploma Program",
       duration: "2 Years",
-      eligibility: "A pass in 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks.",
+      eligibility: "A pass in 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
       programs: [
         { name: "D.Pharm. (Diploma in Pharmacy)" },
       ],
@@ -328,7 +429,7 @@ export const pharmacySchool: ProgramPageData = {
     {
       title: "Undergraduate Program",
       duration: "4 Years",
-      eligibility: "Passed 10+2 examination with minimum 55% marks with English, Physics, Chemistry, and Math/Biology.",
+      eligibility: "Passed 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
       programs: [
         { name: "B.Pharm. (Bachelor of Pharmacy)" },
       ],
@@ -336,7 +437,7 @@ export const pharmacySchool: ProgramPageData = {
     {
       title: "Postgraduate Program",
       duration: "2 Years",
-      eligibility: "B.Pharm degree from a PCI approved institution with minimum 55% marks.",
+      eligibility: "B. Pharm Degree examination of an Indian university established by law in India from an institution approved by Pharmacy Council of India and has scored not less than 55% of the maximum marks (aggregate of 4 years of B.Pharm.)",
       programs: [
         { name: "M.Pharm. (Pharmaceutics)" },
       ],
@@ -344,7 +445,7 @@ export const pharmacySchool: ProgramPageData = {
     {
       title: "Doctoral Program",
       duration: "Minimum 3 Years",
-      eligibility: "M.Pharm in relevant field with minimum 55% marks.",
+      eligibility: "Masters in relevant field with minimum 55% marks.",
       programs: [
         { name: "Ph.D. (Pharmaceutical Sciences)" },
       ],
@@ -354,8 +455,8 @@ export const pharmacySchool: ProgramPageData = {
   dean: {
     name: "Prof. Dr. Sunil Jawla",
     designation: "Principal, Geeta Institute of Pharmacy",
-    image: "/programs/pharmacy/principal.webp",
-    message: "Greetings from Geeta Institute of Pharmacy. We prepare you for real jobs in the pharmaceutical industry with PCI-approved programs, modern labs, and deep research focus.",
+    image: "/programs/pharmacy/sunil.webp",
+    message: "Greetings from the Geeta Institute of Pharmacy at Geeta University. We prepare you for a successful career in the pharmacy sector. We offer courses approved by the Pharmacy Council of India (PCI). They prepare you for real jobs in the pharmaceutical industry. Be it drug discovery, clinical trials, or marketing medicines, our programs help you gain the relevant skills to achieve success in your preferred field. Our expert teachers guide you at every step to strengthen your understanding of various aspects of pharmacy. You’ll learn in modern labs and classrooms, with access to research and projects that help you grow. Join us to succeed and build your bright future in pharmacy.",
     schoolName: "Geeta Institute of Pharmacy",
   },
 
