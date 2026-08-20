@@ -1,101 +1,71 @@
 "use client";
 
 import React from "react";
-import type { ProgramData } from "./types";
 import type { ProgramPageData } from "@/data/programs/types";
 
 import ProgramHero from "./ProgramHero";
-import ProgramIntro from "./ProgramIntro";
-import ProgramSpecialisations from "./sections/ProgramSpecialisations";
+import ProgramAbout from "./ProgramAbout";
+import ProgramSpecialisations from "./ProgramSpecialisations";
+import ProgramFeaturedPrograms from "./ProgramFeaturedPrograms";
+import ProgramMentors from "./ProgramMentors";
+import ProgramPlacement from "./ProgramPlacement";
+import ProgramExperts from "./ProgramExperts";
 import ProgramCourses from "./ProgramCourses";
-import ProgramMentors from "./sections/ProgramMentors";
-import ProgramPlacements from "./sections/ProgramPlacements";
-import ProgramExperts from "./sections/ProgramExperts";
-import CareerPathway from "./CareerPathway";
 import DeanMessage from "./DeanMessage";
-import LegacyEcosystem from "./LegacyEcosystem";
 import FAQSection from "./FAQSection";
-import ProgramFinalCTA from "./sections/ProgramFinalCTA";
+import ProgramFinalCTA from "./ProgramFinalCTA";
 
 interface ProgramPageProps {
-  data?: ProgramData | ProgramPageData;
-  program?: ProgramData | ProgramPageData;
+  data?: ProgramPageData;
+  program?: ProgramPageData;
 }
 
 export default function ProgramPage({ data, program }: ProgramPageProps) {
-  // Support both `data` and `program` prop conventions
-  const currentProgram = (program || data) as any;
-
-  if (!currentProgram) {
-    return null;
-  }
-
-  // Normalize legacy data fields
-  const heroData = currentProgram.hero;
-  const introData = currentProgram.intro;
-  const specialisationsData = currentProgram.specialisations;
-  const coursesData = currentProgram.courses;
-  const mentorsData = currentProgram.mentors || currentProgram.faculty;
-  const placementData = currentProgram.placement;
-  const expertsData = currentProgram.experts;
-  const careerData = currentProgram.careerPathway || currentProgram.career;
-  const deanData = currentProgram.deanMessage || currentProgram.dean;
-  const legacyData = currentProgram.legacy;
-  const faqsData = currentProgram.faqs;
-  const ctaData = currentProgram.cta;
+  const pageData = data || program;
+  if (!pageData) return null;
 
   return (
-    <main className="w-full flex-1 block bg-white min-h-screen text-[#1A1A2E] overflow-x-hidden font-sans">
-      {/* 01. Hero Banner */}
-      {heroData && <ProgramHero data={heroData} />}
+    <div className="w-full flex-1 block bg-white min-h-screen text-[#1A1A2E] overflow-x-hidden selection:bg-[#E8871A] selection:text-white font-sans">
+      {/* 1. HERO BANNER SECTION */}
+      {pageData.hero && <ProgramHero hero={pageData.hero} />}
 
-      {/* 02. About School / Program Intro */}
-      {introData && <ProgramIntro data={introData} />}
-
-      {/* 03. Specialisations Directory */}
-      {specialisationsData && (
-        <ProgramSpecialisations data={specialisationsData} />
+      {/* 2. ABOUT THE SCHOOL SECTION */}
+      {(pageData.about || pageData.intro) && (
+        <ProgramAbout about={pageData.about} intro={pageData.intro} />
       )}
 
-      {/* 04. Academics / Programs Offered */}
-      {coursesData && (
-        <ProgramCourses
-          data={Array.isArray(coursesData) ? undefined : coursesData}
-          courses={Array.isArray(coursesData) ? coursesData : undefined}
-        />
+      {/* 3. EXPLORE SPECIALISATIONS / PROGRAMS DIRECTORY */}
+      {pageData.specialisations && (
+        <ProgramSpecialisations specialisations={pageData.specialisations} />
       )}
 
-      {/* 05. Faculty & Mentors Carousel */}
-      {mentorsData && <ProgramMentors data={mentorsData} />}
-
-      {/* 06. Placement Excellence */}
-      {placementData && <ProgramPlacements data={placementData} />}
-
-      {/* 07. Expert Ecosystem (5 Categories of Experts) */}
-      {expertsData && <ProgramExperts data={expertsData} />}
-
-      {/* 08. Career Pathway */}
-      {careerData && <CareerPathway data={careerData} />}
-
-      {/* 09. Dean's Leadership Message */}
-      {deanData && <DeanMessage data={deanData} />}
-
-      {/* 10. Institutional Legacy & Ecosystem */}
-      {legacyData && <LegacyEcosystem data={legacyData} />}
-
-      {/* 11. FAQ Accordion */}
-      {faqsData && (
-        <FAQSection
-          data={Array.isArray(faqsData) ? undefined : faqsData}
-          faqs={Array.isArray(faqsData) ? faqsData : undefined}
-        />
+      {/* 4. FEATURED PROGRAMS (COMMERCE / DEGREE HIGHLIGHTS) */}
+      {pageData.featuredPrograms && (
+        <ProgramFeaturedPrograms featuredPrograms={pageData.featuredPrograms} />
       )}
 
-      {/* 12. Final Admissions CTA */}
-      <ProgramFinalCTA
-        data={ctaData}
-        programName={currentProgram.name || currentProgram.hero?.title}
-      />
-    </main>
+      {/* 5. MEET OUR MENTORS (INFINITE FACULTY CAROUSEL) */}
+      {(pageData.mentorsSection || pageData.faculty) && (
+        <ProgramMentors mentorsSection={pageData.mentorsSection} faculty={pageData.faculty} />
+      )}
+
+      {/* 6. PLACEMENT EXCELLENCE & ANALYTICS */}
+      <ProgramPlacement placement={pageData.placement} />
+
+      {/* 7. 5 CATEGORIES OF EXPERTS */}
+      <ProgramExperts experts={pageData.experts} />
+
+      {/* 8. ACADEMIC DEGREE COURSES (IF CONFIGURED) */}
+      {pageData.courses && <ProgramCourses courses={pageData.courses} />}
+
+      {/* 9. DEAN'S MESSAGE (IF CONFIGURED) */}
+      {pageData.dean && <DeanMessage dean={pageData.dean} />}
+
+      {/* 10. FAQS (IF CONFIGURED) */}
+      {pageData.faqs && <FAQSection faqs={pageData.faqs} />}
+
+      {/* 11. FINAL CTA & APPLICATION SECTION */}
+      <ProgramFinalCTA cta={pageData.cta} />
+    </div>
   );
 }

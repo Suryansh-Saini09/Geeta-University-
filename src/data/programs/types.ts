@@ -1,5 +1,3 @@
-export * from "@/components/programs/types";
-
 export interface ProgramPageData {
   slug: string;
   name?: string;
@@ -13,13 +11,19 @@ export interface ProgramPageData {
   };
 
   hero: {
+    bannerOnly?: boolean;
+    image: string;
+    title?: string;
+    eyebrow?: string;
+    description?: string;
+  };
+
+  about?: {
     eyebrow?: string;
     title: string;
-    subtitle?: string;
-    description?: string;
+    paragraphs: string[];
     image: string;
-    enquireHref?: string;
-    exploreHref?: string;
+    badgeText?: string;
   };
 
   intro?: {
@@ -35,11 +39,17 @@ export interface ProgramPageData {
     eyebrow?: string;
     title?: string;
     subtitle?: string;
-    items: {
-      title: string;
-      icon?: any;
-      points: string[];
-    }[];
+    items: SpecialisationItem[];
+  };
+
+  featuredPrograms?: {
+    title1: string;
+    tag1?: string;
+    title2?: string;
+    tag2?: string;
+    description?: string;
+    cards: FeaturedProgramCard[];
+    studentImage?: string;
   };
 
   dean?: {
@@ -48,16 +58,7 @@ export interface ProgramPageData {
     designation: string;
     image: string;
     message: string;
-    schoolLabel?: string;
-  };
-
-  deanMessage?: {
-    eyebrow?: string;
-    name: string;
-    designation: string;
-    image: string;
-    message: string;
-    schoolLabel?: string;
+    schoolName?: string;
   };
 
   enquiry?: {
@@ -65,37 +66,45 @@ export interface ProgramPageData {
     title?: string;
   };
 
-  courses?: CourseCategory[] | any;
-
-  gallery?: {
-    images: string[];
-  };
-
-  transformation?: {
-    title: string;
-    cards: {
-      title: string;
-      points: string[];
-    }[];
-  };
-
-  corporateConnect?: {
-    title: string;
-    videos: string[];
-  };
+  courses?: CourseCategory[];
 
   faculty?: FacultyMember[];
-  mentors?: FacultyMember[] | any;
+  mentors?: FacultyMember[];
 
-  testimonials?: Testimonial[];
-
-  learningSpaces?: {
-    title: string;
-    images: string[];
+  mentorsSection?: {
+    eyebrow?: string;
+    title?: string;
+    faculty: FacultyMember[];
   };
 
-  placement?: any;
-  experts?: any;
+  placement?: {
+    eyebrow?: string;
+    title?: string;
+    subtitle?: string;
+    heroImage?: string;
+    heroNoteTitle?: string;
+    heroNoteText?: string;
+    stats?: {
+      value: string;
+      label: string;
+      iconName?: string;
+    }[];
+    recruiters?: RecruiterItem[];
+    avgPackage?: string;
+    avgPackageNote?: string;
+    packageBars?: {
+      label: string;
+      value: number;
+      width: string;
+    }[];
+    disclaimer?: string;
+    sectorChartImage?: string;
+    sectorLegend?: {
+      label: string;
+      value: string;
+      color: string;
+    }[];
+  };
 
   career?: {
     eyebrow?: string;
@@ -119,12 +128,23 @@ export interface ProgramPageData {
     }[];
   };
 
-  faqs?: FAQ[] | any;
-
-  visionMission?: {
-    vision?: string;
-    mission?: string[];
+  experts?: {
+    eyebrow?: string;
+    title?: string;
+    intro?: string;
+    feature: {
+      kicker: string;
+      title: string;
+      description: string;
+      stats: {
+        value: string;
+        label: string;
+      }[];
+    };
+    categories: ExpertCategoryItem[];
   };
+
+  faqs?: FAQ[];
 
   legacy?: {
     eyebrow?: string;
@@ -137,7 +157,49 @@ export interface ProgramPageData {
     image?: string;
   };
 
-  cta?: any;
+  cta?: {
+    heading?: string;
+    quote?: string;
+    paragraphs?: string[];
+    otherPrograms?: string[];
+    qrLabel?: string;
+    qrCta?: string;
+    qrImage?: string;
+    applyLink?: string;
+    helpline?: string;
+    website?: string;
+    campusAddress?: string;
+  };
+}
+
+export interface SpecialisationItem {
+  title: string;
+  icon?: any;
+  iconName?: string;
+  points: string[];
+}
+
+export interface FeaturedProgramCard {
+  title: string;
+  icon?: any;
+  iconName?: string;
+  points: string[];
+}
+
+export interface ExpertCategoryItem {
+  number: number;
+  title: string;
+  subtitle: string;
+  points: string[];
+  icon?: any;
+  iconName?: string;
+  ribbon?: string;
+}
+
+export interface RecruiterItem {
+  name: string;
+  color?: string;
+  logo?: string | null;
 }
 
 export interface CourseCategory {
@@ -156,14 +218,6 @@ export interface FacultyMember {
   designation: string;
   image: string;
   description: string;
-}
-
-export interface Testimonial {
-  name: string;
-  program?: string;
-  package?: string;
-  image: string;
-  text: string;
 }
 
 export interface FAQ {
