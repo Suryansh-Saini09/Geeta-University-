@@ -1,5 +1,9 @@
+export * from "@/components/programs/types";
+
 export interface ProgramPageData {
   slug: string;
+  name?: string;
+  shortName?: string;
   type: "school" | "program";
 
   seo: {
@@ -9,21 +13,51 @@ export interface ProgramPageData {
   };
 
   hero: {
+    eyebrow?: string;
     title: string;
+    subtitle?: string;
     description?: string;
     image: string;
+    enquireHref?: string;
+    exploreHref?: string;
   };
 
   intro?: {
+    eyebrow?: string;
     title: string;
     paragraphs: string[];
+    image?: string;
+    imageAlt?: string;
+    badgeText?: string;
+  };
+
+  specialisations?: {
+    eyebrow?: string;
+    title?: string;
+    subtitle?: string;
+    items: {
+      title: string;
+      icon?: any;
+      points: string[];
+    }[];
   };
 
   dean?: {
+    eyebrow?: string;
     name: string;
     designation: string;
     image: string;
     message: string;
+    schoolLabel?: string;
+  };
+
+  deanMessage?: {
+    eyebrow?: string;
+    name: string;
+    designation: string;
+    image: string;
+    message: string;
+    schoolLabel?: string;
   };
 
   enquiry?: {
@@ -31,7 +65,7 @@ export interface ProgramPageData {
     title?: string;
   };
 
-  courses?: CourseCategory[];
+  courses?: CourseCategory[] | any;
 
   gallery?: {
     images: string[];
@@ -51,6 +85,7 @@ export interface ProgramPageData {
   };
 
   faculty?: FacultyMember[];
+  mentors?: FacultyMember[] | any;
 
   testimonials?: Testimonial[];
 
@@ -59,17 +94,32 @@ export interface ProgramPageData {
     images: string[];
   };
 
+  placement?: any;
+  experts?: any;
+
   career?: {
+    eyebrow?: string;
     title: string;
     description: string;
-    recruiters: string[];
+    recruiters?: string[];
     highlights: {
       value: string;
       label: string;
     }[];
   };
 
-  faqs?: FAQ[];
+  careerPathway?: {
+    eyebrow?: string;
+    title: string;
+    description: string;
+    recruiters?: string[];
+    highlights: {
+      value: string;
+      label: string;
+    }[];
+  };
+
+  faqs?: FAQ[] | any;
 
   visionMission?: {
     vision?: string;
@@ -77,6 +127,7 @@ export interface ProgramPageData {
   };
 
   legacy?: {
+    eyebrow?: string;
     title: string;
     description: string;
     items: {
@@ -85,6 +136,8 @@ export interface ProgramPageData {
     }[];
     image?: string;
   };
+
+  cta?: any;
 }
 
 export interface CourseCategory {

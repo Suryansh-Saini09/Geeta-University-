@@ -1,26 +1,15 @@
+"use client";
+
+import React from "react";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
-
-import type { CourseCategory } from "@/data/programs/types";
+import type { ProgramCoursesData, CourseCategoryItem } from "./types";
+import SectionHeading from "./shared/SectionHeading";
 
 interface ProgramCoursesProps {
-  courses: CourseCategory[];
+  data?: ProgramCoursesData;
+  courses?: CourseCategoryItem[];
 }
-
-const fadeUp: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.65,
-      ease: "easeOut",
-    },
-  },
-};
 
 const cardContainer: Variants = {
   hidden: {},
@@ -47,79 +36,33 @@ const cardItem: Variants = {
 };
 
 export default function ProgramCourses({
+  data,
   courses,
 }: ProgramCoursesProps) {
+  const categories = data?.categories || courses || [];
+
+  if (!categories || categories.length === 0) {
+    return null;
+  }
+
+  const eyebrow = data?.eyebrow || "Academics";
+  const title = data?.title || "Programs Offered";
+  const subtitle = data?.subtitle || "Explore degrees designed to connect academic learning with the opportunities of tomorrow.";
+
   return (
     <section
-      className="
-        overflow-hidden
-        bg-[#F7F9FC]
-        py-20
-        md:py-24
-        lg:py-28
-      "
+      id="programs"
+      className="overflow-hidden bg-[#F7F9FC] py-20 md:py-24 lg:py-28 font-sans"
     >
-      <div className="gu-container">
-        {/* ==================================================
-            SECTION HEADER
-        ================================================== */}
+      <div className="w-full max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10">
+        {/* Section Header */}
+        <SectionHeading
+          eyebrow={eyebrow}
+          title={title}
+          subtitle={subtitle}
+        />
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true,
-            amount: 0.2,
-          }}
-          variants={fadeUp}
-          className="mb-12 max-w-3xl md:mb-14"
-        >
-          <div className="flex items-center gap-3">
-            <span className="h-px w-9 bg-[#E8871A]" />
-
-            <span
-              className="
-                text-[10px]
-                font-bold
-                uppercase
-                tracking-[3px]
-                text-[#E8871A]
-              "
-            >
-              Academics
-            </span>
-          </div>
-
-          <h2
-            className="
-              mt-5
-              font-serif
-              text-[38px]
-              font-black
-              leading-[1.08]
-              tracking-[-1px]
-              text-[#0A1F44]
-              sm:text-[44px]
-              md:text-[50px]
-            "
-          >
-            Programs
-            <span className="text-[#E8871A]">
-              {" "}
-              Offered.
-            </span>
-          </h2>
-
-          <div className="mt-6 flex items-center gap-2">
-            <span className="h-[3px] w-12 bg-[#E8871A]" />
-            <span className="h-[3px] w-3 bg-[#0A1F44]" />
-          </div>
-        </motion.div>
-
-        {/* ==================================================
-            PROGRAM CATEGORIES
-        ================================================== */}
-
+        {/* Categories Grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -128,166 +71,63 @@ export default function ProgramCourses({
             amount: 0.12,
           }}
           variants={cardContainer}
-          className="grid gap-6 md:grid-cols-2 lg:gap-8"
+          className="grid gap-6 md:grid-cols-2 lg:gap-8 max-w-5xl mx-auto"
         >
-          {courses.map((category, categoryIndex) => (
+          {categories.map((category: CourseCategoryItem, categoryIndex: number) => (
             <motion.article
               key={category.title}
               variants={cardItem}
-              className="
-                group
-                relative
-                overflow-hidden
-                rounded-[18px]
-                border
-                border-[#DCE2EB]
-                bg-white
-                p-6
-                shadow-[0_8px_30px_rgba(10,31,68,0.045)]
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:border-[#E8871A]/30
-                hover:shadow-[0_16px_38px_rgba(10,31,68,0.08)]
-                md:p-7
-              "
+              className="group relative overflow-hidden rounded-[20px] border border-[#DCE2EB] bg-white p-6 sm:p-8 shadow-[0_8px_30px_rgba(10,31,68,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-[#D99A24]/40 hover:shadow-[0_18px_45px_rgba(10,31,68,0.09)]"
             >
-              {/* Top accent */}
+              {/* Top Accent Line */}
+              <span className="absolute left-0 top-0 h-[3px] w-0 bg-[#D99A24] transition-all duration-500 group-hover:w-full" />
 
-              <span
-                className="
-                  absolute
-                  left-0
-                  top-0
-                  h-[3px]
-                  w-0
-                  bg-[#E8871A]
-                  transition-all
-                  duration-500
-                  group-hover:w-full
-                "
-              />
-
-              {/* ==================================================
-                  CATEGORY HEADER
-              ================================================== */}
-
-              <div className="flex items-start justify-between gap-5">
+              {/* Category Header */}
+              <div className="flex items-start justify-between gap-4">
                 <div className="flex items-start gap-4">
-                  <div
-                    className="
-                      flex
-                      h-11
-                      w-11
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-[11px]
-                      bg-[#0A1F44]
-                      text-[#E8871A]
-                      transition-all
-                      duration-300
-                      group-hover:bg-[#E8871A]
-                      group-hover:text-white
-                    "
-                  >
-                    <BookOpen
-                      size={20}
-                      strokeWidth={1.7}
-                    />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[12px] bg-[#0A1F44] text-[#D99A24] transition-all duration-300 group-hover:bg-[#D99A24] group-hover:text-white">
+                    <BookOpen size={22} strokeWidth={1.8} />
                   </div>
 
                   <div>
-                    <span
-                      className="
-                        text-[9px]
-                        font-bold
-                        uppercase
-                        tracking-[2px]
-                        text-[#94A3B8]
-                      "
-                    >
+                    <span className="text-[10px] font-extrabold uppercase tracking-[2px] text-[#94A3B8]">
                       {String(categoryIndex + 1).padStart(2, "0")}
                     </span>
-
-                    <h3
-                      className="
-                        mt-1
-                        font-serif
-                        text-[22px]
-                        font-black
-                        leading-tight
-                        text-[#0A1F44]
-                        md:text-[24px]
-                      "
-                    >
+                    <h3 className="mt-1 font-serif text-[22px] sm:text-[24px] font-black leading-tight text-[#0A1F44]">
                       {category.title}
                     </h3>
                   </div>
                 </div>
+
+                {(category.duration || category.eligibility) && (
+                  <div className="hidden sm:flex flex-col items-end text-right">
+                    {category.duration && (
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#D99A24]">
+                        {category.duration}
+                      </span>
+                    )}
+                    {category.eligibility && (
+                      <span className="text-[12px] text-[#64748B] mt-0.5">
+                        {category.eligibility}
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
 
-              {/* ==================================================
-                  PROGRAM LIST
-              ================================================== */}
-
+              {/* Program List */}
               <div className="mt-7 space-y-3">
                 {category.programs.map((program, programIndex) => (
                   <div
                     key={program.name}
-                    className="
-                      group/program
-                      flex
-                      items-center
-                      justify-between
-                      gap-4
-                      rounded-[11px]
-                      border
-                      border-[#E2E8F0]
-                      bg-[#F8FAFC]
-                      px-4
-                      py-4
-                      transition-all
-                      duration-300
-                      hover:border-[#E8871A]/30
-                      hover:bg-white
-                      hover:shadow-[0_6px_20px_rgba(10,31,68,0.05)]
-                    "
+                    className="group/program flex items-center justify-between gap-4 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] px-4 py-3.5 transition-all duration-300 hover:border-[#D99A24]/40 hover:bg-white hover:shadow-[0_6px_20px_rgba(10,31,68,0.06)]"
                   >
                     <div className="flex min-w-0 items-center gap-3">
-                      <span
-                        className="
-                          flex
-                          h-7
-                          w-7
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-full
-                          bg-[#0A1F44]/5
-                          text-[10px]
-                          font-bold
-                          text-[#64748B]
-                          transition-colors
-                          duration-300
-                          group-hover/program:bg-[#E8871A]/10
-                          group-hover/program:text-[#E8871A]
-                        "
-                      >
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#0A1F44]/5 text-[11px] font-bold text-[#64748B] transition-colors duration-300 group-hover/program:bg-[#D99A24]/15 group-hover/program:text-[#D99A24]">
                         {String(programIndex + 1).padStart(2, "0")}
                       </span>
 
-                      <span
-                        className="
-                          truncate
-                          text-[14px]
-                          font-semibold
-                          text-[#334155]
-                          transition-colors
-                          duration-300
-                          group-hover/program:text-[#0A1F44]
-                        "
-                      >
+                      <span className="truncate text-[14px] sm:text-[15px] font-semibold text-[#334155] transition-colors duration-300 group-hover/program:text-[#0A1F44]">
                         {program.name}
                       </span>
                     </div>
@@ -296,119 +136,23 @@ export default function ProgramCourses({
                       <a
                         href={program.href}
                         aria-label={`View ${program.name}`}
-                        className="
-                          flex
-                          h-9
-                          w-9
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-full
-                          border
-                          border-[#DCE2EB]
-                          text-[#94A3B8]
-                          transition-all
-                          duration-300
-                          hover:border-[#E8871A]
-                          hover:bg-[#E8871A]
-                          hover:text-white
-                        "
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#DCE2EB] text-[#94A3B8] transition-all duration-300 hover:border-[#D99A24] hover:bg-[#D99A24] hover:text-white"
                       >
-                        <ArrowUpRight
-                          size={16}
-                          strokeWidth={1.8}
-                        />
+                        <ArrowUpRight size={16} strokeWidth={2} />
                       </a>
                     ) : (
-                      <span
-                        className="
-                          flex
-                          h-9
-                          w-9
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-full
-                          border
-                          border-[#DCE2EB]
-                          text-[#94A3B8]
-                          transition-all
-                          duration-300
-                          group-hover/program:border-[#E8871A]/40
-                          group-hover/program:text-[#E8871A]
-                        "
-                      >
-                        <ArrowUpRight
-                          size={16}
-                          strokeWidth={1.8}
-                        />
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#DCE2EB] text-[#94A3B8] transition-all duration-300 group-hover/program:border-[#D99A24]/40 group-hover/program:text-[#D99A24]">
+                        <ArrowUpRight size={16} strokeWidth={2} />
                       </span>
                     )}
                   </div>
                 ))}
               </div>
 
-              {/* Bottom accent */}
-
-              <span
-                className="
-                  absolute
-                  bottom-0
-                  left-0
-                  h-[2px]
-                  w-0
-                  bg-[#0A1F44]
-                  transition-all
-                  duration-500
-                  group-hover:w-full
-                "
-              />
+              {/* Bottom Accent Line */}
+              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#0A1F44] transition-all duration-500 group-hover:w-full" />
             </motion.article>
           ))}
-        </motion.div>
-
-        {/* ==================================================
-            BOTTOM STATEMENT
-        ================================================== */}
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true,
-            amount: 0.25,
-          }}
-          variants={fadeUp}
-          className="mt-14 md:mt-16"
-        >
-          <div className="flex items-center gap-4">
-            <span className="h-px flex-1 bg-[#DCE2EB]" />
-
-            <span className="h-2 w-2 rounded-full bg-[#E8871A]" />
-
-            <span className="h-px flex-1 bg-[#DCE2EB]" />
-          </div>
-
-          <p
-            className="
-              mx-auto
-              mt-6
-              max-w-2xl
-              text-center
-              font-serif
-              text-[17px]
-              leading-[1.7]
-              text-[#334155]
-              md:text-[19px]
-            "
-          >
-            Explore programs designed to connect
-            <span className="text-[#E8871A]">
-              {" "}
-              academic learning
-            </span>{" "}
-            with the opportunities of tomorrow.
-          </p>
         </motion.div>
       </div>
     </section>
