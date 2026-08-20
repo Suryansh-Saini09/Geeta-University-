@@ -37,7 +37,7 @@ const secondaryNavLinks: NavEntry[] = [
         { label: "Geeta Global Law School", href: "#" },
       ]},
       { heading: "HEALTH & HUMANITIES", links: [
-        { label: "Geeta Institute of Pharmacy", href: "#" },
+        { label: "Geeta Institute of Pharmacy", href: "/programs/geeta-institute-of-pharmacy" },
         { label: "Geeta Nursing College", href: "#" },
         { label: "School of Humanities & Social Sciences", href: "#" },
         { label: "School of Hospitality & Hotel Mgmt", href: "#" },
