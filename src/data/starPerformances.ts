@@ -6,30 +6,30 @@ export interface StarPerformance {
 export const starPerformances: StarPerformance[] = [
   {
     name: "Akhil",
-    image: "/home/stars/Akhil-full.webp",
+    image: "/home/stars/Akhil.webp",
   },
   {
     name: "Aastha Gill",
-    image: "/home/stars/Aastha-Gill-full.webp",
+    image: "/home/stars/Aastha.webp",
   },
   {
     name: "Jasi Gill & Babbal Rai",
-    image: "/home/stars/Jasi-GIll-&-babbal-Rai-(1)-(1)-full.webp",
+    image: "/home/stars/JasiGill&BabbalRai.webp",
   },
   {
     name: "Raftaar",
     image:
-      "/home/stars/raftaar-full.webp",
+      "/home/stars/Raftaar.webp",
   },
   {
     name: "Jasraj Joshi",
     image:
-      "/home/stars/jasrajjoshi.webp",
+      "/home/stars/JasrajJoshi.webp",
   },
   {
     name: "Shipra Goyal",
     image:
-      "/home/stars/ShipraGoyal-full.webp",
+      "/home/stars/ShipraGoyal.webp",
   },
   {
     name: "Kanika Kapoor",

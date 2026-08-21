@@ -158,7 +158,7 @@ export const pharmacySchool: ProgramPageData = {
         name: "Dr. Seema Rohilla", 
         designation: "Professor, M.Pharm (Pharmaceutics), Ph.D.", 
         description: "Expertise: Pharmaceutics. Research Interest: Qbd, Cancer. Award: Extra Ordinary Researcher.", 
-        image: "/programs/pharmacy/seema.webp" 
+        image: "/programs/pharmacy/Seema.webp" 
       },
       { 
         name: "Dr. Sarita", 
@@ -455,7 +455,7 @@ export const pharmacySchool: ProgramPageData = {
   dean: {
     name: "Prof. Dr. Sunil Jawla",
     designation: "Principal, Geeta Institute of Pharmacy",
-    image: "/programs/pharmacy/sunil.webp",
+    image: "/programs/pharmacy/Sunil.webp",
     message: "Greetings from the Geeta Institute of Pharmacy at Geeta University. We prepare you for a successful career in the pharmacy sector. We offer courses approved by the Pharmacy Council of India (PCI). They prepare you for real jobs in the pharmaceutical industry. Be it drug discovery, clinical trials, or marketing medicines, our programs help you gain the relevant skills to achieve success in your preferred field. Our expert teachers guide you at every step to strengthen your understanding of various aspects of pharmacy. You’ll learn in modern labs and classrooms, with access to research and projects that help you grow. Join us to succeed and build your bright future in pharmacy.",
     schoolName: "Geeta Institute of Pharmacy",
   },
