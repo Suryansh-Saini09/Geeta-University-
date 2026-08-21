@@ -697,6 +697,7 @@ export default function ProgramPlacement({ placement }: ProgramPlacementProps) {
                   src={sectorChartImage}
                   alt="Sector-wise placement chart"
                   fill
+                  sizes="(max-width: 768px) 100vw, 400px"
                   className="object-contain drop-shadow-2xl p-0"
                 />
               </div>

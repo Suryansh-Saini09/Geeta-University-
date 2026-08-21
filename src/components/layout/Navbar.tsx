@@ -38,6 +38,7 @@ const secondaryNavLinks: NavEntry[] = [
       ]},
       { heading: "HEALTH & HUMANITIES", links: [
         { label: "Geeta Institute of Pharmacy", href: "/programs/geeta-institute-of-pharmacy" },
+        { label: "School of Health & Allied Sciences", href: "/programs/school-of-health-and-allied-sciences" },
         { label: "Geeta Nursing College", href: "#" },
         { label: "School of Humanities & Social Sciences", href: "#" },
         { label: "School of Hospitality & Hotel Mgmt", href: "#" },

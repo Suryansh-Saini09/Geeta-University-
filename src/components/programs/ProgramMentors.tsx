@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import type { FacultyMember } from "@/data/programs/types";
 
@@ -13,19 +13,59 @@ interface ProgramMentorsProps {
   faculty?: FacultyMember[];
 }
 
-export default function ProgramMentors({ mentorsSection, faculty }: ProgramMentorsProps) {
-  const mentors = mentorsSection?.faculty || faculty || [];
+function MentorCard({ mentor }: { mentor: FacultyMember }) {
+  return (
+    <div className="mentor-card-inner">
+      <div className="mentor-image-container">
+        <Image
+          src={mentor.image}
+          alt={mentor.name}
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, (max-width: 1023px) 50vw, 320px"
+        />
+      </div>
 
-  const [currentIndex, setCurrentIndex] = React.useState(4);
-  const [isTransitioning, setIsTransitioning] = React.useState(false);
-  const [translationAmount, setTranslationAmount] = React.useState(0);
-  
-  const trackRef = React.useRef<HTMLDivElement>(null);
-  const viewportRef = React.useRef<HTMLDivElement>(null);
+      <div className="mentor-content-area">
+        <h3 className="font-['Zilla_Slab',serif] text-[#0F2D52] font-[700] text-[24px] leading-[30px] mb-[4px]">
+          {mentor.name}
+        </h3>
+        <p className="text-[#A32020] font-[600] text-[16px] mb-[8px] font-['Source_Sans_3',sans-serif]">
+          {mentor.designation}
+        </p>
+        <p className="font-['Source_Sans_3',sans-serif] text-[#4B5870] font-[500] text-[16px] leading-[1.6] mentor-desc">
+          {mentor.description}
+        </p>
+      </div>
+    </div>
+  );
+}
 
-  React.useEffect(() => {
-    if (mentors.length === 0) return;
+function MentorsGrid({ mentors }: { mentors: FacultyMember[] }) {
+  return (
+    <div className="mentors-grid-wrapper">
+      <div
+        className={`mentors-grid mentors-grid-${Math.min(mentors.length, 4)}`}
+      >
+        {mentors.map((mentor, idx) => (
+          <div key={idx} className="w-full">
+            <MentorCard mentor={mentor} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
+function MentorsSlider({ mentors }: { mentors: FacultyMember[] }) {
+  const [currentIndex, setCurrentIndex] = useState(4);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [translationAmount, setTranslationAmount] = useState(0);
+
+  const trackRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
     const updateWidth = () => {
       if (viewportRef.current) {
         const vwWidth = viewportRef.current.getBoundingClientRect().width;
@@ -41,6 +81,7 @@ export default function ProgramMentors({ mentorsSection, faculty }: ProgramMento
         setTranslationAmount(cardW + gap);
       }
     };
+
     updateWidth();
     const timer = setTimeout(updateWidth, 150);
     window.addEventListener("resize", updateWidth);
@@ -50,13 +91,10 @@ export default function ProgramMentors({ mentorsSection, faculty }: ProgramMento
     };
   }, [mentors.length]);
 
-  if (mentors.length === 0) return null;
-
-  // Seamless infinite loop buffer
   const extendedMentors = [
     ...mentors.slice(-4),
     ...mentors,
-    ...mentors.slice(0, 4)
+    ...mentors.slice(0, 4),
   ];
 
   const handleNext = () => {
@@ -74,7 +112,7 @@ export default function ProgramMentors({ mentorsSection, faculty }: ProgramMento
   const handleTransitionEnd = () => {
     setIsTransitioning(false);
     if (!trackRef.current) return;
-    
+
     if (currentIndex >= mentors.length + 4) {
       trackRef.current.style.transition = "none";
       setCurrentIndex(currentIndex - mentors.length);
@@ -86,11 +124,13 @@ export default function ProgramMentors({ mentorsSection, faculty }: ProgramMento
     }
   };
 
-  const [touchStart, setTouchStart] = React.useState(0);
-  const [touchEnd, setTouchEnd] = React.useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
-  const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.targetTouches[0].clientX);
-  const handleTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
+  const handleTouchStart = (e: React.TouchEvent) =>
+    setTouchStart(e.targetTouches[0].clientX);
+  const handleTouchMove = (e: React.TouchEvent) =>
+    setTouchEnd(e.targetTouches[0].clientX);
   const handleTouchEnd = () => {
     if (touchStart - touchEnd > 50) handleNext();
     if (touchStart - touchEnd < -50) handlePrev();
@@ -99,8 +139,80 @@ export default function ProgramMentors({ mentorsSection, faculty }: ProgramMento
   const transformStyle = {
     transform: `translate3d(-${currentIndex * translationAmount}px, 0, 0)`,
     transition: isTransitioning ? "transform 0.3s ease" : "none",
-    opacity: translationAmount > 0 ? 1 : 0
+    opacity: translationAmount > 0 ? 1 : 0,
   };
+
+  return (
+    <div className="mentors-slider-wrapper">
+      <button
+        className="slider-arrow-btn arrow-prev"
+        onClick={handlePrev}
+        aria-label="Previous faculty"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </button>
+
+      <div
+        className="mentors-slider-viewport"
+        ref={viewportRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div
+          className="mentors-slider-track"
+          ref={trackRef}
+          style={transformStyle}
+          onTransitionEnd={handleTransitionEnd}
+        >
+          {extendedMentors.map((mentor, idx) => (
+            <div key={idx} className="mentor-card-slide">
+              <MentorCard mentor={mentor} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        className="slider-arrow-btn arrow-next"
+        onClick={handleNext}
+        aria-label="Next faculty"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
+export default function ProgramMentors({
+  mentorsSection,
+  faculty,
+}: ProgramMentorsProps) {
+  const mentors = mentorsSection?.faculty || faculty || [];
+
+  if (mentors.length === 0) return null;
 
   return (
     <section className="scbm-mentors-section">
@@ -121,6 +233,34 @@ export default function ProgramMentors({ mentorsSection, faculty }: ProgramMento
           flex-direction: column;
           align-items: center;
         }
+        
+        /* Grid Mode (when faculty <= 4) */
+        .mentors-grid-wrapper {
+          width: 100%;
+          margin-top: 48px;
+          display: flex;
+          justify-content: center;
+        }
+        .mentors-grid {
+          display: grid;
+          gap: 30px;
+          width: 100%;
+          justify-content: center;
+        }
+        .mentors-grid-1 {
+          grid-template-columns: minmax(0, 340px);
+        }
+        .mentors-grid-2 {
+          grid-template-columns: repeat(2, minmax(0, 340px));
+        }
+        .mentors-grid-3 {
+          grid-template-columns: repeat(3, minmax(0, 320px));
+        }
+        .mentors-grid-4 {
+          grid-template-columns: repeat(4, minmax(0, 280px));
+        }
+
+        /* Slider Mode (when faculty > 4) */
         .mentors-slider-wrapper {
           width: 100%;
           position: relative;
@@ -218,6 +358,9 @@ export default function ProgramMentors({ mentorsSection, faculty }: ProgramMento
           .mentor-card-slide {
             flex: 0 0 calc((100% - 30px) / 2);
           }
+          .mentors-grid-3, .mentors-grid-4 {
+            grid-template-columns: repeat(2, minmax(0, 340px));
+          }
         }
         @media (max-width: 767px) {
           .scbm-mentors-container {
@@ -226,6 +369,9 @@ export default function ProgramMentors({ mentorsSection, faculty }: ProgramMento
           }
           .mentor-card-slide {
             flex: 0 0 100%;
+          }
+          .mentors-grid-1, .mentors-grid-2, .mentors-grid-3, .mentors-grid-4 {
+            grid-template-columns: minmax(0, 100%);
           }
           .mentor-image-container, .mentor-image-container img {
             height: 280px;
@@ -238,84 +384,42 @@ export default function ProgramMentors({ mentorsSection, faculty }: ProgramMento
           .arrow-next { right: -10px; }
         }
       `}</style>
-      
+
       <div className="scbm-mentors-container">
         {/* Heading Area */}
         <div className="flex flex-col items-center text-center w-full">
-          <h3 className="text-[#A32020] text-center font-[700] uppercase mb-[16px]" style={{ fontSize: "14px", letterSpacing: "2.5px" }}>
+          <h3
+            className="text-[#A32020] text-center font-[700] uppercase mb-[16px]"
+            style={{ fontSize: "14px", letterSpacing: "2.5px" }}
+          >
             {mentorsSection?.eyebrow || "EXPERT FACULTY"}
           </h3>
-          <h2 className="text-[#0F2D52] text-center font-[800] mb-[24px]" style={{ fontSize: "32px", fontFamily: "'Zilla Slab', serif", lineHeight: 1.1 }}>
+          <h2
+            className="text-[#0F2D52] text-center font-[800] mb-[24px]"
+            style={{
+              fontSize: "32px",
+              fontFamily: "'Zilla Slab', serif",
+              lineHeight: 1.1,
+            }}
+          >
             {mentorsSection?.title || "Meet Our Mentors"}
           </h2>
-          <div className="flex items-center justify-center gap-[6px]" style={{ width: "120px" }}>
+          <div
+            className="flex items-center justify-center gap-[6px]"
+            style={{ width: "120px" }}
+          >
             <div className="h-[1px] flex-1 bg-[#D89A2B]" />
             <div className="w-[8px] h-[8px] rotate-45 bg-[#D89A2B] shrink-0" />
             <div className="h-[1px] flex-1 bg-[#D89A2B]" />
           </div>
         </div>
 
-        {/* Carousel DOM Structure */}
-        <div className="mentors-slider-wrapper">
-          <button 
-            className="slider-arrow-btn arrow-prev"
-            onClick={handlePrev}
-            aria-label="Previous faculty"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-          </button>
-
-          <div 
-            className="mentors-slider-viewport"
-            ref={viewportRef}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            <div 
-              className="mentors-slider-track"
-              ref={trackRef}
-              style={transformStyle}
-              onTransitionEnd={handleTransitionEnd}
-            >
-              {extendedMentors.map((mentor, idx) => (
-                <div key={idx} className="mentor-card-slide">
-                  <div className="mentor-card-inner">
-                    <div className="mentor-image-container">
-                      <Image 
-                        src={mentor.image} 
-                        alt={mentor.name} 
-                        fill
-                        className="object-cover object-top"
-                        sizes="(max-width: 768px) 100vw, (max-width: 991px) 50vw, 33vw"
-                      />
-                    </div>
-                    
-                    <div className="mentor-content-area">
-                      <h3 className="font-['Zilla_Slab',serif] text-[#0F2D52] font-[700] text-[24px] leading-[30px] mb-[4px]">
-                        {mentor.name}
-                      </h3>
-                      <p className="text-[#A32020] font-[600] text-[16px] mb-[8px] font-['Source_Sans_3',sans-serif]">
-                        {mentor.designation}
-                      </p>
-                      <p className="font-['Source_Sans_3',sans-serif] text-[#4B5870] font-[500] text-[16px] leading-[1.6] mentor-desc">
-                        {mentor.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <button 
-            className="slider-arrow-btn arrow-next"
-            onClick={handleNext}
-            aria-label="Next faculty"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-          </button>
-        </div>
+        {/* Dynamic Display: Grid if <= 4 mentors, Carousel if > 4 mentors */}
+        {mentors.length <= 4 ? (
+          <MentorsGrid mentors={mentors} />
+        ) : (
+          <MentorsSlider mentors={mentors} />
+        )}
       </div>
     </section>
   );
