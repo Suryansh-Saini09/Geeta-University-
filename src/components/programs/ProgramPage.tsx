@@ -56,13 +56,13 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       <ProgramExperts experts={pageData.experts} />
 
       {/* 8. ACADEMIC DEGREE COURSES (IF CONFIGURED) */}
-      {pageData.courses && <ProgramCourses courses={pageData.courses} />}
+      {/* {pageData.courses && <ProgramCourses courses={pageData.courses} />} */}
 
       {/* 9. DEAN'S MESSAGE (IF CONFIGURED) */}
-      {pageData.dean && <DeanMessage dean={pageData.dean} />}
+      {/* {pageData.dean && <DeanMessage dean={pageData.dean} />} */}
 
       {/* 10. FAQS (IF CONFIGURED) */}
-      {pageData.faqs && <FAQSection faqs={pageData.faqs} />}
+      {/* {pageData.faqs && <FAQSection faqs={pageData.faqs} />} */}
 
       {/* 11. FINAL CTA & APPLICATION SECTION */}
       <ProgramFinalCTA cta={pageData.cta} />
