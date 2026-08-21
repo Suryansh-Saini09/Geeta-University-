@@ -298,7 +298,7 @@ export default function ProgramFinalCTA({ cta }: ProgramFinalCTAProps) {
             <span className="qr-label">{qrLabel}</span>
             <span className="qr-cta">{qrCta}</span>
             <div className="qr-image-wrapper">
-              <Image src={qrImage} alt="Apply QR Code" fill className="object-contain" />
+              <Image src={qrImage} alt="Apply QR Code" fill sizes="180px" className="object-contain" />
             </div>
             <a href={applyLink} className="qr-apply-text">Apply Now</a>
           </div>
