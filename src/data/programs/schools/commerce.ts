@@ -36,6 +36,18 @@ export const commerceSchool: ProgramPageData = {
     ],
     image: "/bba photo.jpeg",
     badgeText: "Future Leaders Are Made Here",
+    careers: [
+      "Investment Banking & FinTech",
+      "Business Analytics & Data Insights",
+      "Digital Marketing & Brand Strategy",
+      "International Trade & Global Logistics",
+      "Corporate Finance & Tax Advisory (ACCA)",
+      "Strategic HR & Talent Management",
+      "Wealth Management & Banking",
+      "Entrepreneurship & Startup Leadership",
+    ],
+    closingText:
+      "Our learning environment blends case-study pedagogy, live financial simulations, corporate internships, and expert mentorship from top industry leaders.",
   },
 
   specialisations: {
@@ -257,6 +269,167 @@ export const commerceSchool: ProgramPageData = {
       { label: "Healthcare Consulting", value: "2.1%", color: "#f0cf1c" },
       { label: "Education", value: "1.1%", color: "#f5a623" },
     ],
+  },
+
+  testimonials: [
+    {
+      name: "Tushar Singla",
+      pkg: "₹12.0 LPA",
+      company: "Amazon",
+      role: "Operations & Business Analyst",
+      quote:
+        "The practical case-based learning and advanced analytics modules at the School of Commerce & Business Management prepared me for high-stakes problem-solving at Amazon.",
+      image: "/bba photo.jpeg",
+    },
+    {
+      name: "Sneha Verma",
+      pkg: "₹8.5 LPA",
+      company: "HDFC Life",
+      role: "Corporate Finance Specialist",
+      quote:
+        "The ACCA-aligned curriculum and financial modeling training gave me strong analytical and strategic skills that helped me secure a high-growth finance role.",
+      image: "/uniimage.webp",
+    },
+    {
+      name: "Akash Sharma",
+      pkg: "₹7.5 LPA",
+      company: "Zomato",
+      role: "Growth & Brand Strategist",
+      quote:
+        "From digital marketing masterclasses to mock corporate pitches, the Geeta Finishing School program built the confidence I needed to drive growth in dynamic corporate environments.",
+      image: "/bba photo.jpeg",
+    },
+    {
+      name: "Ritika Goyal",
+      pkg: "₹6.8 LPA",
+      company: "Policybazaar",
+      role: "Key Account Manager",
+      quote:
+        "The industry interactions and placement drives at Geeta University helped me understand market dynamics and land an exciting corporate career.",
+      image: "/uniimage.webp",
+    },
+  ],
+
+  learningSpaces: {
+    title: "World-Class Business & Management Infrastructure",
+    description:
+      "Students learn in high-tech simulation environments designed to mirror modern corporate boardrooms, financial trading floors, and startup incubators:",
+    spaces: [
+      {
+        title: "FinTech & Data Analytics Simulation Lab",
+        desc: "Equipped with financial modeling tools, Power BI, Excel Advanced, Python for finance, and algorithmic trading simulators.",
+        icon: "📈",
+      },
+      {
+        title: "Harvard-Style Case Study Theatres",
+        desc: "Acoustically designed tiered classrooms configured for interactive case discussions, debates, and peer learning.",
+        icon: "🏛️",
+      },
+      {
+        title: "Corporate Incubation & Startup Lab",
+        desc: "Dedicated co-working spaces, mentor clinics, and prototyping resources for student entrepreneurs.",
+        icon: "🚀",
+      },
+      {
+        title: "Group Discussion & Mock Interview Suites",
+        desc: "Professional video-recorded corporate interview suites and boardroom simulation chambers for placement grooming.",
+        icon: "👥",
+      },
+      {
+        title: "Digital Marketing & Brand Strategy Studio",
+        desc: "Equipped for SEO/SEM campaign simulations, social media analytics, and digital brand content creation.",
+        icon: "💻",
+      },
+      {
+        title: "Global Trade & Supply Chain Simulation Suite",
+        desc: "Interactive software tools for global customs documentation, logistics tracking, and cross-border trade analytics.",
+        icon: "🌐",
+      },
+    ],
+    gallery: [
+      {
+        src: "/spbsb-immersive-classroom.jpg",
+        title: "Case Study Amphitheatre",
+        caption: "Tiered learning environment for strategic discussions and real-world case analysis.",
+      },
+      {
+        src: "/spbsb-budget-analysis-2026.png",
+        title: "Budget & Financial Analytics Lab",
+        caption: "Students conducting econometric evaluations and corporate valuation models.",
+      },
+      {
+        src: "/bba photo.jpeg",
+        title: "Executive Presentation Studio",
+        caption: "Students pitching startup proposals and marketing campaigns to industry panels.",
+      },
+    ],
+    closingNote:
+      "All facilities are crafted to provide authentic corporate readiness, strategic decision-making ability, and executive presence.",
+  },
+
+  careerPathways: {
+    title: "Your Management Degree. Endless Corporate Opportunities.",
+    description:
+      "A commerce & management degree from Geeta University opens doors to leadership, finance, analytics, and entrepreneurial roles globally:",
+    pathways: [
+      {
+        area: "Financial Analysis & FinTech Consulting",
+        pathway: "Corporate valuation, investment banking, digital payments strategy, and algorithmic financial modeling.",
+        icon: "💳",
+      },
+      {
+        area: "Business Analytics & Enterprise Growth",
+        pathway: "Data-driven business decisions, market intelligence, customer analytics, and enterprise data strategy.",
+        icon: "📊",
+      },
+      {
+        area: "Brand Strategy & Digital Marketing",
+        pathway: "Omnichannel brand management, digital performance marketing, growth hacking, and market research.",
+        icon: "🎯",
+      },
+      {
+        area: "International Trade & Supply Chain Management",
+        pathway: "Cross-border logistics, import-export compliance, global procurement, and freight operations.",
+        icon: "🚢",
+      },
+      {
+        area: "Corporate Accounting, Audit & Tax (ACCA/CPA)",
+        pathway: "International financial reporting (IFRS), corporate audit, risk assurance, and forensic accounting.",
+        icon: "📑",
+      },
+      {
+        area: "Strategic Human Resource & Talent Leadership",
+        pathway: "Talent acquisition, organizational development, HR analytics, and executive corporate coaching.",
+        icon: "🤝",
+      },
+      {
+        area: "Entrepreneurship & Family Business Governance",
+        pathway: "Venture founding, scaling operations, angel fundraising, and strategic family business transformation.",
+        icon: "🚀",
+      },
+    ],
+    notableRoles: [
+      { name: "Investment Banker" },
+      { name: "Business Analyst" },
+      { name: "Financial Controller" },
+      { name: "Brand Manager" },
+      { name: "Digital Growth Lead" },
+      { name: "Supply Chain Manager" },
+      { name: "Tax & Audit Consultant" },
+      { name: "HR Business Partner" },
+      { name: "FinTech Product Lead" },
+      { name: "Management Consultant" },
+      { name: "Startup Founder" },
+      { name: "Corporate Strategist" },
+    ],
+  },
+
+  brochure: {
+    title: "Download Commerce & Management Brochure",
+    description:
+      "Explore comprehensive curriculum guides for BBA, B.Com, MBA, ACCA certifications, faculty profiles, and placement track records.",
+    fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
+    fileName: "School_of_Management_Brochure.pdf",
   },
 
   experts: {

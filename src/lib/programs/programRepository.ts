@@ -3,11 +3,13 @@ import type { ProgramPageData } from "@/data/programs/types";
 import { commerceSchool } from "@/data/programs/schools/commerce";
 import { pharmacySchool } from "@/data/programs/schools/pharmacy";
 import { healthSciencesSchool } from "@/data/programs/schools/healthSciences";
+import { hospitalitySchool } from "@/data/programs/schools/hospitality";
 
 const programs: ProgramPageData[] = [
   commerceSchool,
   pharmacySchool,
   healthSciencesSchool,
+  hospitalitySchool,
   // Alias for management studies
   {
     ...commerceSchool,

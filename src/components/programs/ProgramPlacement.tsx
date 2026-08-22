@@ -3,718 +3,433 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Award,
-  Building2,
-  BriefcaseBusiness,
-  ChartNoAxesColumnIncreasing,
-  PieChart,
-} from "lucide-react";
-import type { ProgramPageData } from "@/data/programs/types";
+import { Award, Building2, BriefcaseBusiness, ChartNoAxesColumnIncreasing, PieChart } from "lucide-react";
+import type { ProgramPageData, TestimonialItem } from "@/data/programs/types";
 import { getProgramIcon } from "./iconHelper";
 
 interface ProgramPlacementProps {
   placement?: ProgramPageData["placement"];
+  testimonials?: TestimonialItem[];
 }
 
-const defaultStats = [
-  { value: "40 LPA", label: "Highest Package", iconName: "Award" },
-  { value: "550+", label: "Recruiters", iconName: "Building2" },
-  { value: "3500+", label: "Job Offers", iconName: "BriefcaseBusiness" },
-];
+export default function ProgramPlacement({ placement, testimonials }: ProgramPlacementProps) {
+  const testimonialItems = testimonials && testimonials.length > 0 ? testimonials : [];
 
-const defaultRecruiters = [
-  { name: "amazon", color: "#232f3e", logo: "/images/recruiters/amazon.png" },
-  { name: "IndiaMART", color: "#1b2b66", logo: "/images/recruiters/indiamart.png" },
-  { name: "upGrad", color: "#ef3340", logo: "/images/recruiters/upgrad.png" },
-  { name: "zomato", color: "#e23744", logo: "/images/recruiters/zomato.png" },
-  { name: "ProGrad", color: "#1c6dd0", logo: "/images/recruiters/prograd.png" },
-  { name: "PHILIPS", color: "#1476bd", logo: "/images/recruiters/philips.png" },
-  { name: "Central Park", color: "#d6a800", logo: "/images/recruiters/central-park.png" },
-  { name: "Profunnel", color: "#168acb", logo: null },
-  { name: "Ubiquiti", color: "#5b6978", logo: "/images/recruiters/ubiquiti.png" },
-  { name: "Gemini Solutions", color: "#a83cb6", logo: "/images/recruiters/gemini-solutions.png" },
-  { name: "Chegg", color: "#ef6c00", logo: "/images/recruiters/chegg.png" },
-  { name: "jaro education", color: "#5c6b7a", logo: "/images/recruiters/jaro-education.png" },
-  { name: "policybazaar", color: "#2b66c2", logo: "/images/recruiters/policybazaar.png" },
-  { name: "Aditya Birla Capital", color: "#c4242d", logo: "/images/recruiters/aditya-birla-capital.png" },
-  { name: "Axis Bank", color: "#9d245d", logo: null },
-  { name: "HDFC Life", color: "#d71f26", logo: "/images/recruiters/hdfc-life.png" },
-  { name: "paytm", color: "#1d4f9a", logo: "/images/recruiters/paytm.png" },
-  { name: "Bajaj Capital", color: "#e32126", logo: "/images/recruiters/bajaj-capital.png" },
-];
+  const stats = placement?.stats && placement.stats.length > 0 ? placement.stats : [
+    { value: "40 LPA", label: "Highest Package", iconName: "Award" },
+    { value: "550+", label: "Recruiters Visited", iconName: "Building2" },
+    { value: "3500+", label: "Job & Internship Offers", iconName: "BriefcaseBusiness" },
+  ];
 
-const defaultPackageBars = [
-  { label: "Upto 4 LPA", value: 153, width: "100%" },
-  { label: "₹4-6 LPA", value: 65, width: "42%" },
-  { label: "₹6-8 LPA", value: 31, width: "20%" },
-  { label: "₹8-10 LPA", value: 31, width: "20%" },
-];
-
-const defaultSectorLegend = [
-  { label: "Sales & Marketing", value: "42.3%", color: "#f2ad00" },
-  { label: "HR & Operations", value: "16.4%", color: "#ef6a22" },
-  { label: "IT & Software", value: "13.2%", color: "#ef2856" },
-  { label: "Core Engineering", value: "10.0%", color: "#df4ab3" },
-  { label: "Finance & Accounting", value: "8.9%", color: "#25aee4" },
-  { label: "Others", value: "3.2%", color: "#16b6bf" },
-  { label: "Digital Marketing", value: "2.8%", color: "#74c84a" },
-  { label: "Healthcare Consulting", value: "2.1%", color: "#f0cf1c" },
-  { label: "Education", value: "1.1%", color: "#f5a623" },
-];
-
-export default function ProgramPlacement({ placement }: ProgramPlacementProps) {
-  const eyebrow = placement?.eyebrow || "Placements & Careers";
-  const title = placement?.title || "Placement Excellence Speaks for Itself";
-  const subtitle = placement?.subtitle || "A career-focused academic ecosystem backed by strong recruiter relationships, consistent offers, and industry-ready student preparation.";
-  const heroImage = placement?.heroImage || "/uniimage.webp";
-  const heroNoteTitle = placement?.heroNoteTitle || "Industry-ready graduates";
-  const heroNoteText = placement?.heroNoteText || "Built through academic rigor, professional development, and placement-focused mentoring.";
-  const stats = placement?.stats && placement.stats.length > 0 ? placement.stats : defaultStats;
-  const recruiters = placement?.recruiters && placement.recruiters.length > 0 ? placement.recruiters : defaultRecruiters;
   const avgPackage = placement?.avgPackage || "₹4.39 LPA";
   const avgPackageNote = placement?.avgPackageNote || "Reflecting balanced career growth and wide industry acceptance of Geeta University graduates.";
-  const packageBars = placement?.packageBars && placement.packageBars.length > 0 ? placement.packageBars : defaultPackageBars;
+  const packageBars = placement?.packageBars && placement.packageBars.length > 0 ? placement.packageBars : [
+    { label: "Upto 4 LPA", value: 153, width: "100%" },
+    { label: "₹4-6 LPA", value: 65, width: "42%" },
+    { label: "₹6-8 LPA", value: 31, width: "20%" },
+    { label: "₹8-10 LPA", value: 31, width: "20%" },
+  ];
   const disclaimer = placement?.disclaimer || "Disclaimer: Placement data shared is representative. Current academic session placement drives remain in active progress.";
-  const sectorChartImage = placement?.sectorChartImage || "/chart.png";
-  const sectorLegend = placement?.sectorLegend && placement.sectorLegend.length > 0 ? placement.sectorLegend : defaultSectorLegend;
 
   return (
-    <section id="PlacementExcellence" className="placement-page">
-      <style>{`
-        .placement-page {
-          --placement-navy: #0F2D52;
-          --placement-blue: #1E4E8C;
-          --placement-gold: #D89A2B;
-          --placement-bg: #F8FAFC;
-          --placement-white: #FFFFFF;
-          --placement-border: #E8EDF4;
-          --placement-text: #1B2B45;
-          --placement-muted: #5E6B82;
-          background: var(--placement-white);
-          color: var(--placement-text);
-          font-family: 'Source Sans 3', sans-serif;
-        }
-        .placement-container {
-          width: min(1280px, calc(100% - 48px));
-          margin: 0 auto;
-        }
-        .placement-section {
-          padding: 100px 0;
-        }
-        .placement-eyebrow {
-          color: var(--placement-gold);
-          display: inline-flex;
-          align-items: center;
-          gap: 12px;
-          font-size: 12px;
-          font-weight: 800;
-          letter-spacing: 0.2em;
-          line-height: 1;
-          text-transform: uppercase;
-        }
-        .placement-eyebrow::before {
-          content: "";
-          width: 34px;
-          height: 2px;
-          border-radius: 999px;
-          background: var(--placement-gold);
-        }
-        .placement-hero {
-          position: relative;
-          overflow: hidden;
-          background:
-            linear-gradient(90deg, rgba(15,45,82,0.035) 1px, transparent 1px),
-            linear-gradient(rgba(15,45,82,0.035) 1px, transparent 1px),
-            var(--placement-white);
-          background-size: 48px 48px;
-          padding: 110px 0 100px;
-        }
-        .placement-hero-grid {
-          display: grid;
-          grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
-          align-items: center;
-          gap: 72px;
-        }
-        .placement-hero h2 {
-          margin: 22px 0 0;
-          max-width: 760px;
-          color: var(--placement-navy);
-          font-family: 'Zilla Slab', serif;
-          font-size: clamp(38px, 4.5vw, 60px);
-          font-weight: 800;
-          letter-spacing: -0.03em;
-          line-height: 1.05;
-        }
-        .placement-hero h2 span {
-          color: var(--placement-blue);
-        }
-        .placement-hero-copy {
-          max-width: 820px;
-        }
-        .placement-hero-copy p {
-          max-width: 720px;
-          margin-top: 26px;
-          color: var(--placement-muted);
-          font-size: 18px;
-          font-weight: 500;
-          line-height: 1.7;
-        }
-        .placement-hero-visual {
-          position: relative;
-        }
-        .placement-image-frame {
-          position: relative;
-          overflow: hidden;
-          min-height: 460px;
-          border: 1px solid var(--placement-border);
-          border-radius: 28px;
-          background: var(--placement-bg);
-          box-shadow: 0 24px 70px rgba(15, 45, 82, 0.12);
-        }
-        .placement-image-frame::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(180deg, transparent 42%, rgba(15,45,82,0.56));
-        }
-        .placement-hero-note {
-          position: absolute;
-          right: 28px;
-          bottom: 28px;
-          z-index: 2;
-          max-width: 270px;
-          border: 1px solid rgba(255,255,255,0.24);
-          border-radius: 20px;
-          background: rgba(255,255,255,0.92);
-          padding: 22px;
-          box-shadow: 0 18px 45px rgba(15, 45, 82, 0.16);
-          backdrop-filter: blur(14px);
-        }
-        .placement-hero-note strong {
-          display: block;
-          color: var(--placement-navy);
-          font-size: 16px;
-          font-weight: 800;
-          line-height: 1.25;
-        }
-        .placement-hero-note span {
-          display: block;
-          margin-top: 8px;
-          color: var(--placement-muted);
-          font-size: 13px;
-          font-weight: 600;
-          line-height: 1.55;
-        }
-        .placement-section-head {
-          max-width: 760px;
-          margin: 0 auto 48px;
-          text-align: center;
-        }
-        .placement-section-head h3 {
-          margin-top: 14px;
-          color: var(--placement-navy);
-          font-family: 'Zilla Slab', serif;
-          font-size: clamp(30px, 3.5vw, 40px);
-          font-weight: 800;
-          letter-spacing: -0.02em;
-          line-height: 1.15;
-        }
-        .placement-section-head p {
-          margin: 18px auto 0;
-          color: var(--placement-muted);
-          font-size: 18px;
-          font-weight: 500;
-          line-height: 1.7;
-        }
-        .placement-stats-grid {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 28px;
-        }
-        .placement-stat-card {
-          position: relative;
-          overflow: hidden;
-          min-height: 270px;
-          border: 1px solid var(--placement-border);
-          border-radius: 22px;
-          background: var(--placement-white);
-          padding: 42px;
-          box-shadow: 0 10px 30px rgba(15,45,82,.08);
-          transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-        }
-        .placement-stat-card:hover,
-        .placement-premium-card:hover {
-          transform: translateY(-8px);
-          border-color: rgba(216, 154, 43, 0.55);
-          box-shadow: 0 18px 40px rgba(15,45,82,.12);
-        }
-        .placement-stat-icon {
-          display: flex;
-          width: 54px;
-          height: 54px;
-          align-items: center;
-          justify-content: center;
-          border-radius: 16px;
-          color: var(--placement-white);
-          background: linear-gradient(135deg,#0F2D52,#1E4E8C);
-          box-shadow: 0 12px 26px rgba(15,45,82,.18);
-        }
-        .placement-stat-number {
-          margin-top: 42px;
-          color: var(--placement-navy);
-          font-family: 'Zilla Slab', serif;
-          font-size: clamp(40px, 4.2vw, 54px);
-          font-weight: 800;
-          letter-spacing: -0.03em;
-          line-height: 0.95;
-        }
-        .placement-stat-label {
-          margin-top: 14px;
-          color: var(--placement-muted);
-          font-size: 16px;
-          font-weight: 700;
-        }
-        .placement-stat-bg {
-          position: absolute;
-          right: 28px;
-          bottom: 16px;
-          color: rgba(15,45,82,.055);
-          font-family: 'Zilla Slab', serif;
-          font-size: 112px;
-          font-weight: 900;
-          letter-spacing: -0.08em;
-          line-height: 1;
-        }
-        .placement-recruiters-wrap {
-          background: var(--placement-bg);
-        }
-        .placement-recruiter-grid {
-          display: grid;
-          grid-template-columns: repeat(6, minmax(0, 1fr));
-          gap: 18px;
-        }
-        .placement-recruiter-card {
-          height: 120px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid var(--placement-border);
-          border-radius: 18px;
-          background: var(--placement-white);
-          padding: 20px;
-          transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-        }
-        .placement-recruiter-card:hover {
-          transform: translateY(-4px);
-          border-color: rgba(216, 154, 43, 0.4);
-          box-shadow: 0 12px 28px rgba(15,45,82,.08);
-        }
-        .placement-recruiter-name {
-          font-size: 18px;
-          font-weight: 800;
-          letter-spacing: -0.02em;
-          line-height: 1;
-          text-align: center;
-        }
-        .placement-analytics-grid {
-          display: grid;
-          grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-          gap: 32px;
-          align-items: stretch;
-        }
-        .placement-premium-card {
-          border: 1px solid var(--placement-border);
-          border-radius: 24px;
-          background: var(--placement-white);
-          padding: 42px;
-          box-shadow: 0 10px 30px rgba(15,45,82,.08);
-          transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-        }
-        .placement-card-kicker {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          color: var(--placement-gold);
-          font-size: 12px;
-          font-weight: 800;
-          letter-spacing: 0.18em;
-          line-height: 1;
-          text-transform: uppercase;
-        }
-        .placement-premium-card h3 {
-          margin-top: 18px;
-          color: var(--placement-navy);
-          font-family: 'Zilla Slab', serif;
-          font-size: clamp(26px, 2.8vw, 36px);
-          font-weight: 800;
-          letter-spacing: -0.025em;
-          line-height: 1.15;
-        }
-        .placement-price {
-          margin-top: 26px;
-          color: var(--placement-blue);
-          font-family: 'Zilla Slab', serif;
-          font-size: clamp(44px, 4.8vw, 60px);
-          font-weight: 800;
-          letter-spacing: -0.04em;
-          line-height: 1;
-        }
-        .placement-card-copy {
-          margin-top: 22px;
-          color: var(--placement-muted);
-          font-size: 17px;
-          font-weight: 500;
-          line-height: 1.7;
-        }
-        .placement-bars {
-          display: grid;
-          gap: 20px;
-          margin-top: 38px;
-        }
-        .placement-bar-meta {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 18px;
-          margin-bottom: 10px;
-          color: var(--placement-text);
-          font-size: 14px;
-          font-weight: 800;
-        }
-        .placement-bar-track {
-          height: 14px;
-          overflow: hidden;
-          border-radius: 999px;
-          background: #EEF3F8;
-        }
-        .placement-bar-fill {
-          height: 100%;
-          border-radius: inherit;
-          background: linear-gradient(135deg,#0F2D52,#1E4E8C);
-        }
-        .placement-disclaimer {
-          margin-top: 34px;
-          border-radius: 18px;
-          background: var(--placement-bg);
-          padding: 18px 20px;
-          color: var(--placement-muted);
-          font-size: 13px;
-          font-style: italic;
-          font-weight: 600;
-          line-height: 1.7;
-        }
-        .placement-sector-card {
-          background: linear-gradient(135deg,#0F2D52,#1E4E8C);
-          color: var(--placement-white);
-        }
-        .placement-sector-card h3 {
-          color: var(--placement-white);
-        }
-        .placement-sector-card .placement-card-copy,
-        .placement-sector-card .placement-card-kicker {
-          color: rgba(255,255,255,.72);
-        }
-        .placement-sector-layout {
-          display: grid;
-          grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1fr);
-          gap: 34px;
-          align-items: center;
-          margin-top: 36px;
-        }
-        .placement-sector-legend {
-          display: grid;
-          gap: 16px;
-        }
-        .placement-legend-row {
-          display: grid;
-          grid-template-columns: 12px minmax(0, 1fr) auto;
-          align-items: center;
-          gap: 14px;
-          color: rgba(255,255,255,.86);
-          font-size: 14px;
-          font-weight: 700;
-        }
-        .placement-legend-dot {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-        }
-        .placement-legend-value {
-          color: var(--placement-white);
-          font-weight: 800;
-        }
-        @media (max-width: 1024px) {
-          .placement-section {
-            padding: 70px 0;
-          }
-          .placement-hero {
-            padding: 80px 0 70px;
-          }
-          .placement-hero-grid,
-          .placement-analytics-grid {
-            grid-template-columns: 1fr;
-          }
-          .placement-stats-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-          }
-          .placement-recruiter-grid {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-          }
-          .placement-image-frame {
-            min-height: 380px;
-          }
-        }
-        @media (max-width: 760px) {
-          .placement-container {
-            width: min(100% - 32px, 1280px);
-          }
-          .placement-section {
-            padding: 50px 0;
-          }
-          .placement-hero {
-            padding: 64px 0 54px;
-          }
-          .placement-hero-grid {
-            gap: 42px;
-          }
-          .placement-hero-copy p,
-          .placement-section-head p,
-          .placement-card-copy {
-            font-size: 16px;
-          }
-          .placement-stats-grid,
-          .placement-sector-layout {
-            grid-template-columns: 1fr;
-          }
-          .placement-recruiter-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-          }
-          .placement-stat-card,
-          .placement-premium-card {
-            padding: 28px;
-          }
-          .placement-stat-card {
-            min-height: 230px;
-          }
-          .placement-image-frame {
-            min-height: 320px;
-          }
-          .placement-hero-note {
-            left: 18px;
-            right: 18px;
-            bottom: 18px;
-            max-width: none;
-          }
-          .placement-recruiter-card {
-            height: 108px;
-          }
-        }
-        @media (max-width: 560px) {
-          .placement-stats-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
+    <>
+      {/* ── TESTIMONIALS SECTION ── */}
+      {testimonialItems.length > 0 && (
+        <section
+          id="Testimonials"
+          style={{
+            background: "#0A1F44",
+            padding: "90px 0",
+            position: "relative",
+            overflow: "hidden",
+            borderTop: "1px solid rgba(255, 255, 255, 0.05)",
+          }}
+        >
+        {/* Decorative Blur Spheres */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-10%",
+            left: "-10%",
+            width: 500,
+            height: 500,
+            background: "radial-gradient(circle, rgba(232,135,26,0.08) 0%, transparent 70%)",
+            borderRadius: "50%",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-10%",
+            right: "-10%",
+            width: 500,
+            height: 500,
+            background: "radial-gradient(circle, rgba(232,135,26,0.06) 0%, transparent 70%)",
+            borderRadius: "50%",
+            pointerEvents: "none",
+          }}
+        />
 
-      {/* Hero Header */}
-      <div className="placement-hero">
-        <div className="placement-container placement-hero-grid">
-          <motion.div
-            className="placement-hero-copy"
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55 }}
-          >
-            <span className="placement-eyebrow">{eyebrow}</span>
-            <h2>
-              {title}
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
+          {/* Header */}
+          <div style={{ textAlign: "center", marginBottom: 60 }}>
+            <h2
+              style={{
+                fontSize: 44,
+                fontWeight: 900,
+                color: "#FFFFFF",
+                margin: "0 0 16px",
+                lineHeight: 1.1,
+                letterSpacing: "-1.5px",
+              }}
+            >
+              Straight from Those Who've Been There
             </h2>
-            <p>
-              {subtitle}
+            <p
+              style={{
+                fontSize: 16,
+                color: "rgba(255, 255, 255, 0.7)",
+                maxWidth: 750,
+                margin: "0 auto",
+                lineHeight: 1.7,
+                fontWeight: 450,
+              }}
+            >
+              Read first-hand accounts from our alumni and students about their career transformations, academic mentorship, and experiential journey.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="placement-hero-visual"
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55, delay: 0.08 }}
+          {/* Testimonials Grid */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: 28,
+              position: "relative",
+              zIndex: 2,
+            }}
           >
-            <div className="placement-image-frame">
-              <Image
-                src={heroImage}
-                alt={title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 560px"
-              />
-              <div className="placement-hero-note">
-                <strong>{heroNoteTitle}</strong>
-                <span>{heroNoteText}</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+            {testimonialItems.map((item, idx) => {
+              const initials = item.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("");
+              const displayDetails = [
+                item.role && !item.role.includes("Alumni") ? item.role : null,
+                item.company,
+                item.pkg,
+              ]
+                .filter(Boolean)
+                .join(" | ");
 
-        {/* Metric Cards */}
-        <div className="placement-container placement-section" style={{ paddingBottom: 0 }}>
-          <div className="placement-stats-grid">
-            {stats.map((stat, index) => {
-              const Icon = getProgramIcon(stat.iconName, Award);
               return (
                 <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 28 }}
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.5, delay: index * 0.08 }}
-                  className="placement-stat-card"
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: (idx % 3) * 0.08 }}
+                  style={{
+                    background: "rgba(255, 255, 255, 0.03)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.06)",
+                    borderRadius: "24px",
+                    padding: "36px 32px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    position: "relative",
+                    overflow: "hidden",
+                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                    transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                    cursor: "default",
+                  }}
+                  className="testimonial-card"
                 >
-                  <div className="placement-stat-icon">
-                    <Icon className="h-7 w-7" strokeWidth={1.9} />
+                  <div>
+                    {/* Quote Icon */}
+                    <svg
+                      className="quote-icon"
+                      width="36"
+                      height="36"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="rgba(232, 135, 26, 0.25)"
+                      strokeWidth="2.5"
+                      style={{ transition: "all 0.3s ease" }}
+                    >
+                      <path d="M3 21c3 0 7-1 7-8V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1zm12 0c3 0 7-1 7-8V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1z" />
+                    </svg>
+
+                    {/* Quote Text */}
+                    <p
+                      style={{
+                        fontSize: "14.5px",
+                        color: "rgba(255, 255, 255, 0.8)",
+                        margin: "20px 0 28px",
+                        lineHeight: 1.65,
+                        fontWeight: 450,
+                        fontStyle: "italic",
+                      }}
+                    >
+                      "{item.quote}"
+                    </p>
                   </div>
-                  <p className="placement-stat-number">{stat.value}</p>
-                  <p className="placement-stat-label">{stat.label}</p>
-                  <span className="placement-stat-bg">0{index + 1}</span>
+
+                  {/* User Profile */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 16,
+                      borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                      paddingTop: 20,
+                    }}
+                  >
+                    {/* Avatar Image / Fallback Initials */}
+                    <div
+                      style={{
+                        width: 48,
+                        height: 48,
+                        borderRadius: "50%",
+                        overflow: "hidden",
+                        background: "rgba(232, 135, 26, 0.15)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        border: "1px solid rgba(232, 135, 26, 0.3)",
+                        flexShrink: 0,
+                        position: "relative",
+                      }}
+                    >
+                      {item.image ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            zIndex: 2,
+                          }}
+                          onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                          }}
+                        />
+                      ) : null}
+                      <span style={{ color: "#E8871A", fontWeight: 800, fontSize: 15, position: "relative", zIndex: 1 }}>
+                        {initials}
+                      </span>
+                    </div>
+
+                    {/* Meta Details */}
+                    <div>
+                      <h4 style={{ color: "#FFFFFF", fontSize: "15.5px", fontWeight: 750, margin: "0 0 3px" }}>
+                        {item.name}
+                      </h4>
+                      <p style={{ color: "rgba(255, 255, 255, 0.5)", fontSize: "12.5px", margin: 0, fontWeight: 450, lineHeight: 1.3 }}>
+                        {displayDetails}
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}
           </div>
         </div>
-      </div>
 
-      {/* Recruiters Wrap */}
-      <div className="placement-recruiters-wrap">
-        <div className="placement-container placement-section">
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55 }}
-            className="placement-section-head"
-          >
-            <span className="placement-eyebrow">Top Recruiters</span>
-            <h3>Trusted by leading global companies.</h3>
-            <p>Industry-leading recruiters across management, finance, technology, research, healthcare, and global services.</p>
-          </motion.div>
+        <style>{`
+          .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.06) !important;
+            border-color: rgba(232, 135, 26, 0.35) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(232, 135, 26, 0.05) !important;
+          }
+          .testimonial-card:hover .quote-icon {
+            stroke: rgba(232, 135, 26, 0.6) !important;
+            transform: scale(1.1) rotate(-5deg);
+          }
+        `}</style>
+      </section>
+      )}
 
-          <div className="placement-recruiter-grid">
-            {recruiters.map((recruiter, index) => (
-              <motion.div
-                key={recruiter.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.45, delay: (index % 6) * 0.03 }}
-                className="placement-recruiter-card"
-              >
-                {recruiter.logo ? (
-                  <div className="relative w-full h-full flex items-center justify-center p-2">
-                    <Image
-                      src={recruiter.logo}
-                      alt={`${recruiter.name} logo`}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100px, 150px"
-                    />
-                  </div>
-                ) : (
-                  <span 
-                    className="placement-recruiter-name" 
-                    style={{ color: recruiter.color || "#0F2D52" }}
+      {/* ── PLACEMENT METRICS & ANALYTICS ────────────────────────────────────── */}
+      {placement && (
+        <section style={{ padding: "90px 0", background: "#FFFFFF" }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: `repeat(${Math.min(stats.length, 3)}, 1fr)`,
+                gap: 28,
+                marginBottom: 64,
+              }}
+              className="placement-stats-grid"
+            >
+              {stats.map((stat, index) => {
+                const Icon = getProgramIcon(stat.iconName, Award);
+                return (
+                  <div
+                    key={index}
+                    style={{
+                      background: "#F8FAFC",
+                      borderRadius: 20,
+                      padding: "36px 28px",
+                      border: "1px solid #E2E8F0",
+                      textAlign: "center",
+                      transition: "all 0.3s ease",
+                    }}
+                    className="placement-stat-box"
                   >
-                    {recruiter.name}
-                  </span>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Analytics Section */}
-      <div className="placement-container placement-section">
-        <div className="placement-analytics-grid">
-          {/* Average Package Offered */}
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55 }}
-            className="placement-premium-card"
-          >
-            <div className="placement-card-kicker">
-              <ChartNoAxesColumnIncreasing className="h-4 w-4" />
-              Average Package Offered
-            </div>
-            <h3>Average Package Offered</h3>
-            <div className="placement-price">{avgPackage}</div>
-            <p className="placement-card-copy">
-              {avgPackageNote}
-            </p>
-
-            <div className="placement-bars">
-              {packageBars.map((bar) => (
-                <div key={bar.label}>
-                  <div className="placement-bar-meta">
-                    <span>{bar.label}</span>
-                    <span>{bar.value} offers</span>
+                    <div
+                      style={{
+                        width: 52,
+                        height: 52,
+                        borderRadius: 14,
+                        background: "rgba(232,135,26,0.1)",
+                        color: "#E8871A",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        margin: "0 auto 20px",
+                      }}
+                    >
+                      <Icon size={24} />
+                    </div>
+                    <div style={{ fontSize: 40, fontWeight: 900, color: "#0A1F44", lineHeight: 1, marginBottom: 8 }}>
+                      {stat.value}
+                    </div>
+                    <div style={{ fontSize: 15, fontWeight: 600, color: "#64748B" }}>
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="placement-bar-track">
-                    <div className="placement-bar-fill" style={{ width: bar.width }} />
+                );
+              })}
+            </div>
+
+            {/* Package Analysis Cards */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 32,
+              }}
+              className="placement-analytics-grid"
+            >
+              {/* Avg Package Card */}
+              <div
+                style={{
+                  background: "#F8FAFC",
+                  borderRadius: 20,
+                  padding: "40px 36px",
+                  border: "1px solid #E2E8F0",
+                }}
+              >
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "#E8871A", fontSize: 12, fontWeight: 800, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 12 }}>
+                  <ChartNoAxesColumnIncreasing size={16} />
+                  Salary Distribution
+                </div>
+                <h3 style={{ fontSize: 26, fontWeight: 800, color: "#0A1F44", margin: "0 0 16px" }}>
+                  Average Package Offered
+                </h3>
+                <div style={{ fontSize: 44, fontWeight: 900, color: "#E8871A", lineHeight: 1, marginBottom: 16 }}>
+                  {avgPackage}
+                </div>
+                <p style={{ fontSize: 15, color: "#64748B", lineHeight: 1.6, margin: "0 0 28px" }}>
+                  {avgPackageNote}
+                </p>
+
+                <div style={{ display: "grid", gap: 16 }}>
+                  {packageBars.map((bar, i) => (
+                    <div key={i}>
+                      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, fontWeight: 700, color: "#0A1F44", marginBottom: 6 }}>
+                        <span>{bar.label}</span>
+                        <span>{bar.value} offers</span>
+                      </div>
+                      <div style={{ height: 10, background: "#E2E8F0", borderRadius: 999, overflow: "hidden" }}>
+                        <div style={{ height: "100%", width: bar.width, background: "linear-gradient(90deg, #0A1F44, #E8871A)", borderRadius: 999 }} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {disclaimer && (
+                  <p style={{ fontSize: 12, color: "#94A3B8", fontStyle: "italic", marginTop: 24, margin: "24px 0 0" }}>
+                    {disclaimer}
+                  </p>
+                )}
+              </div>
+
+              {/* Sector Placement Card */}
+              <div
+                style={{
+                  background: "linear-gradient(135deg, #0A1F44 0%, #1A3A6B 100%)",
+                  borderRadius: 20,
+                  padding: "40px 36px",
+                  color: "#FFFFFF",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "#E8871A", fontSize: 12, fontWeight: 800, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 12 }}>
+                    <PieChart size={16} />
+                    Recruiter Insights
+                  </div>
+                  <h3 style={{ fontSize: 26, fontWeight: 800, color: "#FFFFFF", margin: "0 0 16px" }}>
+                    Sector-wise Placement Analysis
+                  </h3>
+                  <p style={{ fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.6, margin: "0 0 28px" }}>
+                    {placement?.avgPackageNote || placement?.subtitle || "A diversified career distribution ensuring high placement rates across key industry domains and specialized career tracks."}
+                  </p>
+                </div>
+
+                <div style={{ background: "rgba(255,255,255,0.06)", borderRadius: 14, padding: "20px 24px", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "#E8871A", marginBottom: 12 }}>
+                    Key Recruiting Verticals:
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, fontSize: 13, color: "rgba(255,255,255,0.85)", fontWeight: 500 }}>
+                    {placement?.sectorLegend && placement.sectorLegend.length > 0 ? (
+                      placement.sectorLegend.slice(0, 6).map((item, idx) => (
+                        <div key={idx} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                          <span style={{ width: 8, height: 8, borderRadius: "50%", background: item.color || "#E8871A", flexShrink: 0 }} />
+                          <span>{item.label} ({item.value})</span>
+                        </div>
+                      ))
+                    ) : (
+                      <>
+                        <div>• Industry Placements (45%)</div>
+                        <div>• Research &amp; Clinical (25%)</div>
+                        <div>• Corporate &amp; Operations (18%)</div>
+                        <div>• Higher Studies &amp; Global (12%)</div>
+                      </>
+                    )}
                   </div>
                 </div>
-              ))}
-            </div>
-
-            <p className="placement-disclaimer">
-              {disclaimer}
-            </p>
-          </motion.div>
-
-          {/* Sector-wise Placement Analysis */}
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55 }}
-            className="placement-premium-card placement-sector-card"
-          >
-            <div className="placement-card-kicker">
-              <PieChart className="h-4 w-4" />
-              Sector-wise Analysis
-            </div>
-            <h3>Sector-wise Placement Analysis</h3>
-            <p className="placement-card-copy">A broad spread of outcomes across core domains, corporate leadership, and industry pathways.</p>
-
-            <div className="placement-sector-layout">
-              <div className="w-full h-full min-h-[260px] flex justify-center items-center relative scale-[1.1] md:scale-[1.25] origin-center mt-4 md:mt-0">
-                <Image
-                  src={sectorChartImage}
-                  alt="Sector-wise placement chart"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-contain drop-shadow-2xl p-0"
-                />
-              </div>
-
-              <div className="placement-sector-legend">
-                {sectorLegend.map((sector) => (
-                  <div key={sector.label} className="placement-legend-row">
-                    <span className="placement-legend-dot" style={{ backgroundColor: sector.color }} />
-                    <span>{sector.label}</span>
-                    <span className="placement-legend-value">{sector.value}</span>
-                  </div>
-                ))}
               </div>
             </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
+          </div>
+
+          <style>{`
+            @media (max-width: 960px) {
+              .placement-stats-grid, .placement-analytics-grid {
+                grid-template-columns: 1fr !important;
+              }
+            }
+            .placement-stat-box:hover {
+              border-color: #E8871A !important;
+              transform: translateY(-4px);
+              box-shadow: 0 12px 24px rgba(10,31,68,0.06);
+            }
+          `}</style>
+        </section>
+      )}
+    </>
   );
 }

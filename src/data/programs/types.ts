@@ -16,14 +16,19 @@ export interface ProgramPageData {
     title?: string;
     eyebrow?: string;
     description?: string;
+    slides?: HeroSlideItem[];
+    ctaText?: string;
+    ctaLink?: string;
   };
 
   about?: {
     eyebrow?: string;
     title: string;
     paragraphs: string[];
-    image: string;
+    image?: string;
     badgeText?: string;
+    careers?: string[];
+    closingText?: string;
   };
 
   intro?: {
@@ -34,6 +39,8 @@ export interface ProgramPageData {
     imageAlt?: string;
     badgeText?: string;
   };
+
+  rankings?: RankingItem[];
 
   specialisations?: {
     eyebrow?: string;
@@ -75,6 +82,44 @@ export interface ProgramPageData {
     eyebrow?: string;
     title?: string;
     faculty: FacultyMember[];
+  };
+
+  departmentHighlights?: DepartmentHighlightItem[];
+
+  brochure?: {
+    title?: string;
+    description?: string;
+    fileUrl: string;
+    fileName?: string;
+  };
+
+  gth?: {
+    eyebrow?: string;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    pillars?: GTHPillarItem[];
+  };
+
+  partners?: PartnerItem[];
+
+  testimonials?: TestimonialItem[];
+
+  learningSpaces?: {
+    eyebrow?: string;
+    title?: string;
+    description?: string;
+    spaces?: LearningSpaceItem[];
+    gallery?: GalleryShowcaseItem[];
+    closingNote?: string;
+  };
+
+  careerPathways?: {
+    eyebrow?: string;
+    title?: string;
+    description?: string;
+    pathways?: PathwayCardItem[];
+    notableRoles?: NotableRoleItem[];
   };
 
   placement?: {
@@ -132,7 +177,7 @@ export interface ProgramPageData {
     eyebrow?: string;
     title?: string;
     intro?: string;
-    feature: {
+    feature?: {
       kicker: string;
       title: string;
       description: string;
@@ -169,14 +214,44 @@ export interface ProgramPageData {
     helpline?: string;
     website?: string;
     campusAddress?: string;
+    brochureUrl?: string;
+    brochureName?: string;
   };
+}
+
+export interface HeroSlideItem {
+  studentName: string;
+  pkg: string;
+  company: string;
+  program: string;
+  image: string;
+  titleThin?: string;
+  titleBoldLine1: string;
+  titleBoldLine2?: string;
+  subtitle?: string;
+  description: string;
+  bgImage: string;
+  cta?: string;
+  ctaLink?: string;
+}
+
+export interface RankingItem {
+  title: string;
+  subtitleLine1: string;
+  subtitleLine2?: string;
+  subtitleLine3?: string;
+  rankLabel: string;
+  rankValue: string;
+  desc: string;
+  highlight: string;
 }
 
 export interface SpecialisationItem {
   title: string;
   icon?: any;
   iconName?: string;
-  points: string[];
+  desc?: string;
+  points?: string[];
 }
 
 export interface FeaturedProgramCard {
@@ -204,23 +279,88 @@ export interface RecruiterItem {
 
 export interface CourseCategory {
   title: string;
+  level?: string;
   duration?: string;
   eligibility?: string;
-
-  programs: {
+  specializations?: string[];
+  details?: React.ReactNode | string;
+  programs?: {
     name: string;
+    program?: string;
     href?: string;
+    duration?: string;
+    eligibility?: string;
+    specializations?: string[];
+    details?: React.ReactNode | string;
   }[];
 }
 
 export interface FacultyMember {
   name: string;
-  designation: string;
-  image: string;
-  description: string;
+  designation?: string;
+  role?: string;
+  image?: string;
+  img?: string;
+  description?: string;
+  desc?: string;
 }
 
 export interface FAQ {
-  question: string;
-  answer: string;
+  question?: string;
+  q?: string;
+  answer?: string;
+  a?: string;
+  category?: string;
+}
+
+export interface DepartmentHighlightItem {
+  title: string;
+  desc: string;
+  image: string;
+  link?: string;
+}
+
+export interface GTHPillarItem {
+  title: string;
+  iconName?: string;
+  description: string;
+  pills: string[];
+}
+
+export interface PartnerItem {
+  name: string;
+  brandKey?: string | null;
+  logo?: string;
+}
+
+export interface TestimonialItem {
+  name: string;
+  pkg?: string;
+  company?: string;
+  role?: string;
+  quote: string;
+  image?: string;
+}
+
+export interface LearningSpaceItem {
+  title: string;
+  desc: string;
+  icon: string;
+}
+
+export interface GalleryShowcaseItem {
+  src: string;
+  title: string;
+  caption: string;
+}
+
+export interface PathwayCardItem {
+  area: string;
+  pathway: string;
+  icon: string;
+}
+
+export interface NotableRoleItem {
+  name: string;
+  iconName?: string;
 }

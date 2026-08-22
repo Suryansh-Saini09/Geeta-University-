@@ -42,6 +42,18 @@ export const healthSciencesSchool: ProgramPageData = {
     ],
     image: "/programs/health-sciences/nd4-thumb.webp",
     badgeText: "Excellence in Health & Nutrition",
+    careers: [
+      "Clinical Dietetics & Nutrition Therapy",
+      "Hospital Nutrition Administration",
+      "Sports Nutrition & Performance",
+      "Food Quality Control & Safety (FSSAI)",
+      "Public Health & Community Nutrition",
+      "Nutraceutical & Product Development",
+      "Corporate Wellness Consulting",
+      "Independent Diet Clinic Practice",
+    ],
+    closingText:
+      "Our learning ecosystem integrates in-house functional diet clinics, modern food analysis laboratories, hospital internships, and clinical research mentorship.",
   },
 
   specialisations: {
@@ -226,6 +238,167 @@ export const healthSciencesSchool: ProgramPageData = {
       { label: "Public Health & Community", value: "12.0%", color: "#df4ab3" },
       { label: "Research & Higher Studies", value: "11.0%", color: "#25aee4" },
     ],
+  },
+
+  testimonials: [
+    {
+      name: "Priyanka Saini",
+      pkg: "₹7.5 LPA",
+      company: "Medanta - The Medicity",
+      role: "Clinical Dietitian",
+      quote:
+        "The real-patient consultations at Geeta University's In-House Diet Clinic and hospital internship at Medanta prepared me to independently design therapeutic meal plans for critical patients.",
+      image: "/programs/health-sciences/nd1-thumb.webp",
+    },
+    {
+      name: "Meenakshi Sharma",
+      pkg: "₹6.8 LPA",
+      company: "Nestle India",
+      role: "Nutrition & Sensory Analyst",
+      quote:
+        "The food chemistry, sensory evaluation, and microbiological quality control labs at GU gave me practical expertise that made me stand out during selection at Nestle.",
+      image: "/programs/health-sciences/nd2-thumb.webp",
+    },
+    {
+      name: "Neha Malik",
+      pkg: "₹6.2 LPA",
+      company: "Max Healthcare",
+      role: "Pediatric & Oncology Nutritionist",
+      quote:
+        "The faculty mentorship and evidence-based nutrition curriculum at School of Health & Allied Sciences gave me the clinical competence to handle specialized patient care.",
+      image: "/programs/health-sciences/nd3-thumb.webp",
+    },
+    {
+      name: "Kavita Rao",
+      pkg: "₹6.0 LPA",
+      company: "Cure.fit / Cult.fit",
+      role: "Sports & Fitness Nutritionist",
+      quote:
+        "Learning macronutrient timing, body composition analysis, and sports metabolism allowed me to build an exciting career with leading fitness and wellness platforms.",
+      image: "/programs/health-sciences/nd5-thumb.webp",
+    },
+  ],
+
+  learningSpaces: {
+    title: "State-of-the-Art Health & Nutrition Infrastructure",
+    description:
+      "Students practice and conduct clinical investigations in specialized, modern laboratories designed for dietary analysis, food technology, and live patient consultations:",
+    spaces: [
+      {
+        title: "In-House Functional Diet Clinic",
+        desc: "Live patient consultation facility for body composition analysis, dietary recall, and customized meal plan prescriptions.",
+        icon: "🩺",
+      },
+      {
+        title: "Food Science & Quality Analysis Lab",
+        desc: "Equipped for proximate analysis, moisture evaluation, protein estimation, and nutritional shelf-life studies.",
+        icon: "🧪",
+      },
+      {
+        title: "Nutritional Biochemistry & Clinical Lab",
+        desc: "Centrifuges, spectrophotometers, and diagnostic kits for evaluating lipid profiles, glycemic indices, and metabolic markers.",
+        icon: "🔬",
+      },
+      {
+        title: "Food Microbiology & Safety Lab",
+        desc: "Autoclaves, laminar airflow chambers, and incubation setups for food pathogen testing and FSSAI standards.",
+        icon: "🧫",
+      },
+      {
+        title: "Experimental Cookery & Sensory Evaluation Lab",
+        desc: "Modern culinary workstations for developing therapeutic recipes, diabetic formulations, and sensory panel testing.",
+        icon: "🥗",
+      },
+      {
+        title: "Community Health & Anthropometry Unit",
+        desc: "Equipped with skinfold calipers, stadiometers, bio-electrical impedance analyzers for community health camps.",
+        icon: "📊",
+      },
+    ],
+    gallery: [
+      {
+        src: "/programs/health-sciences/nd1-thumb.webp",
+        title: "Functional Diet Clinic",
+        caption: "Students conducting real patient nutrition counseling and body composition assessments.",
+      },
+      {
+        src: "/programs/health-sciences/nd2-thumb.webp",
+        title: "Food Analysis Laboratory",
+        caption: "Chemical and nutrient profiling of innovative food formulations.",
+      },
+      {
+        src: "/programs/health-sciences/nd4-thumb.webp",
+        title: "Sensory & Cookery Studio",
+        caption: "Preparation and standardization of therapeutic diets and nutraceuticals.",
+      },
+    ],
+    closingNote:
+      "All facilities are integrated with community health outreach programs and clinical hospital tie-ups to ensure comprehensive real-world readiness.",
+  },
+
+  careerPathways: {
+    title: "Your Health Sciences Degree. Limitless Career Pathways.",
+    description:
+      "A degree in Nutrition & Dietetics from Geeta University empowers graduates to excel in hospitals, fitness chains, FMCG corporations, and wellness ventures:",
+    pathways: [
+      {
+        area: "Clinical Dietetics & Hospital Nutrition",
+        pathway: "Prescribing medical nutrition therapy in multi-speciality hospitals for ICU, diabetes, oncology, and pediatrics.",
+        icon: "🏥",
+      },
+      {
+        area: "Sports Nutrition & Athlete Wellness",
+        pathway: "Developing high-performance nutrition and hydration regimens for athletes, sports academies, and fitness chains.",
+        icon: "🏃",
+      },
+      {
+        area: "Food Industry & Product Development (FMCG)",
+        pathway: "Formulating functional foods, nutraceuticals, health supplements, and conducting sensory evaluation.",
+        icon: "🍎",
+      },
+      {
+        area: "Food Safety, QA & Regulatory (FSSAI/HACCP)",
+        pathway: "Food safety compliance, quality assurance, microbiological audits, and packaging standards.",
+        icon: "🛡️",
+      },
+      {
+        area: "Public Health & Global Community Nutrition",
+        pathway: "Leading government health missions, maternal & child nutrition programs, and international NGO initiatives.",
+        icon: "🌍",
+      },
+      {
+        area: "Diet Clinic Entrepreneurship & Private Practice",
+        pathway: "Establishing independent diet clinics, online wellness platforms, and personalized lifestyle consultancy.",
+        icon: "💡",
+      },
+      {
+        area: "Higher Research & Academic Fellowships",
+        pathway: "Pursuing M.Sc., Ph.D., and international post-doctoral research in nutritional genomics and lifestyle health.",
+        icon: "🎓",
+      },
+    ],
+    notableRoles: [
+      { name: "Clinical Dietitian" },
+      { name: "Sports Nutritionist" },
+      { name: "Food Safety Officer" },
+      { name: "Sensory Analyst" },
+      { name: "Public Health Nutritionist" },
+      { name: "Wellness Consultant" },
+      { name: "Pediatric Dietitian" },
+      { name: "Product Development Lead" },
+      { name: "Bariatric Nutritionist" },
+      { name: "Nutraceutical Researcher" },
+      { name: "Diet Clinic Director" },
+      { name: "Healthcare Educator" },
+    ],
+  },
+
+  brochure: {
+    title: "Download Health Sciences Brochure",
+    description:
+      "Access full curriculum guides for B.Sc. & M.Sc. Nutrition & Dietetics, functional diet clinic details, lab facilities, and placement records.",
+    fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
+    fileName: "School_of_Health_Sciences_Brochure.pdf",
   },
 
   experts: {
