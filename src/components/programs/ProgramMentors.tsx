@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { FacultyMember } from "@/data/programs/types";
 
 interface ProgramMentorsProps {
+  title?: string;
   mentorsSection?: {
     eyebrow?: string;
     title?: string;
@@ -13,414 +14,434 @@ interface ProgramMentorsProps {
   faculty?: FacultyMember[];
 }
 
-function MentorCard({ mentor }: { mentor: FacultyMember }) {
-  return (
-    <div className="mentor-card-inner">
-      <div className="mentor-image-container">
-        <Image
-          src={mentor.image}
-          alt={mentor.name}
-          fill
-          className="object-cover object-top"
-          sizes="(max-width: 768px) 100vw, (max-width: 1023px) 50vw, 320px"
-        />
-      </div>
-
-      <div className="mentor-content-area">
-        <h3 className="font-['Zilla_Slab',serif] text-[#0F2D52] font-[700] text-[24px] leading-[30px] mb-[4px]">
-          {mentor.name}
-        </h3>
-        <p className="text-[#A32020] font-[600] text-[16px] mb-[8px] font-['Source_Sans_3',sans-serif]">
-          {mentor.designation}
-        </p>
-        <p className="font-['Source_Sans_3',sans-serif] text-[#4B5870] font-[500] text-[16px] leading-[1.6] mentor-desc">
-          {mentor.description}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function MentorsGrid({ mentors }: { mentors: FacultyMember[] }) {
-  return (
-    <div className="mentors-grid-wrapper">
-      <div
-        className={`mentors-grid mentors-grid-${Math.min(mentors.length, 4)}`}
-      >
-        {mentors.map((mentor, idx) => (
-          <div key={idx} className="w-full">
-            <MentorCard mentor={mentor} />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function MentorsSlider({ mentors }: { mentors: FacultyMember[] }) {
-  const [currentIndex, setCurrentIndex] = useState(4);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [translationAmount, setTranslationAmount] = useState(0);
-
-  const trackRef = useRef<HTMLDivElement>(null);
-  const viewportRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const updateWidth = () => {
-      if (viewportRef.current) {
-        const vwWidth = viewportRef.current.getBoundingClientRect().width;
-        let cardW = 0;
-        const gap = 30;
-        if (window.innerWidth >= 1024) {
-          cardW = (vwWidth - 90) / 4;
-        } else if (window.innerWidth >= 768) {
-          cardW = (vwWidth - 30) / 2;
-        } else {
-          cardW = vwWidth;
-        }
-        setTranslationAmount(cardW + gap);
-      }
-    };
-
-    updateWidth();
-    const timer = setTimeout(updateWidth, 150);
-    window.addEventListener("resize", updateWidth);
-    return () => {
-      window.removeEventListener("resize", updateWidth);
-      clearTimeout(timer);
-    };
-  }, [mentors.length]);
-
-  const extendedMentors = [
-    ...mentors.slice(-4),
-    ...mentors,
-    ...mentors.slice(0, 4),
-  ];
-
-  const handleNext = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev + 1);
-  };
-
-  const handlePrev = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev - 1);
-  };
-
-  const handleTransitionEnd = () => {
-    setIsTransitioning(false);
-    if (!trackRef.current) return;
-
-    if (currentIndex >= mentors.length + 4) {
-      trackRef.current.style.transition = "none";
-      setCurrentIndex(currentIndex - mentors.length);
-      void trackRef.current.offsetHeight;
-    } else if (currentIndex <= 3) {
-      trackRef.current.style.transition = "none";
-      setCurrentIndex(currentIndex + mentors.length);
-      void trackRef.current.offsetHeight;
-    }
-  };
-
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
-
-  const handleTouchStart = (e: React.TouchEvent) =>
-    setTouchStart(e.targetTouches[0].clientX);
-  const handleTouchMove = (e: React.TouchEvent) =>
-    setTouchEnd(e.targetTouches[0].clientX);
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 50) handleNext();
-    if (touchStart - touchEnd < -50) handlePrev();
-  };
-
-  const transformStyle = {
-    transform: `translate3d(-${currentIndex * translationAmount}px, 0, 0)`,
-    transition: isTransitioning ? "transform 0.3s ease" : "none",
-    opacity: translationAmount > 0 ? 1 : 0,
-  };
-
-  return (
-    <div className="mentors-slider-wrapper">
-      <button
-        className="slider-arrow-btn arrow-prev"
-        onClick={handlePrev}
-        aria-label="Previous faculty"
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="m15 18-6-6 6-6" />
-        </svg>
-      </button>
-
-      <div
-        className="mentors-slider-viewport"
-        ref={viewportRef}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        <div
-          className="mentors-slider-track"
-          ref={trackRef}
-          style={transformStyle}
-          onTransitionEnd={handleTransitionEnd}
-        >
-          {extendedMentors.map((mentor, idx) => (
-            <div key={idx} className="mentor-card-slide">
-              <MentorCard mentor={mentor} />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <button
-        className="slider-arrow-btn arrow-next"
-        onClick={handleNext}
-        aria-label="Next faculty"
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="m9 18 6-6-6-6" />
-        </svg>
-      </button>
-    </div>
-  );
-}
-
 export default function ProgramMentors({
+  title = "Led by Experts, Guided by Industry.",
   mentorsSection,
   faculty,
 }: ProgramMentorsProps) {
-  const mentors = mentorsSection?.faculty || faculty || [];
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedMentor, setSelectedMentor] = useState<FacultyMember | null>(null);
 
-  if (mentors.length === 0) return null;
+  const rawMentors = mentorsSection?.faculty || faculty || [];
+  if (rawMentors.length === 0) return null;
+  const mentors = rawMentors;
+
+  const sectionTitle = mentorsSection?.title || title;
+
+  const scrollLeft = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) scrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
+  };
+
+  const getMentorRole = (m: FacultyMember) => m.role || m.designation || "Faculty Member";
+
+  const getMentorDesc = (m: FacultyMember) => {
+    if (m.desc) return m.desc;
+    if (m.description) return m.description;
+    const r = getMentorRole(m);
+    if (r.includes("Trainer")) {
+      return "Technical trainer delivering hands-on instruction and practical upskilling in modern labs.";
+    }
+    return "Academic educator dedicated to student mentorship, research guidance, and core foundation building.";
+  };
+
+  const getMentorImage = (m: FacultyMember) => m.img || m.image || "/dummy.webp";
 
   return (
-    <section className="scbm-mentors-section">
-      <style>{`
-        .scbm-mentors-section {
-          width: 100%;
-          padding: 80px 0;
-          background-color: #FFFFFF;
-        }
-        .scbm-mentors-container {
-          width: 100%;
-          max-width: 1280px;
-          margin: 0 auto;
-          padding-left: 40px;
-          padding-right: 40px;
-          box-sizing: border-box;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        
-        /* Grid Mode (when faculty <= 4) */
-        .mentors-grid-wrapper {
-          width: 100%;
-          margin-top: 48px;
-          display: flex;
-          justify-content: center;
-        }
-        .mentors-grid {
-          display: grid;
-          gap: 30px;
-          width: 100%;
-          justify-content: center;
-        }
-        .mentors-grid-1 {
-          grid-template-columns: minmax(0, 340px);
-        }
-        .mentors-grid-2 {
-          grid-template-columns: repeat(2, minmax(0, 340px));
-        }
-        .mentors-grid-3 {
-          grid-template-columns: repeat(3, minmax(0, 320px));
-        }
-        .mentors-grid-4 {
-          grid-template-columns: repeat(4, minmax(0, 280px));
-        }
+    <section id="Mentors" style={{ padding: "80px 0", background: "#FFFFFF", overflow: "hidden" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+        <h2 style={{ fontSize: 44, fontWeight: 800, color: "#0A1F44", lineHeight: 1.2, letterSpacing: "-1px" }}>
+          {sectionTitle}
+        </h2>
 
-        /* Slider Mode (when faculty > 4) */
-        .mentors-slider-wrapper {
-          width: 100%;
-          position: relative;
-          margin-top: 48px;
-        }
-        .mentors-slider-viewport {
-          width: 100%;
-          overflow: hidden;
-          position: relative;
-          box-sizing: border-box;
-        }
-        .mentors-slider-track {
-          display: flex;
-          flex-wrap: nowrap;
-          gap: 30px;
-          align-items: stretch;
-        }
-        .mentor-card-slide {
-          flex: 0 0 calc((100% - 90px) / 4);
-          min-width: 0;
-          box-sizing: border-box;
-        }
-        
-        .mentor-card-inner {
-          width: 100%;
-          height: 100%;
-          background: #FFFFFF;
-          border-radius: 18px;
-          border: 1px solid rgba(15,45,82,0.06);
-          box-shadow: 0 4px 24px rgba(15,45,82,0.04);
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-        }
-        
-        .mentor-image-container {
-          width: 100%;
-          height: 330px;
-          position: relative;
-          background-color: #E2E8F0;
-        }
-        .mentor-image-container img {
-          width: 100%;
-          height: 330px;
-          object-fit: cover;
-          object-position: top center;
-        }
-        
-        .mentor-content-area {
-          padding: 24px;
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-        }
-        
-        .slider-arrow-btn {
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          background: #FFFFFF;
-          border: 1px solid #E2E8F0;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #0F2D52;
-          transition: all 0.3s ease;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 10;
-          cursor: pointer;
-        }
-        .slider-arrow-btn:hover {
-          background: #A32020;
-          color: #FFFFFF;
-          border-color: #A32020;
-        }
-        .arrow-prev {
-          left: -24px;
-        }
-        .arrow-next {
-          right: -24px;
-        }
-        
-        .mentor-desc {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 1023px) and (min-width: 768px) {
-          .mentor-card-slide {
-            flex: 0 0 calc((100% - 30px) / 2);
-          }
-          .mentors-grid-3, .mentors-grid-4 {
-            grid-template-columns: repeat(2, minmax(0, 340px));
-          }
-        }
-        @media (max-width: 767px) {
-          .scbm-mentors-container {
-            padding-left: 20px;
-            padding-right: 20px;
-          }
-          .mentor-card-slide {
-            flex: 0 0 100%;
-          }
-          .mentors-grid-1, .mentors-grid-2, .mentors-grid-3, .mentors-grid-4 {
-            grid-template-columns: minmax(0, 100%);
-          }
-          .mentor-image-container, .mentor-image-container img {
-            height: 280px;
-          }
-          .slider-arrow-btn {
-            width: 42px;
-            height: 42px;
-          }
-          .arrow-prev { left: -10px; }
-          .arrow-next { right: -10px; }
-        }
-      `}</style>
-
-      <div className="scbm-mentors-container">
-        {/* Heading Area */}
-        <div className="flex flex-col items-center text-center w-full">
-          <h3
-            className="text-[#A32020] text-center font-[700] uppercase mb-[16px]"
-            style={{ fontSize: "14px", letterSpacing: "2.5px" }}
-          >
-            {mentorsSection?.eyebrow || "EXPERT FACULTY"}
-          </h3>
-          <h2
-            className="text-[#0F2D52] text-center font-[800] mb-[24px]"
+        <div style={{ position: "relative", marginTop: 48 }}>
+          <div
+            ref={scrollRef}
+            className="hide-scroll"
             style={{
-              fontSize: "32px",
-              fontFamily: "'Zilla Slab', serif",
-              lineHeight: 1.1,
+              display: "flex",
+              gap: 24,
+              overflowX: "auto",
+              paddingBottom: 32,
+              scrollSnapType: "x mandatory",
+              scrollBehavior: "smooth",
             }}
           >
-            {mentorsSection?.title || "Meet Our Mentors"}
-          </h2>
-          <div
-            className="flex items-center justify-center gap-[6px]"
-            style={{ width: "120px" }}
-          >
-            <div className="h-[1px] flex-1 bg-[#D89A2B]" />
-            <div className="w-[8px] h-[8px] rotate-45 bg-[#D89A2B] shrink-0" />
-            <div className="h-[1px] flex-1 bg-[#D89A2B]" />
+            {mentors.map((m, i) => (
+              <div
+                key={i}
+                style={{
+                  scrollSnapAlign: "start",
+                  flexShrink: 0,
+                }}
+              >
+                <div
+                  className="mentor-card"
+                  style={{
+                    width: 280,
+                    height: 500,
+                    background: "#F3F4F6",
+                    borderRadius: 16,
+                    display: "flex",
+                    flexDirection: "column",
+                    overflow: "hidden",
+                    border: "1px solid rgba(0,0,0,0.05)",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+                  }}
+                >
+                  <div style={{ width: "100%", height: 200, background: "#E5E7EB", position: "relative", flexShrink: 0 }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={getMentorImage(m)}
+                      alt={m.name}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "top",
+                        mixBlendMode: "multiply",
+                        opacity: 0.85,
+                      }}
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                        if (e.currentTarget.parentElement) {
+                          e.currentTarget.parentElement.innerHTML =
+                            '<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #E2E8F0; color: #64748B; font-weight: 700; font-size: 14px;">[ Faculty Photo ]</div>';
+                        }
+                      }}
+                    />
+                  </div>
+
+                  <div
+                    style={{
+                      padding: "20px 20px 24px",
+                      textAlign: "center",
+                      display: "flex",
+                      flexDirection: "column",
+                      flex: 1,
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div style={{ width: "100%" }}>
+                      <h3
+                        style={{
+                          fontSize: 20,
+                          fontWeight: 800,
+                          color: "#0A1F44",
+                          margin: 0,
+                          minHeight: 52,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {m.name}
+                      </h3>
+
+                      <p
+                        style={{
+                          fontSize: 14,
+                          color: "#E8871A",
+                          fontWeight: 700,
+                          margin: "6px 0 0",
+                          minHeight: 40,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          lineHeight: 1.3,
+                        }}
+                      >
+                        {getMentorRole(m)}
+                      </p>
+
+                      <p
+                        style={{
+                          fontSize: 13,
+                          color: "#64748B",
+                          margin: "10px 0 0",
+                          lineHeight: 1.5,
+                          minHeight: 60,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                        className="line-clamp-3"
+                      >
+                        {getMentorDesc(m)}
+                      </p>
+                    </div>
+
+                    <div style={{ width: "100%" }}>
+                      <div style={{ width: "100%", borderBottom: "1px dashed #CBD5E1", margin: "14px 0" }} />
+
+                      <button
+                        onClick={() => setSelectedMentor(m)}
+                        className="read-more-btn"
+                        style={{
+                          background: "none",
+                          border: "none",
+                          color: "#64748B",
+                          fontSize: 14,
+                          fontWeight: 700,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          cursor: "pointer",
+                          width: "100%",
+                        }}
+                      >
+                        → Read More
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
+
+          <button
+            onClick={scrollLeft}
+            style={{
+              position: "absolute",
+              left: -24,
+              top: "150px",
+              background: "white",
+              width: 48,
+              height: 48,
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "1px solid #E2E8F0",
+              cursor: "pointer",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+              color: "#2563EB",
+              zIndex: 10,
+            }}
+            aria-label="Previous mentor"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <button
+            onClick={scrollRight}
+            style={{
+              position: "absolute",
+              right: -24,
+              top: "150px",
+              background: "white",
+              width: 48,
+              height: 48,
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "1px solid #E2E8F0",
+              cursor: "pointer",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+              color: "#2563EB",
+              zIndex: 10,
+            }}
+            aria-label="Next mentor"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
 
-        {/* Dynamic Display: Grid if <= 4 mentors, Carousel if > 4 mentors */}
-        {mentors.length <= 4 ? (
-          <MentorsGrid mentors={mentors} />
-        ) : (
-          <MentorsSlider mentors={mentors} />
-        )}
+        {/* Modal */}
+        <AnimatePresence>
+          {selectedMentor && (
+            <div
+              style={{
+                position: "fixed",
+                inset: 0,
+                zIndex: 999,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: 24,
+              }}
+            >
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedMentor(null)}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "rgba(10,31,68,0.5)",
+                  backdropFilter: "blur(8px)",
+                }}
+              />
+
+              {/* Modal Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ type: "spring", duration: 0.5 }}
+                style={{
+                  position: "relative",
+                  background: "#FFFFFF",
+                  borderRadius: 24,
+                  padding: "40px 32px 32px",
+                  maxWidth: 480,
+                  width: "100%",
+                  boxShadow: "0 24px 60px rgba(0,0,0,0.18)",
+                  zIndex: 1000,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedMentor(null)}
+                  style={{
+                    position: "absolute",
+                    top: 20,
+                    right: 20,
+                    background: "#F1F5F9",
+                    border: "none",
+                    width: 36,
+                    height: 36,
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    color: "#64748B",
+                    fontSize: 16,
+                    transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#E2E8F0";
+                    e.currentTarget.style.color = "#0F172A";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#F1F5F9";
+                    e.currentTarget.style.color = "#64748B";
+                  }}
+                >
+                  ✕
+                </button>
+
+                {/* Profile Image */}
+                <div
+                  style={{
+                    width: 120,
+                    height: 120,
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    background: "#E5E7EB",
+                    marginBottom: 24,
+                    border: "4px solid #F1F5F9",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+                  }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={getMentorImage(selectedMentor)}
+                    alt={selectedMentor.name}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "top",
+                      mixBlendMode: "multiply",
+                      opacity: 0.9,
+                    }}
+                  />
+                </div>
+
+                {/* Name */}
+                <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", margin: 0 }}>
+                  {selectedMentor.name}
+                </h3>
+
+                {/* Role */}
+                <p
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 700,
+                    color: "#E8871A",
+                    marginTop: 8,
+                    marginBottom: 20,
+                    textTransform: "uppercase",
+                    letterSpacing: 0.5,
+                  }}
+                >
+                  {getMentorRole(selectedMentor)}
+                </p>
+
+                {/* Divider */}
+                <div style={{ width: "100%", borderBottom: "1px solid #E2E8F0", marginBottom: 20 }} />
+
+                {/* Description */}
+                <p style={{ fontSize: 14, color: "#4A5568", lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
+                  {getMentorDesc(selectedMentor)}
+                </p>
+
+                {/* Action Button */}
+                <button
+                  onClick={() => setSelectedMentor(null)}
+                  style={{
+                    marginTop: 28,
+                    padding: "12px 36px",
+                    background: "#0A1F44",
+                    color: "#FFFFFF",
+                    border: "none",
+                    borderRadius: 12,
+                    fontWeight: 700,
+                    fontSize: 14,
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "#E8871A")}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = "#0A1F44")}
+                >
+                  Close Profile
+                </button>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
       </div>
+
+      <style>{`
+        .hide-scroll::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scroll {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .mentor-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        .mentor-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 12px 24px rgba(232,135,26,0.12) !important;
+        }
+        .read-more-btn {
+          transition: color 0.2s ease !important;
+        }
+        .read-more-btn:hover {
+          color: #E8871A !important;
+        }
+      `}</style>
     </section>
   );
 }

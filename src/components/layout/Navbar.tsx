@@ -41,7 +41,7 @@ const secondaryNavLinks: NavEntry[] = [
         { label: "School of Health & Allied Sciences", href: "/programs/school-of-health-and-allied-sciences" },
         { label: "Geeta Nursing College", href: "#" },
         { label: "School of Humanities & Social Sciences", href: "#" },
-        { label: "School of Hospitality & Hotel Mgmt", href: "#" },
+        { label: "School of Hospitality & Hotel Management", href: "/programs/school-of-hospitality-and-hotel-management" },
       ]},
     ],
     banner: { text: "Find Your Perfect Program", items: [

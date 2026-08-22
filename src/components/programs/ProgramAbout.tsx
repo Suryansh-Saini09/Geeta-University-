@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
 import type { ProgramPageData } from "@/data/programs/types";
 
 interface ProgramAboutProps {
@@ -12,169 +10,134 @@ interface ProgramAboutProps {
 
 export default function ProgramAbout({ about, intro }: ProgramAboutProps) {
   const data = about || (intro ? {
-    eyebrow: "ABOUT THE SCHOOL",
+    eyebrow: intro.eyebrow,
     title: intro.title,
     paragraphs: intro.paragraphs,
-    image: "/bba photo.jpeg",
-    badgeText: "Future Leaders Are Made Here"
+    careers: undefined,
+    closingText: undefined,
   } : null);
 
   if (!data) return null;
 
-  return (
-    <section className="scbm-about-section w-full bg-[#FAFAFA] relative overflow-hidden font-sans">
-      <style>{`
-        .scbm-about-container {
-          width: min(100% - 48px, 1280px);
-          margin-inline: auto;
-          display: flex;
-          align-items: center;
-          gap: 72px;
-          padding-top: 100px;
-          padding-bottom: 100px;
-        }
-        .scbm-about-text {
-          width: 58%;
-        }
-        .scbm-about-image-wrapper {
-          width: 42%;
-          position: relative;
-        }
-        .scbm-about-eyebrow {
-          color: #A32020;
-          font-weight: 700;
-          font-size: 14px;
-          letter-spacing: 2px;
-          margin-bottom: 16px;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          text-transform: uppercase;
-        }
-        .scbm-about-eyebrow::before {
-          content: "";
-          height: 2px;
-          width: 32px;
-          background-color: #A32020;
-          display: block;
-        }
-        .scbm-about-title {
-          font-family: "Zilla Slab", serif;
-          font-size: 32px;
-          font-weight: 700;
-          line-height: 40px;
-          color: #0B2948;
-          margin-bottom: 32px;
-        }
-        .scbm-about-paragraph {
-          font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
-          font-size: 16.5px;
-          line-height: 1.75;
-          color: #4A5568;
-          margin-bottom: 20px;
-        }
-        .scbm-about-paragraph strong {
-          color: #2D3748;
-          font-weight: 600;
-        }
-        .scbm-image-decoration {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background-color: #A32020;
-          border-radius: 18px;
-          top: 24px;
-          left: 24px;
-          z-index: 0;
-          opacity: 0.15;
-        }
-        .scbm-badge {
-          position: absolute;
-          bottom: -24px;
-          left: -32px;
-          background: #FFFFFF;
-          box-shadow: 0 12px 35px rgba(11,41,72,0.12);
-          padding: 18px 26px;
-          border-radius: 12px;
-          z-index: 20;
-          border-left: 4px solid #A32020;
-          font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
-          font-weight: 700;
-          color: #0B2948;
-          font-size: 16px;
-        }
+  const careers = data.careers || [];
+  const closingText = data.closingText || "Our learning environment combines strong academic foundations, real-world practical experience, expert mentorship, and dedicated career support — ensuring graduates are ready to contribute from day one.";
 
-        @media (max-width: 992px) {
-          .scbm-about-container {
-            flex-direction: column;
-            gap: 60px;
-            padding-top: 80px;
-            padding-bottom: 80px;
-            width: min(100% - 40px, 1280px);
-          }
-          .scbm-about-text, .scbm-about-image-wrapper {
-            width: 100%;
-          }
-          .scbm-about-title {
-            font-size: 28px;
-            line-height: 36px;
-          }
-          .scbm-about-paragraph {
-            font-size: 16px;
-          }
-          .scbm-badge {
-            left: 20px;
-            bottom: -20px;
-            right: 20px;
-            text-align: center;
-          }
-        }
-      `}</style>
-      
-      <div className="scbm-about-container">
-        {/* Left Column: Text */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="scbm-about-text"
-        >
-          <div className="scbm-about-eyebrow">{data.eyebrow || "ABOUT THE SCHOOL"}</div>
-          <h2 className="scbm-about-title">{data.title}</h2>
-          
+  return (
+    <section id="About" style={{ padding: "90px 0", background: "#FFFFFF", color: "#000" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+        {/* Header Block */}
+        <div style={{ marginBottom: careers.length > 0 ? 56 : 32, maxWidth: 960 }}>
+          {data.eyebrow && (
+            <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", display: "inline-block", marginBottom: 12 }}>
+              {data.eyebrow}
+            </span>
+          )}
+          <h2
+            style={{
+              fontSize: 44,
+              fontWeight: 800,
+              color: "#0A1F44",
+              lineHeight: 1.15,
+              letterSpacing: "-1px",
+              marginBottom: 24,
+            }}
+          >
+            {data.title}
+          </h2>
           {data.paragraphs.map((p, idx) => (
-            <p key={idx} className="scbm-about-paragraph" style={idx === data.paragraphs.length - 1 ? { marginBottom: 0 } : {}}>
+            <p
+              key={idx}
+              style={{
+                fontSize: 16.5,
+                color: "#4A5568",
+                lineHeight: 1.8,
+                fontWeight: 450,
+                marginBottom: idx < data.paragraphs.length - 1 ? 16 : 0,
+              }}
+            >
               {p}
             </p>
           ))}
-        </motion.div>
-        
-        {/* Right Column: Image */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="scbm-about-image-wrapper"
-        >
-          <div className="scbm-image-decoration" />
-          <div className="relative z-10 rounded-[18px] overflow-hidden shadow-[0_20px_50px_rgba(11,41,72,0.12)] w-full aspect-4/3 lg:aspect-4/5 bg-[#E2E8F0]">
-            <Image
-              src={data.image || "/bba photo.jpeg"}
-              alt={data.title}
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 992px) 100vw, 42vw"
-            />
-          </div>
-          {data.badgeText && (
-            <div className="scbm-badge">
-              {data.badgeText}
+        </div>
+
+        {/* Career Cards */}
+        {careers.length > 0 && (
+          <div>
+            <p
+              style={{
+                fontSize: 13,
+                fontWeight: 700,
+                color: "#E8871A",
+                letterSpacing: 2,
+                textTransform: "uppercase",
+                marginBottom: 20,
+              }}
+            >
+              Students are prepared for careers in:
+            </p>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 16,
+              }}
+            >
+              {careers.map((career) => (
+                <div
+                  key={career}
+                  className="career-card"
+                  style={{
+                    padding: "18px 28px",
+                    borderRadius: 12,
+                    border: "1.5px solid #E2E8F0",
+                    background: "#F8FAFC",
+                    fontSize: 15,
+                    fontWeight: 700,
+                    color: "#0A1F44",
+                    cursor: "default",
+                    transition: "all 0.25s ease",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                  }}
+                >
+                  <span
+                    style={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: "50%",
+                      background: "#E8871A",
+                      flexShrink: 0,
+                      display: "inline-block",
+                    }}
+                  />
+                  {career}
+                </div>
+              ))}
             </div>
-          )}
-        </motion.div>
+          </div>
+        )}
+
+        {/* Closing line */}
+        {closingText && (
+          <p style={{ fontSize: 16, color: "#6B7280", lineHeight: 1.75, fontWeight: 400, marginTop: 32 }}>
+            {closingText}
+          </p>
+        )}
       </div>
+
+      <style>{`
+        .career-card:hover {
+          background: #fff7ed !important;
+          border-color: #E8871A !important;
+          color: #E8871A !important;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(232,135,26,0.12);
+        }
+        .career-card:hover span {
+          background: #E8871A !important;
+        }
+      `}</style>
     </section>
   );
 }

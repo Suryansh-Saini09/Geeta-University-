@@ -40,6 +40,18 @@ export const pharmacySchool: ProgramPageData = {
     ],
     image: "/programs/pharmacy/pharmacy2-thumb.webp",
     badgeText: "PCI Approved Excellence",
+    careers: [
+      "Clinical Research & Trials",
+      "Formulation & Production R&D",
+      "Quality Assurance & Quality Control",
+      "Pharmacovigilance & Drug Safety",
+      "Hospital & Community Pharmacy",
+      "Regulatory Affairs & IPR",
+      "Pharmaceutical Marketing & Sales",
+      "Drug Inspection & Analysis",
+    ],
+    closingText:
+      "Our PCI-approved learning environment combines world-class pharmaceutical labs, hospital rounds, clinical trials exposure, and expert faculty mentorship.",
   },
 
   specialisations: {
@@ -273,7 +285,7 @@ export const pharmacySchool: ProgramPageData = {
     heroNoteTitle: "PCI-Approved Industry Readiness",
     heroNoteText: "Graduates equipped with practical lab expertise, compliance training, and strong corporate exposure.",
     stats: [
-      { value: "1.4 Crore PA", label: "Highest Pharma Package", iconName: "Award" },
+      { value: "₹12 LPA", label: "Highest Pharma Package", iconName: "Award" },
       { value: "250+", label: "Pharma Recruiters", iconName: "Building2" },
       { value: "1200+", label: "Placements & Internships", iconName: "BriefcaseBusiness" },
     ],
@@ -309,6 +321,177 @@ export const pharmacySchool: ProgramPageData = {
       { label: "Regulatory Affairs", value: "7.8%", color: "#25aee4" },
       { label: "Hospital & Community Pharmacy", value: "4.0%", color: "#74c84a" },
     ],
+  },
+
+  testimonials: [
+    {
+      name: "Rohit Sharma",
+      pkg: "₹8.5 LPA",
+      company: "Sun Pharma",
+      role: "Formulation R&D Executive",
+      quote:
+        "The hands-on training in the advanced pharmaceutics and HPLC labs at Geeta Institute of Pharmacy gave me an unbeatable edge during technical interviews with Sun Pharma.",
+      image: "/programs/pharmacy/pharmacy-thumb.webp",
+    },
+    {
+      name: "Anjali Gupta",
+      pkg: "₹7.2 LPA",
+      company: "Pfizer India",
+      role: "Quality Assurance Associate",
+      quote:
+        "The PCI-aligned pedagogy, regular mock regulatory audits, and guidance from experienced professors made my transition from classroom to MNC pharma seamless.",
+      image: "/programs/pharmacy/pharmacy1-thumb.webp",
+    },
+    {
+      name: "Amit Verma",
+      pkg: "₹6.8 LPA",
+      company: "Alembic Pharmaceuticals",
+      role: "Pharmacovigilance Specialist",
+      quote:
+        "From clinical research case studies to bedside hospital internships, Geeta Institute of Pharmacy gave me real-world healthcare confidence from day one.",
+      image: "/programs/pharmacy/pharmacy3-thumb.webp",
+    },
+    {
+      name: "Pooja Malik",
+      pkg: "₹6.5 LPA",
+      company: "Laborate Pharmaceuticals",
+      role: "Regulatory Affairs Officer",
+      quote:
+        "Guidance on dossier preparation, US-FDA and CDSCO compliance, and patent filing during my M.Pharm research helped me secure a coveted role in regulatory affairs.",
+      image: "/programs/pharmacy/pharmacy4-thumb.webp",
+    },
+  ],
+
+  learningSpaces: {
+    title: "World-Class Pharmaceutical Laboratories & Infrastructure",
+    description:
+      "Students conduct research and practical experiments in PCI-compliant, specialized labs equipped with industrial-grade analytical instruments:",
+    spaces: [
+      {
+        title: "Pharmaceutics & Dosage Form Lab",
+        desc: "Equipped for tablet compression, coating, capsule filling, liquid orals, and novel drug delivery system development.",
+        icon: "💊",
+      },
+      {
+        title: "Central Instrumentation Lab (HPLC/FTIR/UV-Vis)",
+        desc: "Advanced analytical hub featuring High-Performance Liquid Chromatography, FTIR, and double-beam spectrophotometers.",
+        icon: "🔬",
+      },
+      {
+        title: "Pharmacology & Computer Simulated Lab",
+        desc: "State-of-the-art animal simulator software, bio-assays, and clinical toxicity evaluation setup.",
+        icon: "🧪",
+      },
+      {
+        title: "Pharmaceutical Chemistry & Synthesis Lab",
+        desc: "Equipped for API synthesis, reaction monitoring, drug purity testing, and molecular modeling.",
+        icon: "⚗️",
+      },
+      {
+        title: "Pharmacognosy & Phytomedicine Lab",
+        desc: "Herbal extraction units, Soxhlet apparatus, botanical microscopes, and natural drug standardization tools.",
+        icon: "🌿",
+      },
+      {
+        title: "Industrial Machine Room & Pilot Plant",
+        desc: "Heavy machinery including rotary tablet press, dissolution testers, disintegration units, and fluidized bed dryers.",
+        icon: "⚙️",
+      },
+      {
+        title: "Aseptic & Microbiology Room",
+        desc: "Laminar airflow hoods, autoclave units, and clean-room sterile facilities for parenteral formulation.",
+        icon: "🛡️",
+      },
+      {
+        title: "Hospital & Community Model Pharmacy",
+        desc: "Simulated hospital pharmacy counter with electronic dispensing software and patient counseling zones.",
+        icon: "🏥",
+      },
+    ],
+    gallery: [
+      {
+        src: "/programs/pharmacy/pharmacy1-thumb.webp",
+        title: "Pharmaceutics Research Lab",
+        caption: "Students formulating dosage forms and testing novel drug delivery systems.",
+      },
+      {
+        src: "/programs/pharmacy/pharmacy2-thumb.webp",
+        title: "Central Instrumentation Facility",
+        caption: "Analytical characterization using HPLC and UV-Vis spectrophotometers.",
+      },
+      {
+        src: "/programs/pharmacy/pharmacy4-thumb.webp",
+        title: "Pharmaceutical Chemistry Lab",
+        caption: "Synthesis of active pharmaceutical ingredients and purity evaluations.",
+      },
+    ],
+    closingNote:
+      "All laboratories strictly adhere to PCI, WHO-GMP, and university safety norms, providing students authentic industrial research exposure.",
+  },
+
+  careerPathways: {
+    title: "Your Pharmacy Degree. Infinite Healthcare Horizons.",
+    description:
+      "A pharmacy degree from Geeta University prepares you for high-impact careers across clinical, research, industrial, and regulatory domains:",
+    pathways: [
+      {
+        area: "Drug Formulation & Industrial R&D",
+        pathway: "Pre-formulation, dosage design, product development, and pilot plant scale-up in pharmaceutical MNCs.",
+        icon: "💊",
+      },
+      {
+        area: "Quality Assurance & Quality Control (QA/QC)",
+        pathway: "Instrumental analysis, stability testing, pharmacopeial compliance, and Good Laboratory Practices (GLP).",
+        icon: "🔬",
+      },
+      {
+        area: "Clinical Research & Pharmacovigilance",
+        pathway: "Managing clinical trials, monitoring adverse drug reactions (ADRs), and drug safety surveillance.",
+        icon: "📋",
+      },
+      {
+        area: "Hospital & Clinical Pharmacy",
+        pathway: "Direct patient counseling, inpatient medication management, and hospital healthcare team collaboration.",
+        icon: "🏥",
+      },
+      {
+        area: "Drug Regulatory Affairs & Patent Filing",
+        pathway: "CDSCO, US-FDA, and EMA regulatory dossier preparation, Drug Master Files (DMF), and pharmaceutical IPR.",
+        icon: "⚖️",
+      },
+      {
+        area: "Government Drug Inspector & Public Health",
+        pathway: "Government drug control administration, food & drug testing laboratories, and public health policy.",
+        icon: "🏛️",
+      },
+      {
+        area: "Higher Studies & Pharmaceutical Research",
+        pathway: "M.Pharm, MBA in Pharma Management, and Ph.D. research fellowships in drug discovery.",
+        icon: "🎓",
+      },
+    ],
+    notableRoles: [
+      { name: "Formulation Scientist" },
+      { name: "QA / QC Analyst" },
+      { name: "Clinical Research Associate" },
+      { name: "Drug Safety / PV Officer" },
+      { name: "Hospital Pharmacist" },
+      { name: "Regulatory Affairs Executive" },
+      { name: "Drug Inspector (Govt.)" },
+      { name: "Pharma Brand Manager" },
+      { name: "Medical Writer" },
+      { name: "Bio-Analytical Researcher" },
+      { name: "Community Pharmacy Lead" },
+      { name: "Pharma Entrepreneur" },
+    ],
+  },
+
+  brochure: {
+    title: "Download Pharmacy Brochure",
+    description:
+      "Get comprehensive details on PCI approvals, D.Pharm, B.Pharm, M.Pharm courses, modern laboratories, faculty profiles, and placement track records.",
+    fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
+    fileName: "Geeta_Institute_of_Pharmacy_Brochure.pdf",
   },
 
   experts: {

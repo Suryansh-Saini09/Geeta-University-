@@ -67,8 +67,8 @@ export default function DeanMessage(props: DeanMessageProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/75 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 md:p-8">
                 <div className="flex items-center gap-3">
-                  <span className="h-[2px] w-8 bg-[#D89A2B]" />
-                  <span className="text-[10px] font-bold uppercase tracking-[2.5px] text-[#D89A2B]">
+                  <span className="h-[2px] w-8 bg-[#E8871A]" />
+                  <span className="text-[10px] font-bold uppercase tracking-[2.5px] text-[#E8871A]">
                     Academic Leadership
                   </span>
                 </div>
@@ -84,13 +84,13 @@ export default function DeanMessage(props: DeanMessageProps) {
             variants={fadeUp}
             className="relative flex flex-col justify-center p-8 md:p-12 lg:p-14"
           >
-            <div className="absolute right-8 top-8 flex h-12 w-12 items-center justify-center rounded-full bg-[#D89A2B]/10 text-[#D89A2B] md:right-12 md:top-12">
+            <div className="absolute right-8 top-8 flex h-12 w-12 items-center justify-center rounded-full bg-[#E8871A]/10 text-[#E8871A] md:right-12 md:top-12">
               <Quote size={22} strokeWidth={1.8} />
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="h-[2px] w-9 bg-[#A32020]" />
-              <span className="text-[11px] font-bold uppercase tracking-[3px] text-[#A32020]">
+              <span className="h-[2px] w-9 bg-[#E8871A]" />
+              <span className="text-[11px] font-bold uppercase tracking-[3px] text-[#E8871A]">
                 Leadership Note
               </span>
             </div>
@@ -104,7 +104,7 @@ export default function DeanMessage(props: DeanMessageProps) {
             </p>
 
             <div className="my-6 flex items-center gap-2">
-              <span className="h-[3px] w-12 bg-[#D89A2B] rounded-full" />
+              <span className="h-[3px] w-12 bg-[#E8871A] rounded-full" />
               <span className="h-[3px] w-3 bg-[#0A1F44] rounded-full" />
             </div>
 
@@ -114,7 +114,7 @@ export default function DeanMessage(props: DeanMessageProps) {
 
             {data.schoolName && (
               <div className="mt-8 flex items-center gap-3 border-t border-[#E2E8F0] pt-6">
-                <span className="h-2 w-2 rounded-full bg-[#D89A2B]" />
+                <span className="h-2 w-2 rounded-full bg-[#E8871A]" />
                 <span className="text-[11px] font-bold uppercase tracking-[2px] text-[#94A3B8]">
                   {data.schoolName}
                 </span>
