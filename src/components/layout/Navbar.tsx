@@ -28,7 +28,7 @@ const secondaryNavLinks: NavEntry[] = [
     cols: [
       { heading: "ENGINEERING & TECH", links: [
         { label: "School of CSE", href: "/programs/school-of-computer-science-and-engineering" },
-        { label: "School of Sciences", href: "#" },
+        { label: "School of Sciences", href: "/programs/school-of-forensic-sciences" },
         { label: "School of Agricultural Sciences", href: "#" },
       ]},
       { heading: "MANAGEMENT & LAW", links: [
