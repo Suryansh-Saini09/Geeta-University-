@@ -4,16 +4,23 @@ import { commerceSchool } from "@/data/programs/schools/commerce";
 import { pharmacySchool } from "@/data/programs/schools/pharmacy";
 import { healthSciencesSchool } from "@/data/programs/schools/healthSciences";
 import { hospitalitySchool } from "@/data/programs/schools/hospitality";
+import { forensicSciencesSchool } from "@/data/programs/schools/forensicSciences";
 
 const programs: ProgramPageData[] = [
   commerceSchool,
   pharmacySchool,
   healthSciencesSchool,
   hospitalitySchool,
+  forensicSciencesSchool,
   // Alias for management studies
   {
     ...commerceSchool,
     slug: "school-of-management-and-business-studies",
+  },
+  // Alias for School of Sciences
+  {
+    ...forensicSciencesSchool,
+    slug: "school-of-sciences",
   },
 ];
 

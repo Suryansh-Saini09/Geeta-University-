@@ -425,7 +425,7 @@ const programCategories: ProgramCategory[] = [
     shortTitle: "Forensic Science",
     description:
       "Combine scientific investigation, analytical thinking and evidence-based approaches to explore the world of forensic sciences.",
-    schoolHref: "/school-of-forensic-sciences",
+    schoolHref: "/programs/school-of-forensic-sciences",
     programs: [
       {
         name: "B.Sc. Hons. — Forensic Sciences",
