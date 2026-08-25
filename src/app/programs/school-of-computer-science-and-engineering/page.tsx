@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useLenis } from "lenis/react";
@@ -1634,26 +1634,25 @@ const MENTORS = [
   {
     name: "Jyoti",
     role: "Professor of Practice",
+    desc: "Expert in Computer Science and Engineering applications, curriculum innovation, and academic mentorship.",
     img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-014.png"
   },
   {
     name: "Mohammad Aslam",
     role: "Technical Hub Trainer",
+    desc: "Technical hub trainer delivering hands-on instruction and industry upskilling in coding labs.",
     img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-032.jpg"
   },
   {
     name: "Ronak Duggar",
     role: "Technical Hub Trainer",
+    desc: "Technical hub trainer specializing in software design, problem solving, and modern programming languages.",
     img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-013.jpg"
   },
-  // {
-  //   name: "Maninder Singh",
-  //   role: "Technical Hub Trainer",
-  //   img: "/dummy.png"
-  // },
   {
     name: "Ram Mohan Dixit",
     role: "Technical Hub Trainer",
+    desc: "Technical trainer leading full-stack engineering labs and practical technical development.",
     img: "/faculty/CSE Brochure -100 COPY MAT LAMINATION.pdf-image-040.jpg"
   }
 ];
@@ -1661,14 +1660,89 @@ const MENTORS = [
 function MentorsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedMentor, setSelectedMentor] = useState<typeof MENTORS[0] | null>(null);
+  const isAnimatingRef = useRef(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const scrollLeft = () => {
-    if (scrollRef.current) scrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
+  const CARD_WIDTH = 280;
+  const CARD_GAP = 24;
+  const STEP = CARD_WIDTH + CARD_GAP; // 304px
+
+  const isCarousel = MENTORS.length > 4;
+
+  // For carousel mode (5+ mentors), duplicate 3 sets for seamless infinite loop
+  const displayMentors = isCarousel
+    ? [...MENTORS, ...MENTORS, ...MENTORS]
+    : MENTORS;
+  const singleSetWidth = STEP * MENTORS.length;
+
+  useEffect(() => {
+    if (isCarousel && scrollRef.current) {
+      scrollRef.current.scrollLeft = singleSetWidth;
+    }
+  }, [isCarousel, singleSetWidth]);
+
+  useEffect(() => {
+    return () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const checkAndAdjustBoundary = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el || !isCarousel) return;
+
+    if (el.scrollLeft >= singleSetWidth * 2) {
+      el.scrollLeft -= singleSetWidth;
+    } else if (el.scrollLeft < singleSetWidth * 0.5) {
+      el.scrollLeft += singleSetWidth;
+    }
+  }, [isCarousel, singleSetWidth]);
+
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el || !isCarousel) return;
+
+    if (isAnimatingRef.current) return;
+
+    if (el.scrollLeft >= singleSetWidth * 2) {
+      el.scrollLeft -= singleSetWidth;
+    } else if (el.scrollLeft <= 10) {
+      el.scrollLeft += singleSetWidth;
+    }
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+    scrollTimeoutRef.current = setTimeout(() => {
+      checkAndAdjustBoundary();
+    }, 150);
+  }, [isCarousel, singleSetWidth, checkAndAdjustBoundary]);
+
+  const scrollCarousel = (direction: 1 | -1) => {
+    const el = scrollRef.current;
+    if (!el || !isCarousel) return;
+
+    isAnimatingRef.current = true;
+
+    el.scrollBy({
+      left: direction * STEP,
+      behavior: "smooth",
+    });
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    scrollTimeoutRef.current = setTimeout(() => {
+      isAnimatingRef.current = false;
+      checkAndAdjustBoundary();
+    }, 400);
   };
 
-  const scrollRight = () => {
-    if (scrollRef.current) scrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
-  };
+  const scrollLeft = () => scrollCarousel(-1);
+  const scrollRight = () => scrollCarousel(1);
 
   const getMentorDesc = (m: typeof MENTORS[0]) => {
     if (m.desc) return m.desc;
@@ -1678,6 +1752,130 @@ function MentorsSection() {
     return "Academic educator dedicated to student mentorship, research, and software engineering foundations.";
   };
 
+  const renderMentorCard = (m: typeof MENTORS[0], key: string | number) => (
+    <div 
+      key={key}
+      className="mentor-card"
+      style={{
+        width: isCarousel ? CARD_WIDTH : "100%",
+        maxWidth: 320,
+        height: 420,
+        background: "#FFFFFF",
+        borderRadius: 16,
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+        border: "1px solid #E2E8F0",
+        boxShadow: "0 4px 14px rgba(10,31,68,0.04)",
+        flexShrink: isCarousel ? 0 : 1,
+      }}
+    >
+      {/* Photo Container */}
+      <div
+        style={{
+          width: "100%",
+          height: 240,
+          background: "linear-gradient(180deg, #F8FAFC 0%, #EDF2F7 100%)",
+          position: "relative",
+          flexShrink: 0,
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src={m.img}
+          alt={m.name}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center 15%",
+            display: "block",
+          }}
+          onError={(e) => {
+            e.currentTarget.style.display = "none";
+            if (e.currentTarget.parentElement) {
+              e.currentTarget.parentElement.innerHTML =
+                '<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #F1F5F9; color: #64748B; font-weight: 700; font-size: 14px;">[ Faculty Photo ]</div>';
+            }
+          }}
+        />
+      </div>
+      
+      {/* Card Body - Name, Title & CTA */}
+      <div
+        style={{
+          padding: "18px 20px 22px",
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ width: "100%" }}>
+          <h3
+            style={{
+              fontSize: 18,
+              fontWeight: 800,
+              color: "#0A1F44",
+              margin: 0,
+              minHeight: 46,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              lineHeight: 1.25,
+            }}
+          >
+            {m.name}
+          </h3>
+          
+          <p
+            style={{
+              fontSize: 13,
+              color: "#E8871A",
+              fontWeight: 700,
+              margin: "4px 0 0",
+              minHeight: 36,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              lineHeight: 1.35,
+            }}
+          >
+            {m.role}
+          </p>
+        </div>
+        
+        <div style={{ width: "100%" }}>
+          <div style={{ width: "100%", borderBottom: "1px solid #F1F5F9", margin: "14px 0 12px" }} />
+          
+          <button 
+            onClick={() => setSelectedMentor(m)}
+            className="read-more-btn"
+            style={{
+              background: "none",
+              border: "none",
+              color: "#0A1F44",
+              fontSize: 13.5,
+              fontWeight: 700,
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 6,
+              cursor: "pointer",
+              width: "100%",
+              padding: "4px 0",
+            }}
+          >
+            <span>Read More</span>
+            <ArrowRight size={14} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section id="Mentors" style={{ padding: "80px 0", background: "#FFFFFF", overflow: "hidden" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
@@ -1686,102 +1884,91 @@ function MentorsSection() {
         </h2>
         
         <div style={{ position: "relative", marginTop: 48 }}>
-          <div 
-            ref={scrollRef}
-            className="hide-scroll"
-            style={{ 
-              display: "flex", 
-              gap: 24, 
-              overflowX: "auto", 
-              paddingBottom: 32,
-              scrollSnapType: "x mandatory",
-              scrollBehavior: "smooth"
-            }}
-          >
-            {MENTORS.map((m, i) => (
+          {!isCarousel ? (
+            <div
+              className="mentors-static-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns:
+                  MENTORS.length === 1
+                    ? "minmax(280px, 320px)"
+                    : MENTORS.length === 2
+                    ? "repeat(auto-fit, minmax(280px, 320px))"
+                    : "repeat(auto-fit, minmax(260px, 1fr))",
+                gap: 24,
+                justifyContent: MENTORS.length < 3 ? "flex-start" : "stretch",
+                width: "100%",
+              }}
+            >
+              {MENTORS.map((m, i) => renderMentorCard(m, `static-${i}`))}
+            </div>
+          ) : (
+            <div style={{ position: "relative" }}>
               <div 
-                key={i} 
+                ref={scrollRef}
+                onScroll={handleScroll}
+                className="hide-scroll"
                 style={{ 
-                  scrollSnapAlign: "start",
-                  flexShrink: 0,
+                  display: "flex", 
+                  gap: CARD_GAP, 
+                  overflowX: "auto", 
+                  paddingBottom: 24,
                 }}
               >
-                <div 
-                  className="mentor-card"
-                  style={{
-                    width: 280,
-                    height: 500,
-                    background: "#F3F4F6",
-                    borderRadius: 16,
-                    display: "flex",
-                    flexDirection: "column",
-                    overflow: "hidden",
-                    border: "1px solid rgba(0,0,0,0.05)",
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
-                  }}
-                >
-                  <div style={{ width: "100%", height: 200, background: "#E5E7EB", position: "relative", flexShrink: 0 }}>
-                    <img src={m.img} alt={m.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", mixBlendMode: "multiply", opacity: 0.8 }} />
-                  </div>
-                  
-                  <div style={{ padding: "20px 20px 24px", textAlign: "center", display: "flex", flexDirection: "column", flex: 1, justifyContent: "space-between", alignItems: "center" }}>
-                    <div style={{ width: "100%" }}>
-                      <h3 style={{ fontSize: 20, fontWeight: 800, color: "#0A1F44", margin: 0, minHeight: 52, display: "flex", alignItems: "center", justifyContent: "center", lineHeight: 1.2 }}>
-                        {m.name}
-                      </h3>
-                      
-                      <p style={{ fontSize: 14, color: "#E8871A", fontWeight: 700, margin: "6px 0 0", minHeight: 40, display: "flex", alignItems: "center", justifyContent: "center", lineHeight: 1.3 }}>
-                        {m.role}
-                      </p>
-
-                      <p style={{ fontSize: 13, color: "#64748B", margin: "10px 0 0", lineHeight: 1.5, minHeight: 60, display: "flex", alignItems: "center", justifyContent: "center" }} className="line-clamp-3">
-                        {getMentorDesc(m)}
-                      </p>
-                    </div>
-                    
-                    <div style={{ width: "100%" }}>
-                      <div style={{ width: "100%", borderBottom: "1px dashed #CBD5E1", margin: "14px 0" }} />
-                      
-                      <button 
-                        onClick={() => setSelectedMentor(m)}
-                        className="read-more-btn"
-                        style={{
-                          background: "none",
-                          border: "none",
-                          color: "#64748B",
-                          fontSize: 14,
-                          fontWeight: 700,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          gap: 6,
-                          cursor: "pointer",
-                          width: "100%",
-                        }}
-                      >
-                        Read More
-                        <ArrowRight size={14} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                {displayMentors.map((m, i) => renderMentorCard(m, `carousel-${i}`))}
               </div>
-            ))}
-          </div>
 
-          <button 
-            onClick={scrollLeft}
-            style={{ position: "absolute", left: -24, top: "150px", background: "white", width: 48, height: 48, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #E2E8F0", cursor: "pointer", boxShadow: "0 4px 12px rgba(0,0,0,0.05)", color: "#2563EB", zIndex: 10 }}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
+              <button 
+                onClick={scrollLeft}
+                style={{
+                  position: "absolute",
+                  left: -20,
+                  top: "140px",
+                  background: "#FFFFFF",
+                  width: 44,
+                  height: 44,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "1px solid #E2E8F0",
+                  cursor: "pointer",
+                  boxShadow: "0 4px 14px rgba(0,0,0,0.08)",
+                  color: "#0A1F44",
+                  zIndex: 10,
+                  transition: "all 0.2s ease",
+                }}
+                aria-label="Previous mentor"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
 
-          <button 
-            onClick={scrollRight}
-            style={{ position: "absolute", right: -24, top: "150px", background: "white", width: 48, height: 48, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #E2E8F0", cursor: "pointer", boxShadow: "0 4px 12px rgba(0,0,0,0.05)", color: "#2563EB", zIndex: 10 }}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
+              <button 
+                onClick={scrollRight}
+                style={{
+                  position: "absolute",
+                  right: -20,
+                  top: "140px",
+                  background: "#FFFFFF",
+                  width: 44,
+                  height: 44,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "1px solid #E2E8F0",
+                  cursor: "pointer",
+                  boxShadow: "0 4px 14px rgba(0,0,0,0.08)",
+                  color: "#0A1F44",
+                  zIndex: 10,
+                  transition: "all 0.2s ease",
+                }}
+                aria-label="Next mentor"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Modal */}
@@ -1791,7 +1978,7 @@ function MentorsSection() {
               style={{
                 position: "fixed",
                 inset: 0,
-                zIndex: 999,
+                zIndex: 9999,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -1807,26 +1994,26 @@ function MentorsSection() {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "rgba(10,31,68,0.5)",
-                  backdropFilter: "blur(8px)",
+                  background: "rgba(10,31,68,0.55)",
+                  backdropFilter: "blur(6px)",
                 }}
               />
 
               {/* Modal Card */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                initial={{ opacity: 0, scale: 0.95, y: 16 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                transition={{ type: "spring", duration: 0.5 }}
+                exit={{ opacity: 0, scale: 0.95, y: 16 }}
+                transition={{ type: "spring", duration: 0.4 }}
                 style={{
                   position: "relative",
                   background: "#FFFFFF",
                   borderRadius: 24,
-                  padding: "40px 32px 32px",
-                  maxWidth: 480,
+                  padding: "36px 28px 28px",
+                  maxWidth: 500,
                   width: "100%",
-                  boxShadow: "0 24px 60px rgba(0,0,0,0.18)",
-                  zIndex: 1000,
+                  boxShadow: "0 24px 60px rgba(0,0,0,0.2)",
+                  zIndex: 10000,
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -1838,8 +2025,8 @@ function MentorsSection() {
                   onClick={() => setSelectedMentor(null)}
                   style={{
                     position: "absolute",
-                    top: 20,
-                    right: 20,
+                    top: 18,
+                    right: 18,
                     background: "#F1F5F9",
                     border: "none",
                     width: 36,
@@ -1850,49 +2037,71 @@ function MentorsSection() {
                     justifyContent: "center",
                     cursor: "pointer",
                     color: "#64748B",
-                    fontSize: 16,
                     transition: "all 0.2s"
                   }}
                   onMouseEnter={e => { e.currentTarget.style.background = "#E2E8F0"; e.currentTarget.style.color = "#0F172A"; }}
                   onMouseLeave={e => { e.currentTarget.style.background = "#F1F5F9"; e.currentTarget.style.color = "#64748B"; }}
                   aria-label="Close modal"
                 >
-                  <X size={16} />
+                  <X size={18} />
                 </button>
 
                 {/* Profile Image */}
-                <div style={{ width: 120, height: 120, borderRadius: "50%", overflow: "hidden", background: "#E5E7EB", marginBottom: 24, border: "4px solid #F1F5F9", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
-                  <img src={selectedMentor.img} alt={selectedMentor.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", mixBlendMode: "multiply", opacity: 0.9 }} />
+                <div style={{ width: 120, height: 120, borderRadius: "50%", overflow: "hidden", background: "#F1F5F9", marginBottom: 18, border: "4px solid #F8FAFC", boxShadow: "0 6px 20px rgba(10,31,68,0.1)" }}>
+                  <img src={selectedMentor.img} alt={selectedMentor.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%", display: "block" }} />
                 </div>
 
                 {/* Name */}
-                <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", margin: 0 }}>
+                <h3 style={{ fontSize: 22, fontWeight: 900, color: "#0A1F44", margin: 0, lineHeight: 1.3 }}>
                   {selectedMentor.name}
                 </h3>
 
                 {/* Role */}
-                <p style={{ fontSize: 14, fontWeight: 700, color: "#E8871A", marginTop: 8, marginBottom: 20, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                <div
+                  style={{
+                    display: "inline-block",
+                    background: "#FEF3C7",
+                    color: "#B45309",
+                    padding: "4px 14px",
+                    borderRadius: 20,
+                    fontSize: 13,
+                    fontWeight: 700,
+                    marginTop: 8,
+                    marginBottom: 16,
+                    lineHeight: 1.4,
+                  }}
+                >
                   {selectedMentor.role}
-                </p>
+                </div>
 
                 {/* Divider */}
-                <div style={{ width: "100%", borderBottom: "1px solid #E2E8F0", marginBottom: 20 }} />
+                <div style={{ width: "100%", borderBottom: "1px solid #E2E8F0", marginBottom: 18 }} />
 
-                {/* Description */}
-                <p style={{ fontSize: 14, color: "#4A5568", lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
-                  {getMentorDesc(selectedMentor)}
-                </p>
+                {/* Full Description & Information */}
+                <div
+                  style={{
+                    width: "100%",
+                    maxHeight: 260,
+                    overflowY: "auto",
+                    padding: "0 6px",
+                    textAlign: "left",
+                  }}
+                >
+                  <p style={{ fontSize: 14.5, color: "#334155", lineHeight: 1.7, margin: 0, fontWeight: 450, whiteSpace: "pre-line" }}>
+                    {getMentorDesc(selectedMentor)}
+                  </p>
+                </div>
 
                 {/* Action Button */}
                 <button
                   onClick={() => setSelectedMentor(null)}
                   style={{
-                    marginTop: 28,
-                    padding: "12px 36px",
+                    marginTop: 24,
+                    padding: "11px 32px",
                     background: "#0A1F44",
                     color: "#FFFFFF",
                     border: "none",
-                    borderRadius: 12,
+                    borderRadius: 10,
                     fontWeight: 700,
                     fontSize: 14,
                     cursor: "pointer",

@@ -78,14 +78,14 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       )}
 
       {/* 5. DEAN / PRINCIPAL LEADERSHIP MESSAGE */}
-      {pageData.dean && (
+      {/* {pageData.dean && (
         <DeanMessage dean={pageData.dean} schoolName={schoolTitle} />
-      )}
+      )} */}
 
       {/* 6. FEATURED PROGRAMS (If school defines prominent degree tiers) */}
-      {pageData.featuredPrograms && (
+      {/* {pageData.featuredPrograms && (
         <ProgramFeaturedPrograms featuredPrograms={pageData.featuredPrograms} />
-      )}
+      )} */}
 
       {/* 7. PROGRAMS / COURSES OFFERED */}
       {pageData.courses && pageData.courses.length > 0 && (
@@ -123,7 +123,7 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       {/* 13. PLACEMENT ANALYTICS & TESTIMONIALS */}
       {pageData.placement && (
         <ProgramPlacement
-          placement={pageData.placement}
+          // placement={pageData.placement}
           testimonials={pageData.testimonials}
         />
       )}

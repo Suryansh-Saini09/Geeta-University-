@@ -20,11 +20,8 @@ export default function CampusLifePage() {
   });
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && !window.location.hash) {
       window.scrollTo({ top: 0, behavior: "instant" });
-      if (window.location.hash) {
-        window.history.replaceState(null, "", "/campus-life");
-      }
     }
   }, []);
 
