@@ -34,7 +34,7 @@ const secondaryNavLinks: NavEntry[] = [
       { heading: "MANAGEMENT & LAW", links: [
         { label: "School of Commerce & Business Management", href: "/programs/school-of-management-and-business-studies" },
         { label: "SP Bansal School of Business", href: "/programs/sp-bansal-school-of-business" },
-        { label: "Geeta Global Law School", href: "#" },
+        { label: "Geeta Global Law School", href: "/programs/geeta-global-law-school" },
       ]},
       { heading: "HEALTH & HUMANITIES", links: [
         { label: "Geeta Institute of Pharmacy", href: "/programs/geeta-institute-of-pharmacy" },

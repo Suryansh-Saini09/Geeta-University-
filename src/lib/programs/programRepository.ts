@@ -5,6 +5,7 @@ import { pharmacySchool } from "@/data/programs/schools/pharmacy";
 import { healthSciencesSchool } from "@/data/programs/schools/healthSciences";
 import { hospitalitySchool } from "@/data/programs/schools/hospitality";
 import { forensicSciencesSchool } from "@/data/programs/schools/forensicSciences";
+import { lawSchool } from "@/data/programs/schools/law";
 
 const programs: ProgramPageData[] = [
   commerceSchool,
@@ -12,6 +13,7 @@ const programs: ProgramPageData[] = [
   healthSciencesSchool,
   hospitalitySchool,
   forensicSciencesSchool,
+  lawSchool,
   // Alias for management studies
   {
     ...commerceSchool,
@@ -21,6 +23,11 @@ const programs: ProgramPageData[] = [
   {
     ...forensicSciencesSchool,
     slug: "school-of-sciences",
+  },
+  // Alias for Law School
+  {
+    ...lawSchool,
+    slug: "school-of-law",
   },
 ];
 
