@@ -195,7 +195,7 @@ export default function Navbar() {
   };
   const handleMouseLeave = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setActiveDropdown(null), 350);
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 100);
   };
 
   return (
@@ -446,6 +446,7 @@ export default function Navbar() {
           -webkit-backdrop-filter: blur(6px);
           z-index: 699;
           animation: gu-fade .18s ease;
+          pointer-events: none;
         }
         @keyframes gu-fade {
           from { opacity: 0; }

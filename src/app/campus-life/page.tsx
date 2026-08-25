@@ -51,7 +51,7 @@ export default function CampusLifePage() {
   }));
 
   return (
-    <div className="min-w-0 overflow-x-hidden bg-[#F7F9FC] text-[#0A1F44]">
+    <div className="min-w-0 overflow-x-clip bg-[#F7F9FC] text-[#0A1F44]">
       {/* 1. Hero Banner & Overview */}
       <CampusLifeHero onOpenVirtualTour={openVirtualTourModal} />
 
@@ -74,13 +74,13 @@ export default function CampusLifePage() {
       <LegacyEcosystem />
 
       {/* 8. Frequently Asked Questions (Canonical Website Component) */}
-      <div id="faqs" className="scroll-mt-[190px]">
+      <section id="faqs" className="w-full scroll-mt-[190px]">
         <FAQSection
           title="Frequently Asked Questions"
           subtitle="Find answers to common questions about hostel accommodation, sports facilities, security, and vibrant student life at Geeta University."
           faqs={formattedFaqs}
         />
-      </div>
+      </section>
 
       {/* Responsive Video Modal Player */}
       <VideoModal
