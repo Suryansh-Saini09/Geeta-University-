@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useLenis } from "lenis/react";
 
 const NAV_ITEMS = [
   { id: "infrastructure", label: "Infrastructure" },
@@ -13,15 +14,16 @@ const NAV_ITEMS = [
 
 export default function CampusLifeNav() {
   const [activeSection, setActiveSection] = useState<string>("infrastructure");
+  const lenis = useLenis();
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 220;
       for (let i = NAV_ITEMS.length - 1; i >= 0; i--) {
         const item = NAV_ITEMS[i];
         const el = document.getElementById(item.id);
         if (el) {
-          const top = el.offsetTop;
+          const top = el.getBoundingClientRect().top + window.scrollY;
           if (scrollPosition >= top) {
             setActiveSection(item.id);
             break;
@@ -31,19 +33,50 @@ export default function CampusLifeNav() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle incoming hash on initial load or navigation
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && NAV_ITEMS.some((item) => item.id === hash)) {
+        setActiveSection(hash);
+        const timer = setTimeout(() => {
+          if (lenis) {
+            lenis.scrollTo(`#${hash}`, { offset: -185 });
+          } else {
+            const el = document.getElementById(hash);
+            if (el) {
+              const top = el.getBoundingClientRect().top + window.scrollY - 185;
+              window.scrollTo({ top, behavior: "smooth" });
+            }
+          }
+        }, 300);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [lenis]);
+
   const scrollToSection = (id: string) => {
     setActiveSection(id);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", `#${id}`);
+    }
+    if (lenis) {
+      lenis.scrollTo(`#${id}`, { offset: -185 });
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 185;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
     }
   };
 
   return (
-    <nav className="sticky top-[136px] z-50 w-full border-b border-[#E2E8F0] bg-white shadow-sm backdrop-blur-xl">
+    <nav className="sticky top-[136px] z-50 w-full border-b border-[#E2E8F0] bg-white/95 shadow-sm backdrop-blur-md">
       <div className="gu-container overflow-x-auto [scrollbar-width:none]">
         <div className="flex min-w-max items-center gap-1 py-2.5 md:justify-center md:gap-3">
           {NAV_ITEMS.map((item) => {
