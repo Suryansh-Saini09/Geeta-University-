@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { FAQ } from "@/data/programs/types";
 
@@ -365,7 +366,9 @@ export default function FAQSection({
                 border: "1px dashed #CBD5E1",
               }}
             >
-              <div style={{ fontSize: "40px", marginBottom: 16 }}>🔍</div>
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
+                <Search size={40} color="#94A3B8" />
+              </div>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A1F44", margin: "0 0 8px" }}>No Results Found</h3>
               <p style={{ color: "#64748B", fontSize: "14px", margin: 0 }}>
                 We couldn't find any questions matching &ldquo;{searchTerm}&rdquo;. Try another search term or clear the filter.

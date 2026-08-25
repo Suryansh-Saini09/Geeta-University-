@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 type CampusFeature = {
@@ -267,14 +268,14 @@ export default function SmartCampusSection() {
                           {/* Arrow only visible on hover */}
                           <span
                             aria-hidden="true"
-                            className="text-lg opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
+                            className="opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 flex items-center"
                             style={{
                               color: isActive
                                 ? "var(--gu-gold)"
                                 : "var(--gu-text-muted)",
                             }}
                           >
-                            →
+                            <ArrowRight size={16} />
                           </span>
                         </motion.button>
                       );

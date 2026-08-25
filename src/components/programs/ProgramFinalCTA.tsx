@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ArrowRight } from "lucide-react";
 import type { ProgramPageData } from "@/data/programs/types";
 
 interface ProgramFinalCTAProps {
@@ -40,6 +41,9 @@ export default function ProgramFinalCTA({ cta, schoolName }: ProgramFinalCTAProp
                 fontWeight: 700,
                 fontSize: 14,
                 textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
                 transition: "transform 0.2s, box-shadow 0.2s",
                 boxShadow: "0 4px 14px rgba(10,31,68,0.25)",
               }}
@@ -50,7 +54,8 @@ export default function ProgramFinalCTA({ cta, schoolName }: ProgramFinalCTAProp
                 e.currentTarget.style.transform = "none";
               }}
             >
-              Apply Now →
+              Apply Now
+              <ArrowRight size={16} />
             </a>
             <a
               href={brochureUrl}

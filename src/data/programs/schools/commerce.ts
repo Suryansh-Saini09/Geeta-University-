@@ -318,32 +318,32 @@ export const commerceSchool: ProgramPageData = {
       {
         title: "FinTech & Data Analytics Simulation Lab",
         desc: "Equipped with financial modeling tools, Power BI, Excel Advanced, Python for finance, and algorithmic trading simulators.",
-        icon: "📈",
+        icon: "",
       },
       {
         title: "Harvard-Style Case Study Theatres",
         desc: "Acoustically designed tiered classrooms configured for interactive case discussions, debates, and peer learning.",
-        icon: "🏛️",
+        icon: "",
       },
       {
         title: "Corporate Incubation & Startup Lab",
         desc: "Dedicated co-working spaces, mentor clinics, and prototyping resources for student entrepreneurs.",
-        icon: "🚀",
+        icon: "",
       },
       {
         title: "Group Discussion & Mock Interview Suites",
         desc: "Professional video-recorded corporate interview suites and boardroom simulation chambers for placement grooming.",
-        icon: "👥",
+        icon: "",
       },
       {
         title: "Digital Marketing & Brand Strategy Studio",
         desc: "Equipped for SEO/SEM campaign simulations, social media analytics, and digital brand content creation.",
-        icon: "💻",
+        icon: "",
       },
       {
         title: "Global Trade & Supply Chain Simulation Suite",
         desc: "Interactive software tools for global customs documentation, logistics tracking, and cross-border trade analytics.",
-        icon: "🌐",
+        icon: "",
       },
     ],
     gallery: [
@@ -375,37 +375,37 @@ export const commerceSchool: ProgramPageData = {
       {
         area: "Financial Analysis & FinTech Consulting",
         pathway: "Corporate valuation, investment banking, digital payments strategy, and algorithmic financial modeling.",
-        icon: "💳",
+        icon: "",
       },
       {
         area: "Business Analytics & Enterprise Growth",
         pathway: "Data-driven business decisions, market intelligence, customer analytics, and enterprise data strategy.",
-        icon: "📊",
+        icon: "",
       },
       {
         area: "Brand Strategy & Digital Marketing",
         pathway: "Omnichannel brand management, digital performance marketing, growth hacking, and market research.",
-        icon: "🎯",
+        icon: "",
       },
       {
         area: "International Trade & Supply Chain Management",
         pathway: "Cross-border logistics, import-export compliance, global procurement, and freight operations.",
-        icon: "🚢",
+        icon: "",
       },
       {
         area: "Corporate Accounting, Audit & Tax (ACCA/CPA)",
         pathway: "International financial reporting (IFRS), corporate audit, risk assurance, and forensic accounting.",
-        icon: "📑",
+        icon: "",
       },
       {
         area: "Strategic Human Resource & Talent Leadership",
         pathway: "Talent acquisition, organizational development, HR analytics, and executive corporate coaching.",
-        icon: "🤝",
+        icon: "",
       },
       {
         area: "Entrepreneurship & Family Business Governance",
         pathway: "Venture founding, scaling operations, angel fundraising, and strategic family business transformation.",
-        icon: "🚀",
+        icon: "",
       },
     ],
     notableRoles: [

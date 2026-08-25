@@ -165,7 +165,7 @@ export default function ProgramHero({ hero }: ProgramHeroProps) {
               {/* Eyebrow Badge */}
               <div className="flex items-center gap-2">
                 <span className="px-3.5 py-1 rounded-full bg-[#E8871A]/15 border border-[#E8871A]/35 text-[#E8871A] text-[11px] font-extrabold uppercase tracking-widest">
-                  🎓 {hero.eyebrow || "Geeta University"}
+                  {hero.eyebrow || "Geeta University"}
                 </span>
               </div>
 

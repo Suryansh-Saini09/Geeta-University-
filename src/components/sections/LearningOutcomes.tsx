@@ -242,7 +242,7 @@ export default function LearningOutcomes() {
                   }}
                   className="lo-row-btn"
                 >
-                  {/* ghost number → orange when open */}
+                  {/* ghost number: orange when open */}
                   <span style={{
                     fontSize: 52, fontWeight: 900, lineHeight: 1,
                     letterSpacing: "-3px",

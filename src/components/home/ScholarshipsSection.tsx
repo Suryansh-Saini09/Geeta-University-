@@ -1,5 +1,6 @@
 "use client";
 
+import { Check } from "lucide-react";
 import { scholarshipData, gutsData } from "@/data/scholarships";
 
 export default function ScholarshipsSection() {
@@ -144,7 +145,7 @@ export default function ScholarshipsSection() {
               {/* Highlight */}
               <div className="mt-7 flex items-center gap-3 rounded-xl bg-[#F5F8FA] p-4">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#06355F] text-white">
-                  ✓
+                  <Check size={18} />
                 </div>
 
                 <p className="text-sm font-semibold text-[#06355F]">
