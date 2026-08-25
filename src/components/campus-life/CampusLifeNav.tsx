@@ -59,7 +59,19 @@ export default function CampusLifeNav() {
     }
   }, [lenis]);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (
+    eOrId: React.MouseEvent | string,
+    maybeId?: string
+  ) => {
+    let id: string;
+    if (typeof eOrId === "string") {
+      id = eOrId;
+    } else {
+      eOrId.preventDefault();
+      id = maybeId || "";
+    }
+    if (!id) return;
+
     setActiveSection(id);
     if (typeof window !== "undefined") {
       window.history.replaceState(null, "", `#${id}`);
