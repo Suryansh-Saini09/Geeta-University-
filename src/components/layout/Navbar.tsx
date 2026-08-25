@@ -133,25 +133,7 @@ const secondaryNavLinks: NavEntry[] = [
   {
     label: "CAMPUS LIFE",
     key: "campuslife",
-    cols: [
-      { heading: "FACILITIES", links: [
-        { label: "Hostel & Accommodation", href: "#" },
-        { label: "Sports & Fitness", href: "#" },
-        { label: "Medical Facilities", href: "#" },
-        { label: "Cafeteria & Food", href: "#" },
-      ]},
-      { heading: "ACTIVITIES", links: [
-        { label: "Cultural Activities", href: "#" },
-        { label: "Student Clubs", href: "#" },
-        { label: "Fests & Events", href: "#" },
-        { label: "NSS & NCC", href: "#" },
-      ]},
-    ],
-    banner: { text: "Experience Campus Life", items: [
-      { icon: <Home size={16} />, label: "Hostels", href: "#" },
-      { icon: <Activity size={16} />, label: "Sports", href: "#" },
-      { icon: <Sparkles size={16} />, label: "Fests", href: "#" },
-    ]},
+    href: "/campus-life",
   },
   {
     label: "PLACEMENTS",
@@ -697,7 +679,7 @@ export default function Navbar() {
         }
       `}</style>
 
-      <header className="gu-root">
+      <header className="gu-root" onMouseLeave={() => setActiveDropdown(null)}>
 
         {/* ── TOP ANNOUNCEMENT BAR ── */}
         <div className="gu-topbar">
@@ -808,7 +790,16 @@ export default function Navbar() {
             if (link.href) {
               return (
                 <div key={link.key} className="gu-sec-item">
-                  <Link href={link.href} className="gu-sec-link">
+                  <Link
+                    href={link.href}
+                    className="gu-sec-link"
+                    onClick={(e) => {
+                      if (typeof window !== "undefined" && window.location.pathname === link.href) {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    }}
+                  >
                     {link.label}
                   </Link>
                 </div>
@@ -882,7 +873,17 @@ export default function Navbar() {
               if (link.href) {
                 return (
                   <div key={link.key} className="gu-mob-row">
-                    <Link href={link.href} className="gu-mob-btn" style={{ textDecoration: "none", display: "block" }} onClick={() => setIsMobileMenuOpen(false)}>
+                    <Link
+                      href={link.href}
+                      className="gu-mob-btn"
+                      style={{ textDecoration: "none", display: "block" }}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        if (typeof window !== "undefined" && window.location.pathname === link.href) {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                      }}
+                    >
                       <span>{link.label}</span>
                     </Link>
                   </div>
