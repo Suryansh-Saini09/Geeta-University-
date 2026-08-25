@@ -287,32 +287,32 @@ export const healthSciencesSchool: ProgramPageData = {
       {
         title: "In-House Functional Diet Clinic",
         desc: "Live patient consultation facility for body composition analysis, dietary recall, and customized meal plan prescriptions.",
-        icon: "🩺",
+        icon: "",
       },
       {
         title: "Food Science & Quality Analysis Lab",
         desc: "Equipped for proximate analysis, moisture evaluation, protein estimation, and nutritional shelf-life studies.",
-        icon: "🧪",
+        icon: "",
       },
       {
         title: "Nutritional Biochemistry & Clinical Lab",
         desc: "Centrifuges, spectrophotometers, and diagnostic kits for evaluating lipid profiles, glycemic indices, and metabolic markers.",
-        icon: "🔬",
+        icon: "",
       },
       {
         title: "Food Microbiology & Safety Lab",
         desc: "Autoclaves, laminar airflow chambers, and incubation setups for food pathogen testing and FSSAI standards.",
-        icon: "🧫",
+        icon: "",
       },
       {
         title: "Experimental Cookery & Sensory Evaluation Lab",
         desc: "Modern culinary workstations for developing therapeutic recipes, diabetic formulations, and sensory panel testing.",
-        icon: "🥗",
+        icon: "",
       },
       {
         title: "Community Health & Anthropometry Unit",
         desc: "Equipped with skinfold calipers, stadiometers, bio-electrical impedance analyzers for community health camps.",
-        icon: "📊",
+        icon: "",
       },
     ],
     gallery: [
@@ -344,37 +344,37 @@ export const healthSciencesSchool: ProgramPageData = {
       {
         area: "Clinical Dietetics & Hospital Nutrition",
         pathway: "Prescribing medical nutrition therapy in multi-speciality hospitals for ICU, diabetes, oncology, and pediatrics.",
-        icon: "🏥",
+        icon: "",
       },
       {
         area: "Sports Nutrition & Athlete Wellness",
         pathway: "Developing high-performance nutrition and hydration regimens for athletes, sports academies, and fitness chains.",
-        icon: "🏃",
+        icon: "",
       },
       {
         area: "Food Industry & Product Development (FMCG)",
         pathway: "Formulating functional foods, nutraceuticals, health supplements, and conducting sensory evaluation.",
-        icon: "🍎",
+        icon: "",
       },
       {
         area: "Food Safety, QA & Regulatory (FSSAI/HACCP)",
         pathway: "Food safety compliance, quality assurance, microbiological audits, and packaging standards.",
-        icon: "🛡️",
+        icon: "",
       },
       {
         area: "Public Health & Global Community Nutrition",
         pathway: "Leading government health missions, maternal & child nutrition programs, and international NGO initiatives.",
-        icon: "🌍",
+        icon: "",
       },
       {
         area: "Diet Clinic Entrepreneurship & Private Practice",
         pathway: "Establishing independent diet clinics, online wellness platforms, and personalized lifestyle consultancy.",
-        icon: "💡",
+        icon: "",
       },
       {
         area: "Higher Research & Academic Fellowships",
         pathway: "Pursuing M.Sc., Ph.D., and international post-doctoral research in nutritional genomics and lifestyle health.",
-        icon: "🎓",
+        icon: "",
       },
     ],
     notableRoles: [

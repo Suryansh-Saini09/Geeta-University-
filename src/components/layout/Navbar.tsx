@@ -4,9 +4,33 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
+import {
+  ChevronDown,
+  ChevronUp,
+  X,
+  GraduationCap,
+  BookOpen,
+  Microscope,
+  Library,
+  FlaskConical,
+  FileText,
+  Award,
+  DollarSign,
+  ClipboardCheck,
+  Home,
+  Trophy,
+  Sparkles,
+  Briefcase,
+  TrendingUp,
+  Users,
+  Rocket,
+  Globe,
+  Activity,
+  Search,
+} from "lucide-react";
 
 interface MegaCol { heading: string; links: { label: string; href: string }[]; }
-interface BannerItem { icon: string; label: string; href: string; }
+interface BannerItem { icon: React.ReactNode; label: string; href: string; }
 interface NavEntry {
   label: string;
   key: string;
@@ -45,9 +69,9 @@ const secondaryNavLinks: NavEntry[] = [
       ]},
     ],
     banner: { text: "Find Your Perfect Program", items: [
-      { icon: "🎓", label: "UG Programs", href: "#" },
-      { icon: "📚", label: "PG Programs", href: "#" },
-      { icon: "🔬", label: "PhD Programs", href: "#" },
+      { icon: <GraduationCap size={16} />, label: "UG Programs", href: "#" },
+      { icon: <BookOpen size={16} />, label: "PG Programs", href: "#" },
+      { icon: <Microscope size={16} />, label: "PhD Programs", href: "#" },
     ]},
   },
   {
@@ -68,9 +92,9 @@ const secondaryNavLinks: NavEntry[] = [
       ]},
     ],
     banner: { text: "Academic Excellence", items: [
-      { icon: "📖", label: "E-Library", href: "#" },
-      { icon: "🧪", label: "Labs", href: "#" },
-      { icon: "📝", label: "Results", href: "#" },
+      { icon: <Library size={16} />, label: "E-Library", href: "#" },
+      { icon: <FlaskConical size={16} />, label: "Labs", href: "#" },
+      { icon: <FileText size={16} />, label: "Results", href: "#" },
     ]},
   },
   {
@@ -101,9 +125,9 @@ const secondaryNavLinks: NavEntry[] = [
       ]},
     ],
     banner: { text: "Unlock Your Career Goals", items: [
-      { icon: "🏆", label: "Scholarships", href: "#" },
-      { icon: "💰", label: "Education Loan", href: "#" },
-      { icon: "📋", label: "CUET", href: "#" },
+      { icon: <Award size={16} />, label: "Scholarships", href: "#" },
+      { icon: <DollarSign size={16} />, label: "Education Loan", href: "#" },
+      { icon: <ClipboardCheck size={16} />, label: "CUET", href: "#" },
     ]},
   },
   {
@@ -124,9 +148,9 @@ const secondaryNavLinks: NavEntry[] = [
       ]},
     ],
     banner: { text: "Experience Campus Life", items: [
-      { icon: "🏠", label: "Hostels", href: "#" },
-      { icon: "⚽", label: "Sports", href: "#" },
-      { icon: "🎭", label: "Fests", href: "#" },
+      { icon: <Home size={16} />, label: "Hostels", href: "#" },
+      { icon: <Activity size={16} />, label: "Sports", href: "#" },
+      { icon: <Sparkles size={16} />, label: "Fests", href: "#" },
     ]},
   },
   {
@@ -148,9 +172,9 @@ const secondaryNavLinks: NavEntry[] = [
       ]},
     ],
     banner: { text: "Build Your Career", items: [
-      { icon: "💼", label: "Recruiters", href: "#" },
-      { icon: "📈", label: "Statistics", href: "#" },
-      { icon: "🌟", label: "Alumni", href: "#" },
+      { icon: <Briefcase size={16} />, label: "Recruiters", href: "#" },
+      { icon: <TrendingUp size={16} />, label: "Statistics", href: "#" },
+      { icon: <Users size={16} />, label: "Alumni", href: "#" },
     ]},
   },
   {
@@ -171,9 +195,9 @@ const secondaryNavLinks: NavEntry[] = [
       ]},
     ],
     banner: { text: "Innovate with Us", items: [
-      { icon: "🔬", label: "Research", href: "#" },
-      { icon: "🚀", label: "Startups", href: "#" },
-      { icon: "🌐", label: "Global Tie-ups", href: "#" },
+      { icon: <Microscope size={16} />, label: "Research", href: "#" },
+      { icon: <Rocket size={16} />, label: "Startups", href: "#" },
+      { icon: <Globe size={16} />, label: "Global Tie-ups", href: "#" },
     ]},
   },
 ];
@@ -190,10 +214,10 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const announcements = [
-    "🎓 Admissions Open 2025-26 — Apply Now for UG, PG & PhD Programs",
-    "🏆 Geeta University Ranked Among Top Universities in Haryana — NIRF 2024",
-    "📢 Joint Campus Placement Drive — 500+ Companies Visiting This Season",
-    "🌐 International Student Exchange Program Now Open for Applications",
+    "Admissions Open 2025-26 — Apply Now for UG, PG & PhD Programs",
+    "Geeta University Ranked Among Top Universities in Haryana — NIRF 2024",
+    "Joint Campus Placement Drive — 500+ Companies Visiting This Season",
+    "International Student Exchange Program Now Open for Applications",
   ];
 
   useEffect(() => {
@@ -801,7 +825,7 @@ export default function Navbar() {
               >
                 <button className={`gu-sec-link${isOpen ? " open" : ""}`} aria-haspopup="true" aria-expanded={isOpen}>
                   {link.label}
-                  <span className="gu-sec-chevron">▼</span>
+                  <span className="gu-sec-chevron"><ChevronDown size={11} /></span>
                 </button>
 
                 {isOpen && (
@@ -870,7 +894,7 @@ export default function Navbar() {
                 <div key={link.key} className="gu-mob-row">
                   <button className="gu-mob-btn" onClick={() => setMobileExpanded(isExpanded ? null : link.key)}>
                     <span>{link.label}</span>
-                    <span style={{ fontSize: "10px" }}>{isExpanded ? "▲" : "▼"}</span>
+                    <span>{isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}</span>
                   </button>
                   {isExpanded && (
                     <div className="gu-mob-sub">
@@ -895,7 +919,9 @@ export default function Navbar() {
       {searchOpen && (
         <div className="gu-search-overlay" onClick={() => setSearchOpen(false)}>
           <div className="gu-search-box" onClick={(e) => e.stopPropagation()}>
-            <button className="gu-search-close" onClick={() => setSearchOpen(false)}>✕</button>
+            <button className="gu-search-close" onClick={() => setSearchOpen(false)} aria-label="Close search">
+              <X size={18} />
+            </button>
             <input ref={searchRef} type="text" placeholder="Search programs, schools, events…" />
           </div>
         </div>

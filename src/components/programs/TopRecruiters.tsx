@@ -258,7 +258,7 @@ interface TopRecruitersProps {
 
 export default function TopRecruiters({
   title = "100+ Companies. Endless Possibilities.",
-  badgeText = "🏆 100+ Corporate Recruiters",
+  badgeText = "100+ Corporate Recruiters",
   recruiters,
   row1,
   row2,

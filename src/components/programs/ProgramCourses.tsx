@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, GraduationCap, Microscope, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { CourseCategory } from "@/data/programs/types";
 
@@ -212,8 +212,8 @@ export default function ProgramCourses({
                 }
               }}
             >
-              <div style={{ fontSize: 20, opacity: activeTab === idx ? 1 : 0.6 }}>
-                {idx === 0 ? "🎓" : idx === 1 ? "🔬" : "📚"}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", opacity: activeTab === idx ? 1 : 0.6 }}>
+                {idx === 0 ? <GraduationCap size={18} /> : idx === 1 ? <Microscope size={18} /> : <BookOpen size={18} />}
               </div>
               {cat.level}
             </button>

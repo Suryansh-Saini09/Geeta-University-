@@ -11,6 +11,11 @@ import {
   CheckCircle2,
   BookOpenCheck,
   Target,
+  Check,
+  Microscope,
+  BookOpen,
+  Award,
+  Compass,
 } from "lucide-react";
 
 
@@ -2297,7 +2302,7 @@ function LearningPhilosophySection() {
                 <ul className="spbsb-learning-list">
                   {edgePoints.map((point) => (
                     <li key={point}>
-                      <span className="spbsb-learning-check">✓</span>
+                      <span className="spbsb-learning-check"><Check size={14} /></span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -2315,7 +2320,7 @@ function LearningPhilosophySection() {
                 <ul className="spbsb-learning-list">
                   {thrustPoints.map((point) => (
                     <li key={point}>
-                      <span className="spbsb-learning-check">✓</span>
+                      <span className="spbsb-learning-check"><Check size={14} /></span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -2752,7 +2757,7 @@ function ProgrammesOfferedCseStyleSection() {
   const programmeGroups = [
     {
       level: "Postgraduate",
-      icon: "🎓",
+      icon: <GraduationCap size={18} />,
       items: [
         {
           program: "MBA (Master of Business Administration)",
@@ -2767,7 +2772,7 @@ function ProgrammesOfferedCseStyleSection() {
     },
     {
       level: "Doctoral",
-      icon: "🔬",
+      icon: <Microscope size={18} />,
       items: [
         {
           program: "Ph.D. in Management",
@@ -2782,7 +2787,7 @@ function ProgrammesOfferedCseStyleSection() {
     },
     {
       level: "Specialisations",
-      icon: "📚",
+      icon: <BookOpen size={18} />,
       items: [
         {
           program: "AI for Business",
@@ -2828,7 +2833,7 @@ function ProgrammesOfferedCseStyleSection() {
     },
     {
       level: "Certifications",
-      icon: "🏅",
+      icon: <Award size={18} />,
       items: [
         {
           program: "Cyber Security from EC Council",
@@ -2844,7 +2849,7 @@ function ProgrammesOfferedCseStyleSection() {
     },
     {
       level: "Workshops",
-      icon: "🧭",
+      icon: <Compass size={18} />,
       items: [
         {
           program: "Value-added Workshops & Exposure",
@@ -2960,7 +2965,7 @@ function ProgrammesOfferedCseStyleSection() {
                 }
               }}
             >
-              <span style={{ fontSize: 20, opacity: activeTab === idx ? 1 : 0.6 }}>{cat.icon}</span>
+              <span style={{ display: "flex", alignItems: "center", opacity: activeTab === idx ? 1 : 0.6 }}>{cat.icon}</span>
               {cat.level}
             </button>
           ))}

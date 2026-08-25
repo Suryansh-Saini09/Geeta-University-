@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import type { DepartmentHighlightItem } from "@/data/programs/types";
 
@@ -207,9 +208,13 @@ export default function DepartmentHighlights({
                           color: "#E8871A",
                           textTransform: "uppercase",
                           letterSpacing: 1,
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: 6,
                         }}
                       >
-                        Read More →
+                        Read More
+                        <ArrowRight size={14} />
                       </span>
                     </div>
                   </div>

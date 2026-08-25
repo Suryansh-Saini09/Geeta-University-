@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 type Program = {
@@ -626,12 +627,12 @@ export default function HomeProgramsSection() {
 
                           {/* Arrow hidden by default, visible on hover */}
                           <span
-                            className="ml-auto hidden text-lg opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 sm:block"
+                            className="ml-auto hidden opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 sm:flex items-center"
                             style={{
                               color: "var(--gu-gold)",
                             }}
                           >
-                            →
+                            <ArrowRight size={16} />
                           </span>
                         </button>
                       );
@@ -727,12 +728,12 @@ export default function HomeProgramsSection() {
 
                             {isLink && (
                               <span
-                                className="text-lg opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100"
+                                className="opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 flex items-center"
                                 style={{
                                   color: "var(--gu-gold)",
                                 }}
                               >
-                                →
+                                <ArrowRight size={16} />
                               </span>
                             )}
                           </>

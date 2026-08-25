@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { homeFeedback } from "@/data/homeFeedback";
 
 const DESKTOP_SLIDES = 3;
@@ -174,9 +175,9 @@ export default function HomeFeedbackSection() {
             type="button"
             onClick={previousSlide}
             aria-label="Previous student stories"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-xl text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white"
           >
-            ←
+            <ChevronLeft size={20} />
           </button>
 
           <div className="flex items-center gap-2">
@@ -199,9 +200,9 @@ export default function HomeFeedbackSection() {
             type="button"
             onClick={nextSlide}
             aria-label="Next student stories"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-xl text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white"
           >
-            →
+            <ChevronRight size={20} />
           </button>
         </div>
 

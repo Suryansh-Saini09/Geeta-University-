@@ -464,27 +464,27 @@ export const forensicSciencesSchool: ProgramPageData = {
       {
         title: "Forensic Biology & DNA Profiling Lab",
         desc: "Advanced facility for serological testing, blood pattern identification, DNA isolation, and molecular characterization.",
-        icon: "🔬",
+        icon: "",
       },
       {
         title: "Toxicology & Chemical Analysis Lab",
         desc: "High-precision instrumentation suite for drug screening, poisonous substance detection, and trace chemical analysis.",
-        icon: "🧪",
+        icon: "",
       },
       {
         title: "Fingerprint & Ballistics Examination Lab",
         desc: "Equipped for latent print development, firearm comparison microscopy, cartridge case analysis, and document forgery detection.",
-        icon: "🎯",
+        icon: "",
       },
       {
         title: "Mock Crime Scene Simulation Arena",
         desc: "Dedicated indoor and outdoor simulated crime zones where students execute real-time evidence recovery, packaging, and crime scene sketching.",
-        icon: "🏛️",
+        icon: "",
       },
       {
         title: "Cyber Forensics & Digital Investigation Cell",
         desc: "Hardware write-blockers, forensic imaging software, and mobile extraction suites to investigate modern digital cybercrimes.",
-        icon: "💻",
+        icon: "",
       },
     ],
     gallery: [
@@ -533,25 +533,25 @@ export const forensicSciencesSchool: ProgramPageData = {
         area: "Government Forensic Laboratories (FSL / CFSL)",
         pathway:
           "Conduct official scientific examinations for judicial proceedings in state and central forensic laboratories, CBI, CID, and intelligence bureaus.",
-        icon: "🏛️",
+        icon: "",
       },
       {
         area: "Corporate Risk, Fraud & Financial Crime Investigation",
         pathway:
           "Join top multinational consulting firms (Big 4) and banking institutions to investigate internal fraud, compliance breaches, and financial anomalies.",
-        icon: "💼",
+        icon: "",
       },
       {
         area: "Cyber Forensics & Digital Incident Response",
         pathway:
           "Work with cyber defense units, tech giants, and security consultancies to uncover digital intrusion sources, ransomware attacks, and intellectual property theft.",
-        icon: "🛡️",
+        icon: "",
       },
       {
         area: "Pharmaceutical, Chemical & Research Laboratories",
         pathway:
           "Apply analytical toxicology, quality assurance, and chemical characterization in pharmaceutical R&D, clinical testing, and academic institutions.",
-        icon: "🔬",
+        icon: "",
       },
     ],
     notableRoles: [

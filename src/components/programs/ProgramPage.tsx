@@ -65,7 +65,7 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       {/* 2. TOP RECRUITERS MARQUEE (Only if recruiters data is provided for this school) */}
       <TopRecruiters
         title="100+ Companies. Endless Possibilities."
-        badgeText="🏆 Top Industry Recruiters"
+        badgeText="Top Industry Recruiters"
         recruiters={pageData.placement?.recruiters}
       />
 

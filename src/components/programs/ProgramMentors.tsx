@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import { ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { FacultyMember } from "@/data/programs/types";
 
@@ -191,11 +192,13 @@ export default function ProgramMentors({
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
+                          gap: 6,
                           cursor: "pointer",
                           width: "100%",
                         }}
                       >
-                        → Read More
+                        Read More
+                        <ArrowRight size={14} />
                       </button>
                     </div>
                   </div>
@@ -334,8 +337,9 @@ export default function ProgramMentors({
                     e.currentTarget.style.background = "#F1F5F9";
                     e.currentTarget.style.color = "#64748B";
                   }}
+                  aria-label="Close mentor details"
                 >
-                  ✕
+                  <X size={16} />
                 </button>
 
                 {/* Profile Image */}

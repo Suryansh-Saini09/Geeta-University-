@@ -2,7 +2,64 @@
 
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import {
+  Code2,
+  Globe,
+  BrainCircuit,
+  ShieldCheck,
+  Scale,
+  TrendingUp,
+  Briefcase,
+  Stethoscope,
+  Building2,
+  Utensils,
+  GraduationCap,
+  Laptop,
+  BookOpen,
+  Layers,
+  Award,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import type { PathwayCardItem, NotableRoleItem } from "@/data/programs/types";
+
+function renderPathwayIcon(item: PathwayCardItem) {
+  const text = (item.area + " " + item.pathway).toLowerCase();
+  if (text.includes("moot") || text.includes("court") || text.includes("litigation") || text.includes("judic") || text.includes("law") || text.includes("jag") || text.includes("adr") || text.includes("arbitrat")) {
+    return <Scale size={24} color="#0A1F44" />;
+  }
+  if (text.includes("forensic") || text.includes("cyber") || text.includes("security") || text.includes("ballistic") || text.includes("investigat") || text.includes("ipr")) {
+    return <ShieldCheck size={24} color="#0A1F44" />;
+  }
+  if (text.includes("ai") || text.includes("machine learning") || text.includes("intelligence") || text.includes("robot")) {
+    return <BrainCircuit size={24} color="#0A1F44" />;
+  }
+  if (text.includes("full stack") || text.includes("web") || text.includes("global") || text.includes("international") || text.includes("export")) {
+    return <Globe size={24} color="#0A1F44" />;
+  }
+  if (text.includes("software") || text.includes("programming") || text.includes("coding") || text.includes("developer")) {
+    return <Code2 size={24} color="#0A1F44" />;
+  }
+  if (text.includes("cloud") || text.includes("network") || text.includes("system")) {
+    return <Laptop size={24} color="#0A1F44" />;
+  }
+  if (text.includes("data") || text.includes("analytics") || text.includes("finance") || text.includes("banking") || text.includes("fintech") || text.includes("trading") || text.includes("market")) {
+    return <TrendingUp size={24} color="#0A1F44" />;
+  }
+  if (text.includes("pharma") || text.includes("clinical") || text.includes("hospital") || text.includes("health") || text.includes("diet") || text.includes("medical") || text.includes("patient")) {
+    return <Stethoscope size={24} color="#0A1F44" />;
+  }
+  if (text.includes("culinary") || text.includes("hotel") || text.includes("hospitality") || text.includes("food") || text.includes("chef") || text.includes("beverage") || text.includes("catering")) {
+    return <Utensils size={24} color="#0A1F44" />;
+  }
+  if (text.includes("research") || text.includes("m.tech") || text.includes("ph.d") || text.includes("higher study") || text.includes("academic")) {
+    return <GraduationCap size={24} color="#0A1F44" />;
+  }
+  if (text.includes("corporate") || text.includes("management") || text.includes("consult") || text.includes("business") || text.includes("hr") || text.includes("startup") || text.includes("entrepreneur")) {
+    return <Briefcase size={24} color="#0A1F44" />;
+  }
+  return <Award size={24} color="#0A1F44" />;
+}
 
 function getRoleIcon(name: string) {
   const n = name.toLowerCase();
@@ -179,7 +236,7 @@ export default function CareerPathways({
                       marginBottom: 24,
                     }}
                   >
-                    {item.icon}
+                    {renderPathwayIcon(item)}
                   </div>
 
                   <h3

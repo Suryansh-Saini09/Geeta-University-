@@ -501,42 +501,42 @@ export const hospitalitySchool: ProgramPageData = {
       {
         title: "Basic & Advanced Training Kitchens",
         desc: "Equipped with commercial culinary workstations, high-flame burners, and modern cooking appliances.",
-        icon: "🍳",
+        icon: "",
       },
       {
         title: "Bakery & Confectionery Studio",
         desc: "Dedicated temperature-controlled zone for pastry making, chocolate tempering, and baking science.",
-        icon: "🥐",
+        icon: "",
       },
       {
         title: "Training Restaurant & Mock Bar",
         desc: "Fine-dining simulation space with banquet setup, gueridon service trolleys, and beverage service counters.",
-        icon: "🍷",
+        icon: "",
       },
       {
         title: "Front Office Simulation Lab",
         desc: "Industry-standard Property Management System (PMS) software stations and reception desk setup.",
-        icon: "🏨",
+        icon: "",
       },
       {
         title: "Model Guest Suite & Housekeeping Lab",
         desc: "Full replica of luxury hotel suite designed for interior maintenance, linen management, and room inspection training.",
-        icon: "🛏️",
+        icon: "",
       },
       {
         title: "Food & Beverage Analysis Lab",
         desc: "Food technology testing equipment for quality assurance, nutritional analysis, and hygiene audits.",
-        icon: "🔬",
+        icon: "",
       },
       {
         title: "Smart Hybrid Classrooms",
         desc: "Interactive multimedia-equipped lecture halls for hospitality case studies and guest lectures.",
-        icon: "🎓",
+        icon: "",
       },
       {
         title: "Event & Banquet Arena",
         desc: "Expansive hall for hosting real university banquets, themed culinary festivals, and hospitality summits.",
-        icon: "🎉",
+        icon: "",
       },
     ],
     gallery: [
@@ -568,37 +568,37 @@ export const hospitalitySchool: ProgramPageData = {
       {
         area: "Five-Star Hotel & Resort Operations",
         pathway: "General management, front office direction, housekeeping management, and luxury guest relations.",
-        icon: "🏨",
+        icon: "",
       },
       {
         area: "Culinary Arts & Master Chef Careers",
         pathway: "Executive chef, pastry chef, sous chef, and specialized international cuisine mastery.",
-        icon: "👨‍🍳",
+        icon: "",
       },
       {
         area: "Food & Beverage Management",
         pathway: "Restaurant management, bar supervision, banquet catering, and wine curation.",
-        icon: "🍽️",
+        icon: "",
       },
       {
         area: "Luxury Cruise Liners & Aviation",
         pathway: "High-paying hospitality roles aboard international cruise ships, VIP airline lounges, and flight services.",
-        icon: "🚢",
+        icon: "",
       },
       {
         area: "Event, Wedding & Convention Planning",
         pathway: "Destination wedding planning, MICE event coordination, and mega-banquet management.",
-        icon: "🎪",
+        icon: "",
       },
       {
         area: "Food Entrepreneurship & Cloud Kitchens",
         pathway: "Launching bespoke restaurant chains, cloud kitchen networks, and culinary ventures.",
-        icon: "🚀",
+        icon: "",
       },
       {
         area: "Higher Study & Hospitality Research",
         pathway: "Master's and Ph.D. pathways in sustainable tourism policy, international hospitality law, and academia.",
-        icon: "📚",
+        icon: "",
       },
     ],
     notableRoles: [

@@ -11,7 +11,21 @@ import {
   Briefcase,
   Terminal,
   ExternalLink,
-  BookOpen
+  BookOpen,
+  GraduationCap,
+  Microscope,
+  Bot,
+  ShieldCheck,
+  BarChart3,
+  Globe,
+  Atom,
+  Cloud,
+  Laptop,
+  Lightbulb,
+  Search,
+  X,
+  Cpu,
+  Sparkles,
 } from "lucide-react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import LearningOutcomes from "@/components/sections/LearningOutcomes";
@@ -84,12 +98,12 @@ const FACULTY: FacultyMember[] = [
 ];
 
 const SPECIALIZATIONS: Specialization[] = [
-  { icon: "🤖", title: "AI & Machine Learning", desc: "Intelligent systems, data-driven decision-making, and modern AI/ML applications." },
-  { icon: "🔒", title: "Cyber Security", desc: "Secure systems, cyber hygiene, and security-oriented technical foundations." },
-  { icon: "📊", title: "Data Science & Analytics", desc: "Data analysis connected with business insight and industry-linked skill development with HCL." },
-  { icon: "🌐", title: "Full Stack Development", desc: "End-to-end web application development through hands-on MEAN/MERN stack learning." },
-  { icon: "⚛", title: "Quantum Computing", desc: "Exposure to frontier computing and future-oriented technology at the cutting edge." },
-  { icon: "☁", title: "Cloud Computing", desc: "Cloud labs, certification tracks with AWS, Azure, Red Hat Academy and more." },
+  { icon: "Bot", title: "AI & Machine Learning", desc: "Intelligent systems, data-driven decision-making, and modern AI/ML applications." },
+  { icon: "ShieldCheck", title: "Cyber Security", desc: "Secure systems, cyber hygiene, and security-oriented technical foundations." },
+  { icon: "BarChart3", title: "Data Science & Analytics", desc: "Data analysis connected with business insight and industry-linked skill development with HCL." },
+  { icon: "Globe", title: "Full Stack Development", desc: "End-to-end web application development through hands-on MEAN/MERN stack learning." },
+  { icon: "Atom", title: "Quantum Computing", desc: "Exposure to frontier computing and future-oriented technology at the cutting edge." },
+  { icon: "Cloud", title: "Cloud Computing", desc: "Cloud labs, certification tracks with AWS, Azure, Red Hat Academy and more." },
 ];
 
 const CERTIFICATIONS = [
@@ -556,7 +570,7 @@ function TopRecruiters() {
           color: "#FFFFFF", fontWeight: 700, fontSize: 13, letterSpacing: 0.4,
           textShadow: "0 1px 4px rgba(0,0,0,0.15)",
         }}>
-          🏆 &nbsp;100+ Corporate Recruiters
+          100+ Corporate Recruiters
         </span>
       </div>
     </section>
@@ -1740,11 +1754,13 @@ function MentorsSection() {
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
+                          gap: 6,
                           cursor: "pointer",
                           width: "100%",
                         }}
                       >
-                        → Read More
+                        Read More
+                        <ArrowRight size={14} />
                       </button>
                     </div>
                   </div>
@@ -1839,8 +1855,9 @@ function MentorsSection() {
                   }}
                   onMouseEnter={e => { e.currentTarget.style.background = "#E2E8F0"; e.currentTarget.style.color = "#0F172A"; }}
                   onMouseLeave={e => { e.currentTarget.style.background = "#F1F5F9"; e.currentTarget.style.color = "#64748B"; }}
+                  aria-label="Close modal"
                 >
-                  ✕
+                  <X size={16} />
                 </button>
 
                 {/* Profile Image */}
@@ -2077,7 +2094,9 @@ function ProgramsOfferedSection() {
                 }
               }}
             >
-              <div style={{ fontSize: 20, opacity: activeTab === idx ? 1 : 0.6 }}>{idx === 0 ? "🎓" : idx === 1 ? "🔬" : "📚"}</div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", opacity: activeTab === idx ? 1 : 0.6 }}>
+                {idx === 0 ? <GraduationCap size={18} /> : idx === 1 ? <Microscope size={18} /> : <BookOpen size={18} />}
+              </div>
               {cat.level}
             </button>
           ))}
@@ -2493,7 +2512,10 @@ function DepartmentHighlightsSection() {
                       {item.desc}
                     </p>
                     <div style={{ marginTop: 20 }}>
-                      <span style={{ fontSize: 13, fontWeight: 700, color: "#E8871A", textTransform: "uppercase", letterSpacing: 1 }}>Read More →</span>
+                      <span style={{ fontSize: 13, fontWeight: 700, color: "#E8871A", textTransform: "uppercase", letterSpacing: 1, display: "inline-flex", alignItems: "center", gap: 6 }}>
+                        Read More
+                        <ArrowRight size={14} />
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -2521,14 +2543,14 @@ function DepartmentHighlightsSection() {
 
 function LearningSpacesSection() {
   const spaces = [
-    { title: "AI Labs", desc: "Advanced neural networks, machine learning models, and robotics setup.", icon: "🤖" },
-    { title: "IoT Labs", desc: "Embedded systems, sensor networks, and smart automation hardware.", icon: "🔌" },
-    { title: "Cloud Labs", desc: "Industry-aligned platform training using AWS and Azure clouds.", icon: "☁️" },
-    { title: "Cyber Security Labs", desc: "Network defense, vulnerability analysis, and digital forensics.", icon: "🔒" },
-    { title: "Coding Labs", desc: "High-end development systems optimized for DSA and coding practice.", icon: "💻" },
-    { title: "Project Studios", desc: "Collaborative workspaces dedicated to real-world product delivery.", icon: "🎨" },
-    { title: "Smart Classrooms", desc: "Multimedia-equipped interactive classrooms for hybrid learning.", icon: "🎓" },
-    { title: "Innovation Spaces", desc: "Open research labs and ideation zones for incubator startups.", icon: "🚀" }
+    { title: "AI Labs", desc: "Advanced neural networks, machine learning models, and robotics setup.", icon: <Bot size={26} /> },
+    { title: "IoT Labs", desc: "Embedded systems, sensor networks, and smart automation hardware.", icon: <Cpu size={26} /> },
+    { title: "Cloud Labs", desc: "Industry-aligned platform training using AWS and Azure clouds.", icon: <Cloud size={26} /> },
+    { title: "Cyber Security Labs", desc: "Network defense, vulnerability analysis, and digital forensics.", icon: <ShieldCheck size={26} /> },
+    { title: "Coding Labs", desc: "High-end development systems optimized for DSA and coding practice.", icon: <Code2 size={26} /> },
+    { title: "Project Studios", desc: "Collaborative workspaces dedicated to real-world product delivery.", icon: <Lightbulb size={26} /> },
+    { title: "Smart Classrooms", desc: "Multimedia-equipped interactive classrooms for hybrid learning.", icon: <GraduationCap size={26} /> },
+    { title: "Innovation Spaces", desc: "Open research labs and ideation zones for incubator startups.", icon: <Sparkles size={26} /> }
   ];
 
   const galleryImages = [
@@ -2719,44 +2741,44 @@ function LearningSpacesSection() {
 interface PathwayItem {
   area: string;
   pathway: string;
-  icon: string;
+  icon: React.ReactNode;
 }
 
 const PATHWAYS: PathwayItem[] = [
   {
     area: "Core Computer Science & Engineering",
     pathway: "Software development, programming, systems-oriented technical roles, and applied computing careers",
-    icon: "💻"
+    icon: <Code2 size={24} color="#0A1F44" />
   },
   {
     area: "Full Stack Web Development",
     pathway: "Web developer and full stack application development roles",
-    icon: "🌐"
+    icon: <Globe size={24} color="#0A1F44" />
   },
   {
     area: "AI & Machine Learning",
     pathway: "Intelligent systems, machine learning applications, and analytics-led technology roles",
-    icon: "🤖"
+    icon: <Bot size={24} color="#0A1F44" />
   },
   {
     area: "Cyber Security",
     pathway: "Security-focused technical pathways supported by cybersecurity training and certifications",
-    icon: "🔒"
+    icon: <ShieldCheck size={24} color="#0A1F44" />
   },
   {
     area: "Data Science & Business Analytics",
     pathway: "Data-oriented and business insight roles connected with analytics-led learning",
-    icon: "📊"
+    icon: <BarChart3 size={24} color="#0A1F44" />
   },
   {
     area: "Cloud & Certification-Linked Training",
     pathway: "Technical roles requiring cloud, platform, and tool familiarity",
-    icon: "☁️"
+    icon: <Cloud size={24} color="#0A1F44" />
   },
   {
     area: "Higher Study / Research",
     pathway: "M.Tech, MCA, and Ph.D. pathways for advanced academic or research progression",
-    icon: "🔬"
+    icon: <GraduationCap size={24} color="#0A1F44" />
   }
 ];
 
@@ -3441,7 +3463,9 @@ function FAQSection() {
             </div>
           ) : (
             <div style={{ textAlign: "center", padding: "48px 24px", background: "#FFFFFF", borderRadius: "16px", border: "1px dashed #CBD5E1" }}>
-              <div style={{ fontSize: "40px", marginBottom: 16 }}>🔍</div>
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
+                <Search size={40} color="#94A3B8" />
+              </div>
               <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#0A1F44", margin: "0 0 8px" }}>No Results Found</h3>
               <p style={{ color: "#64748B", fontSize: "14px", margin: 0 }}>
                 We couldn't find any questions matching "{searchTerm}". Try another search term or clear the filter.
@@ -3820,8 +3844,9 @@ export default function Page() {
         <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 15, marginBottom: 28 }}>Admissions Open for Session 2026–27 · Apply now or download the brochure for more details.</p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <a href="https://admissions.geetauniversity.edu.in/" target="_blank" rel="noreferrer"
-            style={{ background: "#0A1F44", color: "white", padding: "14px 32px", borderRadius: 6, fontWeight: 700, fontSize: 14, textDecoration: "none" }}>
-            Apply Now →
+            style={{ background: "#0A1F44", color: "white", padding: "14px 32px", borderRadius: 6, fontWeight: 700, fontSize: 14, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
+            Apply Now
+            <ArrowRight size={16} />
           </a>
           <a href="/cse brochure.pdf" download="SCSE_Brochure.pdf"
             style={{ background: "white", color: "#E8871A", border: "none", padding: "14px 28px", borderRadius: 6, fontWeight: 700, fontSize: 14, cursor: "pointer", textDecoration: "none", display: "inline-block" }}>

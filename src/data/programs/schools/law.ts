@@ -371,32 +371,32 @@ export const lawSchool: ProgramPageData = {
       {
         title: "Full-Fledged Moot Court Hall",
         desc: "Dedicated mock courtroom with judge dais, witness box, counsel lecterns, and acoustic sound systems for national and intra-university competitions.",
-        icon: "🏛️",
+        icon: "",
       },
       {
         title: "Legal Aid & Community Outreach Clinic",
         desc: "Active clinical facility where students assist senior advocates in providing pro-bono legal awareness and advice to local communities.",
-        icon: "⚖️",
+        icon: "",
       },
       {
         title: "Digital Legal Research Suite",
         desc: "High-speed computer lab with direct subscriptions to SCC Online, Manupatra, LexisNexis, AIR, and Westlaw.",
-        icon: "💻",
+        icon: "",
       },
       {
         title: "Law & Jurisprudence Library",
         desc: "Thousands of law reports, bare acts, central acts, international treaties, constitutional commentaries, and indexed law journals.",
-        icon: "📚",
+        icon: "",
       },
       {
         title: "ADR & Mediation Simulation Room",
         desc: "Specialized roundtable setup designed for Alternate Dispute Resolution, commercial arbitration, and client negotiation simulations.",
-        icon: "🤝",
+        icon: "",
       },
       {
         title: "Forensic Evidence & Cyber Law Lab",
         desc: "Interdisciplinary training lab for understanding digital evidence examination, cyber crime forensics, and ballistics analysis.",
-        icon: "🔍",
+        icon: "",
       },
     ],
     gallery: [
@@ -434,49 +434,49 @@ export const lawSchool: ProgramPageData = {
         area: "Litigation & Trial Advocacy",
         pathway:
           "Practicing as an advocate before the Supreme Court of India, High Courts, District Courts, and Specialized Tribunals.",
-        icon: "⚖️",
+        icon: "",
       },
       {
         area: "Corporate Counsel & Law Firms",
         pathway:
           "Advising Fortune 500 companies and top law firms on M&A, cross-border joint ventures, contracts, and regulatory compliance.",
-        icon: "🏢",
+        icon: "",
       },
       {
         area: "Judicial Services & Public Prosecution",
         pathway:
           "Serving as Civil Judges, Magistrates, and Public Prosecutors through State Judicial Services Examination.",
-        icon: "🏛️",
+        icon: "",
       },
       {
         area: "Legal Officer in PSUs & Armed Forces (JAG)",
         pathway:
           "Joining public sector undertakings (PSUs), nationalized banks, or the Judge Advocate General (JAG) branch of the Indian Army.",
-        icon: "🛡️",
+        icon: "",
       },
       {
         area: "Intellectual Property & Cyber Law",
         pathway:
           "Protecting patents, trademarks, copyrights, and managing cyber crime cases, data privacy, and IT Act compliance.",
-        icon: "🔐",
+        icon: "",
       },
       {
         area: "Alternate Dispute Resolution (ADR)",
         pathway:
           "Practicing as international arbitrators, commercial mediators, and conciliation experts in commercial disputes.",
-        icon: "🤝",
+        icon: "",
       },
       {
         area: "Legal Consultancy & Entrepreneurship",
         pathway:
           "Founding specialized legal advisory boutiques, legal tech startups, or consulting for multinational NGOs and think tanks.",
-        icon: "💡",
+        icon: "",
       },
       {
         area: "Legal Academia & Research",
         pathway:
           "Pursuing LL.M., Ph.D., and prestigious academic fellowships to teach and publish in global law faculties.",
-        icon: "🎓",
+        icon: "",
       },
     ],
     notableRoles: [

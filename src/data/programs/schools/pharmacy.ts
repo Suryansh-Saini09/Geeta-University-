@@ -370,42 +370,42 @@ export const pharmacySchool: ProgramPageData = {
       {
         title: "Pharmaceutics & Dosage Form Lab",
         desc: "Equipped for tablet compression, coating, capsule filling, liquid orals, and novel drug delivery system development.",
-        icon: "💊",
+        icon: "",
       },
       {
         title: "Central Instrumentation Lab (HPLC/FTIR/UV-Vis)",
         desc: "Advanced analytical hub featuring High-Performance Liquid Chromatography, FTIR, and double-beam spectrophotometers.",
-        icon: "🔬",
+        icon: "",
       },
       {
         title: "Pharmacology & Computer Simulated Lab",
         desc: "State-of-the-art animal simulator software, bio-assays, and clinical toxicity evaluation setup.",
-        icon: "🧪",
+        icon: "",
       },
       {
         title: "Pharmaceutical Chemistry & Synthesis Lab",
         desc: "Equipped for API synthesis, reaction monitoring, drug purity testing, and molecular modeling.",
-        icon: "⚗️",
+        icon: "",
       },
       {
         title: "Pharmacognosy & Phytomedicine Lab",
         desc: "Herbal extraction units, Soxhlet apparatus, botanical microscopes, and natural drug standardization tools.",
-        icon: "🌿",
+        icon: "",
       },
       {
         title: "Industrial Machine Room & Pilot Plant",
         desc: "Heavy machinery including rotary tablet press, dissolution testers, disintegration units, and fluidized bed dryers.",
-        icon: "⚙️",
+        icon: "",
       },
       {
         title: "Aseptic & Microbiology Room",
         desc: "Laminar airflow hoods, autoclave units, and clean-room sterile facilities for parenteral formulation.",
-        icon: "🛡️",
+        icon: "",
       },
       {
         title: "Hospital & Community Model Pharmacy",
         desc: "Simulated hospital pharmacy counter with electronic dispensing software and patient counseling zones.",
-        icon: "🏥",
+        icon: "",
       },
     ],
     gallery: [
@@ -437,37 +437,37 @@ export const pharmacySchool: ProgramPageData = {
       {
         area: "Drug Formulation & Industrial R&D",
         pathway: "Pre-formulation, dosage design, product development, and pilot plant scale-up in pharmaceutical MNCs.",
-        icon: "💊",
+        icon: "",
       },
       {
         area: "Quality Assurance & Quality Control (QA/QC)",
         pathway: "Instrumental analysis, stability testing, pharmacopeial compliance, and Good Laboratory Practices (GLP).",
-        icon: "🔬",
+        icon: "",
       },
       {
         area: "Clinical Research & Pharmacovigilance",
         pathway: "Managing clinical trials, monitoring adverse drug reactions (ADRs), and drug safety surveillance.",
-        icon: "📋",
+        icon: "",
       },
       {
         area: "Hospital & Clinical Pharmacy",
         pathway: "Direct patient counseling, inpatient medication management, and hospital healthcare team collaboration.",
-        icon: "🏥",
+        icon: "",
       },
       {
         area: "Drug Regulatory Affairs & Patent Filing",
         pathway: "CDSCO, US-FDA, and EMA regulatory dossier preparation, Drug Master Files (DMF), and pharmaceutical IPR.",
-        icon: "⚖️",
+        icon: "",
       },
       {
         area: "Government Drug Inspector & Public Health",
         pathway: "Government drug control administration, food & drug testing laboratories, and public health policy.",
-        icon: "🏛️",
+        icon: "",
       },
       {
         area: "Higher Studies & Pharmaceutical Research",
         pathway: "M.Pharm, MBA in Pharma Management, and Ph.D. research fellowships in drug discovery.",
-        icon: "🎓",
+        icon: "",
       },
     ],
     notableRoles: [

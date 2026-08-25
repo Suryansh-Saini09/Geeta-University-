@@ -2,7 +2,72 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import {
+  FlaskConical,
+  Microscope,
+  Scale,
+  Landmark,
+  Laptop,
+  BookOpen,
+  Building2,
+  TrendingUp,
+  Utensils,
+  Stethoscope,
+  Lightbulb,
+  ShieldCheck,
+  Users,
+  BrainCircuit,
+  Hotel,
+  Sparkles,
+  Layers,
+  ChefHat,
+  Cpu,
+} from "lucide-react";
 import type { LearningSpaceItem, GalleryShowcaseItem } from "@/data/programs/types";
+
+function renderSpaceIcon(space: LearningSpaceItem) {
+  const t = (space.title + " " + (space.icon || "")).toLowerCase();
+  if (t.includes("moot") || t.includes("court") || t.includes("legal") || t.includes("jurisprudence")) {
+    return <Scale size={26} />;
+  }
+  if (t.includes("microbiol") || t.includes("microscope")) {
+    return <Microscope size={26} />;
+  }
+  if (t.includes("chem") || t.includes("lab") || t.includes("food analysis") || t.includes("biochem") || t.includes("pharma")) {
+    return <FlaskConical size={26} />;
+  }
+  if (t.includes("clinic") || t.includes("patient") || t.includes("health") || t.includes("diet") || t.includes("hospital")) {
+    return <Stethoscope size={26} />;
+  }
+  if (t.includes("computer") || t.includes("coding") || t.includes("digital") || t.includes("research suite") || t.includes("software")) {
+    return <Laptop size={26} />;
+  }
+  if (t.includes("kitchen") || t.includes("cookery") || t.includes("culinary") || t.includes("restaurant") || t.includes("sensory") || t.includes("food")) {
+    return <Utensils size={26} />;
+  }
+  if (t.includes("hotel") || t.includes("suite") || t.includes("front office") || t.includes("guest") || t.includes("housekeeping")) {
+    return <Hotel size={26} />;
+  }
+  if (t.includes("library") || t.includes("book") || t.includes("reading") || t.includes("documentation")) {
+    return <BookOpen size={26} />;
+  }
+  if (t.includes("trading") || t.includes("analytics") || t.includes("fintech") || t.includes("finance") || t.includes("chart") || t.includes("market")) {
+    return <TrendingUp size={26} />;
+  }
+  if (t.includes("adr") || t.includes("mediation") || t.includes("counsel") || t.includes("boardroom") || t.includes("collab") || t.includes("conference")) {
+    return <Users size={26} />;
+  }
+  if (t.includes("security") || t.includes("forensic") || t.includes("cyber") || t.includes("defense") || t.includes("ballistics")) {
+    return <ShieldCheck size={26} />;
+  }
+  if (t.includes("ai") || t.includes("iot") || t.includes("cloud") || t.includes("robotics") || t.includes("quantum")) {
+    return <BrainCircuit size={26} />;
+  }
+  if (t.includes("incubator") || t.includes("studio") || t.includes("innovation") || t.includes("startup") || t.includes("project")) {
+    return <Lightbulb size={26} />;
+  }
+  return <Building2 size={26} />;
+}
 
 interface LearningSpacesProps {
   title?: string;
@@ -91,7 +156,6 @@ export default function LearningSpaces({
             >
               <div
                 style={{
-                  fontSize: "28px",
                   marginBottom: "16px",
                   background: "rgba(232, 135, 26, 0.08)",
                   width: "56px",
@@ -103,7 +167,7 @@ export default function LearningSpaces({
                   color: "#E8871A",
                 }}
               >
-                {space.icon}
+                {renderSpaceIcon(space)}
               </div>
               <h3 style={{ fontSize: "18px", fontWeight: 800, color: "#0A1F44", margin: "0 0 8px" }}>
                 {space.title}

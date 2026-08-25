@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { starPerformances } from "@/data/starPerformances";
 
 export default function StarPerformancesSection() {
@@ -76,8 +77,8 @@ export default function StarPerformancesSection() {
 
             <span>Click Here to Watch Video</span>
 
-            <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
-              →
+            <span className="transition-transform duration-300 group-hover:translate-x-1 flex items-center">
+              <ArrowRight size={16} />
             </span>
           </a>
         </div>
