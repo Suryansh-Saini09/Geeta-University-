@@ -138,26 +138,7 @@ const secondaryNavLinks: NavEntry[] = [
   {
     label: "PLACEMENTS",
     key: "placements",
-    cols: [
-      { heading: "PLACEMENT CELL", links: [
-        { label: "Placement Cell", href: "#" },
-        { label: "Top Recruiters", href: "#" },
-        { label: "Placement Statistics", href: "#" },
-        { label: "Industry Connect", href: "#" },
-        { label: "Internship Programs", href: "#" },
-      ]},
-      { heading: "ACHIEVEMENTS", links: [
-        { label: "Highest Package", href: "#" },
-        { label: "Alumni Success Stories", href: "#" },
-        { label: "MoU Partners", href: "#" },
-        { label: "Career Guidance", href: "#" },
-      ]},
-    ],
-    banner: { text: "Build Your Career", items: [
-      { icon: <Briefcase size={16} />, label: "Recruiters", href: "#" },
-      { icon: <TrendingUp size={16} />, label: "Statistics", href: "#" },
-      { icon: <Users size={16} />, label: "Alumni", href: "#" },
-    ]},
+    href: "/placements",
   },
   {
     label: "RESEARCH & INNOVATION",
