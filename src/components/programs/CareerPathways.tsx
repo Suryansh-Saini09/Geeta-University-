@@ -23,6 +23,7 @@ import {
   Sprout,
   Tractor,
   Leaf,
+  Users,
 } from "lucide-react";
 import type { PathwayCardItem, NotableRoleItem } from "@/data/programs/types";
 
@@ -57,6 +58,15 @@ function renderPathwayIcon(item: PathwayCardItem) {
   }
   if (text.includes("culinary") || text.includes("hotel") || text.includes("hospitality") || text.includes("food") || text.includes("chef") || text.includes("beverage") || text.includes("catering")) {
     return <Utensils size={24} color="#0A1F44" />;
+  }
+  if (text.includes("psycholog") || text.includes("mental health") || text.includes("counsel") || text.includes("therapy") || text.includes("behavior")) {
+    return <BrainCircuit size={24} color="#0A1F44" />;
+  }
+  if (text.includes("policy") || text.includes("civil service") || text.includes("upsc") || text.includes("govern") || text.includes("administr") || text.includes("diplomacy")) {
+    return <Scale size={24} color="#0A1F44" />;
+  }
+  if (text.includes("social work") || text.includes("ngo") || text.includes("community") || text.includes("empower") || text.includes("welfare")) {
+    return <Users size={24} color="#0A1F44" />;
   }
   if (text.includes("research") || text.includes("m.tech") || text.includes("ph.d") || text.includes("higher study") || text.includes("academic") || text.includes("ars") || text.includes("icar")) {
     return <GraduationCap size={24} color="#0A1F44" />;
