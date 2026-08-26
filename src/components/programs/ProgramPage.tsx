@@ -123,7 +123,7 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       {/* 13. PLACEMENT ANALYTICS & TESTIMONIALS */}
       {pageData.placement && (
         <ProgramPlacement
-          // placement={pageData.placement}
+          placement={pageData.placement}
           testimonials={pageData.testimonials}
         />
       )}
