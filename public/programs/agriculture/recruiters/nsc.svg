@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 50">
+    <rect width="170" height="50" rx="8" fill="#F7FAF8"/>
+    <circle cx="24" cy="25" r="14" fill="#2E7D32"/>
+    <text x="13" y="30" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="900" fill="#FFFFFF">NSC</text>
+    <text x="46" y="32" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="800" fill="#1B5E20">National Seeds</text>
+  </svg>

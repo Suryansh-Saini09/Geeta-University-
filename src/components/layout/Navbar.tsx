@@ -53,7 +53,7 @@ const secondaryNavLinks: NavEntry[] = [
       { heading: "ENGINEERING & TECH", links: [
         { label: "School of CSE", href: "/programs/school-of-computer-science-and-engineering" },
         { label: "School of Sciences", href: "/programs/school-of-forensic-sciences" },
-        { label: "School of Agricultural Sciences", href: "#" },
+        { label: "School of Agricultural Sciences", href: "/programs/school-of-agricultural-studies" },
       ]},
       { heading: "MANAGEMENT & LAW", links: [
         { label: "School of Commerce & Business Management", href: "/programs/school-of-management-and-business-studies" },

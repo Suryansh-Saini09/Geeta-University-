@@ -20,6 +20,9 @@ import {
   Award,
   ChevronLeft,
   ChevronRight,
+  Sprout,
+  Tractor,
+  Leaf,
 } from "lucide-react";
 import type { PathwayCardItem, NotableRoleItem } from "@/data/programs/types";
 
@@ -43,6 +46,9 @@ function renderPathwayIcon(item: PathwayCardItem) {
   if (text.includes("cloud") || text.includes("network") || text.includes("system")) {
     return <Laptop size={24} color="#0A1F44" />;
   }
+  if (text.includes("agri") || text.includes("farm") || text.includes("crop") || text.includes("soil") || text.includes("plant") || text.includes("breeder") || text.includes("seed") || text.includes("horticulture") || text.includes("agronom") || text.includes("vermicompost")) {
+    return <Sprout size={24} color="#0A1F44" />;
+  }
   if (text.includes("data") || text.includes("analytics") || text.includes("finance") || text.includes("banking") || text.includes("fintech") || text.includes("trading") || text.includes("market")) {
     return <TrendingUp size={24} color="#0A1F44" />;
   }
@@ -52,7 +58,7 @@ function renderPathwayIcon(item: PathwayCardItem) {
   if (text.includes("culinary") || text.includes("hotel") || text.includes("hospitality") || text.includes("food") || text.includes("chef") || text.includes("beverage") || text.includes("catering")) {
     return <Utensils size={24} color="#0A1F44" />;
   }
-  if (text.includes("research") || text.includes("m.tech") || text.includes("ph.d") || text.includes("higher study") || text.includes("academic")) {
+  if (text.includes("research") || text.includes("m.tech") || text.includes("ph.d") || text.includes("higher study") || text.includes("academic") || text.includes("ars") || text.includes("icar")) {
     return <GraduationCap size={24} color="#0A1F44" />;
   }
   if (text.includes("corporate") || text.includes("management") || text.includes("consult") || text.includes("business") || text.includes("hr") || text.includes("startup") || text.includes("entrepreneur")) {
@@ -63,6 +69,14 @@ function renderPathwayIcon(item: PathwayCardItem) {
 
 function getRoleIcon(name: string) {
   const n = name.toLowerCase();
+  if (n.includes("agri") || n.includes("agronom") || n.includes("breeder") || n.includes("soil") || n.includes("horticultur") || n.includes("farm") || n.includes("crop") || n.includes("seed") || n.includes("plant")) {
+    return (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2a9 9 0 0 1 9 9c0 4-3 7-9 11C6 18 3 15 3 11a9 9 0 0 1 9-9z" />
+        <path d="M12 7v10" />
+      </svg>
+    );
+  }
   if (n.includes("software") || n.includes("developer") || n.includes("coder") || n.includes("engineer")) {
     return (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
