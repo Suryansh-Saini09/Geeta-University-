@@ -160,6 +160,102 @@ export const BRAND_DATA: Record<string, { src: string; width: number; height: nu
     height: 30,
     label: "Autodesk",
   },
+  IFFCO: {
+    src: "/programs/agriculture/recruiters/iffco.svg",
+    width: 130,
+    height: 38,
+    label: "IFFCO",
+  },
+  "Mahindra Agri Solutions": {
+    src: "/programs/agriculture/recruiters/mahindra_agri.svg",
+    width: 140,
+    height: 36,
+    label: "Mahindra Agri Solutions",
+  },
+  "Bayer CropScience": {
+    src: "/programs/agriculture/recruiters/bayer.svg",
+    width: 130,
+    height: 38,
+    label: "Bayer CropScience",
+  },
+  "Syngenta India": {
+    src: "/programs/agriculture/recruiters/syngenta.svg",
+    width: 130,
+    height: 36,
+    label: "Syngenta India",
+  },
+  "Coromandel International": {
+    src: "/programs/agriculture/recruiters/coromandel.svg",
+    width: 140,
+    height: 36,
+    label: "Coromandel International",
+  },
+  "UPL Limited": {
+    src: "/programs/agriculture/recruiters/upl.svg",
+    width: 120,
+    height: 38,
+    label: "UPL Limited",
+  },
+  "Godrej Agrovet": {
+    src: "/programs/agriculture/recruiters/godrej_agrovet.svg",
+    width: 140,
+    height: 36,
+    label: "Godrej Agrovet",
+  },
+  "ITC Agri Business": {
+    src: "/programs/agriculture/recruiters/itc_agri.svg",
+    width: 130,
+    height: 36,
+    label: "ITC Agri Business",
+  },
+  "Cargill India": {
+    src: "/programs/agriculture/recruiters/cargill.svg",
+    width: 130,
+    height: 36,
+    label: "Cargill India",
+  },
+  "Nestle India": {
+    src: "/programs/agriculture/recruiters/nestle.svg",
+    width: 130,
+    height: 36,
+    label: "Nestle India",
+  },
+  "Dhanuka Agritech": {
+    src: "/programs/agriculture/recruiters/dhanuka.svg",
+    width: 140,
+    height: 36,
+    label: "Dhanuka Agritech",
+  },
+  "National Seeds Corporation": {
+    src: "/programs/agriculture/recruiters/nsc.svg",
+    width: 140,
+    height: 38,
+    label: "National Seeds Corporation",
+  },
+  "PI Industries": {
+    src: "/programs/agriculture/recruiters/pi_industries.svg",
+    width: 140,
+    height: 38,
+    label: "PI Industries",
+  },
+  "Escorts Kubota": {
+    src: "/programs/agriculture/recruiters/escorts.svg",
+    width: 140,
+    height: 36,
+    label: "Escorts Kubota",
+  },
+  "Jain Irrigation Systems": {
+    src: "/programs/agriculture/recruiters/jain_irrigation.svg",
+    width: 150,
+    height: 38,
+    label: "Jain Irrigation Systems",
+  },
+  "Mother Dairy": {
+    src: "/programs/agriculture/recruiters/mother_dairy.svg",
+    width: 150,
+    height: 36,
+    label: "Mother Dairy",
+  },
 };
 
 export const DEFAULT_BRAND_KEYS_ROW1 = [
@@ -263,13 +359,14 @@ export default function TopRecruiters({
   row1,
   row2,
 }: TopRecruitersProps) {
-  let listRow1 = row1 || DEFAULT_BRAND_KEYS_ROW1;
-  let listRow2 = row2 || DEFAULT_BRAND_KEYS_ROW2;
+  type RowItem = { name: string; logo?: string | null };
+  let listRow1: RowItem[] = (row1 || DEFAULT_BRAND_KEYS_ROW1).map((name) => ({ name }));
+  let listRow2: RowItem[] = (row2 || DEFAULT_BRAND_KEYS_ROW2).map((name) => ({ name }));
 
   if (recruiters && recruiters.length > 0) {
     const half = Math.ceil(recruiters.length / 2);
-    listRow1 = recruiters.slice(0, half).map((r) => r.name);
-    listRow2 = recruiters.slice(half).map((r) => r.name);
+    listRow1 = recruiters.slice(0, half).map((r) => ({ name: r.name, logo: r.logo }));
+    listRow2 = recruiters.slice(half).map((r) => ({ name: r.name, logo: r.logo }));
   }
 
   return (
@@ -385,8 +482,8 @@ export default function TopRecruiters({
             animation: "marqueeLoop 30s linear infinite",
           }}
         >
-          {[...listRow1, ...listRow1].map((name, i) => (
-            <RecruiterCard key={`r1-${name}-${i}`} name={name} />
+          {[...listRow1, ...listRow1].map((item, i) => (
+            <RecruiterCard key={`r1-${item.name}-${i}`} name={item.name} customLogo={item.logo} />
           ))}
         </div>
       </div>
@@ -424,8 +521,8 @@ export default function TopRecruiters({
             animation: "marqueeLoopRev 36s linear infinite",
           }}
         >
-          {[...listRow2, ...listRow2].map((name, i) => (
-            <RecruiterCard key={`r2-${name}-${i}`} name={name} />
+          {[...listRow2, ...listRow2].map((item, i) => (
+            <RecruiterCard key={`r2-${item.name}-${i}`} name={item.name} customLogo={item.logo} />
           ))}
         </div>
       </div>

@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { ArrowRight, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { DepartmentHighlightItem } from "@/data/programs/types";
 
 interface DepartmentHighlightsProps {
@@ -16,6 +16,16 @@ export default function DepartmentHighlights({
   subtitle = "An active, achievement-driven school — not just a classroom environment. Here's a glimpse of what students experience:",
   highlights,
 }: DepartmentHighlightsProps) {
+  const [selectedHighlight, setSelectedHighlight] = useState<DepartmentHighlightItem | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedHighlight(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   if (!highlights || highlights.length === 0) return null;
   const items = highlights;
 
@@ -115,6 +125,7 @@ export default function DepartmentHighlights({
               {items.map((item, i) => (
                 <div
                   key={`${setIndex}-${i}`}
+                  onClick={() => setSelectedHighlight(item)}
                   style={{
                     width: 360,
                     flexShrink: 0,
@@ -125,6 +136,7 @@ export default function DepartmentHighlights({
                     boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
                     display: "flex",
                     flexDirection: "column",
+                    cursor: "pointer",
                     transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s",
                   }}
                   onMouseEnter={(e) => {
@@ -140,7 +152,7 @@ export default function DepartmentHighlights({
                     if (img) img.style.transform = "scale(1)";
                   }}
                 >
-                  {/* Image Placeholder */}
+                  {/* Image */}
                   <div
                     style={{
                       width: "100%",
@@ -200,22 +212,31 @@ export default function DepartmentHighlights({
                     >
                       {item.desc}
                     </p>
-                    <div style={{ marginTop: 20 }}>
-                      <span
+                    <div style={{ marginTop: "auto", paddingTop: 20 }}>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedHighlight(item);
+                        }}
                         style={{
+                          background: "none",
+                          border: "none",
+                          padding: 0,
+                          cursor: "pointer",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: 6,
                           fontSize: 13,
                           fontWeight: 700,
                           color: "#E8871A",
                           textTransform: "uppercase",
                           letterSpacing: 1,
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 6,
                         }}
                       >
-                        Read More
+                        <span>Read More</span>
                         <ArrowRight size={14} />
-                      </span>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -224,6 +245,123 @@ export default function DepartmentHighlights({
           ))}
         </motion.div>
       </div>
+
+      {/* Modal for Read More */}
+      <AnimatePresence>
+        {selectedHighlight && (
+          <div
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 99999,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: 24,
+            }}
+          >
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedHighlight(null)}
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "rgba(10,31,68,0.6)",
+                backdropFilter: "blur(6px)",
+              }}
+            />
+
+            {/* Modal Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 16 }}
+              transition={{ type: "spring", duration: 0.4 }}
+              style={{
+                position: "relative",
+                background: "#FFFFFF",
+                borderRadius: 24,
+                overflow: "hidden",
+                maxWidth: 580,
+                width: "100%",
+                boxShadow: "0 24px 60px rgba(0,0,0,0.25)",
+                zIndex: 100000,
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedHighlight(null)}
+                style={{
+                  position: "absolute",
+                  top: 16,
+                  right: 16,
+                  background: "rgba(0,0,0,0.5)",
+                  border: "none",
+                  width: 36,
+                  height: 36,
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  color: "#FFFFFF",
+                  zIndex: 2,
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(0,0,0,0.75)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(0,0,0,0.5)";
+                }}
+                aria-label="Close details"
+              >
+                <X size={18} />
+              </button>
+
+              {/* Modal Image */}
+              <div style={{ width: "100%", height: 280, position: "relative", background: "#F1F5F9" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={selectedHighlight.image}
+                  alt={selectedHighlight.title}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </div>
+
+              {/* Modal Content */}
+              <div style={{ padding: "28px 32px 32px" }}>
+                <h3
+                  style={{
+                    fontSize: 24,
+                    fontWeight: 800,
+                    color: "#0A1F44",
+                    marginBottom: 14,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {selectedHighlight.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: 16,
+                    color: "#4A5568",
+                    lineHeight: 1.7,
+                    margin: 0,
+                  }}
+                >
+                  {selectedHighlight.desc}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       <style jsx>{`
         @keyframes marquee {

@@ -22,6 +22,9 @@ import {
   Layers,
   ChefHat,
   Cpu,
+  Sprout,
+  Tractor,
+  Leaf,
 } from "lucide-react";
 import type { LearningSpaceItem, GalleryShowcaseItem } from "@/data/programs/types";
 
@@ -30,11 +33,20 @@ function renderSpaceIcon(space: LearningSpaceItem) {
   if (t.includes("moot") || t.includes("court") || t.includes("legal") || t.includes("jurisprudence")) {
     return <Scale size={26} />;
   }
-  if (t.includes("microbiol") || t.includes("microscope")) {
+  if (t.includes("microbiol") || t.includes("microscope") || t.includes("pathology") || t.includes("entomology")) {
     return <Microscope size={26} />;
   }
   if (t.includes("chem") || t.includes("lab") || t.includes("food analysis") || t.includes("biochem") || t.includes("pharma")) {
     return <FlaskConical size={26} />;
+  }
+  if (t.includes("farm") || t.includes("soil") || t.includes("crop") || t.includes("agri") || t.includes("sprout") || t.includes("greenhouse") || t.includes("polyhouse") || t.includes("vermicompost") || t.includes("plant") || t.includes("breeding") || t.includes("horticulture")) {
+    return <Sprout size={26} />;
+  }
+  if (t.includes("tractor") || t.includes("mechanization") || t.includes("machinery")) {
+    return <Tractor size={26} />;
+  }
+  if (t.includes("drone") || t.includes("precision")) {
+    return <Cpu size={26} />;
   }
   if (t.includes("clinic") || t.includes("patient") || t.includes("health") || t.includes("diet") || t.includes("hospital")) {
     return <Stethoscope size={26} />;

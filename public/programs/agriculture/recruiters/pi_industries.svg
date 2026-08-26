@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50">
+    <rect width="180" height="50" rx="8" fill="#FAF8F8"/>
+    <text x="10" y="33" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="900" fill="#D32F2F">PI</text>
+    <text x="40" y="33" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1A237E">Industries</text>
+  </svg>

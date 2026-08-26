@@ -16,6 +16,11 @@ const programs: ProgramPageData[] = [
   forensicSciencesSchool,
   lawSchool,
   agricultureSchool,
+  // Alias for agricultural sciences
+  {
+    ...agricultureSchool,
+    slug: "school-of-agricultural-sciences",
+  },
   // Alias for management studies
   {
     ...commerceSchool,
@@ -30,11 +35,6 @@ const programs: ProgramPageData[] = [
   {
     ...lawSchool,
     slug: "school-of-law",
-  },
-  // Alias for Agricultural Sciences
-  {
-    ...agricultureSchool,
-    slug: "school-of-agricultural-sciences",
   },
 ];
 
