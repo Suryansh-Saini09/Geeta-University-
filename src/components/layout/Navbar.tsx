@@ -70,7 +70,7 @@ const secondaryNavLinks: NavEntry[] = [
     ],
     banner: { text: "Find Your Perfect Program", items: [
       { icon: <GraduationCap size={16} />, label: "UG Programs", href: "/programs-after-12th" },
-      { icon: <BookOpen size={16} />, label: "PG Programs", href: "#" },
+      { icon: <BookOpen size={16} />, label: "PG Programs", href: "/post-graduate-programs" },
       { icon: <Microscope size={16} />, label: "PhD Programs", href: "#" },
     ]},
   },
@@ -103,7 +103,8 @@ const secondaryNavLinks: NavEntry[] = [
     cols: [
       { heading: "JOB ORIENTED PROGRAMS", links: [
         { label: "Programs After 12th", href: "/programs-after-12th" },
-        { label: "Post Graduate Programs", href: "#" },
+        { label: "Post Graduate Programs", href: "/post-graduate-programs" },
+        { label: "Confused About Courses?", href: "/confused-about-courses" },
         { label: "Integrated Programs", href: "#" },
         { label: "Doctoral Programs PhD", href: "#" },
         { label: "GU Advantages", href: "#" },
@@ -139,29 +140,6 @@ const secondaryNavLinks: NavEntry[] = [
     label: "PLACEMENTS",
     key: "placements",
     href: "/placements",
-  },
-  {
-    label: "RESEARCH & INNOVATION",
-    key: "research",
-    cols: [
-      { heading: "RESEARCH", links: [
-        { label: "Research Centers", href: "#" },
-        { label: "Funded Projects", href: "#" },
-        { label: "Patents & Publications", href: "#" },
-        { label: "Collaborative Research", href: "#" },
-      ]},
-      { heading: "INNOVATION", links: [
-        { label: "Startup & Incubation", href: "#" },
-        { label: "International Collaborations", href: "#" },
-        { label: "Industry Projects", href: "#" },
-        { label: "Tech Conferences", href: "#" },
-      ]},
-    ],
-    banner: { text: "Innovate with Us", items: [
-      { icon: <Microscope size={16} />, label: "Research", href: "#" },
-      { icon: <Rocket size={16} />, label: "Startups", href: "#" },
-      { icon: <Globe size={16} />, label: "Global Tie-ups", href: "#" },
-    ]},
   },
 ];
 

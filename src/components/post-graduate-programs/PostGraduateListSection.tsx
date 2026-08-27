@@ -2,12 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
-import { ugSchoolsData } from "@/data/programsAfter12";
-import ScholarshipCalculator from "./ScholarshipCalculator";
+import { pgSchoolsData } from "@/data/postGraduatePrograms";
+import ScholarshipCalculator from "@/components/programs-after-12th/ScholarshipCalculator";
 
-export default function ProgramsListSection() {
-  const col1Schools = ugSchoolsData.slice(0, 5); // CSE, Pharmacy, Law, Health, Sciences
-  const col2Schools = ugSchoolsData.slice(5); // Commerce, Humanities, Agriculture, Hospitality
+export default function PostGraduateListSection() {
+  const col1Schools = pgSchoolsData.slice(0, 4); // Commerce, Sciences, Humanities, Health
+  const col2Schools = pgSchoolsData.slice(4); // CSE, Agriculture, Law, Pharmacy, Hospitality
 
   return (
     <section id="programs-catalog" className="scroll-mt-20 bg-[#F3F5F6] py-12 sm:py-16">
