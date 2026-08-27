@@ -104,6 +104,7 @@ const secondaryNavLinks: NavEntry[] = [
       { heading: "JOB ORIENTED PROGRAMS", links: [
         { label: "Programs After 12th", href: "/programs-after-12th" },
         { label: "Post Graduate Programs", href: "/post-graduate-programs" },
+        { label: "Confused About Courses?", href: "/confused-about-courses" },
         { label: "Integrated Programs", href: "#" },
         { label: "Doctoral Programs PhD", href: "#" },
         { label: "GU Advantages", href: "#" },
