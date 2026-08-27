@@ -163,6 +163,27 @@ const secondaryNavLinks: NavEntry[] = [
       { icon: <Globe size={16} />, label: "Global Tie-ups", href: "#" },
     ]},
   },
+  {
+    label: "GU EDGE",
+    key: "guedge",
+    cols: [
+      { heading: "INNOVATION & FUTURES", links: [
+        { label: "Design Your Own Degree", href: "/edge/dyod" },
+        { label: "Geeta Finishing School", href: "/edge/gfs" },
+        { label: "Geeta Technical Hub", href: "/edge/gth" },
+      ]},
+      { heading: "POLICY & SKILLS", links: [
+        { label: "New Education Policy (NEP)", href: "/edge/nep" },
+        { label: "Vocational Skills", href: "/edge/vocational-skills" },
+        { label: "GU Global Edge", href: "/gu-global-edge" },
+      ]},
+    ],
+    banner: { text: "The Geeta Edge", items: [
+      { icon: <Sparkles size={16} />, label: "DYOD", href: "/edge/dyod" },
+      { icon: <TrendingUp size={16} />, label: "GTH Hub", href: "/edge/gth" },
+      { icon: <Globe size={16} />, label: "Global Edge", href: "/gu-global-edge" },
+    ]},
+  },
 ];
 
 export default function Navbar() {
