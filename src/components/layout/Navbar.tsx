@@ -69,7 +69,7 @@ const secondaryNavLinks: NavEntry[] = [
       ]},
     ],
     banner: { text: "Find Your Perfect Program", items: [
-      { icon: <GraduationCap size={16} />, label: "UG Programs", href: "#" },
+      { icon: <GraduationCap size={16} />, label: "UG Programs", href: "/programs-after-12th" },
       { icon: <BookOpen size={16} />, label: "PG Programs", href: "#" },
       { icon: <Microscope size={16} />, label: "PhD Programs", href: "#" },
     ]},
@@ -102,7 +102,7 @@ const secondaryNavLinks: NavEntry[] = [
     key: "admissions",
     cols: [
       { heading: "JOB ORIENTED PROGRAMS", links: [
-        { label: "Programs After 12th", href: "#" },
+        { label: "Programs After 12th", href: "/programs-after-12th" },
         { label: "Post Graduate Programs", href: "#" },
         { label: "Integrated Programs", href: "#" },
         { label: "Doctoral Programs PhD", href: "#" },
