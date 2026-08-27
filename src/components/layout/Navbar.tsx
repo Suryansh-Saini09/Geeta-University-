@@ -69,8 +69,8 @@ const secondaryNavLinks: NavEntry[] = [
       ]},
     ],
     banner: { text: "Find Your Perfect Program", items: [
-      { icon: <GraduationCap size={16} />, label: "UG Programs", href: "#" },
-      { icon: <BookOpen size={16} />, label: "PG Programs", href: "#" },
+      { icon: <GraduationCap size={16} />, label: "UG Programs", href: "/programs-after-12th" },
+      { icon: <BookOpen size={16} />, label: "PG Programs", href: "/post-graduate-programs" },
       { icon: <Microscope size={16} />, label: "PhD Programs", href: "#" },
     ]},
   },
@@ -102,8 +102,9 @@ const secondaryNavLinks: NavEntry[] = [
     key: "admissions",
     cols: [
       { heading: "JOB ORIENTED PROGRAMS", links: [
-        { label: "Programs After 12th", href: "#" },
-        { label: "Post Graduate Programs", href: "#" },
+        { label: "Programs After 12th", href: "/programs-after-12th" },
+        { label: "Post Graduate Programs", href: "/post-graduate-programs" },
+        { label: "Confused About Courses?", href: "/confused-about-courses" },
         { label: "Integrated Programs", href: "#" },
         { label: "Doctoral Programs PhD", href: "#" },
         { label: "GU Advantages", href: "#" },
