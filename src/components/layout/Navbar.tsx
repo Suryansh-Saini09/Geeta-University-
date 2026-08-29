@@ -119,7 +119,7 @@ const secondaryNavLinks: NavEntry[] = [
       ]},
       { heading: "MORE INFO", links: [
         { label: "National Admissions", href: "#" },
-        { label: "International Admissions", href: "#" },
+        { label: "International Admissions", href: "/international-admissions" },
         { label: "Admission Offices", href: "#" },
         { label: "Visit the Campus", href: "#" },
         { label: "Refund Policy", href: "#" },
