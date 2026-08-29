@@ -116,23 +116,45 @@ const secondaryNavLinks: NavEntry[] = [
     key: "admissions",
     cols: [
       {
-        heading: "ADMISSIONS",
+        heading: "JOB ORIENTED PROGRAMS",
         links: [
           { label: "Programs After 12th", href: "/programs-after-12th" },
           { label: "Post Graduate Programs", href: "/post-graduate-programs" },
-          { label: "Doctoral Programs (Ph.d)", href: "/phd" },
           { label: "Confused About Courses?", href: "/confused-about-courses" },
+          { label: "Integrated Programs", href: "#" },
+          { label: "Doctoral Programs PhD", href: "/phd" },
+          { label: "GU Advantages", href: "#" },
+        ],
+      },
+      {
+        heading: "ADMISSION",
+        links: [
+          { label: "Overview", href: "#" },
+          { label: "Course Fee", href: "#" },
+          { label: "How to Apply?", href: "#" },
+          { label: "Admission Criteria", href: "#" },
           { label: "GUTS", href: "/guts" },
-          { label: "Fee Structure & Scholarships", href: "/fee-and-scholarship" },
+          { label: "GU Scholarship", href: "/scholarship" },
           { label: "CUET", href: "/cuet" },
+          { label: "Education Loan", href: "#" },
+        ],
+      },
+      {
+        heading: "MORE INFO",
+        links: [
+          { label: "National Admissions", href: "#" },
+          { label: "International Admissions", href: "#" },
+          { label: "Admission Offices", href: "#" },
+          { label: "Visit the Campus", href: "#" },
+          { label: "Refund Policy", href: "#" },
         ],
       },
     ],
     banner: {
       text: "Unlock Your Career Goals",
       items: [
-        { icon: <Award size={16} />, label: "GUTS", href: "/guts" },
-        { icon: <DollarSign size={16} />, label: "Scholarships", href: "/scholarship" },
+        { icon: <Award size={16} />, label: "Scholarships", href: "/scholarship" },
+        { icon: <DollarSign size={16} />, label: "Education Loan", href: "#" },
         { icon: <ClipboardCheck size={16} />, label: "CUET", href: "/cuet" },
       ],
     },
