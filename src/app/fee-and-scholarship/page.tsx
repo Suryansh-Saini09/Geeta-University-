@@ -1,7 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import FeeHero from "@/components/fee-and-scholarship/FeeHero";
 import ScholarshipPredictorSection from "@/components/fee-and-scholarship/ScholarshipPredictorSection";
 import TransportAndHostelPredictor from "@/components/fee-and-scholarship/TransportAndHostelPredictor";
@@ -27,14 +25,12 @@ export const metadata: Metadata = {
 
 export default function FeeAndScholarshipPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Navbar />
+    <div className="min-w-0 overflow-x-hidden bg-white text-[#0A1F44]">
       <FeeHero />
       <ScholarshipPredictorSection />
       <TransportAndHostelPredictor />
       <LegacyEcosystemSection />
       <FeeFaqAndCTA />
-      <Footer />
-    </main>
+    </div>
   );
 }

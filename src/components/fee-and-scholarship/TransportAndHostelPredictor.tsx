@@ -325,7 +325,7 @@ export default function TransportAndHostelPredictor() {
                     >
                       {TRANSPORT_ROUTES.map((route, idx) => (
                         <option key={idx} value={route.route}>
-                          {route.route} ({route.km} Km) — {route.charge}
+                          {route.route} ({route.km} Km)
                         </option>
                       ))}
                     </select>
