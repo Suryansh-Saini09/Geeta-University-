@@ -130,11 +130,11 @@ const secondaryNavLinks: NavEntry[] = [
         heading: "ADMISSION",
         links: [
           { label: "Overview", href: "#" },
-          { label: "Course Fee", href: "#" },
+          { label: "Course Fee", href: "/fee-and-scholarship" },
           { label: "How to Apply?", href: "#" },
           { label: "Admission Criteria", href: "#" },
           { label: "GUTS", href: "/guts" },
-          { label: "GU Scholarship", href: "/scholarship" },
+          { label: "GU Scholarship", href: "/fee-and-scholarship" },
           { label: "CUET", href: "/cuet" },
           { label: "Education Loan", href: "#" },
         ],
@@ -153,7 +153,7 @@ const secondaryNavLinks: NavEntry[] = [
     banner: {
       text: "Unlock Your Career Goals",
       items: [
-        { icon: <Award size={16} />, label: "Scholarships", href: "/scholarship" },
+        { icon: <Award size={16} />, label: "Scholarships", href: "/fee-and-scholarship" },
         { icon: <DollarSign size={16} />, label: "Education Loan", href: "#" },
         { icon: <ClipboardCheck size={16} />, label: "CUET", href: "/cuet" },
       ],

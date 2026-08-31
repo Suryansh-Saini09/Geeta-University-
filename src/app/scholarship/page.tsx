@@ -1,1 +1,1 @@
-export { default, metadata } from "@/app/guts/page";
+export { default, metadata } from "@/app/fee-and-scholarship/page";
