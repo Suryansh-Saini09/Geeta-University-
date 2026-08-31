@@ -134,7 +134,7 @@ const secondaryNavLinks: NavEntry[] = [
           { label: "How to Apply?", href: "#" },
           { label: "Admission Criteria", href: "#" },
           { label: "GUTS", href: "/guts" },
-          { label: "GU Scholarship", href: "/fee-and-scholarship" },
+          { label: "Fee Structure & Scholarships", href: "/fee-and-scholarship" },
           { label: "CUET", href: "/cuet" },
           { label: "Education Loan", href: "#" },
         ],
