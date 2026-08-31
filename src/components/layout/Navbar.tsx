@@ -143,7 +143,7 @@ const secondaryNavLinks: NavEntry[] = [
         heading: "MORE INFO",
         links: [
           { label: "National Admissions", href: "#" },
-          { label: "International Admissions", href: "#" },
+          { label: "International Admissions", href: "/international-admissions" },
           { label: "Admission Offices", href: "#" },
           { label: "Visit the Campus", href: "#" },
           { label: "Refund Policy", href: "#" },
@@ -168,6 +168,50 @@ const secondaryNavLinks: NavEntry[] = [
     label: "PLACEMENTS",
     key: "placements",
     href: "/placements",
+  },
+  {
+    label: "RESEARCH & INNOVATION",
+    key: "research",
+    cols: [
+      { heading: "RESEARCH", links: [
+        { label: "Research Centers", href: "#" },
+        { label: "Funded Projects", href: "#" },
+        { label: "Patents & Publications", href: "#" },
+        { label: "Collaborative Research", href: "#" },
+      ]},
+      { heading: "INNOVATION", links: [
+        { label: "Startup & Incubation", href: "#" },
+        { label: "International Collaborations", href: "#" },
+        { label: "Industry Projects", href: "#" },
+        { label: "Tech Conferences", href: "#" },
+      ]},
+    ],
+    banner: { text: "Innovate with Us", items: [
+      { icon: <Microscope size={16} />, label: "Research", href: "#" },
+      { icon: <Rocket size={16} />, label: "Startups", href: "#" },
+      { icon: <Globe size={16} />, label: "Global Tie-ups", href: "#" },
+    ]},
+  },
+  {
+    label: "GU EDGE",
+    key: "guedge",
+    cols: [
+      { heading: "INNOVATION & FUTURES", links: [
+        { label: "Design Your Own Degree", href: "/edge/dyod" },
+        { label: "Geeta Finishing School", href: "/edge/gfs" },
+        { label: "Geeta Technical Hub", href: "/edge/gth" },
+      ]},
+      { heading: "POLICY & SKILLS", links: [
+        { label: "New Education Policy (NEP)", href: "/edge/nep" },
+        { label: "Vocational Skills", href: "/edge/vocational-skills" },
+        { label: "GU Global Edge", href: "/gu-global-edge" },
+      ]},
+    ],
+    banner: { text: "The Geeta Edge", items: [
+      { icon: <Sparkles size={16} />, label: "DYOD", href: "/edge/dyod" },
+      { icon: <TrendingUp size={16} />, label: "GTH Hub", href: "/edge/gth" },
+      { icon: <Globe size={16} />, label: "Global Edge", href: "/gu-global-edge" },
+    ]},
   },
 ];
 
