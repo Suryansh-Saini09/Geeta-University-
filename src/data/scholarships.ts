@@ -44,5 +44,5 @@ export const gutsData = {
     "Geeta University (GU) strongly believes that monetary constraints should not be an obstacle for a student to have access to quality education. Following scholarships are offered at GU:",
 
   buttonText: "Apply for GUTS",
-  buttonHref: "https://geetauniversity.edu.in/guts",
+  buttonHref: "/guts",
 };
