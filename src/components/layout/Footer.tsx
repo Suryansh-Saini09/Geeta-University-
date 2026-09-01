@@ -53,13 +53,19 @@ export default function Footer() {
               Apply Here
             </h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
-              {applyHereLinks.map((link) => (
-                <li key={link}>
-                  <Link href="#" style={{ color: "inherit", textDecoration: "none", fontSize: "13px", transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gu-gold)")} onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}>
-                    • {link}
-                  </Link>
-                </li>
-              ))}
+              {applyHereLinks.map((link) => {
+                let href = "#";
+                if (link === "Industry Integration") href = "/industry-integration";
+                if (link === "Teaching Learning Practice") href = "/teaching-learning-practices";
+                if (link === "FAQ" || link === "FAQ's") href = "/faq";
+                return (
+                  <li key={link}>
+                    <Link href={href} style={{ color: "inherit", textDecoration: "none", fontSize: "13px", transition: "color 0.2s" }} onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gu-gold)")} onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}>
+                      • {link}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
