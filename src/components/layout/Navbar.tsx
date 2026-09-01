@@ -83,35 +83,6 @@ const secondaryNavLinks: NavEntry[] = [
     },
   },
   {
-    label: "ACADEMICS",
-    key: "academics",
-    cols: [
-      {
-        heading: "RESOURCES", links: [
-          { label: "Academic Calendar", href: "#" },
-          { label: "Examination & Results", href: "#" },
-          { label: "Library", href: "#" },
-          { label: "e-Learning Resources", href: "#" },
-        ]
-      },
-      {
-        heading: "RESEARCH", links: [
-          { label: "Research & Publications", href: "#" },
-          { label: "Funded Projects", href: "#" },
-          { label: "Patents", href: "#" },
-          { label: "Journals", href: "#" },
-        ]
-      },
-    ],
-    banner: {
-      text: "Academic Excellence", items: [
-        { icon: <Library size={16} />, label: "E-Library", href: "#" },
-        { icon: <FlaskConical size={16} />, label: "Labs", href: "#" },
-        { icon: <FileText size={16} />, label: "Results", href: "#" },
-      ]
-    },
-  },
-  {
     label: "ADMISSIONS",
     key: "admissions",
     cols: [
@@ -119,42 +90,25 @@ const secondaryNavLinks: NavEntry[] = [
         heading: "JOB ORIENTED PROGRAMS",
         links: [
           { label: "Programs After 12th", href: "/programs-after-12th" },
-          { label: "Post Graduate Programs", href: "/post-graduate-programs" },
-          { label: "Confused About Courses?", href: "/confused-about-courses" },
-          { label: "Integrated Programs", href: "#" },
+          { label: "Postgraduate Programs", href: "/post-graduate-programs" },
           { label: "Doctoral Programs PhD", href: "/phd" },
-          { label: "GU Advantages", href: "#" },
+          { label: "Confused About Courses?", href: "/confused-about-courses" },
         ],
       },
       {
         heading: "ADMISSION",
         links: [
-          { label: "Overview", href: "#" },
-          { label: "Course Fee", href: "#" },
-          { label: "How to Apply?", href: "#" },
-          { label: "Admission Criteria", href: "#" },
           { label: "GUTS", href: "/guts" },
-          { label: "GU Scholarship", href: "/scholarship" },
+          { label: "Fee Structure & Scholarships", href: "/fee-and-scholarship" },
           { label: "CUET", href: "/cuet" },
-          { label: "Education Loan", href: "#" },
-        ],
-      },
-      {
-        heading: "MORE INFO",
-        links: [
-          { label: "National Admissions", href: "#" },
-          { label: "International Admissions", href: "/international-admissions" },
-          { label: "Admission Offices", href: "#" },
-          { label: "Visit the Campus", href: "#" },
-          { label: "Refund Policy", href: "#" },
         ],
       },
     ],
     banner: {
       text: "Unlock Your Career Goals",
       items: [
-        { icon: <Award size={16} />, label: "Scholarships", href: "/scholarship" },
-        { icon: <DollarSign size={16} />, label: "Education Loan", href: "#" },
+        { icon: <Award size={16} />, label: "Scholarships", href: "/fee-and-scholarship" },
+        { icon: <DollarSign size={16} />, label: "GUTS", href: "/guts" },
         { icon: <ClipboardCheck size={16} />, label: "CUET", href: "/cuet" },
       ],
     },
@@ -168,29 +122,6 @@ const secondaryNavLinks: NavEntry[] = [
     label: "PLACEMENTS",
     key: "placements",
     href: "/placements",
-  },
-  {
-    label: "RESEARCH & INNOVATION",
-    key: "research",
-    cols: [
-      { heading: "RESEARCH", links: [
-        { label: "Research Centers", href: "#" },
-        { label: "Funded Projects", href: "#" },
-        { label: "Patents & Publications", href: "#" },
-        { label: "Collaborative Research", href: "#" },
-      ]},
-      { heading: "INNOVATION", links: [
-        { label: "Startup & Incubation", href: "#" },
-        { label: "International Collaborations", href: "#" },
-        { label: "Industry Projects", href: "#" },
-        { label: "Tech Conferences", href: "#" },
-      ]},
-    ],
-    banner: { text: "Innovate with Us", items: [
-      { icon: <Microscope size={16} />, label: "Research", href: "#" },
-      { icon: <Rocket size={16} />, label: "Startups", href: "#" },
-      { icon: <Globe size={16} />, label: "Global Tie-ups", href: "#" },
-    ]},
   },
   {
     label: "GU EDGE",
