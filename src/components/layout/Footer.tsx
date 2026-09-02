@@ -45,7 +45,7 @@ export default function Footer() {
       { label: "Telephone Directory", href: "https://geetauniversity.edu.in/uploads/all/1179/Telephone_Directory.pdf" },
       { label: "Student Grievances Portal", href: "https://geetauniversity.com/" },
       { label: "IIC", href: "https://geetauniversity.edu.in/uploads/all/1203/ICC_Report.xlsx" },
-      { label: "Central Library", href: "https://geetauniversity.edu.in/library" },
+      { label: "Central Library", href: "/library", isInternal: true },
       { label: "Pharmacy Faculty List", href: "https://geetauniversity.edu.in/uploads/all/1250/Pharmacy_Faculty_List.pdf" },
       { label: "Pharmacy SIF", href: "https://geetauniversity.edu.in/uploads/all/1251/Pharmacy_SIH.pdf" },
       { label: "National Education Policy", href: "https://geetauniversity.edu.in/nep" },
