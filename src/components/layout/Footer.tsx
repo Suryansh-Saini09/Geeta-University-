@@ -92,7 +92,7 @@ export default function Footer() {
       { label: "Student Grievance Redressal Committee (SGRC)", href: "https://geetauniversity.edu.in/uploads/all/2718/Reconstitution-of-Student-Grievance-Redressal-Committee.pdf" },
       { label: "Equal Opportunity Cell details", href: "https://geetauniversity.edu.in/uploads/all/2717/Reconstitution-of-Equal-Opportunity-Cell.pdf" },
       { label: "Internal Complaints Committee (ICC)", href: "https://geetauniversity.edu.in/uploads/all/2071/4.-Notification-Internal-Complaints-Committee.pdf" },
-      { label: "Anti Ragging Committee", href: "https://geetauniversity.edu.in/anti-ragging-committee" },
+      { label: "Anti Ragging Committee", href: "/anti-ragging-committee", isInternal: true },
       { label: "GU Academic Peer Feedback Form", href: "https://geetauniversity.edu.in/academic-peers-feedback" },
       { label: "GU Civil Society, NGOs Feedback Form", href: "https://geetauniversity.edu.in/ngos-civil-society-feedback" },
       { label: "GU Alumni Feedback Form", href: "https://geetauniversity.edu.in/alumni-feedback-form" },
