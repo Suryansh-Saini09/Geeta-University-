@@ -5,6 +5,7 @@ import { gthPage } from "@/data/edge/gth";
 import { nepPage } from "@/data/edge/nep";
 import { vocationalSkillsPage } from "@/data/edge/vocationalSkills";
 import { globalEdgePage } from "@/data/edge/globalEdge";
+import { xedgePage } from "@/data/edge/xedge";
 
 const edgePages: EdgePageData[] = [
   dyodPage,
@@ -13,6 +14,7 @@ const edgePages: EdgePageData[] = [
   nepPage,
   vocationalSkillsPage,
   globalEdgePage,
+  xedgePage,
 ];
 
 export function getEdgePageBySlug(slug: string): EdgePageData | undefined {
