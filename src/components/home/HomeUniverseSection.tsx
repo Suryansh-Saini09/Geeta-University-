@@ -1,6 +1,8 @@
 "use client";
 
+import React, { useRef, useState } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const universityImages = [
   "4-full.webp",
@@ -32,6 +34,57 @@ const internships = [
 ];
 
 export default function HomeUniverseSection() {
+  const marqueeImages = [
+    ...universityImages,
+    ...universityImages,
+    ...universityImages,
+  ];
+
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Drag-to-scroll handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setIsHovered(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.6;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Button scroll controls
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 320;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="relative overflow-hidden bg-[#F5F8FB] py-20 md:py-24">
       {/* Decorative background */}
@@ -155,49 +208,64 @@ export default function HomeUniverseSection() {
             <div className="h-px flex-1 bg-[#DCE5ED]" />
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-[#DCE5ED] bg-white py-6 shadow-sm">
+          <div className="group relative overflow-hidden rounded-2xl border border-[#DCE5ED] bg-white py-5 shadow-sm">
+            {/* Left navigation arrow */}
+            <button
+              type="button"
+              onClick={() => scroll("left")}
+              aria-label="Scroll left"
+              className="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-10 sm:w-10"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+
+            {/* Right navigation arrow */}
+            <button
+              type="button"
+              onClick={() => scroll("right")}
+              aria-label="Scroll right"
+              className="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-10 sm:w-10"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
             {/* Left fade */}
-            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-white to-transparent" />
+            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white to-transparent sm:w-20" />
 
             {/* Right fade */}
-            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-white to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white to-transparent sm:w-20" />
 
-            <div className="universe-marquee flex w-max items-center">
-              {/* First set */}
-              <div className="flex shrink-0 items-center gap-8 px-4">
-                {universityImages.map((image, index) => (
-                  <div
-                    key={`first-${image}-${index}`}
-                    className="flex h-24 w-40 shrink-0 items-center justify-center rounded-xl border border-[#E4EAF0] bg-white p-3"
-                  >
-                    <Image
-                      src={`/home/universe-flags/${image}`}
-                      alt={`Geeta University global partner ${index + 1}`}
-                      width={160}
-                      height={96}
-                      className="max-h-20 w-auto object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* Duplicate set for seamless infinite scrolling */}
-              <div className="flex shrink-0 items-center gap-8 px-4">
-                {universityImages.map((image, index) => (
-                  <div
-                    key={`second-${image}-${index}`}
-                    className="flex h-24 w-40 shrink-0 items-center justify-center rounded-xl border border-[#E4EAF0] bg-white p-3"
-                  >
-                    <Image
-                      src={`/home/universe-flags/${image}`}
-                      alt=""
-                      aria-hidden="true"
-                      width={160}
-                      height={96}
-                      className="max-h-20 w-auto object-contain"
-                    />
-                  </div>
-                ))}
+            {/* Scrollable & Draggable container */}
+            <div
+              ref={scrollRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleMouseEnter}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              className="flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              <div
+                className={`universe-marquee flex w-max items-center ${
+                  isHovered || isDragging ? "paused" : ""
+                }`}
+              >
+                <div className="flex shrink-0 items-center gap-5 px-3 sm:gap-6">
+                  {marqueeImages.map((image, index) => (
+                    <div
+                      key={`flag-${image}-${index}`}
+                      className="group/flag flex h-20 w-32 shrink-0 items-center justify-center rounded-xl border border-[#E4EAF0] bg-white p-2.5 shadow-2xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#F28C18]/40 hover:shadow-md sm:h-24 sm:w-40"
+                    >
+                      <Image
+                        src={`/home/universe-flags/${image}`}
+                        alt={`Geeta University global partner ${index + 1}`}
+                        width={160}
+                        height={96}
+                        className="max-h-16 w-auto object-contain transition-transform duration-300 group-hover/flag:scale-105 pointer-events-none sm:max-h-20"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -206,11 +274,15 @@ export default function HomeUniverseSection() {
 
       <style jsx>{`
         .universe-marquee {
-          animation: universe-scroll 35s linear infinite;
+          animation: universe-scroll 45s linear infinite;
+        }
+
+        .universe-marquee.paused {
+          animation-play-state: paused !important;
         }
 
         .universe-marquee:hover {
-          animation-play-state: paused;
+          animation-play-state: paused !important;
         }
 
         @keyframes universe-scroll {
@@ -219,13 +291,19 @@ export default function HomeUniverseSection() {
           }
 
           to {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .universe-marquee {
+            animation-duration: 35s;
           }
         }
 
         @media (prefers-reduced-motion: reduce) {
           .universe-marquee {
-            animation: none;
+            animation: none !important;
           }
         }
       `}</style>

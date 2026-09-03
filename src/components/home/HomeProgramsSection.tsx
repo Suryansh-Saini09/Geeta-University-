@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronDown,
+  GraduationCap,
+  Award,
+  Atom,
+} from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 type Program = {
@@ -489,8 +495,333 @@ const itemVariants: Variants = {
   },
 };
 
+function getProgramLevel(name: string): "Undergraduate" | "Postgraduate" | "Ph.D." {
+  const lower = name.toLowerCase();
+  if (lower.includes("ph.d.") || lower.includes("phd") || lower.includes("doctoral")) {
+    return "Ph.D.";
+  }
+  if (
+    lower.startsWith("m.") ||
+    lower.startsWith("mba") ||
+    lower.startsWith("mca") ||
+    lower.startsWith("llm") ||
+    lower.startsWith("master") ||
+    lower.startsWith("m.sc") ||
+    lower.startsWith("m.pharm") ||
+    lower.startsWith("m.com") ||
+    lower.startsWith("m.tech") ||
+    lower.startsWith("m.a.")
+  ) {
+    return "Postgraduate";
+  }
+  return "Undergraduate";
+}
+
+const LEVEL_CONFIG = {
+  Undergraduate: {
+    label: "Undergraduate Programs",
+    sublabel: "Bachelor degrees, honours specialisations & diplomas",
+    icon: GraduationCap,
+    badgeText: "UG Level",
+  },
+  Postgraduate: {
+    label: "Postgraduate Programs",
+    sublabel: "Master's degrees & advanced professional pathways",
+    icon: Award,
+    badgeText: "PG Level",
+  },
+  "Ph.D.": {
+    label: "Ph.D. & Doctoral Programs",
+    sublabel: "Research-driven doctorate & scholarly fellowships",
+    icon: Atom,
+    badgeText: "Doctoral",
+  },
+} as const;
+
+function ProgramCategoryDetails({
+  category,
+  openLevels,
+  toggleLevel,
+}: {
+  category: ProgramCategory;
+  openLevels: Record<string, boolean>;
+  toggleLevel: (level: string) => void;
+}) {
+  const ugPrograms = category.programs.filter(
+    (p) => getProgramLevel(p.name) === "Undergraduate"
+  );
+  const pgPrograms = category.programs.filter(
+    (p) => getProgramLevel(p.name) === "Postgraduate"
+  );
+  const phdPrograms = category.programs.filter(
+    (p) => getProgramLevel(p.name) === "Ph.D."
+  );
+
+  const programSections = [
+    { level: "Undergraduate", label: "Undergraduate Programs", programs: ugPrograms },
+    { level: "Postgraduate", label: "Postgraduate Programs", programs: pgPrograms },
+    { level: "Ph.D.", label: "Ph.D. & Doctoral Programs", programs: phdPrograms },
+  ].filter((section) => section.programs.length > 0);
+
+  return (
+    <div>
+      <div className="flex flex-col justify-between gap-4 sm:gap-6 sm:flex-row sm:items-start">
+        <div>
+          <h3
+            className="mt-1 font-serif text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl"
+            style={{
+              color: "var(--gu-navy)",
+            }}
+          >
+            {category.title}
+          </h3>
+
+          <p
+            className="mt-2.5 max-w-2xl text-xs leading-relaxed text-[#536B83] sm:text-sm sm:leading-7"
+          >
+            {category.description}
+          </p>
+        </div>
+      </div>
+
+      {/* Programs Categorised by Level with Dropdowns */}
+      <div className="mt-5 sm:mt-8 space-y-3 sm:space-y-4">
+        {programSections.map((section) => {
+          const isOpen = openLevels[section.level] ?? true;
+          const config =
+            LEVEL_CONFIG[
+              section.level as keyof typeof LEVEL_CONFIG
+            ] || LEVEL_CONFIG.Undergraduate;
+          const Icon = config.icon;
+
+          return (
+            <div
+              key={section.level}
+              className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
+                isOpen
+                  ? "bg-white shadow-md border-[rgba(232,135,26,0.35)]"
+                  : "bg-white/90 hover:bg-white border-slate-200/90 hover:border-slate-300 hover:shadow-xs"
+              }`}
+            >
+              {/* Dropdown Header Toggle Button */}
+              <button
+                type="button"
+                onClick={() => toggleLevel(section.level)}
+                aria-expanded={isOpen}
+                className="flex w-full items-center justify-between gap-3 p-3 text-left transition-colors duration-200 hover:bg-slate-50/70 sm:p-5"
+              >
+                <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                  {/* Icon Box */}
+                  <div
+                    className="flex h-9 w-9 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl transition-all duration-300"
+                    style={{
+                      backgroundColor: isOpen
+                        ? "var(--gu-navy)"
+                        : "rgba(6, 53, 95, 0.06)",
+                      color: isOpen
+                        ? "var(--gu-gold)"
+                        : "var(--gu-navy)",
+                    }}
+                  >
+                    <Icon className="h-4 w-4 sm:h-6 sm:w-6" />
+                  </div>
+
+                  {/* Title & Subtitle */}
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                      <h4
+                        className="font-serif text-sm font-bold sm:text-lg"
+                        style={{
+                          color: "var(--gu-navy)",
+                        }}
+                      >
+                        {config.label}
+                      </h4>
+                      <span
+                        className="inline-flex items-center rounded-full px-2 py-0.5 text-[9px] sm:text-[11px] font-bold tracking-wider uppercase"
+                        style={{
+                          backgroundColor: "rgba(232, 135, 26, 0.10)",
+                          color: "var(--gu-gold)",
+                        }}
+                      >
+                        {config.badgeText}
+                      </span>
+                    </div>
+                    <p className="mt-0.5 text-[11px] text-slate-500 sm:text-sm line-clamp-1">
+                      {config.sublabel}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right Count & Chevron */}
+                <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                  <span className="hidden sm:inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                    {section.programs.length}{" "}
+                    {section.programs.length === 1
+                      ? "Program"
+                      : "Programs"}
+                  </span>
+                  <div
+                    className={`flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border transition-all duration-300 ${
+                      isOpen
+                        ? "rotate-180 bg-[var(--gu-navy)] text-white border-[var(--gu-navy)] shadow-xs"
+                        : "rotate-0 bg-slate-100 text-slate-600 border-slate-200"
+                    }`}
+                  >
+                    <ChevronDown size={15} />
+                  </div>
+                </div>
+              </button>
+
+              {/* Dropdown Content */}
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{
+                      duration: 0.28,
+                      ease: "easeInOut",
+                    }}
+                    className="overflow-hidden"
+                  >
+                    <div className="border-t border-slate-100 bg-[#FAFBFD]/60 p-3 sm:p-5 lg:p-6">
+                      <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
+                        {section.programs.map((program) => {
+                          const isLink = !!program.href;
+
+                          const content = (
+                            <>
+                              <span
+                                className="flex h-2 w-2 rounded-full shrink-0 transition-transform duration-200 group-hover:scale-125"
+                                style={{
+                                  backgroundColor: isLink
+                                    ? "var(--gu-gold)"
+                                    : "var(--gu-navy)",
+                                }}
+                              />
+
+                              <span
+                                className={`flex-1 text-xs sm:text-sm font-semibold leading-snug sm:leading-6 transition-colors duration-200 ${
+                                  isLink
+                                    ? "group-hover:text-[var(--gu-gold)]"
+                                    : ""
+                                }`}
+                                style={{
+                                  color: "var(--gu-navy)",
+                                }}
+                              >
+                                {program.name}
+                              </span>
+
+                              {isLink && (
+                                <span
+                                  className="opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 flex items-center shrink-0"
+                                  style={{
+                                    color: "var(--gu-gold)",
+                                  }}
+                                >
+                                  <ArrowRight size={15} />
+                                </span>
+                              )}
+                            </>
+                          );
+
+                          if (isLink) {
+                            return (
+                              <Link
+                                key={program.name}
+                                href={program.href as string}
+                                className="group flex items-center gap-2.5 sm:gap-3 rounded-xl border bg-white p-3 sm:p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[#E8871A]/40"
+                                style={{
+                                  borderColor: "rgba(6, 53, 95, 0.08)",
+                                }}
+                              >
+                                {content}
+                              </Link>
+                            );
+                          }
+
+                          return (
+                            <div
+                              key={program.name}
+                              className="flex items-center gap-2.5 sm:gap-3 rounded-xl border bg-white p-3 sm:p-4"
+                              style={{
+                                borderColor: "rgba(6, 53, 95, 0.06)",
+                              }}
+                            >
+                              {content}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* School CTA */}
+      {category.schoolHref && (
+        <div className="mt-5 sm:mt-8 flex flex-col gap-3 sm:gap-4 border-t pt-5 sm:pt-7 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p
+              className="text-xs font-bold uppercase tracking-[0.16em]"
+              style={{
+                color: "var(--gu-text-muted)",
+              }}
+            >
+              Want to explore more?
+            </p>
+
+            <p
+              className="mt-0.5 text-xs sm:text-sm font-semibold"
+              style={{
+                color: "var(--gu-navy)",
+              }}
+            >
+              View the complete school offering.
+            </p>
+          </div>
+
+          <Link
+            href={category.schoolHref}
+            className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+            style={{
+              backgroundColor: "var(--gu-navy)",
+              color: "#ffffff",
+            }}
+          >
+            Explore School
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function HomeProgramsSection() {
-  const [activeCategory, setActiveCategory] = useState("cse");
+  const [activeCategory, setActiveCategory] = useState<string | null>("cse");
+  const [openLevels, setOpenLevels] = useState<Record<string, boolean>>({
+    Undergraduate: true,
+    Postgraduate: true,
+    "Ph.D.": true,
+  });
+
+  const toggleLevel = (level: string) => {
+    setOpenLevels((prev) => ({
+      ...prev,
+      [level]: !prev[level],
+    }));
+  };
+
+  const toggleCategory = (id: string) => {
+    setActiveCategory((current) => (current === id ? null : id));
+  };
 
   const activeProgramCategory =
     programCategories.find((category) => category.id === activeCategory) ??
@@ -572,7 +903,7 @@ export default function HomeProgramsSection() {
             }}
           >
             <div className="grid lg:grid-cols-[0.85fr_1.5fr]">
-              {/* Category navigation */}
+              {/* Category navigation (With Mobile Inline Accordions) */}
               <div
                 className="border-b lg:border-b-0 lg:border-r"
                 style={{
@@ -590,59 +921,82 @@ export default function HomeProgramsSection() {
                     Explore Schools
                   </p>
 
-                  <div className="grid grid-cols-2 gap-2 lg:grid-cols-1">
+                  <div className="flex flex-col gap-2">
                     {programCategories.map((category) => {
                       const isActive = category.id === activeCategory;
 
                       return (
-                        <button
-                          key={category.id}
-                          type="button"
-                          onClick={() => setActiveCategory(category.id)}
-                          aria-pressed={isActive}
-                          className="group flex items-center gap-3 rounded-xl px-3 py-3 text-left transition-all duration-200 sm:px-4"
-                          style={{
-                            backgroundColor: isActive
-                              ? "var(--gu-navy)"
-                              : "transparent",
-                            color: isActive
-                              ? "white"
-                              : "var(--gu-navy)",
-                          }}
-                        >
-                          <span
-                            className="text-xs font-bold"
+                        <div key={category.id} className="flex flex-col">
+                          <button
+                            type="button"
+                            onClick={() => toggleCategory(category.id)}
+                            aria-expanded={isActive}
+                            className="group flex items-center justify-between rounded-xl px-3.5 py-3.5 text-left transition-all duration-200 sm:px-4"
                             style={{
+                              backgroundColor: isActive
+                                ? "var(--gu-navy)"
+                                : "transparent",
                               color: isActive
-                                ? "var(--gu-gold)"
-                                : "var(--gu-text-muted)",
+                                ? "white"
+                                : "var(--gu-navy)",
                             }}
                           >
-                            {category.number}
-                          </span>
+                            <span className="text-sm font-bold sm:text-base tracking-tight">
+                              {category.shortTitle}
+                            </span>
 
-                          <span className="text-xs font-semibold sm:text-sm">
-                            {category.shortTitle}
-                          </span>
+                            {/* Arrow / Chevron */}
+                            <span
+                              className={`ml-auto flex items-center transition-all duration-200 ${
+                                isActive
+                                  ? "opacity-100 translate-x-0"
+                                  : "opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
+                              }`}
+                              style={{
+                                color: "var(--gu-gold)",
+                              }}
+                            >
+                              <span className="hidden lg:inline-flex">
+                                <ArrowRight size={17} />
+                              </span>
+                              <span className={`lg:hidden transition-transform duration-300 ${isActive ? "rotate-180" : "rotate-0"}`}>
+                                <ChevronDown size={18} />
+                              </span>
+                            </span>
+                          </button>
 
-                          {/* Arrow hidden by default, visible on hover */}
-                          <span
-                            className="ml-auto hidden opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 sm:flex items-center"
-                            style={{
-                              color: "var(--gu-gold)",
-                            }}
-                          >
-                            <ArrowRight size={16} />
-                          </span>
-                        </button>
+                          {/* MOBILE INLINE ACCORDION CONTENT (Opens directly under clicked school tab) */}
+                          <AnimatePresence initial={false}>
+                            {isActive && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{
+                                  duration: 0.28,
+                                  ease: "easeInOut",
+                                }}
+                                className="overflow-hidden lg:hidden"
+                              >
+                                <div className="my-3 rounded-2xl border border-[rgba(6,53,95,0.08)] bg-white p-4 shadow-sm">
+                                  <ProgramCategoryDetails
+                                    category={category}
+                                    openLevels={openLevels}
+                                    toggleLevel={toggleLevel}
+                                  />
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
                       );
                     })}
                   </div>
                 </div>
               </div>
 
-              {/* Program details */}
-              <div className="p-6 sm:p-8 lg:p-10">
+              {/* Program details (DESKTOP VIEW ONLY) */}
+              <div className="hidden p-6 sm:p-8 lg:block lg:p-10">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeProgramCategory.id}
@@ -663,148 +1017,11 @@ export default function HomeProgramsSection() {
                       ease: "easeOut",
                     }}
                   >
-                    <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-start">
-                      <div>
-                        <h3
-                          className="mt-2 font-serif text-3xl font-bold leading-tight sm:text-4xl"
-                          style={{
-                            color: "var(--gu-navy)",
-                          }}
-                        >
-                          {activeProgramCategory.title}
-                        </h3>
-
-                        <p
-                          className="mt-4 max-w-2xl text-sm leading-7 sm:text-base"
-                          style={{
-                            color: "var(--gu-text-muted)",
-                          }}
-                        >
-                          {activeProgramCategory.description}
-                        </p>
-                      </div>
-
-                      <div
-                        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl"
-                        style={{
-                          backgroundColor: "rgba(232, 135, 26, 0.10)",
-                          color: "var(--gu-gold)",
-                        }}
-                      >
-                        <span className="font-serif text-xl font-bold">
-                          {activeProgramCategory.number}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Programs */}
-                    <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                      {activeProgramCategory.programs.map((program, index) => {
-                        const isLink = !!program.href;
-
-                        const content = (
-                          <>
-                            <span
-                              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors duration-200 ${
-                                isLink
-                                  ? "group-hover:bg-[var(--gu-gold)] group-hover:text-white"
-                                  : ""
-                              }`}
-                              style={{
-                                backgroundColor: "rgba(6, 53, 95, 0.07)",
-                                color: "var(--gu-navy)",
-                              }}
-                            >
-                              {String(index + 1).padStart(2, "0")}
-                            </span>
-
-                            <span
-                              className={`flex-1 text-sm font-semibold leading-6 transition-colors duration-200 ${
-                                isLink ? "group-hover:text-[var(--gu-gold)]" : ""
-                              }`}
-                            >
-                              {program.name}
-                            </span>
-
-                            {isLink && (
-                              <span
-                                className="opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 flex items-center"
-                                style={{
-                                  color: "var(--gu-gold)",
-                                }}
-                              >
-                                <ArrowRight size={16} />
-                              </span>
-                            )}
-                          </>
-                        );
-
-                        if (isLink) {
-                          return (
-                            <Link
-                              key={program.name}
-                              href={program.href as string}
-                              className="group flex items-center gap-3 rounded-2xl border bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
-                              style={{
-                                borderColor: "rgba(6, 53, 95, 0.10)",
-                                color: "var(--gu-navy)",
-                              }}
-                            >
-                              {content}
-                            </Link>
-                          );
-                        }
-
-                        return (
-                          <div
-                            key={program.name}
-                            className="flex items-center gap-3 rounded-2xl border bg-white p-4"
-                            style={{
-                              borderColor: "rgba(6, 53, 95, 0.08)",
-                              color: "var(--gu-navy)",
-                            }}
-                          >
-                            {content}
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    {/* School CTA */}
-                    {activeProgramCategory.schoolHref && (
-                      <div className="mt-8 flex flex-col gap-4 border-t pt-7 sm:flex-row sm:items-center sm:justify-between">
-                        <div>
-                          <p
-                            className="text-xs font-bold uppercase tracking-[0.16em]"
-                            style={{
-                              color: "var(--gu-text-muted)",
-                            }}
-                          >
-                            Want to explore more?
-                          </p>
-
-                          <p
-                            className="mt-1 text-sm font-semibold"
-                            style={{
-                              color: "var(--gu-navy)",
-                            }}
-                          >
-                            View the complete school offering.
-                          </p>
-                        </div>
-
-                        <Link
-                          href={activeProgramCategory.schoolHref}
-                          className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-                          style={{
-                            backgroundColor: "var(--gu-navy)",
-                            color: "#ffffff",
-                          }}
-                        >
-                          Explore School
-                        </Link>
-                      </div>
-                    )}
+                    <ProgramCategoryDetails
+                      category={activeProgramCategory}
+                      openLevels={openLevels}
+                      toggleLevel={toggleLevel}
+                    />
                   </motion.div>
                 </AnimatePresence>
               </div>

@@ -30,7 +30,7 @@ export default function Footer() {
       { label: "Government Scholarship", href: "https://scholarships.gov.in/" },
       { label: "Approvals", href: "/ugc", isInternal: true },
       { label: "Academic Bank of Credits", href: "https://www.abc.gov.in/" },
-      { label: "Geeta in News", href: "https://geetauniversity.edu.in/geeta-in-news" },
+      { label: "Geeta in News", href: "/geeta-in-news", isInternal: true },
       { label: "Digi-Locker NAD Portal", href: "https://nad.gov.in/" },
       { label: "UGC Documents", href: "/ugc", isInternal: true },
       { label: "FAQ's", href: "/faq", isInternal: true },
@@ -51,7 +51,7 @@ export default function Footer() {
       { label: "National Education Policy", href: "/edge/nep", isInternal: true },
       { label: "Recent Placement", href: "/placements", isInternal: true },
       { label: "Geeta University Newsletter", href: "https://drive.google.com/file/d/1HqTcehpom1ADjzgSnFBM6z2EdjiqJbIe/view" },
-      { label: "Advisory Board", href: "https://geetauniversity.edu.in/advisory-board" },
+      { label: "Advisory Board", href: "/advisory-board", isInternal: true },
       { label: "Academic Calendar", href: "https://geetauniversity.edu.in/uploads/all/2805/Academic-Calendar-AY2026-27(1).pdf" },
       { label: "GU Academic Council", href: "https://geetauniversity.edu.in/uploads/all/2075/Academic-Council-(Reconstituted).pdf" },
       { label: "GU Board of Management", href: "https://geetauniversity.edu.in/uploads/all/2076/Board-of-Management-(Reconstitution).pdf" },
@@ -59,7 +59,7 @@ export default function Footer() {
       { label: "Annual Report 2024 - 25", href: "https://geetauniversity.edu.in/uploads/all/2279/04-10.04-Annual-Report-2024---2025-(Final).pdf" },
       { label: "Annual Report 2023-24", href: "https://geetauniversity.edu.in/uploads/all/1228/02-Annual-Report-of-GU-2023-24.pdf" },
       { label: "Annual Report 2022-23", href: "https://geetauniversity.edu.in/uploads/all/1272/GEETA_UNIVERSITY_ANNUAL_REPORT_2022-23.pdf" },
-      { label: "GU Medal Policy", href: "https://geetauniversity.edu.in/medal-policy" },
+      { label: "GU Medal Policy", href: "/medal-policy", isInternal: true },
       { label: "XEdge", href: "/xedge", isInternal: true },
       { label: "Public Self Disclosure", href: "https://geetauniversity.edu.in/uploads/all/1586/Public-Self-Disclosure.pdf" },
     ],
@@ -77,7 +77,7 @@ export default function Footer() {
       { label: "GU Gazette", href: "https://geetauniversity.edu.in/uploads/all/1626/GEETA_UNIVERSITY_Gazette.pdf" },
       { label: "How to Reach Us?", href: "/contact-us", isInternal: true },
       { label: "General Information", href: "https://geetauniversity.edu.in/uploads/all/703/GENERAL-INFORMATION-GU-3.pdf" },
-      { label: "About Panipat", href: "https://geetauniversity.edu.in/about-panipat" },
+      { label: "About Panipat", href: "/about-panipat", isInternal: true },
       { label: "UGC Samadhaan Portal", href: "https://samadhaan.ugc.ac.in/" },
       { label: "Student Handbook 2026-27", href: "https://geetauniversity.edu.in/uploads/all/2609/Student-HandBook-(1).pdf" },
       { label: "Hostel Fee And Transport Charges", href: "https://geetauniversity.edu.in/uploads/all/702/Proposed-Fee-structure-for-2025-26.pdf" },
@@ -93,10 +93,10 @@ export default function Footer() {
       { label: "Equal Opportunity Cell details", href: "https://geetauniversity.edu.in/uploads/all/2717/Reconstitution-of-Equal-Opportunity-Cell.pdf" },
       { label: "Internal Complaints Committee (ICC)", href: "https://geetauniversity.edu.in/uploads/all/2071/4.-Notification-Internal-Complaints-Committee.pdf" },
       { label: "Anti Ragging Committee", href: "/anti-ragging-committee", isInternal: true },
-      { label: "GU Academic Peer Feedback Form", href: "https://geetauniversity.edu.in/academic-peers-feedback" },
-      { label: "GU Civil Society, NGOs Feedback Form", href: "https://geetauniversity.edu.in/ngos-civil-society-feedback" },
-      { label: "GU Alumni Feedback Form", href: "https://geetauniversity.edu.in/alumni-feedback-form" },
-      { label: "GU Employer Feedback Form", href: "https://geetauniversity.edu.in/employer-feedback-form" },
+      { label: "GU Academic Peer Feedback Form", href: "/academic-peers-feedback", isInternal: true },
+      { label: "GU Civil Society, NGOs Feedback Form", href: "/ngos-civil-society-feedback", isInternal: true },
+      { label: "GU Alumni Feedback Form", href: "/alumni-feedback-form", isInternal: true },
+      { label: "GU Employer Feedback Form", href: "/employer-feedback-form", isInternal: true },
       { label: "Sitemap", href: "https://geetauniversity.edu.in/sitemap" },
       { label: "Fee Refund Policy", href: "https://geetauniversity.edu.in/uploads/all/2547/Notification-fee-refund-policy.pdf" },
       { label: "IDP", href: "https://geetauniversity.edu.in/uploads/all/1278/Geeta_University_INSTITUTIONAL_DEVELOPMENT_PLAN.pdf" },
@@ -211,9 +211,9 @@ export default function Footer() {
               <Image
                 src="/GU-Logo.webp"
                 alt="Geeta University official logo"
-                width={160}
-                height={50}
-                className="h-12 w-auto object-contain"
+                width={200}
+                height={60}
+                className="h-14 sm:h-16 w-auto object-contain"
               />
             </Link>
 

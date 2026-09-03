@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
-import { motion, type Variants } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 type CampusFeature = {
   id: string;
@@ -114,7 +114,11 @@ const featureVariants: Variants = {
 };
 
 export default function SmartCampusSection() {
-  const [activeFeature, setActiveFeature] = useState("attendance");
+  const [activeFeature, setActiveFeature] = useState<string | null>("attendance");
+
+  const toggleFeature = (id: string) => {
+    setActiveFeature((current) => (current === id ? null : id));
+  };
 
   const selectedFeature =
     features.find((feature) => feature.id === activeFeature) ?? features[0];
@@ -197,7 +201,7 @@ export default function SmartCampusSection() {
             }}
           >
             <div className="grid lg:grid-cols-12">
-              {/* LEFT FEATURE NAVIGATION */}
+              {/* LEFT FEATURE NAVIGATION (WITH MOBILE INLINE ACCORDION) */}
               <div className="lg:col-span-5">
                 <div className="p-5 sm:p-7 lg:p-8">
                   <div className="mb-6">
@@ -220,73 +224,111 @@ export default function SmartCampusSection() {
                     </h3>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-3 lg:space-y-2">
                     {features.map((feature) => {
                       const isActive = feature.id === activeFeature;
 
                       return (
-                        <motion.button
-                          key={feature.id}
-                          type="button"
-                          onClick={() => setActiveFeature(feature.id)}
-                          whileHover={{
-                            x: 4,
-                          }}
-                          whileTap={{
-                            scale: 0.99,
-                          }}
-                          className="group flex w-full items-center gap-4 rounded-2xl p-4 text-left transition-all duration-300"
-                          style={{
-                            backgroundColor: isActive
-                              ? "var(--gu-navy)"
-                              : "transparent",
-                            color: isActive
-                              ? "var(--gu-white)"
-                              : "var(--gu-navy)",
-                          }}
-                        >
-                          <span
-                            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold transition-all duration-300"
+                        <div key={feature.id} className="flex flex-col">
+                          <motion.button
+                            type="button"
+                            onClick={() => toggleFeature(feature.id)}
+                            aria-expanded={isActive}
+                            whileHover={{
+                              x: 4,
+                            }}
+                            whileTap={{
+                              scale: 0.99,
+                            }}
+                            className="group flex w-full items-center gap-4 rounded-2xl p-4 text-left transition-all duration-300"
                             style={{
                               backgroundColor: isActive
-                                ? "var(--gu-gold)"
-                                : "rgba(6, 53, 95, 0.07)",
+                                ? "var(--gu-navy)"
+                                : "transparent",
                               color: isActive
                                 ? "var(--gu-white)"
                                 : "var(--gu-navy)",
                             }}
                           >
-                            {feature.number}
-                          </span>
-
-                          <span className="min-w-0 flex-1">
-                            <span className="block text-sm font-bold leading-6 sm:text-base">
-                              {feature.title}
+                            <span className="min-w-0 flex-1">
+                              <span className="block text-sm font-bold leading-6 sm:text-base">
+                                {feature.title}
+                              </span>
                             </span>
-                          </span>
 
-                          {/* Arrow only visible on hover */}
-                          <span
-                            aria-hidden="true"
-                            className="opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 flex items-center"
-                            style={{
-                              color: isActive
-                                ? "var(--gu-gold)"
-                                : "var(--gu-text-muted)",
-                            }}
-                          >
-                            <ArrowRight size={16} />
-                          </span>
-                        </motion.button>
+                            {/* Arrow / Chevron */}
+                            <span
+                              aria-hidden="true"
+                              className={`transition-all duration-300 flex items-center ${
+                                isActive
+                                  ? "opacity-100 translate-x-0"
+                                  : "opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
+                              }`}
+                              style={{
+                                color: isActive
+                                  ? "var(--gu-gold)"
+                                  : "var(--gu-text-muted)",
+                              }}
+                            >
+                              <span className="hidden lg:inline-flex">
+                                <ArrowRight size={16} />
+                              </span>
+                              <span className={`lg:hidden transition-transform duration-300 ${isActive ? "rotate-180" : "rotate-0"}`}>
+                                <ChevronDown size={18} />
+                              </span>
+                            </span>
+                          </motion.button>
+
+                          {/* MOBILE INLINE ACCORDION CONTENT (Opens directly under clicked tab) */}
+                          <AnimatePresence initial={false}>
+                            {isActive && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{
+                                  duration: 0.28,
+                                  ease: "easeInOut",
+                                }}
+                                className="overflow-hidden lg:hidden"
+                              >
+                                <div className="mt-2 rounded-2xl bg-[#06355F] p-5 text-white shadow-lg">
+                                  <div className="flex items-center gap-2">
+                                    <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#E8871A] border border-white/15">
+                                      Smart Campus
+                                    </span>
+                                  </div>
+
+                                  <h4 className="mt-3 font-serif text-xl font-bold text-white">
+                                    {feature.title}
+                                  </h4>
+
+                                  <p className="mt-2 text-sm leading-relaxed text-white/85">
+                                    {feature.description}
+                                  </p>
+
+                                  <div
+                                    className="mt-3.5 border-l-2 pl-3.5"
+                                    style={{ borderColor: "var(--gu-gold)" }}
+                                  >
+                                    <p className="text-xs leading-relaxed text-white/70">
+                                      {feature.detail}
+                                    </p>
+                                  </div>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
                       );
                     })}
                   </div>
                 </div>
               </div>
 
-              {/* RIGHT FEATURE CONTENT */}
+              {/* RIGHT FEATURE CONTENT (DESKTOP VIEW ONLY) */}
               <div
-                className="relative min-h-96 lg:col-span-7 lg:min-h-0"
+                className="relative hidden lg:block lg:col-span-7"
                 style={{
                   backgroundColor: "var(--gu-navy)",
                 }}
@@ -298,7 +340,7 @@ export default function SmartCampusSection() {
                     alt="Geeta University campus"
                     fill
                     className="object-cover opacity-35"
-                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    sizes="60vw"
                   />
 
                   <div
@@ -311,7 +353,7 @@ export default function SmartCampusSection() {
                 </div>
 
                 {/* Content */}
-                <div className="relative flex h-full min-h-96 flex-col justify-center p-7 sm:p-10 lg:min-h-128 lg:p-12">
+                <div className="relative flex h-full min-h-128 flex-col justify-center p-8 lg:p-12">
                   <motion.div
                     key={selectedFeature.id}
                     variants={featureVariants}
@@ -319,18 +361,7 @@ export default function SmartCampusSection() {
                     animate="visible"
                   >
                     <div className="flex items-center gap-3">
-                      <span
-                        className="text-sm font-bold tracking-[0.2em]"
-                        style={{
-                          color: "var(--gu-gold)",
-                        }}
-                      >
-                        {selectedFeature.number}
-                      </span>
-
-                      <span className="h-px w-12 bg-white/30" />
-
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+                      <span className="inline-flex items-center rounded-full bg-white/10 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#E8871A] backdrop-blur-sm border border-white/15">
                         Smart Campus
                       </span>
                     </div>
@@ -343,7 +374,10 @@ export default function SmartCampusSection() {
                       {selectedFeature.description}
                     </p>
 
-                    <div className="mt-7 border-l-2 pl-5" style={{ borderColor: "var(--gu-gold)" }}>
+                    <div
+                      className="mt-7 border-l-2 pl-5"
+                      style={{ borderColor: "var(--gu-gold)" }}
+                    >
                       <p className="text-sm leading-7 text-white/65">
                         {selectedFeature.detail}
                       </p>
@@ -354,53 +388,6 @@ export default function SmartCampusSection() {
             </div>
           </motion.div>
 
-          {/* BOTTOM FEATURE CARDS */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {features.slice(0, 3).map((feature) => {
-              const isActive = feature.id === activeFeature;
-
-              return (
-                <button
-                  key={feature.id}
-                  type="button"
-                  onClick={() => setActiveFeature(feature.id)}
-                  className="group rounded-2xl border p-5 text-left transition-all duration-300 hover:-translate-y-1 sm:p-6"
-                  style={{
-                    borderColor: isActive
-                      ? "rgba(232, 135, 26, 0.45)"
-                      : "rgba(6, 53, 95, 0.10)",
-                    backgroundColor: isActive
-                      ? "rgba(232, 135, 26, 0.05)"
-                      : "var(--gu-white)",
-                    boxShadow: isActive
-                      ? "0 12px 30px rgba(232, 135, 26, 0.10)"
-                      : "0 8px 25px rgba(6, 53, 95, 0.05)",
-                  }}
-                >
-                  <h4
-                    className="font-serif text-xl font-bold"
-                    style={{
-                      color: "var(--gu-navy)",
-                    }}
-                  >
-                    {feature.title}
-                  </h4>
-
-                  <p
-                    className="mt-3 text-sm leading-6"
-                    style={{
-                      color: "var(--gu-text-muted)",
-                    }}
-                  >
-                    {feature.description}
-                  </p>
-                </button>
-              );
-            })}
-          </motion.div>
         </motion.div>
       </div>
     </section>
