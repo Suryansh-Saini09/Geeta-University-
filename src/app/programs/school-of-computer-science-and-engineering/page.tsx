@@ -29,6 +29,8 @@ import {
 } from "lucide-react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import LearningOutcomes from "@/components/sections/LearningOutcomes";
+import VisionMissionSection from "@/components/programs/VisionMissionSection";
+import { computerScienceSchool } from "@/data/programs/schools/computerScience";
 
 // ─── COLOR TOKENS (Geeta University Brand) ───────────────────────────────────
 // Navy: #0A1F44   Gold/Orange: #E8871A   Light Gold: #F5A623
@@ -129,163 +131,7 @@ const TESTIMONIALS: Testimonial[] = [
   { name: "Monty", pkg: "₹24 LPA", company: "Hike Edu", role: "B.Tech CSE Alumni", quote: "The industry-focused learning culture built my confidence and gave me the perseverance to push through and achieve what I set out to do.", image: "/monty.webp" },
 ];
 
-const FAQS: FAQItem[] = [
-  {
-    q: "Are the placement stories on this page specific to SCSE students?",
-    a: "Placement stories featured in this section include SCSE students and alumni. Some university-wide placement statistics reflect broader institutional data. School-specific success stories are labelled separately.",
-    category: "Placements & Careers"
-  },
-  {
-    q: "Does SCSE focus only on theory, or is there practical skill development too?",
-    a: "SCSE has a strong practical orientation. Students engage with projects, internships, hackathons, coding tracks, certification programs, professors of practice, and the Geeta Technical Hub — all designed to build applied, job-ready skills alongside academic knowledge.",
-    category: "Curriculum & Learning"
-  },
-  {
-    q: "Are there opportunities to learn emerging technologies beyond the core syllabus?",
-    a: "Yes. Official specialisations and training tracks cover AI, Machine Learning, Cybersecurity, Data Science, Cloud Computing, Full Stack Development, and Quantum Computing — giving students exposure to in-demand, future-facing areas.",
-    category: "Specializations & Technology"
-  },
-  {
-    q: "What kinds of industry-linked learning opportunities are available?",
-    a: "Students have access to certifications, bootcamps, domain trainers, tool-integrated learning, a competitive coding ecosystem, and training partnerships with organizations such as AWS, Cisco, Oracle, Microsoft Azure, GitHub, and Red Hat Academy, among others.",
-    category: "Curriculum & Learning"
-  },
-  {
-    q: "Is there mentorship beyond regular faculty teaching?",
-    a: "Yes. SCSE offers a multi-layered mentorship model including academic faculty, professors of practice from industry, technical hub trainers, and leadership support from the Associate Dean and Head of Department.",
-    category: "Curriculum & Learning"
-  },
-  {
-    q: "Can students from non-engineering backgrounds apply to postgraduate programs?",
-    a: "For M.Tech CSE and MCA, eligibility includes different graduation backgrounds, with mathematics-related conditions where applicable. Students are encouraged to review program-specific eligibility requirements or speak with the admissions team.",
-    category: "Admissions & Eligibility"
-  },
-  {
-    q: "How should the \"International Partners\" section be understood?",
-    a: "These are learning, certification, and training ecosystem partners whose platforms and programs feature in student skill development. They represent technology and certification associations, not exchange or dual-degree partnerships unless separately verified.",
-    category: "General"
-  },
-  {
-    q: "What makes SCSE distinct in the private university landscape?",
-    a: "SCSE's positioning is built on future-ready domains, applied learning, mentorship, certifications, a strong coding culture, and dedicated placement support — working together as an integrated ecosystem rather than standalone features.",
-    category: "General"
-  },
-  {
-    q: "Which categories are considered \"reserved category\" for eligibility purposes?",
-    a: "Only SC and ST categories are considered under the reserved category mentioned in eligibility criteria.",
-    category: "Admissions & Eligibility"
-  },
-  {
-    q: "Is the 40% eligibility criteria applicable to all Computer Science programs?",
-    a: "No. The 40% marks eligibility is applicable only to B.Tech Civil Engineering. All Computer Science programs follow their own stated eligibility requirements.",
-    category: "Admissions & Eligibility"
-  },
-  {
-    q: "Can students from non-medical, medical, or commerce backgrounds apply for CSE programs?",
-    a: "It depends on the program. B.Tech CSE requires Physics and Mathematics at 10+2 level, plus one additional subject from a listed group that includes Chemistry, Computer Science, Electronics, IT, Biology, Biotechnology, Agriculture, Engineering Graphics, Business Studies, and Entrepreneurship — so it is not limited to one school stream, but does require the specific subject combination. BCA is more open, requiring 10+2 with 50% marks regardless of stream. Postgraduate programs widen eligibility further, subject to graduation and mathematics conditions.",
-    category: "Admissions & Eligibility"
-  },
-  {
-    q: "Is Mathematics compulsory for all Computer Science programs?",
-    a: "Not uniformly. For B.Tech CSE, Mathematics is compulsory at 10+2 level. For MCA and M.Tech CSE, Mathematics is important and non-mathematics students may be considered subject to completing a compulsory mathematics course as per university norms. For BCA, Mathematics is not compulsory in the same way.",
-    category: "Admissions & Eligibility"
-  },
-  {
-    q: "What is the difference between B.Tech CSE and BCA?",
-    a: "B.Tech CSE is an engineering degree with deeper computer science foundations, core technical study, and specializations such as AI & ML, Cyber Security, Data Science & Business Analytics, Full Stack Web Development, and Quantum Computing. It requires Physics and Mathematics at 10+2 level. BCA is a computer applications degree with an application-oriented structure, available to students from varied academic backgrounds, and does not carry the same engineering entry requirement.",
-    category: "Admissions & Eligibility"
-  },
-  {
-    q: "How should a student choose between AI & ML, Data Science, Cyber Security, and Full Stack Development?",
-    a: "The choice depends on the kind of problems you want to solve. If you enjoy logic, automation, and intelligent systems — choose AI & ML. If you like patterns, analysis, and business insight — choose Data Science. If you are interested in digital defense and systems security — choose Cyber Security. If you want to build websites and software products end to end — choose Full Stack Development.",
-    category: "Specializations & Technology"
-  },
-  {
-    q: "Will the specialization appear separately on the final degree?",
-    a: "No. The degree will remain titled \"B.Tech CSE\" regardless of specialization.",
-    category: "Curriculum & Learning"
-  },
-  {
-    q: "Can students change their specialization after admission?",
-    a: "Any specialization change would be subject to seat availability, academic performance, and university rules at the time of the request. Students should confirm the process directly with the department.",
-    category: "Curriculum & Learning"
-  },
-  {
-    q: "Are the industry certifications included in the course fee or charged separately?",
-    a: "Certification coverage can vary by course, track, platform, or training model. Students should confirm the exact fee structure during counseling before admission.",
-    category: "Admissions & Eligibility"
-  },
-  {
-    q: "Are internships mandatory or optional?",
-    a: "Internship support is actively embedded in the school's ecosystem, with 500+ internships secured by students. Whether internships are mandatory or optional depends on the exact program structure — students should confirm this with the department.",
-    category: "Placements & Careers"
-  },
-  {
-    q: "Does the university help students find internships?",
-    a: "Yes. The university supports students through placement assistance, mentorship, training, and recruitment drives. Students benefit from an ecosystem designed to connect them with opportunities, though individual initiative and performance also play a role in final selection.",
-    category: "Placements & Careers"
-  },
-  {
-    q: "Are placements available equally across all CSE specializations?",
-    a: "Geeta University provides placement assistance across SCSE through training, internships, and recruitment drives, with 100+ companies visiting in 2024–25. Final placement outcomes depend on individual skills, performance, recruiter demand, and chosen career path.",
-    category: "Placements & Careers"
-  },
-  {
-    q: "What roles do students typically get after completing different CSE specializations?",
-    a: "AI & ML graduates typically move toward intelligent systems and automation roles; Data Science graduates toward analytics and data-oriented roles; Cyber Security graduates toward security-focused technical roles; and Full Stack Development graduates toward software and web development roles. The school presents a broad career map to guide students rather than guaranteeing specific outcomes.",
-    category: "Placements & Careers"
-  },
-  {
-    q: "Is prior coding experience required before joining?",
-    a: "No advanced coding background is required. SCSE is designed to build skills through structured practice, DSA training, coding platforms, and project exposure. What matters most is interest, consistency, and a willingness to learn step by step.",
-    category: "Curriculum & Learning"
-  },
-  {
-    q: "Does the curriculum lean more toward theory or practical learning?",
-    a: "The curriculum is designed as a blend of conceptual learning and applied, employability-focused training — with a clear emphasis on practical outcomes through projects, hackathons, internships, certification tracks, and technical hub support.",
-    category: "Curriculum & Learning"
-  },
-  {
-    q: "Are laptops compulsory for Computer Science students?",
-    a: "A laptop is highly useful and often expected for coding, projects, and certification-based learning. Students should confirm the exact requirement with the department or admissions office during counseling.",
-    category: "Student Facilities"
-  },
-  {
-    q: "Is hostel accommodation available for students from other states?",
-    a: "Yes. Hostel accommodation is available as part of the university's student facilities. Out-of-state students can inquire about room types, charges, and availability during the admissions process.",
-    category: "Student Facilities"
-  },
-  {
-    q: "How are students prepared for placements and technical interviews?",
-    a: "Placement preparation is built into the learning ecosystem from the beginning — through industry collaborations, placement support, internships, technical hub training, certification tracks, DSA and competitive coding, and role-oriented learning pathways. It is not limited to a final-semester activity.",
-    category: "Placements & Careers"
-  },
-  {
-    q: "Are scholarships applicable to all CSE specializations?",
-    a: "Scholarships are generally applicable to eligible programs including B.Tech-related pathways, subject to eligibility, merit, entrance tests, and related criteria. The exact amount and criteria depend on the student's admission route and score profile.",
-    category: "Admissions & Eligibility"
-  },
-  {
-    q: "Will additional support be provided if a student is weak in coding initially?",
-    a: "Yes. Students who are initially weak in coding are supported through the school's structured learning environment, which includes foundational skill-building, mentorship, and practice-based progression. No student need hesitate on account of a weaker starting point.",
-    category: "Curriculum & Learning"
-  },
-  {
-    q: "Which specialization has better future scope — AI & ML, Cyber Security, or Data Science?",
-    a: "All three have strong and growing demand. The best choice depends on your interests and strengths: AI & ML suits automation and intelligent systems; Cyber Security suits digital protection and defense; Data Science suits analytics and decision support. Future scope ultimately depends on skill development, market conditions at graduation, and individual career direction.",
-    category: "Specializations & Technology"
-  },
-  {
-    q: "Are live projects and hackathons compulsory parts of the curriculum?",
-    a: "Live projects and hackathons are strongly encouraged and embedded in the school's culture. Whether they carry a compulsory status should be confirmed program-wise with the department.",
-    category: "Curriculum & Learning"
-  },
-  {
-    q: "Will students get opportunities to work on real industry projects?",
-    a: "Yes. Through projects, internships, certification-aligned learning, expert lectures, technical training, and strong industry collaboration, the school actively provides students with opportunities to engage with real-world problems and applications.",
-    category: "Curriculum & Learning"
-  }
-];
+const FAQS: FAQItem[] = (computerScienceSchool.faqs || []) as FAQItem[];
 
 // ─── TOP RECRUITERS MARQUEE ───────────────────────────────────────────────────
 
@@ -906,6 +752,9 @@ function AboutSchoolSection() {
         <p style={{ fontSize: 16, color: "#6B7280", lineHeight: 1.75, fontWeight: 400, marginTop: 32 }}>
           SCSE's learning environment combines strong academic foundations, real-world project experience, global certifications, expert mentorship, and dedicated placement support — ensuring graduates are ready to contribute from day one.
         </p>
+
+        {/* Vision & Mission */}
+        <VisionMissionSection data={computerScienceSchool.visionMission} />
 
       </div>
       <style>{`
