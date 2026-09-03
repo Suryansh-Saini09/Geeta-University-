@@ -1,42 +1,99 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { homeFeedback } from "@/data/homeFeedback";
 
-const DESKTOP_SLIDES = 3;
-
 export default function HomeFeedbackSection() {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const totalSlides = Math.ceil(homeFeedback.length / DESKTOP_SLIDES);
-
-  const nextSlide = () => {
-    setActiveIndex((current) => (current + 1) % totalSlides);
-  };
-
-  const previousSlide = () => {
-    setActiveIndex((current) =>
-      current === 0 ? totalSlides - 1 : current - 1,
+  // Update active dot based on scroll position
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll <= 0) return;
+    const progress = scrollLeft / maxScroll;
+    const index = Math.min(
+      Math.round(progress * (homeFeedback.length - 1)),
+      homeFeedback.length - 1
     );
+    setActiveIndex(index);
   };
 
+  // Drag-to-scroll handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setIsHovered(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Button navigation controls
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const cardWidth = 380;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -cardWidth : cardWidth,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToCard = (index: number) => {
+    if (!scrollRef.current) return;
+    const cardWidth = 380;
+    scrollRef.current.scrollTo({
+      left: index * cardWidth,
+      behavior: "smooth",
+    });
+    setActiveIndex(index);
+  };
+
+  // Auto-scroll every 5 seconds when not hovered
   useEffect(() => {
+    if (isHovered || isDragging) return;
     const interval = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % totalSlides);
-    }, 7000);
+      if (!scrollRef.current) return;
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      if (scrollLeft + clientWidth >= scrollWidth - 10) {
+        scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        scrollRef.current.scrollBy({ left: 380, behavior: "smooth" });
+      }
+    }, 4500);
 
     return () => window.clearInterval(interval);
-  }, [totalSlides]);
-
-  const desktopItems = homeFeedback.slice(
-    activeIndex * DESKTOP_SLIDES,
-    activeIndex * DESKTOP_SLIDES + DESKTOP_SLIDES,
-  );
+  }, [isHovered, isDragging]);
 
   return (
-    <section className="relative overflow-hidden bg-[#F5F8FB] py-20 md:py-24">
+    <section className="relative overflow-hidden bg-[#F5F8FB] pt-8 md:pt-10 pb-16 md:pb-20">
       {/* Decorative background elements */}
       <div
         aria-hidden="true"
@@ -69,21 +126,30 @@ export default function HomeFeedbackSection() {
           </p>
         </div>
 
-        {/* Desktop cards */}
-        <div className="hidden grid-cols-3 gap-6 md:grid">
-          {desktopItems.map((student, index) => (
+        {/* Horizontally Scrollable & Draggable Cards Track */}
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {homeFeedback.map((student, index) => (
             <article
-              key={`${student.name}-${activeIndex}`}
-              className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border bg-white p-7 pb-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
-                index === 1
-                  ? "border-[#F28C18]/50"
+              key={`${student.name}-${index}`}
+              className={`group relative flex w-[300px] sm:w-[350px] md:w-[380px] shrink-0 flex-col overflow-hidden rounded-3xl border bg-white p-7 pb-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+                index % 2 === 1
+                  ? "border-[#F28C18]/40"
                   : "border-[#DCE5ED]"
               }`}
             >
-              {/* Orange accent */}
+              {/* Top Accent Bar */}
               <div
-                className={`absolute left-0 top-0 h-1.5 w-full ${
-                  index === 1 ? "bg-[#F28C18]" : "bg-[#06355F]"
+                className={`absolute left-0 top-0 h-1.5 w-full transition-all duration-300 ${
+                  index % 2 === 1 ? "bg-[#F28C18]" : "bg-[#06355F]"
                 }`}
               />
 
@@ -95,7 +161,7 @@ export default function HomeFeedbackSection() {
                     alt={student.name}
                     fill
                     sizes="80px"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
                   />
                 </div>
 
@@ -111,82 +177,42 @@ export default function HomeFeedbackSection() {
               </div>
 
               {/* Quote */}
-              <div className="mt-8 flex flex-col">
-                <span
-                  aria-hidden="true"
-                  className="font-serif text-6xl font-bold leading-none text-[#F28C18]/20"
-                >
-                  “
-                </span>
+              <div className="mt-7 flex flex-1 flex-col justify-between">
+                <div>
+                  <span
+                    aria-hidden="true"
+                    className="font-serif text-5xl font-bold leading-none text-[#F28C18]/25"
+                  >
+                    “
+                  </span>
 
-                <p className="mt-[-8px] text-[15px] leading-7 text-[#536B83]">
-                  {student.testimonial}
-                </p>
+                  <p className="mt-[-6px] text-[15px] leading-7 text-[#536B83]">
+                    {student.testimonial}
+                  </p>
+                </div>
               </div>
             </article>
           ))}
-        </div>
-
-        {/* Mobile card */}
-        <div className="md:hidden">
-          <article className="relative overflow-hidden rounded-3xl border border-[#DCE5ED] bg-white p-6 pb-8 shadow-lg">
-            <div className="absolute left-0 top-0 h-1.5 w-full bg-[#F28C18]" />
-
-            <div className="flex items-center gap-4">
-              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border-4 border-[#F5F8FB] bg-[#EAF0F5]">
-                <Image
-                  src={homeFeedback[activeIndex]?.image ?? ""}
-                  alt={homeFeedback[activeIndex]?.name ?? "Student"}
-                  fill
-                  sizes="80px"
-                  className="object-cover"
-                />
-              </div>
-
-              <div>
-                <h3 className="font-serif text-xl font-bold text-[#06355F]">
-                  {homeFeedback[activeIndex]?.name}
-                </h3>
-
-                <div className="mt-2 inline-flex rounded-full bg-[#FFF3E2] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#D97706]">
-                  Package · {homeFeedback[activeIndex]?.package}
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-7">
-              <span
-                aria-hidden="true"
-                className="font-serif text-6xl font-bold leading-none text-[#F28C18]/20"
-              >
-                “
-              </span>
-
-              <p className="mt-[-8px] text-[15px] leading-7 text-[#536B83]">
-                {homeFeedback[activeIndex]?.testimonial}
-              </p>
-            </div>
-          </article>
         </div>
 
         {/* Controls */}
         <div className="mt-10 flex items-center justify-center gap-5">
           <button
             type="button"
-            onClick={previousSlide}
+            onClick={() => scroll("left")}
             aria-label="Previous student stories"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white active:scale-95"
           >
             <ChevronLeft size={20} />
           </button>
 
           <div className="flex items-center gap-2">
-            {Array.from({ length: totalSlides }).map((_, index) => (
+            {homeFeedback.map((_, index) => (
               <button
                 key={index}
                 type="button"
-                aria-label={`Go to student stories slide ${index + 1}`}
-                onClick={() => setActiveIndex(index)}
+                aria-label={`Go to student story ${index + 1}`}
+                onClick={() => scrollToCard(index)}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
                   activeIndex === index
                     ? "w-8 bg-[#F28C18]"
@@ -198,9 +224,9 @@ export default function HomeFeedbackSection() {
 
           <button
             type="button"
-            onClick={nextSlide}
+            onClick={() => scroll("right")}
             aria-label="Next student stories"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white active:scale-95"
           >
             <ChevronRight size={20} />
           </button>

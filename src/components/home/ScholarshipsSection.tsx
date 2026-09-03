@@ -64,16 +64,12 @@ export default function ScholarshipsSection() {
 
               {/* Scholarship criteria */}
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                {scholarshipData.criteria.map((criterion, index) => (
+                {scholarshipData.criteria.map((criterion) => (
                   <div
                     key={criterion.title}
-                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.06] p-4 transition-all duration-300 hover:border-[#F28C18]/50 hover:bg-white/10"
+                    className="flex flex-col justify-center rounded-xl border border-white/10 bg-white/[0.06] p-4 transition-all duration-300 hover:border-[#F28C18]/50 hover:bg-white/10"
                   >
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#F28C18] text-xs font-bold text-white">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-
-                    <span className="pt-1 text-sm font-medium leading-5 text-white/90">
+                    <span className="text-sm font-medium leading-5 text-white/90">
                       {criterion.title}
                       {criterion.title ===
                         "National Level Entrance Exams" && (

@@ -1,9 +1,56 @@
-import { ArrowRight } from "lucide-react";
+"use client";
+
+import React, { useRef, useState } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { starPerformances } from "@/data/starPerformances";
 
 export default function StarPerformancesSection() {
   // Duplicate the list to create a seamless infinite marquee.
-  const marqueeItems = [...starPerformances, ...starPerformances];
+  const marqueeItems = [...starPerformances, ...starPerformances, ...starPerformances];
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Drag-to-scroll handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setIsHovered(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.6;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Button scroll controls
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 380;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   // YouTube video URL.
   const youtubeUrl = "https://www.youtube.com/embed/D-TW0dcqMDA";
@@ -83,8 +130,28 @@ export default function StarPerformancesSection() {
           </a>
         </div>
 
-        {/* Gallery */}
-        <div className="relative mt-14">
+        {/* Gallery & Scroll Container */}
+        <div className="group relative mt-14">
+          {/* Left navigation arrow */}
+          <button
+            type="button"
+            onClick={() => scroll("left")}
+            aria-label="Scroll left"
+            className="absolute left-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-lg transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-12 sm:w-12"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+
+          {/* Right navigation arrow */}
+          <button
+            type="button"
+            onClick={() => scroll("right")}
+            aria-label="Scroll right"
+            className="absolute right-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-lg transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-12 sm:w-12"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+
           {/* Left fade */}
           <div
             aria-hidden="true"
@@ -97,22 +164,36 @@ export default function StarPerformancesSection() {
             className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[#F7F9FC] to-transparent sm:w-28 md:w-40"
           />
 
-          {/* Marquee */}
+          {/* Marquee viewport with drag and scroll */}
           <div className="overflow-hidden py-4">
-            <div className="star-marquee flex w-max items-center">
-              {marqueeItems.map((star, index) => (
-                <div
-  key={`${star.image}-${index}`}
-  className="star-card group relative mx-2 aspect-[3/4.8] w-[190px] shrink-0 overflow-hidden rounded-2xl bg-white shadow-md sm:mx-3 sm:w-[235px] md:w-[275px]"
->
-  <img
-    src={star.image}
-    alt={star.name}
-    loading="lazy"
-    className="h-full w-full object-contain"
-  />
-</div>
-              ))}
+            <div
+              ref={scrollRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleMouseEnter}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              className="flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              <div
+                className={`star-marquee flex w-max items-center ${
+                  isHovered || isDragging ? "paused" : ""
+                }`}
+              >
+                {marqueeItems.map((star, index) => (
+                  <div
+                    key={`${star.image}-${index}`}
+                    className="star-card group/item relative mx-2 aspect-[3/4.8] w-[190px] shrink-0 overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:mx-3 sm:w-[235px] md:w-[275px]"
+                  >
+                    <img
+                      src={star.image}
+                      alt={star.name}
+                      loading="lazy"
+                      className="h-full w-full object-contain pointer-events-none"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -136,8 +217,12 @@ export default function StarPerformancesSection() {
           will-change: transform;
         }
 
+        .star-marquee.paused {
+          animation-play-state: paused !important;
+        }
+
         .star-marquee:hover {
-          animation-play-state: paused;
+          animation-play-state: paused !important;
         }
 
         @keyframes star-scroll {
@@ -146,13 +231,19 @@ export default function StarPerformancesSection() {
           }
 
           to {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
           }
         }
 
         @media (max-width: 768px) {
           .star-marquee {
             animation-duration: 32s;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .star-marquee {
+            animation: none !important;
           }
         }
       `}</style>

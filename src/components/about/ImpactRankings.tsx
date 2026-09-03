@@ -13,7 +13,7 @@ export default function ImpactRankings() {
         duration: 0.8,
         ease: "easeOut",
       }}
-      className="mt-20 md:mt-24"
+      className="mt-12 md:mt-14"
     >
       {/* Section heading */}
       <div className="mx-auto mb-10 max-w-[850px] text-center">

@@ -66,19 +66,8 @@ export default function WhyJoinGeetaSection() {
                       onClick={() => handleToggle(item.id)}
                       aria-expanded={isActive}
                       aria-controls={`why-join-panel-${item.id}`}
-                      className="flex w-full items-center gap-4 px-5 py-5 text-left sm:px-6"
+                      className="flex w-full items-center justify-between gap-4 px-5 py-4.5 text-left sm:px-6"
                     >
-                      {/* Number */}
-                      <span
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold transition-all duration-300 ${
-                          isActive
-                            ? "bg-[#F28C18] text-white"
-                            : "bg-[#06355F] text-white"
-                        }`}
-                      >
-                        {String(item.id).padStart(2, "0")}
-                      </span>
-
                       {/* Title */}
                       <span
                         className={`flex-1 text-sm font-bold transition-colors sm:text-base ${
@@ -125,7 +114,7 @@ export default function WhyJoinGeetaSection() {
                       }`}
                     >
                       <div className="min-h-0 overflow-hidden">
-                        <div className="border-t border-[#E5EBF0] px-5 pb-5 pt-4 pl-19 sm:px-6 sm:pl-21">
+                        <div className="border-t border-[#E5EBF0] px-5 pb-5 pt-4 sm:px-6">
                           <p className="text-sm leading-6 text-[#5D6F80] sm:text-base">
                             {item.description}
                           </p>

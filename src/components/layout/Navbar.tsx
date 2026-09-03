@@ -279,19 +279,19 @@ export default function Navbar() {
           align-items: center;
           justify-content: space-between;
           padding: 0 24px;
-          height: 66px;
+          height: 86px;
         }
 
         /* Logo */
         .gu-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
         .gu-logo-img {
-          width: 140px; height: 44px; overflow: hidden;
-          background: transparent; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+          width: 280px; height: 70px; overflow: hidden;
+          background: transparent; flex-shrink: 0; display: flex; align-items: center; justify-content: flex-start;
         }
         .gu-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
-        .gu-logo-name { font-size: 21px; font-weight: 900; color: #0A1F44; letter-spacing: -.4px; text-transform: uppercase; }
+        .gu-logo-name { font-size: 24px; font-weight: 900; color: #0A1F44; letter-spacing: -.4px; text-transform: uppercase; }
         .gu-logo-gold { color: #e8871a; }
-        .gu-logo-tag { font-size: 9px; color: #64748B; letter-spacing: 1.6px; text-transform: uppercase; margin-top: 1px; }
+        .gu-logo-tag { font-size: 10px; color: #64748B; letter-spacing: 1.6px; text-transform: uppercase; margin-top: 1px; }
 
         /* Centre quick-nav */
         .gu-main-quicknav {
@@ -732,9 +732,16 @@ export default function Navbar() {
 
         {/* ── LOGO / HELPLINE BAR ── */}
         <div className="gu-mainbar">
-          <Link href="/" className="gu-logo">
+          <Link href="/" className="gu-logo" aria-label="Geeta University">
             <div className="gu-logo-img">
-              <Image src="/GU-Logo.webp" alt="Geeta University Logo" width={140} height={44} style={{ objectFit: "contain", width: "100%", height: "100%" }} priority />
+              <Image
+                src="/GU-Logo.webp"
+                alt="Geeta University Logo"
+                width={280}
+                height={70}
+                style={{ objectFit: "contain", width: "100%", height: "100%" }}
+                priority
+              />
             </div>
           </Link>
 
@@ -763,11 +770,6 @@ export default function Navbar() {
           */}
 
           <div className="gu-mainbar-right">
-            <Link href="/scholarship-predictor" className="hidden lg:inline-flex items-center gap-1.5 rounded-full bg-[#e8871a] px-3.5 py-1.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#c9710f] text-decoration-none">
-              <Trophy size={14} className="text-white" />
-              <span>Scholarship Predictor</span>
-            </Link>
-
             <Link href="tel:01742639100" className="gu-helpline">
               <div className="gu-helpline-ico">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">

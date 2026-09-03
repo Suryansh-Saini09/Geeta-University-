@@ -1,7 +1,9 @@
 "use client";
 
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { recruiters } from "@/data/recruiters";
 
 const sectionVariants: Variants = {
@@ -33,11 +35,51 @@ const itemVariants: Variants = {
 };
 
 export default function TopRecruitersSection() {
-  /*
-   * Duplicating the list creates a seamless marquee.
-   * The animation moves exactly half of the combined track.
-   */
-  const marqueeItems = [...recruiters, ...recruiters];
+  const marqueeItems = [...recruiters, ...recruiters, ...recruiters];
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Mouse drag-to-scroll handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setIsHovered(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.6; // Scroll speed multiplier
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Button scroll controls
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 340;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section
@@ -96,15 +138,33 @@ export default function TopRecruitersSection() {
             </p>
           </motion.div>
 
-          {/* Recruiter marquee */}
+          {/* Recruiter marquee & scroll container */}
           <motion.div
             variants={itemVariants}
-            className="relative mt-12 overflow-hidden rounded-3xl border py-8 shadow-sm md:mt-16 md:py-10"
+            className="group relative mt-10 overflow-hidden rounded-2xl border py-5 shadow-sm md:mt-12 md:py-6"
             style={{
               borderColor: "rgba(6, 53, 95, 0.10)",
               backgroundColor: "var(--gu-bg)",
             }}
           >
+            {/* Left navigation arrow */}
+            <button
+              onClick={() => scroll("left")}
+              aria-label="Scroll left"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[#0A1F44] shadow-md transition-all hover:bg-[#0A1F44] hover:text-white hover:scale-110 active:scale-95 border border-slate-200 opacity-0 group-hover:opacity-100"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+
+            {/* Right navigation arrow */}
+            <button
+              onClick={() => scroll("right")}
+              aria-label="Scroll right"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[#0A1F44] shadow-md transition-all hover:bg-[#0A1F44] hover:text-white hover:scale-110 active:scale-95 border border-slate-200 opacity-0 group-hover:opacity-100"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+
             {/* Left gradient */}
             <div
               aria-hidden="true"
@@ -125,30 +185,43 @@ export default function TopRecruitersSection() {
               }}
             />
 
+            {/* Horizontally Scrollable & Draggable Marquee Container */}
             <div
-              className="flex w-max items-center"
-              style={{
-                animation: "guRecruiterMarquee 38s linear infinite",
-              }}
+              ref={scrollRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleMouseEnter}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              className="flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
-              {marqueeItems.map((recruiter, index) => (
-                <div
-                  key={`${recruiter.id}-${index}`}
-                  className="group mx-3 flex h-24 w-40 shrink-0 items-center justify-center rounded-2xl border bg-white px-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:mx-4 sm:h-28 sm:w-48"
-                  style={{
-                    borderColor: "rgba(6, 53, 95, 0.08)",
-                  }}
-                >
-                  <Image
-  src={recruiter.logo}
-  alt={`${recruiter.name} logo`}
-  width={160}
-  height={80}
-  sizes="(max-width: 640px) 160px, 192px"
-  className="max-h-14 w-auto max-w-full object-contain transition-all duration-300"
-/>
-                </div>
-              ))}
+              <div
+                className={`flex w-max items-center py-1 gu-marquee-track ${
+                  isHovered || isDragging ? "paused" : ""
+                }`}
+                style={{
+                  animation: "guRecruiterMarquee 42s linear infinite",
+                }}
+              >
+                {marqueeItems.map((recruiter, index) => (
+                  <div
+                    key={`${recruiter.id}-${index}`}
+                    className="group/card mx-2.5 flex h-16 w-36 shrink-0 items-center justify-center rounded-xl border bg-white px-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:mx-3 sm:h-20 sm:w-44 pointer-events-auto"
+                    style={{
+                      borderColor: "rgba(6, 53, 95, 0.08)",
+                    }}
+                  >
+                    <Image
+                      src={recruiter.logo}
+                      alt={`${recruiter.name} logo`}
+                      width={140}
+                      height={60}
+                      sizes="(max-width: 640px) 140px, 176px"
+                      className="max-h-9 sm:max-h-11 w-auto max-w-full object-contain transition-all duration-300 pointer-events-none"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -192,12 +265,20 @@ export default function TopRecruitersSection() {
           }
 
           to {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
           }
         }
 
+        .gu-marquee-track.paused {
+          animation-play-state: paused !important;
+        }
+
+        .gu-marquee-track:hover {
+          animation-play-state: paused !important;
+        }
+
         @media (prefers-reduced-motion: reduce) {
-          div[style*="guRecruiterMarquee"] {
+          .gu-marquee-track {
             animation: none !important;
           }
         }

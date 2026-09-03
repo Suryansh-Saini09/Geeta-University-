@@ -101,7 +101,7 @@ function AnimatedNumber({
 
   return (
     <>
-      {count.toLocaleString()}
+      {count}
       {suffix}
     </>
   );
@@ -159,7 +159,7 @@ export default function HomeStatsSection() {
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
+      <div className="relative mx-auto max-w-6xl px-8 sm:px-12 lg:px-16">
         <motion.div
           variants={sectionVariants}
           initial="hidden"
@@ -214,7 +214,7 @@ export default function HomeStatsSection() {
           {/* STATS */}
           <motion.div
             variants={itemVariants}
-            className="relative mt-12 grid gap-5 md:mt-16 md:grid-cols-3"
+            className="relative mt-12 grid gap-6 sm:gap-8 md:mt-16 md:grid-cols-3"
           >
             {stats.map((stat, index) => (
               <motion.article
