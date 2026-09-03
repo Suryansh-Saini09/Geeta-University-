@@ -125,9 +125,9 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       )}
 
       {/* 13. PLACEMENT ANALYTICS & TESTIMONIALS */}
-      {pageData.placement && (
+      {(pageData.placement || (pageData.testimonials && pageData.testimonials.length > 0)) && (
         <ProgramPlacement
-          placement={pageData.placement}
+          // placement={pageData.placement}
           testimonials={pageData.testimonials}
         />
       )}

@@ -26,6 +26,8 @@ import {
   X,
   Cpu,
   Sparkles,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import LearningOutcomes from "@/components/sections/LearningOutcomes";
@@ -2311,6 +2313,60 @@ const DEPT_HIGHLIGHTS_DATA = [
 ];
 
 function TestimonialsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(3);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const updateVisibleCards = () => {
+      if (window.innerWidth < 640) setVisibleCards(1);
+      else if (window.innerWidth < 1024) setVisibleCards(2);
+      else setVisibleCards(3);
+    };
+
+    updateVisibleCards();
+    window.addEventListener("resize", updateVisibleCards);
+    return () => window.removeEventListener("resize", updateVisibleCards);
+  }, []);
+
+  const totalSlides = Math.max(1, TESTIMONIALS.length - visibleCards + 1);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  }, [totalSlides]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
+  }, [totalSlides]);
+
+  useEffect(() => {
+    if (isHovered || totalSlides <= 1) return;
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isHovered, totalSlides, nextSlide]);
+
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 50) nextSlide();
+    if (diff < -50) prevSlide();
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return (
     <section
       id="Testimonials"
@@ -2326,14 +2382,9 @@ function TestimonialsSection() {
       <div style={{ position: "absolute", top: "-10%", left: "-10%", width: 500, height: 500, background: "radial-gradient(circle, rgba(232,135,26,0.08) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
       <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: 500, height: 500, background: "radial-gradient(circle, rgba(232,135,26,0.06) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
+      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 60 }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
-            <div style={{ width: 32, height: 2, borderRadius: 2 }} />
-            
-            <div style={{ width: 32, height: 2, borderRadius: 2 }} />
-          </div>
           <h2 style={{
             fontSize: 44, fontWeight: 900, color: "#FFFFFF",
             margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-1.5px"
@@ -2345,137 +2396,278 @@ function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          gap: 28,
-          position: "relative",
-          zIndex: 2
-        }}>
-          {TESTIMONIALS.map((item, idx) => {
-            const initials = item.name.split(" ").map(n => n[0]).join("");
-            const displayDetails = [
-              "B.Tech CSE",
-              item.role && item.role !== "B.Tech CSE Alumni" ? `${item.role}, ${item.company}` : item.company,
-              item.pkg
-            ].filter(Boolean).join(" | ");
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                style={{
-                  background: "rgba(255, 255, 255, 0.03)",
-                  backdropFilter: "blur(20px)",
-                  WebkitBackdropFilter: "blur(20px)",
-                  border: "1px solid rgba(255, 255, 255, 0.06)",
-                  borderRadius: "24px",
-                  padding: "36px 32px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  position: "relative",
-                  overflow: "hidden",
-                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-                  transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-                  cursor: "default"
-                }}
-                className="testimonial-card"
-              >
-                <div>
-                  {/* Quote Icon */}
-                  <svg className="quote-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(232, 135, 26, 0.25)" strokeWidth="2.5" style={{ transition: "all 0.3s ease" }}>
-                    <path d="M3 21c3 0 7-1 7-8V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1zm12 0c3 0 7-1 7-8V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1z" />
-                  </svg>
+        {/* Carousel Container */}
+        <div
+          style={{ position: "relative" }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {totalSlides > 1 && (
+            <button
+              type="button"
+              onClick={prevSlide}
+              aria-label="Previous testimonial"
+              style={{
+                position: "absolute",
+                left: -20,
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 20,
+                width: 46,
+                height: 46,
+                borderRadius: "50%",
+                background: "rgba(10, 31, 68, 0.85)",
+                border: "1px solid rgba(232, 135, 26, 0.4)",
+                color: "#FFFFFF",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
+                backdropFilter: "blur(10px)",
+                transition: "all 0.3s ease",
+              }}
+              className="carousel-arrow prev-arrow"
+            >
+              <ChevronLeft size={22} strokeWidth={2.2} />
+            </button>
+          )}
 
-                  {/* Quote Text */}
-                  <p style={{
-                    fontSize: "14.5px",
-                    color: "rgba(255, 255, 255, 0.8)",
-                    margin: "20px 0 28px",
-                    lineHeight: 1.65,
-                    fontWeight: 450,
-                    fontStyle: "italic"
-                  }}>
-                    "{item.quote}"
-                  </p>
-                </div>
+          {totalSlides > 1 && (
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Next testimonial"
+              style={{
+                position: "absolute",
+                right: -20,
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 20,
+                width: 46,
+                height: 46,
+                borderRadius: "50%",
+                background: "rgba(10, 31, 68, 0.85)",
+                border: "1px solid rgba(232, 135, 26, 0.4)",
+                color: "#FFFFFF",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
+                backdropFilter: "blur(10px)",
+                transition: "all 0.3s ease",
+              }}
+              className="carousel-arrow next-arrow"
+            >
+              <ChevronRight size={22} strokeWidth={2.2} />
+            </button>
+          )}
 
-                {/* User Profile */}
-                <div style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 16,
-                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                  paddingTop: 20
-                }}>
-                  {/* Avatar Image / Fallback Initials */}
-                  <div style={{
-                    width: 48,
-                    height: 48,
-                    borderRadius: "50%",
-                    overflow: "hidden",
-                    background: "rgba(232, 135, 26, 0.15)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    border: "1px solid rgba(232, 135, 26, 0.3)",
-                    flexShrink: 0,
-                    position: "relative"
-                  }}>
-                    {item.image && (
-                      <img 
-                        src={item.image} 
-                        alt={item.name} 
-                        style={{ 
-                          width: "100%", 
-                          height: "100%", 
-                          objectFit: "cover", 
-                          position: "absolute",
-                          top: 0,
-                          left: 0,
-                          zIndex: 2 
-                        }} 
-                        onError={(e) => {
-                          e.currentTarget.style.display = "none";
-                        }}
-                      />
-                    )}
-                    <span style={{ color: "#E8871A", fontWeight: 800, fontSize: 15, position: "relative", zIndex: 1 }}>
-                      {initials}
-                    </span>
+          {/* Sliding Window */}
+          <div
+            style={{ overflow: "hidden", userSelect: "none", touchAction: "pan-y" }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div
+              style={{
+                display: "flex",
+                transition: "transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+                transform: `translateX(-${currentIndex * (100 / visibleCards)}%)`,
+              }}
+            >
+              {TESTIMONIALS.map((item, idx) => {
+                const initials = item.name.split(" ").map(n => n[0]).join("");
+                const displayDetails = [
+                  "B.Tech CSE",
+                  item.role && item.role !== "B.Tech CSE Alumni" ? `${item.role}, ${item.company}` : item.company,
+                  item.pkg
+                ].filter(Boolean).join(" | ");
+
+                return (
+                  <div
+                    key={idx}
+                    style={{
+                      width: `${100 / visibleCards}%`,
+                      flexShrink: 0,
+                      padding: "0 14px",
+                      boxSizing: "border-box",
+                    }}
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.05 }}
+                      style={{
+                        background: "rgba(255, 255, 255, 0.03)",
+                        backdropFilter: "blur(20px)",
+                        WebkitBackdropFilter: "blur(20px)",
+                        border: "1px solid rgba(255, 255, 255, 0.06)",
+                        borderRadius: "24px",
+                        padding: "36px 30px",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        height: "100%",
+                        minHeight: 280,
+                        position: "relative",
+                        overflow: "hidden",
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                        transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                      }}
+                      className="testimonial-card"
+                    >
+                      <div>
+                        {/* Quote Icon & Package Badge */}
+                        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
+                          <svg className="quote-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="rgba(232, 135, 26, 0.4)" strokeWidth="2.2" style={{ transition: "all 0.3s ease" }}>
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1zm12 0c3 0 7-1 7-8V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1z" />
+                          </svg>
+                          {item.pkg && (
+                            <span
+                              style={{
+                                background: "rgba(232, 135, 26, 0.15)",
+                                border: "1px solid rgba(232, 135, 26, 0.3)",
+                                color: "#E8871A",
+                                fontSize: 12,
+                                fontWeight: 750,
+                                padding: "4px 10px",
+                                borderRadius: 999,
+                              }}
+                            >
+                              {item.pkg}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Quote Text */}
+                        <p style={{
+                          fontSize: "14.5px",
+                          color: "rgba(255, 255, 255, 0.85)",
+                          margin: "0 0 28px",
+                          lineHeight: 1.7,
+                          fontWeight: 400,
+                          fontStyle: "italic"
+                        }}>
+                          "{item.quote}"
+                        </p>
+                      </div>
+
+                      {/* User Profile */}
+                      <div style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 14,
+                        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                        paddingTop: 20,
+                        marginTop: "auto"
+                      }}>
+                        {/* Avatar Image / Fallback Initials */}
+                        <div style={{
+                          width: 46,
+                          height: 46,
+                          borderRadius: "50%",
+                          overflow: "hidden",
+                          background: "rgba(232, 135, 26, 0.15)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          border: "1px solid rgba(232, 135, 26, 0.4)",
+                          flexShrink: 0,
+                          position: "relative"
+                        }}>
+                          {item.image && (
+                            <img 
+                              src={item.image} 
+                              alt={item.name} 
+                              style={{ 
+                                width: "100%", 
+                                height: "100%", 
+                                objectFit: "cover", 
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                zIndex: 2 
+                              }} 
+                              onError={(e) => {
+                                e.currentTarget.style.display = "none";
+                              }}
+                            />
+                          )}
+                          <span style={{ color: "#E8871A", fontWeight: 800, fontSize: 15, position: "relative", zIndex: 1 }}>
+                            {initials}
+                          </span>
+                        </div>
+
+                        {/* Meta Details */}
+                        <div style={{ overflow: "hidden" }}>
+                          <h4 style={{ color: "#FFFFFF", fontSize: "15px", fontWeight: 750, margin: "0 0 3px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                            {item.name}
+                          </h4>
+                          <p style={{ color: "rgba(255, 255, 255, 0.55)", fontSize: "12px", margin: 0, fontWeight: 450, lineHeight: 1.3, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                            {displayDetails}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
                   </div>
+                );
+              })}
+            </div>
+          </div>
 
-                  {/* Meta Details */}
-                  <div>
-                    <h4 style={{ color: "#FFFFFF", fontSize: "15.5px", fontWeight: 750, margin: "0 0 3px" }}>
-                      {item.name}
-                    </h4>
-                    <p style={{ color: "rgba(255, 255, 255, 0.5)", fontSize: "12.5px", margin: 0, fontWeight: 450, lineHeight: 1.3 }}>
-                      {displayDetails}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          {/* Dots Pagination */}
+          {totalSlides > 1 && (
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 8, marginTop: 36 }}>
+              {Array.from({ length: totalSlides }).map((_, dotIdx) => (
+                <button
+                  key={dotIdx}
+                  type="button"
+                  onClick={() => setCurrentIndex(dotIdx)}
+                  aria-label={`Go to slide ${dotIdx + 1}`}
+                  style={{
+                    width: currentIndex === dotIdx ? 28 : 8,
+                    height: 8,
+                    borderRadius: 999,
+                    background: currentIndex === dotIdx ? "#E8871A" : "rgba(255, 255, 255, 0.2)",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    padding: 0,
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .testimonial-card:hover {
-          background: rgba(255, 255, 255, 0.06) !important;
-          border-color: rgba(232, 135, 26, 0.35) !important;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(232, 135, 26, 0.05) !important;
+          background: rgba(255, 255, 255, 0.07) !important;
+          border-color: rgba(232, 135, 26, 0.45) !important;
+          transform: translateY(-4px) !important;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 24px rgba(232, 135, 26, 0.1) !important;
         }
         .testimonial-card:hover .quote-icon {
-          stroke: rgba(232, 135, 26, 0.6) !important;
+          stroke: #E8871A !important;
           transform: scale(1.1) rotate(-5deg);
         }
-      `}</style>
+        .carousel-arrow:hover {
+          background: #E8871A !important;
+          border-color: #E8871A !important;
+          color: #FFFFFF !important;
+          box-shadow: 0 0 20px rgba(232, 135, 26, 0.4) !important;
+        }
+        @media (max-width: 640px) {
+          .carousel-arrow {
+            display: none !important;
+          }
+        }
+      ` }} />
     </section>
   );
 }
@@ -2617,6 +2809,60 @@ function LearningSpacesSection() {
     { src: "/coding.JPG.jpeg", title: "Coding & Collaborative Studio", caption: "Interactive programming space designed for logic building, DSA, and group projects." }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(3);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const updateVisibleCards = () => {
+      if (window.innerWidth < 640) setVisibleCards(1);
+      else if (window.innerWidth < 1024) setVisibleCards(2);
+      else setVisibleCards(3);
+    };
+
+    updateVisibleCards();
+    window.addEventListener("resize", updateVisibleCards);
+    return () => window.removeEventListener("resize", updateVisibleCards);
+  }, []);
+
+  const totalSlides = Math.max(1, galleryImages.length - visibleCards + 1);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  }, [totalSlides]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
+  }, [totalSlides]);
+
+  useEffect(() => {
+    if (isHovered || totalSlides <= 1) return;
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isHovered, totalSlides, nextSlide]);
+
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 50) nextSlide();
+    if (diff < -50) prevSlide();
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return (
     <section
       id="LearningSpaces"
@@ -2627,14 +2873,9 @@ function LearningSpacesSection() {
         borderTop: "1px solid #E2E8F0"
       }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 60 }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
-            <div style={{ width: 32, height: 2, borderRadius: 2 }} />
-            
-            <div style={{ width: 32, height: 2, borderRadius: 2 }} />
-          </div>
           <h2 style={{
             fontSize: 48, fontWeight: 900, color: "#0A1F44",
             margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-1.5px"
@@ -2707,91 +2948,181 @@ function LearningSpacesSection() {
           Every space is designed to support hands-on learning, project delivery, internships, certification-backed exposure, and technology-enabled training.
         </div>
 
-        {/* Experiential Gallery Showcase */}
-        <div>
-          <h3 style={{ fontSize: "22px", fontWeight: 800, color: "#0A1F44", marginBottom: 28, display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ width: 4, height: 18, background: "#E8871A", borderRadius: 2 }} />
-            Department Showcase
-          </h3>
+        {/* Experiential Gallery Showcase Carousel */}
+        <div style={{ marginTop: 64 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 32 }}>
+            <h3 style={{ fontSize: "24px", fontWeight: 850, color: "#0A1F44", margin: 0, display: "flex", alignItems: "center", gap: 12 }}>
+              <span style={{ width: 4, height: 22, background: "#E8871A", borderRadius: 2 }} />
+              Department Showcase
+            </h3>
 
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: 32
-          }}>
-            {galleryImages.map((img, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                style={{
-                  background: "#FFFFFF",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  border: "1px solid #E2E8F0",
-                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.04)",
-                  display: "flex",
-                  flexDirection: "column",
-                  transition: "all 0.3s ease"
-                }}
-                className="gallery-card"
-              >
-                {/* Image Wrap */}
-                <div style={{ overflow: "hidden", position: "relative", height: "240px", background: "#F1F5F9" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={img.src}
-                    alt={img.title}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      transition: "transform 0.5s ease"
-                    }}
-                    className="gallery-img"
-                  />
-                  <div style={{
-                    position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(180deg, transparent 40%, rgba(10, 31, 68, 0.8) 100%)",
+            {totalSlides > 1 && (
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <button
+                  type="button"
+                  onClick={prevSlide}
+                  aria-label="Previous showcase slide"
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: "50%",
+                    background: "#FFFFFF",
+                    border: "1px solid #CBD5E1",
+                    color: "#0A1F44",
                     display: "flex",
-                    alignItems: "flex-end",
-                    padding: "20px 24px"
-                  }}>
-                    <h4 style={{ color: "#FFFFFF", fontSize: "18px", fontWeight: 800, margin: 0, textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
-                      {img.title}
-                    </h4>
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    boxShadow: "0 4px 12px rgba(10,31,68,0.06)",
+                    transition: "all 0.3s ease",
+                  }}
+                  className="gallery-nav-btn"
+                >
+                  <ChevronLeft size={20} strokeWidth={2} />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={nextSlide}
+                  aria-label="Next showcase slide"
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: "50%",
+                    background: "#FFFFFF",
+                    border: "1px solid #CBD5E1",
+                    color: "#0A1F44",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    boxShadow: "0 4px 12px rgba(10,31,68,0.06)",
+                    transition: "all 0.3s ease",
+                  }}
+                  className="gallery-nav-btn"
+                >
+                  <ChevronRight size={20} strokeWidth={2} />
+                </button>
+              </div>
+            )}
+          </div>
+
+          <div
+            style={{ position: "relative" }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <div
+              style={{ overflow: "hidden", userSelect: "none", touchAction: "pan-y", borderRadius: 20 }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  transition: "transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+                  transform: `translateX(-${currentIndex * (100 / visibleCards)}%)`,
+                }}
+              >
+                {galleryImages.map((img, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      width: `${100 / visibleCards}%`,
+                      flexShrink: 0,
+                      padding: "0 14px",
+                      boxSizing: "border-box",
+                    }}
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.05 }}
+                      style={{
+                        background: "#FFFFFF",
+                        borderRadius: "20px",
+                        overflow: "hidden",
+                        border: "1px solid #E2E8F0",
+                        boxShadow: "0 8px 24px rgba(10, 31, 68, 0.04)",
+                        display: "flex",
+                        flexDirection: "column",
+                        height: "100%",
+                        minHeight: 360,
+                        transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+                      }}
+                      className="gallery-card"
+                    >
+                      <div style={{ overflow: "hidden", position: "relative", height: "230px", background: "#F1F5F9", flexShrink: 0 }}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={img.src}
+                          alt={img.title}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            transition: "transform 0.5s ease"
+                          }}
+                          className="gallery-img"
+                        />
+                      </div>
+                      <div style={{ padding: "22px 24px", flex: 1, display: "flex", flexDirection: "column", background: "#FFFFFF" }}>
+                        <h4 style={{ color: "#0A1F44", fontSize: "17.5px", fontWeight: 800, margin: "0 0 10px", lineHeight: 1.35 }}>
+                          {img.title}
+                        </h4>
+                        <p style={{ fontSize: "14px", color: "#64748B", margin: 0, lineHeight: 1.6, fontWeight: 400 }}>
+                          {img.caption}
+                        </p>
+                      </div>
+                    </motion.div>
                   </div>
-                </div>
-                {/* Description */}
-                <div style={{ padding: "20px 24px", flex: 1, display: "flex", alignItems: "center" }}>
-                  <p style={{ fontSize: "14px", color: "#475569", margin: 0, lineHeight: 1.6 }}>
-                    {img.caption}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+                ))}
+              </div>
+            </div>
+
+            {totalSlides > 1 && (
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 8, marginTop: 32 }}>
+                {Array.from({ length: totalSlides }).map((_, dotIdx) => (
+                  <button
+                    key={dotIdx}
+                    type="button"
+                    onClick={() => setCurrentIndex(dotIdx)}
+                    aria-label={`Go to showcase slide ${dotIdx + 1}`}
+                    style={{
+                      width: currentIndex === dotIdx ? 28 : 8,
+                      height: 8,
+                      borderRadius: 999,
+                      background: currentIndex === dotIdx ? "#E8871A" : "#CBD5E1",
+                      border: "none",
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                      padding: 0,
+                    }}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .space-card:hover {
           transform: translateY(-6px);
           box-shadow: 0 16px 32px rgba(10, 31, 68, 0.06);
           border-color: #E8871A !important;
         }
         .gallery-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 20px 40px rgba(10, 31, 68, 0.08);
+          transform: translateY(-6px);
+          box-shadow: 0 18px 36px rgba(10, 31, 68, 0.08);
           border-color: #E8871A !important;
         }
         .gallery-card:hover .gallery-img {
           transform: scale(1.05);
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }
@@ -3013,7 +3344,7 @@ function CareerPathwaysSection() {
             }}
           >
             {PATHWAYS.map((item, idx) => {
-              const numStr = `0${idx + 1}`;
+              const numStr = "0" + (idx + 1);
               return (
                 <div
                   key={idx}
@@ -3213,7 +3544,7 @@ function CareerPathwaysSection() {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .pathway-slider-card:hover {
           border-color: rgba(232, 135, 26, 0.18) !important;
           box-shadow: 0 15px 30px rgba(232, 135, 26, 0.07), 0 0 18px rgba(232, 135, 26, 0.04) !important;
@@ -3239,7 +3570,7 @@ function CareerPathwaysSection() {
         .slider-nav-btn:active {
           transform: translateY(-50%) scale(0.95) !important;
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }
