@@ -48,7 +48,7 @@ export default function Footer() {
       { label: "Central Library", href: "/library", isInternal: true },
       { label: "Pharmacy Faculty List", href: "https://geetauniversity.edu.in/uploads/all/1250/Pharmacy_Faculty_List.pdf" },
       { label: "Pharmacy SIF", href: "https://geetauniversity.edu.in/uploads/all/1251/Pharmacy_SIH.pdf" },
-      { label: "National Education Policy", href: "https://geetauniversity.edu.in/nep" },
+      { label: "National Education Policy", href: "/edge/nep", isInternal: true },
       { label: "Recent Placement", href: "/placements", isInternal: true },
       { label: "Geeta University Newsletter", href: "https://drive.google.com/file/d/1HqTcehpom1ADjzgSnFBM6z2EdjiqJbIe/view" },
       { label: "Advisory Board", href: "https://geetauniversity.edu.in/advisory-board" },
@@ -60,7 +60,7 @@ export default function Footer() {
       { label: "Annual Report 2023-24", href: "https://geetauniversity.edu.in/uploads/all/1228/02-Annual-Report-of-GU-2023-24.pdf" },
       { label: "Annual Report 2022-23", href: "https://geetauniversity.edu.in/uploads/all/1272/GEETA_UNIVERSITY_ANNUAL_REPORT_2022-23.pdf" },
       { label: "GU Medal Policy", href: "https://geetauniversity.edu.in/medal-policy" },
-      { label: "XEdge", href: "https://geetauniversity.edu.in/xedge" },
+      { label: "XEdge", href: "/xedge", isInternal: true },
       { label: "Public Self Disclosure", href: "https://geetauniversity.edu.in/uploads/all/1586/Public-Self-Disclosure.pdf" },
     ],
   };
@@ -92,7 +92,7 @@ export default function Footer() {
       { label: "Student Grievance Redressal Committee (SGRC)", href: "https://geetauniversity.edu.in/uploads/all/2718/Reconstitution-of-Student-Grievance-Redressal-Committee.pdf" },
       { label: "Equal Opportunity Cell details", href: "https://geetauniversity.edu.in/uploads/all/2717/Reconstitution-of-Equal-Opportunity-Cell.pdf" },
       { label: "Internal Complaints Committee (ICC)", href: "https://geetauniversity.edu.in/uploads/all/2071/4.-Notification-Internal-Complaints-Committee.pdf" },
-      { label: "Anti Ragging Committee", href: "https://geetauniversity.edu.in/anti-ragging-committee" },
+      { label: "Anti Ragging Committee", href: "/anti-ragging-committee", isInternal: true },
       { label: "GU Academic Peer Feedback Form", href: "https://geetauniversity.edu.in/academic-peers-feedback" },
       { label: "GU Civil Society, NGOs Feedback Form", href: "https://geetauniversity.edu.in/ngos-civil-society-feedback" },
       { label: "GU Alumni Feedback Form", href: "https://geetauniversity.edu.in/alumni-feedback-form" },
@@ -120,7 +120,11 @@ export default function Footer() {
       return (
         <Link
           href={item.href}
-          className="text-slate-300 transition-colors hover:text-[#E8871A] text-xs leading-snug block"
+          className={`transition-colors text-xs leading-snug block ${
+            item.label === "XEdge"
+              ? "text-[#E8871A] font-bold hover:text-amber-300"
+              : "text-slate-300 hover:text-[#E8871A]"
+          }`}
         >
           • {item.label}
         </Link>
