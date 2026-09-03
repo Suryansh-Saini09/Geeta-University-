@@ -2,13 +2,15 @@
 
 import React from "react";
 import type { ProgramPageData } from "@/data/programs/types";
+import VisionMissionSection from "./VisionMissionSection";
 
 interface ProgramAboutProps {
   about?: ProgramPageData["about"];
   intro?: ProgramPageData["intro"];
+  visionMission?: ProgramPageData["visionMission"];
 }
 
-export default function ProgramAbout({ about, intro }: ProgramAboutProps) {
+export default function ProgramAbout({ about, intro, visionMission }: ProgramAboutProps) {
   const data = about || (intro ? {
     eyebrow: intro.eyebrow,
     title: intro.title,
@@ -124,6 +126,9 @@ export default function ProgramAbout({ about, intro }: ProgramAboutProps) {
             {closingText}
           </p>
         )}
+
+        {/* Vision & Mission Section */}
+        <VisionMissionSection data={visionMission} />
       </div>
 
       <style>{`

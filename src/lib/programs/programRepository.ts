@@ -8,6 +8,8 @@ import { forensicSciencesSchool } from "@/data/programs/schools/forensicSciences
 import { lawSchool } from "@/data/programs/schools/law";
 import { agricultureSchool } from "@/data/programs/schools/agriculture";
 import { humanitiesSchool } from "@/data/programs/schools/humanities";
+import { computerScienceSchool } from "@/data/programs/schools/computerScience";
+import { spBansalSchool } from "@/data/programs/schools/spBansal";
 
 const programs: ProgramPageData[] = [
   commerceSchool,
@@ -18,6 +20,8 @@ const programs: ProgramPageData[] = [
   lawSchool,
   agricultureSchool,
   humanitiesSchool,
+  computerScienceSchool,
+  spBansalSchool,
   // Alias for humanities and social sciences (plural)
   {
     ...humanitiesSchool,
@@ -42,6 +46,11 @@ const programs: ProgramPageData[] = [
   {
     ...lawSchool,
     slug: "school-of-law",
+  },
+  // Alias for SPBSB
+  {
+    ...spBansalSchool,
+    slug: "spbsb",
   },
 ];
 

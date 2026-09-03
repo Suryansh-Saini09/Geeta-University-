@@ -17,6 +17,8 @@ import {
   Award,
   Compass,
 } from "lucide-react";
+import FAQSection from "@/components/programs/FAQSection";
+import { spBansalSchool } from "@/data/programs/schools/spBansal";
 
 
 /* ── ABOUT SECTION ── */
@@ -387,9 +389,11 @@ function SchoolAboutSection() {
 /* ── VISION & MISSION SECTION ── */
 function VisionMissionSection() {
   const missionPoints = [
-    "Design and deliver industry-focused management education blending business fundamentals with digital, analytical, and AI-enabled tools.",
-    "Nurture ethical leaders with professional integrity, social responsibility, and sustainability-driven strategic thinking.",
-    "Leverage human intelligence blended with artificial intelligence for agile problem-solving and strategic planning.",
+    "To deliver student-centered and results-oriented business education, develop strategic competencies and leadership capabilities, promote responsible businesses and encourage research in business practices",
+    "To develop human capital with entrepreneurial competencies and skills to meet the need for visionary leaders, innovative managers and quality personnel in a global business environment.",
+    "To develop knowledge in business through research and development, disruptive ideas and their implementation, and thought leadership in current business practices and processes.",
+    "To establish business school linkages with multinational corporations, enterprises, entrepreneurs, academic institutions, and businesses to provide the students with executive business coaching, consultancy projects, and training, exposure, business development, recruitment opportunities and collaborations.",
+    "To promote entrepreneurship and innovation by capacitating students and graduates to lead, create jobs and develop competitive businesses that add value to existing organizations and communities while encouraging economic development and transformation.",
   ];
 
   return (
@@ -637,7 +641,7 @@ function VisionMissionSection() {
             </div>
             <h3>Vision</h3>
             <p className="spbsb-vm-vision-text">
-              To be a premier, industry-anchored business school that empowers management professionals with technological fluency, conceptual rigour, and strong ethical foundations to drive sustainable business growth.
+              “To be a globally competitive business school by developing visionary leaders, entrepreneurs, strategists and innovators who are in the forefront of creating great businesses, disruptive innovations and economic development to foster nation-building”
             </p>
           </motion.article>
 
@@ -7568,6 +7572,8 @@ export default function SPBansalSchoolOfBusiness() {
       <CampusLifeClubsSection />
 
       <CorporateLeadersSpeakSection />
+
+      <FAQSection faqs={spBansalSchool.faqs} />
 
       <PreFooterImageSection />
 

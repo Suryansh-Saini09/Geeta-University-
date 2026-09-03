@@ -1,3 +1,8 @@
+export interface VisionMissionData {
+  vision: string;
+  mission: string[];
+}
+
 export interface ProgramPageData {
   slug: string;
   name?: string;
@@ -30,6 +35,8 @@ export interface ProgramPageData {
     careers?: string[];
     closingText?: string;
   };
+
+  visionMission?: VisionMissionData;
 
   intro?: {
     eyebrow?: string;

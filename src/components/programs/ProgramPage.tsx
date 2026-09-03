@@ -74,7 +74,11 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
 
       {/* 4. ABOUT THE SCHOOL */}
       {(pageData.about || pageData.intro) && (
-        <ProgramAbout about={pageData.about} intro={pageData.intro} />
+        <ProgramAbout
+          about={pageData.about}
+          intro={pageData.intro}
+          visionMission={pageData.visionMission}
+        />
       )}
 
       {/* 5. DEAN / PRINCIPAL LEADERSHIP MESSAGE */}

@@ -91,6 +91,18 @@ export const hospitalitySchool: ProgramPageData = {
       "Our learning environment combines world-class culinary training, live hotel operations, international paid internships, and expert mentorship — ensuring graduates shine globally.",
   },
 
+  visionMission: {
+    vision:
+      "“To become a leading centre of hospitality education, fostering the development of service-oriented professionals, hospitality leaders, entrepreneurs and innovators who are passionate about enhancing the guest experience, global hospitality standards and sustainable tourism while making a positive contribution to economic and social development.”",
+    mission: [
+      "To impart student-centric, outcomes-based hospitality education combining academic knowledge, hands-on training, industry exposure and best management practices from around the world..",
+      "To produce effective, ethical and customer focused hospitality professionals who have the knowledge, skills, professionalism and leadership skills to succeed in the dynamic hospitality and tourism sector.",
+      "To stimulate interdisciplinary research and innovation in hospitality, tourism, culinary arts, service management, and new trends in the industry that will contribute to the improvement of organizations' effectiveness and satisfaction of their guests",
+      "To improve partnerships with top hotels, hospitality companies, tourism organisations and industry stakeholders to provide practical learning, internships, professional certification and career development.",
+      "To encourage and support the development of entrepreneurship, innovation and responsible hospitality by providing students with the opportunity to establish sustainable hospitality businesses, accept cultural diversity and contribute to the development of the hospitality sector and nation-building.",
+    ],
+  },
+
   dean: {
     name: "Prof. Dr. Sushil Mishra",
     designation: "Principal, School of Hospitality and Hotel Management",
@@ -622,36 +634,276 @@ export const hospitalitySchool: ProgramPageData = {
 
   faqs: [
     {
-      q: "What makes the School of Hospitality & Hotel Management at Geeta University unique?",
-      a: "Our curriculum emphasizes 100% practical, hands-on learning with advanced training kitchens, mock restaurants, front office software training, and guaranteed paid international internships in countries like Mauritius, Singapore, and Dubai.",
-      category: "General",
+        "q": "What programmes are offered by the School of Hospitality & Hotel Management at Geeta University?",
+        "a": "The School currently lists a Diploma in Hotel Management (Residential Program), B.Sc. Hons. (Hotel Management), M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management). Each programme is designed for a different stage of academic and professional progression.",
+        "category": "Admissions & Eligibility"
     },
     {
-      q: "What are the eligibility criteria for B.Sc. Hons. Hotel Management?",
-      a: "Candidates must have passed 10+2 examination with at least 50% marks in the qualifying examination from any recognized board. Students from any stream (Science, Commerce, Arts) are eligible.",
-      category: "Admissions & Eligibility",
+        "q": "Who is eligible to apply for the B.Sc. Hotel Management programme, and can students from any Class 12 stream apply?",
+        "a": "Students who have passed 10+2 from a recognised board with at least 50% marks can apply for the B.Sc. Hotel Management programme. The eligibility is open to students from any stream.",
+        "category": "Admissions & Eligibility"
     },
     {
-      q: "Are overseas internships provided during the course?",
-      a: "Yes! Students have the opportunity to undertake paid international internships in luxury resorts across Mauritius, Singapore, Nepal, and Malaysia, earning valuable international exposure and stipends up to ₹50,000+ per month.",
-      category: "Placements & Careers",
+        "q": "What is the eligibility for the Diploma in Hotel Management (Residential Program)?",
+        "a": "Applicants must have passed 10+2 in any stream with a minimum of 50% marks in the qualifying examination.",
+        "category": "Admissions & Eligibility"
     },
     {
-      q: "What is the 2-Year Residential Diploma program?",
-      a: "The Diploma in Hotel Management (Residential Program) features 1 year of intensive practical training at the GU campus followed by 1 full year of paid internship immersion directly inside a 5-star partner hotel.",
-      category: "Curriculum & Learning",
+        "q": "What are the eligibility requirements for the M.Sc. Hotel Management programme?",
+        "a": "The School lists eligibility as a graduation degree from any stream (including B.E./B.Tech., B.Sc., B.Com., B.A., and BCA.) with a minimum of 50% marks.",
+        "category": "Admissions & Eligibility"
     },
     {
-      q: "What career roles can I pursue after completing my hotel management degree?",
-      a: "Graduates pursue roles such as Executive Chef, Hotel General Manager, Food & Beverage Director, Front Office Manager, Cruise Hospitality Officer, Event Planner, Flight Attendant, and Restaurant Entrepreneur.",
-      category: "Placements & Careers",
+        "q": "Who can pursue a Ph.D. in Hotel & Tourism Management at Geeta University?",
+        "a": "The School lists a minimum eligibility of a relevant master's degree with at least 55% marks. Applicants should also meet the University's applicable doctoral admission requirements for the relevant admission cycle.",
+        "category": "Admissions & Eligibility"
     },
     {
-      q: "Are hostel accommodations and grooming facilities available on campus?",
-      a: "Yes. Geeta University provides modern, secure air-conditioned hostel facilities, recreational centers, dining halls, and specialized grooming suites for hospitality students.",
-      category: "Student Facilities",
+        "q": "Is an entrance examination required for admission to the hospitality programmes?",
+        "a": "No specific entrance examination is there for the hospitality programmes admission. Students can directly contact the admission department. Admission will be considered on the basis of qualifying exam percentage.",
+        "category": "Admissions & Eligibility"
     },
-  ],
+    {
+        "q": "What documents are generally required while applying for a hospitality programme?",
+        "a": "A list of documents are required while applying for a hospitality programme namely Academic transcripts & mark sheets — 10th and 12th, Transfer / Migration certificate, Category certificate (if applicable), Identity proof + Aadhar card, and 3 passport-size photographs.",
+        "category": "Admissions & Eligibility"
+    },
+    {
+        "q": "What does a B.Sc. Hotel Management student actually study?",
+        "a": "The programme covers core hospitality operations including Food Production and Culinary Techniques, Food & Beverage Service, Front Office and Housekeeping Management, along with areas such as hospitality marketing, event planning, hotel accounting, tourism and travel management, customer relationship management, and environmental health and safety.",
+        "category": "Programmes & Curriculum"
+    },
+    {
+        "q": "Is B.Sc. Hotel Management mainly theoretical, or does it involve practical learning?",
+        "a": "The programme has a strong experiential component. Students develop technical skills through practical learning in food production, food and beverage service, front office and housekeeping, supported by industrial training and live hotel projects.",
+        "category": "Programmes & Curriculum"
+    },
+    {
+        "q": "Will I learn culinary skills as part of the programme?",
+        "a": "Yes. Food Production and Culinary Techniques form a core part of the B.Sc. Hotel Management curriculum, giving students practical exposure to professional food preparation and kitchen operations.",
+        "category": "Programmes & Curriculum"
+    },
+    {
+        "q": "Does the programme cover Front Office and Housekeeping, or only food and restaurant operations?",
+        "a": "It covers all major hotel-operation areas. Front Office and Housekeeping Management are explicitly included alongside Food Production and Food & Beverage Service.",
+        "category": "Programmes & Curriculum"
+    },
+    {
+        "q": "Does the curriculum include hotel management software and technology?",
+        "a": "Yes. The programme's stated learning outcomes include applying hospitality software and service automation tools. It includes practical learning using original open-source and licensed software, tools and techniques.",
+        "category": "Programmes & Curriculum"
+    },
+    {
+        "q": "Will students learn business and management skills in addition to hotel operations?",
+        "a": "Yes. The curriculum includes subjects and skill areas such as accounting for hospitality and tourism, human resource management in hospitality, strategic management, marketing for hospitality and tourism, facility planning, business communication and personality development.",
+        "category": "Programmes & Curriculum"
+    },
+    {
+        "q": "Does the curriculum include event management and catering?",
+        "a": "Yes. Event Planning and Catering Services are part of the stated B.Sc. programme structure. Students therefore gain exposure beyond conventional hotel-room and restaurant operations.",
+        "category": "Programmes & Curriculum"
+    },
+    {
+        "q": "Does the programme cover tourism and travel management?",
+        "a": "Yes. Tourism and Travel Management is included in the programme structure, helping students understand hospitality within the wider tourism and travel ecosystem.",
+        "category": "Programmes & Curriculum"
+    },
+    {
+        "q": "What is the difference between the B.Sc. Hotel Management and the Diploma in Hotel Management at Geeta University?",
+        "a": "The B.Sc. is a longer undergraduate degree programme with broader academic, managerial and operational coverage. The Diploma is a two-year industry-integrated programme comprising one year of academic learning on campus followed by one year of hotel industry exposure.",
+        "category": "Programmes & Curriculum"
+    },
+    {
+        "q": "How much industry exposure do hospitality students receive during the programme?",
+        "a": "Industry exposure is a central part of the School's learning approach. The School highlights experiential learning, optimal industry exposure, industrial training, live hotel projects, internships and real-time hospitality practice.",
+        "category": "Industry Exposure & Internships"
+    },
+    {
+        "q": "Does the School provide hotel internships or industrial training?",
+        "a": "Yes. The School highlights internships and industrial training as part of its hospitality programmes. The Diploma specifically includes one full year of hotel industry exposure, while the B.Sc. programme includes industrial training and live hotel projects.",
+        "category": "Industry Exposure & Internships"
+    },
+    {
+        "q": "Are internships available in luxury and premium hotel environments?",
+        "a": "Students featured on the School webpage have undertaken training with organisations and properties including The Leela, Radisson, Kimmane Luxury Golf Resort, Heritage Awali in Mauritius, RIU Hotels and other properties. Internship opportunities are subject to programme, availability and selection.",
+        "category": "Industry Exposure & Internships"
+    },
+    {
+        "q": "Is there an opportunity to earn while gaining hospitality industry experience?",
+        "a": "Yes, there is an 'Earn While You Learn' opportunity and it states that students can receive up to ₹8,000 per month during internship in India and Rs.60,000 per month during overseas internships, including opportunities in France , Mauritius and other destinations. Applicable terms and availability should be confirmed for the relevant internship.",
+        "category": "Industry Exposure & Internships"
+    },
+    {
+        "q": "What skills are students expected to develop during industry training?",
+        "a": "Students are expected to strengthen operational skills, guest service, communication, teamwork, professional conduct and the ability to work in real hospitality environments. Training is intended to bridge classroom learning with employer expectations.",
+        "category": "Industry Exposure & Internships"
+    },
+    {
+        "q": "Will internship experience be limited to hotels?",
+        "a": "Not necessarily. Hospitality graduates can work across hotels, restaurants, catering, airlines, cruises, tourism, events and related service businesses.",
+        "category": "Industry Exposure & Internships"
+    },
+    {
+        "q": "How does practical training help students during placement interviews?",
+        "a": "Practical training gives students real examples to discuss in interviews, helps them understand workplace standards and strengthens operational, communication and customer-service skills. It can also help students identify the hospitality function in which they want to build their careers.",
+        "category": "Industry Exposure & Internships"
+    },
+    {
+        "q": "Can students get international hospitality training or internships?",
+        "a": "Yes. The School showcases international student training experiences in destinations including Australia, Dubai, Mauritius, France and Nepal, and highlights overseas internship opportunities in locations such as Singapore and Malaysia.",
+        "category": "Industry Exposure & Internships"
+    },
+    {
+        "q": "What career options are available after studying Hotel Management?",
+        "a": "Career pathways include hotel operations, front office, housekeeping, food and beverage service, culinary roles, guest relations, event management, catering, tourism, airlines, cruise lines, restaurant operations, corporate hospitality and entrepreneurship.",
+        "category": "Placements & Career Opportunities"
+    },
+    {
+        "q": "Can Hotel Management graduates work outside hotels?",
+        "a": "Yes. Hospitality skills are transferable to airlines, cruise lines, travel and tourism, event management, catering, restaurants, food businesses, corporate hospitality and other customer-experience-driven industries.",
+        "category": "Placements & Career Opportunities"
+    },
+    {
+        "q": "Can I build a career in airlines after studying Hotel Management?",
+        "a": "Yes. The School identifies airlines among the industries and career environments available to hospitality graduates. Roles may involve passenger service, hospitality, ground operations and other customer-facing functions, depending on the employer and role requirements.",
+        "category": "Placements & Career Opportunities"
+    },
+    {
+        "q": "Can Hotel Management graduates work on international cruise lines?",
+        "a": "Yes. Cruise hospitality is one of the career pathways identified by the School. International cruise careers can provide exposure to multicultural teams, global guests and high-volume hospitality operations.",
+        "category": "Placements & Career Opportunities"
+    },
+    {
+        "q": "What roles can I pursue immediately after graduation?",
+        "a": "Depending on skills, internship experience and employer requirements, entry-level opportunities may include hotel operations executive, front office associate, food and beverage executive, guest relations executive, housekeeping roles, event coordination, restaurant operations and other hospitality positions.",
+        "category": "Placements & Career Opportunities"
+    },
+    {
+        "q": "Does the programme prepare students for management roles or only entry-level operational jobs?",
+        "a": "The curriculum combines operational training with management-oriented subjects such as accounting, human resources, marketing, strategic management and facility planning. This foundation can support progression toward supervisory and management roles as students gain industry experience.",
+        "category": "Placements & Career Opportunities"
+    },
+    {
+        "q": "Which types of companies and hospitality organisations recruit or engage with students?",
+        "a": "The School page lists organisations and brands across hotels, resorts and international hospitality, including renowned names such as Westin, Oberoi, ITC Hotels, The Leela, Hyatt, Taj, Marriott, Radisson, Le Meridien, Novotel, LUX Le Morne, RIU Hotels & Resorts and others.",
+        "category": "Placements & Career Opportunities"
+    },
+    {
+        "q": "Does the School provide placement assistance?",
+        "a": "Yes. Placement assistance is among the programs' biggest strengths. Students are also supported through industry-oriented learning, practical training, skill enhancement and exposure designed to improve career readiness.",
+        "category": "Placements & Career Opportunities"
+    },
+    {
+        "q": "Can I become an entrepreneur after studying Hotel Management?",
+        "a": "Yes. Hospitality education can support entrepreneurial pathways in restaurants, catering, food businesses, events, travel services, accommodation and other hospitality ventures. The B.Sc. program also focuses on development of an entrepreneurial mindset for hospitality startups as a learning outcome.",
+        "category": "Placements & Career Opportunities"
+    },
+    {
+        "q": "What practical facilities are available for hospitality students on campus?",
+        "a": "There are learning spaces available on campus including a Basic Training Kitchen, Front Office Lab and Housekeeping Lab, supporting hands-on learning across core hotel operations.",
+        "category": "Campus Life & Student Experience"
+    },
+    {
+        "q": "Will students spend most of their time in classrooms?",
+        "a": "No. The School's hospitality learning model combines classroom learning with practical training, experiential learning, laboratory work, industry exposure, internships and live hotel projects.",
+        "category": "Campus Life & Student Experience"
+    },
+    {
+        "q": "What kind of professional skills are developed besides technical hotel skills?",
+        "a": "Students develop communication, personality development, teamwork, customer service, leadership, problem-solving and professional behaviour alongside technical hospitality skills.",
+        "category": "Campus Life & Student Experience"
+    },
+    {
+        "q": "How important are grooming and communication skills in the programme?",
+        "a": "They are highly relevant to hospitality careers because students regularly interact with guests, colleagues and industry professionals. The curriculum includes Personality Development and Business Communication, while the School emphasises guest service and professional standards.",
+        "category": "Campus Life & Student Experience"
+    },
+    {
+        "q": "Will students get opportunities to participate in events and real service environments?",
+        "a": "The programme includes Event Planning and Catering Services and the School emphasises practical, experiential learning. Such activities can provide opportunities to apply service, coordination, guest-handling and teamwork skills in realistic settings.",
+        "category": "Campus Life & Student Experience"
+    },
+    {
+        "q": "Is hospitality suitable for students who enjoy cooking but do not want to become chefs?",
+        "a": "Yes. Culinary skills are only one part of hospitality education. Students can specialise their careers across front office, housekeeping, food and beverage service, guest relations, events, tourism, marketing, operations and management.",
+        "category": "Campus Life & Student Experience"
+    },
+    {
+        "q": "Who teaches students at the School of Hospitality & Hotel Management?",
+        "a": "The School's faculty includes hospitality academics and professionals with expertise across areas such as accommodation operations, front office and hospitality operations, food technology and hotel management. The School also highlights learning through experienced industry experts.",
+        "category": "Faculty & Learning Experience"
+    },
+    {
+        "q": "How does the School combine academic knowledge with industry practices?",
+        "a": "The learning model combines academic subjects with experiential learning, practical laboratories, industry exposure, internships, live hotel projects and workshops. This is intended to help students connect concepts with real hospitality operations.",
+        "category": "Faculty & Learning Experience"
+    },
+    {
+        "q": "Do students get exposure to industry experts and chefs?",
+        "a": "Yes. The School highlights distinguished faculty, multidisciplinary industry experts and expert workshops through star chefs as part of its learning experience.",
+        "category": "Faculty & Learning Experience"
+    },
+    {
+        "q": "How does the School help students become job-ready rather than only academically qualified?",
+        "a": "Job readiness is supported through practical training, industry exposure, hospitality software and tools, skill-enhancement certifications, communication and personality development, internships and placement assistance.",
+        "category": "Faculty & Learning Experience"
+    },
+    {
+        "q": "Are skill-enhancement certifications part of the hospitality learning experience?",
+        "a": "The School highlights Skill Enhancement as a key feature, intended to strengthen students' resumes and competitiveness in the job market.",
+        "category": "Faculty & Learning Experience"
+    },
+    {
+        "q": "Why is international exposure valuable in hospitality education?",
+        "a": "Hospitality is a global industry. International exposure can help students understand multicultural guest expectations, international service standards, workplace diversity and professional practices across different markets.",
+        "category": "Global Exposure & International Careers"
+    },
+    {
+        "q": "Can students pursue hospitality careers abroad after graduation?",
+        "a": "Yes. Hospitality qualifications and practical experience can open opportunities in international hotels, resorts, cruise lines, restaurants and other hospitality organisations, subject to employer requirements, immigration rules and destination-specific regulations.",
+        "category": "Global Exposure & International Careers"
+    },
+    {
+        "q": "Does international internship experience guarantee an overseas job?",
+        "a": "No. International training can strengthen a student's profile and global exposure, but employment depends on performance, skills, employer requirements, vacancies, work authorization and applicable immigration regulations.",
+        "category": "Global Exposure & International Careers"
+    },
+    {
+        "q": "Is Hotel Management a good career choice for students who want a people-oriented profession?",
+        "a": "It can be a strong fit for students who enjoy interacting with people, solving guest problems, working in teams and delivering service experiences. The field also offers multiple career paths rather than restricting graduates to one type of job.",
+        "category": "Parents & Decision-Making"
+    },
+    {
+        "q": "What should a student consider before choosing Hotel Management as a career?",
+        "a": "Students should consider their interest in service and people, willingness to work in operational environments, communication skills, adaptability, teamwork, professional discipline and openness to varied work schedules and locations. The industry rewards students who combine technical competence with a strong service mindset.",
+        "category": "Parents & Decision-Making"
+    },
+    {
+        "q": "What makes Geeta University's hospitality programmes different from a purely classroom-based hotel management course?",
+        "a": "The School emphasises experiential and practice-based learning, dedicated hospitality labs, industry exposure, internships, live hotel projects, skill enhancement certifications, industry experts and placement assistance. The Diploma additionally integrates a full year of hotel industry exposure.",
+        "category": "Parents & Decision-Making"
+    },
+    {
+        "q": "What is the difference between Hospitality Management and Hotel Management, and is Hotel Management only about cooking and working in hotels?",
+        "a": "Hotel Management focuses heavily on hotel operations such as rooms, food and beverage, front office and housekeeping, while Hospitality Management is broader and can include hotels as well as restaurants, events, tourism, airlines, cruises and other guest-experience businesses. Hotel Management is also not limited to cooking; students can build careers in front office, housekeeping, food and beverage service, guest relations, events, tourism, marketing, operations and management.",
+        "category": "General"
+    },
+    {
+        "q": "How long are the hospitality programmes offered by the School?",
+        "a": "The School lists the Diploma in Hotel Management as a two-year programme, with one year on campus and one year of hotel industry exposure; the B.Sc. Hotel Management as a three/four-year programme; the M.Sc. Hotel Management as a two-year programme; and the Ph.D. in Hotel & Tourism Management with a minimum duration of three years.",
+        "category": "General"
+    },
+    {
+        "q": "Can a graduate from another discipline move into M.Sc. Hotel Management?",
+        "a": "Yes. The School lists eligibility for the M.Sc. as graduation in any stream with a minimum of 50% marks, subject to the University's applicable admission requirements.",
+        "category": "General"
+    },
+    {
+        "q": "What is the long-term growth potential in the hospitality industry?",
+        "a": "Hospitality offers multiple progression routes across operations, culinary, service, events, tourism, customer experience and management. With experience and additional skills, professionals can progress from operational roles into supervisory, managerial, specialist or entrepreneurial positions.",
+        "category": "General"
+    }
+],
 
   cta: {
     heading: "Ready to Build an International Hospitality Career?",

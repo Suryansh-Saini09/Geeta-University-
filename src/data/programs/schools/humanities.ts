@@ -93,6 +93,18 @@ export const humanitiesSchool: ProgramPageData = {
       "Our multidisciplinary framework integrates behavioral testing suites, policy analysis incubators, field action projects, and premier global internships.",
   },
 
+  visionMission: {
+    vision:
+      "“To be a place for learning in the areas of humanities and social sciences helping people become scholars, teachers, leaders, researchers and people who make a difference focusing on improving values, thinking deeply about fairness and building the country.”",
+    mission: [
+      "To offer education that focuses on students and the results they achieve helping them think clearly, communicate effectively, make logical choices, understand different cultures and see how people and societies connect.",
+      "To train knowledgeable, socially aware and compassionate professionals who possess the skills, attitudes and world outlook necessary to understand and solve modern social, cultural and global problems.",
+      "To encourage research and novel ideas in the areas of humanities and social sciences that contribute to public policy helping communities grow, and making life better for everyone.",
+      "To strengthen the partnership with academic, governmental, community, industry and other stakeholders in the field of practice-oriented education, community service, consultancy, research activities and human resource development.",
+      "To develop leadership potential and life-long learning competencies to promote human development, diversity, social inclusion and active citizenship, as well as national and regional economic growth.",
+    ],
+  },
+
   dean: {
     name: "Dr. Purnima Bali",
     designation: "Head, School of Humanities & Social Sciences",
@@ -544,36 +556,281 @@ export const humanitiesSchool: ProgramPageData = {
 
   faqs: [
     {
-      q: "What programs are offered by the School of Humanities & Social Sciences?",
-      a: "The school offers Undergraduate programs (B.Sc. Hons. Psychology, B.A. Hons. in Political Science, Psychology, Economics, and English), Postgraduate programs (M.A. in Political Science and Psychology), and Doctoral programs (Ph.D. in Psychology and Political Science).",
-      category: "Programs & Courses",
+        "q": "What programmes are currently offered by the School of Humanities & Social Sciences?",
+        "a": "The School currently offers B.A. programmes in Political Science, Psychology, Economics, Social Work and English; M.A. programmes in Political Science and Psychology; and Ph.D. programmes in Psychology and Political Science.",
+        "category": "Admissions & Eligibility"
     },
     {
-      q: "What are the career prospects after graduating with a B.A. or B.Sc. in Psychology?",
-      a: "Graduates can pursue careers in counseling, clinical psychology (with PG/M.Phil), corporate HR, organizational behavior, school counseling, mental health advocacy, market research, and higher research studies.",
-      category: "Placements & Careers",
+        "q": "What is the eligibility for the B.A. programmes?",
+        "a": "Candidates need to have passed the 10+2 examination with a minimum of 50% marks, in any stream.",
+        "category": "Admissions & Eligibility"
     },
     {
-      q: "How does the curriculum support civil services (UPSC) aspirants?",
-      a: "The curriculum in Political Science, International Relations, Economics, and Public Governance closely aligns with UPSC and State Civil Services syllabi, supported by debate clubs, current affairs seminars, and essay writing mentoring.",
-      category: "Curriculum & Learning",
+        "q": "Can students from different Class 12 streams apply for the B.A. programmes?",
+        "a": "Yes. There is no restriction based on Class 12 stream — students from Science, Commerce, Arts/Humanities or any other stream can apply for the B.A. programmes, as long as they have passed 10+2 with at least 50% marks.",
+        "category": "Admissions & Eligibility"
     },
     {
-      q: "What practical learning facilities are available for psychology students?",
-      a: "Geeta University features dedicated Psychological Counseling suites, psychometric testing tools, observation setups, biofeedback monitors, and partnerships with wellness clinics and hospitals for clinical internships.",
-      category: "Infrastructure & Labs",
+        "q": "What is the eligibility for the M.A. programmes?",
+        "a": "For both M.A. Political Science and M.A. Psychology, applicants need a Bachelor's degree with a minimum of 50% marks in a relevant subject.",
+        "category": "Admissions & Eligibility"
     },
     {
-      q: "What is the eligibility criteria for admission to B.A. and B.Sc. programs?",
-      a: "Candidates must have passed 10+2 or equivalent in any stream with a minimum of 50% aggregate marks from a recognized educational board.",
-      category: "Admissions & Eligibility",
+        "q": "Who can apply for the Ph.D. in Psychology?",
+        "a": "Candidates need a Master's degree in a relevant field with a minimum of 55% marks, along with the University's doctoral admission and research-eligibility requirements for Psychology.",
+        "category": "Admissions & Eligibility"
     },
     {
-      q: "Are internships and field projects mandatory in the curriculum?",
-      a: "Yes, students undertake compulsory field action projects, NGO attachments, counseling simulations, and research dissertations under faculty mentorship as per NEP 2020 guidelines.",
-      category: "Curriculum & Learning",
+        "q": "How do I choose between B.A. Psychology, Political Science, Economics and Social Work?",
+        "a": "Choose Psychology for human behaviour, Political Science for governance, Economics for markets and quantitative analysis, and Social Work for community welfare and social intervention.",
+        "category": "Choosing the Right Programme"
     },
-  ],
+    {
+        "q": "What does B.A. Psychology focus on?",
+        "a": "B.A. (Hons.) Psychology builds a foundation in cognitive, developmental and abnormal psychology, blending theory with lab-based experiments, psychological assessments and community outreach. It prepares students for counselling, HR, mental health and education-related roles.",
+        "category": "Choosing the Right Programme"
+    },
+    {
+        "q": "What will I study in B.A. Political Science?",
+        "a": "The programme covers politics, governance, institutions, public affairs and political thought, with links to policy and administration.",
+        "category": "Choosing the Right Programme"
+    },
+    {
+        "q": "What does B.A. Economics prepare students for?",
+        "a": "It builds knowledge of economic systems, markets, policy and analytical decision-making, with applications in business, finance, research and development.",
+        "category": "Choosing the Right Programme"
+    },
+    {
+        "q": "What is the focus of B.A. Social Work?",
+        "a": "The programme centres on social issues, welfare, community engagement and professional social-work practice.",
+        "category": "Choosing the Right Programme"
+    },
+    {
+        "q": "What is the difference between B.A. and M.A. Psychology?",
+        "a": "B.A. Psychology provides the foundation — human behaviour, psychological processes and core testing skills. M.A. Psychology builds on this with deeper subject knowledge, specialised study and stronger research preparation, requiring a Bachelor's degree with 50% marks in a relevant subject for entry.",
+        "category": "Choosing the Right Programme"
+    },
+    {
+        "q": "What is the difference between B.A. and M.A. Political Science?",
+        "a": "B.A. Political Science builds the fundamentals of politics and governance, while M.A. Political Science (open to Bachelor's degree holders with 50% marks in a relevant subject) develops more advanced analysis and specialisation.",
+        "category": "Choosing the Right Programme"
+    },
+    {
+        "q": "Is learning at the School mainly theoretical?",
+        "a": "No. The School combines academic study with experiential learning, workshops, collaborations and practical applications.",
+        "category": "Learning, Research & Exposure"
+    },
+    {
+        "q": "How does the School make social-science subjects practical?",
+        "a": "Students connect concepts with contemporary social, behavioural, economic and governance issues through activities, workshops and applied learning.",
+        "category": "Learning, Research & Exposure"
+    },
+    {
+        "q": "Will Psychology students learn research methods?",
+        "a": "Yes. Research design, analysis, interpretation and academic writing are developed through coursework and projects, particularly at higher levels.",
+        "category": "Learning, Research & Exposure"
+    },
+    {
+        "q": "Can undergraduate students participate in research?",
+        "a": "Opportunities depend on faculty projects and the academic calendar, but students can develop research skills through projects and academic activities.",
+        "category": "Learning, Research & Exposure"
+    },
+    {
+        "q": "Can students work on real social issues?",
+        "a": "Yes. The School encourages students to relate their learning to contemporary social and community issues.",
+        "category": "Learning, Research & Exposure"
+    },
+    {
+        "q": "Does the School organise workshops and expert sessions?",
+        "a": "Yes. Workshops, academic collaborations and expert-led activities form part of the learning experience.",
+        "category": "Learning, Research & Exposure"
+    },
+    {
+        "q": "Can students connect their subject with current affairs and public policy?",
+        "a": "Yes. This is especially relevant to Political Science, Economics, Psychology and Social Work.",
+        "category": "Learning, Research & Exposure"
+    },
+    {
+        "q": "What can I do after B.A. Psychology?",
+        "a": "Graduates can work in counselling centres, schools, NGOs, HR departments and mental health institutions, along with roles in education, research support and community organisations.",
+        "category": "Career Opportunities — Psychology"
+    },
+    {
+        "q": "Can a B.A. Psychology graduate become a clinical psychologist?",
+        "a": "No. A B.A. alone does not qualify someone for clinical practice. Additional recognised qualifications and applicable regulatory requirements are necessary; further studies such as M.A./M.Sc. Psychology, M.Phil or Ph.D. can lead toward roles like clinical psychologist or therapist.",
+        "category": "Career Opportunities — Psychology"
+    },
+    {
+        "q": "What can I do after M.A. Psychology?",
+        "a": "Graduates can explore research, education, HR, behavioural work, wellness organisations, social-sector roles and further doctoral study.",
+        "category": "Career Opportunities — Psychology"
+    },
+    {
+        "q": "Can Psychology graduates work in HR?",
+        "a": "Yes. Knowledge of behaviour, motivation and communication can support careers in HR, talent management and organisational roles.",
+        "category": "Career Opportunities — Psychology"
+    },
+    {
+        "q": "Can Psychology graduates pursue research or a Ph.D.?",
+        "a": "Yes. The School offers a Ph.D. in Psychology for Master's degree holders with a minimum of 55% marks in a relevant field, providing a pathway to advanced research and doctoral study.",
+        "category": "Career Opportunities — Psychology"
+    },
+    {
+        "q": "What career options are available after B.A. Political Science?",
+        "a": "Graduates can explore policy research, administration, NGOs, journalism, political research, development organisations and related fields.",
+        "category": "Career Opportunities — Political Science"
+    },
+    {
+        "q": "Is Political Science useful for civil-services preparation?",
+        "a": "Yes. It provides a strong foundation in governance, institutions, public policy and political thought, but the degree itself does not guarantee exam success.",
+        "category": "Career Opportunities — Political Science"
+    },
+    {
+        "q": "Can Political Science graduates work in public policy?",
+        "a": "Yes. Policy research and governance roles are relevant options for graduates with strong research, writing and analytical skills.",
+        "category": "Career Opportunities — Political Science"
+    },
+    {
+        "q": "Can Political Science graduates work with NGOs and development organisations?",
+        "a": "Yes. Knowledge of governance, society and public institutions is useful in development, advocacy and community programmes.",
+        "category": "Career Opportunities — Political Science"
+    },
+    {
+        "q": "Can I pursue M.A. Political Science after B.A. Political Science?",
+        "a": "Yes. The School offers M.A. Political Science for Bachelor's degree holders with a minimum of 50% marks in a relevant subject, and a Ph.D. in Political Science for those who wish to go further.",
+        "category": "Career Opportunities — Political Science"
+    },
+    {
+        "q": "What can I do after B.A. Economics?",
+        "a": "Career areas include business analysis, research, banking and finance, consulting, market research, policy and development.",
+        "category": "Career Opportunities — Economics"
+    },
+    {
+        "q": "Is Economics useful for banking and finance careers?",
+        "a": "Yes. Economics develops knowledge of markets, policy and quantitative reasoning that can support finance-related careers.",
+        "category": "Career Opportunities — Economics"
+    },
+    {
+        "q": "Can Economics graduates work in data and analytics?",
+        "a": "Yes, especially when they add skills in statistics, spreadsheets, data visualisation and analytical tools.",
+        "category": "Career Opportunities — Economics"
+    },
+    {
+        "q": "Can Economics graduates work in public policy and development?",
+        "a": "Yes. Economics is relevant to policy analysis, development economics, public finance and socio-economic research.",
+        "category": "Career Opportunities — Economics"
+    },
+    {
+        "q": "What higher-study options are available after B.A. Economics?",
+        "a": "Students can pursue postgraduate study in Economics or related disciplines, along with specialised professional or research pathways.",
+        "category": "Career Opportunities — Economics"
+    },
+    {
+        "q": "What career options are available after B.A. Social Work?",
+        "a": "Graduates can work in NGOs, community development, CSR, public and development programmes, rehabilitation and welfare organisations.",
+        "category": "Career Opportunities — Social Work"
+    },
+    {
+        "q": "Will Social Work students work with communities?",
+        "a": "Yes. B.A. Social Work is practice-oriented — students engage directly with communities through fieldwork placements, internships and outreach projects as part of the programme's professional social-work practice component.",
+        "category": "Career Opportunities — Social Work"
+    },
+    {
+        "q": "Can Social Work graduates work in CSR?",
+        "a": "Yes. Community engagement, programme implementation and social-impact skills are relevant to CSR roles.",
+        "category": "Career Opportunities — Social Work"
+    },
+    {
+        "q": "Can Social Work graduates work with development organisations?",
+        "a": "Yes. NGOs and development organisations are important career areas for graduates with strong community, research and programme skills.",
+        "category": "Career Opportunities — Social Work"
+    },
+    {
+        "q": "What kind of faculty teach at the School?",
+        "a": "The School's faculty includes UGC-NET qualified and doctorate-holding professors across Psychology and Political Science, with academic backgrounds from institutions such as the University of Delhi, and research interests spanning counselling psychology, positive psychology, organisational psychology, and global politics and governance.",
+        "category": "Faculty & Student Development"
+    },
+    {
+        "q": "How does the School develop critical thinking?",
+        "a": "Students engage with contemporary issues, discussion, analysis, interdisciplinary perspectives and experiential learning.",
+        "category": "Faculty & Student Development"
+    },
+    {
+        "q": "Will I develop communication and presentation skills?",
+        "a": "Yes. Workshops, academic activities and project work help strengthen communication, writing, presentation and collaboration skills.",
+        "category": "Faculty & Student Development"
+    },
+    {
+        "q": "Can students prepare for careers while completing a B.A.?",
+        "a": "Yes. Students can strengthen their profile through internships, workshops, research, digital skills, certifications or competitive-examination preparation.",
+        "category": "Faculty & Student Development"
+    },
+    {
+        "q": "Does the School encourage interdisciplinary learning?",
+        "a": "Yes. Students are encouraged to connect Psychology, Political Science, Economics, Social Work and wider social-science perspectives.",
+        "category": "Faculty & Student Development"
+    },
+    {
+        "q": "Is a humanities or social-science degree useful for employment?",
+        "a": "Yes. These programmes build research, communication, writing and analytical skills. Career prospects improve further with practical experience, specialisation or higher study.",
+        "category": "Parents & Student Decision-Making"
+    },
+    {
+        "q": "Is Psychology only for students who want to become psychologists?",
+        "a": "No. It can lead to HR, education, research, behavioural studies, wellness and social-sector roles; regulated clinical practice requires additional qualifications beyond the degree.",
+        "category": "Parents & Student Decision-Making"
+    },
+    {
+        "q": "Is Political Science only useful for civil services?",
+        "a": "No. Graduates can also move into policy, research, administration, journalism, NGOs, development and academia.",
+        "category": "Parents & Student Decision-Making"
+    },
+    {
+        "q": "Is Economics a good choice for students who like mathematics and data?",
+        "a": "It can be a good fit for students who enjoy analytical and quantitative work and are willing to develop statistical and data skills.",
+        "category": "Parents & Student Decision-Making"
+    },
+    {
+        "q": "What should I consider before choosing among these B.A. subjects?",
+        "a": "Think about the questions you enjoy most: behaviour for Psychology, governance for Political Science, markets and data for Economics, or social welfare and community work for Social Work.",
+        "category": "Parents & Student Decision-Making"
+    },
+    {
+        "q": "Can I change my career direction after completing a B.A.?",
+        "a": "Yes. Depending on eligibility, graduates can move into master's programmes, professional qualifications, competitive examinations and careers that value transferable skills.",
+        "category": "Parents & Student Decision-Making"
+    },
+    {
+        "q": "Which postgraduate programmes are available at the School?",
+        "a": "The School currently offers M.A. Political Science and M.A. Psychology, both requiring a Bachelor's degree with a minimum of 50% marks in a relevant subject.",
+        "category": "Higher Studies, Research & General"
+    },
+    {
+        "q": "Does the School offer doctoral study?",
+        "a": "Yes. The School currently offers Ph.D. programmes in Psychology and Political Science, both requiring a Master's degree in a relevant field with a minimum of 55% marks.",
+        "category": "Higher Studies, Research & General"
+    },
+    {
+        "q": "Can an M.A. graduate pursue a Ph.D.?",
+        "a": "Yes, subject to the relevant doctoral programme's eligibility, research and admission requirements — a Master's degree with a minimum of 55% marks in a relevant field.",
+        "category": "Higher Studies, Research & General"
+    },
+    {
+        "q": "What research areas can students explore?",
+        "a": "Research may cover human behaviour, governance, public policy, economics, social development, education, community welfare and related contemporary issues.",
+        "category": "Higher Studies, Research & General"
+    },
+    {
+        "q": "What career sectors can graduates enter?",
+        "a": "Possible sectors include education, policy, social work, HR and CSR, media, development, finance, consulting, research, advocacy and higher education.",
+        "category": "Higher Studies, Research & General"
+    },
+    {
+        "q": "What makes the School different from a purely theory-based humanities college?",
+        "a": "It combines academic foundations with interdisciplinary learning, experiential activities, workshops, research opportunities and career-oriented skill development.",
+        "category": "Higher Studies, Research & General"
+    }
+],
 
   cta: {
     heading: "Your Journey into Humanities & Social Leadership Starts Here",
