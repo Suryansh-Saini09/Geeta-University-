@@ -1,4 +1,5 @@
 import type { CoursePageData } from "../types";
+import { agricultureFaqs } from "@/data/programs/schools/agriculture";
 
 export const phdAgriculture: CoursePageData = {
   id: "phd-agriculture",
@@ -233,38 +234,7 @@ export const phdAgriculture: CoursePageData = {
     },
   ],
 
-  faqs: [
-    {
-      question: "What is the duration of the PhD in Agriculture program?",
-      answer:
-        "The PhD in Agriculture program at Geeta University has a minimum duration of 3 years.",
-      category: "Admissions & Eligibility",
-    },
-    {
-      question: "What is the eligibility criteria for PhD in Agriculture?",
-      answer:
-        "Applicants must hold a Master's degree (Post Graduation) in Agriculture or a relevant discipline with at least 55% aggregate marks.",
-      category: "Admissions & Eligibility",
-    },
-    {
-      question: "What are the key research thrust areas in PhD Agriculture?",
-      answer:
-        "Major thrust areas include Sustainable & Regenerative Farming, Crop Production & Precision Agriculture, Horticulture, Soil Science, Remote Sensing & GIS (IIRS-ISRO), and Agri-Entrepreneurship.",
-      category: "Programmes & Specialisations",
-    },
-    {
-      question: "Does Geeta University have national research collaborations?",
-      answer:
-        "Yes. The School has active MoUs and research partnerships with IIRS–ISRO (Dehradun), ICAR–NBPGR (New Delhi), Red Diamond Nursery, and PLANTICA–IARD.",
-      category: "Curriculum & Practical Learning",
-    },
-    {
-      question: "What research facilities are provided to PhD scholars?",
-      answer:
-        "Scholars get access to 5 acres of experimental agricultural land, 1,000 m² protected cultivation units, seed testing & soil laboratories, and natural farming demonstration units.",
-      category: "Laboratories & Learning Spaces",
-    },
-  ],
+  faqs: agricultureFaqs,
 
   relatedCourses: [
     {
