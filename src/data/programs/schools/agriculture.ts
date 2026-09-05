@@ -173,7 +173,7 @@ export const agricultureSchool: ProgramPageData = {
       programs: [
         {
           name: "B.Sc. Hons. (Agriculture)",
-          href: "https://geetauniversity.edu.in/programs/school-of-agricultural-studies/bsc-agriculture",
+          href: "/programs/school-of-agricultural-studies/bsc-agriculture",
           duration: "4 Years",
           eligibility:
             "10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
@@ -189,7 +189,7 @@ export const agricultureSchool: ProgramPageData = {
       programs: [
         {
           name: "M.Sc. Agriculture (Agronomy)",
-          href: "https://geetauniversity.edu.in/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
+          href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
           duration: "2 Years",
           eligibility:
             "Graduation in a relevant discipline with a minimum 50% marks.",
@@ -205,7 +205,7 @@ export const agricultureSchool: ProgramPageData = {
       programs: [
         {
           name: "Ph.D. (Agriculture)",
-          href: "https://geetauniversity.edu.in/phd-agriculture",
+          href: "/programs/school-of-agricultural-studies/phd-agriculture",
           duration: "Minimum 3 Years",
           eligibility:
             "Masters in a relevant discipline with minimum aggregate score of 55%",

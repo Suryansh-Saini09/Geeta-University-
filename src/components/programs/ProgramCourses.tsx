@@ -11,7 +11,20 @@ interface ProgramCoursesProps {
   courses?: CourseCategory[];
 }
 
-export const DEFAULT_PROGRAMS_DATA = [
+interface NormalizedProgramItem {
+  program: string;
+  duration?: string;
+  href?: string;
+  details?: React.ReactNode;
+}
+
+interface NormalizedCategory {
+  level: string;
+  title: string;
+  items: NormalizedProgramItem[];
+}
+
+export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
   {
     level: "Under-Graduate",
     title: "Under-Graduate",
@@ -109,13 +122,14 @@ export default function ProgramCourses({
   const [activeTab, setActiveTab] = useState(0);
 
   // Normalize courses from props if provided, otherwise use rich defaults
-  const categories = courses && courses.length > 0
-    ? courses.map((cat) => ({
+  const categories: NormalizedCategory[] = courses && courses.length > 0
+    ? courses.map((cat: CourseCategory) => ({
         level: cat.level || cat.title,
         title: cat.title,
         items: (cat.programs || []).map((prog) => ({
           program: prog.name || prog.program || cat.title,
           duration: prog.duration || cat.duration || "Full Time",
+          href: prog.href,
           details: prog.details || (
             <>
               {prog.specializations && prog.specializations.length > 0 && (
@@ -289,9 +303,9 @@ export default function ProgramCourses({
                       )}
                     </div>
                     <a
-                      href="https://admissions.geetauniversity.edu.in/"
-                      target="_blank"
-                      rel="noreferrer"
+                      href={prog.href || "https://admissions.geetauniversity.edu.in/"}
+                      target={prog.href && prog.href.startsWith("/") ? undefined : "_blank"}
+                      rel={prog.href && prog.href.startsWith("/") ? undefined : "noreferrer"}
                       style={{
                         background: "#E8871A",
                         color: "#FFFFFF",
@@ -316,7 +330,7 @@ export default function ProgramCourses({
                         e.currentTarget.style.boxShadow = "none";
                       }}
                     >
-                      Apply Now <ArrowRight size={16} />
+                      {prog.href && prog.href.startsWith("/") ? "View Course Details" : "Apply Now"} <ArrowRight size={16} />
                     </a>
                   </div>
 
