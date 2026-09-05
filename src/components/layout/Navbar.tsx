@@ -203,12 +203,15 @@ export default function Navbar() {
   }, [searchOpen]);
 
   const handleMouseEnter = (key: string) => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
     setActiveDropdown(key);
   };
   const handleMouseLeave = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setActiveDropdown(null), 100);
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 250);
   };
 
   return (
@@ -373,20 +376,14 @@ export default function Navbar() {
         }
 
         .gu-sec-item {
-          position: relative;
+          position: static;
           display: flex;
           align-items: stretch;
           flex: 1;
         }
         /* Vertical pipe dividers between items */
-        .gu-sec-item:not(:last-child)::after {
-          content: '';
-          position: absolute;
-          right: 0;
-          top: 20%;
-          height: 60%;
-          width: 1px;
-          background: #DFD9CB;
+        .gu-sec-item:not(:last-child) {
+          border-right: 1px solid #DFD9CB;
         }
 
         .gu-sec-link {
@@ -445,7 +442,7 @@ export default function Navbar() {
 
         /* ── MEGA MENU ────────────────────────────────── */
         @keyframes gu-drop {
-          from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+          from { opacity: 0; transform: translateX(-50%) translateY(-4px); }
           to   { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
 
@@ -453,13 +450,13 @@ export default function Navbar() {
         .gu-mega-backdrop {
           position: fixed;
           inset: 0;
-          top: 170px;
+          top: 0;
           background: rgba(0,0,0,.25);
-          backdrop-filter: blur(6px);
-          -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
           z-index: 699;
           animation: gu-fade .18s ease;
-          pointer-events: none;
+          pointer-events: auto;
         }
         @keyframes gu-fade {
           from { opacity: 0; }
@@ -468,8 +465,8 @@ export default function Navbar() {
 
         /* Compact panel */
         .gu-mega {
-          position: fixed;
-          top: 170px;
+          position: absolute;
+          top: 100%;
           left: 50%;
           transform: translateX(-50%);
           width: min(900px, 92vw);
@@ -477,11 +474,20 @@ export default function Navbar() {
           border-radius: 0 0 10px 10px;
           border-top: 3px solid #e8871a;
           box-shadow: 0 16px 40px rgba(0,0,0,.28);
-          z-index: 700;
-          animation: gu-drop .22s cubic-bezier(.22,.61,.36,1);
+          z-index: 1002;
+          animation: gu-drop .2s cubic-bezier(.22,.61,.36,1);
           display: flex;
           flex-direction: column;
           overflow: hidden;
+        }
+        /* Invisible hover bridge */
+        .gu-mega::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: 0;
+          right: 0;
+          height: 10px;
         }
 
         .gu-mega-body {
@@ -669,7 +675,7 @@ export default function Navbar() {
         }
       `}</style>
 
-      <header className="gu-root" onMouseLeave={() => setActiveDropdown(null)}>
+      <header className="gu-root" onMouseLeave={handleMouseLeave}>
 
         {/* ── TOP ANNOUNCEMENT BAR ── */}
         <div className="gu-topbar">
@@ -837,7 +843,7 @@ export default function Navbar() {
                 {isOpen && (
                   <>
                     {/* Blur backdrop */}
-                    <div className="gu-mega-backdrop" onMouseEnter={handleMouseLeave} />
+                    <div className="gu-mega-backdrop" onClick={() => setActiveDropdown(null)} />
 
                     {/* Compact mega panel */}
                     <div
