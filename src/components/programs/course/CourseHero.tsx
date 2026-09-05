@@ -13,15 +13,7 @@ interface CourseHeroProps {
 export default function CourseHero({ hero }: CourseHeroProps) {
   return (
     <section className="relative w-full overflow-hidden bg-slate-950">
-      {/* 
-        HERO REQUIREMENT: IMAGE ONLY BANNER.
-        Per Section 6 of Master Instruction Prompt:
-        "HERO MUST BE IMAGE ONLY.
-        Use msc_agri_hero.jpg as the main hero image.
-        DO NOT place course title, description, button, cards, statistics over the hero image.
-        The hero should be a clean visual banner."
-      */}
-      <div className="relative w-full aspect-[16/9] sm:aspect-[16/8] md:aspect-[16/7.5] lg:aspect-[16/7] max-h-[650px]">
+      <div className="relative w-full aspect-[16/9]">
         <Image
           src={hero.image}
           alt={hero.title || "Course Hero Banner"}

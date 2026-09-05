@@ -286,7 +286,7 @@ const programCategories: ProgramCategory[] = [
       },
       {
         name: "Ph.D. — Agriculture",
-        href: "/phd-agriculture",
+        href: "/programs/school-of-agricultural-studies/phd-agriculture",
       },
     ],
   },
