@@ -393,15 +393,15 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 5px;
+          gap: 7px;
           width: 100%;
-          padding: 0 8px;
-          height: 40px;
+          padding: 0 12px;
+          height: 48px;
           color: #2D3748;
           text-decoration: none;
-          font-size: 11px;
+          font-size: 15.5px;
           font-weight: 700;
-          letter-spacing: .8px;
+          letter-spacing: .5px;
           white-space: nowrap;
           cursor: pointer;
           background: none;
@@ -414,7 +414,7 @@ export default function Navbar() {
           content: '';
           position: absolute;
           bottom: 0; left: 0; right: 0;
-          height: 2px;
+          height: 3px;
           background: #e8871a;
           transform: scaleX(0);
           transition: transform .2s;
@@ -433,8 +433,8 @@ export default function Navbar() {
         .gu-sec-chevron {
           display: inline-flex;
           align-items: center;
-          font-size: 8px;
-          opacity: .7;
+          font-size: 11px;
+          opacity: .8;
           transition: transform .2s, opacity .2s;
         }
         .gu-sec-link.open .gu-sec-chevron,
@@ -453,7 +453,7 @@ export default function Navbar() {
         .gu-mega-backdrop {
           position: fixed;
           inset: 0;
-          top: 142px;
+          top: 170px;
           background: rgba(0,0,0,.25);
           backdrop-filter: blur(6px);
           -webkit-backdrop-filter: blur(6px);
@@ -469,7 +469,7 @@ export default function Navbar() {
         /* Compact panel */
         .gu-mega {
           position: fixed;
-          top: 142px;
+          top: 170px;
           left: 50%;
           transform: translateX(-50%);
           width: min(900px, 92vw);
@@ -503,7 +503,7 @@ export default function Navbar() {
         }
 
         .gu-mega-col-heading {
-          font-size: 9.5px;
+          font-size: 11.5px;
           font-weight: 800;
           letter-spacing: 1.1px;
           text-transform: uppercase;
@@ -517,10 +517,10 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           gap: 6px;
-          padding: 5px 0;
+          padding: 6px 0;
           color: #333;
           text-decoration: none;
-          font-size: 12px;
+          font-size: 14px;
           font-weight: 500;
           transition: color .15s, padding-left .15s;
           position: relative;
@@ -558,7 +558,7 @@ export default function Navbar() {
           opacity: .4;
         }
         .gu-mega-banner-title {
-          font-size: 12px;
+          font-size: 13.5px;
           font-weight: 800;
           color: #fff;
           letter-spacing: .4px;
@@ -591,7 +591,7 @@ export default function Navbar() {
           transform: translateY(-2px);
         }
         .gu-mega-banner-icon { font-size: 16px; line-height: 1; }
-        .gu-mega-banner-lbl { font-size: 10px; font-weight: 600; letter-spacing: .3px; }
+        .gu-mega-banner-lbl { font-size: 11.5px; font-weight: 600; letter-spacing: .3px; }
 
         /* ─── SEARCH OVERLAY ─────────────────────────────────── */
         .gu-search-overlay {
@@ -831,7 +831,7 @@ export default function Navbar() {
               >
                 <button className={`gu-sec-link${isOpen ? " open" : ""}`} aria-haspopup="true" aria-expanded={isOpen}>
                   {link.label}
-                  <span className="gu-sec-chevron"><ChevronDown size={11} /></span>
+                  <span className="gu-sec-chevron"><ChevronDown size={14} /></span>
                 </button>
 
                 {isOpen && (

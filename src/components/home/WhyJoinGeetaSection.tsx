@@ -68,16 +68,24 @@ export default function WhyJoinGeetaSection() {
                       aria-controls={`why-join-panel-${item.id}`}
                       className="flex w-full items-center justify-between gap-4 px-5 py-4.5 text-left sm:px-6"
                     >
-                      {/* Title */}
-                      <span
-                        className={`flex-1 text-sm font-bold transition-colors sm:text-base ${
-                          isActive
-                            ? "text-[#06355F]"
-                            : "text-[#253B50]"
-                        }`}
-                      >
-                        {item.title}
-                      </span>
+                      <div className="flex items-center gap-3.5 flex-1 min-w-0">
+                        <span
+                          className="flex h-2 w-2 rounded-full shrink-0 transition-transform duration-200"
+                          style={{
+                            backgroundColor: "#F28C18",
+                          }}
+                        />
+                        {/* Title */}
+                        <span
+                          className={`text-sm font-bold transition-colors sm:text-base ${
+                            isActive
+                              ? "text-[#06355F]"
+                              : "text-[#253B50]"
+                          }`}
+                        >
+                          {item.title}
+                        </span>
+                      </div>
 
                       {/* Arrow */}
                       <span

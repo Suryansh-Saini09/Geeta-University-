@@ -67,17 +67,25 @@ export default function ScholarshipsSection() {
                 {scholarshipData.criteria.map((criterion) => (
                   <div
                     key={criterion.title}
-                    className="flex flex-col justify-center rounded-xl border border-white/10 bg-white/[0.06] p-4 transition-all duration-300 hover:border-[#F28C18]/50 hover:bg-white/10"
+                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.06] p-4 transition-all duration-300 hover:border-[#F28C18]/50 hover:bg-white/10"
                   >
-                    <span className="text-sm font-medium leading-5 text-white/90">
-                      {criterion.title}
-                      {criterion.title ===
-                        "National Level Entrance Exams" && (
-                        <span className="mt-1 block text-xs text-white/50">
-                          JEE · CUET · NEET · CLAT & more
-                        </span>
-                      )}
-                    </span>
+                    <span
+                      className="mt-1.5 flex h-2 w-2 rounded-full shrink-0"
+                      style={{
+                        backgroundColor: "#F28C18",
+                      }}
+                    />
+                    <div className="flex flex-col justify-center">
+                      <span className="text-sm font-medium leading-5 text-white/90">
+                        {criterion.title}
+                        {criterion.title ===
+                          "National Level Entrance Exams" && (
+                          <span className="mt-1 block text-xs text-white/50">
+                            JEE · CUET · NEET · CLAT & more
+                          </span>
+                        )}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
