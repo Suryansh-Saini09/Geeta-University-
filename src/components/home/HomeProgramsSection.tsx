@@ -696,9 +696,7 @@ function ProgramCategoryDetails({
                               <span
                                 className="flex h-2 w-2 rounded-full shrink-0 transition-transform duration-200 group-hover:scale-125"
                                 style={{
-                                  backgroundColor: isLink
-                                    ? "var(--gu-gold)"
-                                    : "var(--gu-navy)",
+                                  backgroundColor: "var(--gu-gold)",
                                 }}
                               />
 
@@ -941,9 +939,17 @@ export default function HomeProgramsSection() {
                                 : "var(--gu-navy)",
                             }}
                           >
-                            <span className="text-sm font-bold sm:text-base tracking-tight">
-                              {category.shortTitle}
-                            </span>
+                            <div className="flex items-center gap-3">
+                              <span
+                                className="flex h-2 w-2 rounded-full shrink-0 transition-transform duration-200 group-hover:scale-125"
+                                style={{
+                                  backgroundColor: "var(--gu-gold)",
+                                }}
+                              />
+                              <span className="text-sm font-bold sm:text-base tracking-tight">
+                                {category.shortTitle}
+                              </span>
+                            </div>
 
                             {/* Arrow / Chevron */}
                             <span

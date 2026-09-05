@@ -240,7 +240,7 @@ export default function SmartCampusSection() {
                             whileTap={{
                               scale: 0.99,
                             }}
-                            className="group flex w-full items-center gap-4 rounded-2xl p-4 text-left transition-all duration-300"
+                            className="group flex w-full items-center gap-3.5 rounded-2xl p-4 text-left transition-all duration-300"
                             style={{
                               backgroundColor: isActive
                                 ? "var(--gu-navy)"
@@ -250,6 +250,12 @@ export default function SmartCampusSection() {
                                 : "var(--gu-navy)",
                             }}
                           >
+                            <span
+                              className="flex h-2 w-2 rounded-full shrink-0 transition-transform duration-200 group-hover:scale-125"
+                              style={{
+                                backgroundColor: "var(--gu-gold)",
+                              }}
+                            />
                             <span className="min-w-0 flex-1">
                               <span className="block text-sm font-bold leading-6 sm:text-base">
                                 {feature.title}
