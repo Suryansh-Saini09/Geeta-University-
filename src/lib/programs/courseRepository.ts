@@ -2,11 +2,27 @@ import type { CoursePageData } from "@/data/programs/courses/types";
 import { mscAgricultureAgronomy } from "@/data/programs/courses/agriculture/msc-agriculture-agronomy";
 import { phdAgriculture } from "@/data/programs/courses/agriculture/phd-agriculture";
 import { bscAgriculture } from "@/data/programs/courses/agriculture/bsc-agriculture";
+import { bscNutritionAndDietetics } from "@/data/programs/courses/health-sciences/bsc-nutrition-and-dietetics";
+import { mscNutritionAndDietetics } from "@/data/programs/courses/health-sciences/msc-nutrition-and-dietetics";
+import { phdNutritionAndDietetics } from "@/data/programs/courses/health-sciences/phd-nutrition-and-dietetics";
+import { bscForensicScience } from "@/data/programs/courses/forensic-sciences/bsc-forensic-science";
+import { mscForensicScience } from "@/data/programs/courses/forensic-sciences/msc-forensic-science";
+import { phdForensicScience } from "@/data/programs/courses/forensic-sciences/phd-forensic-science";
+import { llm } from "@/data/programs/courses/law/llm";
+import { phdLaw } from "@/data/programs/courses/law/phd-law";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
   mscAgricultureAgronomy,
   phdAgriculture,
+  bscNutritionAndDietetics,
+  mscNutritionAndDietetics,
+  phdNutritionAndDietetics,
+  bscForensicScience,
+  mscForensicScience,
+  phdForensicScience,
+  llm,
+  phdLaw,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
