@@ -5,7 +5,7 @@ import Image from "next/image";
 import { whyJoinItems } from "@/data/whyJoinGeeta";
 
 export default function WhyJoinGeetaSection() {
-  const [activeItem, setActiveItem] = useState<number>(1);
+  const [activeItem, setActiveItem] = useState<number>(0);
 
   const handleToggle = (id: number) => {
     setActiveItem((current) => (current === id ? 0 : id));

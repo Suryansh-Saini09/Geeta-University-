@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
+import { useLenis } from "lenis/react";
 import {
   ArrowDown,
   ArrowRight,
-  ChevronRight,
   ShieldCheck,
 } from "lucide-react";
 import AboutVisionMission from "@/components/sections/AboutVisionMission";
@@ -24,6 +24,7 @@ const NAV_ITEMS = [
   { id: "leadership", label: "Leadership" },
   { id: "governance", label: "Governance" },
   { id: "policies", label: "Policies" },
+  { id: "legacy-ecosystem", label: "Ecosystem" },
 ];
 
 const RECOGNITIONS = [
@@ -60,11 +61,77 @@ const fadeUp: Variants = {
 };
 
 export default function AboutPage() {
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth"});
+  const [activeSection, setActiveSection] = useState<string>("recognitions");
+  const lenis = useLenis();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 220;
+      for (let i = NAV_ITEMS.length - 1; i >= 0; i--) {
+        const item = NAV_ITEMS[i];
+        const el = document.getElementById(item.id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY;
+          if (scrollPosition >= top) {
+            setActiveSection(item.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Handle incoming hash on initial load or navigation
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && NAV_ITEMS.some((item) => item.id === hash)) {
+        setActiveSection(hash);
+        const timer = setTimeout(() => {
+          if (lenis) {
+            lenis.scrollTo(`#${hash}`, { offset: -185 });
+          } else {
+            const el = document.getElementById(hash);
+            if (el) {
+              const top = el.getBoundingClientRect().top + window.scrollY - 185;
+              window.scrollTo({ top, behavior: "smooth" });
+            }
+          }
+        }, 300);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [lenis]);
+
+  const scrollToSection = (
+    eOrId: React.MouseEvent | string,
+    maybeId?: string
+  ) => {
+    let id: string;
+    if (typeof eOrId === "string") {
+      id = eOrId;
+    } else {
+      eOrId.preventDefault();
+      id = maybeId || "";
+    }
+    if (!id) return;
+
+    setActiveSection(id);
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", `#${id}`);
+    }
+    if (lenis) {
+      lenis.scrollTo(`#${id}`, { offset: -185 });
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 185;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
     }
   };
 
@@ -77,17 +144,16 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-[#0A1F44]">
         <div className="relative h-[clamp(430px,52vw,600px)] w-full">
           <Image
-            src="/about/1-1.webp"
+            src="/about/campus.webp"
             alt="Geeta University Campus"
             fill
             priority
             className="object-cover"
           />
 
-          {/* Brand overlay */}
-          <div className="absolute inset-0 bg-[#0A1F44]/75" />
-
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44] via-[#0A1F44]/70 to-transparent" />
+          {/* Brand overlay with reduced blue opacity */}
+          <div className="absolute inset-0 bg-[#0A1F44]/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44]/60 via-[#0A1F44]/30 to-transparent" />
 
           <div className="gu-container relative z-10 flex h-full items-center py-16">
             <motion.div
@@ -132,7 +198,7 @@ export default function AboutPage() {
                 <a
                   href="#recognitions"
                   onClick={(e) => scrollToSection(e, "recognitions")}
-                  className="group inline-flex items-center gap-3 rounded-[10px] bg-[#E8871A] px-7 py-4 text-[15px] font-extrabold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#F5A623]"
+                  className="group inline-flex items-center gap-3 rounded-[10px] bg-[#E8871A] px-7 py-4 text-[15px] font-extrabold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#F5A623]"
                 >
                   Explore Our Story
                   <ArrowRight
@@ -144,7 +210,7 @@ export default function AboutPage() {
                 <a
                   href="#vision-mission"
                   onClick={(e) => scrollToSection(e, "vision-mission")}
-                  className="inline-flex items-center gap-3 rounded-[10px] border border-white/30 bg-white/10 px-7 py-4 text-[15px] font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-[#E8871A] hover:bg-white/15"
+                  className="inline-flex items-center gap-3 rounded-[10px] border border-white/60 bg-white/15 px-7 py-4 text-[15px] font-bold !text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:!text-[#0A1F44] hover:border-white"
                 >
                   Vision & Mission
                 </a>
@@ -182,21 +248,35 @@ export default function AboutPage() {
           SECTION NAVIGATION
       ========================================================= */}
 
-      <nav className="sticky top-0 z-40 w-full border-b border-[#E2E8F0] bg-white/95 backdrop-blur-xl">
+      <nav className="sticky top-[136px] z-30 w-full border-b border-[#E2E8F0] bg-white/95 shadow-xs backdrop-blur-md">
         <div className="gu-container overflow-x-auto [scrollbar-width:none]">
           <div className="flex min-w-max items-center gap-1 py-2.5 md:justify-center md:gap-3">
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={(e) => scrollToSection(e, item.id)}
-                className="group relative whitespace-nowrap px-4 py-3 text-[13px] font-bold text-[#64748B] transition-colors duration-300 hover:text-[#0A1F44]"
-              >
-                {item.label}
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeSection === item.id;
 
-                <span className="absolute bottom-0 left-4 right-4 h-[2px] origin-left scale-x-0 bg-[#E8871A] transition-transform duration-300 group-hover:scale-x-100" />
-              </a>
-            ))}
+              return (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => scrollToSection(e, item.id)}
+                  className={`group relative cursor-pointer select-none whitespace-nowrap px-4 py-2.5 text-[13px] font-bold no-underline outline-none transition-colors duration-150 ${
+                    isActive
+                      ? "text-[#0A1F44]"
+                      : "text-[#64748B] hover:text-[#0A1F44]"
+                  }`}
+                >
+                  {item.label}
+
+                  <span
+                    className={`absolute bottom-0 left-4 right-4 h-[2px] bg-[#E8871A] transition-transform duration-200 ${
+                      isActive
+                        ? "scale-x-100"
+                        : "origin-left scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </a>
+              );
+            })}
           </div>
         </div>
       </nav>
@@ -207,7 +287,7 @@ export default function AboutPage() {
 
       <section
         id="recognitions"
-        className="scroll-mt-20 bg-[#F7F9FC] py-24 md:py-28"
+        className="scroll-mt-[190px] bg-[#F7F9FC] py-20 md:py-28"
       >
         <div className="gu-container">
           {/* Section heading */}
@@ -306,7 +386,7 @@ export default function AboutPage() {
                 }}
                 className="group min-w-0 overflow-hidden rounded-[16px] border border-[#E2E8F0] bg-white p-7 shadow-[0_8px_25px_rgba(10,31,68,0.035)] transition-all duration-300 hover:-translate-y-2 hover:border-[#E8871A]/30 hover:shadow-[0_18px_35px_rgba(232,135,26,0.08)]"
               >
-                <div className="flex items-center justify-between">
+                <div className="flex items-center">
                   <div className="flex h-[82px] w-[82px] items-center justify-center rounded-[12px] bg-[#F8FAFC] p-3">
                     <Image
                       src={recognition.image}
@@ -315,10 +395,6 @@ export default function AboutPage() {
                       height={70}
                       className="h-full w-full object-contain"
                     />
-                  </div>
-
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F8FAFC] text-[#64748B] transition-all duration-300 group-hover:bg-[#0A1F44] group-hover:text-[#E8871A]">
-                    <ChevronRight size={17} />
                   </div>
                 </div>
 

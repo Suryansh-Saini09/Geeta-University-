@@ -20,7 +20,7 @@ export default function LegacySection() {
   });
 
   return (
-    <section id="legacy" className="spbsb-legacy-section scroll-mt-20">
+    <section id="legacy" className="spbsb-legacy-section scroll-mt-[190px]">
       <style>{`
         .spbsb-legacy-section {
           width: 100%;

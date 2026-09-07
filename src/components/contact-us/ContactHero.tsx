@@ -5,19 +5,19 @@ import { contactHeroData } from "@/data/contactUsData";
 
 export default function ContactHero() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#0A1F44] text-white">
+    <section className="relative flex min-h-[500px] w-full items-center overflow-hidden bg-[#0A1F44] text-white sm:min-h-[560px] md:min-h-[620px] lg:min-h-[660px]">
       {/* Background Campus Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={contactHeroData.heroImage}
           alt="Geeta University Main Campus Contact"
-          className="h-full w-full object-cover object-center opacity-40"
+          className="h-full w-full object-cover object-center opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44] via-[#0A1F44]/90 to-[#0A1F44]/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44] via-transparent to-[#0A1F44]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44]/95 via-[#0A1F44]/70 to-[#0A1F44]/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/90 via-transparent to-[#0A1F44]/30" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-24 md:py-28 lg:px-8 lg:py-32">
         {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"

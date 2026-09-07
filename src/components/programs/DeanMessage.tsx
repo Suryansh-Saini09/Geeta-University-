@@ -95,11 +95,11 @@ export default function DeanMessage(props: DeanMessageProps) {
               </span>
             </div>
 
-            <h2 className="mt-4 max-w-xl pr-12 font-['Zilla_Slab',serif] text-[30px] font-extrabold leading-[1.1] text-[#0A1F44] sm:text-[36px] md:text-[40px]">
+            <h2 className="mt-4 max-w-xl pr-12 font-serif text-[30px] font-black leading-[1.1] text-[#0A1F44] sm:text-[36px] md:text-[40px]">
               {data.name}
             </h2>
 
-            <p className="mt-2 text-[13px] font-semibold uppercase tracking-[1.5px] text-[#64748B] font-['Source_Sans_3',sans-serif]">
+            <p className="mt-2 text-[13px] font-bold uppercase tracking-[1.5px] text-[#E8871A] font-sans">
               {data.designation}
             </p>
 
@@ -108,7 +108,7 @@ export default function DeanMessage(props: DeanMessageProps) {
               <span className="h-[3px] w-3 bg-[#0A1F44] rounded-full" />
             </div>
 
-            <p className="max-w-2xl font-['Source_Sans_3',sans-serif] text-[17.5px] leading-[1.8] text-[#334155] md:text-[19px]">
+            <p className="max-w-2xl font-sans text-[17px] leading-[1.8] text-[#334155] md:text-[18.5px]">
               {data.message}
             </p>
 

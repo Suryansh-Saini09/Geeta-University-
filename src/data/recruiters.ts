@@ -37,16 +37,21 @@ export const recruiters: Recruiter[] = [
   },
   {
     id: 7,
+    name: "Cipla",
+    logo: "/recruiters/cipla.webp",
+  },
+  {
+    id: 8,
     name: "Synokem",
     logo: "/recruiters/synokem.webp",
   },
   {
-    id: 8,
+    id: 9,
     name: "Vardhman",
     logo: "/recruiters/vardhman.webp",
   },
   {
-    id: 9,
+    id: 10,
     name: "Zantac",
     logo: "/recruiters/zantac.webp",
   },

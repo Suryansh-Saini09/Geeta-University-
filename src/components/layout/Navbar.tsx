@@ -180,6 +180,7 @@ export default function Navbar() {
   const [announcementIndex, setAnnouncementIndex] = useState(0);
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
+  const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const router = useRouter();
   const pathname = usePathname();
@@ -207,11 +208,26 @@ export default function Navbar() {
       clearTimeout(closeTimer.current);
       closeTimer.current = null;
     }
-    setActiveDropdown(key);
+    if (activeDropdown && activeDropdown !== key) {
+      if (openTimer.current) clearTimeout(openTimer.current);
+      openTimer.current = setTimeout(() => {
+        setActiveDropdown(key);
+      }, 100);
+    } else {
+      if (openTimer.current) clearTimeout(openTimer.current);
+      setActiveDropdown(key);
+    }
   };
+
   const handleMouseLeave = () => {
+    if (openTimer.current) {
+      clearTimeout(openTimer.current);
+      openTimer.current = null;
+    }
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setActiveDropdown(null), 250);
+    closeTimer.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300);
   };
 
   return (
@@ -484,10 +500,10 @@ export default function Navbar() {
         .gu-mega::before {
           content: '';
           position: absolute;
-          top: -10px;
+          top: -16px;
           left: 0;
           right: 0;
-          height: 10px;
+          height: 16px;
         }
 
         .gu-mega-body {
@@ -850,6 +866,7 @@ export default function Navbar() {
                       className="gu-mega"
                       role="menu"
                       onMouseEnter={() => handleMouseEnter(link.key)}
+                      onMouseLeave={handleMouseLeave}
                     >
                       {/* Columns */}
                       <div className="gu-mega-body">
@@ -857,7 +874,13 @@ export default function Navbar() {
                           <div key={col.heading} className="gu-mega-col">
                             <div className="gu-mega-col-heading">{col.heading}</div>
                             {col.links.map((item) => (
-                              <Link key={item.label} href={item.href} className="gu-mega-link" role="menuitem">
+                              <Link
+                                key={item.label}
+                                href={item.href}
+                                className="gu-mega-link"
+                                role="menuitem"
+                                onClick={() => setActiveDropdown(null)}
+                              >
                                 {item.label}
                               </Link>
                             ))}
@@ -871,7 +894,12 @@ export default function Navbar() {
                           <span className="gu-mega-banner-title">{link.banner.text}</span>
                           <div className="gu-mega-banner-items">
                             {link.banner.items.map((bi) => (
-                              <Link key={bi.label} href={bi.href} className="gu-mega-banner-item">
+                              <Link
+                                key={bi.label}
+                                href={bi.href}
+                                className="gu-mega-banner-item"
+                                onClick={() => setActiveDropdown(null)}
+                              >
                                 <span className="gu-mega-banner-icon">{bi.icon}</span>
                                 <span className="gu-mega-banner-lbl">{bi.label}</span>
                               </Link>

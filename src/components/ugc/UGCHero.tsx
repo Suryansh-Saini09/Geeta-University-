@@ -11,10 +11,10 @@ export default function UGCHero() {
         <img
           src="/ugc/campus-ecosystem.webp"
           alt="Geeta University Campus UGC Inspection"
-          className="h-full w-full object-cover object-right opacity-65"
+          className="h-full w-full object-cover object-right opacity-85"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44] via-[#0A1F44]/85 to-[#0A1F44]/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44] via-transparent to-[#0A1F44]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44]/90 via-[#0A1F44]/65 to-[#0A1F44]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/75 via-transparent to-black/20" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">

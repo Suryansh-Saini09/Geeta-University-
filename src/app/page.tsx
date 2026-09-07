@@ -3,6 +3,7 @@
 import HomeHeroSection from "@/components/home/HomeHeroSection";
 import SmartCampusSection from "@/components/home/SmartCampusSection";
 import HomeStatsSection from "@/components/home/HomeStatsSection";
+import HomeProgramsSection from "@/components/home/HomeProgramsSection";
 import TopRecruitersSection from "@/components/home/TopRecruitersSection";
 import VirtualCampusTourSection from "@/components/home/VirtualCampusTourSection";
 import AwardsRankingsSection from "@/components/about/AwardsRankingsSection";
@@ -23,6 +24,8 @@ export default function Home() {
       <SmartCampusSection />
 
       <HomeStatsSection />
+
+      <HomeProgramsSection />
 
       <TopRecruitersSection />
 

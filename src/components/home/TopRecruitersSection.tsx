@@ -141,7 +141,7 @@ export default function TopRecruitersSection() {
           {/* Recruiter marquee & scroll container */}
           <motion.div
             variants={itemVariants}
-            className="group relative mt-10 overflow-hidden rounded-2xl border py-5 shadow-sm md:mt-12 md:py-6"
+            className="group relative mt-10 overflow-hidden rounded-2xl border py-6 shadow-sm md:mt-12 md:py-8"
             style={{
               borderColor: "rgba(6, 53, 95, 0.10)",
               backgroundColor: "var(--gu-bg)",
@@ -151,24 +151,24 @@ export default function TopRecruitersSection() {
             <button
               onClick={() => scroll("left")}
               aria-label="Scroll left"
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[#0A1F44] shadow-md transition-all hover:bg-[#0A1F44] hover:text-white hover:scale-110 active:scale-95 border border-slate-200 opacity-0 group-hover:opacity-100"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-[#0A1F44] shadow-md transition-all hover:bg-[#0A1F44] hover:text-white hover:scale-110 active:scale-95 border border-slate-200 opacity-90 sm:opacity-0 group-hover:opacity-100"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-5 w-5" />
             </button>
 
             {/* Right navigation arrow */}
             <button
               onClick={() => scroll("right")}
               aria-label="Scroll right"
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[#0A1F44] shadow-md transition-all hover:bg-[#0A1F44] hover:text-white hover:scale-110 active:scale-95 border border-slate-200 opacity-0 group-hover:opacity-100"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-[#0A1F44] shadow-md transition-all hover:bg-[#0A1F44] hover:text-white hover:scale-110 active:scale-95 border border-slate-200 opacity-90 sm:opacity-0 group-hover:opacity-100"
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-5 w-5" />
             </button>
 
             {/* Left gradient */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-16 sm:w-24"
+              className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-16 sm:w-28"
               style={{
                 background:
                   "linear-gradient(to right, var(--gu-bg), transparent)",
@@ -178,7 +178,7 @@ export default function TopRecruitersSection() {
             {/* Right gradient */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-16 sm:w-24"
+              className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-16 sm:w-28"
               style={{
                 background:
                   "linear-gradient(to left, var(--gu-bg), transparent)",
@@ -196,7 +196,7 @@ export default function TopRecruitersSection() {
               className="flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               <div
-                className={`flex w-max items-center py-1 gu-marquee-track ${
+                className={`flex w-max items-center py-2 gu-marquee-track ${
                   isHovered || isDragging ? "paused" : ""
                 }`}
                 style={{
@@ -206,7 +206,7 @@ export default function TopRecruitersSection() {
                 {marqueeItems.map((recruiter, index) => (
                   <div
                     key={`${recruiter.id}-${index}`}
-                    className="group/card mx-2.5 flex h-16 w-36 shrink-0 items-center justify-center rounded-xl border bg-white px-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:mx-3 sm:h-20 sm:w-44 pointer-events-auto"
+                    className="group/card mx-3 flex h-24 w-52 shrink-0 items-center justify-center rounded-2xl border bg-white px-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:mx-4 sm:h-28 sm:w-60 md:h-32 md:w-64 pointer-events-auto"
                     style={{
                       borderColor: "rgba(6, 53, 95, 0.08)",
                     }}
@@ -214,10 +214,10 @@ export default function TopRecruitersSection() {
                     <Image
                       src={recruiter.logo}
                       alt={`${recruiter.name} logo`}
-                      width={140}
-                      height={60}
-                      sizes="(max-width: 640px) 140px, 176px"
-                      className="max-h-9 sm:max-h-11 w-auto max-w-full object-contain transition-all duration-300 pointer-events-none"
+                      width={220}
+                      height={90}
+                      sizes="(max-width: 640px) 180px, 240px"
+                      className="max-h-16 sm:max-h-20 md:max-h-22 w-auto max-w-[85%] object-contain transition-all duration-300 pointer-events-none"
                     />
                   </div>
                 ))}

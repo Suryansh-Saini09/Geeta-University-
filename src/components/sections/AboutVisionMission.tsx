@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Compass, Lightbulb, Target } from "lucide-react";
+import { Compass, Lightbulb, Target } from "lucide-react";
 
 const MISSION_POINTS = [
   "To inspire academic excellence through a student-centered and outcome-based teaching-learning process.",
@@ -53,7 +53,7 @@ export default function AboutVisionMission() {
 
       <section
         id="vision-mission"
-        className="scroll-mt-20 bg-[#F7F9FC] py-20 md:py-28"
+        className="scroll-mt-[190px] bg-[#F7F9FC] py-20 md:py-28"
       >
         <div className="gu-container">
           {/* Section heading */}
@@ -134,17 +134,17 @@ export default function AboutVisionMission() {
                 </div>
               </div>
 
-              <div className="space-y-4">
-                {MISSION_POINTS.map((point, index) => (
+              <div className="space-y-2">
+                {MISSION_POINTS.map((point) => (
                   <div
                     key={point}
-                    className="group flex min-w-0 gap-4 rounded-[14px] border border-transparent p-4 transition-all duration-300 hover:border-[#E8871A]/15 hover:bg-[#F8FAFC]"
+                    className="group flex min-w-0 items-start gap-3.5 rounded-[12px] p-3 transition-all duration-300 hover:bg-[#F8FAFC]"
                   >
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0A1F44] text-[12px] font-black text-white transition-colors duration-300 group-hover:bg-[#E8871A]">
-                      {String(index + 1).padStart(2, "0")}
-                    </div>
+                    <span
+                      className="mt-2 flex h-2 w-2 shrink-0 rounded-full bg-[#E8871A] transition-transform duration-200 group-hover:scale-125"
+                    />
 
-                    <p className="min-w-0 pt-1 text-[15px] leading-[1.7] text-[#475569]">
+                    <p className="min-w-0 text-[15px] leading-[1.7] text-[#475569] transition-colors group-hover:text-[#0A1F44]">
                       {point}
                     </p>
                   </div>
@@ -161,7 +161,7 @@ export default function AboutVisionMission() {
 
       <section
         id="identity"
-        className="relative overflow-hidden bg-white py-20 md:py-28"
+        className="scroll-mt-[190px] relative overflow-hidden bg-white py-20 md:py-28"
       >
         {/* Decorative background */}
 
@@ -255,10 +255,7 @@ export default function AboutVisionMission() {
 
           {/* Crest statement */}
 
-          <div className="mx-auto mt-10 max-w-[900px] text-center">
-            <div className="mx-auto mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#0A1F44] text-[#E8871A]">
-              <ArrowRight size={18} />
-            </div>
+          <div className="mx-auto mt-12 max-w-[900px] text-center">
 
             <p className="text-[17px] font-medium leading-[1.8] text-[#475569] md:text-[19px]">
               Our crest stands for{" "}

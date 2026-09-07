@@ -1,73 +1,27 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { placementStories } from "@/data/placements";
 
 export default function StudentSuccessStories() {
-  const [visibleCards, setVisibleCards] = useState(3);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const updateVisibleCards = () => {
-      if (window.innerWidth < 640) {
-        setVisibleCards(1);
-      } else if (window.innerWidth < 1024) {
-        setVisibleCards(2);
-      } else {
-        setVisibleCards(3);
-      }
-    };
-
-    updateVisibleCards();
-    window.addEventListener("resize", updateVisibleCards);
-    return () => window.removeEventListener("resize", updateVisibleCards);
-  }, []);
-
-  const totalSlides = Math.max(1, placementStories.length - visibleCards + 1);
-
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
-  }, [totalSlides]);
-
-  // Auto-play loop (2.5 seconds, moves card-by-card, pauses when hovered)
-  useEffect(() => {
-    if (isHovered || totalSlides <= 1) return;
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 2500);
-    return () => clearInterval(interval);
-  }, [isHovered, totalSlides, nextSlide]);
-
-  // Touch Swipe Handling
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -380, behavior: "smooth" });
+    }
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    const diff = touchStartX.current - touchEndX.current;
-    if (diff > 50) nextSlide();
-    if (diff < -50) prevSlide();
-    touchStartX.current = null;
-    touchEndX.current = null;
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 380, behavior: "smooth" });
+    }
   };
 
   return (
-    <section id="stories" className="scroll-mt-[190px] bg-[#F7F9FC] py-20 lg:py-24 border-t border-[#E2E8F0]">
+    <section id="stories" className="scroll-mt-[190px] bg-[#F7F9FC] py-20 lg:py-24 border-t border-[#E2E8F0] overflow-hidden">
       <div className="gu-container">
         {/* Section Header */}
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">
@@ -88,16 +42,12 @@ export default function StudentSuccessStories() {
           </p>
         </div>
 
-        {/* Sliding Carousel Container */}
-        <div
-          className="relative"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        {/* Scrollable & Auto-Moving Container */}
+        <div className="relative">
           {/* Navigation Arrow Left */}
           <button
             type="button"
-            onClick={prevSlide}
+            onClick={scrollLeft}
             aria-label="Previous stories"
             className="absolute -left-5 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-[0_8px_25px_rgba(10,31,68,0.10)] transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] md:flex"
           >
@@ -107,94 +57,101 @@ export default function StudentSuccessStories() {
           {/* Navigation Arrow Right */}
           <button
             type="button"
-            onClick={nextSlide}
+            onClick={scrollRight}
             aria-label="Next stories"
             className="absolute -right-5 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-[0_8px_25px_rgba(10,31,68,0.10)] transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] md:flex"
           >
             <ChevronRight size={21} strokeWidth={1.8} />
           </button>
 
-          {/* Cards Track with Smooth Transform */}
+          {/* Cards Track with Smooth Marquee & Scroll */}
           <div
-            className="overflow-hidden touch-pan-y select-none"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+            ref={scrollContainerRef}
+            className="alumni-stories-container flex overflow-x-auto overflow-y-hidden py-4 gap-6 cursor-grab select-none scrollbar-none"
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch",
+            }}
           >
-            <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / visibleCards)}%)`,
-              }}
-            >
-              {placementStories.map((story) => (
-                <div
-                  key={story.id}
-                  className="w-full shrink-0 px-3 sm:w-1/2 lg:w-1/3"
-                >
-                  <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[24px] border border-[#E2E8F0] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#E8871A]/40 hover:shadow-xl">
-                    {/* Top Accent Strip */}
-                    <div className="absolute left-0 top-0 h-1.5 w-full bg-[#0A1F44] group-hover:bg-[#E8871A] transition-colors" />
+            {[0, 1, 2].map((setIndex) => (
+              <div
+                key={setIndex}
+                className="alumni-stories-track flex gap-6 shrink-0"
+              >
+                {placementStories.map((story) => (
+                  <div
+                    key={`${setIndex}-${story.id}`}
+                    className="w-[340px] sm:w-[380px] shrink-0"
+                  >
+                    <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[24px] border border-[#E2E8F0] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#E8871A]/40 hover:shadow-xl">
+                      {/* Top Accent Strip */}
+                      <div className="absolute left-0 top-0 h-1.5 w-full bg-[#0A1F44] group-hover:bg-[#E8871A] transition-colors" />
 
-                    <div>
-                      <div className="flex items-center gap-4">
-                        <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[16px] border-2 border-[#E8871A] bg-slate-100 shadow-sm">
-                          <Image
-                            src={story.image}
-                            alt={story.name}
-                            fill
-                            sizes="80px"
-                            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </div>
+                      <div>
+                        <div className="flex items-center gap-4">
+                          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[16px] border-2 border-[#E8871A] bg-slate-100 shadow-sm">
+                            <Image
+                              src={story.image}
+                              alt={story.name}
+                              fill
+                              sizes="80px"
+                              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                            />
+                          </div>
 
-                        <div className="min-w-0">
-                          <h3 className="font-serif text-[20px] font-bold text-[#0A1F44]">
-                            {story.name}
-                          </h3>
-                          <div className="mt-1.5 inline-flex items-center rounded-full bg-[#FFF3E2] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wide text-[#D97706]">
-                            Package · {story.package}
+                          <div className="min-w-0">
+                            <h3 className="font-serif text-[20px] font-bold text-[#0A1F44]">
+                              {story.name}
+                            </h3>
+                            <div className="mt-1.5 inline-flex items-center rounded-full bg-[#FFF3E2] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wide text-[#D97706]">
+                              Package · {story.package}
+                            </div>
                           </div>
                         </div>
+
+                        <div className="mt-6 flex flex-col">
+                          <span className="font-serif text-[48px] font-bold leading-none text-[#E8871A]/20">
+                            “
+                          </span>
+                          <p className="mt-[-8px] text-[14.5px] leading-[1.7] text-[#536B83]">
+                            {story.quote}
+                          </p>
+                        </div>
                       </div>
 
-                      <div className="mt-6 flex flex-col">
-                        <span className="font-serif text-[48px] font-bold leading-none text-[#E8871A]/20">
-                          “
-                        </span>
-                        <p className="mt-[-8px] text-[14.5px] leading-[1.7] text-[#536B83]">
-                          {story.quote}
-                        </p>
+                      <div className="mt-6 border-t border-slate-100 pt-4 flex items-center justify-between text-[12px] text-[#64748B]">
+                        <span className="font-semibold text-[#07589F]">Geeta University</span>
+                        <span className="text-[#E8871A] font-bold">Verified Placement ★</span>
                       </div>
-                    </div>
-
-                    <div className="mt-6 border-t border-slate-100 pt-4 flex items-center justify-between text-[12px] text-[#64748B]">
-                      <span className="font-semibold text-[#07589F]">Geeta University</span>
-                      <span className="text-[#E8871A] font-bold">Verified Placement ★</span>
-                    </div>
-                  </article>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom Pagination Bullets */}
-          <div className="mt-10 flex items-center justify-center gap-2">
-            {Array.from({ length: totalSlides }).map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => setCurrentIndex(idx)}
-                aria-label={`Go to slide ${idx + 1}`}
-                className={`h-2.5 rounded-full transition-all duration-300 ${currentIndex === idx
-                    ? "w-8 bg-[#E8871A]"
-                    : "w-2.5 bg-[#CBD5E1] hover:bg-[#94A3B8]"
-                  }`}
-              />
+                    </article>
+                  </div>
+                ))}
+              </div>
             ))}
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .alumni-stories-container::-webkit-scrollbar {
+          display: none;
+        }
+        @keyframes storiesMarquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% - 24px));
+          }
+        }
+        .alumni-stories-track {
+          animation: storiesMarquee 34s linear infinite;
+        }
+        .alumni-stories-container:hover .alumni-stories-track {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 }

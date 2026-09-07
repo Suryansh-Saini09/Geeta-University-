@@ -72,19 +72,16 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       {/* 3. RANKINGS & ACCREDITATIONS (University-wide UGC/CSR/AAA accreditations) */}
       <RankingsAccreditations rankings={pageData.rankings} />
 
-      {/* 4. ABOUT THE SCHOOL */}
+      {/* 4. ABOUT THE SCHOOL & LEADERSHIP NOTE & VISION/MISSION */}
       {(pageData.about || pageData.intro) && (
         <ProgramAbout
           about={pageData.about}
           intro={pageData.intro}
           visionMission={pageData.visionMission}
+          dean={pageData.dean}
+          schoolTitle={schoolTitle}
         />
       )}
-
-      {/* 5. DEAN / PRINCIPAL LEADERSHIP MESSAGE */}
-      {/* {pageData.dean && (
-        <DeanMessage dean={pageData.dean} schoolName={schoolTitle} />
-      )} */}
 
       {/* 6. FEATURED PROGRAMS (If school defines prominent degree tiers) */}
       {/* {pageData.featuredPrograms && (

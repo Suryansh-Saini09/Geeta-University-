@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { DepartmentHighlightItem } from "@/data/programs/types";
 
@@ -81,6 +81,27 @@ export default function DepartmentHighlights({
           transition={{ duration: 0.6 }}
           style={{ textAlign: "center", marginBottom: 60 }}
         >
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              borderRadius: 30,
+              border: "1px solid rgba(232,135,26,0.3)",
+              background: "rgba(232,135,26,0.15)",
+              padding: "6px 16px",
+              fontSize: 12,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: 1.5,
+              color: "#C46A08",
+              marginBottom: 12,
+            }}
+          >
+            <Sparkles size={14} />
+            <span>Experiential Highlights</span>
+          </div>
+
           <h2
             style={{
               fontSize: 44,
@@ -107,16 +128,25 @@ export default function DepartmentHighlights({
         </motion.div>
       </div>
 
-      <div style={{ position: "relative", zIndex: 1 }}>
+      <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
           className="marquee-container"
-          style={{ display: "flex", overflow: "hidden", padding: "10px 0 30px", gap: 32 }}
+          style={{
+            display: "flex",
+            overflowX: "auto",
+            overflowY: "hidden",
+            padding: "10px 0 30px",
+            gap: 32,
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            cursor: "grab",
+          }}
         >
-          {[0, 1].map((setIndex) => (
+          {[0, 1, 2].map((setIndex) => (
             <div
               key={setIndex}
               className="marquee-track"
@@ -364,6 +394,9 @@ export default function DepartmentHighlights({
       </AnimatePresence>
 
       <style jsx>{`
+        .marquee-container::-webkit-scrollbar {
+          display: none;
+        }
         @keyframes marquee {
           0% {
             transform: translateX(0);
@@ -373,7 +406,7 @@ export default function DepartmentHighlights({
           }
         }
         .marquee-track {
-          animation: marquee 25s linear infinite;
+          animation: marquee 28s linear infinite;
         }
         .marquee-container:hover .marquee-track {
           animation-play-state: paused;
