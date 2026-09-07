@@ -1,4 +1,5 @@
 import type { ProgramPageData } from "../types";
+import type { CourseFAQItem } from "../courses/types";
 
 export const lawSchool: ProgramPageData = {
   slug: "geeta-global-law-school",
@@ -635,7 +636,7 @@ export const lawSchool: ProgramPageData = {
           name: "LL.M. – Master of Laws",
           duration: "1 Year Full-Time",
           eligibility: "Passed Bachelor's degree in Law (LL.B.) with minimum 50% marks in aggregate.",
-          href: "https://geetauniversity.edu.in/programs/geeta-global-law-school/llm",
+          href: "/programs/geeta-global-law-school/llm",
         },
       ],
     },
@@ -650,7 +651,7 @@ export const lawSchool: ProgramPageData = {
           name: "Ph.D. in Law",
           duration: "Minimum 3 Years",
           eligibility: "Masters in Law (LL.M.) with minimum 55% marks.",
-          href: "https://geetauniversity.edu.in/phd-law",
+          href: "/programs/geeta-global-law-school/phd-law",
         },
       ],
     },
@@ -907,3 +908,11 @@ export const lawSchool: ProgramPageData = {
     campusAddress: "NH-71A, Naultha Panipat, Haryana (132145), India.",
   },
 };
+
+export const lawFaqs: CourseFAQItem[] = (lawSchool.faqs || []).map((item) => ({
+  question: item.q || item.question || "",
+  answer: item.a || item.answer || "",
+  category: item.category || "General",
+}));
+
+
