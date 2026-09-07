@@ -369,18 +369,6 @@ export const agricultureSchool: ProgramPageData = {
     ],
     image: "/programs/agriculture/highlight-1.webp",
     badgeText: "ICAR Aligned & Hands-on Farms",
-    careers: [
-      "Agricultural Research Scientist (ARS)",
-      "Agronomist & Crop Production Expert",
-      "Soil Chemist & Plant Nutritionist",
-      "Horticulture & Protected Cultivation Specialist",
-      "Plant Breeder & Seed Production Officer",
-      "Agri-Drone & Precision Farming Specialist",
-      "Agricultural Development Officer (ADO)",
-      "Agribusiness Entrepreneur & Vermicompost Founder",
-    ],
-    closingText:
-      "Our agricultural ecosystem integrates faculty-owned research farms, soil chemistry suites, Rural Agricultural Work Experience (RAWE), and industry linkages.",
   },
 
   visionMission: {
@@ -657,137 +645,9 @@ export const agricultureSchool: ProgramPageData = {
     ],
   },
 
-  learningSpaces: {
-    title: "Infrastructure Built for Agricultural Innovation & Research",
-    description:
-      "Students gain authentic field and laboratory experience across dedicated research farmlands, analytical chemistry suites, and smart farming setups:",
-    spaces: [
-      {
-        title: "Soil Science & Agricultural Chemistry Lab",
-        desc: "Advanced soil nutrient profiling, pH/EC meters, spectrophotometers, flame photometers, and soil fertility testing stations.",
-        icon: "",
-      },
-      {
-        title: "Agronomy & Crop Physiology Complex",
-        desc: "Specialized facilities for seed germination trials, photosynthetic efficiency analysis, chlorophyll meters, and plant growth dynamics.",
-        icon: "",
-      },
-      {
-        title: "Plant Pathology & Entomology Lab",
-        desc: "High-resolution stereomicroscopes, laminar air flows, pathogen isolation chambers, and biocontrol insectariums.",
-        icon: "",
-      },
-      {
-        title: "Genetics & Plant Breeding Station",
-        desc: "Precision emasculation units, hybrid seed testing kits, cytogenetic workstations, and molecular crop improvement workspaces.",
-        icon: "",
-      },
-      {
-        title: "Horticulture Polyhouse & Greenhouses",
-        desc: "Climate-controlled polyhouses for off-season vegetable cultivation, floriculture, high-tech nursery propagation, and automated mist chambers.",
-        icon: "",
-      },
-      {
-        title: "Organic Farming & Vermicompost Unit",
-        desc: "Large-scale bio-fertilizer production beds, earthworm culture pits, microbial inoculant stations, and sustainable waste recycling modules.",
-        icon: "",
-      },
-      {
-        title: "Agri-Drone & Precision Farming Suite",
-        desc: "GIS mapping workstations, multispectral aerial crop monitoring, automated sensor nodes, and micro-sprinkler control systems.",
-        icon: "",
-      },
-      {
-        title: "Faculty-Owned Experimental Farmlands",
-        desc: "Expansive university agricultural plots dedicated to seasonal Kharif/Rabi crop cultivation and student RAWE field trials.",
-        icon: "",
-      },
-    ],
-    gallery: [
-      {
-        src: "/programs/agriculture/highlight-1.webp",
-        title: "Practical Harvesting & Field Trials",
-        caption: "Students conducting field experiments, crop harvesting, and yield evaluations on university research farmlands.",
-      },
-      {
-        src: "/programs/agriculture/highlight-2.webp",
-        title: "Precision Agronomy & Crop Research",
-        caption: "Hands-on agronomy training in crop canopy management, drip irrigation, and bio-nutrients.",
-      },
-      {
-        src: "/programs/agriculture/educational-visit.webp",
-        title: "ICAR Institute & Agribusiness Visits",
-        caption: "Industrial attachments and scientific immersion at premier ICAR research centers and seed companies.",
-      },
-    ],
-    closingNote:
-      "All agricultural laboratories and experimental farmlands adhere strictly to ICAR standards, empowering students with industry-ready research and entrepreneurship skills.",
-  },
 
-  careerPathways: {
-    title: "Your Agriculture Degree. Boundless Opportunities.",
-    description:
-      "A degree from the School of Agricultural Sciences opens lucrative pathways across public sector leadership, global agribusiness MNCs, research, and startups:",
-    pathways: [
-      {
-        area: "Agricultural Research & Scientist (ARS / ICAR)",
-        pathway: "Spearheading national crop breeding trials, soil conservation research, and food security innovations in ICAR/IARI institutes.",
-        icon: "",
-      },
-      {
-        area: "Government Agricultural Services (ADO / NABARD)",
-        pathway: "Serving as Agricultural Development Officers (ADO), NABARD Rural Development Officers, and district horticulture consultants.",
-        icon: "",
-      },
-      {
-        area: "Agrochemicals & Seed Industry Leadership",
-        pathway: "Key corporate roles in R&D, territory sales management, techno-commercial advisory, and quality control at global giants like Bayer, Syngenta, and UPL.",
-        icon: "",
-      },
-      {
-        area: "Precision Farming & Agri-Drone Operations",
-        pathway: "Pioneering sensor-based variable rate fertilizer application, aerial multispectral survey, and IoT-driven irrigation management.",
-        icon: "",
-      },
-      {
-        area: "Banking & Rural Finance Advisory",
-        pathway: "Specialist Agriculture Officers (AFO) in nationalized and private banks evaluating farm credit, crop insurance, and agro-infrastructure loans.",
-        icon: "",
-      },
-      {
-        area: "Agribusiness Entrepreneurship & Organic Startups",
-        pathway: "Founding high-yield ventures in organic vermicomposting, exotic vegetable polyhouse farming, and farm-to-fork supply chains.",
-        icon: "",
-      },
-      {
-        area: "Higher Studies & Global Academic Research",
-        pathway: "M.Sc. and Ph.D. pathways in Agronomy, Genetics & Plant Breeding, Soil Science, and Agricultural Economics in India and abroad.",
-        icon: "",
-      },
-    ],
-    notableRoles: [
-      { name: "Agricultural Research Scientist (ARS)" },
-      { name: "Agricultural Development Officer (ADO)" },
-      { name: "Agriculture Field Officer (IBPS AFO)" },
-      { name: "Agronomist & Crop Advisor" },
-      { name: "Plant Breeder & Seed Specialist" },
-      { name: "Soil Chemist / Testing Lead" },
-      { name: "Precision Agriculture Specialist" },
-      { name: "Horticulture Consultant" },
-      { name: "Agri-Business Manager" },
-      { name: "Farm Operations Lead" },
-      { name: "Organic Farming Entrepreneur" },
-      { name: "Food Safety & Quality Inspector" },
-    ],
-  },
 
-  brochure: {
-    title: "Download School of Agricultural Sciences Brochure",
-    description:
-      "Get detailed information on our ICAR-aligned curriculum, experimental farmlands, RAWE immersion, faculty mentors, and placement records.",
-    fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
-    fileName: "GU_Agriculture_Brochure.pdf",
-  },
+
 
   faqs: agricultureFaqs.map((f) => ({
     q: f.question,

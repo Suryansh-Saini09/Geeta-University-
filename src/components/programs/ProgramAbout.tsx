@@ -3,14 +3,17 @@
 import React from "react";
 import type { ProgramPageData } from "@/data/programs/types";
 import VisionMissionSection from "./VisionMissionSection";
+import DeanNoteCard from "./DeanNoteCard";
 
 interface ProgramAboutProps {
   about?: ProgramPageData["about"];
   intro?: ProgramPageData["intro"];
   visionMission?: ProgramPageData["visionMission"];
+  dean?: ProgramPageData["dean"];
+  schoolTitle?: string;
 }
 
-export default function ProgramAbout({ about, intro, visionMission }: ProgramAboutProps) {
+export default function ProgramAbout({ about, intro, visionMission, dean, schoolTitle }: ProgramAboutProps) {
   const data = about || (intro ? {
     eyebrow: intro.eyebrow,
     title: intro.title,
@@ -120,12 +123,8 @@ export default function ProgramAbout({ about, intro, visionMission }: ProgramAbo
           </div>
         )}
 
-        {/* Closing line */}
-        {closingText && (
-          <p style={{ fontSize: 16, color: "#6B7280", lineHeight: 1.75, fontWeight: 400, marginTop: 32 }}>
-            {closingText}
-          </p>
-        )}
+        {/* Leadership Note Card */}
+        {dean && <DeanNoteCard dean={dean} schoolName={schoolTitle} />}
 
         {/* Vision & Mission Section */}
         <VisionMissionSection data={visionMission} />

@@ -51,8 +51,8 @@ export default function GovernancePoliciesSection() {
           absolute
           -right-40
           top-10
-          h-125
-          w-125
+          h-[500px]
+          w-[500px]
           rounded-full
           bg-[#E8871A]/[0.035]
           blur-3xl
@@ -65,8 +65,8 @@ export default function GovernancePoliciesSection() {
           absolute
           -left-40
           bottom-20
-          h-125
-          w-125
+          h-[500px]
+          w-[500px]
           rounded-full
           bg-[#0A1F44]/2.5
           blur-3xl
@@ -81,7 +81,7 @@ export default function GovernancePoliciesSection() {
 
         <section
           id="governance"
-          className="scroll-mt-20"
+          className="scroll-mt-[190px]"
         >
           {/* Header */}
 
@@ -141,7 +141,7 @@ export default function GovernancePoliciesSection() {
 
             <p
               className="
-                max-w-105
+                max-w-[420px]
                 text-[16px]
                 leading-[1.8]
                 text-[#64748B]
@@ -188,7 +188,7 @@ export default function GovernancePoliciesSection() {
                 className="
                   relative
                   flex
-                  min-h-55
+                  min-h-[220px]
                   flex-col
                   justify-between
                   overflow-hidden
@@ -297,7 +297,7 @@ export default function GovernancePoliciesSection() {
                   <p
                     className="
                       mt-4
-                      max-w-187.5
+                      max-w-[750px]
                       font-serif
                       text-[20px]
                       font-medium
@@ -332,7 +332,6 @@ export default function GovernancePoliciesSection() {
               <DocumentCard
                 key={document.id}
                 index={index}
-                number={document.id}
                 title={document.title}
                 description={document.description}
                 documentUrl={document.documentUrl}
@@ -369,7 +368,7 @@ export default function GovernancePoliciesSection() {
 
         <section
           id="policies"
-          className="scroll-mt-20"
+          className="scroll-mt-[190px]"
         >
           {/* Header */}
 
@@ -429,7 +428,7 @@ export default function GovernancePoliciesSection() {
 
             <p
               className="
-                max-w-105
+                max-w-[420px]
                 text-[16px]
                 leading-[1.8]
                 text-[#64748B]
@@ -545,7 +544,6 @@ export default function GovernancePoliciesSection() {
               <DocumentCard
                 key={document.id}
                 index={index}
-                number={document.id}
                 title={document.title}
                 description={document.description}
                 documentUrl={document.documentUrl}
@@ -569,7 +567,7 @@ export default function GovernancePoliciesSection() {
           variants={fadeUp}
           className="mt-20 text-center md:mt-24"
         >
-          <div className="mx-auto flex max-w-175 items-center gap-4">
+          <div className="mx-auto flex max-w-[700px] items-center gap-4">
             <span className="h-px flex-1 bg-[#DCE2EB]" />
 
             <Scale
@@ -609,14 +607,12 @@ export default function GovernancePoliciesSection() {
 
 function DocumentCard({
   index,
-  number,
   title,
   description,
   documentUrl,
   type,
 }: {
   index: number;
-  number: number;
   title: string;
   description: string;
   documentUrl: string;
@@ -651,7 +647,7 @@ function DocumentCard({
         group
         relative
         flex
-        min-h-57.5
+        min-h-[230px]
         flex-col
         overflow-hidden
         rounded-[18px]
@@ -668,41 +664,31 @@ function DocumentCard({
         md:p-7
       "
     >
-      {/* Top row */}
+      {/* Top row: Category tag & Icon */}
 
-      <div className="flex items-start justify-between gap-4">
-        {/* Number */}
-
-        <div
+      <div className="flex items-center justify-between gap-3">
+        <span
           className="
-            flex
-            h-10
-            w-10
-            shrink-0
-            items-center
-            justify-center
-            rounded-[10px]
-            bg-[#F7F9FC]
-            font-serif
-            text-[14px]
-            font-black
-            text-[#0A1F44]
-            transition-all
-            duration-300
-            group-hover:bg-[#0A1F44]
-            group-hover:text-[#E8871A]
+            text-[10px]
+            font-bold
+            uppercase
+            tracking-[2px]
+            text-[#E8871A]
           "
         >
-          {String(number).padStart(2, "0")}
-        </div>
+          {type === "governance"
+            ? "Governance Document"
+            : "Institutional Policy"}
+        </span>
 
         {/* Document icon */}
 
         <div
           className="
             flex
-            h-10
-            w-10
+            h-9
+            w-9
+            shrink-0
             items-center
             justify-center
             rounded-full
@@ -716,7 +702,7 @@ function DocumentCard({
           "
         >
           <FileText
-            size={18}
+            size={17}
             strokeWidth={1.6}
           />
         </div>
@@ -724,25 +710,10 @@ function DocumentCard({
 
       {/* Content */}
 
-      <div className="mt-7 flex flex-1 flex-col">
-        <span
-          className="
-            text-[9px]
-            font-bold
-            uppercase
-            tracking-[2px]
-            text-[#E8871A]
-          "
-        >
-          {type === "governance"
-            ? "Governance Document"
-            : "Institutional Policy"}
-        </span>
-
+      <div className="mt-4 flex flex-1 flex-col">
         <h3
           className="
-            mt-2
-            max-w-125
+            max-w-[500px]
             font-serif
             text-[21px]
             font-black
@@ -756,7 +727,7 @@ function DocumentCard({
         <p
           className="
             mt-3
-            max-w-130
+            max-w-[520px]
             text-[13px]
             leading-[1.7]
             text-[#64748B]

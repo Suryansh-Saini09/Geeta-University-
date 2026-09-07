@@ -13,10 +13,10 @@ export default function IndustryIntegrationHero() {
         <img
           src={industryIntegrationHero.heroImage}
           alt="Geeta University Campus"
-          className="h-full w-full object-cover object-center opacity-30"
+          className="h-full w-full object-cover object-center opacity-85"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44] via-[#0A1F44]/90 to-[#0A1F44]/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44]/90 via-[#0A1F44]/65 to-[#0A1F44]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/75 via-transparent to-black/20" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-28">
@@ -78,9 +78,9 @@ export default function IndustryIntegrationHero() {
             </a>
             <a
               href="#partners-grid"
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:border-white/50 active:scale-95"
+              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/25 px-6 py-3.5 text-sm font-semibold text-white shadow-sm backdrop-blur-sm transition-all hover:bg-white hover:text-[#0A1F44] active:scale-95"
             >
-              <Sparkles className="h-4 w-4 text-[#E8871A]" />
+              <Sparkles className="h-4 w-4 text-[#E8871A] group-hover:text-[#0A1F44]" />
               <span>View Industry Partners</span>
             </a>
           </div>

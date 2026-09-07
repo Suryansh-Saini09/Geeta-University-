@@ -129,7 +129,7 @@ export default function ScholarshipsSection() {
             <div className="relative z-10">
               {/* GUTS badge (Aligned to the right) */}
               <div className="flex items-center justify-end">
-                <span className="rounded-full bg-[#06355F] px-4 py-2 text-xs font-bold tracking-[0.2em] text-white">
+                <span className="inline-flex items-center justify-center rounded-full bg-[#06355F] px-6 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base font-black tracking-[0.25em] text-white shadow-lg transition-transform duration-300 group-hover:scale-105 border border-white/10">
                   {gutsData.label}
                 </span>
               </div>

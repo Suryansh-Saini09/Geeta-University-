@@ -67,10 +67,7 @@ export default function CampusLifePage() {
       {/* 6. Eminent Personalities at GU (with 2-Card Carousel) */}
       <EminentPersonalitiesSection />
 
-      {/* 7. Legacy & Ecosystem (Canonical Website Component) */}
-      <LegacyEcosystem />
-
-      {/* 8. Frequently Asked Questions (Canonical Website Component) */}
+      {/* 7. Frequently Asked Questions (Canonical Website Component) */}
       <section id="faqs" className="w-full scroll-mt-[190px]">
         <FAQSection
           title="Frequently Asked Questions"
@@ -78,6 +75,9 @@ export default function CampusLifePage() {
           faqs={formattedFaqs}
         />
       </section>
+
+      {/* 8. Legacy & Ecosystem (Canonical Website Component) */}
+      <LegacyEcosystem />
 
       {/* Responsive Video Modal Player */}
       <VideoModal

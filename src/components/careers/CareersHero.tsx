@@ -45,9 +45,8 @@ export default function CareersHero() {
         />
 
         {/* Gradient overlays for readability */}
-        <div className="absolute inset-0 bg-[#0A1F44]/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44] via-[#0A1F44]/85 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44]/90 via-[#0A1F44]/60 to-[#0A1F44]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/75 via-transparent to-black/20" />
 
         {/* Content Container */}
         <div className="gu-container relative z-10 flex min-h-[500px] items-center py-16 lg:min-h-[580px]">
@@ -102,9 +101,9 @@ export default function CareersHero() {
               <a
                 href="#why-join-us"
                 onClick={scrollToWhyUs}
-                className="inline-flex items-center gap-3 rounded-[10px] border border-white/30 bg-white/10 px-7 py-4 text-[15px] font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-[#E8871A] hover:bg-white/15"
+                className="inline-flex items-center gap-3 rounded-[10px] border border-white/60 bg-white/25 px-7 py-4 text-[15px] font-bold text-white shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white hover:bg-white hover:text-[#0A1F44] hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)]"
               >
-                <Briefcase className="h-5 w-5 text-[#E8871A]" />
+                <Briefcase className="h-5 w-5 text-[#E8871A] group-hover:text-[#0A1F44]" />
                 <span>Why Join Us</span>
               </a>
             </motion.div>

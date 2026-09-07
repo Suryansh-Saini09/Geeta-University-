@@ -8,8 +8,6 @@ const NAV_ITEMS = [
   { id: "sports", label: "Sports Facilities" },
   { id: "events", label: "Events & Fests" },
   { id: "eminent-personalities", label: "Eminent Personalities" },
-  { id: "legacy-ecosystem", label: "Legacy & Ecosystem" },
-  { id: "faqs", label: "FAQs" },
 ];
 
 export default function CampusLifeNav() {

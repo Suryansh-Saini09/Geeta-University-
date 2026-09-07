@@ -76,17 +76,33 @@ export default function HomeHeroSection() {
           animate="visible"
           className="max-w-3xl"
         >
-          {/* Admissions Badge */}
+          {/* Admissions CTA Button */}
           <motion.div variants={itemVariants} className="mb-8">
-            <div className="inline-flex cursor-default items-center gap-3 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 backdrop-blur-md transition-all hover:border-white/30 hover:bg-white/10">
-              <span className="relative flex h-2.5 w-2.5 items-center justify-center">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#E8871A] opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#E8871A]" />
+            <a
+              href="https://admissions.geetauniversity.edu.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-3 sm:gap-3.5 rounded-full border border-white/25 bg-gradient-to-r from-white/10 via-white/5 to-[#0A1F44]/60 p-1.5 pr-4 sm:pr-5 shadow-xl shadow-black/25 backdrop-blur-md transition-all duration-300 hover:border-[#E8871A] hover:bg-white/15 hover:shadow-2xl hover:shadow-[#E8871A]/20 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            >
+              {/* Badge Tag with Live Pulse */}
+              <span className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#E8871A] to-[#F59E0B] px-3 sm:px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md shadow-[#E8871A]/30">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-80" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+                </span>
+                <span>Apply Now</span>
               </span>
-              <span className="text-[11px] font-bold uppercase tracking-[2px] text-white">
-                Admissions Open 2026-27
+
+              {/* Main Text */}
+              <span className="text-xs sm:text-sm font-bold tracking-wider text-white transition-colors group-hover:text-amber-100">
+                Admissions Open 2026–27
               </span>
-            </div>
+
+              {/* Arrow Circle */}
+              <span className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-white/15 text-white transition-all duration-300 group-hover:bg-[#E8871A] group-hover:text-white group-hover:scale-110">
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </span>
+            </a>
           </motion.div>
 
           {/* Headline */}

@@ -4,17 +4,22 @@ import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const universityImages = [
-  "4-full.webp",
-  "5-full.webp",
-  "6-full.webp",
-  "7-full.webp",
-  "8-full.webp",
-  "9-full.webp",
-  "11-full.webp",
-  "14-1-full.webp",
-  "17-1-full.webp",
-  "19-1-full.webp",
+const flagItems = [
+  { name: "Australia", image: "/home/universe-flags/4-full.webp" },
+  { name: "Brazil", image: "/home/universe-flags/5-full.webp" },
+  { name: "Vietnam", image: "/home/universe-flags/6-full.webp" },
+  { name: "Zimbabwe", image: "/home/universe-flags/7-full.webp" },
+  { name: "South Africa", image: "/home/universe-flags/8-full.webp" },
+  { name: "Nigeria", image: "/home/universe-flags/9-full.webp" },
+  { name: "Yemen", image: "/home/universe-flags/11-full.webp" },
+  { name: "Switzerland", image: "/home/universe-flags/14-1-full.webp" },
+  { name: "Czech Republic", image: "/home/universe-flags/17-1-full.webp" },
+  { name: "Malaysia", image: "/home/universe-flags/19-1-full.webp" },
+  { name: "Global Partner 1", image: "/international-admissions/logo-11.webp" },
+  { name: "Global Partner 2", image: "/international-admissions/logo-12.webp" },
+  { name: "Global Partner 3", image: "/international-admissions/logo-10.webp" },
+  { name: "Global Partner 4", image: "/international-admissions/logo-7.webp" },
+  { name: "Global Partner 5", image: "/international-admissions/logo-8.webp" },
 ];
 
 const globalUniversities = [
@@ -31,54 +36,17 @@ const internships = [
   "Singapore",
   "Malaysia",
   "Vietnam",
+  "Australia",
+  "France",
 ];
 
 export default function HomeUniverseSection() {
-  const marqueeImages = [
-    ...universityImages,
-    ...universityImages,
-    ...universityImages,
-  ];
-
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Drag-to-scroll handlers
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return;
-    setIsDragging(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-    setIsHovered(false);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 1.6;
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-  };
 
   // Button scroll controls
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
-    const scrollAmount = 320;
+    const scrollAmount = 360;
     scrollRef.current.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
@@ -86,16 +54,16 @@ export default function HomeUniverseSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#F5F8FB] py-20 md:py-24">
+    <section className="relative overflow-hidden bg-[#F5F8FB] py-16 md:py-20">
       {/* Decorative background */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#F28C18]/5 blur-3xl"
+        className="pointer-events-none absolute -left-40 top-10 h-80 w-80 rounded-full bg-[#F28C18]/5 blur-3xl"
       />
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-[#06355F]/5 blur-3xl"
+        className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-[#06355F]/5 blur-3xl"
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
@@ -188,17 +156,13 @@ export default function HomeUniverseSection() {
                   {location}
                 </span>
               ))}
-
-              <span className="rounded-full bg-[#F28C18] px-4 py-2 text-xs font-bold text-white">
-                + Beyond
-              </span>
             </div>
           </div>
         </div>
 
         {/* Global image strip */}
-        <div className="mt-14">
-          <div className="mb-6 flex items-center gap-4">
+        <div className="mt-12">
+          <div className="mb-5 flex items-center gap-4">
             <div className="h-px flex-1 bg-[#DCE5ED]" />
 
             <p className="whitespace-nowrap text-xs font-bold uppercase tracking-[0.2em] text-[#536B83]">
@@ -214,7 +178,7 @@ export default function HomeUniverseSection() {
               type="button"
               onClick={() => scroll("left")}
               aria-label="Scroll left"
-              className="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-10 sm:w-10"
+              className="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-10 sm:w-10 cursor-pointer"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -224,7 +188,7 @@ export default function HomeUniverseSection() {
               type="button"
               onClick={() => scroll("right")}
               aria-label="Scroll right"
-              className="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-10 sm:w-10"
+              className="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-10 sm:w-10 cursor-pointer"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -238,71 +202,78 @@ export default function HomeUniverseSection() {
             {/* Scrollable & Draggable container */}
             <div
               ref={scrollRef}
-              onMouseDown={handleMouseDown}
-              onMouseLeave={handleMouseLeave}
-              onMouseEnter={handleMouseEnter}
-              onMouseUp={handleMouseUp}
-              onMouseMove={handleMouseMove}
-              className="flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="universe-marquee-container flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              style={{
+                display: "flex",
+                gap: 24,
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                WebkitOverflowScrolling: "touch",
+              }}
             >
-              <div
-                className={`universe-marquee flex w-max items-center ${
-                  isHovered || isDragging ? "paused" : ""
-                }`}
-              >
-                <div className="flex shrink-0 items-center gap-5 px-3 sm:gap-6">
-                  {marqueeImages.map((image, index) => (
+              {[0, 1, 2, 3].map((setIndex) => (
+                <div
+                  key={setIndex}
+                  className="universe-marquee-track flex shrink-0 items-center"
+                  style={{ display: "flex", gap: 24, flexShrink: 0 }}
+                >
+                  {flagItems.map((item, index) => (
                     <div
-                      key={`flag-${image}-${index}`}
-                      className="group/flag flex h-20 w-32 shrink-0 items-center justify-center rounded-xl border border-[#E4EAF0] bg-white p-2.5 shadow-2xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#F28C18]/40 hover:shadow-md sm:h-24 sm:w-40"
+                      key={`flag-${setIndex}-${index}`}
+                      className="group/flag flex h-20 w-36 sm:h-24 sm:w-44 shrink-0 items-center justify-center rounded-xl border border-[#E4EAF0] bg-white p-3 shadow-2xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#F28C18]/40 hover:shadow-md"
                     >
-                      <Image
-                        src={`/home/universe-flags/${image}`}
-                        alt={`Geeta University global partner ${index + 1}`}
-                        width={160}
-                        height={96}
-                        className="max-h-16 w-auto object-contain transition-transform duration-300 group-hover/flag:scale-105 pointer-events-none sm:max-h-20"
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        style={{
+                          maxHeight: "56px",
+                          maxWidth: "100%",
+                          width: "auto",
+                          height: "auto",
+                          objectFit: "contain",
+                          pointerEvents: "none",
+                        }}
                       />
                     </div>
                   ))}
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        .universe-marquee {
-          animation: universe-scroll 45s linear infinite;
+        .universe-marquee-container::-webkit-scrollbar {
+          display: none;
         }
 
-        .universe-marquee.paused {
-          animation-play-state: paused !important;
-        }
-
-        .universe-marquee:hover {
-          animation-play-state: paused !important;
-        }
-
-        @keyframes universe-scroll {
-          from {
+        @keyframes universeMarquee {
+          0% {
             transform: translateX(0);
           }
-
-          to {
-            transform: translateX(-33.333%);
+          100% {
+            transform: translateX(calc(-100% - 24px));
           }
+        }
+
+        .universe-marquee-track {
+          animation: universeMarquee 32s linear infinite;
+        }
+
+        .universe-marquee-container:hover .universe-marquee-track {
+          animation-play-state: paused !important;
         }
 
         @media (max-width: 768px) {
-          .universe-marquee {
-            animation-duration: 35s;
+          .universe-marquee-track {
+            animation-duration: 24s;
           }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .universe-marquee {
+          .universe-marquee-track {
             animation: none !important;
           }
         }

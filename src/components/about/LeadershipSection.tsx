@@ -52,7 +52,7 @@ export default function LeadershipSection() {
     <section
       id="leadership"
       className="
-        scroll-mt-20
+        scroll-mt-[190px]
         relative
         overflow-hidden
         bg-[#F7F9FC]
@@ -71,8 +71,8 @@ export default function LeadershipSection() {
           absolute
           -right-40
           top-20
-          h-125
-          w-125
+          h-[500px]
+          w-[500px]
           rounded-full
           bg-[#E8871A]/[0.035]
           blur-3xl
@@ -85,8 +85,8 @@ export default function LeadershipSection() {
           absolute
           -left-40
           bottom-20
-          h-105
-          w-105
+          h-[420px]
+          w-[420px]
           rounded-full
           bg-[#0A1F44]/2.5
           blur-3xl
@@ -110,7 +110,7 @@ export default function LeadershipSection() {
           className="
             mx-auto
             mb-16
-            max-w-212.5
+            max-w-[850px]
             text-center
             md:mb-20
           "
@@ -158,7 +158,7 @@ export default function LeadershipSection() {
             className="
               mx-auto
               mt-6
-              max-w-185
+              max-w-[740px]
               text-[16px]
               leading-[1.8]
               text-[#64748B]
@@ -205,11 +205,11 @@ export default function LeadershipSection() {
             <div
               className="
                 relative
-                min-h-97.5
+                min-h-[390px]
                 overflow-hidden
                 bg-[#0A1F44]
-                sm:min-h-117.5
-                lg:min-h-135
+                sm:min-h-[470px]
+                lg:min-h-[540px]
               "
             >
               <Image
@@ -551,7 +551,7 @@ export default function LeadershipSection() {
           variants={fadeUp}
           className="mt-16 text-center md:mt-20"
         >
-          <div className="mx-auto flex max-w-190 items-center justify-center gap-4">
+          <div className="mx-auto flex max-w-[760px] items-center justify-center gap-4">
             <span className="h-px flex-1 bg-[#DCE2EB]" />
 
             <Sparkles
