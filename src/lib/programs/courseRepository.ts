@@ -10,6 +10,11 @@ import { mscForensicScience } from "@/data/programs/courses/forensic-sciences/ms
 import { phdForensicScience } from "@/data/programs/courses/forensic-sciences/phd-forensic-science";
 import { llm } from "@/data/programs/courses/law/llm";
 import { phdLaw } from "@/data/programs/courses/law/phd-law";
+import { bba } from "@/data/programs/courses/commerce/bba";
+import { bbaInternationalAccounting } from "@/data/programs/courses/commerce/bba-international-accounting";
+import { bbaAIDataAnalytics } from "@/data/programs/courses/commerce/bba-ai-data-analytics";
+import { bbaHumanResourceManagement } from "@/data/programs/courses/commerce/bba-human-resource-management";
+import { bbaExportImportManagement } from "@/data/programs/courses/commerce/bba-export-and-import-management";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -23,6 +28,11 @@ const courses: CoursePageData[] = [
   phdForensicScience,
   llm,
   phdLaw,
+  bba,
+  bbaInternationalAccounting,
+  bbaAIDataAnalytics,
+  bbaHumanResourceManagement,
+  bbaExportImportManagement,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -36,17 +46,26 @@ function normalizeSchoolSlug(slug: string): string {
   return s;
 }
 
+function normalizeCourseSlug(slug: string): string {
+  const s = slug.toLowerCase();
+  if (s === "bba-international-accounting-acca") return "bba-international-accounting";
+  if (s === "bba-ai-data-analytics") return "bba-artificial-intelligence-and-data-analytics";
+  if (s === "bba-hrm") return "bba-human-resource-management";
+  if (s === "bba-import-export" || s === "bba-export-import") return "bba-export-and-import-management";
+  return s;
+}
+
 export function getCourseBySlug(
   schoolSlug: string,
   courseSlug: string
 ): CoursePageData | undefined {
   const normSchool = normalizeSchoolSlug(schoolSlug);
-  const normCourse = courseSlug.toLowerCase();
+  const normCourse = normalizeCourseSlug(courseSlug);
 
   return courses.find(
     (c) =>
       normalizeSchoolSlug(c.schoolSlug) === normSchool &&
-      c.slug.toLowerCase() === normCourse
+      normalizeCourseSlug(c.slug) === normCourse
   );
 }
 
@@ -74,6 +93,38 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
       params.push({
         schoolSlug: "school-of-agricultural-sciences",
         courseSlug: c.slug,
+      });
+    }
+
+    if (c.slug === "bba-international-accounting") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "bba-international-accounting-acca",
+      });
+    }
+
+    if (c.slug === "bba-artificial-intelligence-and-data-analytics") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "bba-ai-data-analytics",
+      });
+    }
+
+    if (c.slug === "bba-human-resource-management") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "bba-hrm",
+      });
+    }
+
+    if (c.slug === "bba-export-and-import-management") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "bba-import-export",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "bba-export-import",
       });
     }
   });
