@@ -10,7 +10,8 @@ export interface CourseHero {
   title: string;
   subtitle?: string;
   description?: string;
-  image: string; // Course-specific banner image (Image-only hero)
+  image: string; // Course-specific banner image (Desktop hero)
+  mobileImage?: string; // Course-specific banner image (Mobile hero)
   ctaText?: string;
   ctaLink?: string;
   brochureUrl?: string;

@@ -1,4 +1,5 @@
 import type { ProgramPageData } from "../types";
+import type { CourseFAQItem } from "../courses/types";
 
 export const commerceSchool: ProgramPageData = {
   slug: "school-of-commerce-and-business-management",
@@ -202,29 +203,29 @@ export const commerceSchool: ProgramPageData = {
     eyebrow: "EXPERT FACULTY",
     title: "Meet Our Mentors",
     faculty: [
-      { name: "Ms. Anjali Ahuja", designation: "Faculty Member", description: "Dedicated to academic excellence and student mentorship in business studies.", image: "/bba faulty/Anjali.webp" },
-      { name: "Dr. Anupama", designation: "Faculty Member", description: "Specializes in modern business practices and organizational behavior.", image: "/bba faulty/Anupama.webp" },
-      { name: "Ms. Indu Aggarwal", designation: "Faculty Member", description: "Expert in strategic management and corporate governance.", image: "/bba faulty/Indu.webp" },
-      { name: "Dr. Neeraj Rana", designation: "Faculty Member", description: "Focuses on operations management and business analytics.", image: "/bba faulty/Neeraj Rana.webp" },
-      { name: "Parul S. Ghangas", designation: "Faculty Member", description: "Experienced in consumer behavior and market research methodologies.", image: "/bba faulty/Parul.webp" },
-      { name: "Dr. Pooja Gupta", designation: "Faculty Member", description: "Brings extensive industry experience to classroom learning.", image: "/bba faulty/Pooja-Gupta.webp" },
-      { name: "Dr. Poonam", designation: "Faculty Member", description: "Passionate about entrepreneurship and innovation in business.", image: "/bba faulty/Poonam.webp" },
-      { name: "Mr. Sanjay Aggarwal", designation: "Faculty Member", description: "Specializes in financial accounting and corporate finance.", image: "/bba faulty/Sanjay.webp" },
-      { name: "Ms. Shivani Taya", designation: "Faculty Member", description: "Focuses on human resource management and talent acquisition.", image: "/bba faulty/Shivani.webp" },
-      { name: "Mr. Anil Kumar Shahi", designation: "Faculty Member", description: "Expert in international business and global supply chain.", image: "/bba faulty/anil.webp" },
-      { name: "Ms. Arpana Mutt", designation: "Faculty Member", description: "Dedicated to research in behavioral economics and public policy.", image: "/bba faulty/arpana.webp" },
-      { name: "Dr. Ashutosh Srivastav", designation: "Faculty Member", description: "Specializes in digital marketing and e-commerce strategies.", image: "/bba faulty/ashutosh.webp" },
-      { name: "Ms. Divya", designation: "Faculty Member", description: "Brings expertise in brand management and retail marketing.", image: "/bba faulty/divya.webp" },
-      { name: "Mr. Harkamal", designation: "Faculty Member", description: "Focuses on leadership development and organizational change.", image: "/bba faulty/harmangat.webp" },
-      { name: "Mr. Karan", designation: "Faculty Member", description: "Expert in investment analysis and portfolio management.", image: "/bba faulty/karan.webp" },
-      { name: "Mr. Manish", designation: "Faculty Member", description: "Specializes in strategic human resource management.", image: "/bba faulty/manish.webp" },
-      { name: "Dr. Neha", designation: "Faculty Member", description: "Dedicated to advancing research in sustainable business practices.", image: "/bba faulty/neha.webp" },
-      { name: "Dr. Nidhi Gehlawat", designation: "Faculty Member", description: "Focuses on corporate law and business ethics.", image: "/bba faulty/nidhi g.webp" },
-      { name: "Dr. Nidhi Gupta", designation: "Faculty Member", description: "Expert in organizational psychology and team dynamics.", image: "/bba faulty/nidhi gupta.webp" },
-      { name: "Ms. Prerna", designation: "Faculty Member", description: "Specializes in service marketing and customer relationship management.", image: "/bba faulty/prerna.webp" },
-      { name: "Dr. Rekha Narang", designation: "Faculty Member", description: "Brings deep knowledge in financial modeling and risk management.", image: "/bba faulty/rekha.webp" },
-      { name: "Dr. Sangeeta", designation: "Faculty Member", description: "Focuses on cross-cultural management and diversity.", image: "/bba faulty/sangeeta.webp" },
-      { name: "Dr. Vivek", designation: "Faculty Member", description: "Expert in business intelligence and data-driven decision making.", image: "/bba faulty/vivek .webp" },
+      { name: "Ms. Anjali Ahuja", designation: "Faculty Member", description: "Dedicated to academic excellence and student mentorship in business studies.", image: "/programs/commerce/scbm faculty/Anjali.webp" },
+      { name: "Dr. Anupama", designation: "Faculty Member", description: "Specializes in modern business practices and organizational behavior.", image: "/programs/commerce/scbm faculty/Anupama.webp" },
+      { name: "Ms. Indu Aggarwal", designation: "Faculty Member", description: "Expert in strategic management and corporate governance.", image: "/programs/commerce/scbm faculty/Indu.webp" },
+      { name: "Dr. Neeraj Rana", designation: "Faculty Member", description: "Focuses on operations management and business analytics.", image: "/programs/commerce/scbm faculty/NeerajRana.webp" },
+      { name: "Parul S. Ghangas", designation: "Faculty Member", description: "Experienced in consumer behavior and market research methodologies.", image: "/programs/commerce/scbm faculty/Parul.webp" },
+      { name: "Dr. Pooja Gupta", designation: "Faculty Member", description: "Brings extensive industry experience to classroom learning.", image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp" },
+      { name: "Dr. Poonam", designation: "Faculty Member", description: "Passionate about entrepreneurship and innovation in business.", image: "/programs/commerce/scbm faculty/Poonam.webp" },
+      { name: "Mr. Sanjay Aggarwal", designation: "Faculty Member", description: "Specializes in financial accounting and corporate finance.", image: "/programs/commerce/scbm faculty/Sanjay.webp" },
+      { name: "Ms. Shivani Taya", designation: "Faculty Member", description: "Focuses on human resource management and talent acquisition.", image: "/programs/commerce/scbm faculty/Shivani.webp" },
+      { name: "Mr. Anil Kumar Shahi", designation: "Faculty Member", description: "Expert in international business and global supply chain.", image: "/programs/commerce/scbm faculty/anil.webp" },
+      { name: "Ms. Arpana Mutt", designation: "Faculty Member", description: "Dedicated to research in behavioral economics and public policy.", image: "/programs/commerce/scbm faculty/arpana.webp" },
+      { name: "Dr. Ashutosh Srivastav", designation: "Faculty Member", description: "Specializes in digital marketing and e-commerce strategies.", image: "/programs/commerce/scbm faculty/ashutosh.webp" },
+      { name: "Ms. Divya", designation: "Faculty Member", description: "Brings expertise in brand management and retail marketing.", image: "/programs/commerce/scbm faculty/divya.webp" },
+      { name: "Mr. Harkamal", designation: "Faculty Member", description: "Focuses on leadership development and organizational change.", image: "/programs/commerce/scbm faculty/harmangat.webp" },
+      { name: "Mr. Karan", designation: "Faculty Member", description: "Expert in investment analysis and portfolio management.", image: "/programs/commerce/scbm faculty/karan.webp" },
+      { name: "Mr. Manish", designation: "Faculty Member", description: "Specializes in strategic human resource management.", image: "/programs/commerce/scbm faculty/manish.webp" },
+      { name: "Dr. Neha", designation: "Faculty Member", description: "Dedicated to advancing research in sustainable business practices.", image: "/programs/commerce/scbm faculty/neha.webp" },
+      { name: "Dr. Nidhi Gehlawat", designation: "Faculty Member", description: "Focuses on corporate law and business ethics.", image: "/programs/commerce/scbm faculty/nidhig.webp" },
+      { name: "Dr. Nidhi Gupta", designation: "Faculty Member", description: "Expert in organizational psychology and team dynamics.", image: "/programs/commerce/scbm faculty/nidhigupta.webp" },
+      { name: "Ms. Prerna", designation: "Faculty Member", description: "Specializes in service marketing and customer relationship management.", image: "/programs/commerce/scbm faculty/prerna.webp" },
+      { name: "Dr. Rekha Narang", designation: "Faculty Member", description: "Brings deep knowledge in financial modeling and risk management.", image: "/programs/commerce/scbm faculty/rekha.webp" },
+      { name: "Dr. Sangeeta", designation: "Faculty Member", description: "Focuses on cross-cultural management and diversity.", image: "/programs/commerce/scbm faculty/sangeeta.webp" },
+      { name: "Dr. Vivek", designation: "Faculty Member", description: "Expert in business intelligence and data-driven decision making.", image: "/programs/commerce/scbm faculty/vivek.webp" },
     ],
   },
 
@@ -552,17 +553,122 @@ export const commerceSchool: ProgramPageData = {
 
   courses: [
     {
-      title: "Undergraduate Programs",
+      title: "BBA Programs",
+      level: "Undergraduate (3/4 Years)",
+      duration: "3/4 Years",
+      eligibility:
+        "Passed 10+2 examination with at least 50% marks in the qualifying examination.",
       programs: [
-        { name: "BBA (Bachelor of Business Administration)" },
-        { name: "B.Com (Hons.)" },
+        {
+          name: "BBA Hons. (Bachelor of Business Administration)",
+          href: "/programs/school-of-commerce-and-business-management/bba",
+        },
+        {
+          name: "BBA Hons. (International Accounting with ACCA UK)",
+          href: "/programs/school-of-commerce-and-business-management/bba-international-accounting-acca",
+        },
+        {
+          name: "BBA Hons. (Artificial Intelligence & Data Analytics)",
+          href: "/programs/school-of-commerce-and-business-management/bba-ai-data-analytics",
+        },
+        {
+          name: "BBA Hons. (Human Resource Management)",
+          href: "/programs/school-of-commerce-and-business-management/bba-hrm",
+        },
+        {
+          name: "BBA Hons. (Import & Export Management)",
+          href: "/programs/school-of-commerce-and-business-management/bba-import-export",
+        },
+        {
+          name: "BBA Hons. (Banking & Finance)",
+          href: "/programs/school-of-commerce-and-business-management/bba-banking-finance",
+        },
+        {
+          name: "BBA Hons. (Marketing)",
+          href: "/programs/school-of-commerce-and-business-management/bba-marketing",
+        },
+        {
+          name: "BBA Hons. (FinTech)",
+          href: "/programs/school-of-commerce-and-business-management/bba-fintech",
+        },
+        {
+          name: "BBA Hons. (Digital Marketing)",
+          href: "/programs/school-of-commerce-and-business-management/bba-digital-marketing",
+        },
+        {
+          name: "BBA Hons. (Entrepreneurship and Family Business)",
+          href: "/programs/school-of-commerce-and-business-management/bba-entrepreneurship",
+        },
       ],
     },
     {
-      title: "Postgraduate Programs",
+      title: "B.Com. Programs",
+      level: "Undergraduate (3/4 Years)",
+      duration: "3/4 Years",
+      eligibility: "Passed 10+2 examination with at least 50% marks.",
       programs: [
-        { name: "MBA (Master of Business Administration)" },
-        { name: "M.Com" },
+        {
+          name: "B.Com. Hons. (Bachelor of Commerce)",
+          href: "/programs/school-of-commerce-and-business-management/bcom",
+        },
+        {
+          name: "B.Com. Hons. (International Accounting with ACCA UK)",
+          href: "/programs/school-of-commerce-and-business-management/bcom-international-accounting-acca",
+        },
+        {
+          name: "B.Com. Hons. (Auditing & Taxation)",
+          href: "/programs/school-of-commerce-and-business-management/bcom-auditing-taxation",
+        },
+        {
+          name: "B.Com. Hons. (Banking & Insurance)",
+          href: "/programs/school-of-commerce-and-business-management/bcom-banking-insurance",
+        },
+        {
+          name: "B.Com. Hons. (Advance Accounting)",
+          href: "/programs/school-of-commerce-and-business-management/bcom-advance-accounting",
+        },
+      ],
+    },
+    {
+      title: "MBA Programs",
+      level: "Postgraduate (2 Years)",
+      duration: "2 Years",
+      eligibility:
+        "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
+      programs: [
+        {
+          name: "MBA (Finance)",
+          href: "/programs/school-of-commerce-and-business-management/mba-finance",
+        },
+        {
+          name: "MBA (Marketing)",
+          href: "/programs/school-of-commerce-and-business-management/mba-marketing",
+        },
+        {
+          name: "MBA (Human Resource Management)",
+          href: "/programs/school-of-commerce-and-business-management/mba-hrm",
+        },
+        {
+          name: "MBA (Pharmaceutical Management)",
+          href: "/programs/school-of-commerce-and-business-management/mba-pharmaceutical-management",
+        },
+        {
+          name: "MBA (Supply Chain Management)",
+          href: "/programs/school-of-commerce-and-business-management/mba-supply-chain-management",
+        },
+      ],
+    },
+    {
+      title: "M.Com. Program",
+      level: "Postgraduate (2 Years)",
+      duration: "2 Years",
+      eligibility:
+        "Passed B.Com. with a minimum of 50% marks in the qualifying exam.",
+      programs: [
+        {
+          name: "M.Com.",
+          href: "/programs/school-of-commerce-and-business-management/mcom",
+        },
       ],
     },
   ],
@@ -768,3 +874,9 @@ export const commerceSchool: ProgramPageData = {
     }
 ],
 };
+
+export const commerceFaqs: CourseFAQItem[] = (commerceSchool.faqs || []).map((item) => ({
+  question: item.q || item.question || "",
+  answer: item.a || item.answer || "",
+  category: item.category || "General",
+}));
