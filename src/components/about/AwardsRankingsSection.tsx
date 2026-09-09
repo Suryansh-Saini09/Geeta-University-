@@ -1,39 +1,88 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { awards } from "@/data/awards";
 import ImpactRankings from "@/components/about/ImpactRankings";
+
+// Tripled list for a 100% seamless infinite scroll loop
+const infiniteAwards = [...awards, ...awards, ...awards];
 
 export default function AwardsRankingsSection() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollLeftState, setScrollLeftState] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const animFrameId = useRef<number | null>(null);
 
-  // Update active dot indicator on scroll
-  const handleScroll = () => {
+  // Initialize scroll position to the middle set on mount
+  useEffect(() => {
+    if (scrollRef.current) {
+      const singleSetWidth = scrollRef.current.scrollWidth / 3;
+      scrollRef.current.scrollLeft = singleSetWidth;
+    }
+  }, []);
+
+  // Universal scroll handler: seamless infinite loop wrap & active index tracking
+  const handleScroll = useCallback(() => {
     if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    const maxScroll = scrollWidth - clientWidth;
-    if (maxScroll <= 0) return;
-    const progress = scrollLeft / maxScroll;
-    const index = Math.min(
-      Math.round(progress * (awards.length - 1)),
-      awards.length - 1
-    );
-    setActiveIndex(index);
-  };
+    const container = scrollRef.current;
+    const singleSetWidth = container.scrollWidth / 3;
+
+    if (singleSetWidth <= 0) return;
+
+    // Infinite loop seamless wrap for ALL scroll methods (trackpad, drag, buttons, auto-glide)
+    if (container.scrollLeft >= singleSetWidth * 2) {
+      container.scrollLeft -= singleSetWidth;
+    } else if (container.scrollLeft <= 10) {
+      container.scrollLeft += singleSetWidth;
+    }
+
+    // Active dot calculation based on relative scroll position
+    const cardWidth = 430;
+    const relativeScroll = container.scrollLeft % singleSetWidth;
+    const normalizedIndex = Math.round(relativeScroll / cardWidth) % awards.length;
+    setActiveIndex(normalizedIndex);
+  }, []);
+
+  // Continuous smooth auto-glide via requestAnimationFrame
+  useEffect(() => {
+    let lastTime = performance.now();
+
+    const glide = (time: number) => {
+      if (!scrollRef.current) return;
+
+      const delta = time - lastTime;
+      lastTime = time;
+
+      // Only auto-glide when user is not hovering or dragging
+      if (!isHovered && !isDragging) {
+        const container = scrollRef.current;
+        const speed = 0.045; // ~45px/sec
+        container.scrollLeft += delta * speed;
+      }
+
+      animFrameId.current = requestAnimationFrame(glide);
+    };
+
+    animFrameId.current = requestAnimationFrame(glide);
+
+    return () => {
+      if (animFrameId.current) {
+        cancelAnimationFrame(animFrameId.current);
+      }
+    };
+  }, [isHovered, isDragging]);
 
   // Mouse drag-to-scroll handlers
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollRef.current) return;
     setIsDragging(true);
     setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
+    setScrollLeftState(scrollRef.current.scrollLeft);
   };
 
   const handleMouseLeave = () => {
@@ -54,44 +103,36 @@ export default function AwardsRankingsSection() {
     e.preventDefault();
     const x = e.pageX - scrollRef.current.offsetLeft;
     const walk = (x - startX) * 1.5;
-    scrollRef.current.scrollLeft = scrollLeft - walk;
+    scrollRef.current.scrollLeft = scrollLeftState - walk;
   };
 
   // Button navigation controls
-  const scroll = (direction: "left" | "right") => {
+  const scroll = (direction: "left" | "right", e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     if (!scrollRef.current) return;
-    const cardWidth = 420;
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -cardWidth : cardWidth,
+    const container = scrollRef.current;
+    const cardWidth = 430;
+    const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+
+    container.scrollBy({
+      left: scrollAmount,
       behavior: "smooth",
     });
   };
 
   const scrollToCard = (index: number) => {
     if (!scrollRef.current) return;
-    const cardWidth = 420;
-    scrollRef.current.scrollTo({
-      left: index * cardWidth,
+    const cardWidth = 430;
+    const container = scrollRef.current;
+    const singleSetWidth = container.scrollWidth / 3;
+
+    const targetScroll = singleSetWidth + index * cardWidth;
+    container.scrollTo({
+      left: targetScroll,
       behavior: "smooth",
     });
     setActiveIndex(index);
   };
-
-  // Auto-scroll when not hovered or dragged
-  useEffect(() => {
-    if (isHovered || isDragging) return;
-    const interval = window.setInterval(() => {
-      if (!scrollRef.current) return;
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      if (scrollLeft + clientWidth >= scrollWidth - 10) {
-        scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        scrollRef.current.scrollBy({ left: 420, behavior: "smooth" });
-      }
-    }, 4500);
-
-    return () => window.clearInterval(interval);
-  }, [isHovered, isDragging]);
 
   return (
     <section
@@ -100,7 +141,7 @@ export default function AwardsRankingsSection() {
     >
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
         {/* SECTION INTRO */}
-        <div className="mx-auto mb-16 max-w-[900px] text-center">
+        <div className="mx-auto mb-14 max-w-[900px] text-center">
           {/* Eyebrow */}
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="h-0.5 w-9 bg-[#E8871A]" />
@@ -132,24 +173,24 @@ export default function AwardsRankingsSection() {
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* Left Arrow */}
-          <button
+          {/* <button
             type="button"
-            onClick={() => scroll("left")}
+            onClick={(e) => scroll("left", e)}
             aria-label="Previous award"
-            className="absolute left-2 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white/95 text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 sm:h-12 sm:w-12"
+            className="absolute left-2 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-lg transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 sm:h-12 sm:w-12 pointer-events-auto cursor-pointer"
           >
             <ChevronLeft size={21} strokeWidth={2} />
-          </button>
+          </button> */}
 
           {/* Right Arrow */}
-          <button
+          {/* <button
             type="button"
-            onClick={() => scroll("right")}
+            onClick={(e) => scroll("right", e)}
             aria-label="Next award"
-            className="absolute right-2 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white/95 text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 sm:h-12 sm:w-12"
+            className="absolute right-2 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-lg transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 sm:h-12 sm:w-12 pointer-events-auto cursor-pointer"
           >
             <ChevronRight size={21} strokeWidth={2} />
-          </button>
+          </button> */}
 
           {/* Horizontally Scrollable & Draggable Track */}
           <div
@@ -160,14 +201,14 @@ export default function AwardsRankingsSection() {
             onMouseEnter={handleMouseEnter}
             onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}
-            className="flex w-full gap-5 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex w-full gap-5 overflow-x-auto pb-6 pt-3 cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {awards.map((award, index) => (
+            {infiniteAwards.map((award, index) => (
               <div
                 key={`${award.id}-${index}`}
                 className="w-[300px] sm:w-[350px] md:w-[390px] lg:w-[410px] shrink-0"
               >
-                <article className="group/card flex h-full flex-col overflow-hidden rounded-[18px] border border-[#DCE2EB] bg-white shadow-[0_8px_35px_rgba(10,31,68,0.045)] transition-all duration-500 hover:-translate-y-1 hover:border-[#E8871A]/40 hover:shadow-[0_18px_45px_rgba(10,31,68,0.10)]">
+                <article className="group/card flex h-full flex-col overflow-hidden rounded-[20px] border border-[#DCE2EB] bg-white shadow-[0_8px_35px_rgba(10,31,68,0.04)] transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[#E8871A]/40 hover:shadow-[0_20px_50px_rgba(10,31,68,0.12)]">
                   {/* Image */}
                   <div className="relative aspect-[1.65/1] w-full overflow-hidden bg-[#EEF1F5]">
                     <Image
@@ -175,9 +216,9 @@ export default function AwardsRankingsSection() {
                       alt={award.title}
                       fill
                       sizes="(max-width: 639px) 300px, (max-width: 1023px) 350px, 410px"
-                      className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-[1.035] pointer-events-none"
+                      className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-[1.04] pointer-events-none"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover/card:opacity-100" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/25 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover/card:opacity-100" />
                   </div>
 
                   {/* Content */}
@@ -208,7 +249,7 @@ export default function AwardsRankingsSection() {
                       {award.designation}
                     </p>
 
-                    <div className="mx-auto mt-6 h-0.5 w-0 bg-[#E8871A] transition-all duration-500 group-hover/card:w-16" />
+                    <div className="mx-auto mt-6 h-0.5 w-0 bg-[#E8871A] transition-all duration-500 group-hover/card:w-20" />
                   </div>
                 </article>
               </div>

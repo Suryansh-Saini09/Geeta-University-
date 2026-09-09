@@ -26,7 +26,7 @@ export default function ProgramFinalCTA({ cta, schoolName }: ProgramFinalCTAProp
             {heading}
           </h2>
           <p style={{ color: "rgba(255,255,255,0.9)", fontSize: 16, marginBottom: 32, maxWidth: 700, marginInline: "auto" }}>
-            Admissions Open for Session 2026–27 · Apply now or download the official brochure for full details on admissions, eligibility, and scholarships.
+            Admissions Open · Apply now or download the official brochure for full details on admissions, eligibility, and scholarships.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <a

@@ -12,12 +12,12 @@ type Stat = {
 };
 
 const stats: Stat[] = [
-  {
-    value: 40,
-    suffix: " LPA",
-    label: "Highest Package",
-    description: "A strong launchpad for ambitious careers.",
-  },
+  // {
+  //   value: 40,
+  //   suffix: " LPA",
+  //   label: "Highest Package",
+  //   description: "A strong launchpad for ambitious careers.",
+  // },
   {
     value: 550,
     suffix: "+",
@@ -214,7 +214,7 @@ export default function HomeStatsSection() {
           {/* STATS */}
           <motion.div
             variants={itemVariants}
-            className="relative mt-12 grid gap-6 sm:gap-8 md:mt-16 md:grid-cols-3"
+            className="relative mt-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:mt-16"
           >
             {stats.map((stat, index) => (
               <motion.article
@@ -227,7 +227,7 @@ export default function HomeStatsSection() {
                   duration: 0.25,
                   ease: "easeOut",
                 }}
-                className="group relative overflow-hidden rounded-3xl border bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-xl sm:p-8"
+                className="group relative w-full max-w-sm flex-1 min-w-[280px] overflow-hidden rounded-3xl border bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-xl sm:p-8"
                 style={{
                   borderColor:
                     index === 1

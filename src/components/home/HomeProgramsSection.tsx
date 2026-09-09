@@ -820,7 +820,9 @@ function ProgramCategoryDetails({
 
 export default function HomeProgramsSection() {
   const [activeCategory, setActiveCategory] = useState<string | null>("cse");
-  const [openLevels, setOpenLevels] = useState<Record<string, boolean>>({});
+  const [openLevels, setOpenLevels] = useState<Record<string, boolean>>({
+    Undergraduate: true,
+  });
 
   const toggleLevel = (level: string) => {
     setOpenLevels((prev) => ({

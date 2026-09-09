@@ -4188,7 +4188,7 @@ export default function Page() {
       {/* ── CTA FOOTER BAND ─────────────────────────────────────────────────── */}
       <section style={{ background: "#E8871A", padding: "48px 24px", textAlign: "center" }}>
         <h2 style={{ fontSize: 28, fontWeight: 800, color: "white", margin: "0 0 12px" }}>Ready to Join SCSE at Geeta University?</h2>
-        <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 15, marginBottom: 28 }}>Admissions Open for Session 2026–27 · Apply now or download the brochure for more details.</p>
+        <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 15, marginBottom: 28 }}>Admissions Open · Apply now or download the brochure for more details.</p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <a href="https://admissions.geetauniversity.edu.in/" target="_blank" rel="noreferrer"
             style={{ background: "#0A1F44", color: "white", padding: "14px 32px", borderRadius: 6, fontWeight: 700, fontSize: 14, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
