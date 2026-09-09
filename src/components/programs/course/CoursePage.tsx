@@ -52,7 +52,10 @@ export default function CoursePage({ course, school }: CoursePageProps) {
 
       {/* 5. Subjects Section */}
       {course.subjects && course.subjects.length > 0 && (
-        <CourseSubjects subjects={course.subjects} />
+        <CourseSubjects
+          subjects={course.subjects}
+          courseTitle={course.hero?.title || course.overview?.title || course.quickInfo?.program}
+        />
       )}
 
       {/* 6. Learning Outcomes */}

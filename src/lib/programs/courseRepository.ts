@@ -15,6 +15,16 @@ import { bbaInternationalAccounting } from "@/data/programs/courses/commerce/bba
 import { bbaAIDataAnalytics } from "@/data/programs/courses/commerce/bba-ai-data-analytics";
 import { bbaHumanResourceManagement } from "@/data/programs/courses/commerce/bba-human-resource-management";
 import { bbaExportImportManagement } from "@/data/programs/courses/commerce/bba-export-and-import-management";
+import { bbaBankingAndFinance } from "@/data/programs/courses/commerce/bba-banking-and-finance";
+import { bbaMarketing } from "@/data/programs/courses/commerce/bba-marketing";
+import { bbaFintech } from "@/data/programs/courses/commerce/bba-fintech";
+import { bbaDigitalMarketing } from "@/data/programs/courses/commerce/bba-digital-marketing";
+import { bcom } from "@/data/programs/courses/commerce/bcom";
+import { bcomInternationalAccounting } from "@/data/programs/courses/commerce/bcom-international-accounting";
+import { bcomAuditingAndTaxation } from "@/data/programs/courses/commerce/bcom-auditing-and-taxation";
+import { bcomBankingAndInsurance } from "@/data/programs/courses/commerce/bcom-banking-and-insurance";
+import { mbaFinance } from "@/data/programs/courses/commerce/mba-finance";
+import { mbaMarketing } from "@/data/programs/courses/commerce/mba-marketing";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -33,6 +43,16 @@ const courses: CoursePageData[] = [
   bbaAIDataAnalytics,
   bbaHumanResourceManagement,
   bbaExportImportManagement,
+  bbaBankingAndFinance,
+  bbaMarketing,
+  bbaFintech,
+  bbaDigitalMarketing,
+  bcom,
+  bcomInternationalAccounting,
+  bcomAuditingAndTaxation,
+  bcomBankingAndInsurance,
+  mbaFinance,
+  mbaMarketing,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -49,9 +69,13 @@ function normalizeSchoolSlug(slug: string): string {
 function normalizeCourseSlug(slug: string): string {
   const s = slug.toLowerCase();
   if (s === "bba-international-accounting-acca") return "bba-international-accounting";
+  if (s === "bcom-international-accounting-acca") return "bcom-international-accounting";
+  if (s === "bcom-auditing-taxation") return "bcom-auditing-and-taxation";
+  if (s === "bcom-banking-insurance") return "bcom-banking-and-insurance";
   if (s === "bba-ai-data-analytics") return "bba-artificial-intelligence-and-data-analytics";
   if (s === "bba-hrm") return "bba-human-resource-management";
   if (s === "bba-import-export" || s === "bba-export-import") return "bba-export-and-import-management";
+  if (s === "bba-banking-finance") return "bba-banking-and-finance";
   return s;
 }
 
@@ -125,6 +149,13 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
       params.push({
         schoolSlug: c.schoolSlug,
         courseSlug: "bba-export-import",
+      });
+    }
+
+    if (c.slug === "bba-banking-and-finance") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "bba-banking-finance",
       });
     }
   });

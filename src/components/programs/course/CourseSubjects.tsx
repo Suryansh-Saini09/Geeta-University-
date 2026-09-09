@@ -4,10 +4,16 @@ import React from "react";
 
 interface CourseSubjectsProps {
   subjects: string[];
+  courseTitle?: string;
 }
 
-export default function CourseSubjects({ subjects }: CourseSubjectsProps) {
+export default function CourseSubjects({ subjects, courseTitle }: CourseSubjectsProps) {
   if (!subjects || subjects.length === 0) return null;
+
+  const titleText = courseTitle ? `${courseTitle} Subjects` : "Program Subjects";
+  const subtitleText = courseTitle
+    ? `Elective and core subjects offered under the ${courseTitle} curriculum:`
+    : "Elective and core subjects offered under the curriculum:";
 
   return (
     <section className="w-full bg-[#F7F9FC] py-14 md:py-20 border-t border-slate-200/60">
@@ -17,10 +23,10 @@ export default function CourseSubjects({ subjects }: CourseSubjectsProps) {
             Academic Focus
           </span>
           <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#0A1F44] mt-1">
-            M.Sc. Agriculture (Agronomy) Subjects
+            {titleText}
           </h2>
           <p className="text-slate-600 text-sm md:text-base mt-2">
-            Elective and core subjects offered under the postgraduate Agronomy curriculum:
+            {subtitleText}
           </p>
         </div>
 
