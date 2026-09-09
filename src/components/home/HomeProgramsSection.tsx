@@ -31,7 +31,7 @@ const programCategories: ProgramCategory[] = [
     id: "cse",
     number: "01",
     title: "Computer Science & Engineering",
-    shortTitle: "Computer Science",
+    shortTitle: "Computer Science & Engineering",
     description:
       "Build the technology of tomorrow through computing, artificial intelligence, cybersecurity, data science and modern software development.",
     schoolHref:
@@ -270,7 +270,7 @@ const programCategories: ProgramCategory[] = [
     id: "agriculture",
     number: "06",
     title: "Agricultural Sciences",
-    shortTitle: "Agriculture",
+    shortTitle: "Agricultural Sciences",
     description:
       "Study agriculture through scientific, sustainable and research-driven approaches to modern agricultural practices.",
     schoolHref:
@@ -338,7 +338,7 @@ const programCategories: ProgramCategory[] = [
     id: "hospitality",
     number: "08",
     title: "Hospitality & Hotel Management",
-    shortTitle: "Hospitality",
+    shortTitle: "Hospitality & Hotel Management",
     description:
       "Prepare for careers across hospitality, hotel operations and tourism through professional and specialised education.",
     schoolHref:
@@ -365,7 +365,7 @@ const programCategories: ProgramCategory[] = [
     id: "nutrition",
     number: "09",
     title: "Nutrition & Dietetics",
-    shortTitle: "Nutrition",
+    shortTitle: "Nutrition & Dietetics",
     description:
       "Explore nutrition science, dietetics and health-focused research through undergraduate, postgraduate and doctoral programs.",
     schoolHref:
@@ -390,7 +390,7 @@ const programCategories: ProgramCategory[] = [
     id: "humanities",
     number: "10",
     title: "Humanities & Social Sciences",
-    shortTitle: "Humanities",
+    shortTitle: "Humanities & Social Sciences",
     description:
       "Understand society, people, economics, politics and culture through interdisciplinary humanities and social science education.",
     schoolHref:
@@ -468,8 +468,8 @@ const programCategories: ProgramCategory[] = [
   {
     id: "nursing",
     number: "12",
-    title: "Nursing",
-    shortTitle: "Nursing",
+    title: "Nursing*",
+    shortTitle: "Nursing*",
     description:
       "Professional healthcare education focused on developing skilled and compassionate nursing professionals.",
     programs: [
