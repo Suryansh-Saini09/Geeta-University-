@@ -186,7 +186,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-white/10 pb-8">
           <div>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
-              Admissions Open for Session <span className="text-[#E8871A]">2026-2027</span>
+              Admissions Open
             </h2>
             <p className="mt-1 text-sm text-slate-300 font-sans">
               Take your next step toward academic and professional excellence.
