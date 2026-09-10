@@ -113,32 +113,43 @@ export default function ProgramCourses({
 }: ProgramCoursesProps) {
   const [activeTab, setActiveTab] = useState(0);
 
-  // Normalize courses from props if provided, otherwise use rich defaults
-  const categories: NormalizedCategory[] =
-    courses && courses.length > 0
-      ? courses.map((cat: CourseCategory) => {
-          const rawLevel = cat.level || cat.title || "Academic";
-          // Clean level for banner and tabs
-          let displayLevel = rawLevel;
-          if (displayLevel.toLowerCase().includes("under")) displayLevel = "Under-Graduate";
-          else if (displayLevel.toLowerCase().includes("post")) displayLevel = "Post-Graduate";
-          else if (displayLevel.toLowerCase().includes("doctor") || displayLevel.toLowerCase().includes("ph.d"))
-            displayLevel = "Doctoral (Ph.D.)";
+  // Normalize and consolidate courses by level
+  const categories: NormalizedCategory[] = (() => {
+    if (!courses || courses.length === 0) return DEFAULT_PROGRAMS_DATA;
 
-          return {
-            level: displayLevel,
-            title: cat.title || displayLevel,
-            items: (cat.programs || []).map((prog) => ({
-              program: prog.name || prog.program || cat.title,
-              duration: prog.duration || cat.duration || "Full Time",
-              href: prog.href,
-              specializations: prog.specializations || (prog as any).specialisations,
-              eligibility: prog.eligibility || cat.eligibility,
-              details: prog.details,
-            })),
-          };
-        })
-      : DEFAULT_PROGRAMS_DATA;
+    const map = new Map<string, NormalizedCategory>();
+
+    courses.forEach((cat: CourseCategory) => {
+      const rawLevel = cat.level || cat.title || "Academic";
+      let displayLevel = rawLevel;
+      if (displayLevel.toLowerCase().includes("under")) displayLevel = "Under-Graduate";
+      else if (displayLevel.toLowerCase().includes("post")) displayLevel = "Post-Graduate";
+      else if (displayLevel.toLowerCase().includes("doctor") || displayLevel.toLowerCase().includes("ph.d"))
+        displayLevel = "Doctoral (Ph.D.)";
+
+      const items: NormalizedProgramItem[] = (cat.programs || []).map((prog) => ({
+        program: prog.name || prog.program || cat.title,
+        duration: prog.duration || cat.duration || "Full Time",
+        href: prog.href,
+        specializations: prog.specializations || (prog as any).specialisations,
+        eligibility: prog.eligibility || cat.eligibility,
+        details: prog.details,
+      }));
+
+      if (map.has(displayLevel)) {
+        const existing = map.get(displayLevel)!;
+        existing.items.push(...items);
+      } else {
+        map.set(displayLevel, {
+          level: displayLevel,
+          title: cat.title || displayLevel,
+          items,
+        });
+      }
+    });
+
+    return Array.from(map.values());
+  })();
 
   const currentCategory = categories[activeTab] || categories[0];
 
