@@ -25,11 +25,9 @@ export default function Home() {
 
       <HomeStatsSection />
 
-      <HomeProgramsSection />
-
       <TopRecruitersSection />
 
-      <VirtualCampusTourSection />
+      <HomeProgramsSection />
 
       <AwardsRankingsSection />
 
@@ -47,6 +45,8 @@ export default function Home() {
 
       <IndustryIntegrationSection />
 
+      <VirtualCampusTourSection />
+      
       <StarPerformancesSection />
     </main>
   );

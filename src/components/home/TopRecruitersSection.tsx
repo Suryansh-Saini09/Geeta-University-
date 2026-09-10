@@ -107,7 +107,7 @@ export default function TopRecruitersSection() {
                 color: "var(--gu-gold)",
               }}
             >
-              Industry Connections
+              Top Placement Partners
             </p>
 
             <h2
@@ -117,7 +117,7 @@ export default function TopRecruitersSection() {
                 color: "var(--gu-navy)",
               }}
             >
-              Where Talent Meets Opportunity
+              Our Top Corporate Recruiters
             </h2>
 
             <div
@@ -133,8 +133,7 @@ export default function TopRecruitersSection() {
                 color: "var(--gu-text-muted)",
               }}
             >
-              Our industry connections help bridge the journey from classroom
-              learning to meaningful professional opportunities.
+              Geeta University takes pride in partnering with 550+ leading global MNCs, corporate giants, and tech leaders who actively recruit our talented students.
             </p>
           </motion.div>
 
@@ -239,12 +238,12 @@ export default function TopRecruitersSection() {
             />
 
             <p
-              className="text-xs font-semibold uppercase tracking-[0.18em]"
+              className="text-xs font-bold uppercase tracking-[0.18em]"
               style={{
-                color: "var(--gu-text-muted)",
+                color: "var(--gu-gold)",
               }}
             >
-              Building industry-ready careers
+              550+ Top Recruiters & Placement Partners Hiring Geeta University Graduates
             </p>
 
             <span

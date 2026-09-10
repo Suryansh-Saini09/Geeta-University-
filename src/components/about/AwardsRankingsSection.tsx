@@ -8,6 +8,7 @@ import ImpactRankings from "@/components/about/ImpactRankings";
 
 // Tripled list for a 100% seamless infinite scroll loop
 const infiniteAwards = [...awards, ...awards, ...awards];
+const CARD_WIDTH = 360; // 340px card + 20px gap
 
 export default function AwardsRankingsSection() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -42,9 +43,8 @@ export default function AwardsRankingsSection() {
     }
 
     // Active dot calculation based on relative scroll position
-    const cardWidth = 430;
     const relativeScroll = container.scrollLeft % singleSetWidth;
-    const normalizedIndex = Math.round(relativeScroll / cardWidth) % awards.length;
+    const normalizedIndex = Math.round(relativeScroll / CARD_WIDTH) % awards.length;
     setActiveIndex(normalizedIndex);
   }, []);
 
@@ -111,8 +111,7 @@ export default function AwardsRankingsSection() {
     if (e) e.stopPropagation();
     if (!scrollRef.current) return;
     const container = scrollRef.current;
-    const cardWidth = 430;
-    const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+    const scrollAmount = direction === "left" ? -CARD_WIDTH : CARD_WIDTH;
 
     container.scrollBy({
       left: scrollAmount,
@@ -122,11 +121,10 @@ export default function AwardsRankingsSection() {
 
   const scrollToCard = (index: number) => {
     if (!scrollRef.current) return;
-    const cardWidth = 430;
     const container = scrollRef.current;
     const singleSetWidth = container.scrollWidth / 3;
 
-    const targetScroll = singleSetWidth + index * cardWidth;
+    const targetScroll = singleSetWidth + index * CARD_WIDTH;
     container.scrollTo({
       left: targetScroll,
       behavior: "smooth",
@@ -141,25 +139,25 @@ export default function AwardsRankingsSection() {
     >
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
         {/* SECTION INTRO */}
-        <div className="mx-auto mb-14 max-w-[900px] text-center">
+        <div className="mx-auto mb-12 max-w-[900px] text-center">
           {/* Eyebrow */}
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <span className="h-0.5 w-9 bg-[#E8871A]" />
+          <div className="mb-4 flex items-center justify-center gap-3">
+            <span className="h-0.5 w-8 bg-[#E8871A]" />
             <span className="text-[11px] font-bold uppercase tracking-[3px] text-[#E8871A]">
               Awards &amp; Rankings
             </span>
-            <span className="h-0.5 w-9 bg-[#E8871A]" />
+            <span className="h-0.5 w-8 bg-[#E8871A]" />
           </div>
 
           {/* Heading */}
-          <h2 className="font-serif text-[42px] font-black leading-[1.04] tracking-[-1.5px] text-[#0A1F44] sm:text-[50px] md:text-[58px] lg:text-[64px]">
+          <h2 className="font-serif text-[38px] font-black leading-[1.06] tracking-[-1.5px] text-[#0A1F44] sm:text-[46px] md:text-[54px] lg:text-[60px]">
             Excellence.
             <br />
             <span className="text-[#E8871A]">Recognised &amp; Celebrated.</span>
           </h2>
 
           {/* Description */}
-          <p className="mx-auto mt-6 max-w-[760px] text-[16px] leading-[1.8] text-[#64748B] md:text-[17px]">
+          <p className="mx-auto mt-5 max-w-[720px] text-[15px] leading-[1.8] text-[#64748B] md:text-[16px]">
             Geeta University&apos;s journey of excellence is reflected through
             recognitions, awards and achievements earned across education,
             leadership and institutional growth.
@@ -177,9 +175,9 @@ export default function AwardsRankingsSection() {
             type="button"
             onClick={(e) => scroll("left", e)}
             aria-label="Previous award"
-            className="absolute left-2 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-lg transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 sm:h-12 sm:w-12 pointer-events-auto cursor-pointer"
+            className="absolute -left-2 sm:left-1 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/90 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
           >
-            <ChevronLeft size={21} strokeWidth={2} />
+            <ChevronLeft size={18} strokeWidth={2.5} />
           </button> */}
 
           {/* Right Arrow */}
@@ -187,9 +185,9 @@ export default function AwardsRankingsSection() {
             type="button"
             onClick={(e) => scroll("right", e)}
             aria-label="Next award"
-            className="absolute right-2 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-lg transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 sm:h-12 sm:w-12 pointer-events-auto cursor-pointer"
+            className="absolute -right-2 sm:right-1 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/90 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
           >
-            <ChevronRight size={21} strokeWidth={2} />
+            <ChevronRight size={18} strokeWidth={2.5} />
           </button> */}
 
           {/* Horizontally Scrollable & Draggable Track */}
@@ -201,55 +199,79 @@ export default function AwardsRankingsSection() {
             onMouseEnter={handleMouseEnter}
             onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}
-            className="flex w-full gap-5 overflow-x-auto pb-6 pt-3 cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex w-full gap-5 overflow-x-auto pb-6 pt-2 cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {infiniteAwards.map((award, index) => (
               <div
                 key={`${award.id}-${index}`}
-                className="w-[300px] sm:w-[350px] md:w-[390px] lg:w-[410px] shrink-0"
+                className="w-[280px] sm:w-[310px] md:w-[340px] shrink-0"
               >
-                <article className="group/card flex h-full flex-col overflow-hidden rounded-[20px] border border-[#DCE2EB] bg-white shadow-[0_8px_35px_rgba(10,31,68,0.04)] transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[#E8871A]/40 hover:shadow-[0_20px_50px_rgba(10,31,68,0.12)]">
-                  {/* Image */}
-                  <div className="relative aspect-[1.65/1] w-full overflow-hidden bg-[#EEF1F5]">
-                    <Image
-                      src={award.image}
-                      alt={award.title}
-                      fill
-                      sizes="(max-width: 639px) 300px, (max-width: 1023px) 350px, 410px"
-                      className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-[1.04] pointer-events-none"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/25 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover/card:opacity-100" />
+                <article className="group/card flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-400 ease-out hover:-translate-y-1.5 hover:border-[#E8871A]/50 hover:shadow-xl hover:shadow-[#0A1F44]/10">
+                  {/* Image Frame Container */}
+                  <div className="relative aspect-[1.45/1] w-full overflow-hidden bg-slate-900/5 p-2.5">
+                    <div className="relative h-full w-full overflow-hidden rounded-xl bg-slate-100">
+                      <Image
+                        src={award.image}
+                        alt={award.title}
+                        fill
+                        sizes="(max-width: 639px) 280px, (max-width: 767px) 310px, 340px"
+                        className="object-cover transition-transform duration-500 ease-out group-hover/card:scale-[1.05] pointer-events-none"
+                      />
+                    </div>
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-1 flex-col px-6 pb-8 pt-7 text-center md:px-7">
-                    <span className="text-[10px] font-bold uppercase tracking-[2.5px] text-[#E8871A]">
-                      Institutional Recognition
-                    </span>
-
-                    <h3 className="mt-3 min-h-[54px] font-serif text-[17px] font-bold leading-[1.35] text-[#0A1F44]">
+                  <div className="flex flex-1 flex-col px-5 pb-6 pt-5 text-center">
+                    <h3 className="line-clamp-2 min-h-[42px] font-serif text-[15px] font-bold leading-snug text-[#0A1F44] sm:text-[16px]">
                       {award.title}
                     </h3>
 
-                    <div className="my-5 flex items-center justify-center gap-2">
-                      <span className="h-px w-16 bg-[#DCE2EB]" />
+                    <div className="my-4 flex items-center justify-center gap-2 opacity-50">
+                      <span className="h-px w-10 bg-slate-300" />
                       <span className="h-1 w-1 rounded-full bg-[#E8871A]" />
-                      <span className="h-px w-16 bg-[#DCE2EB]" />
+                      <span className="h-px w-10 bg-slate-300" />
                     </div>
 
-                    <p className="text-[11px] font-bold uppercase tracking-[2px] text-[#94A3B8]">
-                      Presented By
-                    </p>
-
-                    <p className="mt-2 font-serif text-[16px] font-bold text-[#0A1F44]">
-                      {award.presentedBy}
-                    </p>
-
-                    <p className="mt-1 text-[13px] leading-[1.6] text-[#64748B]">
-                      {award.designation}
-                    </p>
-
-                    <div className="mx-auto mt-6 h-0.5 w-0 bg-[#E8871A] transition-all duration-500 group-hover/card:w-20" />
+                    {award.presenters && award.presenters.length > 0 ? (
+                      <div className="mt-auto min-h-[132px] rounded-xl bg-slate-50/90 p-3.5 border border-slate-100 flex flex-col justify-center">
+                        <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                          Presented By
+                        </p>
+                        <div className="flex flex-col gap-2">
+                          {award.presenters.map((presenter, pIdx) => (
+                            <div
+                              key={pIdx}
+                              className={
+                                pIdx > 0
+                                  ? "pt-2 border-t border-slate-200/60 flex flex-col"
+                                  : "flex flex-col"
+                              }
+                            >
+                              <p className="font-serif text-[13.5px] font-bold text-[#0A1F44] leading-tight">
+                                {presenter.name}
+                              </p>
+                              <p className="mt-0.5 text-[11px] leading-snug text-slate-500 font-medium">
+                                {presenter.designation}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : award.presentedBy ? (
+                      <div className="mt-auto min-h-[132px] rounded-xl bg-slate-50/90 p-3.5 border border-slate-100 flex flex-col justify-center">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                          Presented By
+                        </p>
+                        <p className="mt-1 font-serif text-[14px] font-bold text-[#0A1F44] leading-tight">
+                          {award.presentedBy}
+                        </p>
+                        {award.designation && (
+                          <p className="mt-1 text-[11px] leading-relaxed text-slate-500 font-medium">
+                            {award.designation}
+                          </p>
+                        )}
+                      </div>
+                    ) : null}
                   </div>
                 </article>
               </div>
@@ -258,7 +280,7 @@ export default function AwardsRankingsSection() {
         </div>
 
         {/* PAGINATION DOTS */}
-        <div className="mt-8 flex items-center justify-center gap-2">
+        <div className="mt-7 flex items-center justify-center gap-2">
           {awards.map((award, index) => (
             <button
               key={award.id}
@@ -267,7 +289,7 @@ export default function AwardsRankingsSection() {
               onClick={() => scrollToCard(index)}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 index === activeIndex
-                  ? "w-9 bg-[#E8871A]"
+                  ? "w-8 bg-[#E8871A]"
                   : "w-1.5 bg-[#B8C0CD] hover:bg-[#0A1F44]"
               }`}
             />
