@@ -291,7 +291,7 @@ export interface CourseCategory {
   level?: string;
   duration?: string;
   eligibility?: string;
-  specializations?: string[];
+  specializations?: (string | { name: string; href?: string })[];
   details?: React.ReactNode | string;
   programs?: {
     name: string;
@@ -299,7 +299,7 @@ export interface CourseCategory {
     href?: string;
     duration?: string;
     eligibility?: string;
-    specializations?: string[];
+    specializations?: (string | { name: string; href?: string })[];
     details?: React.ReactNode | string;
   }[];
 }

@@ -15,7 +15,7 @@ interface NormalizedProgramItem {
   program: string;
   duration?: string;
   href?: string;
-  specializations?: string[];
+  specializations?: (string | { name: string; href?: string })[];
   eligibility?: string;
   details?: React.ReactNode;
 }
@@ -483,29 +483,63 @@ export default function ProgramCourses({
                               gap: "8px 20px",
                             }}
                           >
-                            {prog.specializations.map((spec, sIdx) => (
-                              <li
-                                key={sIdx}
-                                style={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: 8,
-                                  fontSize: 14.5,
-                                  color: "#475569",
-                                }}
-                              >
-                                <span
+                            {prog.specializations.map((specItem, sIdx) => {
+                              const isObj = typeof specItem === "object" && specItem !== null;
+                              const name = isObj ? specItem.name : specItem;
+                              const href = isObj ? specItem.href : undefined;
+
+                              return (
+                                <li
+                                  key={sIdx}
                                   style={{
-                                    width: 6,
-                                    height: 6,
-                                    borderRadius: "50%",
-                                    background: "#E8871A",
-                                    flexShrink: 0,
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: 8,
+                                    fontSize: 14.5,
+                                    color: "#475569",
                                   }}
-                                />
-                                <span>{spec}</span>
-                              </li>
-                            ))}
+                                >
+                                  <span
+                                    style={{
+                                      width: 6,
+                                      height: 6,
+                                      borderRadius: "50%",
+                                      background: "#E8871A",
+                                      flexShrink: 0,
+                                    }}
+                                  />
+                                  {href ? (
+                                    <a
+                                      href={href}
+                                      className="spec-link"
+                                      style={{
+                                        color: "#0A1F44",
+                                        textDecoration: "none",
+                                        fontWeight: 600,
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        gap: 5,
+                                        transition: "all 0.2s ease",
+                                      }}
+                                    >
+                                      <span>{name}</span>
+                                      <ArrowRight
+                                        size={13}
+                                        className="spec-arrow"
+                                        style={{
+                                          opacity: 0.5,
+                                          color: "#E8871A",
+                                          transition: "all 0.2s ease",
+                                          flexShrink: 0,
+                                        }}
+                                      />
+                                    </a>
+                                  ) : (
+                                    <span>{name}</span>
+                                  )}
+                                </li>
+                              );
+                            })}
                           </ul>
                         </div>
                       )}
@@ -532,6 +566,14 @@ export default function ProgramCourses({
         .hide-scroll {
           -ms-overflow-style: none;
           scrollbar-width: none;
+        }
+        .spec-link:hover {
+          color: #E8871A !important;
+          text-decoration: underline !important;
+        }
+        .spec-link:hover .spec-arrow {
+          opacity: 1 !important;
+          transform: translateX(3px) !important;
         }
         @media (max-width: 768px) {
           .course-program-card {
