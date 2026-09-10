@@ -73,8 +73,8 @@ export const awards: Award[] = [
     image:
       "/about/AWARD-FOR-BEST-GROUP-OF-COLLEGES-IN-DELHI,-NCR.png",
     title: "AWARD FOR BEST GROUP OF COLLEGES IN DELHI/NCR",
-    presentedBy: "Geeta University",
-    designation: "",
+    presentedBy: "Ms. Raveena Tandon",
+    designation: "Bollywood Actress",
   },
   {
     image: "/about/Global-Excellence-&-leadership-Award-2025.png",
@@ -89,11 +89,10 @@ export const awards: Award[] = [
     designation: "",
   },
   {
-    image:
-      "/about/AWARD-FOR-FASTEST-GROWING-UNIVERSITY-OF-NORTH-INDIA.png",
+    image: "/about/AWARD-FOR-FASTEST-GROWING-UNIVERSITY-OF-NORTH-INDIA.png",
     title: "AWARD FOR FASTEST GROWING UNIVERSITY OF NORTH INDIA",
-    presentedBy: "",
-    designation: "",
+    presentedBy: "Smt. Jaya Prada",
+    designation: "Bollywood Actress & Former Member of Parliament",
   },
   {
     image: "/about/awardd.png",

@@ -40,30 +40,30 @@ export default function HomeGlobalEducationSection() {
         </div>
 
         {/* Map area */}
-        <div className="relative mt-12 overflow-hidden rounded-[2rem] border border-[#DCE5ED] bg-[#F5F8FB] px-5 py-8 shadow-sm sm:px-10 md:mt-16 md:py-12">
+        <div className="relative mt-12 overflow-hidden rounded-[2rem] border border-[#082B82]/30 bg-[#072577] shadow-xl md:mt-16">
           {/* Top accent */}
-          <div className="absolute left-0 right-0 top-0 h-1.5 bg-[#F28C18]" />
+          <div className="absolute left-0 right-0 top-0 z-10 h-1.5 bg-[#F28C18]" />
 
-          {/* Decorative circles */}
+          {/* Decorative subtle background accents */}
           <div
             aria-hidden="true"
-            className="absolute left-8 top-8 h-20 w-20 rounded-full border border-[#F28C18]/20"
+            className="pointer-events-none absolute -left-10 -top-10 h-44 w-44 rounded-full bg-[#F28C18]/10 blur-2xl"
           />
 
           <div
             aria-hidden="true"
-            className="absolute bottom-8 right-8 h-28 w-28 rounded-full border border-[#06355F]/10"
+            className="pointer-events-none absolute -bottom-10 -right-10 h-52 w-52 rounded-full bg-[#00A3FF]/10 blur-2xl"
           />
 
-          {/* Map */}
-          <div className="relative mx-auto flex min-h-[200px] w-full items-center justify-center md:min-h-[500px]">
+          {/* Map container with seamless background blend */}
+          <div className="relative mx-auto flex w-full items-center justify-center p-2 sm:p-4 md:p-6">
             <Image
-              src="/home/map-(1).png"
+              src="/home/global-benchmark.png"
               alt="Geeta University global education reach map"
               width={1400}
               height={650}
               sizes="(max-width: 768px) 100vw, 1200px"
-              className="h-auto w-full max-w-6xl object-contain"
+              className="h-auto w-full max-w-6xl rounded-xl object-contain"
               priority={false}
             />
           </div>

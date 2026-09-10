@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Building2, Cpu, Sparkles } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 type CampusFeature = {
@@ -150,20 +150,23 @@ export default function SmartCampusSection() {
           {/* SECTION INTRO */}
           <motion.div
             variants={itemVariants}
-            className="mx-auto max-w-4xl text-center"
+            className="mx-auto max-w-5xl text-center"
           >
-            <p
-              className="text-sm font-bold uppercase tracking-[0.25em]"
+            <div
+              className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em]"
               style={{
+                borderColor: "rgba(242, 140, 24, 0.3)",
+                backgroundColor: "rgba(242, 140, 24, 0.08)",
                 color: "var(--gu-gold)",
               }}
             >
+              <Sparkles className="h-3.5 w-3.5" />
               Next Generation Education
-            </p>
+            </div>
 
             <h2
               id="smart-campus-heading"
-              className="mt-3 font-serif text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
+              className="mt-4 font-serif text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
               style={{
                 color: "var(--gu-navy)",
               }}
@@ -172,23 +175,74 @@ export default function SmartCampusSection() {
             </h2>
 
             <div
-              className="mx-auto mt-5 h-1 w-16 rounded-full"
+              className="mx-auto mt-4 h-1 w-16 rounded-full"
               style={{
                 backgroundColor: "var(--gu-gold)",
               }}
             />
 
-            <p
-              className="mx-auto mt-7 max-w-3xl text-base leading-8 sm:text-lg"
-              style={{
-                color: "var(--gu-text-muted)",
-              }}
-            >
-              Geeta University carries the powerful tradition of the Geeta
-              Group of Institutions. Spread across 40 acres, the University
-              combines academic excellence with cutting-edge technology to
-              create an advanced and future-ready learning environment.
-            </p>
+            {/* Structured Content Grid */}
+            <div className="mt-10 grid gap-6 text-left md:grid-cols-2">
+              {/* Card 1: 40-Acre Campus & Heritage */}
+              <div className="group relative overflow-hidden rounded-2xl border bg-slate-50/70 p-6 sm:p-8 transition-all duration-300 hover:border-[var(--gu-gold)]/40 hover:bg-white hover:shadow-xl">
+                <div className="mb-4 flex items-center gap-3">
+                  <div
+                    className="flex h-10 w-10 items-center justify-center rounded-xl transition-colors group-hover:bg-[var(--gu-gold)] group-hover:text-white"
+                    style={{
+                      backgroundColor: "rgba(6, 53, 95, 0.08)",
+                      color: "var(--gu-navy)",
+                    }}
+                  >
+                    <Building2 className="h-5 w-5" />
+                  </div>
+                  <span
+                    className="text-xs font-bold uppercase tracking-wider"
+                    style={{ color: "var(--gu-gold)" }}
+                  >
+                    40-Acre Campus & Tradition
+                  </span>
+                </div>
+
+                <p
+                  className="text-base leading-7 sm:text-lg"
+                  style={{
+                    color: "var(--gu-text-muted)",
+                  }}
+                >
+                  It covers 40 acres of land. Geeta University carries the powerful tradition of the Geeta Group of Institutions. Based on the tenets on Karma along with a global outlook, GU blends academic excellence with cutting-edge technology to create an advanced and future-proof learning environment.
+                </p>
+              </div>
+
+              {/* Card 2: Smart Systems & Future Readiness */}
+              <div className="group relative overflow-hidden rounded-2xl border bg-slate-50/70 p-6 sm:p-8 transition-all duration-300 hover:border-[var(--gu-gold)]/40 hover:bg-white hover:shadow-xl">
+                <div className="mb-4 flex items-center gap-3">
+                  <div
+                    className="flex h-10 w-10 items-center justify-center rounded-xl transition-colors group-hover:bg-[var(--gu-gold)] group-hover:text-white"
+                    style={{
+                      backgroundColor: "rgba(6, 53, 95, 0.08)",
+                      color: "var(--gu-navy)",
+                    }}
+                  >
+                    <Cpu className="h-5 w-5" />
+                  </div>
+                  <span
+                    className="text-xs font-bold uppercase tracking-wider"
+                    style={{ color: "var(--gu-gold)" }}
+                  >
+                    Smart Systems & Future Jobs
+                  </span>
+                </div>
+
+                <p
+                  className="text-base leading-7 sm:text-lg"
+                  style={{
+                    color: "var(--gu-text-muted)",
+                  }}
+                >
+                  From ICT-enabled classrooms to smart classes, learning platforms, and transparent digital systems, each interaction at GU is created to be effortless, creative and centered around students. Geeta University stands as the culmination of aspiration, ambition and a commitment to an elite, technologically-driven education that prepares students for the jobs of the future.
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           {/* FEATURE SHOWCASE */}
