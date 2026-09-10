@@ -8,6 +8,8 @@ export interface ProgramPageData {
   name?: string;
   shortName?: string;
   type: "school" | "program";
+  hideRecruiters?: boolean;
+  hideTopRecruiters?: boolean;
 
   seo: {
     title: string;
@@ -350,9 +352,10 @@ export interface TestimonialItem {
 }
 
 export interface LearningSpaceItem {
-  title: string;
-  desc: string;
-  icon: string;
+  title?: string;
+  desc?: string;
+  icon?: string;
+  image?: string;
 }
 
 export interface GalleryShowcaseItem {
