@@ -637,14 +637,15 @@ export const commerceSchool: ProgramPageData = {
         {
           name: "Ph.D. in Management & Commerce",
           program: "Ph.D. in Management & Commerce",
+          href: "/phd-management",
           duration: "Minimum 3 Years",
           eligibility:
             "Master's degree in Management / Commerce or allied discipline with a minimum of 55% aggregate marks.",
           specializations: [
-            "Strategic Management & Governance",
-            "Financial Markets & Banking",
-            "Digital Marketing & Consumer Insights",
-            "Organizational Behavior & HRM",
+            { name: "Strategic Management & Governance", href: "/phd-management" },
+            { name: "Financial Markets & Banking", href: "/phd-management" },
+            { name: "Digital Marketing & Consumer Insights", href: "/phd-management" },
+            { name: "Organizational Behavior & HRM", href: "/phd-management" },
           ],
         },
       ],
