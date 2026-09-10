@@ -25,6 +25,9 @@ import { bcomAuditingAndTaxation } from "@/data/programs/courses/commerce/bcom-a
 import { bcomBankingAndInsurance } from "@/data/programs/courses/commerce/bcom-banking-and-insurance";
 import { mbaFinance } from "@/data/programs/courses/commerce/mba-finance";
 import { mbaMarketing } from "@/data/programs/courses/commerce/mba-marketing";
+import { mbaHumanResourceManagement } from "@/data/programs/courses/commerce/mba-human-resource-management";
+import { mbaPharmaceuticalManagement } from "@/data/programs/courses/commerce/mba-pharmaceutical-management";
+import { mbaSupplyChainManagement } from "@/data/programs/courses/commerce/mba-supply-chain-management-and-logistics";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -53,6 +56,9 @@ const courses: CoursePageData[] = [
   bcomBankingAndInsurance,
   mbaFinance,
   mbaMarketing,
+  mbaHumanResourceManagement,
+  mbaPharmaceuticalManagement,
+  mbaSupplyChainManagement,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -76,6 +82,14 @@ function normalizeCourseSlug(slug: string): string {
   if (s === "bba-hrm") return "bba-human-resource-management";
   if (s === "bba-import-export" || s === "bba-export-import") return "bba-export-and-import-management";
   if (s === "bba-banking-finance") return "bba-banking-and-finance";
+  if (s === "mba-hrm" || s === "mba-hr") return "mba-human-resource-management";
+  if (s === "mba-pharma" || s === "mba-pharmaceutical") return "mba-pharmaceutical-management";
+  if (
+    s === "mba-supply-chain-management" ||
+    s === "mba-scm" ||
+    s === "mba-logistics"
+  )
+    return "mba-supply-chain-management-and-logistics";
   return s;
 }
 
@@ -156,6 +170,31 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
       params.push({
         schoolSlug: c.schoolSlug,
         courseSlug: "bba-banking-finance",
+      });
+    }
+
+    if (c.slug === "mba-human-resource-management") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "mba-hrm",
+      });
+    }
+
+    if (c.slug === "mba-pharmaceutical-management") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "mba-pharma",
+      });
+    }
+
+    if (c.slug === "mba-supply-chain-management-and-logistics") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "mba-supply-chain-management",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "mba-scm",
       });
     }
   });
