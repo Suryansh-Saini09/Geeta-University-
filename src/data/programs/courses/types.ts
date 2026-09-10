@@ -86,6 +86,7 @@ export interface LearningSpaceItem {
 }
 
 export interface CourseLearningSpacesData {
+  eyebrow?: string;
   title: string;
   description?: string;
   spaces: LearningSpaceItem[];

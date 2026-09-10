@@ -142,9 +142,10 @@ export default function CareerPathways({
   notableRoles,
 }: CareerPathwaysProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  if (!pathways || pathways.length === 0) return null;
-  const pathwayItems = pathways;
+  const pathwayItems = pathways || [];
   const roleItems = notableRoles || [];
+
+  if (pathwayItems.length === 0 && roleItems.length === 0) return null;
 
   const scrollLeft = () => {
     if (scrollRef.current) scrollRef.current.scrollBy({ left: -360, behavior: "smooth" });
@@ -159,58 +160,59 @@ export default function CareerPathways({
       id="CareerPathways"
       style={{
         background: "#FDF1D6",
-        padding: "100px 0",
+        padding: pathwayItems.length > 0 ? "100px 0" : "60px 0",
         position: "relative",
         borderTop: "1px solid rgba(0, 0, 0, 0.06)",
         overflow: "hidden",
       }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative" }}>
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: 56 }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
-            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-            <span
-              style={{
-                color: "#E8871A",
-                fontWeight: 700,
-                fontSize: 11,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-              }}
-            >
-              CAREER PATHWAYS
-            </span>
-            <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-          </div>
-          <h2
-            style={{
-              fontSize: 48,
-              fontWeight: 900,
-              color: "#0A1F44",
-              margin: "0 0 16px",
-              lineHeight: 1.1,
-              letterSpacing: "-1.5px",
-            }}
-          >
-            {title}
-          </h2>
-          <p
-            style={{
-              fontSize: 16,
-              color: "#4A5568",
-              maxWidth: 850,
-              margin: "0 auto",
-              lineHeight: 1.7,
-              fontWeight: 450,
-            }}
-          >
-            {subtitle}
-          </p>
-        </div>
+        {/* Header & Carousel Slider */}
+        {pathwayItems.length > 0 && (
+          <>
+            <div style={{ textAlign: "center", marginBottom: 56 }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
+                <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+                <span
+                  style={{
+                    color: "#E8871A",
+                    fontWeight: 700,
+                    fontSize: 11,
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  CAREER PATHWAYS
+                </span>
+                <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
+              </div>
+              <h2
+                style={{
+                  fontSize: 48,
+                  fontWeight: 900,
+                  color: "#0A1F44",
+                  margin: "0 0 16px",
+                  lineHeight: 1.1,
+                  letterSpacing: "-1.5px",
+                }}
+              >
+                {title}
+              </h2>
+              <p
+                style={{
+                  fontSize: 16,
+                  color: "#4A5568",
+                  maxWidth: 850,
+                  margin: "0 auto",
+                  lineHeight: 1.7,
+                  fontWeight: 450,
+                }}
+              >
+                {subtitle}
+              </p>
+            </div>
 
-        {/* Carousel Slider */}
-        <div style={{ position: "relative", marginTop: 40, padding: "0 20px" }}>
+            <div style={{ position: "relative", marginTop: 40, padding: "0 20px" }}>
           <div
             ref={scrollRef}
             className="hide-scroll"
@@ -375,12 +377,14 @@ export default function CareerPathways({
             </svg>
           </button>
         </div>
+      </>
+    )}
 
         {/* Notable Career Roles Band */}
         {roleItems.length > 0 && (
           <div
             style={{
-              marginTop: 80,
+              marginTop: pathwayItems.length > 0 ? 80 : 0,
               background: "rgba(255, 255, 255, 0.45)",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",

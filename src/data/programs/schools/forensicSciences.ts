@@ -347,17 +347,6 @@ export const forensicSciencesSchool: ProgramPageData = {
       "Our expert faculty is always ready to guide you, and the regular workshops and lectures conducted by industry experts help you gain the expertise to excel in this field. Geeta University’s commitment to innovation and its focus on helping students stay ahead with modern techniques and technologies have helped us become one of the best Universities for Forensic Science in Panipat and a preferred choice among forensic science colleges in Delhi. Our strong placement network helps you to connect easily with top employers in the field in both government and private sectors. So, join us today to turn your passion for crime-solving into a rewarding career!",
     ],
     image: "/programs/forensic-sciences/gallery-1.webp",
-    badgeText: "Crime Scene & Lab Excellence",
-    careers: [
-      "Crime Scene Investigator (CSI)",
-      "Forensic DNA & Serology Analyst",
-      "Forensic Toxicologist & Pharmacologist",
-      "Fingerprint & Ballistics Expert",
-      "Digital & Cyber Forensics Specialist",
-      "Forensic Document & Handwriting Examiner",
-      "Crime Laboratory Analyst (Govt / Private)",
-      "Forensic Anthropologist & Odontologist",
-    ],
     closingText:
       "Our science ecosystem integrates high-tech forensic instrumentation, mock crime scene simulation rooms, cyber forensic suites, and direct mentorship from experienced forensic researchers.",
   },
@@ -422,24 +411,6 @@ export const forensicSciencesSchool: ProgramPageData = {
           "Annual International Conference on Forensic Science inaugurated by the Deputy High Commissioner of Nigeria.",
           "Gain valuable global insights into cross-border crime investigation.",
           "Direct networking opportunities with international forensic scientists and scholars.",
-        ],
-      },
-      {
-        title: "Cyber Forensics & Digital Investigation",
-        iconName: "Lightbulb",
-        points: [
-          "Specialized training in digital artifact extraction, disk imaging, and network forensics.",
-          "Techniques for investigating cyber frauds, data breaches, and mobile devices.",
-          "Hands-on practice with industry-standard forensic software suites.",
-        ],
-      },
-      {
-        title: "Forensic Chemistry & Toxicology",
-        iconName: "BookOpenCheck",
-        points: [
-          "Detection of illicit drugs, poisons, explosives, and unknown chemical compounds.",
-          "Chromatographic and spectrophotometric techniques (HPLC, GC-MS, UV-Vis).",
-          "Applications in medico-legal investigations and post-mortem toxicological analysis.",
         ],
       },
     ],
@@ -739,104 +710,33 @@ export const forensicSciencesSchool: ProgramPageData = {
   ],
 
   learningSpaces: {
-    eyebrow: "STATE-OF-THE-ART SCIENTIFIC INFRASTRUCTURE",
-    title: "Learning Spaces Built for Discovery and Precision",
-    description:
-      "Our specialized laboratories and practical training facilities are equipped with industry-grade instruments to ensure students master hands-on evidentiary techniques.",
+    eyebrow: "Infrastructure & Laboratories",
+    title: "Highlights of Our Learning Spaces",
     spaces: [
       {
-        title: "Forensic Biology & DNA Profiling Lab",
-        desc: "Advanced facility for serological testing, blood pattern identification, DNA isolation, and molecular characterization.",
-        icon: "",
-      },
-      {
-        title: "Toxicology & Chemical Analysis Lab",
-        desc: "High-precision instrumentation suite for drug screening, poisonous substance detection, and trace chemical analysis.",
-        icon: "",
-      },
-      {
-        title: "Fingerprint & Ballistics Examination Lab",
-        desc: "Equipped for latent print development, firearm comparison microscopy, cartridge case analysis, and document forgery detection.",
-        icon: "",
-      },
-      {
-        title: "Mock Crime Scene Simulation Arena",
-        desc: "Dedicated indoor and outdoor simulated crime zones where students execute real-time evidence recovery, packaging, and crime scene sketching.",
-        icon: "",
-      },
-      {
-        title: "Cyber Forensics & Digital Investigation Cell",
-        desc: "Hardware write-blockers, forensic imaging software, and mobile extraction suites to investigate modern digital cybercrimes.",
-        icon: "",
-      },
-    ],
-    gallery: [
-      {
-        src: "/programs/forensic-sciences/gallery-1.webp",
         title: "Forensic Instrumentation Lab",
-        caption: "Students operating spectrophotometers and chromatographic equipment.",
+        image: "/programs/forensic-sciences/fs-thumb.webp",
       },
       {
-        src: "/programs/forensic-sciences/gallery-2.webp",
-        title: "Crime Scene Investigation Room",
-        caption: "Hands-on evidentiary grid search and documentation practice.",
+        title: "Forensic Science Lab",
+        image: "/programs/forensic-sciences/fs1-thumb.webp",
       },
       {
-        src: "/programs/forensic-sciences/gallery-3.webp",
-        title: "Microscopy & Trace Evidence Suite",
-        caption: "High-resolution comparison microscopy for ballistics and fiber analysis.",
+        title: "Crime Investigation Setup",
+        image: "/programs/forensic-sciences/fs2-thumb.webp",
       },
       {
-        src: "/programs/forensic-sciences/gallery-4.webp",
-        title: "Questioned Document Examination",
-        caption: "Testing inks, papers, security features, and signature authenticity.",
+        title: "Analytical Instrumentation Lab",
+        image: "/programs/forensic-sciences/fs3-thumb.webp",
       },
       {
-        src: "/programs/forensic-sciences/gallery-5.webp",
-        title: "Digital Forensics Workstations",
-        caption: "Extracting volatile memory and disk image logs from compromised systems.",
-      },
-      {
-        src: "/programs/forensic-sciences/gallery-6.webp",
-        title: "International Science Symposium",
-        caption: "Global conferences and knowledge exchange with international delegates.",
+        title: "Microscopy & Research Lab",
+        image: "/programs/forensic-sciences/fs4-thumb.webp",
       },
     ],
-    closingNote:
-      "All laboratories operate under strict adherence to international safety protocols and ISO-aligned evidence handling standards.",
   },
 
   careerPathways: {
-    eyebrow: "YOUR PATH FORWARD",
-    title: "Diverse Career Horizons in Forensic Science & Technology",
-    description:
-      "A degree in Forensic Science from Geeta University opens doors to high-demand careers across law enforcement, government crime labs, corporate risk consulting, cybersecurity, and private investigative agencies.",
-    pathways: [
-      {
-        area: "Government Forensic Laboratories (FSL / CFSL)",
-        pathway:
-          "Conduct official scientific examinations for judicial proceedings in state and central forensic laboratories, CBI, CID, and intelligence bureaus.",
-        icon: "",
-      },
-      {
-        area: "Corporate Risk, Fraud & Financial Crime Investigation",
-        pathway:
-          "Join top multinational consulting firms (Big 4) and banking institutions to investigate internal fraud, compliance breaches, and financial anomalies.",
-        icon: "",
-      },
-      {
-        area: "Cyber Forensics & Digital Incident Response",
-        pathway:
-          "Work with cyber defense units, tech giants, and security consultancies to uncover digital intrusion sources, ransomware attacks, and intellectual property theft.",
-        icon: "",
-      },
-      {
-        area: "Pharmaceutical, Chemical & Research Laboratories",
-        pathway:
-          "Apply analytical toxicology, quality assurance, and chemical characterization in pharmaceutical R&D, clinical testing, and academic institutions.",
-        icon: "",
-      },
-    ],
     notableRoles: [
       { name: "Crime Scene Investigator (CSI)", iconName: "Target" },
       { name: "Forensic DNA Analyst", iconName: "BrainCircuit" },
@@ -848,6 +748,7 @@ export const forensicSciencesSchool: ProgramPageData = {
       { name: "Scientific Research Officer", iconName: "Award" },
     ],
   },
+
 
   faqs: forensicSciencesFaqs.map((f) => ({
     q: f.question,
