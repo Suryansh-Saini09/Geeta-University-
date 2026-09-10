@@ -177,9 +177,9 @@ export default function ScholarshipCalculator() {
                   Geeta University Scholarship Estimator
                 </h3>
               </div>
-              <span className="hidden text-[12px] font-semibold text-white/80 sm:block">
+              {/* <span className="hidden text-[12px] font-semibold text-white/80 sm:block">
                 Session 2026-2027
-              </span>
+              </span> */}
             </div>
           </div>
 
