@@ -28,6 +28,8 @@ import { mbaMarketing } from "@/data/programs/courses/commerce/mba-marketing";
 import { mbaHumanResourceManagement } from "@/data/programs/courses/commerce/mba-human-resource-management";
 import { mbaPharmaceuticalManagement } from "@/data/programs/courses/commerce/mba-pharmaceutical-management";
 import { mbaSupplyChainManagement } from "@/data/programs/courses/commerce/mba-supply-chain-management-and-logistics";
+import { dPharmacy } from "@/data/programs/courses/pharmacy/d-pharmacy";
+import { bPharmacy } from "@/data/programs/courses/pharmacy/b-pharmacy";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -59,6 +61,8 @@ const courses: CoursePageData[] = [
   mbaHumanResourceManagement,
   mbaPharmaceuticalManagement,
   mbaSupplyChainManagement,
+  dPharmacy,
+  bPharmacy,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -69,11 +73,14 @@ function normalizeSchoolSlug(slug: string): string {
   if (s === "school-of-management-and-business-studies") return "school-of-commerce";
   if (s === "school-of-sciences") return "school-of-forensic-sciences";
   if (s === "spbsb") return "sp-bansal-school-of-business";
+  if (s === "pharmacy" || s === "school-of-pharmacy") return "geeta-institute-of-pharmacy";
   return s;
 }
 
 function normalizeCourseSlug(slug: string): string {
   const s = slug.toLowerCase();
+  if (s === "d-pharm" || s === "d-pharma" || s === "diploma-in-pharmacy") return "d-pharmacy";
+  if (s === "b-pharm" || s === "b-pharma" || s === "bachelor-in-pharmacy" || s === "bachelor-of-pharmacy") return "b-pharmacy";
   if (s === "bba-international-accounting-acca") return "bba-international-accounting";
   if (s === "bcom-international-accounting-acca") return "bcom-international-accounting";
   if (s === "bcom-auditing-taxation") return "bcom-auditing-and-taxation";
