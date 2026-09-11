@@ -426,6 +426,11 @@ export const pharmacySchool: ProgramPageData = {
     ],
     gallery: [
       {
+        src: "/programs/pharmacy/pharmacy-thumb.webp",
+        title: "School of Pharmacy Campus & Labs",
+        caption: "State-of-the-art PCI approved pharmacy infrastructure and modern practical learning environments.",
+      },
+      {
         src: "/programs/pharmacy/pharmacy1-thumb.webp",
         title: "Pharmaceutics Research Lab",
         caption: "Students formulating dosage forms and testing novel drug delivery systems.",
@@ -434,6 +439,11 @@ export const pharmacySchool: ProgramPageData = {
         src: "/programs/pharmacy/pharmacy2-thumb.webp",
         title: "Central Instrumentation Facility",
         caption: "Analytical characterization using HPLC and UV-Vis spectrophotometers.",
+      },
+      {
+        src: "/programs/pharmacy/pharmacy3-thumb.webp",
+        title: "Pharmacology & Anatomy Lab",
+        caption: "Advanced bio-assay setups, tissue study, and computer-assisted drug action analysis.",
       },
       {
         src: "/programs/pharmacy/pharmacy4-thumb.webp",
@@ -622,7 +632,10 @@ export const pharmacySchool: ProgramPageData = {
       duration: "2 Years",
       eligibility: "A pass in 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
       programs: [
-        { name: "D.Pharm. (Diploma in Pharmacy)" },
+        {
+          name: "D.Pharm. (Diploma in Pharmacy)",
+          href: "/programs/geeta-institute-of-pharmacy/d-pharmacy",
+        },
       ],
     },
     {
@@ -630,7 +643,10 @@ export const pharmacySchool: ProgramPageData = {
       duration: "4 Years",
       eligibility: "Passed 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
       programs: [
-        { name: "B.Pharm. (Bachelor of Pharmacy)" },
+        {
+          name: "B.Pharm. (Bachelor of Pharmacy)",
+          href: "/programs/geeta-institute-of-pharmacy/b-pharmacy",
+        },
       ],
     },
     {
@@ -638,7 +654,10 @@ export const pharmacySchool: ProgramPageData = {
       duration: "2 Years",
       eligibility: "B. Pharm Degree examination of an Indian university established by law in India from an institution approved by Pharmacy Council of India and has scored not less than 55% of the maximum marks (aggregate of 4 years of B.Pharm.)",
       programs: [
-        { name: "M.Pharm. (Pharmaceutics)" },
+        {
+          name: "M.Pharm. (Pharmaceutics)",
+          href: "/programs/geeta-institute-of-pharmacy/m-pharmacy",
+        },
       ],
     },
     {
@@ -646,7 +665,10 @@ export const pharmacySchool: ProgramPageData = {
       duration: "Minimum 3 Years",
       eligibility: "Masters in relevant field with minimum 55% marks.",
       programs: [
-        { name: "Ph.D. (Pharmaceutical Sciences)" },
+        {
+          name: "Ph.D. (Pharmaceutical Sciences)",
+          href: "/programs/geeta-institute-of-pharmacy/phd-pharmaceutical-sciences",
+        },
       ],
     },
   ],
