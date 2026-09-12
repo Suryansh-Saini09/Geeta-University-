@@ -127,11 +127,12 @@ export default function ProgramCourses({
       else if (displayLevel.toLowerCase().includes("doctor") || displayLevel.toLowerCase().includes("ph.d"))
         displayLevel = "Doctoral (Ph.D.)";
 
-      const items: NormalizedProgramItem[] = (cat.programs || []).map((prog) => ({
+      const rawItems = cat.programs || cat.items || [];
+      const items: NormalizedProgramItem[] = (rawItems.length > 0 ? rawItems : [cat]).map((prog: any) => ({
         program: prog.name || prog.program || cat.title,
         duration: prog.duration || cat.duration || "Full Time",
         href: prog.href,
-        specializations: prog.specializations || (prog as any).specialisations,
+        specializations: prog.specializations || prog.specialisations,
         eligibility: prog.eligibility || cat.eligibility,
         details: prog.details,
       }));
