@@ -523,7 +523,7 @@ export default function ProgramCourses({
                                       }}
                                     >
                                       <span>{name}</span>
-                                      <ArrowRight
+                                      {/* <ArrowRight
                                         size={13}
                                         className="spec-arrow"
                                         style={{
@@ -532,7 +532,7 @@ export default function ProgramCourses({
                                           transition: "all 0.2s ease",
                                           flexShrink: 0,
                                         }}
-                                      />
+                                      /> */}
                                     </a>
                                   ) : (
                                     <span>{name}</span>

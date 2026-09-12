@@ -6,6 +6,9 @@ export const lawSchool: ProgramPageData = {
   name: "Geeta Global Law School",
   shortName: "Global Law School",
   type: "school",
+  hideRecruiters: true,
+  hideTopRecruiters: true,
+  hideRankings: true,
 
   seo: {
     title: "Top BBA LLB & BA LLB Law College in Haryana & Delhi NCR | Geeta Global Law School",

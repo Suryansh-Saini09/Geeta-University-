@@ -17,6 +17,7 @@ import BrochureDownload from "./BrochureDownload";
 import ProgramSpecialisations from "./ProgramSpecialisations";
 import ProgramExperts from "./ProgramExperts";
 import InternationalPartners from "./InternationalPartners";
+import ProgramCorporateConnect from "./ProgramCorporateConnect";
 import ProgramPlacement from "./ProgramPlacement";
 import LearningSpaces from "./LearningSpaces";
 import CareerPathways from "./CareerPathways";
@@ -72,7 +73,9 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       )}
 
       {/* 3. RANKINGS & ACCREDITATIONS (University-wide UGC/CSR/AAA accreditations) */}
-      <RankingsAccreditations rankings={pageData.rankings} />
+      {!pageData.hideRankings && (
+        <RankingsAccreditations rankings={pageData.rankings} />
+      )}
 
       {/* 4. ABOUT THE SCHOOL & LEADERSHIP NOTE & VISION/MISSION */}
       {(pageData.about || pageData.intro) && (
@@ -97,7 +100,10 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
 
       {/* 8. DEPARTMENT HIGHLIGHTS (Rendered strictly when school-specific highlights are provided) */}
       {pageData.departmentHighlights && pageData.departmentHighlights.length > 0 && (
-        <DepartmentHighlights highlights={pageData.departmentHighlights} />
+        <DepartmentHighlights
+          highlights={pageData.departmentHighlights}
+          imageOnly={pageData.highlightsImageOnly || Boolean(pageData.slug?.includes("science") || pageData.slug?.includes("agri"))}
+        />
       )}
 
       {/* 9. SPECIALISATIONS DIRECTORY */}
@@ -123,7 +129,12 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
         <InternationalPartners partners={pageData.partners} />
       )}
 
-      {/* 13. PLACEMENT ANALYTICS & TESTIMONIALS */}
+      {/* 13. CORPORATE CONNECT & WORKSHOPS */}
+      {pageData.corporateConnect && (
+        <ProgramCorporateConnect corporateConnect={pageData.corporateConnect} />
+      )}
+
+      {/* 14. PLACEMENT ANALYTICS & TESTIMONIALS */}
       {(pageData.placement || (pageData.testimonials && pageData.testimonials.length > 0)) && (
         <ProgramPlacement
           // placement={pageData.placement}

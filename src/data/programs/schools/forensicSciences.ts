@@ -274,6 +274,10 @@ export const forensicSciencesSchool: ProgramPageData = {
   name: "School of Sciences",
   shortName: "School of Forensic Sciences",
   type: "school",
+  hideRecruiters: true,
+  hideTopRecruiters: true,
+  hideRankings: true,
+  highlightsImageOnly: true,
 
   seo: {
     title: "Top Rated Forensic Science College in Delhi NCR | Apply Now",

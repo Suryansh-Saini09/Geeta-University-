@@ -64,11 +64,14 @@ const courses: CoursePageData[] = [
 // Helper to normalize school slug for comparison (handling aliases)
 function normalizeSchoolSlug(slug: string): string {
   const s = slug.toLowerCase();
-  if (s === "school-of-agricultural-sciences") return "school-of-agricultural-studies";
-  if (s === "school-of-humanities-and-social-sciences") return "school-of-humanities";
-  if (s === "school-of-management-and-business-studies") return "school-of-commerce";
-  if (s === "school-of-sciences") return "school-of-forensic-sciences";
+  if (s === "school-of-agricultural-sciences" || s === "school-of-agriculture") return "school-of-agricultural-studies";
+  if (s === "school-of-humanities-and-social-sciences" || s === "school-of-humanities") return "school-of-humanities-and-social-science";
+  if (s === "school-of-management-and-business-studies" || s === "school-of-commerce" || s === "school-of-management") return "school-of-commerce-and-business-management";
+  if (s === "school-of-sciences" || s === "school-of-forensic-science") return "school-of-forensic-sciences";
+  if (s === "school-of-law" || s === "geeta-institute-of-law") return "geeta-global-law-school";
   if (s === "spbsb") return "sp-bansal-school-of-business";
+  if (s === "school-of-pharmacy") return "geeta-institute-of-pharmacy";
+  if (s === "school-of-hotel-management" || s === "school-of-hospitality") return "school-of-hospitality-and-hotel-management";
   return s;
 }
 

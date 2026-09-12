@@ -19,7 +19,7 @@ export const leadership: Leader[] = [
 
 A bustling campus life, support of our distinguished teachers, and a welcoming environment all inspire you to learn, explore, and reach your true potential. With us, you evolve into futuristic entrepreneurs, leaders, and positive social contributors.`,
     quote:
-      "So, join us to learn to think big, act with wisdom, and inspire others through your actions.",
+      "Join us to learn to think big, act with wisdom, and inspire others through your actions.",
   },
 
   {
@@ -59,7 +59,7 @@ Through our Four-Quadrant Mission — helping students get industry-ready, suppo
 
 Here, learning is about more than books. It's about thinking creatively, working together, and turning ideas into action. It is the place where young minds develop into the leaders and changemakers of tomorrow.`,
     quote:
-      "So, let's shape the future together by learning, innovating, and growing every step of the way.",
+      "Let's shape the future together by learning, innovating, and growing every step of the way.",
   },
 
   {
