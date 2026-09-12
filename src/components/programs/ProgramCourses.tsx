@@ -28,15 +28,15 @@ interface NormalizedCategory {
 
 export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
   {
-    level: "Under-Graduate",
-    title: "Under-Graduate",
+    level: "Undergraduate",
+    title: "Undergraduate",
     items: [
       {
         program: "B.Tech — Computer Science & Engineering",
         duration: "4 Years",
         specializations: [
           "Artificial Intelligence & Machine Learning",
-          "Cyber Security",
+          "Cybersecurity",
           "Data Science & Business Analytics (with HCL)",
           "Full Stack Web Development",
           "Quantum Computing",
@@ -51,7 +51,7 @@ export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
         specializations: [
           "Computer Applications",
           "Artificial Intelligence & Machine Learning",
-          "Cyber Security",
+          "Cybersecurity",
           "Data Science & Business Analytics",
         ],
         eligibility: "Passed 10+2 with a minimum of 50% marks from any recognized board.",
@@ -59,8 +59,8 @@ export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
     ],
   },
   {
-    level: "Post-Graduate",
-    title: "Post-Graduate",
+    level: "Postgraduate",
+    title: "Postgraduate",
     items: [
       {
         program: "M.Tech — Computer Science & Engineering",
@@ -122,8 +122,8 @@ export default function ProgramCourses({
     courses.forEach((cat: CourseCategory) => {
       const rawLevel = cat.level || cat.title || "Academic";
       let displayLevel = rawLevel;
-      if (displayLevel.toLowerCase().includes("under")) displayLevel = "Under-Graduate";
-      else if (displayLevel.toLowerCase().includes("post")) displayLevel = "Post-Graduate";
+      if (displayLevel.toLowerCase().includes("under")) displayLevel = "Undergraduate";
+      else if (displayLevel.toLowerCase().includes("post")) displayLevel = "Postgraduate";
       else if (displayLevel.toLowerCase().includes("doctor") || displayLevel.toLowerCase().includes("ph.d"))
         displayLevel = "Doctoral (Ph.D.)";
 
