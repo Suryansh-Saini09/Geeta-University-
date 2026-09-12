@@ -295,14 +295,22 @@ export const computerScienceSchool: ProgramPageData = {
       title: "Doctoral Programs (Ph.D.)",
       items: [
         {
-          program: "Ph.D. in Computer Science & Applications",
+          program: "Ph.D. (Computer Applications)",
           duration: "Min 3 Years",
-          href: "/phd-cse",
+          href: "/phd-computer-application",
           specializations: [
             {
               name: "Ph.D. (Computer Applications)",
               href: "/phd-computer-application",
             },
+          ],
+          eligibility: "Master's degree in a relevant field with a minimum of 55% marks.",
+        },
+        {
+          program: "Ph.D. CSE (Computer Science & Engineering)",
+          duration: "Min 3 Years",
+          href: "/phd-cse",
+          specializations: [
             {
               name: "Ph.D. CSE (Computer Science & Engineering)",
               href: "/phd-cse",
@@ -375,7 +383,7 @@ export const computerScienceSchool: ProgramPageData = {
       "Explore high-impact technological specialisations engineered for high-growth tech careers.",
     pathways: [
       {
-        area: "Artificial Intelligence",
+        area: "Artificial Intelligence & Machine Learning",
         pathway: "Artificial Intelligence & Machine Learning",
         roles: [
           "Specialization in advanced machine learning (Computer Vision, Big Data, Robotics)",
@@ -395,7 +403,7 @@ export const computerScienceSchool: ProgramPageData = {
         ],
       },
       {
-        area: "Data Science",
+        area: "Data Sciences & Business Analytics",
         pathway: "Data Sciences & Business Analytics",
         roles: [
           "Certified analytics professional framework",
@@ -405,7 +413,7 @@ export const computerScienceSchool: ProgramPageData = {
         ],
       },
       {
-        area: "Full Stack",
+        area: "Full Stack Web Development",
         pathway: "Full Stack Web Development",
         roles: [
           "Basics of web development and responsive UI design",
