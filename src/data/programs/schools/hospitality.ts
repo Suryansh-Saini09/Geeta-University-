@@ -166,12 +166,6 @@ export const hospitalitySchool: ProgramPageData = {
           href: "/programs/school-of-hospitality-and-hotel-management/diploma-in-hotel-management",
           duration: "2 Years (1 Year at GU Campus + 1 Year in Five-Star Hotel)",
           eligibility: "Passed 10+2 examination with at least 50% marks in the qualifying examination from any recognized board.",
-          specializations: [
-            "Food Production & Culinary Arts",
-            "Food & Beverage Service",
-            "Front Office Operations",
-            "Housekeeping Management",
-          ],
           details:
             "A fast-track residential diploma delivering hands-on hotel operations training during Year 1 on campus, followed by Year 2 paid industry immersion inside top hotel chains.",
         },
@@ -181,12 +175,6 @@ export const hospitalitySchool: ProgramPageData = {
           href: "/programs/school-of-hospitality-and-hotel-management/bsc-hotel-management",
           duration: "3 / 4 Years",
           eligibility: "Passed 10+2 examination with at least 50% marks in the qualifying examination from any recognized board.",
-          specializations: [
-            "Culinary Arts & Gastronomy",
-            "Hospitality & Tourism Management",
-            "Food Science & Diet Planning",
-            "Revenue & Hospitality Marketing",
-          ],
           details:
             "Comprehensive degree program providing full-stack hospitality training, live masterclasses with celebrity chefs, front-office software simulations, and international internships.",
         },
@@ -201,12 +189,6 @@ export const hospitalitySchool: ProgramPageData = {
           program: "M.Sc. (Hotel Management)",
           duration: "2 Years",
           eligibility: "Passed any bachelor's graduation degree from any stream with at least 50% marks (e.g., B.Sc., B.A., B.Com., B.Tech., B.Voc., BCA).",
-          specializations: [
-            "Strategic Hospitality Management",
-            "Luxury Resort Administration",
-            "Hospitality Financial Management",
-            "Service Quality Leadership",
-          ],
           details:
             "Advanced master's degree focusing on leadership, multi-property management, hospitality analytics, and global service innovation.",
         },
@@ -221,12 +203,6 @@ export const hospitalitySchool: ProgramPageData = {
           program: "Ph.D. (Hotel & Tourism Management)",
           duration: "Minimum 3 Years",
           eligibility: "Master's degree in a relevant field with a minimum of 55% marks from an approved university.",
-          specializations: [
-            "Sustainable Tourism & Eco-Hospitality",
-            "Gastronomy & Food Culture Studies",
-            "Hospitality Consumer Behaviour",
-            "Strategic Destination Management",
-          ],
           details:
             "Rigorous research program empowering scholars to conduct high-impact academic and applied studies in tourism policy, hotel tech, and service leadership.",
         },

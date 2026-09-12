@@ -266,12 +266,6 @@ export const computerScienceSchool: ProgramPageData = {
           program: "M.Tech. in Computer Science & Engineering",
           duration: "2 Years",
           href: "/programs/school-of-computer-science-and-engineering/mtech-cse",
-          specializations: [
-            {
-              name: "M.Tech. CSE (Computer Science & Engineering)",
-              href: "/programs/school-of-computer-science-and-engineering/mtech-cse",
-            },
-          ],
           eligibility:
             "Passed B.Tech. in relevant stream / M.Sc.-IT / MCA or equivalent with at least 50% marks in the qualifying examination.",
         },
@@ -279,12 +273,6 @@ export const computerScienceSchool: ProgramPageData = {
           program: "Master of Computer Applications (MCA)",
           duration: "2 Years",
           href: "/programs/school-of-computer-science-and-engineering/mca",
-          specializations: [
-            {
-              name: "MCA (Master of Computer Applications)",
-              href: "/programs/school-of-computer-science-and-engineering/mca",
-            },
-          ],
           eligibility:
             "Passed any graduation degree (e.g., B.E. / B.Tech. / B.Sc. / B.Com. / B.A. / B.Voc. / BCA, etc.) preferably with Mathematics at 10+2 level or at graduation level, obtaining at least 50% marks in the qualifying examination.",
         },
@@ -298,24 +286,12 @@ export const computerScienceSchool: ProgramPageData = {
           program: "Ph.D. (Computer Applications)",
           duration: "Min 3 Years",
           href: "/phd-computer-application",
-          specializations: [
-            {
-              name: "Ph.D. (Computer Applications)",
-              href: "/phd-computer-application",
-            },
-          ],
           eligibility: "Master's degree in a relevant field with a minimum of 55% marks.",
         },
         {
           program: "Ph.D. CSE (Computer Science & Engineering)",
           duration: "Min 3 Years",
           href: "/phd-cse",
-          specializations: [
-            {
-              name: "Ph.D. CSE (Computer Science & Engineering)",
-              href: "/phd-cse",
-            },
-          ],
           eligibility: "Master's degree in a relevant field with a minimum of 55% marks.",
         },
       ],

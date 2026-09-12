@@ -1,587 +1,906 @@
 "use client";
 
-import React, { useState } from "react";
-import { ArrowRight, GraduationCap, Microscope, BookOpen, Award, ExternalLink } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import type { CourseCategory } from "@/data/programs/types";
+import { useState } from "react";
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  CheckCircle2,
+  ChevronDown,
+  Clock3,
+  GraduationCap,
+} from "lucide-react";
+
+import type {
+  CourseCategory,
+  ProgramPageData,
+} from "@/data/programs/types";
 
 interface ProgramCoursesProps {
-  title?: string;
-  subtitle?: string;
-  courses?: CourseCategory[];
+  courses: CourseCategory[];
 }
 
-interface NormalizedProgramItem {
-  program: string;
+/* ============================================================
+   FLEXIBLE PROGRAM TYPE
+
+   The existing project may already have some of these fields,
+   while older school data may contain only name/href.
+
+   Keeping this type flexible allows the shared component to
+   support all schools without forcing every school to have the
+   same amount of information.
+   ============================================================ */
+
+type ProgramItem = NonNullable<CourseCategory["programs"]>[number] & {
   duration?: string;
-  href?: string;
-  specializations?: (string | { name: string; href?: string })[];
   eligibility?: string;
-  details?: React.ReactNode;
+  specializations?: (string | { name: string; href?: string })[];
+  specialisation?: (string | { name: string; href?: string })[];
+  specialization?: (string | { name: string; href?: string })[];
+  description?: string;
+};
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+
+function getProgramSpecializations(
+  program: ProgramItem
+): (string | { name: string; href?: string })[] {
+  let list: (string | { name: string; href?: string })[] = [];
+
+  if (Array.isArray(program.specializations)) {
+    list = program.specializations;
+  } else if (Array.isArray(program.specialisation)) {
+    list = program.specialisation;
+  } else if (Array.isArray(program.specialization)) {
+    list = program.specialization;
+  }
+
+  if (!list || list.length === 0) {
+    return [];
+  }
+
+  const programName = (program.name || (program as any).program || "")
+    .toLowerCase()
+    .trim();
+
+  // Filter out any invalid items
+  const validSpecs = list.filter((item) => {
+    if (!item) return false;
+    const name = typeof item === "object" ? item.name : String(item);
+    return typeof name === "string" && name.trim().length > 0;
+  });
+
+  // Defensive check: If there is only 1 item and its name is identical or virtually identical to parent program name,
+  // it is not a true sub-specialization (e.g. M.Tech. CSE having 1 specialization "M.Tech. CSE").
+  if (validSpecs.length === 1 && programName) {
+    const singleName = (
+      typeof validSpecs[0] === "object"
+        ? validSpecs[0].name
+        : String(validSpecs[0])
+    )
+      .toLowerCase()
+      .trim();
+    const cleanProgram = programName.replace(/[^a-z0-9]/g, "");
+    const cleanSingle = singleName.replace(/[^a-z0-9]/g, "");
+    if (
+      cleanProgram &&
+      cleanSingle &&
+      (cleanProgram === cleanSingle ||
+        cleanProgram.includes(cleanSingle) ||
+        cleanSingle.includes(cleanProgram))
+    ) {
+      return [];
+    }
+  }
+
+  return validSpecs;
 }
 
-interface NormalizedCategory {
-  level: string;
-  title: string;
-  items: NormalizedProgramItem[];
+function getCategoryMeta(index: number, title: string) {
+  const normalized = title.toLowerCase();
+
+  if (normalized.includes("under")) {
+    return {
+      number: "01",
+      eyebrow: "Academic Level",
+      title: "Undergraduate Programs",
+    };
+  }
+
+  if (
+    normalized.includes("post") ||
+    normalized.includes("master")
+  ) {
+    return {
+      number: "02",
+      eyebrow: "Academic Level",
+      title: "Postgraduate Programs",
+    };
+  }
+
+  if (
+    normalized.includes("doctoral") ||
+    normalized.includes("ph.d") ||
+    normalized.includes("phd")
+  ) {
+    return {
+      number: "03",
+      eyebrow: "Academic Level",
+      title: "Doctoral Programs",
+    };
+  }
+
+  return {
+    number: String(index + 1).padStart(2, "0"),
+    eyebrow: "Academic Level",
+    title,
+  };
 }
 
-export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
-  {
-    level: "Undergraduate",
-    title: "Undergraduate",
-    items: [
-      {
-        program: "B.Tech — Computer Science & Engineering",
-        duration: "4 Years",
-        specializations: [
-          "Artificial Intelligence & Machine Learning",
-          "Cybersecurity",
-          "Data Science & Business Analytics (with HCL)",
-          "Full Stack Web Development",
-          "Quantum Computing",
-          "NIAT Upskilling",
-        ],
-        eligibility:
-          "Passed 10+2 with Physics and Mathematics as compulsory subjects plus one technical or science subject with a minimum of 55% marks.",
-      },
-      {
-        program: "BCA — Bachelor of Computer Applications",
-        duration: "3/4 Years",
-        specializations: [
-          "Computer Applications",
-          "Artificial Intelligence & Machine Learning",
-          "Cybersecurity",
-          "Data Science & Business Analytics",
-        ],
-        eligibility: "Passed 10+2 with a minimum of 50% marks from any recognized board.",
-      },
-    ],
-  },
-  {
-    level: "Postgraduate",
-    title: "Postgraduate",
-    items: [
-      {
-        program: "M.Tech — Computer Science & Engineering",
-        duration: "2 Years",
-        eligibility:
-          "Bachelor's degree in relevant engineering or science stream with a minimum of 50% marks; Mathematics preferred at graduation level.",
-      },
-      {
-        program: "MCA — Master of Computer Applications",
-        duration: "2 Years",
-        eligibility:
-          "BCA / B.Sc. (CS) / equivalent, or graduate degree with Mathematics at 10+2 or graduation level, and a minimum of 50% marks.",
-      },
-    ],
-  },
-  {
-    level: "Doctoral (Ph.D.)",
-    title: "Doctoral (Ph.D.)",
-    items: [
-      {
-        program: "Ph.D. — Advanced Research & Doctoral Programs",
-        duration: "Minimum 3 Years",
-        eligibility: "Relevant master's degree with a minimum of 55% marks from an approved university.",
-      },
-    ],
-  },
-];
+/* ============================================================
+   PROGRAM ROW
+   ============================================================ */
 
-function getCategoryIcon(index: number, level: string) {
-  const l = level.toLowerCase();
-  if (l.includes("under") || l.includes("ug") || l.includes("bachelor")) {
-    return <GraduationCap size={18} />;
-  }
-  if (l.includes("post") || l.includes("pg") || l.includes("master")) {
-    return <Microscope size={18} />;
-  }
-  if (l.includes("doc") || l.includes("ph") || l.includes("research")) {
-    return <BookOpen size={18} />;
-  }
-  if (index === 0) return <GraduationCap size={18} />;
-  if (index === 1) return <Microscope size={18} />;
-  if (index === 2) return <BookOpen size={18} />;
-  return <Award size={18} />;
+function ProgramRow({
+  program,
+  categoryDuration,
+  categoryEligibility,
+  open,
+  onToggle,
+}: {
+  program: ProgramItem;
+  categoryDuration?: string;
+  categoryEligibility?: string;
+  open: boolean;
+  onToggle: () => void;
+}) {
+  const displayName =
+    program.name ||
+    (program as any).program ||
+    "Academic Program";
+
+  const specializations =
+    getProgramSpecializations(program);
+
+  const hasSpecializations =
+    specializations.length > 0;
+
+  const programDuration =
+    program.duration || categoryDuration || undefined;
+
+  const programEligibility =
+    program.eligibility || categoryEligibility || undefined;
+
+  const hasExtraContent =
+    hasSpecializations ||
+    !!program.description ||
+    !!programEligibility;
+
+  const handleRowClick = () => {
+    if (hasExtraContent) {
+      onToggle();
+    }
+  };
+
+  return (
+    <article
+      className={`
+        group
+        relative
+        border-b
+        border-[#DCE2EB]
+        transition-colors
+        duration-300
+        ${open ? "bg-[#F8FAFC]" : "bg-transparent"}
+      `}
+    >
+      <div
+        className={`
+          flex
+          items-center
+          justify-between
+          gap-5
+          px-1
+          py-5
+          sm:py-6
+        `}
+      >
+        {/* ==================================================
+            PROGRAM INFORMATION
+            ================================================== */}
+
+        <button
+          type={hasExtraContent ? "button" : undefined}
+          onClick={
+            hasExtraContent
+              ? handleRowClick
+              : undefined
+          }
+          className={`
+            min-w-0
+            flex-1
+            text-left
+            ${hasExtraContent ? "cursor-pointer" : "cursor-default"}
+          `}
+          aria-expanded={
+            hasExtraContent ? open : undefined
+          }
+        >
+          <div className="flex min-w-0 flex-col gap-2">
+            <div className="flex min-w-0 items-start gap-3">
+              <GraduationCap
+                size={17}
+                strokeWidth={1.8}
+                className="
+                  mt-[5px]
+                  shrink-0
+                  text-[#E8871A]
+                  opacity-80
+                  transition-opacity
+                  duration-300
+                  group-hover:opacity-100
+                "
+              />
+
+              <h3
+                className="
+                  min-w-0
+                  font-serif
+                  text-[18px]
+                  font-black
+                  leading-[1.25]
+                  tracking-[-0.3px]
+                  text-[#0A1F44]
+                  transition-colors
+                  duration-300
+                  group-hover:text-[#173F6D]
+                  sm:text-[20px]
+                  md:text-[21px]
+                "
+              >
+                {displayName}
+              </h3>
+            </div>
+
+            {programDuration && (
+              <span
+                className="
+                  ml-7
+                  inline-flex
+                  w-fit
+                  items-center
+                  gap-2
+                  rounded-full
+                  border
+                  border-[#E8871A]/30
+                  bg-[#FFF8EC]
+                  px-3
+                  py-1
+                  text-[11px]
+                  font-bold
+                  tracking-[0.1px]
+                  text-[#9B5D0A]
+                  sm:text-[12px]
+                "
+              >
+                <Clock3
+                  size={12}
+                  strokeWidth={2}
+                />
+
+                {programDuration}
+              </span>
+            )}
+          </div>
+        </button>
+
+        {/* ==================================================
+            ACTION
+            ================================================== */}
+
+        {hasExtraContent ? (
+          <button
+            type="button"
+            onClick={onToggle}
+            aria-label={
+              open
+                ? `Collapse ${displayName}`
+                : `Expand ${displayName}`
+            }
+            aria-expanded={open}
+            className="
+              flex
+              h-9
+              w-9
+              shrink-0
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-[#DCE2EB]
+              bg-white
+              text-[#0A1F44]
+              shadow-[0_4px_12px_rgba(10,31,68,0.04)]
+              transition-all
+              duration-300
+              hover:border-[#E8871A]/50
+              hover:bg-[#FFF8EC]
+              hover:text-[#E8871A]
+              sm:h-10
+              sm:w-10
+            "
+          >
+            <ChevronDown
+              size={18}
+              strokeWidth={1.8}
+              className={`
+                transition-transform
+                duration-300
+                ${open ? "rotate-180" : ""}
+              `}
+            />
+          </button>
+        ) : program.href ? (
+          <Link
+            href={program.href}
+            aria-label={`View ${displayName}`}
+            className="
+              flex
+              h-9
+              w-9
+              shrink-0
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-[#DCE2EB]
+              bg-white
+              text-[#0A1F44]
+              shadow-[0_4px_12px_rgba(10,31,68,0.04)]
+              transition-all
+              duration-300
+              hover:border-[#E8871A]/50
+              hover:bg-[#E8871A]
+              hover:text-white
+              sm:h-10
+              sm:w-10
+            "
+          >
+            <ArrowUpRight
+              size={17}
+              strokeWidth={1.8}
+            />
+          </Link>
+        ) : (
+          <span
+            className="
+              flex
+              h-9
+              w-9
+              shrink-0
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-[#E8EDF3]
+              text-[#CBD5E1]
+              sm:h-10
+              sm:w-10
+            "
+          >
+            <ArrowUpRight
+              size={16}
+              strokeWidth={1.7}
+            />
+          </span>
+        )}
+      </div>
+
+      {/* ======================================================
+          EXPANDED PROGRAM CONTENT
+          ====================================================== */}
+
+      {open && hasExtraContent && (
+        <div className="pb-6 pt-2 pl-7 sm:pl-10 pr-2">
+          <div className="rounded-2xl border border-[#CBD5E1]/60 bg-white p-5 sm:p-6 shadow-[0_8px_30px_rgba(10,31,68,0.06)]">
+            {/* --------------------------------------------------
+                SPECIALIZATIONS GRID
+                -------------------------------------------------- */}
+
+            {hasSpecializations && (
+              <div className="mb-6">
+                <div className="mb-3.5 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-[#E8871A]" />
+                  <p className="text-[11px] font-bold uppercase tracking-[2px] text-[#E8871A]">
+                    Available Specializations
+                  </p>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {specializations.map((specItem, index) => {
+                    const isObj =
+                      typeof specItem === "object" && specItem !== null;
+                    const name = isObj ? specItem.name : String(specItem);
+                    const href = isObj ? specItem.href : undefined;
+
+                    const innerContent = (
+                      <div className="flex items-center justify-between gap-3 w-full">
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#E8871A]/70 group-hover/spec:bg-[#E8871A]" />
+                          <span className="text-[13px] font-semibold text-[#0A1F44] group-hover/spec:text-[#E8871A] transition-colors truncate">
+                            {name}
+                          </span>
+                        </div>
+                        {href && (
+                          <ArrowUpRight
+                            size={14}
+                            className="shrink-0 text-[#94A3B8] transition-transform duration-200 group-hover/spec:-translate-y-0.5 group-hover/spec:translate-x-0.5 group-hover/spec:text-[#E8871A]"
+                          />
+                        )}
+                      </div>
+                    );
+
+                    if (href) {
+                      return href.startsWith("/") ? (
+                        <Link
+                          key={`${name}-${index}`}
+                          href={href}
+                          className="group/spec flex items-center rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-3 px-3.5 transition-all duration-200 hover:border-[#E8871A]/60 hover:bg-[#FFF8EC] hover:shadow-md"
+                        >
+                          {innerContent}
+                        </Link>
+                      ) : (
+                        <a
+                          key={`${name}-${index}`}
+                          href={href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group/spec flex items-center rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-3 px-3.5 transition-all duration-200 hover:border-[#E8871A]/60 hover:bg-[#FFF8EC] hover:shadow-md"
+                        >
+                          {innerContent}
+                        </a>
+                      );
+                    }
+
+                    return (
+                      <div
+                        key={`${name}-${index}`}
+                        className="flex items-center rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-3 px-3.5"
+                      >
+                        {innerContent}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* --------------------------------------------------
+                DESCRIPTION
+                -------------------------------------------------- */}
+
+            {program.description && (
+              <p className="mb-5 text-[14px] leading-[1.7] text-[#475569] sm:text-[15px]">
+                {program.description}
+              </p>
+            )}
+
+            {/* --------------------------------------------------
+                ELIGIBILITY & ROUTING CTA
+                -------------------------------------------------- */}
+
+            <div
+              className={`
+                flex flex-col gap-4 md:flex-row md:items-center md:justify-between
+                ${hasSpecializations || program.description ? "mt-5 pt-1" : ""}
+              `}
+            >
+              {programEligibility && (
+                <div className="flex items-start gap-3.5 min-w-0 flex-1 rounded-xl border-l-4 border-l-[#E8871A] border-y border-r border-[#F5E6D3] bg-[#FFF8EC]/90 p-4 sm:p-4.5 shadow-sm">
+                  <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#E8871A] text-white shadow-sm">
+                    <CheckCircle2 size={15} strokeWidth={2.4} className="!text-white" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-[10px] font-bold uppercase tracking-[1.8px] text-[#9B5D0A]">
+                      Eligibility Criteria
+                    </span>
+                    <p className="mt-0.5 text-[13px] font-semibold leading-[1.6] text-[#0A1F44] sm:text-[14px]">
+                      {programEligibility}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* ROUTING URL FOR SINGLE PROGRAM (NO SPECIALIZATIONS) */}
+              {!hasSpecializations && program.href && (
+                <div className="shrink-0 pt-1 md:pt-0">
+                  {program.href.startsWith("/") ? (
+                    <Link
+                      href={program.href}
+                      className="
+                        group/btn
+                        inline-flex
+                        items-center
+                        gap-2
+                        rounded-full
+                        bg-[#E8871A]
+                        px-5
+                        py-3
+                        text-[12px]
+                        font-bold
+                        uppercase
+                        tracking-[1.2px]
+                        !text-white
+                        shadow-[0_6px_18px_rgba(232,135,26,0.28)]
+                        transition-all
+                        duration-300
+                        hover:-translate-y-0.5
+                        hover:bg-[#D9780F]
+                        hover:shadow-[0_8px_24px_rgba(232,135,26,0.38)]
+                        sm:text-[13px]
+                      "
+                    >
+                      <span className="!text-white">Explore Program Details</span>
+                      <ArrowUpRight
+                        size={15}
+                        strokeWidth={2}
+                        className="!text-white transition-transform duration-300 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5"
+                      />
+                    </Link>
+                  ) : (
+                    <a
+                      href={program.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="
+                        group/btn
+                        inline-flex
+                        items-center
+                        gap-2
+                        rounded-full
+                        bg-[#E8871A]
+                        px-5
+                        py-3
+                        text-[12px]
+                        font-bold
+                        uppercase
+                        tracking-[1.2px]
+                        !text-white
+                        shadow-[0_6px_18px_rgba(232,135,26,0.28)]
+                        transition-all
+                        duration-300
+                        hover:-translate-y-0.5
+                        hover:bg-[#D9780F]
+                        hover:shadow-[0_8px_24px_rgba(232,135,26,0.38)]
+                        sm:text-[13px]
+                      "
+                    >
+                      <span className="!text-white">Explore Program Details</span>
+                      <ArrowUpRight
+                        size={15}
+                        strokeWidth={2}
+                        className="!text-white transition-transform duration-300 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5"
+                      />
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </article>
+  );
 }
+
+/* ============================================================
+   MAIN COMPONENT
+   ============================================================ */
 
 export default function ProgramCourses({
-  title = "Programs Offered",
-  subtitle = "Geeta University Programs | Duration | Eligibility",
   courses,
 }: ProgramCoursesProps) {
-  const [activeTab, setActiveTab] = useState(0);
+  const [openProgramKey, setOpenProgramKey] = useState<string | null>(null);
 
-  // Normalize and consolidate courses by level
-  const categories: NormalizedCategory[] = (() => {
-    if (!courses || courses.length === 0) return DEFAULT_PROGRAMS_DATA;
-
-    const map = new Map<string, NormalizedCategory>();
-
-    courses.forEach((cat: CourseCategory) => {
-      const rawLevel = cat.level || cat.title || "Academic";
-      let displayLevel = rawLevel;
-      if (displayLevel.toLowerCase().includes("under")) displayLevel = "Undergraduate";
-      else if (displayLevel.toLowerCase().includes("post")) displayLevel = "Postgraduate";
-      else if (displayLevel.toLowerCase().includes("doctor") || displayLevel.toLowerCase().includes("ph.d"))
-        displayLevel = "Doctoral (Ph.D.)";
-
-      const rawItems = cat.programs || cat.items || [];
-      const items: NormalizedProgramItem[] = (rawItems.length > 0 ? rawItems : [cat]).map((prog: any) => ({
-        program: prog.name || prog.program || cat.title,
-        duration: prog.duration || cat.duration || "Full Time",
-        href: prog.href,
-        specializations: prog.specializations || prog.specialisations,
-        eligibility: prog.eligibility || cat.eligibility,
-        details: prog.details,
-      }));
-
-      if (map.has(displayLevel)) {
-        const existing = map.get(displayLevel)!;
-        existing.items.push(...items);
-      } else {
-        map.set(displayLevel, {
-          level: displayLevel,
-          title: cat.title || displayLevel,
-          items,
-        });
-      }
-    });
-
-    return Array.from(map.values());
-  })();
-
-  const currentCategory = categories[activeTab] || categories[0];
+  if (!courses || courses.length === 0) {
+    return null;
+  }
 
   return (
     <section
-      id="Programs"
-      style={{
-        padding: "100px 0",
-        background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)",
-        position: "relative",
-      }}
+      id="programs"
+      className="
+        relative
+        overflow-hidden
+        bg-white
+        py-16
+        sm:py-20
+        md:py-24
+      "
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
-        
-        {/* Section Header matching SCSE */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          style={{ marginBottom: 56 }}
-        >
-          <h2
-            style={{
-              fontSize: 48,
-              fontWeight: 900,
-              color: "#0A1F44",
-              margin: "0 0 12px",
-              lineHeight: 1.1,
-              letterSpacing: "-1px",
-            }}
-          >
-            {title}
-          </h2>
-          <p style={{ fontSize: 16, color: "#64748B", margin: 0, letterSpacing: 0.5 }}>
-            {subtitle}
-          </p>
-          <div
-            style={{
-              marginTop: 24,
-              fontSize: 15,
-              color: "#4A5568",
-              fontWeight: 400,
-              maxWidth: 800,
-              lineHeight: 1.6,
-            }}
-          >
-            <span
-              style={{
-                fontWeight: 700,
-                color: "#E8871A",
-                letterSpacing: 0.5,
-                textTransform: "uppercase",
-                fontSize: 13,
-                marginRight: 8,
-              }}
-            >
-              Level of Study:
-            </span>
-            Comprehensive academic pathways designed with industry-linked curricula, practical labs, and recognized career qualifications.
-          </div>
-        </motion.div>
+      {/* ======================================================
+          VERY SUBTLE BACKGROUND DETAIL
+          ====================================================== */}
 
-        {/* Tab Buttons matching SCSE */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          style={{
-            display: "flex",
-            gap: 16,
-            borderBottom: "1px solid #E2E8F0",
-            paddingBottom: 20,
-            marginBottom: 40,
-            overflowX: "auto",
-          }}
-          className="hide-scroll"
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[-180px]
+          top-[-180px]
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-[#E8871A]/[0.035]
+          blur-3xl
+        "
+      />
+
+      <div className="gu-container relative">
+        {/* ====================================================
+            SECTION HEADER
+            ==================================================== */}
+
+        <div
+          className="
+            flex
+            flex-col
+            gap-7
+            border-b
+            border-[#DCE2EB]
+            pb-8
+            md:flex-row
+            md:items-end
+            md:justify-between
+            md:pb-10
+          "
         >
-          {categories.map((cat, idx) => {
-            const isActive = activeTab === idx;
-            return (
-              <button
-                key={idx}
-                onClick={() => setActiveTab(idx)}
-                style={{
-                  padding: "14px 32px",
-                  borderRadius: 12,
-                  background: isActive ? "#0A1F44" : "#F1F5F9",
-                  color: isActive ? "#FFFFFF" : "#475569",
-                  border: "1px solid",
-                  borderColor: isActive ? "#0A1F44" : "#E2E8F0",
-                  fontSize: 15,
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  whiteSpace: "nowrap",
-                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  boxShadow: isActive ? "0 8px 24px rgba(10,31,68,0.25)" : "none",
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.background = "#E2E8F0";
-                    e.currentTarget.style.color = "#0A1F44";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.background = "#F1F5F9";
-                    e.currentTarget.style.color = "#475569";
-                  }
-                }}
+          <div className="min-w-0">
+            {/* Eyebrow */}
+
+            <div className="mb-4 flex items-center gap-3">
+              <span
+                className="
+                  h-[2px]
+                  w-10
+                  bg-[#E8871A]
+                "
+              />
+
+              <span
+                className="
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-[3px]
+                  text-[#E8871A]
+                  sm:text-[11px]
+                "
               >
+                Academic Directory
+              </span>
+            </div>
+
+            {/* Main title */}
+
+            <h2
+              className="
+                font-serif
+                text-[40px]
+                font-black
+                leading-[1]
+                tracking-[-1.5px]
+                text-[#0A1F44]
+                sm:text-[48px]
+                md:text-[56px]
+                lg:text-[62px]
+              "
+            >
+              Programs Offered
+            </h2>
+
+            {/* Small supporting line */}
+
+            <p
+              className="
+                mt-4
+                max-w-2xl
+                text-[13px]
+                leading-[1.65]
+                text-[#64748B]
+                sm:text-[14px]
+              "
+            >
+              Explore undergraduate, postgraduate and
+              doctoral programs available at Geeta
+              University.
+            </p>
+          </div>
+
+          {/* ==================================================
+              SINGLE GLOBAL APPLY CTA
+              ================================================== */}
+
+          <a
+            href="https://admissions.geetauniversity.edu.in/"
+            target="_blank"
+            rel="noreferrer"
+            className="
+              group
+              inline-flex
+              w-fit
+              shrink-0
+              items-center
+              gap-3
+              rounded-full
+              bg-[#E8871A]
+              px-5
+              py-3
+              text-[12px]
+              font-bold
+              uppercase
+              tracking-[1.6px]
+              !text-white
+              shadow-[0_10px_28px_rgba(232,135,26,0.18)]
+              transition-all
+              duration-300
+              hover:-translate-y-0.5
+              hover:bg-[#D9780F]
+              hover:shadow-[0_14px_32px_rgba(232,135,26,0.24)]
+              sm:px-6
+              sm:py-3.5
+            "
+          >
+            <span className="!text-white">Apply Now</span>
+
+            <ArrowUpRight
+              size={16}
+              strokeWidth={1.9}
+              className="
+                !text-white
+                transition-transform
+                duration-300
+                group-hover:-translate-y-0.5
+                group-hover:translate-x-0.5
+              "
+            />
+          </a>
+        </div>
+
+        {/* ====================================================
+            ACADEMIC LEVELS
+            ==================================================== */}
+
+        <div className="mt-8 sm:mt-10">
+          {courses.map((category, categoryIndex) => {
+            const meta = getCategoryMeta(
+              categoryIndex,
+              category.title
+            );
+
+            return (
+              <section
+                key={category.title}
+                className="
+                  mb-12
+                  last:mb-0
+                  sm:mb-14
+                  md:mb-16
+                "
+              >
+                {/* =================================================
+                    LEVEL HEADING
+                    ================================================= */}
+
                 <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    opacity: isActive ? 1 : 0.6,
-                  }}
+                  className="
+                    relative
+                    mb-2
+                    flex
+                    items-end
+                    gap-4
+                    border-b
+                    border-[#DCE2EB]
+                    pb-3
+                    sm:gap-5
+                    sm:pb-4
+                  "
                 >
-                  {getCategoryIcon(idx, cat.level)}
+                  {/* Number */}
+
+                  <span
+                    className="
+                      flex
+                      h-11
+                      w-11
+                      shrink-0
+                      items-center
+                      justify-center
+                      rounded-[12px]
+                      border
+                      border-[#E8871A]/35
+                      bg-[#FFF8EC]
+                      font-serif
+                      text-[15px]
+                      font-black
+                      text-[#E8871A]
+                      sm:h-12
+                      sm:w-12
+                    "
+                  >
+                    {meta.number}
+                  </span>
+
+                  <div className="min-w-0">
+                    <span
+                      className="
+                        mb-1
+                        block
+                        text-[9px]
+                        font-bold
+                        uppercase
+                        tracking-[2.5px]
+                        text-[#94A3B8]
+                        sm:text-[10px]
+                      "
+                    >
+                      {meta.eyebrow}
+                    </span>
+
+                    <h3
+                      className="
+                        font-serif
+                        text-[25px]
+                        font-black
+                        leading-[1.1]
+                        tracking-[-0.5px]
+                        text-[#0A1F44]
+                        sm:text-[30px]
+                        md:text-[34px]
+                      "
+                    >
+                      {meta.title}
+                    </h3>
+                  </div>
                 </div>
-                {cat.level}
-              </button>
+
+                {/* =================================================
+                    PROGRAM LIST
+                    ================================================= */}
+
+                <div className="mt-1">
+                  {(category.programs || (category as any).items || []).map(
+                    (rawProgram: any, pIdx: number) => {
+                      const rawName =
+                        rawProgram.name ||
+                        rawProgram.program ||
+                        `prog-${pIdx}`;
+                      const rowKey = `${categoryIndex}-${pIdx}-${rawName}`;
+                      const isOpen = openProgramKey === rowKey;
+
+                      return (
+                        <ProgramRow
+                          key={rowKey}
+                          program={rawProgram as ProgramItem}
+                          categoryDuration={(category as any).duration}
+                          categoryEligibility={(category as any).eligibility}
+                          open={isOpen}
+                          onToggle={() =>
+                            setOpenProgramKey((current) =>
+                              current === rowKey ? null : rowKey
+                            )
+                          }
+                        />
+                      );
+                    }
+                  )}
+                </div>
+              </section>
             );
           })}
-        </motion.div>
-
-        {/* Content Section with animated tab change */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-          >
-            {/* Banner matching SCSE */}
-            <div
-              style={{
-                background: "#FDF1D6",
-                border: "1px solid #FCD34D",
-                borderRadius: 10,
-                padding: "16px 24px",
-                textAlign: "center",
-                fontWeight: 800,
-                color: "#92400E",
-                fontSize: 18,
-                marginBottom: 32,
-                letterSpacing: 0.5,
-                boxShadow: "0 4px 12px rgba(245, 158, 11, 0.05)",
-              }}
-            >
-              {currentCategory.level} Courses
-            </div>
-
-            {/* Courses Card Grid */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 24 }}>
-              {currentCategory.items.map((prog, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="course-program-card"
-                  style={{
-                    background: "#FFFFFF",
-                    border: "1px solid #E2E8F0",
-                    borderRadius: 16,
-                    padding: "28px 36px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 16,
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
-                    transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                    e.currentTarget.style.boxShadow = "0 20px 40px rgba(0,0,0,0.08)";
-                    e.currentTarget.style.borderColor = "#E8871A";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "none";
-                    e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.03)";
-                    e.currentTarget.style.borderColor = "#E2E8F0";
-                  }}
-                >
-                  {/* Top Card Header */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "flex-start",
-                      flexWrap: "wrap",
-                      gap: 16,
-                    }}
-                  >
-                    <div>
-                      <h3
-                        style={{
-                          fontSize: 26,
-                          fontWeight: 800,
-                          color: "#0A1F44",
-                          margin: "0 0 10px",
-                          letterSpacing: "-0.5px",
-                        }}
-                      >
-                        {prog.program}
-                      </h3>
-                      {prog.duration && (
-                        <div
-                          style={{
-                            display: "inline-block",
-                            background: "#FEF3C7",
-                            color: "#92400E",
-                            padding: "6px 14px",
-                            borderRadius: 20,
-                            fontSize: 13,
-                            fontWeight: 700,
-                            border: "1px solid #FDE68A",
-                          }}
-                        >
-                          Duration: {prog.duration}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-                      {prog.href && (
-                        <a
-                          href={prog.href}
-                          style={{
-                            background: "#FFFFFF",
-                            color: "#0A1F44",
-                            border: "1.5px solid #0A1F44",
-                            padding: "11px 22px",
-                            borderRadius: 8,
-                            fontSize: 13,
-                            fontWeight: 800,
-                            textDecoration: "none",
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 6,
-                            transition: "all 0.25s ease",
-                            textTransform: "uppercase",
-                            letterSpacing: 0.5,
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.background = "#0A1F44";
-                            e.currentTarget.style.color = "#FFFFFF";
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.background = "#FFFFFF";
-                            e.currentTarget.style.color = "#0A1F44";
-                          }}
-                        >
-                          Course Details <ArrowRight size={15} />
-                        </a>
-                      )}
-
-                      <a
-                        href="https://admissions.geetauniversity.edu.in/"
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{
-                          background: "#E8871A",
-                          color: "#FFFFFF",
-                          padding: "12px 28px",
-                          borderRadius: 8,
-                          fontSize: 14,
-                          fontWeight: 800,
-                          textDecoration: "none",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 8,
-                          transition: "all 0.3s ease",
-                          textTransform: "uppercase",
-                          letterSpacing: 1,
-                          boxShadow: "0 4px 12px rgba(232,135,26,0.25)",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = "#0A1F44";
-                          e.currentTarget.style.boxShadow = "0 8px 20px rgba(10,31,68,0.2)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = "#E8871A";
-                          e.currentTarget.style.boxShadow = "0 4px 12px rgba(232,135,26,0.25)";
-                        }}
-                      >
-                        Apply Now <ArrowRight size={16} />
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Divider */}
-                  <div style={{ height: 1, background: "#F1F5F9", width: "100%", margin: "4px 0" }} />
-
-                  {/* Body Content */}
-                  {prog.details ? (
-                    <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.8, fontWeight: 400 }}>
-                      {prog.details}
-                    </div>
-                  ) : (
-                    <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.75, fontWeight: 400 }}>
-                      {prog.specializations && prog.specializations.length > 0 && (
-                        <div style={{ marginBottom: 16 }}>
-                          <strong
-                            style={{
-                              fontSize: 14.5,
-                              color: "#0A1F44",
-                              fontWeight: 700,
-                              display: "block",
-                              marginBottom: 8,
-                            }}
-                          >
-                            Specializations available:
-                          </strong>
-                          <ul
-                            style={{
-                              margin: 0,
-                              padding: 0,
-                              listStyle: "none",
-                              display: "grid",
-                              gridTemplateColumns:
-                                prog.specializations.length > 3 ? "repeat(auto-fit, minmax(260px, 1fr))" : "1fr",
-                              gap: "8px 20px",
-                            }}
-                          >
-                            {prog.specializations.map((specItem, sIdx) => {
-                              const isObj = typeof specItem === "object" && specItem !== null;
-                              const name = isObj ? specItem.name : specItem;
-                              const href = isObj ? specItem.href : undefined;
-
-                              return (
-                                <li
-                                  key={sIdx}
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: 8,
-                                    fontSize: 14.5,
-                                    color: "#475569",
-                                  }}
-                                >
-                                  <span
-                                    style={{
-                                      width: 6,
-                                      height: 6,
-                                      borderRadius: "50%",
-                                      background: "#E8871A",
-                                      flexShrink: 0,
-                                    }}
-                                  />
-                                  {href ? (
-                                    <a
-                                      href={href}
-                                      className="spec-link"
-                                      style={{
-                                        color: "#0A1F44",
-                                        textDecoration: "none",
-                                        fontWeight: 600,
-                                        display: "inline-flex",
-                                        alignItems: "center",
-                                        gap: 5,
-                                        transition: "all 0.2s ease",
-                                      }}
-                                    >
-                                      <span>{name}</span>
-                                      {/* <ArrowRight
-                                        size={13}
-                                        className="spec-arrow"
-                                        style={{
-                                          opacity: 0.5,
-                                          color: "#E8871A",
-                                          transition: "all 0.2s ease",
-                                          flexShrink: 0,
-                                        }}
-                                      /> */}
-                                    </a>
-                                  ) : (
-                                    <span>{name}</span>
-                                  )}
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      )}
-
-                      {prog.eligibility && (
-                        <div style={{ marginTop: 12, fontSize: 14.5, lineHeight: 1.7, color: "#475569" }}>
-                          <strong style={{ color: "#0A1F44", fontWeight: 700 }}>Eligibility:</strong>{" "}
-                          <span>{prog.eligibility}</span>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+        </div>
       </div>
-
-      <style>{`
-        .hide-scroll::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scroll {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .spec-link:hover {
-          color: #E8871A !important;
-          text-decoration: underline !important;
-        }
-        .spec-link:hover .spec-arrow {
-          opacity: 1 !important;
-          transform: translateX(3px) !important;
-        }
-        @media (max-width: 768px) {
-          .course-program-card {
-            padding: 20px 20px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
