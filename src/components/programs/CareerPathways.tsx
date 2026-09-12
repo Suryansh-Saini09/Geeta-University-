@@ -129,6 +129,7 @@ function getRoleIcon(name: string) {
 }
 
 interface CareerPathwaysProps {
+  eyebrow?: string;
   title?: string;
   subtitle?: string;
   pathways?: PathwayCardItem[];
@@ -136,6 +137,7 @@ interface CareerPathwaysProps {
 }
 
 export default function CareerPathways({
+  eyebrow,
   title = "Your Degree. Your Direction.",
   subtitle = "Opens doors across a wide range of rewarding careers. Here's how academic paths map to professional outcomes:",
   pathways,
@@ -182,7 +184,7 @@ export default function CareerPathways({
                     textTransform: "uppercase",
                   }}
                 >
-                  CAREER PATHWAYS
+                  {eyebrow || "CAREER PATHWAYS"}
                 </span>
                 <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
               </div>
@@ -227,17 +229,21 @@ export default function CareerPathways({
           >
             {pathwayItems.map((item, idx) => {
               const numStr = `0${idx + 1}`;
+              const points = item.roles || item.points || [];
+              const cardTitle = item.pathway && item.pathway !== item.area ? item.pathway : item.area;
+              const cardArea = item.pathway && item.pathway !== item.area && item.area ? item.area : null;
+
               return (
                 <div
                   key={idx}
                   style={{
                     scrollSnapAlign: "start",
                     flexShrink: 0,
-                    width: "320px",
-                    height: "440px",
+                    width: "340px",
+                    minHeight: "460px",
                     background: "linear-gradient(180deg, #F5E6C9 0%, #EAD7B2 100%)",
                     borderRadius: "24px",
-                    padding: "40px 32px",
+                    padding: "36px 28px",
                     position: "relative",
                     overflow: "hidden",
                     display: "flex",
@@ -252,46 +258,109 @@ export default function CareerPathways({
                   <div
                     style={{
                       fontSize: 24,
-                      background: "rgba(255, 255, 255, 0.35)",
+                      background: "rgba(255, 255, 255, 0.45)",
                       width: 48,
                       height: 48,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       borderRadius: "12px",
-                      marginBottom: 24,
+                      marginBottom: 20,
                     }}
                   >
                     {renderPathwayIcon(item)}
                   </div>
 
+                  {cardArea && (
+                    <span
+                      style={{
+                        color: "#E8871A",
+                        fontSize: "11.5px",
+                        fontWeight: 800,
+                        letterSpacing: "1px",
+                        textTransform: "uppercase",
+                        marginBottom: "6px",
+                        display: "block",
+                        position: "relative",
+                        zIndex: 2,
+                      }}
+                    >
+                      {cardArea}
+                    </span>
+                  )}
+
                   <h3
                     style={{
-                      fontSize: 20,
+                      fontSize: 19,
                       fontWeight: 800,
                       color: "#0A1F44",
                       margin: "0 0 16px",
-                      lineHeight: 1.35,
+                      lineHeight: 1.3,
                       position: "relative",
                       zIndex: 2,
                     }}
                   >
-                    {item.area}
+                    {cardTitle}
                   </h3>
 
-                  <p
-                    style={{
-                      fontSize: 14.5,
-                      color: "#475569",
-                      margin: 0,
-                      lineHeight: 1.6,
-                      fontWeight: 450,
-                      position: "relative",
-                      zIndex: 2,
-                    }}
-                  >
-                    {item.pathway}
-                  </p>
+                  {points.length > 0 ? (
+                    <ul
+                      style={{
+                        listStyle: "none",
+                        padding: 0,
+                        margin: "0 0 24px",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 10,
+                        position: "relative",
+                        zIndex: 2,
+                        flex: 1,
+                      }}
+                    >
+                      {points.map((pt, pIdx) => (
+                        <li
+                          key={pIdx}
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: 8,
+                            fontSize: 13.5,
+                            color: "#334155",
+                            lineHeight: 1.5,
+                            fontWeight: 500,
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "#E8871A",
+                              fontWeight: 700,
+                              fontSize: 16,
+                              lineHeight: "16px",
+                              marginTop: 2,
+                              flexShrink: 0,
+                            }}
+                          >
+                            •
+                          </span>
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p
+                      style={{
+                        fontSize: 14.5,
+                        color: "#475569",
+                        margin: 0,
+                        lineHeight: 1.6,
+                        fontWeight: 450,
+                        position: "relative",
+                        zIndex: 2,
+                      }}
+                    >
+                      {item.desc || item.pathway}
+                    </p>
+                  )}
 
                   {/* Huge ghost number at the bottom */}
                   <div
@@ -299,13 +368,14 @@ export default function CareerPathways({
                     style={{
                       position: "absolute",
                       bottom: "-10px",
-                      left: "24px",
-                      fontSize: "96px",
+                      right: "20px",
+                      fontSize: "90px",
                       fontWeight: 900,
-                      color: "rgba(255, 255, 255, 0.16)",
+                      color: "rgba(255, 255, 255, 0.22)",
                       lineHeight: 1,
                       userSelect: "none",
                       zIndex: 1,
+                      pointerEvents: "none",
                       transition:
                         "color 0.4s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
                     }}

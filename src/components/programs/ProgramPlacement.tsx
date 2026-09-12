@@ -100,6 +100,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
+                  justifyContent: "center",
                   gap: 12,
                   marginBottom: 16,
                 }}
@@ -112,9 +113,10 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                     fontWeight: 800,
                     letterSpacing: "2px",
                     textTransform: "uppercase",
+                    whiteSpace: "nowrap",
                   }}
                 >
-                  Alumni &amp; Student Voices
+                  Alumni & Student Voices
                 </span>
                 <span style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
               </div>
@@ -237,13 +239,16 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                         .split(" ")
                         .map((n) => n[0])
                         .join("");
-                      const displayDetails = [
-                        item.role && !item.role.includes("Alumni") ? item.role : null,
-                        item.company,
-                        item.pkg,
-                      ]
-                        .filter(Boolean)
-                        .join(" | ");
+                      const pkg = item.pkg || item.package;
+                      const quote = item.quote || item.testimonial || "";
+                      const role = item.role || "";
+                      const company = item.company || "";
+
+                      const detailsParts = [];
+                      if (role) detailsParts.push(role);
+                      if (company && !role.includes(company)) detailsParts.push(company);
+                      if (pkg && !role.includes(pkg) && !company.includes(pkg)) detailsParts.push(pkg);
+                      const displayDetails = detailsParts.join(" • ") || company || role;
 
                       return (
                         <div
@@ -279,7 +284,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                             }}
                             className="testimonial-card"
                           >
-                            <div>
+                            <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
                               {/* Quote Icon Header */}
                               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
                                 <svg
@@ -292,10 +297,11 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                                   strokeWidth="2.2"
                                   style={{ transition: "all 0.3s ease" }}
                                 >
-                                  <path d="M3 21c3 0 7-1 7-8V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1zm12 0c3 0 7-1 7-8V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1z" />
+                                  <path d="M3 21c3 0 7-1 7-8V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1z" />
+                                  <path d="M12 0c3 0 7-1 7-8V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1z" />
                                 </svg>
 
-                                {item.pkg && (
+                                {pkg && (
                                   <span
                                     style={{
                                       background: "rgba(232, 135, 26, 0.15)",
@@ -305,9 +311,10 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                                       fontWeight: 750,
                                       padding: "4px 10px",
                                       borderRadius: 999,
+                                      whiteSpace: "nowrap",
                                     }}
                                   >
-                                    {item.pkg}
+                                    {pkg}
                                   </span>
                                 )}
                               </div>
@@ -317,13 +324,14 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                                 style={{
                                   fontSize: "14.5px",
                                   color: "rgba(255, 255, 255, 0.85)",
-                                  margin: "0 0 28px",
+                                  margin: "0 0 24px",
                                   lineHeight: 1.7,
                                   fontWeight: 400,
                                   fontStyle: "italic",
+                                  flex: 1,
                                 }}
                               >
-                                &ldquo;{item.quote}&rdquo;
+                                &ldquo;{quote}&rdquo;
                               </p>
                             </div>
 
@@ -588,9 +596,9 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                     ) : (
                       <>
                         <div>• Industry Placements (45%)</div>
-                        <div>• Research &amp; Clinical (25%)</div>
-                        <div>• Corporate &amp; Operations (18%)</div>
-                        <div>• Higher Studies &amp; Global (12%)</div>
+                        <div>• Research & Clinical (25%)</div>
+                        <div>• Corporate & Operations (18%)</div>
+                        <div>• Higher Studies & Global (12%)</div>
                       </>
                     )}
                   </div>

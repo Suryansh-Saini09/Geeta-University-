@@ -377,6 +377,16 @@ export const computerScienceSchool: ProgramPageData = {
         ],
       },
     ],
+    notableRoles: [
+      { name: "Full Stack Software Developer" },
+      { name: "AI & Machine Learning Engineer" },
+      { name: "Cyber Security Specialist & Ethical Hacker" },
+      { name: "Data Scientist & Business Analyst" },
+      { name: "Cloud Architect & DevOps Engineer" },
+      { name: "Solutions Architect" },
+      { name: "Quantum Computing Researcher" },
+      { name: "Database & Backend Engineer" },
+    ],
   },
 
   corporateConnect: {
@@ -426,7 +436,10 @@ export const computerScienceSchool: ProgramPageData = {
       name: "Vikas Bareja",
       role: "B.Tech CSE Alumni",
       company: "Tech Mahindra",
-      package: "34 LPA",
+      pkg: "₹34 LPA",
+      package: "₹34 LPA",
+      quote:
+        "Geeta University provided me with immense exposure to modern software engineering paradigms, mentorship, and practical training that made transitioning into Tech Mahindra seamless.",
       testimonial:
         "Geeta University provided me with immense exposure to modern software engineering paradigms, mentorship, and practical training that made transitioning into Tech Mahindra seamless.",
       image: "/vikas.webp",
@@ -435,7 +448,10 @@ export const computerScienceSchool: ProgramPageData = {
       name: "Vaibhav Arora",
       role: "Principal Solution Architect",
       company: "Wabtec Corp",
+      pkg: "₹1.4 Cr PA",
       package: "₹1.4 Cr PA",
+      quote:
+        "Geeta University's 360-degree development approach, mentorship programs, and industry interactions helped me think like an entrepreneur rather than just a job seeker.",
       testimonial:
         "Geeta University's 360-degree development approach, mentorship programs, and industry interactions helped me think like an entrepreneur rather than just a job seeker.",
       image: "/Vaibhav.webp",
@@ -444,7 +460,10 @@ export const computerScienceSchool: ProgramPageData = {
       name: "Shantanu Ojha",
       role: "B.Tech CSE Alumni",
       company: "Ernst & Young",
+      pkg: "₹30 LPA",
       package: "₹30 LPA",
+      quote:
+        "The campus support and mentorship gave me the foundation I needed to build a strong career from the ground up.",
       testimonial:
         "The campus support and mentorship gave me the foundation I needed to build a strong career from the ground up.",
       image: "/shantanu.webp",
@@ -453,7 +472,10 @@ export const computerScienceSchool: ProgramPageData = {
       name: "Prikshit",
       role: "B.Tech CSE Alumni",
       company: "Thales",
+      pkg: "₹30 LPA",
       package: "₹30 LPA",
+      quote:
+        "My time at the university helped me bridge the gap between theory-based and practical learning — something that made a real difference when I entered the industry.",
       testimonial:
         "My time at the university helped me bridge the gap between theory-based and practical learning — something that made a real difference when I entered the industry.",
       image: "/prikshit.png",
@@ -462,7 +484,10 @@ export const computerScienceSchool: ProgramPageData = {
       name: "Saransh",
       role: "B.Tech CSE Alumni",
       company: "PayU Payments",
+      pkg: "₹30 LPA",
       package: "₹30 LPA",
+      quote:
+        "The campus environment pushed me to grow as an individual, developed my determination, and made me genuinely ready for the real world.",
       testimonial:
         "The campus environment pushed me to grow as an individual, developed my determination, and made me genuinely ready for the real world.",
       image: "/saransh.png",
@@ -471,10 +496,49 @@ export const computerScienceSchool: ProgramPageData = {
       name: "Monty",
       role: "B.Tech CSE Alumni",
       company: "Hike Edu",
+      pkg: "₹24 LPA",
       package: "₹24 LPA",
+      quote:
+        "The industry-focused learning culture built my confidence and gave me the perseverance to push through and achieve what I set out to do.",
       testimonial:
         "The industry-focused learning culture built my confidence and gave me the perseverance to push through and achieve what I set out to do.",
       image: "/monty.webp",
+    },
+    {
+      name: "Vidhan Sharma",
+      role: "B.Tech CSE Alumni",
+      company: "Centricity",
+      pkg: "₹24 LPA",
+      package: "₹24 LPA",
+      quote:
+        "From competitive coding sessions to real-world cloud projects, Geeta University's CSE department prepared me for top-tier corporate roles.",
+      testimonial:
+        "From competitive coding sessions to real-world cloud projects, Geeta University's CSE department prepared me for top-tier corporate roles.",
+      image: "/VIDHAN-full.webp",
+    },
+    {
+      name: "Rishabh",
+      role: "B.Tech CSE Alumni",
+      company: "ProFunnel",
+      pkg: "₹20 LPA",
+      package: "₹20 LPA",
+      quote:
+        "The personalized faculty mentorship and industry workshops enabled me to hone my full stack capabilities and secure high-value placements.",
+      testimonial:
+        "The personalized faculty mentorship and industry workshops enabled me to hone my full stack capabilities and secure high-value placements.",
+      image: "/rishabh-full.webp",
+    },
+    {
+      name: "Shanu",
+      role: "B.Tech CSE Alumni",
+      company: "Hoping Minds",
+      pkg: "₹18 LPA",
+      package: "₹18 LPA",
+      quote:
+        "The practical lab environment and project-based hackathons helped me stand out in the technical interview rounds.",
+      testimonial:
+        "The practical lab environment and project-based hackathons helped me stand out in the technical interview rounds.",
+      image: "/shanu-full.webp",
     },
   ],
 

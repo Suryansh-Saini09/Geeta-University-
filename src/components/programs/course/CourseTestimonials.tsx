@@ -135,7 +135,7 @@ export default function CourseTestimonials({
                 textTransform: "uppercase",
               }}
             >
-              Student &amp; Alumni Voices
+              Student & Alumni Voices
             </span>
             <span style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
           </div>

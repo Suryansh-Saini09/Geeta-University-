@@ -157,6 +157,7 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       {/* 15. CAREER PATHWAYS */}
       {pageData.careerPathways && (
         <CareerPathways
+          eyebrow={pageData.careerPathways?.eyebrow}
           title={pageData.careerPathways?.title}
           subtitle={pageData.careerPathways?.description}
           pathways={pageData.careerPathways?.pathways}
