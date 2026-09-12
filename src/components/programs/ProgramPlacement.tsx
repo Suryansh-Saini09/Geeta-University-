@@ -24,18 +24,113 @@ interface ProgramPlacementProps {
 export default function ProgramPlacement({ placement, testimonials }: ProgramPlacementProps) {
   const testimonialItems = testimonials && testimonials.length > 0 ? testimonials : [];
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const track0Ref = useRef<HTMLDivElement>(null);
+  const isHoveredRef = useRef(false);
+  const isInteractingRef = useRef(false);
+  const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -400, behavior: "smooth" });
+  const getSetWidth = useCallback(() => {
+    if (track0Ref.current) {
+      return track0Ref.current.offsetWidth + 24;
     }
-  };
+    return 0;
+  }, []);
 
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 400, behavior: "smooth" });
+  const getScrollStep = useCallback(() => {
+    if (!scrollContainerRef.current) return 404;
+    const wrapper = scrollContainerRef.current.querySelector(".testimonial-card-wrapper") as HTMLElement;
+    if (wrapper) {
+      return wrapper.offsetWidth + 24;
     }
-  };
+    return 404;
+  }, []);
+
+  const pauseAutoScroll = useCallback(() => {
+    isInteractingRef.current = true;
+    if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
+    interactionTimeoutRef.current = setTimeout(() => {
+      isInteractingRef.current = false;
+    }, 4000);
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    const setWidth = getSetWidth();
+    if (setWidth <= 0) return;
+
+    if (container.scrollLeft >= setWidth * 2) {
+      container.scrollLeft -= setWidth;
+    } else if (container.scrollLeft <= 20) {
+      container.scrollLeft += setWidth;
+    }
+  }, [getSetWidth]);
+
+  const scrollLeft = useCallback(() => {
+    pauseAutoScroll();
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    const setWidth = getSetWidth();
+    const step = getScrollStep();
+
+    if (setWidth > 0 && container.scrollLeft < setWidth - 50) {
+      container.scrollLeft += setWidth;
+    }
+
+    container.scrollBy({ left: -step, behavior: "smooth" });
+  }, [getSetWidth, getScrollStep, pauseAutoScroll]);
+
+  const scrollRight = useCallback(() => {
+    pauseAutoScroll();
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    const setWidth = getSetWidth();
+    const step = getScrollStep();
+
+    if (setWidth > 0 && container.scrollLeft >= setWidth * 2 - 50) {
+      container.scrollLeft -= setWidth;
+    }
+
+    container.scrollBy({ left: step, behavior: "smooth" });
+  }, [getSetWidth, getScrollStep, pauseAutoScroll]);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container || testimonialItems.length === 0) return;
+
+    const initPos = () => {
+      if (track0Ref.current && container.scrollLeft === 0) {
+        const setWidth = track0Ref.current.offsetWidth + 24;
+        container.scrollLeft = setWidth;
+      }
+    };
+    initPos();
+    const timer = setTimeout(initPos, 150);
+
+    let animationFrameId: number;
+
+    const autoScrollStep = () => {
+      if (container && !isHoveredRef.current && !isInteractingRef.current) {
+        container.scrollLeft += 0.8;
+        const setWidth = track0Ref.current ? track0Ref.current.offsetWidth + 24 : 0;
+        if (setWidth > 0) {
+          if (container.scrollLeft >= setWidth * 2) {
+            container.scrollLeft -= setWidth;
+          } else if (container.scrollLeft <= 10) {
+            container.scrollLeft += setWidth;
+          }
+        }
+      }
+      animationFrameId = requestAnimationFrame(autoScrollStep);
+    };
+
+    animationFrameId = requestAnimationFrame(autoScrollStep);
+
+    return () => {
+      clearTimeout(timer);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [testimonialItems.length]);
 
   const stats = placement?.stats && placement.stats.length > 0 ? placement.stats : [
     { value: "40 LPA", label: "Highest Package", iconName: "Award" },
@@ -215,6 +310,14 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
               {/* Scrollable & Auto-Moving Track */}
               <div
                 ref={scrollContainerRef}
+                onScroll={handleScroll}
+                onMouseEnter={() => {
+                  isHoveredRef.current = true;
+                }}
+                onMouseLeave={() => {
+                  isHoveredRef.current = false;
+                }}
+                onTouchStart={pauseAutoScroll}
                 className="alumni-scroll-container"
                 style={{
                   display: "flex",
@@ -231,6 +334,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                 {[0, 1, 2].map((setIndex) => (
                   <div
                     key={setIndex}
+                    ref={setIndex === 0 ? track0Ref : undefined}
                     className="alumni-scroll-track"
                     style={{ display: "flex", gap: 24, flexShrink: 0 }}
                   >
@@ -253,6 +357,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                       return (
                         <div
                           key={`${setIndex}-${idx}`}
+                          className="testimonial-card-wrapper"
                           style={{
                             width: 380,
                             maxWidth: "85vw",
@@ -260,11 +365,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                             boxSizing: "border-box",
                           }}
                         >
-                          <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: idx * 0.05 }}
+                          <div
                             style={{
                               background: "rgba(255, 255, 255, 0.03)",
                               backdropFilter: "blur(20px)",
@@ -396,7 +497,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                                 </p>
                               </div>
                             </div>
-                          </motion.div>
+                          </div>
                         </div>
                       );
                     })}
@@ -409,20 +510,6 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
           <style>{`
             .alumni-scroll-container::-webkit-scrollbar {
               display: none;
-            }
-            @keyframes alumniMarquee {
-              0% {
-                transform: translateX(0);
-              }
-              100% {
-                transform: translateX(calc(-100% - 24px));
-              }
-            }
-            .alumni-scroll-track {
-              animation: alumniMarquee 32s linear infinite;
-            }
-            .alumni-scroll-container:hover .alumni-scroll-track {
-              animation-play-state: paused;
             }
             .testimonial-card:hover {
               background: rgba(255, 255, 255, 0.07) !important;
