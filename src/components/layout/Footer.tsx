@@ -75,7 +75,7 @@ export default function Footer() {
       { label: "GU Finance Committee", href: "https://geetauniversity.edu.in/uploads/all/2590/Notification--finance-committee.pdf" },
       { label: "GU UGC Approval", href: "/ugc", isInternal: true },
       { label: "GU Gazette", href: "https://geetauniversity.edu.in/uploads/all/1626/GEETA_UNIVERSITY_Gazette.pdf" },
-      { label: "How to Reach Us?", href: "/contact-us", isInternal: true },
+      { label: "How to Reach Us?", href: "/how-to-reach-us", isInternal: true },
       { label: "General Information", href: "https://geetauniversity.edu.in/uploads/all/703/GENERAL-INFORMATION-GU-3.pdf" },
       { label: "About Panipat", href: "/about-panipat", isInternal: true },
       { label: "UGC Samadhaan Portal", href: "https://samadhaan.ugc.ac.in/" },

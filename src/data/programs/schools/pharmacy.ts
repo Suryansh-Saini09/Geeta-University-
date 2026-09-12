@@ -666,8 +666,8 @@ export const pharmacySchool: ProgramPageData = {
       eligibility: "Masters in relevant field with minimum 55% marks.",
       programs: [
         {
-          name: "Ph.D. (Pharmaceutical Sciences)",
-          href: "/programs/geeta-institute-of-pharmacy/phd-pharmaceutical-sciences",
+          name: "Ph.D. in Pharmacy",
+          href: "/programs/geeta-institute-of-pharmacy/phd-pharmacy",
         },
       ],
     },

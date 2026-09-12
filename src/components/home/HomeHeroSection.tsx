@@ -2,9 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { ArrowRight, Play, ChevronDown } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
+
+/* =========================================================
+   HERO BACKGROUND DRONE SHOTS
+========================================================= */
+const HERO_DRONE_SHOTS = [
+  "/videos/hero_drone_shot1.webm",
+  "/videos/hero_drone_shot2.webm",
+];
 
 /* =========================================================
    ANIMATION VARIANTS
@@ -15,8 +23,8 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
+      staggerChildren: 0.12,
+      delayChildren: 0.15,
     },
   },
 };
@@ -24,13 +32,13 @@ const containerVariants: Variants = {
 const itemVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 30,
+    y: 24,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.7,
       ease: [0.22, 1, 0.36, 1], // Cinematic ease-out
     },
   },
@@ -38,54 +46,140 @@ const itemVariants: Variants = {
 
 export default function HomeHeroSection() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeVideoIndex, setActiveVideoIndex] = useState(0);
+  const [nextVideoPreload, setNextVideoPreload] = useState(false);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  // Autoplay active video safely
+  useEffect(() => {
+    const currentVideo = videoRefs.current[activeVideoIndex];
+    if (currentVideo) {
+      currentVideo.play().catch(() => {
+        // Fallback gracefully if browser restricts autoplay
+      });
+    }
+  }, [activeVideoIndex]);
+
+  // Intelligent preloading & seamless crossfade transition
+  const handleTimeUpdate = (index: number) => {
+    const video = videoRefs.current[index];
+    if (!video) return;
+
+    // Preload next video metadata/stream when 3.5s remaining
+    if (video.duration && video.duration - video.currentTime <= 3.5 && !nextVideoPreload) {
+      setNextVideoPreload(true);
+      const nextIndex = (index + 1) % HERO_DRONE_SHOTS.length;
+      const nextVideo = videoRefs.current[nextIndex];
+      if (nextVideo && nextVideo.readyState < 2) {
+        nextVideo.load();
+      }
+    }
+
+    // Trigger crossfade transition 1.0s before current video ends
+    if (video.duration && video.duration - video.currentTime <= 1.0) {
+      if (index === activeVideoIndex) {
+        const nextIndex = (index + 1) % HERO_DRONE_SHOTS.length;
+        const nextVideo = videoRefs.current[nextIndex];
+        if (nextVideo && nextVideo.paused) {
+          nextVideo.currentTime = 0;
+          nextVideo.play().catch(() => {});
+          setActiveVideoIndex(nextIndex);
+          setNextVideoPreload(false);
+        }
+      }
+    }
+  };
+
+  const handleVideoEnded = (index: number) => {
+    if (index === activeVideoIndex) {
+      const nextIndex = (index + 1) % HERO_DRONE_SHOTS.length;
+      const nextVideo = videoRefs.current[nextIndex];
+      if (nextVideo) {
+        nextVideo.currentTime = 0;
+        nextVideo.play().catch(() => {});
+      }
+      setActiveVideoIndex(nextIndex);
+      setNextVideoPreload(false);
+    }
+  };
 
   return (
     <section className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden bg-[#0A1F44]">
-      
       {/* =====================================================
-          FULL-SCREEN BACKGROUND
+          CINEMATIC BACKGROUND VIDEO ARCHITECTURE (DUAL LOOP)
       ===================================================== */}
-      
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Poster Fallback Image */}
         <Image
           src="/about/campus.webp"
-          alt="Geeta University Campus"
+          alt="Geeta University Campus Aerial View"
           fill
           priority
-          className="object-cover object-center transition-transform duration-[15s] ease-out hover:scale-105"
+          className="object-cover object-[70%_center] md:object-center"
           sizes="100vw"
         />
 
-        {/* Deep gradient overlays for text readability & grand feel */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44] via-[#0A1F44]/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/60 via-transparent to-[#0A1F44]/10" />
+        {/* Dual Seamless Crossfading Drone Videos */}
+        {HERO_DRONE_SHOTS.map((src, index) => (
+          <video
+            key={src}
+            ref={(el) => {
+              videoRefs.current[index] = el;
+            }}
+            autoPlay={index === 0}
+            muted
+            playsInline
+            preload={index === 0 || nextVideoPreload ? "auto" : "metadata"}
+            poster="/about/campus.webp"
+            onTimeUpdate={() => handleTimeUpdate(index)}
+            onEnded={() => handleVideoEnded(index)}
+            className={`absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-center scale-[1.02] transition-opacity duration-1000 ease-in-out ${
+              index === activeVideoIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+            }`}
+          >
+            <source src={src} type="video/webm" />
+          </video>
+        ))}
 
-        {/* Dramatic glowing ambient orbs */}
-        <div className="absolute -top-40 right-10 h-125 w-125 rounded-full bg-[#E8871A] opacity-20 blur-[120px]" />
-        <div className="absolute -left-40 top-1/2 h-150 w-150 -translate-y-1/2 rounded-full bg-blue-600 opacity-15 blur-[150px]" />
+        {/* =====================================================
+            CINEMATIC LAYERED GRADIENT GRADING (ART-DIRECTED)
+        ===================================================== */}
+        {/* Layer 1: Left-to-right dark navy gradient protecting text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44] via-[#0A1F44]/80 via-45% sm:via-40% to-transparent pointer-events-none z-15" />
+
+        {/* Layer 2: Extra left-edge anchor shadow for crisp contrast */}
+        <div className="absolute inset-y-0 left-0 w-full sm:w-1/2 bg-gradient-to-r from-[#0A1F44]/90 via-[#0A1F44]/60 to-transparent pointer-events-none z-15" />
+
+        {/* Layer 3: Bottom gradient fading into page body */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44] via-[#0A1F44]/30 via-25% to-transparent pointer-events-none z-15" />
+
+        {/* Layer 4: Global restrained dark tint */}
+        <div className="absolute inset-0 bg-[#0A1F44]/20 pointer-events-none z-15" />
+
+        {/* Subtle Saffron Ambient Accent Glow (Distant Edge) */}
+        <div className="absolute -top-32 right-10 h-96 w-96 rounded-full bg-[#E8871A] opacity-15 blur-[120px] pointer-events-none z-15" />
       </div>
 
       {/* =====================================================
-          MAIN HERO CONTENT
+          MAIN HERO CONTENT (LEFT-ALIGNED ADMISSIONS HIERARCHY)
       ===================================================== */}
-      
-      <div className="gu-container relative z-10 flex w-full flex-1 flex-col justify-center pb-20 pt-32 lg:pt-40">
+      <div className="gu-container relative z-20 flex w-full flex-1 flex-col justify-center pb-16 pt-28 sm:pt-36 lg:pt-40">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-3xl"
+          className="max-w-2xl sm:max-w-3xl"
         >
-          {/* Admissions CTA Button */}
-          <motion.div variants={itemVariants} className="mb-8">
+          {/* 1. ADMISSIONS PILL STATUS */}
+          <motion.div variants={itemVariants} className="mb-6">
             <a
               href="https://admissions.geetauniversity.edu.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-3 sm:gap-3.5 rounded-full border border-white/25 bg-gradient-to-r from-white/10 via-white/5 to-[#0A1F44]/60 p-1.5 pr-4 sm:pr-5 shadow-xl shadow-black/25 backdrop-blur-md transition-all duration-300 hover:border-[#E8871A] hover:bg-white/15 hover:shadow-2xl hover:shadow-[#E8871A]/20 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="group inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 p-1 pr-4 sm:pr-5 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#E8871A] hover:bg-white/20 active:translate-y-0"
             >
-              {/* Badge Tag with Live Pulse */}
-              <span className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#E8871A] to-[#F59E0B] px-3 sm:px-3.5 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md shadow-[#E8871A]/30">
+              {/* Badge */}
+              <span className="flex items-center gap-2 rounded-full bg-[#E8871A] px-3 py-1 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-80" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
@@ -93,133 +187,64 @@ export default function HomeHeroSection() {
                 <span>Apply Now</span>
               </span>
 
-              {/* Main Text */}
-              <span className="text-xs sm:text-sm font-bold tracking-wider text-white transition-colors group-hover:text-amber-100">
-                Admissions Open
+              {/* Status Text */}
+              <span className="text-xs sm:text-sm font-semibold tracking-wider text-white transition-colors group-hover:text-amber-100">
+                Admissions Open 2026–27
               </span>
 
-              {/* Arrow Circle */}
-              <span className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-white/15 text-white transition-all duration-300 group-hover:bg-[#E8871A] group-hover:text-white group-hover:scale-110">
+              {/* Arrow Indicator */}
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15 text-white transition-all duration-300 group-hover:bg-[#E8871A]">
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </span>
             </a>
           </motion.div>
 
-          {/* Headline */}
+          {/* 2. MAIN HEADLINE */}
           <motion.h1
             variants={itemVariants}
-            className="font-serif text-5xl font-black leading-[1.1] sm:text-6xl md:text-7xl lg:text-[80px]"
+            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-bold leading-[1.08] tracking-tight drop-shadow-[0_4px_16px_rgba(10,31,68,0.7)]"
           >
-            <span className="text-white">Empowering Minds.</span>
-            <br />
-            <span className="bg-gradient-to-r from-[#E8871A] to-[#FFB84D] bg-clip-text text-transparent drop-shadow-lg">
-              Transforming Futures.
-            </span>
+            <span className="text-white block">Empowering Minds.</span>
+            <span className="text-[#E8871A] block mt-1">Transforming Futures.</span>
           </motion.h1>
 
-          {/* Subheadline */}
+          {/* 3. SUPPORTING DESCRIPTION */}
           <motion.p
             variants={itemVariants}
-            className="mt-6 max-w-2xl text-[16px] leading-[1.8] text-white/80 md:text-[18px]"
+            className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-200 font-sans drop-shadow-[0_2px_8px_rgba(10,31,68,0.6)]"
           >
             Join a premier academic ecosystem designed to ignite innovation, foster global leadership, and drive impactful careers. Your legacy begins at Geeta University.
           </motion.p>
 
-          {/* Call to Actions */}
+          {/* 4. PRIMARY + SECONDARY CTA BUTTONS */}
           <motion.div
             variants={itemVariants}
-            className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
+            className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
           >
             <Link
               href="/about"
-              className="
-                group
-                flex
-                w-full
-                items-center
-                justify-center
-                gap-2
-                rounded-full
-                bg-[#E8871A]
-                px-8
-                py-4
-                text-[13px]
-                font-bold
-                uppercase
-                tracking-[1.5px]
-                text-[#0A1F44]
-                shadow-[0_8px_25px_rgba(232,135,26,0.3)]
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:scale-105
-                hover:bg-white
-                hover:shadow-[0_15px_35px_rgba(232,135,26,0.5)]
-                sm:w-auto
-              "
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#E8871A] px-8 py-4 text-xs font-bold uppercase tracking-[1.5px] text-[#0A1F44] shadow-lg shadow-[#E8871A]/25 transition-all duration-300 hover:bg-amber-500 hover:-translate-y-0.5 active:translate-y-0"
             >
-              About University
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              <span>About University</span>
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
 
             <button
               type="button"
               onClick={() => setIsOpen(true)}
-              className="
-                group
-                flex
-                w-full
-                items-center
-                justify-center
-                gap-3
-                rounded-full
-                border
-                border-white/30
-                bg-white/5
-                px-8
-                py-4
-                backdrop-blur-md
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:border-white/60
-                hover:bg-white/10
-                sm:w-auto
-              "
+              className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/30 bg-white/10 px-8 py-4 text-xs font-bold uppercase tracking-[1.5px] text-white backdrop-blur-md transition-all duration-300 hover:border-white/60 hover:bg-white/20 hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-[#0A1F44] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#E8871A] group-hover:text-white">
-                <Play size={10} className="ml-0.5" fill="currentColor" />
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[#0A1F44] transition-colors group-hover:bg-[#E8871A] group-hover:text-white">
+                <Play className="h-2.5 w-2.5 ml-0.5 fill-current" />
               </span>
-              <span className="text-[13px] font-bold uppercase tracking-[1.5px] !text-white">
-                Campus Tour
-              </span>
+              <span>Campus Tour</span>
             </button>
           </motion.div>
         </motion.div>
       </div>
 
       {/* =====================================================
-          ANIMATED SCROLL INDICATOR
-      ===================================================== */}
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 lg:flex"
-      >
-        <span className="text-[9px] font-bold uppercase tracking-[0.3em]">
-          Scroll to Explore
-        </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown size={20} strokeWidth={1.5} />
-        </motion.div>
-      </motion.div> */}
-
-      {/* =====================================================
-          YOUTUBE VIDEO MODAL
+          YOUTUBE VIDEO MODAL (CAMPUS TOUR)
       ===================================================== */}
       <AnimatePresence>
         {isOpen && (
@@ -282,4 +307,4 @@ export default function HomeHeroSection() {
       </AnimatePresence>
     </section>
   );
-}
+}
