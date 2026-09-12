@@ -5,6 +5,8 @@ export const computerScienceSchool: ProgramPageData = {
   name: "School of Computer Science & Engineering",
   shortName: "SCSE",
   type: "school",
+  hideRecruiters: true,
+  hideRankings: true,
 
   seo: {
     title: "Best Engineering College in Haryana & Delhi NCR | Top University for CSE",
