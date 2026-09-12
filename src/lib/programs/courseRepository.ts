@@ -28,6 +28,10 @@ import { mbaMarketing } from "@/data/programs/courses/commerce/mba-marketing";
 import { mbaHumanResourceManagement } from "@/data/programs/courses/commerce/mba-human-resource-management";
 import { mbaPharmaceuticalManagement } from "@/data/programs/courses/commerce/mba-pharmaceutical-management";
 import { mbaSupplyChainManagement } from "@/data/programs/courses/commerce/mba-supply-chain-management-and-logistics";
+import { dPharmacy } from "@/data/programs/courses/pharmacy/d-pharmacy";
+import { bPharmacy } from "@/data/programs/courses/pharmacy/b-pharmacy";
+import { diplomaHotelManagement } from "@/data/programs/courses/hospitality/diploma-in-hotel-management";
+import { bscHotelManagement } from "@/data/programs/courses/hospitality/bsc-hotel-management";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -59,6 +63,10 @@ const courses: CoursePageData[] = [
   mbaHumanResourceManagement,
   mbaPharmaceuticalManagement,
   mbaSupplyChainManagement,
+  dPharmacy,
+  bPharmacy,
+  diplomaHotelManagement,
+  bscHotelManagement,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -70,13 +78,15 @@ function normalizeSchoolSlug(slug: string): string {
   if (s === "school-of-sciences" || s === "school-of-forensic-science") return "school-of-forensic-sciences";
   if (s === "school-of-law" || s === "geeta-institute-of-law") return "geeta-global-law-school";
   if (s === "spbsb") return "sp-bansal-school-of-business";
-  if (s === "school-of-pharmacy") return "geeta-institute-of-pharmacy";
+  if (s === "pharmacy" || s === "school-of-pharmacy") return "geeta-institute-of-pharmacy";
   if (s === "school-of-hotel-management" || s === "school-of-hospitality") return "school-of-hospitality-and-hotel-management";
   return s;
 }
 
 function normalizeCourseSlug(slug: string): string {
   const s = slug.toLowerCase();
+  if (s === "d-pharm" || s === "d-pharma" || s === "diploma-in-pharmacy") return "d-pharmacy";
+  if (s === "b-pharm" || s === "b-pharma" || s === "bachelor-in-pharmacy" || s === "bachelor-of-pharmacy") return "b-pharmacy";
   if (s === "bba-international-accounting-acca") return "bba-international-accounting";
   if (s === "bcom-international-accounting-acca") return "bcom-international-accounting";
   if (s === "bcom-auditing-taxation") return "bcom-auditing-and-taxation";
