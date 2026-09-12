@@ -44,7 +44,7 @@ export const computerScienceSchool: ProgramPageData = {
     title: "Building Intelligent Solutions. Shaping the Future.",
     eyebrow: "Geeta University",
     description:
-      "Industry-oriented CSE programs with specializations in AI, Cyber Security, Data Science, and Cloud Computing. Excellent placement support with 550+ recruiters and packages up to 40 LPA.",
+      "Industry-oriented CSE programs with specializations in AI, Cybersecurity, Data Science, and Cloud Computing. Excellent placement support with 550+ recruiters and packages up to 40 LPA.",
     slides: [
       {
         studentName: "Saransh",
@@ -98,7 +98,7 @@ export const computerScienceSchool: ProgramPageData = {
     mission: [
       "To impart student-centric and outcome-based quality education for developing a strong foundation in computer science and engineering, technology, innovation, and entrepreneurship through enhanced learning and project-based learning.",
       "To produce competent graduates with strong fundamentals and ethics, and the ability to apply knowledge to meet the challenges of a professional career and for the sustainable development of society and the nation.",
-      "To promote research and innovation in areas such as artificial intelligence, data science, cyber security, cloud computing, software engineering, Internet of Things (IoT), and other allied areas to address real-world problems.",
+      "To promote research and innovation in areas such as artificial intelligence, data science, cybersecurity, cloud computing, software engineering, Internet of Things (IoT), and other allied areas to address real-world problems.",
       "To establish strategic collaborative partnerships with corporate bodies, research institutes, technology organisations, and innovative ecosystems for internships, projects, industry training, research, and professional skills development.",
       "To develop future technology leaders, entrepreneurs, and researchers who can lead, adopt, and leverage disruptive technologies and solutions for transformation, sustainable growth, and development while driving a culture of continuous learning and innovation.",
     ],
@@ -172,7 +172,7 @@ export const computerScienceSchool: ProgramPageData = {
               href: "/programs/school-of-computer-science-and-engineering/btech-artificial-intelligence-and-machine-learning",
             },
             {
-              name: "B.Tech. Hons. CSE (Cyber Security)",
+              name: "B.Tech. Hons. CSE (Cybersecurity)",
               href: "/programs/school-of-computer-science-and-engineering/btech-cyber-security",
             },
             {
@@ -209,7 +209,7 @@ export const computerScienceSchool: ProgramPageData = {
               href: "/programs/school-of-computer-science-and-engineering/bca-artificial-intelligence-and-machine-learning",
             },
             {
-              name: "BCA Hons. (Cyber Security)",
+              name: "BCA Hons. (Cybersecurity)",
               href: "/programs/school-of-computer-science-and-engineering/bca-cyber-security",
             },
             {
@@ -303,7 +303,7 @@ export const computerScienceSchool: ProgramPageData = {
           "MEAN/MERN Stack",
           "PHP & MySQL",
           "Python Development",
-          "Cyber Security Fundamentals",
+          "Cybersecurity Fundamentals",
           "Artificial Intelligence",
           "Machine Learning",
         ],
@@ -349,12 +349,12 @@ export const computerScienceSchool: ProgramPageData = {
         ],
       },
       {
-        area: "Cyber Security",
-        pathway: "Cyber Security",
+        area: "Cybersecurity",
+        pathway: "Cybersecurity",
         roles: [
           "Software development security & network security",
           "Risk management and compliance frameworks",
-          "Cryptography & cyber security regulations",
+          "Cryptography & cybersecurity regulations",
           "Information security (INFOSEC) & security architecture",
         ],
       },
@@ -382,7 +382,7 @@ export const computerScienceSchool: ProgramPageData = {
     notableRoles: [
       { name: "Full Stack Software Developer" },
       { name: "AI & Machine Learning Engineer" },
-      { name: "Cyber Security Specialist & Ethical Hacker" },
+      { name: "Cybersecurity Specialist & Ethical Hacker" },
       { name: "Data Scientist & Business Analyst" },
       { name: "Cloud Architect & DevOps Engineer" },
       { name: "Solutions Architect" },
@@ -417,7 +417,7 @@ export const computerScienceSchool: ProgramPageData = {
       image: "https://geetauniversity.edu.in/uploads/all/773/conversions/cr-1-full.webp",
     },
     {
-      title: "Cloud & Cyber Security Labs",
+      title: "Cloud & Cybersecurity Labs",
       desc: "Specialized infrastructure for network penetration testing, cloud architecture, and secure computing.",
       image: "https://geetauniversity.edu.in/uploads/all/774/conversions/cr-2-full.webp",
     },
@@ -555,7 +555,7 @@ export const computerScienceSchool: ProgramPageData = {
   faqs: [
     {
       q: "What programmes are offered by the School of Computer Science & Engineering at Geeta University?",
-      a: "The School currently lists B.Tech. Hons. CSE with specializations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cyber Security, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cyber Security, and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programmes in Computer Applications and CSE.",
+      a: "The School currently lists B.Tech. Hons. CSE with specializations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cybersecurity, and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programmes in Computer Applications and CSE.",
       category: "Admissions & Eligibility",
     },
     {
@@ -605,17 +605,17 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "What specialisations are available under B.Tech. CSE?",
-      a: "The specializations include Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cyber Security, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling.",
+      a: "The specializations include Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling.",
       category: "Programmes, Specialisations & Curriculum",
     },
     {
       q: "What specialisations are available under BCA?",
-      a: "BCA in Computer Applications, Artificial Intelligence & Machine Learning, Cyber Security, and Data Science & Business Analytics are available within the School.",
+      a: "BCA in Computer Applications, Artificial Intelligence & Machine Learning, Cybersecurity, and Data Science & Business Analytics are available within the School.",
       category: "Programmes, Specialisations & Curriculum",
     },
     {
-      q: "How should a student choose between AI & ML, Data Science, Cyber Security and Full Stack Development?",
-      a: "AI & ML is suited to students interested in intelligent systems, automation, and predictive models; Data Science suits students interested in data analysis and insight generation; Cyber Security suits students interested in digital protection, risk, and security; and Full Stack Development suits students who want to build end-to-end web applications.",
+      q: "How should a student choose between AI & ML, Data Science, Cybersecurity and Full Stack Development?",
+      a: "AI & ML is suited to students interested in intelligent systems, automation, and predictive models; Data Science suits students interested in data analysis and insight generation; Cybersecurity suits students interested in digital protection, risk, and security; and Full Stack Development suits students who want to build end-to-end web applications.",
       category: "Programmes, Specialisations & Curriculum",
     },
     {
@@ -634,7 +634,7 @@ export const computerScienceSchool: ProgramPageData = {
       category: "Programmes, Specialisations & Curriculum",
     },
     {
-      q: "What will students learn in the Cyber Security specialisation?",
+      q: "What will students learn in the Cybersecurity specialisation?",
       a: "Students will learn software development security, network security, risk management and compliance, cryptography, information security, security architecture, ethical hacking, and digital-forensics-oriented areas.",
       category: "Programmes, Specialisations & Curriculum",
     },
@@ -695,7 +695,7 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "What are the 'Drive-Ready Tracks' offered by the School?",
-      a: "The School highlights Drive-Ready Tracks covering areas such as MEAN/MERN Stack, PHP & MySQL, Python Development, Cyber Security Fundamentals, Artificial Intelligence, and Machine Learning, designed to build practical skills relevant to technology roles.",
+      a: "The School highlights Drive-Ready Tracks covering areas such as MEAN/MERN Stack, PHP & MySQL, Python Development, Cybersecurity Fundamentals, Artificial Intelligence, and Machine Learning, designed to build practical skills relevant to technology roles.",
       category: "Practical Learning, Projects & Industry Exposure",
     },
     {
