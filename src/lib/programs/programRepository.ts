@@ -22,30 +22,68 @@ const programs: ProgramPageData[] = [
   humanitiesSchool,
   computerScienceSchool,
   spBansalSchool,
-  // Alias for humanities and social sciences (plural)
+  // Alias for humanities and social sciences (plural & short)
   {
     ...humanitiesSchool,
     slug: "school-of-humanities-and-social-sciences",
   },
-  // Alias for agricultural sciences
+  {
+    ...humanitiesSchool,
+    slug: "school-of-humanities",
+  },
+  // Alias for agricultural sciences & studies
   {
     ...agricultureSchool,
     slug: "school-of-agricultural-sciences",
   },
-  // Alias for management studies
+  {
+    ...agricultureSchool,
+    slug: "school-of-agriculture",
+  },
+  // Alias for management & commerce studies
   {
     ...commerceSchool,
     slug: "school-of-management-and-business-studies",
+  },
+  {
+    ...commerceSchool,
+    slug: "school-of-commerce",
+  },
+  {
+    ...commerceSchool,
+    slug: "school-of-management",
   },
   // Alias for School of Sciences
   {
     ...forensicSciencesSchool,
     slug: "school-of-sciences",
   },
+  {
+    ...forensicSciencesSchool,
+    slug: "school-of-forensic-science",
+  },
   // Alias for Law School
   {
     ...lawSchool,
     slug: "school-of-law",
+  },
+  {
+    ...lawSchool,
+    slug: "geeta-institute-of-law",
+  },
+  // Alias for Pharmacy School
+  {
+    ...pharmacySchool,
+    slug: "school-of-pharmacy",
+  },
+  // Alias for Hospitality & Hotel Management
+  {
+    ...hospitalitySchool,
+    slug: "school-of-hotel-management",
+  },
+  {
+    ...hospitalitySchool,
+    slug: "school-of-hospitality",
   },
   // Alias for SPBSB
   {

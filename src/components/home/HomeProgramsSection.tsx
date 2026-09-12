@@ -319,9 +319,11 @@ const programCategories: ProgramCategory[] = [
     programs: [
       {
         name: "BA. LL.B.*",
+        href: "/programs/geeta-global-law-school",
       },
       {
         name: "BBA LL.B.*",
+        href: "/programs/geeta-global-law-school",
       },
       {
         name: "Master of Law — LLM",
@@ -354,9 +356,11 @@ const programCategories: ProgramCategory[] = [
       },
       {
         name: "M.Sc. — Hotel Management",
+        href: "/programs/school-of-hospitality-and-hotel-management",
       },
       {
         name: "Ph.D. — Hotel & Tourism Management",
+        href: "/programs/school-of-hospitality-and-hotel-management",
       },
     ],
   },
@@ -402,6 +406,7 @@ const programCategories: ProgramCategory[] = [
       },
       {
         name: "B.A. Hons.",
+        href: "/programs/school-of-humanities-and-social-science",
       },
       {
         name: "B.A. Hons. — Political Science",
@@ -417,18 +422,23 @@ const programCategories: ProgramCategory[] = [
       },
       {
         name: "B.A. Hons. — English",
+        href: "/programs/school-of-humanities-and-social-science",
       },
       {
         name: "M.A. — Political Science",
+        href: "/programs/school-of-humanities-and-social-science",
       },
       {
         name: "M.A. — Psychology",
+        href: "/programs/school-of-humanities-and-social-science",
       },
       {
         name: "M.A. — English",
+        href: "/programs/school-of-humanities-and-social-science",
       },
       {
         name: "M.A. — Economics",
+        href: "/programs/school-of-humanities-and-social-science",
       },
       {
         name: "Ph.D. — Psychology",

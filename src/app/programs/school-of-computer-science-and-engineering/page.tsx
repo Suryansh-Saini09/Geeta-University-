@@ -7,6 +7,7 @@ import { useLenis } from "lenis/react";
 import {
   ArrowRight,
   Award,
+  CheckCircle2,
   Code2,
   Briefcase,
   Terminal,
@@ -3908,7 +3909,7 @@ export default function Page() {
                 fill
                 sizes="100vw"
                 priority
-                className="object-cover object-center"
+                className="object-cover object-center opacity-[0.05]"
               />
             </motion.div>
           </AnimatePresence>
@@ -3923,191 +3924,90 @@ export default function Page() {
         </motion.div>
 
         {/* Hero Grid Container */}
-        <div className="max-w-[1440px] mx-auto w-full h-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative z-10 px-6 sm:px-10 lg:px-16 xl:px-24 py-20 lg:py-0">
+        <div className="max-w-[1400px] mx-auto w-full h-full flex flex-col justify-center items-start text-left relative z-10 px-6 sm:px-10 lg:px-16 py-20 lg:py-0">
           
-          {/* Columns 1-9: Left Content & Center Student Portrait */}
-          <div className="lg:col-span-9 flex flex-col justify-end lg:justify-center relative h-full z-20">
-            <div className="relative w-full h-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-20 pb-12 lg:py-0">
-              
-              {/* Left text area */}
-              <div className="lg:col-start-2 lg:col-span-5 pl-4 sm:pl-8 lg:pl-12 flex flex-col justify-center text-left text-white max-w-[480px] relative z-10">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentHeroSlide}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    variants={{
-                      hidden: { opacity: 0 },
-                      visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.1 } }
-                    }}
-                    className="flex flex-col gap-5"
+          {/* Content area */}
+          <div className="flex flex-col items-start text-left text-white max-w-4xl relative z-10">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentHeroSlide}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.1 } }
+                }}
+                className="flex flex-col items-start text-left gap-5 w-full"
+              >
+                {/* Bold Heading (Format matches CU: Thin-Bold L1, Bold L2) */}
+                <motion.h1 
+                  variants={{
+                    hidden: { opacity: 0, y: 25 },
+                    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70, damping: 14 } }
+                  }} 
+                  className="text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] tracking-tight leading-[1.1] text-white select-none max-w-4xl"
+                >
+                  <span className="font-extralight opacity-95">{HERO_SLIDES[currentHeroSlide].titleThin}</span>{" "}
+                  <span className="font-black">{HERO_SLIDES[currentHeroSlide].titleBoldLine1}</span>
+                  <br />
+                  <span className="font-black">
+                    {HERO_SLIDES[currentHeroSlide].titleBoldLine2}
+                  </span>
+                </motion.h1>
+
+                {/* Accent line (Exactly matches: 50px wide, thin white line) */}
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, scaleX: 0 },
+                    visible: { opacity: 1, scaleX: 1, transition: { duration: 0.4 } }
+                  }} 
+                  className="w-[60px] h-1 bg-[#E8871A] my-1"
+                />
+
+                {/* Description */}
+                <motion.p 
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70 } }
+                  }} 
+                  className="text-gray-100 text-base sm:text-lg md:text-[20px] leading-relaxed max-w-4xl font-medium"
+                >
+                  {HERO_SLIDES[currentHeroSlide].description}
+                </motion.p>
+
+                {/* CTA buttons */}
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70 } }
+                  }} 
+                  className="flex flex-wrap items-center gap-4 pt-3"
+                >
+                  <a
+                    href="https://admissions.geetauniversity.edu.in/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-[#ff0000] hover:bg-[#d90000] text-white font-extrabold text-xs lg:text-sm px-8 py-3.5 rounded-lg flex items-center space-x-2 transition-all tracking-widest uppercase cursor-pointer shadow-lg shadow-[#ff0000]/25 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    {/* Bold Heading (Format matches CU: Thin-Bold L1, Bold L2) */}
-                    <motion.h1 
-                      variants={{
-                        hidden: { opacity: 0, y: 25 },
-                        visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70, damping: 14 } }
-                      }} 
-                      className="text-4xl sm:text-5xl lg:text-[56px] xl:text-[64px] tracking-tight leading-[1.08] text-white select-none"
-                    >
-                      <span className="font-extralight opacity-95">{HERO_SLIDES[currentHeroSlide].titleThin}</span>{" "}
-                      <span className="font-black">{HERO_SLIDES[currentHeroSlide].titleBoldLine1}</span>
-                      <br />
-                      <span className="font-black">
-                        {HERO_SLIDES[currentHeroSlide].titleBoldLine2}
-                      </span>
-                    </motion.h1>
+                    <span>{HERO_SLIDES[currentHeroSlide].cta}</span>
+                    <svg className="w-5 h-5 text-white ml-2" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                    </svg>
+                  </a>
 
-                    {/* Accent line (Exactly matches: 50px wide, thin white line) */}
-                    <motion.div 
-                      variants={{
-                        hidden: { opacity: 0, scaleX: 0 },
-                        visible: { opacity: 1, scaleX: 1, transition: { duration: 0.4 } }
-                      }} 
-                      className="w-[50px] h-0.5 bg-[#E8871A] origin-left my-2"
-                    />
-
-                    {/* Description: Indented to align with line end (70px) */}
-                    <motion.p 
-                      variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70 } }
-                      }} 
-                      className="text-gray-200 text-sm sm:text-base leading-relaxed max-w-[460px] font-medium"
-                    >
-                      {HERO_SLIDES[currentHeroSlide].description}
-                    </motion.p>
-
-                    {/* CTA button: Centered under the description text container */}
-                    <motion.div 
-                      variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70 } }
-                      }} 
-                      className="flex justify-start pt-3"
-                    >
-                      <a
-                        href="https://admissions.geetauniversity.edu.in/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="bg-[#ff0000] hover:bg-[#d90000] text-white font-extrabold text-xs lg:text-sm px-8 py-2.5 rounded-md flex items-center space-x-2 transition-all tracking-widest uppercase cursor-pointer shadow-lg shadow-[#ff0000]/15"
-                      >
-                        <span>{HERO_SLIDES[currentHeroSlide].cta}</span>
-                        {/* Thin, long right arrow SVG */}
-                        <svg className="w-5 h-5 text-white ml-2" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                        </svg>
-                      </a>
-                    </motion.div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-            </div>
-
-            {/* Star Placement Overlay: shifted left to align with text */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentHeroSlide}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute bottom-6 left-6 sm:left-12 lg:left-[110px] xl:left-[150px] z-20 flex items-center gap-8 sm:gap-10"
-              >
-                {/* Name & Subtitle block */}
-                <div className="text-left text-white flex flex-col justify-center flex-shrink-0">
-                  <div className="text-2xl sm:text-3xl font-black uppercase tracking-tight leading-tight">
-                    {HERO_SLIDES[currentHeroSlide].studentName.split(" ")[0]}
-                  </div>
-                  {HERO_SLIDES[currentHeroSlide].studentName.split(" ").length > 1 && (
-                    <div className="text-2xl sm:text-3xl font-light uppercase tracking-tight mt-1 leading-tight">
-                      {HERO_SLIDES[currentHeroSlide].studentName.split(" ").slice(1).join(" ")}
-                    </div>
-                  )}
-                  <div className="text-[11px] sm:text-xs font-bold text-gray-400 mt-3 tracking-wider uppercase leading-normal">
-                    {HERO_SLIDES[currentHeroSlide].program}
-                  </div>
-                </div>
-
-                {/* Divider Line in between student info and stat block */}
-                <div className="w-[1px] h-12 bg-white/40 self-center flex-shrink-0" />
-
-                {/* Stat Block: Placement Package */}
-                <div className="text-left text-white flex flex-col justify-center flex-shrink-0">
-                  <div className="text-[11px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider leading-normal">
-                   Package
-                  </div>
-                  <div className="text-lg sm:text-xl font-black text-white mt-3 leading-tight">
-                    {HERO_SLIDES[currentHeroSlide].pkg}
-                  </div>
-                </div>
+                  <button
+                    onClick={() => scrollTo("Programs")}
+                    className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-xs lg:text-sm px-7 py-3.5 rounded-lg transition-all tracking-wide cursor-pointer backdrop-blur-sm"
+                  >
+                    Explore Programs
+                  </button>
+                </motion.div>
               </motion.div>
             </AnimatePresence>
-          </div>
-
-          {/* Center cutout student: Shifted slightly to the right, z-index z-10 puts it behind text and form */}
-          <div className="relative lg:absolute lg:bottom-0 lg:left-[56%] lg:-translate-x-1/2 w-full lg:w-[520px] xl:w-[600px] h-[320px] sm:h-[420px] lg:h-[88%] xl:h-[92%] flex items-end justify-center z-10 pointer-events-none">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentHeroSlide}
-                initial={{ opacity: 0, y: 80 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 40 }}
-                transition={{ type: "spring", stiffness: 60, damping: 15, delay: 0.15 }}
-                className="relative w-full h-full flex items-end justify-center"
-              >
-                {/* Glowing back circle */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[240px] sm:w-[320px] lg:w-[400px] xl:w-[460px] h-[240px] sm:h-[300px] lg:h-[380px] bg-[#E8871A]/20 rounded-full blur-[80px] pointer-events-none z-0" />
-                
-                {/* Bottom horizon beam */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] h-0.5 bg-gradient-to-r from-transparent via-[#E8871A] to-transparent z-10 opacity-60" />
-
-                {/* Cutout student */}
-                <div className="relative w-[280px] sm:w-[360px] lg:w-full h-full flex items-end z-10">
-                  <Image
-                    src={HERO_SLIDES[currentHeroSlide].image}
-                    alt={HERO_SLIDES[currentHeroSlide].studentName}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 520px, 600px"
-                    priority
-                    className="object-contain object-bottom filter drop-shadow-[0_12px_35px_rgba(0,0,0,0.6)]"
-                  />
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Column 10-12: Right Floating Admissions Form */}
-          <div className="lg:col-span-3 flex items-center justify-center lg:justify-end pr-0 lg:pr-2 xl:pr-4 relative z-20">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              className="w-full max-w-[400px] lg:max-w-[360px] xl:max-w-[380px]"
-            >
-              <AdmissionFormWrapper />
-            </motion.div>
           </div>
 
         </div>
-
-        {/* Arrow navigators */}
-        <button
-          onClick={() => setCurrentHeroSlide((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1))}
-          className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/25 hover:bg-[#E8871A] border border-gray-800 text-white p-2.5 rounded-full z-20 cursor-pointer transition-all duration-300 hidden xl:flex items-center justify-center hover:scale-110 active:scale-95"
-          aria-label="Previous Slide"
-        >
-          &larr;
-        </button>
-        <button
-          onClick={() => setCurrentHeroSlide((prev) => (prev === HERO_SLIDES.length - 1 ? 0 : prev + 1))}
-          className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/25 hover:bg-[#E8871A] border border-gray-800 text-white p-2.5 rounded-full z-20 cursor-pointer transition-all duration-300 hidden xl:flex items-center justify-center hover:scale-110 active:scale-95"
-          aria-label="Next Slide"
-        >
-          &rarr;
-        </button>
 
         {/* Slide dots */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center space-x-3 z-30">

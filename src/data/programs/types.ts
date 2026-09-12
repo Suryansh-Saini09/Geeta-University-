@@ -10,6 +10,7 @@ export interface ProgramPageData {
   type: "school" | "program";
   hideRecruiters?: boolean;
   hideTopRecruiters?: boolean;
+  hideRankings?: boolean;
 
   seo: {
     title: string;
@@ -55,6 +56,7 @@ export interface ProgramPageData {
     eyebrow?: string;
     title?: string;
     subtitle?: string;
+    layout?: "cards" | "table";
     items: SpecialisationItem[];
   };
 
@@ -94,6 +96,7 @@ export interface ProgramPageData {
   };
 
   departmentHighlights?: DepartmentHighlightItem[];
+  highlightsImageOnly?: boolean;
 
   brochure?: {
     title?: string;
@@ -211,6 +214,8 @@ export interface ProgramPageData {
     image?: string;
   };
 
+  corporateConnect?: CorporateConnectData;
+
   cta?: {
     heading?: string;
     quote?: string;
@@ -291,7 +296,7 @@ export interface CourseCategory {
   level?: string;
   duration?: string;
   eligibility?: string;
-  specializations?: string[];
+  specializations?: (string | { name: string; href?: string })[];
   details?: React.ReactNode | string;
   programs?: {
     name: string;
@@ -299,7 +304,7 @@ export interface CourseCategory {
     href?: string;
     duration?: string;
     eligibility?: string;
-    specializations?: string[];
+    specializations?: (string | { name: string; href?: string })[];
     details?: React.ReactNode | string;
   }[];
 }
@@ -373,4 +378,27 @@ export interface PathwayCardItem {
 export interface NotableRoleItem {
   name: string;
   iconName?: string;
+}
+
+export interface CorporateConnectVideo {
+  id: string;
+  title?: string;
+  thumbnail?: string;
+}
+
+export interface CorporateConnectEvent {
+  title: string;
+  image: string;
+  alt?: string;
+  text: string;
+  points?: string[];
+  imageFirst?: boolean;
+}
+
+export interface CorporateConnectData {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  videos?: CorporateConnectVideo[];
+  events?: CorporateConnectEvent[];
 }

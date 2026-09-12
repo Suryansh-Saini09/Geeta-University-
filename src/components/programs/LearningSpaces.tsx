@@ -15,7 +15,7 @@ interface LearningSpacesProps {
 
 export default function LearningSpaces({
   eyebrow = "Infrastructure & Laboratories",
-  title = "Highlights of Our Learning Spaces",
+  title = "World-Class Business & Management Infrastructure",
   subtitle,
   spaces = [],
   gallery = [],
@@ -27,26 +27,31 @@ export default function LearningSpaces({
     .map((s) => ({
       src: s.image!,
       title: s.title || "Learning Space",
+      caption: s.desc,
     }));
 
   const galleryImages = gallery.map((g) => ({
     src: g.src,
     title: g.title || "Learning Space",
+    caption: g.caption,
   }));
 
   const allImages = spaceImages.length > 0 ? spaceImages : galleryImages;
 
-  if (allImages.length === 0) {
+  if (allImages.length === 0 && spaces.length === 0) {
     return null;
   }
 
-  // Duplicate items to create a seamless infinite loop
-  const spaceItems = [...allImages, ...allImages];
+  // Duplicate items 4 times to ensure seamless infinite looping without any empty spaces across wide viewports
+  const trackItems = [...allImages, ...allImages, ...allImages, ...allImages];
 
   return (
-    <section className="w-full bg-[#F7F9FC] py-14 md:py-20 border-t border-slate-200/60 overflow-hidden">
+    <section
+      id="Infrastructure"
+      className="w-full bg-[#F7F9FC] py-16 md:py-24 border-t border-slate-200/60 overflow-hidden"
+    >
       {/* Header with Title & Subtitle */}
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 mb-8 md:mb-10">
+      <div className="max-w-[1240px] mx-auto px-6 md:px-10 mb-10 md:mb-12">
         <span
           style={{
             color: "#E8871A",
@@ -55,19 +60,19 @@ export default function LearningSpaces({
             letterSpacing: 2,
             textTransform: "uppercase",
             display: "inline-block",
-            marginBottom: 6,
+            marginBottom: 8,
           }}
         >
           {eyebrow}
         </span>
         <h2
           style={{
-            fontSize: "clamp(30px, 3.8vw, 46px)",
+            fontSize: "clamp(30px, 3.8vw, 44px)",
             fontWeight: 900,
             color: "#0A1F44",
-            margin: "0",
+            margin: "0 0 12px",
             lineHeight: 1.15,
-            letterSpacing: "-1.2px",
+            letterSpacing: "-1px",
           }}
         >
           {title}
@@ -75,10 +80,10 @@ export default function LearningSpaces({
         {subtitle && (
           <p
             style={{
-              fontSize: 16,
+              fontSize: 16.5,
               color: "#4A5568",
               marginTop: 10,
-              maxWidth: 800,
+              maxWidth: 880,
               lineHeight: 1.7,
               fontWeight: 450,
             }}
@@ -88,39 +93,72 @@ export default function LearningSpaces({
         )}
       </div>
 
-      {/* Infinite Auto-Scrolling Track */}
-      <div className="relative w-full overflow-hidden flex select-none group">
-        {/* Left & Right Edge Gradient Fades for Smooth Visual Transitions */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-12 md:w-28 bg-gradient-to-r from-[#F7F9FC] to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-12 md:w-28 bg-gradient-to-l from-[#F7F9FC] to-transparent" />
-
-        {/* Scrolling Flex Container */}
-        <div className="flex gap-5 animate-marquee group-hover:[animation-play-state:paused] shrink-0">
-          {spaceItems.map((space, idx) => (
-            <div
-              key={idx}
-              className="relative w-[210px] sm:w-[250px] md:w-[295px] aspect-[16/11] rounded-xl overflow-hidden border border-slate-200/80 bg-slate-100 shadow-sm shrink-0 group/card hover:shadow-lg transition-all duration-300"
-            >
-              <Image
-                src={space.src}
-                alt={space.title || "Learning Space"}
-                fill
-                sizes="(max-width: 640px) 210px, (max-width: 1024px) 250px, 295px"
-                className="object-cover group-hover/card:scale-105 transition-transform duration-500"
-              />
-            </div>
-          ))}
+      {/* 1. Infrastructure Highlights Grid (if text spaces exist) */}
+      {/* {spaces.length > 0 && (
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {spaces.map((space, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-[0_4px_16px_rgba(10,31,68,0.04)] hover:shadow-[0_10px_25px_rgba(10,31,68,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#FFF3E8] text-[#E8871A] flex items-center justify-center font-bold text-sm mb-4">
+                  0{idx + 1}
+                </div>
+                <h3 className="text-[17px] font-bold text-[#0A1F44] mb-2 leading-snug">
+                  {space.title}
+                </h3>
+                {space.desc && (
+                  <p className="text-[14px] text-[#4A5568] leading-relaxed m-0 font-normal">
+                    {space.desc}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )} */}
+
+      {/* 2. Infinite Auto-Scrolling Photo Stream */}
+      {allImages.length > 0 && (
+        <div className="relative w-full overflow-hidden flex select-none group my-4">
+          {/* Left & Right Edge Gradient Fades for Smooth Visual Transitions */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 md:w-32 bg-gradient-to-r from-[#F7F9FC] to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 md:w-32 bg-gradient-to-l from-[#F7F9FC] to-transparent" />
+
+          {/* Scrolling Flex Track */}
+          <div className="flex gap-6 animate-marquee-track group-hover:[animation-play-state:paused] shrink-0">
+            {trackItems.map((space, idx) => (
+              <div
+                key={idx}
+                className="relative w-[240px] sm:w-[280px] md:w-[330px] aspect-[16/11] rounded-2xl overflow-hidden border border-slate-200/90 bg-white shadow-sm shrink-0 group/card hover:shadow-xl transition-all duration-300"
+              >
+                <Image
+                  src={space.src}
+                  alt={space.title || "Learning Space"}
+                  fill
+                  sizes="(max-width: 640px) 240px, (max-width: 1024px) 280px, 330px"
+                  className="object-cover group-hover/card:scale-105 transition-transform duration-500"
+                />
+                {/* {space.title && (
+                  <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-[#0A1F44]/90 via-[#0A1F44]/50 to-transparent text-white opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex flex-col justify-end">
+                    <span className="text-xs font-bold leading-tight">{space.title}</span>
+                  </div>
+                )} */}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {closingNote && (
-        <div className="max-w-[1280px] mx-auto px-6 md:px-10 mt-8 text-center text-sm text-slate-500 font-medium">
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10 mt-10 text-center text-sm text-[#64748B] font-medium">
           {closingNote}
         </div>
       )}
 
-      <style>{`
-        @keyframes marquee {
+      <style jsx>{`
+        @keyframes marqueeScroll {
           0% {
             transform: translateX(0%);
           }
@@ -128,8 +166,8 @@ export default function LearningSpaces({
             transform: translateX(-50%);
           }
         }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
+        .animate-marquee-track {
+          animation: marqueeScroll 45s linear infinite;
           display: flex;
           width: max-content;
         }

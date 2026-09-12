@@ -9,12 +9,14 @@ interface DepartmentHighlightsProps {
   title?: string;
   subtitle?: string;
   highlights?: DepartmentHighlightItem[];
+  imageOnly?: boolean;
 }
 
 export default function DepartmentHighlights({
   title = "Where Learning Meets Achievement",
   subtitle = "An active, achievement-driven school — not just a classroom environment. Here's a glimpse of what students experience:",
   highlights,
+  imageOnly = false,
 }: DepartmentHighlightsProps) {
   const [selectedHighlight, setSelectedHighlight] = useState<DepartmentHighlightItem | null>(null);
 
@@ -155,9 +157,11 @@ export default function DepartmentHighlights({
               {items.map((item, i) => (
                 <div
                   key={`${setIndex}-${i}`}
-                  onClick={() => setSelectedHighlight(item)}
+                  /* onClick={() => setSelectedHighlight(item)} - Commented out for School of Sciences & Agriculture */
+                  onClick={imageOnly ? undefined : () => setSelectedHighlight(item)}
                   style={{
-                    width: 360,
+                    width: imageOnly ? 360 : 360,
+                    height: imageOnly ? 240 : "auto",
                     flexShrink: 0,
                     background: "#FFFFFF",
                     borderRadius: 16,
@@ -166,7 +170,7 @@ export default function DepartmentHighlights({
                     boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
                     display: "flex",
                     flexDirection: "column",
-                    cursor: "pointer",
+                    cursor: imageOnly ? "default" : "pointer",
                     transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s",
                   }}
                   onMouseEnter={(e) => {
@@ -186,7 +190,7 @@ export default function DepartmentHighlights({
                   <div
                     style={{
                       width: "100%",
-                      height: 220,
+                      height: imageOnly ? "100%" : 220,
                       position: "relative",
                       overflow: "hidden",
                       background: "#F1F5F9",
@@ -212,63 +216,65 @@ export default function DepartmentHighlights({
                     />
                   </div>
 
-                  {/* Content */}
-                  <div
-                    style={{
-                      padding: "24px 28px",
-                      flex: 1,
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <h3
+                  {/* Content below images - Commented out for School of Sciences & Agriculture */}
+                  {/* {!imageOnly && (
+                    <div
                       style={{
-                        fontSize: 20,
-                        fontWeight: 800,
-                        color: "#0A1F44",
-                        margin: "0 0 12px",
-                      }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p
-                      style={{
-                        fontSize: 15,
-                        color: "#4A5568",
-                        margin: 0,
-                        lineHeight: 1.6,
+                        padding: "24px 28px",
                         flex: 1,
+                        display: "flex",
+                        flexDirection: "column",
                       }}
                     >
-                      {item.desc}
-                    </p>
-                    <div style={{ marginTop: "auto", paddingTop: 20 }}>
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedHighlight(item);
-                        }}
+                      <h3
                         style={{
-                          background: "none",
-                          border: "none",
-                          padding: 0,
-                          cursor: "pointer",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 6,
-                          fontSize: 13,
-                          fontWeight: 700,
-                          color: "#E8871A",
-                          textTransform: "uppercase",
-                          letterSpacing: 1,
+                          fontSize: 20,
+                          fontWeight: 800,
+                          color: "#0A1F44",
+                          margin: "0 0 12px",
                         }}
                       >
-                        <span>Read More</span>
-                        <ArrowRight size={14} />
-                      </button>
+                        {item.title}
+                      </h3>
+                      <p
+                        style={{
+                          fontSize: 15,
+                          color: "#4A5568",
+                          margin: 0,
+                          lineHeight: 1.6,
+                          flex: 1,
+                        }}
+                      >
+                        {item.desc}
+                      </p>
+                      <div style={{ marginTop: "auto", paddingTop: 20 }}>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedHighlight(item);
+                          }}
+                          style={{
+                            background: "none",
+                            border: "none",
+                            padding: 0,
+                            cursor: "pointer",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 6,
+                            fontSize: 13,
+                            fontWeight: 700,
+                            color: "#E8871A",
+                            textTransform: "uppercase",
+                            letterSpacing: 1,
+                          }}
+                        >
+                          <span>Read More</span>
+                          <ArrowRight size={14} />
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  )} */}
                 </div>
               ))}
             </div>
@@ -276,9 +282,9 @@ export default function DepartmentHighlights({
         </motion.div>
       </div>
 
-      {/* Modal for Read More */}
+      {/* Modal for Read More - Disabled in imageOnly mode */}
       <AnimatePresence>
-        {selectedHighlight && (
+        {!imageOnly && selectedHighlight && (
           <div
             style={{
               position: "fixed",
@@ -315,7 +321,7 @@ export default function DepartmentHighlights({
                 background: "#FFFFFF",
                 borderRadius: 24,
                 overflow: "hidden",
-                maxWidth: 580,
+                maxWidth: imageOnly ? 800 : 580,
                 width: "100%",
                 boxShadow: "0 24px 60px rgba(0,0,0,0.25)",
                 zIndex: 100000,
@@ -355,39 +361,58 @@ export default function DepartmentHighlights({
               </button>
 
               {/* Modal Image */}
-              <div style={{ width: "100%", height: 280, position: "relative", background: "#F1F5F9" }}>
+              <div
+                style={{
+                  width: "100%",
+                  height: imageOnly ? "auto" : 280,
+                  maxHeight: "85vh",
+                  position: "relative",
+                  background: "#0A1F44",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={selectedHighlight.image}
                   alt={selectedHighlight.title}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    width: "100%",
+                    height: imageOnly ? "auto" : "100%",
+                    maxHeight: "85vh",
+                    objectFit: imageOnly ? "contain" : "cover",
+                    display: "block",
+                  }}
                 />
               </div>
 
-              {/* Modal Content */}
-              <div style={{ padding: "28px 32px 32px" }}>
-                <h3
-                  style={{
-                    fontSize: 24,
-                    fontWeight: 800,
-                    color: "#0A1F44",
-                    marginBottom: 14,
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {selectedHighlight.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: 16,
-                    color: "#4A5568",
-                    lineHeight: 1.7,
-                    margin: 0,
-                  }}
-                >
-                  {selectedHighlight.desc}
-                </p>
-              </div>
+              {/* Modal Content - Commented out for School of Sciences & Agriculture */}
+              {/* {!imageOnly && (
+                <div style={{ padding: "28px 32px 32px" }}>
+                  <h3
+                    style={{
+                      fontSize: 24,
+                      fontWeight: 800,
+                      color: "#0A1F44",
+                      marginBottom: 14,
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {selectedHighlight.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: 16,
+                      color: "#4A5568",
+                      lineHeight: 1.7,
+                      margin: 0,
+                    }}
+                  >
+                    {selectedHighlight.desc}
+                  </p>
+                </div>
+              )} */}
             </motion.div>
           </div>
         )}

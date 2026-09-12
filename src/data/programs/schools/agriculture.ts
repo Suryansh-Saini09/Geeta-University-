@@ -290,6 +290,8 @@ export const agricultureSchool: ProgramPageData = {
   shortName: "School of Agricultural Studies",
   type: "school",
   hideRecruiters: true,
+  hideRankings: true,
+  highlightsImageOnly: true,
 
   seo: {
     title: "Leading Agriculture College in Haryana | Geeta University",

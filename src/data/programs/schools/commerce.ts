@@ -4,18 +4,24 @@ import type { CourseFAQItem } from "../courses/types";
 export const commerceSchool: ProgramPageData = {
   slug: "school-of-commerce-and-business-management",
   type: "school",
+  hideRecruiters: true,
+  hideTopRecruiters: true,
+  hideRankings: true,
 
   seo: {
-    title: "Best BBA, MBA & Commerce Programs in Haryana & Delhi NCR | Geeta University",
-    description: "Explore the School of Commerce & Business Management at Geeta University. Discover modern specialisations in FinTech, AI & Data Analytics, Digital Marketing, ACCA, and more.",
+    title: "Best MBA & Ph.D. Management Programs in Haryana | Geeta University",
+    description: "Geeta University offers top-ranked MBA and Ph.D. programs in Supply Chain, HR, Pharmaceutical, and Hotel Management in Haryana & Delhi NCR. Enroll now at one of the best private universities.",
     keywords: [
       "School of Commerce & Business Management",
-      "BBA college in Haryana",
-      "MBA college in Haryana",
-      "BBA university in Haryana",
-      "MBA university in Haryana",
-      "B.Com colleges in Delhi NCR",
-      "Panipat Management University",
+      "bba college in haryana",
+      "bachelor of business odministrotion",
+      "bachelor of business administration university in haryana",
+      "best bba university in haryana",
+      "top bba university in haryana",
+      "bba course university in haryana",
+      "university school of business",
+      "geeta university",
+      "gu",
     ],
   },
 
@@ -37,7 +43,7 @@ export const commerceSchool: ProgramPageData = {
     ],
     image: "/bba photo.jpeg",
     badgeText: "Future Leaders Are Made Here",
-    careers: [
+    /* careers: [
       "Investment Banking & FinTech",
       "Business Analytics & Data Insights",
       "Digital Marketing & Brand Strategy",
@@ -46,7 +52,7 @@ export const commerceSchool: ProgramPageData = {
       "Strategic HR & Talent Management",
       "Wealth Management & Banking",
       "Entrepreneurship & Startup Leadership",
-    ],
+    ], */
     closingText:
       "Our learning environment blends case-study pedagogy, live financial simulations, corporate internships, and expert mentorship from top industry leaders.",
   },
@@ -63,6 +69,88 @@ export const commerceSchool: ProgramPageData = {
     ],
   },
 
+  specialisations: {
+    eyebrow: "MANAGEMENT & COMMERCE EXCELLENCE",
+    title: "We Don't Just Educate, We Transform Futures!",
+    subtitle: "An active, achievement-driven business ecosystem designed for tomorrow's corporate leaders.",
+    layout: "cards",
+    items: [
+      {
+        title: "Holistic Development",
+        points: [
+          "Club and clan culture",
+          "Soft skills training",
+          "Ethical mindset nurturing",
+          "Practical personality grooming",
+        ],
+      },
+      {
+        title: "Industry-Driven Curriculum",
+        points: [
+          "Role plays & simulations",
+          "Real-world case studies",
+          "Business games practice",
+          "Internship-based learning",
+        ],
+      },
+      {
+        title: "XEDGE Program Advantage",
+        points: [
+          "Corporate attitude coaching",
+          "Career and life skills",
+          "Leadership mindset training",
+          "Social responsibility building",
+        ],
+      },
+      {
+        title: "Wide Specialization Options",
+        points: [
+          "BBA & MBA pathways",
+          "Commerce and finance tracks",
+          "ACCA UK affiliations",
+          "Futuristic fields like FinTech",
+        ],
+      },
+      {
+        title: "Skill Enhancement Focus",
+        points: [
+          "Excel & Power BI skills",
+          "Digital marketing modules",
+          "Leadership negotiation training",
+          "WordPress & HTML basics",
+        ],
+      },
+      {
+        title: "Global Exposure",
+        points: [
+          "International internships offered",
+          "Partnered global universities",
+          "Multinational student diversity",
+          "Real global industry touch",
+        ],
+      },
+      {
+        title: "Top Placements Record",
+        points: [
+          "Up to 40 LPA offers",
+          "MNC collaborations & conclaves",
+          "Pre-placement training support",
+          "LinkedIn and mock interviews",
+        ],
+      },
+      {
+        title: "Flexible Learning Design",
+        points: [
+          "Customize your degree",
+          "Passion-based electives",
+          "Research integrated options",
+          "Competency-based modules",
+        ],
+      },
+    ],
+  },
+
+  /*
   specialisations: {
     eyebrow: "EXPLORE YOUR SPECIALISATION",
     title: "Programs Designed for Future Business Leaders",
@@ -151,6 +239,7 @@ export const commerceSchool: ProgramPageData = {
       },
     ],
   },
+  */
 
   featuredPrograms: {
     title1: "Bachelor of Commerce",
@@ -203,29 +292,190 @@ export const commerceSchool: ProgramPageData = {
     eyebrow: "EXPERT FACULTY",
     title: "Meet Our Mentors",
     faculty: [
-      { name: "Ms. Anjali Ahuja", designation: "Faculty Member", description: "Dedicated to academic excellence and student mentorship in business studies.", image: "/programs/commerce/scbm faculty/Anjali.webp" },
-      { name: "Dr. Anupama", designation: "Faculty Member", description: "Specializes in modern business practices and organizational behavior.", image: "/programs/commerce/scbm faculty/Anupama.webp" },
-      { name: "Ms. Indu Aggarwal", designation: "Faculty Member", description: "Expert in strategic management and corporate governance.", image: "/programs/commerce/scbm faculty/Indu.webp" },
-      { name: "Dr. Neeraj Rana", designation: "Faculty Member", description: "Focuses on operations management and business analytics.", image: "/programs/commerce/scbm faculty/NeerajRana.webp" },
-      { name: "Parul S. Ghangas", designation: "Faculty Member", description: "Experienced in consumer behavior and market research methodologies.", image: "/programs/commerce/scbm faculty/Parul.webp" },
-      { name: "Dr. Pooja Gupta", designation: "Faculty Member", description: "Brings extensive industry experience to classroom learning.", image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp" },
-      { name: "Dr. Poonam", designation: "Faculty Member", description: "Passionate about entrepreneurship and innovation in business.", image: "/programs/commerce/scbm faculty/Poonam.webp" },
-      { name: "Mr. Sanjay Aggarwal", designation: "Faculty Member", description: "Specializes in financial accounting and corporate finance.", image: "/programs/commerce/scbm faculty/Sanjay.webp" },
-      { name: "Ms. Shivani Taya", designation: "Faculty Member", description: "Focuses on human resource management and talent acquisition.", image: "/programs/commerce/scbm faculty/Shivani.webp" },
-      { name: "Mr. Anil Kumar Shahi", designation: "Faculty Member", description: "Expert in international business and global supply chain.", image: "/programs/commerce/scbm faculty/anil.webp" },
-      { name: "Ms. Arpana Mutt", designation: "Faculty Member", description: "Dedicated to research in behavioral economics and public policy.", image: "/programs/commerce/scbm faculty/arpana.webp" },
-      { name: "Dr. Ashutosh Srivastav", designation: "Faculty Member", description: "Specializes in digital marketing and e-commerce strategies.", image: "/programs/commerce/scbm faculty/ashutosh.webp" },
-      { name: "Ms. Divya", designation: "Faculty Member", description: "Brings expertise in brand management and retail marketing.", image: "/programs/commerce/scbm faculty/divya.webp" },
-      { name: "Mr. Harkamal", designation: "Faculty Member", description: "Focuses on leadership development and organizational change.", image: "/programs/commerce/scbm faculty/harmangat.webp" },
-      { name: "Mr. Karan", designation: "Faculty Member", description: "Expert in investment analysis and portfolio management.", image: "/programs/commerce/scbm faculty/karan.webp" },
-      { name: "Mr. Manish", designation: "Faculty Member", description: "Specializes in strategic human resource management.", image: "/programs/commerce/scbm faculty/manish.webp" },
-      { name: "Dr. Neha", designation: "Faculty Member", description: "Dedicated to advancing research in sustainable business practices.", image: "/programs/commerce/scbm faculty/neha.webp" },
-      { name: "Dr. Nidhi Gehlawat", designation: "Faculty Member", description: "Focuses on corporate law and business ethics.", image: "/programs/commerce/scbm faculty/nidhig.webp" },
-      { name: "Dr. Nidhi Gupta", designation: "Faculty Member", description: "Expert in organizational psychology and team dynamics.", image: "/programs/commerce/scbm faculty/nidhigupta.webp" },
-      { name: "Ms. Prerna", designation: "Faculty Member", description: "Specializes in service marketing and customer relationship management.", image: "/programs/commerce/scbm faculty/prerna.webp" },
-      { name: "Dr. Rekha Narang", designation: "Faculty Member", description: "Brings deep knowledge in financial modeling and risk management.", image: "/programs/commerce/scbm faculty/rekha.webp" },
-      { name: "Dr. Sangeeta", designation: "Faculty Member", description: "Focuses on cross-cultural management and diversity.", image: "/programs/commerce/scbm faculty/sangeeta.webp" },
-      { name: "Dr. Vivek", designation: "Faculty Member", description: "Expert in business intelligence and data-driven decision making.", image: "/programs/commerce/scbm faculty/vivek.webp" },
+      {
+        name: "Dr. Vivek Rastogi",
+        designation: "Professor, Ph.D.",
+        role: "Professor, Ph.D.",
+        description:
+          "Dr. Vivek Rastogi is an academician and researcher with expertise in Management, Human Resource Management, Learning & Development, and Emerging Technologies. He is committed to fostering student growth through innovative teaching, research, industry collaboration, and mentorship. His research interests include technology adoption, consumer behavior, electric vehicles, digital transformation, and organizational development.",
+        image: "/programs/commerce/scbm faculty/vivek.webp",
+      },
+      {
+        name: "Dr. Sangeeta Chaudhary",
+        designation: "Associate Professor, Ph.D.",
+        role: "Associate Professor, Ph.D.",
+        description:
+          "Authored the book 'Managerial Economics', published research papers and book chapters in esteemed Scopus and ABDC journals, and presented research at international conferences. Recipient of the prestigious 'Best Team Leader' award. Contributed to teaching and research at the School of Commerce & Business Management.",
+        image: "/programs/commerce/scbm faculty/sangeeta.webp",
+      },
+      {
+        name: "Parul S. Ghangas",
+        designation: "Assistant Professor, M.Phil., Pursuing Ph.D., MBA",
+        role: "Assistant Professor, M.Phil., Pursuing Ph.D., MBA",
+        description:
+          "Gold Medalist in M.Phil.; Published Research Papers in Scopus, WoS, ABDC, Published Book Chapter, Active in Counseling, Admissions, and Teaching; Recognized as a dedicated team contributor at both departmental and university levels.",
+        image: "/programs/commerce/scbm faculty/Parul.webp",
+      },
+      {
+        name: "Dr. Poonam",
+        designation: "Assistant Professor, Ph.D., M.Phil",
+        role: "Assistant Professor, Ph.D., M.Phil",
+        description:
+          "Published Research Papers (Scopus, WoS, ABDC); Contributed to conferences at IIMs, NITs and other reputed institutions; Research interests in Digital Marketing and Finance.",
+        image: "/programs/commerce/scbm faculty/Poonam.webp",
+      },
+      {
+        name: "Dr. Neha Arora",
+        designation: "Assistant Professor, Ph.D.",
+        role: "Assistant Professor, Ph.D.",
+        description:
+          "Published Research Papers (Scopus, WoS, ABDC); Contributed to conferences at IIMs and other reputed institutions; Research interests in Financial Inclusion, Socio-Economic Development, and Policy Making.",
+        image: "/programs/commerce/scbm faculty/neha.webp",
+      },
+      {
+        name: "Ms. Prerna",
+        designation: "Assistant Professor, M.Com., UGC NET",
+        role: "Assistant Professor, M.Com., UGC NET",
+        description:
+          "Passionate & Dedicated Educator specializing in Commerce and Finance. Advancing student success through research, innovation, and technology-driven education.",
+        image: "/programs/commerce/scbm faculty/prerna.webp",
+      },
+      {
+        name: "Ms. Shivani Taya",
+        designation: "Assistant Professor, M.Com., NET, MBA, Pursuing Ph.D. (Commerce)",
+        role: "Assistant Professor, M.Com., NET, MBA, Pursuing Ph.D. (Commerce)",
+        description:
+          "10+ research publications in ABDC, Scopus, UGC CARE, and other journals, and presented at 20+ national and international conferences, 1 national patent, 10+ book chapters.",
+        image: "/programs/commerce/scbm faculty/Shivani.webp",
+      },
+      {
+        name: "Divya",
+        designation: "Assistant Professor, M.Com. (NET)",
+        role: "Assistant Professor, M.Com. (NET)",
+        description:
+          "Commerce and management faculty with a dedicated focus on core accounting concepts and business mentorship.",
+        image: "/programs/commerce/scbm faculty/divya.webp",
+      },
+      {
+        name: "Dr. Nidhi Gehlawat",
+        designation: "Assistant Professor, Ph.D. (Human Resource)",
+        role: "Assistant Professor, Ph.D. (Human Resource)",
+        description:
+          "Core specialization in Human Resources, researching human resource dynamics, contemporary management practices, and academic development with publications in Scopus-indexed and ABDC journals.",
+        image: "/programs/commerce/scbm faculty/nidhig.webp",
+      },
+      {
+        name: "Mr. Karan Gill",
+        designation: "Professor of Practice",
+        role: "Professor of Practice",
+        description:
+          "Entrepreneur with 20+ years of experience in operations (Sales & Marketing), Senior Management Professional across Retail, FMCG, Telecom, and Service/Entertainment sectors.",
+        image: "/programs/commerce/scbm faculty/karan.webp",
+      },
+      {
+        name: "Mr. Manish Anand",
+        designation: "Professor of Practice",
+        role: "Professor of Practice",
+        description:
+          "VP & CIO with 25+ years of experience, specialized in driving large-scale digital transformations, IT operations, and enabling data-driven enterprises through AI, cloud, and automation.",
+        image: "/programs/commerce/scbm faculty/manish.webp",
+      },
+      {
+        name: "Mr. Anil Kumar Shahi",
+        designation: "Professor of Practice",
+        role: "Professor of Practice",
+        description:
+          "Consultant & Advisor in operational excellence with 40 years of Leadership roles in Technology Operations Excellence and Management capacities.",
+        image: "/programs/commerce/scbm faculty/anil.webp",
+      },
+      {
+        name: "Mr. Harkamal Mangat",
+        designation: "Professor of Practice",
+        role: "Professor of Practice",
+        description:
+          "Senior Manager Sales Planning with 28 years of experience, Head Of Sales Planning with demonstrated leadership in automotive sales, business development, and analytical operations.",
+        image: "/programs/commerce/scbm faculty/harmangat.webp",
+      },
+      {
+        name: "Dr. Ashutosh Srivastava",
+        designation: "Professor of Practice",
+        role: "Professor of Practice",
+        description:
+          "Strategic Advisor, Academic Contributor & Mentor, Supply Chain Management Expert with 30 years of experience across commercial operations and logistics.",
+        image: "/programs/commerce/scbm faculty/ashutosh.webp",
+      },
+      {
+        name: "Ms. Arpana Mutt",
+        designation: "Professor of Practice",
+        role: "Professor of Practice",
+        description:
+          "24+ years experience, AVP-Capability & Inclusion Strategy, AI-First HR Leader building AI-enabled inclusive workforces, future skills, and fresher skilling programs.",
+        image: "/programs/commerce/scbm faculty/arpana.webp",
+      },
+      {
+        name: "Ms. Indu Aggarwal",
+        designation: "Professor of Practice",
+        role: "Professor of Practice",
+        description:
+          "Visionary social entrepreneur, transitioned from corporate leadership at HSBC to lead impactful wellness and skill-building initiatives for student development.",
+        image: "/programs/commerce/scbm faculty/Indu.webp",
+      },
+      {
+        name: "Mr. Sanjay Aggarwal",
+        designation: "Professor of Practice",
+        role: "Professor of Practice",
+        description:
+          "Entrepreneur, Mindset Coach, Business Growth Strategist. Established entrepreneurial learning cells and impactful coaching sessions for leadership development.",
+        image: "/programs/commerce/scbm faculty/Sanjay.webp",
+      },
+      {
+        name: "Dr. Neeraj Rana",
+        designation: "Associate Professor, Ph.D. (Management), MBA, M.Com.",
+        role: "Associate Professor, Ph.D. (Management), MBA, M.Com.",
+        description:
+          "Published 20+ Research Papers (ABDC, Scopus, WoS, UGC Care); Contributed 5 Edited Books; Supervising Ph.D. scholars; Holds 2 UK Designs & 1 Indian Patent; Awarded Best Paper at IEEE Conference.",
+        image: "/programs/commerce/scbm faculty/NeerajRana.webp",
+      },
+      {
+        name: "Ms. Anjali Ahuja",
+        designation: "Assistant Professor, M.Phil., MBA, M.Com. Pursuing Ph.D.",
+        role: "Assistant Professor, M.Phil., MBA, M.Com. Pursuing Ph.D.",
+        description:
+          "Authored 'Principles of Banking'; Published in Scopus/ABDC Journals; 3 years corporate experience at HDFC Bank; Recipient of Best Teacher and Researcher Awards.",
+        image: "/programs/commerce/scbm faculty/Anjali.webp",
+      },
+      {
+        name: "Dr. Pooja Gupta",
+        designation: "Associate Professor, Ph.D.",
+        role: "Associate Professor, Ph.D.",
+        description:
+          "Expert in Behavioral Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development in management and finance.",
+        image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp",
+      },
+      {
+        name: "Dr. Nidhi Gupta",
+        designation: "Assistant Professor, Ph.D., UGC NET",
+        role: "Assistant Professor, Ph.D., UGC NET",
+        description:
+          "Ph.D. in Management; researcher, educator, and author with publications in reputed Scopus and ABDC-indexed journals.",
+        image: "/programs/commerce/scbm faculty/nidhigupta.webp",
+      },
+      {
+        name: "Dr. Anupama",
+        designation: "Assistant Professor, Ph.D. (Management), MBA, M.Com",
+        role: "Assistant Professor, Ph.D. (Management), MBA, M.Com",
+        description:
+          "Published and presented 40+ Research Papers (Scopus, ABDC, WoS); UGC-NET-JRF in Management; Holds Multiple Patents; Specialised in HR and Marketing.",
+        image: "/programs/commerce/scbm faculty/Anupama.webp",
+      },
+      {
+        name: "Dr. Rekha Narang",
+        designation: "Professor, Ph.D.",
+        role: "Professor, Ph.D.",
+        description:
+          "Professor specializing in Research Methodologies, Quantitative Techniques, Statistics, and Financial Decision Modeling.",
+        image: "/programs/commerce/scbm faculty/rekha.webp",
+      },
     ],
   },
 
@@ -327,6 +577,7 @@ export const commerceSchool: ProgramPageData = {
     title: "World-Class Business & Management Infrastructure",
     description:
       "Students learn in high-tech simulation environments designed to mirror modern corporate boardrooms, financial trading floors, and startup incubators:",
+    /*
     spaces: [
       {
         title: "FinTech & Data Analytics Simulation Lab",
@@ -359,6 +610,7 @@ export const commerceSchool: ProgramPageData = {
         icon: "",
       },
     ],
+    */
     gallery: [
       {
         src: "/spbsb-immersive-classroom.jpg",
@@ -375,11 +627,52 @@ export const commerceSchool: ProgramPageData = {
         title: "Executive Presentation Studio",
         caption: "Students pitching startup proposals and marketing campaigns to industry panels.",
       },
+      {
+        src: "/campus-life/facility-classrooms.jpg",
+        title: "Smart Collaborative Classroom",
+        caption: "Technology-enabled active learning classrooms with modern audio-visual systems.",
+      },
+      {
+        src: "/campus-life/facility-labs.jpg",
+        title: "Business Computing & Data Lab",
+        caption: "High-performance computing lab for analytics, modeling, and ERP training.",
+      },
+      {
+        src: "/campus-life/facility-library.jpg",
+        title: "Central Management Library",
+        caption: "Extensive repository of global business journals, case studies, and research papers.",
+      },
+      {
+        src: "/campus-life/facility-auditorium.jpg",
+        title: "University Grand Auditorium",
+        caption: "State-of-the-art venue for national conferences, conclaves, and guest lectures.",
+      },
+      {
+        src: "/campus-life/facility-conference.jpg",
+        title: "Executive Boardroom Suite",
+        caption: "Simulation chamber for corporate meetings, negotiations, and leadership debates.",
+      },
+      {
+        src: "/campus-life/facility-cafeteria.jpg",
+        title: "Student Cafeteria & Lounge",
+        caption: "Vibrant student collaboration space.",
+      },
     ],
+    /*
+    previousGalleryWithLabels: [
+      { src: "/spbsb-infrastructure-glimpses/computer-lab.jpeg" },
+      { src: "/spbsb-infrastructure-glimpses/library.jpeg" },
+      { src: "/spbsb-infrastructure-glimpses/auditorium.jpeg" },
+      { src: "/spbsb-infrastructure-glimpses/conference-room.jpeg" },
+      { src: "/spbsb-infrastructure-glimpses/seminar-hall-1.jpeg" },
+      { src: "/spbsb-infrastructure-glimpses/classroom.jpeg" },
+    ],
+    */
     closingNote:
       "All facilities are crafted to provide authentic corporate readiness, strategic decision-making ability, and executive presence.",
   },
 
+  /*
   careerPathways: {
     title: "Your Management Degree. Endless Corporate Opportunities.",
     description:
@@ -436,6 +729,7 @@ export const commerceSchool: ProgramPageData = {
       { name: "Corporate Strategist" },
     ],
   },
+  */
 
   brochure: {
     title: "Download Commerce & Management Brochure",
@@ -445,6 +739,7 @@ export const commerceSchool: ProgramPageData = {
     fileName: "School_of_Management_Brochure.pdf",
   },
 
+  /*
   experts: {
     eyebrow: "School of Business & Management",
     title: "Learn from 5 Categories of Experts",
@@ -526,6 +821,63 @@ export const commerceSchool: ProgramPageData = {
       },
     ],
   },
+  */
+
+  corporateConnect: {
+    eyebrow: "INDUSTRY INTERACTION & CORPORATE SESSIONS",
+    title: "Corporate Connect",
+    description:
+      "Geeta University hosted a series of impactful academic and industry-oriented events, panel discussions, and student interactive sessions, connecting theoretical foundations with real-world corporate insights.",
+    videos: [
+      { id: "ydEwjmXEMoE" /* , title: "Corporate Connect Session 1" */ },
+      { id: "Vq3WHOM95do" /* , title: "Corporate Connect Session 2" */ },
+      { id: "1UZgy4u7JBY" /* , title: "Corporate Connect Session 3" */ },
+      { id: "pYmHzeBzYLk" /* , title: "Corporate Connect Session 4" */ },
+      { id: "XaVC8nwH8Wo" /* , title: "Corporate Connect Session 5" */ },
+      { id: "c5SV0KTIEWU" /* , title: "Corporate Connect Session 6" */ },
+      { id: "lyML175cO4A" /* , title: "Corporate Connect Session 7" */ },
+      { id: "Ysvn5sxTn9I" /* , title: "Corporate Connect Session 8" */ },
+    ],
+    /*
+    events: [
+      {
+        title: "Budget Analysis 2026",
+        image: "/spbsb-budget-analysis-2026.png",
+        alt: "Budget Analysis 2026 panel discussion at Geeta University",
+        text: "The School of Commerce and Business Management at Geeta University successfully hosted a Panel Discussion on Budget Analysis - 2026. The event hit its mark by smoothly integrating academic theories with real-world industry perspectives. Our expert panelists examined closely the latest fiscal policies, providing our students and faculty with a roadmap to understanding the economic landscape of the coming year.",
+        imageFirst: true,
+      },
+      {
+        title: "FinTech Conclave 2026",
+        image: "/spbsb-fintech-conclave-2026.jpg",
+        alt: "FinTech Conclave 2026 panel discussion at Geeta University",
+        text: "FinTech Conclave 2026 at Geeta University hosted a panel on Intelligent Finance: AI, Innovation & the Future of FinTech. Experts discussed the startup ecosystem, regulatory frameworks, and the roles of RBI, SEBI, and NPCI. The session highlighted technological skills driving GCC growth and expanding BFSI opportunities, while guiding students on essential skills required for careers in the FinTech industry.",
+        imageFirst: false,
+      },
+      {
+        title: "Workshop on Enabling Indigenous Technologies",
+        image: "/spbsb-indigenous-technologies-workshop.jpg",
+        alt: "Workshop on Enabling Indigenous Technologies group at Geeta University",
+        text: "Geeta University hosted a Workshop on Enabling Indigenous Technologies, organized by the State Support Mission (Haryana Government) in collaboration with DST-TEC, Panjab University. The event bridged the gap between academia and industry, showcasing innovative research, especially in textiles. It fostered dialogue between researchers and industry leaders, enabling practical solutions to real-world challenges while promoting applied research and sustainable business development.",
+        imageFirst: true,
+      },
+      {
+        title: "Workshop on Cyber Security by EC Council",
+        image: "/spbsb-cyber-security-workshop.jpg",
+        alt: "Cyber Security workshop by EC Council group at Geeta University",
+        text: "The School of Commerce and Business Management at Geeta University organized a Cyber Security workshop by EC-Council by Mr. Vikram Kumar Jha, Senior Manager and MCTS-certified trainer. The session covered cyber threats, phishing, fraud, and malware, along with hands-on tools for risk prevention. Students learned safe browsing, digital responsibility, and fundamentals of securing networks, data, and servers to safeguard organizational assets.",
+        imageFirst: false,
+      },
+      {
+        title: "Workshop on Design Thinking",
+        image: "/spbsb-design-thinking-workshop.jpg",
+        alt: "Design Thinking workshop at Geeta University",
+        text: "The School of Commerce and Business Management at Geeta University hosted a Design Thinking workshop featuring Prof. Vijay Ghei. The session explored empathy, ideation, and prototyping, emphasizing human-centered approaches like empathy mapping. Faculty and students learned to create innovative solutions, enabling them to address real-world challenges while fostering critical and creative thinking for a future-ready, problem-solving oriented curriculum.",
+        imageFirst: true,
+      },
+    ],
+    */
+  },
 
   cta: {
     heading: "Your Future in Business Starts Here",
@@ -553,124 +905,103 @@ export const commerceSchool: ProgramPageData = {
 
   courses: [
     {
-      title: "BBA Programs",
-      level: "Undergraduate (3/4 Years)",
+      title: "Under-Graduate Programs",
+      level: "Under-Graduate",
       duration: "3/4 Years",
       eligibility:
-        "Passed 10+2 examination with at least 50% marks in the qualifying examination.",
+        "Passed 10+2 examination (in any stream) with at least 50% marks in aggregate from any recognized board.",
       programs: [
         {
           name: "BBA Hons. (Bachelor of Business Administration)",
+          program: "BBA Hons. (Bachelor of Business Administration)",
           href: "/programs/school-of-commerce-and-business-management/bba",
+          duration: "3/4 Years",
+          eligibility:
+            "Passed 10+2 examination with at least 50% marks in aggregate from any recognized board.",
+          specializations: [
+            { name: "General Business Administration", href: "/programs/school-of-commerce-and-business-management/bba" },
+            { name: "International Accounting with ACCA UK", href: "/programs/school-of-commerce-and-business-management/bba-international-accounting-acca" },
+            { name: "Artificial Intelligence & Data Analytics", href: "/programs/school-of-commerce-and-business-management/bba-ai-data-analytics" },
+            { name: "Human Resource Management", href: "/programs/school-of-commerce-and-business-management/bba-hrm" },
+            { name: "Import & Export Management", href: "/programs/school-of-commerce-and-business-management/bba-import-export" },
+            { name: "Banking & Finance", href: "/programs/school-of-commerce-and-business-management/bba-banking-finance" },
+            { name: "Marketing", href: "/programs/school-of-commerce-and-business-management/bba-marketing" },
+            { name: "FinTech", href: "/programs/school-of-commerce-and-business-management/bba-fintech" },
+            { name: "Digital Marketing", href: "/programs/school-of-commerce-and-business-management/bba-digital-marketing" },
+            { name: "Entrepreneurship & Family Business", href: "/programs/school-of-commerce-and-business-management/bba-entrepreneurship" },
+          ],
         },
-        {
-          name: "BBA Hons. (International Accounting with ACCA UK)",
-          href: "/programs/school-of-commerce-and-business-management/bba-international-accounting-acca",
-        },
-        {
-          name: "BBA Hons. (Artificial Intelligence & Data Analytics)",
-          href: "/programs/school-of-commerce-and-business-management/bba-ai-data-analytics",
-        },
-        {
-          name: "BBA Hons. (Human Resource Management)",
-          href: "/programs/school-of-commerce-and-business-management/bba-hrm",
-        },
-        {
-          name: "BBA Hons. (Import & Export Management)",
-          href: "/programs/school-of-commerce-and-business-management/bba-import-export",
-        },
-        {
-          name: "BBA Hons. (Banking & Finance)",
-          href: "/programs/school-of-commerce-and-business-management/bba-banking-finance",
-        },
-        {
-          name: "BBA Hons. (Marketing)",
-          href: "/programs/school-of-commerce-and-business-management/bba-marketing",
-        },
-        {
-          name: "BBA Hons. (FinTech)",
-          href: "/programs/school-of-commerce-and-business-management/bba-fintech",
-        },
-        {
-          name: "BBA Hons. (Digital Marketing)",
-          href: "/programs/school-of-commerce-and-business-management/bba-digital-marketing",
-        },
-        {
-          name: "BBA Hons. (Entrepreneurship and Family Business)",
-          href: "/programs/school-of-commerce-and-business-management/bba-entrepreneurship",
-        },
-      ],
-    },
-    {
-      title: "B.Com. Programs",
-      level: "Undergraduate (3/4 Years)",
-      duration: "3/4 Years",
-      eligibility: "Passed 10+2 examination with at least 50% marks.",
-      programs: [
         {
           name: "B.Com. Hons. (Bachelor of Commerce)",
+          program: "B.Com. Hons. (Bachelor of Commerce)",
           href: "/programs/school-of-commerce-and-business-management/bcom",
-        },
-        {
-          name: "B.Com. Hons. (International Accounting with ACCA UK)",
-          href: "/programs/school-of-commerce-and-business-management/bcom-international-accounting-acca",
-        },
-        {
-          name: "B.Com. Hons. (Auditing & Taxation)",
-          href: "/programs/school-of-commerce-and-business-management/bcom-auditing-taxation",
-        },
-        {
-          name: "B.Com. Hons. (Banking & Insurance)",
-          href: "/programs/school-of-commerce-and-business-management/bcom-banking-insurance",
-        },
-        {
-          name: "B.Com. Hons. (Advance Accounting)",
-          href: "/programs/school-of-commerce-and-business-management/bcom-advance-accounting",
+          duration: "3/4 Years",
+          eligibility: "Passed 10+2 examination with at least 50% marks.",
+          specializations: [
+            { name: "General Commerce & Accountancy", href: "/programs/school-of-commerce-and-business-management/bcom" },
+            { name: "International Accounting with ACCA UK", href: "/programs/school-of-commerce-and-business-management/bcom-international-accounting-acca" },
+            { name: "Auditing & Taxation", href: "/programs/school-of-commerce-and-business-management/bcom-auditing-taxation" },
+            { name: "Banking & Insurance", href: "/programs/school-of-commerce-and-business-management/bcom-banking-insurance" },
+            { name: "Advance Accounting", href: "/programs/school-of-commerce-and-business-management/bcom-advance-accounting" },
+          ],
         },
       ],
     },
     {
-      title: "MBA Programs",
-      level: "Postgraduate (2 Years)",
+      title: "Post-Graduate Programs",
+      level: "Post-Graduate",
       duration: "2 Years",
       eligibility:
-        "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
+        "Passed Bachelor's Degree of minimum 3 years duration with at least 50% marks in aggregate.",
       programs: [
         {
-          name: "MBA (Finance)",
-          href: "/programs/school-of-commerce-and-business-management/mba-finance",
+          name: "MBA (Master of Business Administration)",
+          program: "MBA (Master of Business Administration)",
+          href: "/programs/school-of-commerce-and-business-management/mba",
+          duration: "2 Years",
+          eligibility:
+            "Passed Bachelor's Degree of minimum 3 years duration with at least 50% marks in aggregate.",
+          specializations: [
+            { name: "Finance", href: "/programs/school-of-commerce-and-business-management/mba-finance" },
+            { name: "Marketing", href: "/programs/school-of-commerce-and-business-management/mba-marketing" },
+            { name: "Human Resource Management", href: "/programs/school-of-commerce-and-business-management/mba-hrm" },
+            { name: "Pharmaceutical Management", href: "/programs/school-of-commerce-and-business-management/mba-pharmaceutical-management" },
+            { name: "Supply Chain Management", href: "/programs/school-of-commerce-and-business-management/mba-supply-chain-management" },
+          ],
         },
         {
-          name: "MBA (Marketing)",
-          href: "/programs/school-of-commerce-and-business-management/mba-marketing",
-        },
-        {
-          name: "MBA (Human Resource Management)",
-          href: "/programs/school-of-commerce-and-business-management/mba-hrm",
-        },
-        {
-          name: "MBA (Pharmaceutical Management)",
-          href: "/programs/school-of-commerce-and-business-management/mba-pharmaceutical-management",
-        },
-        {
-          name: "MBA (Supply Chain Management)",
-          href: "/programs/school-of-commerce-and-business-management/mba-supply-chain-management",
-        },
-      ],
-    },
-    {
-      title: "M.Com. Program",
-      level: "Postgraduate (2 Years)",
-      duration: "2 Years",
-      eligibility:
-        "Passed B.Com. with a minimum of 50% marks in the qualifying exam.",
-      programs: [
-        {
-          name: "M.Com.",
+          name: "M.Com. (Master of Commerce)",
+          program: "M.Com. (Master of Commerce)",
           href: "/programs/school-of-commerce-and-business-management/mcom",
+          duration: "2 Years",
+          eligibility:
+            "Passed B.Com. with a minimum of 50% marks in the qualifying examination from a recognized university.",
         },
       ],
     },
+    /* {
+      title: "Doctoral Programs",
+      level: "Doctoral (Ph.D.)",
+      duration: "Minimum 3 Years",
+      eligibility:
+        "Relevant Master's degree in Management / Commerce or allied discipline with at least 55% marks.",
+      programs: [
+        {
+          name: "Ph.D. in Management & Commerce",
+          program: "Ph.D. in Management & Commerce",
+          href: "/phd-management",
+          duration: "Minimum 3 Years",
+          eligibility:
+            "Master's degree in Management / Commerce or allied discipline with a minimum of 55% aggregate marks.",
+          specializations: [
+            { name: "Strategic Management & Governance", href: "/phd-management" },
+            { name: "Financial Markets & Banking", href: "/phd-management" },
+            { name: "Digital Marketing & Consumer Insights", href: "/phd-management" },
+            { name: "Organizational Behavior & HRM", href: "/phd-management" },
+          ],
+        },
+      ],
+    }, */
   ],
 
   dean: {
