@@ -34,7 +34,8 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
                 alt={dean.name}
                 fill
                 sizes="96px"
-                className="object-cover"
+                className="object-cover object-top"
+                style={{ objectPosition: "top center" }}
               />
             </div>
           )}
@@ -115,7 +116,8 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
                       alt={dean.name}
                       fill
                       sizes="80px"
-                      className="object-cover"
+                      className="object-cover object-top"
+                      style={{ objectPosition: "top center" }}
                     />
                   </div>
                 )}

@@ -86,14 +86,6 @@ export const computerScienceSchool: ProgramPageData = {
       "We are the preferred choice for students looking for the best university to study in Delhi NCR. We help open the doorways to professional success and growth in the ever-evolving digital landscape. Enrol now and shape your future with skill and excellence!",
     ],
     badgeText: "Center of Excellence in Computing",
-    careers: [
-      "AI & Machine Learning Engineer",
-      "Full Stack Web & Mobile Developer",
-      "Cyber Security & Ethical Hacker",
-      "Data Scientist & Big Data Analyst",
-      "Cloud Solutions Architect",
-      "DevOps & Systems Specialist",
-    ],
     closingText:
       "Our learning ecosystem integrates intensive coding tracks, hackathons, professors of practice from leading tech companies, and dedicated placement support.",
   },
@@ -403,9 +395,29 @@ export const computerScienceSchool: ProgramPageData = {
 
   departmentHighlights: [
     {
-      title: "Center of Excellence",
-      desc: "State-of-the-art Center of Excellence for advanced research, prototyping, and industry-collaborative computing.",
-      image: "https://geetauniversity.edu.in/uploads/all/763/conversions/COE-desktop-(1)-full.webp",
+      title: "Advanced Computing Laboratories",
+      desc: "High-performance computing workstations, AI development tools, and modern software engineering suites.",
+      image: "https://geetauniversity.edu.in/uploads/all/766/conversions/cr-8-(1)-full.webp",
+    },
+    {
+      title: "Tech Innovation Hub",
+      desc: "Collaborative workspaces for hackathons, prototyping, software development, and industry-led projects.",
+      image: "https://geetauniversity.edu.in/uploads/all/773/conversions/cr-1-full.webp",
+    },
+    {
+      title: "Cloud & Cyber Security Labs",
+      desc: "Specialized infrastructure for network penetration testing, cloud architecture, and secure computing.",
+      image: "https://geetauniversity.edu.in/uploads/all/774/conversions/cr-2-full.webp",
+    },
+    {
+      title: "Project Development Center",
+      desc: "Hands-on software development suites and coding arenas for competitive programmers and developers.",
+      image: "https://geetauniversity.edu.in/uploads/all/776/conversions/cr-4-full.webp",
+    },
+    {
+      title: "Center of Excellence & Smart Labs",
+      desc: "State-of-the-art facilities for robotics, intelligent systems, data sciences, and enterprise cloud solutions.",
+      image: "https://geetauniversity.edu.in/uploads/all/778/conversions/cr-6-full.webp",
     },
   ],
 

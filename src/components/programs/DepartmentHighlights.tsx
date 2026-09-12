@@ -31,11 +31,19 @@ export default function DepartmentHighlights({
   if (!highlights || highlights.length === 0) return null;
   const items = highlights;
 
+  // Build a track with enough duplicates so both halves are wider than any screen, ensuring a 100% seamless zero-gap loop
+  const repeatCount = Math.max(2, Math.ceil(8 / items.length));
+  const baseItems: DepartmentHighlightItem[] = [];
+  for (let i = 0; i < repeatCount; i++) {
+    baseItems.push(...items);
+  }
+  const trackItems = [...baseItems, ...baseItems];
+
   return (
     <section
       id="DepartmentHighlights"
       style={{
-        padding: "100px 0",
+        padding: "90px 0 100px",
         background: "#FDF1D6",
         position: "relative",
         overflow: "hidden",
@@ -81,7 +89,7 @@ export default function DepartmentHighlights({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          style={{ textAlign: "center", marginBottom: 60 }}
+          style={{ textAlign: "center", marginBottom: 50 }}
         >
           <div
             style={{
@@ -106,7 +114,7 @@ export default function DepartmentHighlights({
 
           <h2
             style={{
-              fontSize: 44,
+              fontSize: "clamp(32px, 3.8vw, 44px)",
               fontWeight: 900,
               color: "#0A1F44",
               margin: "12px 0 16px",
@@ -118,7 +126,7 @@ export default function DepartmentHighlights({
           </h2>
           <p
             style={{
-              fontSize: 18,
+              fontSize: 17.5,
               color: "#4A5568",
               maxWidth: 800,
               margin: "0 auto",
@@ -130,159 +138,135 @@ export default function DepartmentHighlights({
         </motion.div>
       </div>
 
-      <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="marquee-container"
+      {/* Seamless Continuous Marquee Container */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          width: "100%",
+          overflow: "hidden",
+          padding: "10px 0 20px",
+        }}
+      >
+        {/* Edge Gradient Masks for clean fading */}
+        <div
           style={{
-            display: "flex",
-            overflowX: "auto",
-            overflowY: "hidden",
-            padding: "10px 0 30px",
-            gap: 32,
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-            cursor: "grab",
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            width: 100,
+            background: "linear-gradient(90deg, #FDF1D6 0%, transparent 100%)",
+            zIndex: 3,
+            pointerEvents: "none",
           }}
-        >
-          {[0, 1, 2].map((setIndex) => (
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            right: 0,
+            width: 100,
+            background: "linear-gradient(-90deg, #FDF1D6 0%, transparent 100%)",
+            zIndex: 3,
+            pointerEvents: "none",
+          }}
+        />
+
+        <div className="highlights-marquee-track">
+          {trackItems.map((item, idx) => (
             <div
-              key={setIndex}
-              className="marquee-track"
-              style={{ display: "flex", gap: 32, flexShrink: 0 }}
+              key={idx}
+              className="highlight-card"
+              onClick={imageOnly ? undefined : () => setSelectedHighlight(item)}
+              style={{
+                width: 360,
+                height: 240,
+                flexShrink: 0,
+                background: "#0A1F44",
+                borderRadius: 18,
+                overflow: "hidden",
+                border: "1px solid rgba(10,31,68,0.08)",
+                boxShadow: "0 8px 24px rgba(10,31,68,0.12)",
+                position: "relative",
+                cursor: imageOnly ? "default" : "pointer",
+                transition: "transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease",
+              }}
             >
-              {items.map((item, i) => (
-                <div
-                  key={`${setIndex}-${i}`}
-                  /* onClick={() => setSelectedHighlight(item)} - Commented out for School of Sciences & Agriculture */
-                  onClick={imageOnly ? undefined : () => setSelectedHighlight(item)}
+              {/* Image */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={item.image}
+                alt={item.title}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                  transition: "transform 0.5s ease",
+                }}
+                onError={(e) => {
+                  const t = e.currentTarget;
+                  t.style.display = "none";
+                  if (t.parentElement) {
+                    const fallback = document.createElement("div");
+                    fallback.style.cssText =
+                      "width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#0A1F44;color:#FFFFFF;font-weight:700;padding:20px;text-align:center;";
+                    fallback.textContent = item.title;
+                    t.parentElement.appendChild(fallback);
+                  }
+                }}
+              />
+
+              {/* Gradient Overlay & Title */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(10,31,68,0.85) 100%)",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-end",
+                  padding: "18px 20px",
+                  pointerEvents: "none",
+                }}
+              >
+                <h3
                   style={{
-                    width: imageOnly ? 360 : 360,
-                    height: imageOnly ? 240 : "auto",
-                    flexShrink: 0,
-                    background: "#FFFFFF",
-                    borderRadius: 16,
-                    overflow: "hidden",
-                    border: "1px solid #E2E8F0",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
-                    display: "flex",
-                    flexDirection: "column",
-                    cursor: imageOnly ? "default" : "pointer",
-                    transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-8px)";
-                    e.currentTarget.style.boxShadow = "0 20px 40px rgba(10,31,68,0.1)";
-                    const img = e.currentTarget.querySelector("img");
-                    if (img) img.style.transform = "scale(1.05)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "none";
-                    e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.04)";
-                    const img = e.currentTarget.querySelector("img");
-                    if (img) img.style.transform = "scale(1)";
+                    fontSize: 16.5,
+                    fontWeight: 800,
+                    color: "#FFFFFF",
+                    margin: 0,
+                    lineHeight: 1.3,
+                    textShadow: "0 2px 8px rgba(0,0,0,0.5)",
                   }}
                 >
-                  {/* Image */}
-                  <div
+                  {item.title}
+                </h3>
+                {item.desc && !imageOnly && (
+                  <p
                     style={{
-                      width: "100%",
-                      height: imageOnly ? "100%" : 220,
-                      position: "relative",
+                      fontSize: 13,
+                      color: "rgba(255,255,255,0.85)",
+                      margin: "4px 0 0",
+                      lineHeight: 1.35,
                       overflow: "hidden",
-                      background: "#F1F5F9",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
                     }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        transition: "transform 0.5s ease",
-                      }}
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                        if (e.currentTarget.parentElement) {
-                          e.currentTarget.parentElement.innerHTML =
-                            '<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #E2E8F0; color: #94A3B8; font-weight: 600; font-size: 14px;">[ Event Image ]</div>';
-                        }
-                      }}
-                    />
-                  </div>
-
-                  {/* Content below images - Commented out for School of Sciences & Agriculture */}
-                  {/* {!imageOnly && (
-                    <div
-                      style={{
-                        padding: "24px 28px",
-                        flex: 1,
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <h3
-                        style={{
-                          fontSize: 20,
-                          fontWeight: 800,
-                          color: "#0A1F44",
-                          margin: "0 0 12px",
-                        }}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: 15,
-                          color: "#4A5568",
-                          margin: 0,
-                          lineHeight: 1.6,
-                          flex: 1,
-                        }}
-                      >
-                        {item.desc}
-                      </p>
-                      <div style={{ marginTop: "auto", paddingTop: 20 }}>
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedHighlight(item);
-                          }}
-                          style={{
-                            background: "none",
-                            border: "none",
-                            padding: 0,
-                            cursor: "pointer",
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 6,
-                            fontSize: 13,
-                            fontWeight: 700,
-                            color: "#E8871A",
-                            textTransform: "uppercase",
-                            letterSpacing: 1,
-                          }}
-                        >
-                          <span>Read More</span>
-                          <ArrowRight size={14} />
-                        </button>
-                      </div>
-                    </div>
-                  )} */}
-                </div>
-              ))}
+                    {item.desc}
+                  </p>
+                )}
+              </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
-      {/* Modal for Read More - Disabled in imageOnly mode */}
+      {/* Modal for Read More - only when not imageOnly */}
       <AnimatePresence>
         {!imageOnly && selectedHighlight && (
           <div
@@ -305,7 +289,7 @@ export default function DepartmentHighlights({
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "rgba(10,31,68,0.6)",
+                background: "rgba(10,31,68,0.65)",
                 backdropFilter: "blur(6px)",
               }}
             />
@@ -321,7 +305,7 @@ export default function DepartmentHighlights({
                 background: "#FFFFFF",
                 borderRadius: 24,
                 overflow: "hidden",
-                maxWidth: imageOnly ? 800 : 580,
+                maxWidth: 620,
                 width: "100%",
                 boxShadow: "0 24px 60px rgba(0,0,0,0.25)",
                 zIndex: 100000,
@@ -331,6 +315,7 @@ export default function DepartmentHighlights({
             >
               {/* Close Button */}
               <button
+                type="button"
                 onClick={() => setSelectedHighlight(null)}
                 style={{
                   position: "absolute",
@@ -364,8 +349,7 @@ export default function DepartmentHighlights({
               <div
                 style={{
                   width: "100%",
-                  height: imageOnly ? "auto" : 280,
-                  maxHeight: "85vh",
+                  height: 280,
                   position: "relative",
                   background: "#0A1F44",
                   display: "flex",
@@ -379,62 +363,81 @@ export default function DepartmentHighlights({
                   alt={selectedHighlight.title}
                   style={{
                     width: "100%",
-                    height: imageOnly ? "auto" : "100%",
-                    maxHeight: "85vh",
-                    objectFit: imageOnly ? "contain" : "cover",
+                    height: "100%",
+                    objectFit: "cover",
                     display: "block",
                   }}
                 />
               </div>
 
-              {/* Modal Content - Commented out for School of Sciences & Agriculture */}
-              {/* {!imageOnly && (
-                <div style={{ padding: "28px 32px 32px" }}>
-                  <h3
-                    style={{
-                      fontSize: 24,
-                      fontWeight: 800,
-                      color: "#0A1F44",
-                      marginBottom: 14,
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {selectedHighlight.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: 16,
-                      color: "#4A5568",
-                      lineHeight: 1.7,
-                      margin: 0,
-                    }}
-                  >
-                    {selectedHighlight.desc}
-                  </p>
-                </div>
-              )} */}
+              {/* Modal Content */}
+              <div style={{ padding: "28px 32px 32px" }}>
+                <h3
+                  style={{
+                    fontSize: 22,
+                    fontWeight: 800,
+                    color: "#0A1F44",
+                    marginBottom: 12,
+                    lineHeight: 1.25,
+                  }}
+                >
+                  {selectedHighlight.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: 16,
+                    color: "#4A5568",
+                    lineHeight: 1.7,
+                    margin: 0,
+                  }}
+                >
+                  {selectedHighlight.desc}
+                </p>
+              </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
 
       <style jsx>{`
-        .marquee-container::-webkit-scrollbar {
-          display: none;
-        }
-        @keyframes marquee {
+        @keyframes continuousMarquee {
           0% {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-100% - 32px));
+            transform: translateX(-50%);
           }
         }
-        .marquee-track {
-          animation: marquee 28s linear infinite;
+
+        .highlights-marquee-track {
+          display: flex;
+          width: max-content;
+          gap: 24px;
+          animation: continuousMarquee 38s linear infinite;
         }
-        .marquee-container:hover .marquee-track {
+
+        .highlights-marquee-track:hover {
           animation-play-state: paused;
+        }
+
+        .highlight-card:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 18px 38px rgba(10, 31, 68, 0.2) !important;
+        }
+
+        .highlight-card:hover img {
+          transform: scale(1.08);
+        }
+
+        @media (max-width: 768px) {
+          .highlight-card {
+            width: 290px !important;
+            height: 200px !important;
+          }
+          .highlights-marquee-track {
+            gap: 16px !important;
+            animation-duration: 25s !important;
+          }
         }
       `}</style>
     </section>
