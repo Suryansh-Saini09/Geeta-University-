@@ -30,6 +30,8 @@ import { mbaPharmaceuticalManagement } from "@/data/programs/courses/commerce/mb
 import { mbaSupplyChainManagement } from "@/data/programs/courses/commerce/mba-supply-chain-management-and-logistics";
 import { dPharmacy } from "@/data/programs/courses/pharmacy/d-pharmacy";
 import { bPharmacy } from "@/data/programs/courses/pharmacy/b-pharmacy";
+import { mPharmacy } from "@/data/programs/courses/pharmacy/m-pharmacy";
+import { phdPharmacy } from "@/data/programs/courses/pharmacy/phd-pharmacy";
 import { diplomaHotelManagement } from "@/data/programs/courses/hospitality/diploma-in-hotel-management";
 import { bscHotelManagement } from "@/data/programs/courses/hospitality/bsc-hotel-management";
 
@@ -65,6 +67,8 @@ const courses: CoursePageData[] = [
   mbaSupplyChainManagement,
   dPharmacy,
   bPharmacy,
+  mPharmacy,
+  phdPharmacy,
   diplomaHotelManagement,
   bscHotelManagement,
 ];
@@ -87,6 +91,8 @@ function normalizeCourseSlug(slug: string): string {
   const s = slug.toLowerCase();
   if (s === "d-pharm" || s === "d-pharma" || s === "diploma-in-pharmacy") return "d-pharmacy";
   if (s === "b-pharm" || s === "b-pharma" || s === "bachelor-in-pharmacy" || s === "bachelor-of-pharmacy") return "b-pharmacy";
+  if (s === "m-pharm" || s === "m-pharma" || s === "m-pharmacy-in-pharmaceutics" || s === "m-pharm-pharmaceutics" || s === "master-of-pharmacy") return "m-pharmacy";
+  if (s === "phd-pharmaceutical-sciences" || s === "phd-in-pharmacy" || s === "phd-pharmaceutical-science") return "phd-pharmacy";
   if (s === "bba-international-accounting-acca") return "bba-international-accounting";
   if (s === "bcom-international-accounting-acca") return "bcom-international-accounting";
   if (s === "bcom-auditing-taxation") return "bcom-auditing-and-taxation";
@@ -208,6 +214,13 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
       params.push({
         schoolSlug: c.schoolSlug,
         courseSlug: "mba-scm",
+      });
+    }
+
+    if (c.slug === "phd-pharmacy") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-pharmaceutical-sciences",
       });
     }
   });
