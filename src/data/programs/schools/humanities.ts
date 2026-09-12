@@ -175,34 +175,36 @@ export const humanitiesSchool: ProgramPageData = {
         "Passed 10+2 examination with at least 50% marks in the qualifying examination from a recognized board.",
       programs: [
         {
+          name: "B.A. Hons. (Bachelor of Arts)",
+          program: "B.A. Hons. (Bachelor of Arts)",
+          href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
+          duration: "3 / 4 Years",
+          eligibility: "Passed 10+2 examination with minimum 50% aggregate marks from a recognized board.",
+          specializations: [
+            {
+              name: "B.A. Hons. (Psychology)",
+              href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-psychology",
+            },
+            {
+              name: "B.A. Hons. (Political Science)",
+              href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-political-science",
+            },
+            {
+              name: "B.A. Hons. (Economics)",
+              href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-economics",
+            },
+            {
+              name: "B.A. Hons. (English)",
+              href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
+            },
+          ],
+        },
+        {
           name: "B.Sc. (Hons.) Psychology",
+          program: "B.Sc. (Hons.) Psychology",
           href: "https://geetauniversity.edu.in/bsc-psychology",
           duration: "3 / 4 Years",
           eligibility: "10+2 with at least 50% marks from a recognized board.",
-        },
-        {
-          name: "B.A. Hons. (Psychology)",
-          href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-psychology",
-          duration: "3 / 4 Years",
-          eligibility: "Passed 10+2 with minimum 50% aggregate marks.",
-        },
-        {
-          name: "B.A. Hons. (Political Science)",
-          href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-political-science",
-          duration: "3 / 4 Years",
-          eligibility: "Passed 10+2 with minimum 50% aggregate marks.",
-        },
-        {
-          name: "B.A. Hons. (Economics)",
-          href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-economics",
-          duration: "3 / 4 Years",
-          eligibility: "Passed 10+2 with minimum 50% aggregate marks.",
-        },
-        {
-          name: "B.A. Hons. (English)",
-          href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
-          duration: "3 / 4 Years",
-          eligibility: "Passed 10+2 with minimum 50% aggregate marks.",
         },
       ],
     },
@@ -214,16 +216,21 @@ export const humanitiesSchool: ProgramPageData = {
         "Passed Bachelor's degree with 50% marks in the relevant or allied discipline.",
       programs: [
         {
-          name: "M.A. (Political Science)",
-          href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ma-political-science",
+          name: "M.A. (Master of Arts)",
+          program: "M.A. (Master of Arts)",
+          href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
           duration: "2 Years",
-          eligibility: "Bachelor's degree with minimum 50% marks.",
-        },
-        {
-          name: "M.A. (Psychology)",
-          href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ma-psychology",
-          duration: "2 Years",
-          eligibility: "Bachelor's degree with minimum 50% marks.",
+          eligibility: "Passed Bachelor's degree with 50% marks in the relevant or allied discipline.",
+          specializations: [
+            {
+              name: "M.A. (Political Science)",
+              href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ma-political-science",
+            },
+            {
+              name: "M.A. (Psychology)",
+              href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ma-psychology",
+            },
+          ],
         },
       ],
     },
@@ -235,16 +242,21 @@ export const humanitiesSchool: ProgramPageData = {
         "Master's in a relevant field with a minimum 55% aggregate marks (50% for reserved categories).",
       programs: [
         {
-          name: "Ph.D. (Psychology)",
-          href: "https://geetauniversity.edu.in/phd-psychology",
+          name: "Ph.D. (Doctor of Philosophy)",
+          program: "Ph.D. (Doctor of Philosophy)",
+          href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
           duration: "Minimum 3 Years",
-          eligibility: "Master's degree in Psychology with minimum 55% marks.",
-        },
-        {
-          name: "Ph.D. (Political Science)",
-          href: "https://geetauniversity.edu.in/phd-political-science",
-          duration: "Minimum 3 Years",
-          eligibility: "Master's degree in Political Science with minimum 55% marks.",
+          eligibility: "Master's in a relevant field with a minimum 55% aggregate marks (50% for reserved categories).",
+          specializations: [
+            {
+              name: "Ph.D. (Psychology)",
+              href: "https://geetauniversity.edu.in/phd-psychology",
+            },
+            {
+              name: "Ph.D. (Political Science)",
+              href: "https://geetauniversity.edu.in/phd-political-science",
+            },
+          ],
         },
       ],
     },

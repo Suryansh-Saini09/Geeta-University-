@@ -476,14 +476,6 @@ export const forensicSciencesSchool: ProgramPageData = {
           duration: "3/4 Years",
           eligibility:
             "Passed or appeared in 10+2 (or its equivalent) in Science Stream (Physics, Chemistry, Biology/Mathematics) with minimum 55% aggregate marks (50% for SC/ST/PwD).",
-          specializations: [
-            "Crime Scene Investigation",
-            "Forensic Biology & Serology",
-            "Forensic Chemistry & Toxicology",
-            "Fingerprint & Questioned Documents",
-            "Forensic Ballistics & Explosives",
-            "Digital Forensics Fundamentals",
-          ],
         },
       ],
     },
@@ -501,14 +493,6 @@ export const forensicSciencesSchool: ProgramPageData = {
           duration: "2 Years",
           eligibility:
             "Bachelor's degree in Science / Forensic Science / Medicine / Engineering / Pharmacy / Dentistry / Ayush with at least 55% aggregate (50% for SC/ST/PwD).",
-          specializations: [
-            "Advanced Forensic Chemistry",
-            "Forensic Toxicology & Drug Analysis",
-            "Forensic Serology & DNA Profiling",
-            "Cyber Forensics & Incident Response",
-            "Quality Assurance in Crime Labs",
-            "Forensic Research & Dissertation",
-          ],
         },
       ],
     },
@@ -525,12 +509,6 @@ export const forensicSciencesSchool: ProgramPageData = {
           duration: "Minimum 3 Years",
           eligibility:
             "Master's degree in Forensic Science / Physical Sciences / Chemical Sciences / Biological Sciences or allied discipline with at least 55% marks.",
-          specializations: [
-            "Forensic Nanotechnology",
-            "Advanced Analytical Toxicology",
-            "Molecular Forensics & Genetics",
-            "Cyber Threat Intelligence & Digital Forensics",
-          ],
         },
       ],
     },
