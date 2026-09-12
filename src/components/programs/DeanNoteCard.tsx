@@ -28,13 +28,14 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-6">
           {/* Dean Photo */}
           {dean.image && (
-            <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border-2 border-white bg-[#0A1F44] shadow-md sm:h-24 sm:w-24">
+            <div className="relative w-28 h-36 sm:w-36 sm:h-48 md:w-40 md:h-52 shrink-0 overflow-hidden rounded-2xl border-2 border-white bg-[#0A1F44] shadow-md">
               <Image
                 src={dean.image}
                 alt={dean.name}
                 fill
-                sizes="96px"
-                className="object-cover"
+                sizes="(max-width: 640px) 112px, 160px"
+                className="object-cover object-top"
+                style={{ objectPosition: "top center" }}
               />
             </div>
           )}
@@ -109,13 +110,14 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
 
               <div className="flex items-start gap-4 sm:gap-6 mb-6">
                 {dean.image && (
-                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-[#0A1F44] shadow-md">
+                  <div className="relative w-24 h-32 sm:w-28 sm:h-36 shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-[#0A1F44] shadow-md">
                     <Image
                       src={dean.image}
                       alt={dean.name}
                       fill
-                      sizes="80px"
-                      className="object-cover"
+                      sizes="112px"
+                      className="object-cover object-top"
+                      style={{ objectPosition: "top center" }}
                     />
                   </div>
                 )}

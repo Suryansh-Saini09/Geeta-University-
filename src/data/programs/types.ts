@@ -291,6 +291,17 @@ export interface RecruiterItem {
   logo?: string | null;
 }
 
+export interface CourseProgramItem {
+  name?: string;
+  program?: string;
+  href?: string;
+  duration?: string;
+  eligibility?: string;
+  specializations?: (string | { name: string; href?: string })[];
+  specialisations?: (string | { name: string; href?: string })[];
+  details?: React.ReactNode | string;
+}
+
 export interface CourseCategory {
   title: string;
   level?: string;
@@ -298,15 +309,8 @@ export interface CourseCategory {
   eligibility?: string;
   specializations?: (string | { name: string; href?: string })[];
   details?: React.ReactNode | string;
-  programs?: {
-    name: string;
-    program?: string;
-    href?: string;
-    duration?: string;
-    eligibility?: string;
-    specializations?: (string | { name: string; href?: string })[];
-    details?: React.ReactNode | string;
-  }[];
+  items?: CourseProgramItem[];
+  programs?: CourseProgramItem[];
 }
 
 export interface FacultyMember {
@@ -350,9 +354,11 @@ export interface PartnerItem {
 export interface TestimonialItem {
   name: string;
   pkg?: string;
+  package?: string;
   company?: string;
   role?: string;
-  quote: string;
+  quote?: string;
+  testimonial?: string;
   image?: string;
 }
 
@@ -372,7 +378,10 @@ export interface GalleryShowcaseItem {
 export interface PathwayCardItem {
   area: string;
   pathway: string;
-  icon: string;
+  icon?: string;
+  roles?: string[];
+  points?: string[];
+  desc?: string;
 }
 
 export interface NotableRoleItem {
