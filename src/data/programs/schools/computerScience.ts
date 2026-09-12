@@ -380,14 +380,14 @@ export const computerScienceSchool: ProgramPageData = {
       },
     ],
     notableRoles: [
-      { name: "Full Stack Software Developer" },
+      { name: "Full-Stack Software Developer" },
       { name: "AI & Machine Learning Engineer" },
       { name: "Cybersecurity Specialist & Ethical Hacker" },
       { name: "Data Scientist & Business Analyst" },
       { name: "Cloud Architect & DevOps Engineer" },
       { name: "Solutions Architect" },
       { name: "Quantum Computing Researcher" },
-      { name: "Database & Backend Engineer" },
+      { name: "Database & Back-End Engineer" },
     ],
   },
 
