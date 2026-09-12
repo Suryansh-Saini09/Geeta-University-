@@ -156,7 +156,7 @@ export const computerScienceSchool: ProgramPageData = {
   courses: [
     {
       level: "Undergraduate",
-      title: "Under-Graduate Programs",
+      title: "Undergraduate Programs",
       items: [
         {
           program: "B.Tech. CSE — Computer Science & Engineering",
@@ -224,7 +224,7 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       level: "Postgraduate",
-      title: "Post-Graduate Programs",
+      title: "Postgraduate Programs",
       items: [
         {
           program: "M.Tech. in Computer Science & Engineering",

@@ -463,8 +463,8 @@ export const forensicSciencesSchool: ProgramPageData = {
 
   courses: [
     {
-      level: "Under-Graduate",
-      title: "Under-Graduate Programs",
+      level: "Undergraduate",
+      title: "Undergraduate Programs",
       duration: "3/4 Years",
       eligibility:
         "Passed or appeared in 10+2 (or its equivalent) in Science Stream, Physics, Chemistry, Biology / Mathematics with at least 55% for General/OBC (NCL)/EWS category candidates and 50% or equivalent for SC/ST and PwD category candidates.",
@@ -488,8 +488,8 @@ export const forensicSciencesSchool: ProgramPageData = {
       ],
     },
     {
-      level: "Post-Graduate",
-      title: "Post-Graduate Programs",
+      level: "Postgraduate",
+      title: "Postgraduate Programs",
       duration: "2 Years",
       eligibility:
         "Bachelor's degree in Science / Forensic Science / Medicine / Engineering / Pharmacy / Dentistry / Ayush with at least 55% for General/OBC (NCL)/EWS category candidates and 50% or equivalent for SC/ST and PwD category candidates.",

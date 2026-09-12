@@ -905,8 +905,8 @@ export const commerceSchool: ProgramPageData = {
 
   courses: [
     {
-      title: "Under-Graduate Programs",
-      level: "Under-Graduate",
+      title: "Undergraduate Programs",
+      level: "Undergraduate",
       duration: "3/4 Years",
       eligibility:
         "Passed 10+2 examination (in any stream) with at least 50% marks in aggregate from any recognized board.",
@@ -948,8 +948,8 @@ export const commerceSchool: ProgramPageData = {
       ],
     },
     {
-      title: "Post-Graduate Programs",
-      level: "Post-Graduate",
+      title: "Postgraduate Programs",
+      level: "Postgraduate",
       duration: "2 Years",
       eligibility:
         "Passed Bachelor's Degree of minimum 3 years duration with at least 50% marks in aggregate.",
