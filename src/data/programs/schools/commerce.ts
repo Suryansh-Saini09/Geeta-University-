@@ -862,10 +862,10 @@ export const commerceSchool: ProgramPageData = {
         imageFirst: true,
       },
       {
-        title: "Workshop on Cyber Security by EC Council",
+        title: "Workshop on Cybersecurity by EC-Council",
         image: "/spbsb-cyber-security-workshop.jpg",
-        alt: "Cyber Security workshop by EC Council group at Geeta University",
-        text: "The School of Commerce and Business Management at Geeta University organized a Cyber Security workshop by EC-Council by Mr. Vikram Kumar Jha, Senior Manager and MCTS-certified trainer. The session covered cyber threats, phishing, fraud, and malware, along with hands-on tools for risk prevention. Students learned safe browsing, digital responsibility, and fundamentals of securing networks, data, and servers to safeguard organizational assets.",
+        alt: "Cybersecurity workshop by EC-Council group at Geeta University",
+        text: "The School of Commerce and Business Management at Geeta University organized a Cybersecurity workshop by EC-Council by Mr. Vikram Kumar Jha, Senior Manager and MCTS-certified trainer. The session covered cyber threats, phishing, fraud, and malware, along with hands-on tools for risk prevention. Students learned safe browsing, digital responsibility, and fundamentals of securing networks, data, and servers to safeguard organizational assets.",
         imageFirst: false,
       },
       {

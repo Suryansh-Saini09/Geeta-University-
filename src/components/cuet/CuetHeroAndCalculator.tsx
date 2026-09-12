@@ -14,7 +14,7 @@ const PROGRAM_FEES_DB: Record<string, { programs: string[]; defaultFee: number; 
     programs: [
       "B.Tech Hons. CSE",
       "B.Tech CSE (AI & Machine Learning)",
-      "B.Tech CSE (Cyber Security)",
+      "B.Tech CSE (Cybersecurity)",
       "B.Tech CSE (Data Science & Analytics)",
       "B.Tech CSE (Full Stack Development)",
     ],
@@ -25,7 +25,7 @@ const PROGRAM_FEES_DB: Record<string, { programs: string[]; defaultFee: number; 
     programs: [
       "BCA Hons. (Computer Applications)",
       "BCA (AI & Machine Learning)",
-      "BCA (Cyber Security)",
+      "BCA (Cybersecurity)",
       "BCA (Data Science & Analytics)",
     ],
     defaultFee: 65000,

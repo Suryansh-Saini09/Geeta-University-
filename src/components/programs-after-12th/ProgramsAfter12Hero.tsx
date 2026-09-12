@@ -39,7 +39,7 @@ export default function ProgramsAfter12Hero() {
             <p>
               Geeta University offers a wide array of industry-focused undergraduate programs tailored for
               students after 12th. With strong academic frameworks, experiential learning, and cutting-edge
-              specializations like AI, Cyber Security, and Forensic Science, GU empowers students to achieve career
+              specializations like AI, Cybersecurity, and Forensic Science, GU empowers students to achieve career
               excellence.
             </p>
             <p>

@@ -227,7 +227,7 @@ export const gutsApplicablePrograms: GutsProgramSchool[] = [
     programs: [
       { name: "B.Tech. Hons. CSE (Computer Science & Engineering)", href: "/programs/school-of-computer-science-and-engineering/btech-cse" },
       { name: "B.Tech. Hons. CSE (Artificial Intelligence & Machine Learning)", href: "/programs/school-of-computer-science-and-engineering/btech-artificial-intelligence-and-machine-learning" },
-      { name: "B.Tech. Hons. CSE (Cyber Security)", href: "/programs/school-of-computer-science-and-engineering/btech-cyber-security" },
+      { name: "B.Tech. Hons. CSE (Cybersecurity)", href: "/programs/school-of-computer-science-and-engineering/btech-cyber-security" },
       { name: "B.Tech. Hons. CSE (Full Stack Web Development)", href: "/programs/school-of-computer-science-and-engineering/btech-full-stack-web-development" },
       { name: "B.Tech. Hons. CSE (Data Science & Business Analytics)", href: "/programs/school-of-computer-science-and-engineering/btech-data-science-and-business-analytics" },
     ],
@@ -238,7 +238,7 @@ export const gutsApplicablePrograms: GutsProgramSchool[] = [
     programs: [
       { name: "BCA Hons. (Computer Applications)", href: "/programs/school-of-computer-science-and-engineering/bca" },
       { name: "BCA Hons. (Artificial Intelligence & Machine Learning)", href: "/programs/school-of-computer-science-and-engineering/bca-artificial-intelligence-and-machine-learning" },
-      { name: "BCA Hons. (Cyber Security)", href: "/programs/school-of-computer-science-and-engineering/bca-cyber-security" },
+      { name: "BCA Hons. (Cybersecurity)", href: "/programs/school-of-computer-science-and-engineering/bca-cyber-security" },
       { name: "BCA Hons. (Data Science & Business Analytics)", href: "/programs/school-of-computer-science-and-engineering/bca-data-science-and-business-analytics" },
     ],
   },

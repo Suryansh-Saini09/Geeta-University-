@@ -2840,7 +2840,7 @@ function ProgrammesOfferedCseStyleSection() {
       icon: <Award size={18} />,
       items: [
         {
-          program: "Cyber Security from EC Council",
+          program: "Cybersecurity from EC-Council",
           duration: "Additional Certification",
           details: "CEH (Certified Ethical Hacker), CSA (Certified SOC Analyst), CND (Certified Network Defender), and ECSS (Certified Security Specialist).",
         },
@@ -4500,7 +4500,7 @@ function CorporateConnectSection() {
         >
           <h2 className="spbsb-corporate-connect-title">Corporate Connect</h2>
           <p className="spbsb-corporate-connect-copy">
-            Geeta University hosted a series of impactful academic and industry-oriented events, including the Budget Analysis 2026 panel discussion, which connected fiscal policies with real-world insights. The FinTech Conclave 2026 brought together industry experts to explore innovation, regulation, and emerging opportunities in the financial ecosystem. A workshop on Enabling Indigenous Technologies encouraged collaboration between academia and industry to promote sustainable, region-focused solutions. Additionally, the Cyber Security workshop equipped students with essential skills to tackle digital threats and ensure data protection. Complementing these, the Design Thinking workshop fostered creativity, empathy, and problem-solving, empowering students with a future-ready, innovation-driven mindset.
+            Geeta University hosted a series of impactful academic and industry-oriented events, including the Budget Analysis 2026 panel discussion, which connected fiscal policies with real-world insights. The FinTech Conclave 2026 brought together industry experts to explore innovation, regulation, and emerging opportunities in the financial ecosystem. A workshop on Enabling Indigenous Technologies encouraged collaboration between academia and industry to promote sustainable, region-focused solutions. Additionally, the Cybersecurity workshop equipped students with essential skills to tackle digital threats and ensure data protection. Complementing these, the Design Thinking workshop fostered creativity, empathy, and problem-solving, empowering students with a future-ready, innovation-driven mindset.
           </p>
         </motion.div>
 
@@ -4561,10 +4561,10 @@ function CorporateConnectWorkshopsSection() {
       imageFirst: true,
     },
     {
-      title: "Workshop on Cyber Security by EC Council",
+      title: "Workshop on Cybersecurity by EC-Council",
       image: "/spbsb-cyber-security-workshop.jpg",
-      alt: "Cyber Security workshop by EC Council group at Geeta University",
-      text: "The School of Commerce and Business Management at Geeta University organized a Cyber Security workshop by EC-Council by Mr. Vikram Kumar Jha, Senior Manager and MCTS-certified trainer. The session covered cyber threats, phishing, fraud, and malware, along with hands-on tools for risk prevention. Students learned safe browsing, digital responsibility, and fundamentals of securing networks, data, and servers to safeguard organizational assets.",
+      alt: "Cybersecurity workshop by EC-Council group at Geeta University",
+      text: "The School of Commerce and Business Management at Geeta University organized a Cybersecurity workshop by EC-Council by Mr. Vikram Kumar Jha, Senior Manager and MCTS-certified trainer. The session covered cyber threats, phishing, fraud, and malware, along with hands-on tools for risk prevention. Students learned safe browsing, digital responsibility, and fundamentals of securing networks, data, and servers to safeguard organizational assets.",
       imageFirst: false,
     },
     {

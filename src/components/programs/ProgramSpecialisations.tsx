@@ -13,7 +13,7 @@ export const DEFAULT_SPECIALISATIONS_DATA: SpecialisationItem[] = [
     desc: "Intelligent systems, data-driven decision-making, and practical exposure to modern AI/ML applications",
   },
   {
-    title: "Cyber Security",
+    title: "Cybersecurity",
     desc: "Secure systems design, cyber hygiene, and security-oriented technical foundations",
   },
   {

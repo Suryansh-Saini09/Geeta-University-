@@ -17,7 +17,7 @@ const CUET_SCHOOLS: CuetSchoolProgram[] = [
     programs: [
       { name: "B.Tech Hons. CSE (Computer Science & Engineering)", href: "/programs/school-of-computer-science-and-engineering" },
       { name: "B.Tech Hons. CSE (AI & Machine Learning)", href: "/programs/school-of-computer-science-and-engineering" },
-      { name: "B.Tech Hons. CSE (Cyber Security)", href: "/programs/school-of-computer-science-and-engineering" },
+      { name: "B.Tech Hons. CSE (Cybersecurity)", href: "/programs/school-of-computer-science-and-engineering" },
       { name: "B.Tech Hons. CSE (Full Stack Web Development)", href: "/programs/school-of-computer-science-and-engineering" },
       { name: "B.Tech Hons. CSE (Data Science & Analytics)", href: "/programs/school-of-computer-science-and-engineering" },
       { name: "M.Tech CSE", href: "/programs/school-of-computer-science-and-engineering" },
@@ -30,7 +30,7 @@ const CUET_SCHOOLS: CuetSchoolProgram[] = [
     programs: [
       { name: "BCA Hons. (Computer Applications)", href: "/programs/school-of-computer-science-and-engineering" },
       { name: "BCA Hons. (AI & Machine Learning)", href: "/programs/school-of-computer-science-and-engineering" },
-      { name: "BCA Hons. (Cyber Security)", href: "/programs/school-of-computer-science-and-engineering" },
+      { name: "BCA Hons. (Cybersecurity)", href: "/programs/school-of-computer-science-and-engineering" },
       { name: "BCA Hons. (Data Science & Business Analytics)", href: "/programs/school-of-computer-science-and-engineering" },
       { name: "MCA (Master of Computer Applications)", href: "/programs/school-of-computer-science-and-engineering" },
       { name: "Ph.D. (Computer Applications)", href: "/phd" },

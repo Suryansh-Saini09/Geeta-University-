@@ -105,7 +105,7 @@ export default function InternationalProgramsAccordion() {
             <div className="relative flex-1 w-full">
               <input
                 type="text"
-                placeholder="Search programs (e.g. B.Tech, MBA, Pharmacy, Cyber Security)..."
+                placeholder="Search programs (e.g. B.Tech, MBA, Pharmacy, Cybersecurity)..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full rounded-2xl bg-white border border-[#E2E8F0] px-5 py-4 pl-12 text-sm text-[#0A1F44] shadow-sm focus:border-[#E8871A] focus:outline-none focus:ring-2 focus:ring-[#E8871A]/20 transition-all"

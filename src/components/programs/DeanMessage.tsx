@@ -108,7 +108,7 @@ export default function DeanMessage(props: DeanMessageProps) {
               <span className="h-[3px] w-3 bg-[#0A1F44] rounded-full" />
             </div>
 
-            <p className="max-w-2xl font-sans text-[17px] leading-[1.8] text-[#334155] md:text-[18.5px]">
+            <p className="max-w-2xl font-sans text-[17px] leading-[1.8] text-[#334155] md:text-[18.5px] whitespace-pre-line">
               {data.message}
             </p>
 

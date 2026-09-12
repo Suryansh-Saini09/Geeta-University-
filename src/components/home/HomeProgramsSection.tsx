@@ -46,7 +46,7 @@ const programCategories: ProgramCategory[] = [
         href: "/programs/school-of-computer-science-and-engineering/btech-artificial-intelligence-and-machine-learning",
       },
       {
-        name: "B.Tech. Hons. CSE — Cyber Security",
+        name: "B.Tech. Hons. CSE — Cybersecurity",
         href: "/programs/school-of-computer-science-and-engineering/btech-cyber-security",
       },
       {
@@ -95,7 +95,7 @@ const programCategories: ProgramCategory[] = [
         href: "/programs/school-of-computer-science-and-engineering/bca-artificial-intelligence-and-machine-learning",
       },
       {
-        name: "BCA Hons. — Cyber Security",
+        name: "BCA Hons. — Cybersecurity",
         href: "/programs/school-of-computer-science-and-engineering/bca-cyber-security",
       },
       {

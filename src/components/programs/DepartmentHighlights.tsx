@@ -218,49 +218,6 @@ export default function DepartmentHighlights({
                   }
                 }}
               />
-
-              {/* Gradient Overlay & Title */}
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  background:
-                    "linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(10,31,68,0.85) 100%)",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-end",
-                  padding: "18px 20px",
-                  pointerEvents: "none",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: 16.5,
-                    fontWeight: 800,
-                    color: "#FFFFFF",
-                    margin: 0,
-                    lineHeight: 1.3,
-                    textShadow: "0 2px 8px rgba(0,0,0,0.5)",
-                  }}
-                >
-                  {item.title}
-                </h3>
-                {item.desc && !imageOnly && (
-                  <p
-                    style={{
-                      fontSize: 13,
-                      color: "rgba(255,255,255,0.85)",
-                      margin: "4px 0 0",
-                      lineHeight: 1.35,
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {item.desc}
-                  </p>
-                )}
-              </div>
             </div>
           ))}
         </div>

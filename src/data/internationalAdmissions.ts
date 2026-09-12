@@ -190,7 +190,7 @@ export const INTERNATIONAL_PROGRAM_CATEGORIES: ProgramSchoolCategory[] = [
     programs: [
       { title: "B.Tech. Hons. CSE (Computer Science & Engineering)", href: "/programs/school-of-computer-science-and-engineering/btech-cse" },
       { title: "B.Tech. Hons. CSE (Artificial Intelligence & Machine Learning)", href: "/programs/school-of-computer-science-and-engineering/btech-artificial-intelligence-and-machine-learning" },
-      { title: "B.Tech. Hons. CSE (Cyber Security)", href: "/programs/school-of-computer-science-and-engineering/btech-cyber-security" },
+      { title: "B.Tech. Hons. CSE (Cybersecurity)", href: "/programs/school-of-computer-science-and-engineering/btech-cyber-security" },
       { title: "B.Tech. Hons. CSE (Full Stack Web Development)", href: "/programs/school-of-computer-science-and-engineering/btech-full-stack-web-development" },
       { title: "B.Tech. Hons. CSE (Data Science & Business Analytics with HCL)", href: "/programs/school-of-computer-science-and-engineering/btech-data-science-and-business-analytics" },
       { title: "B.Tech. Hons. CSE (AI System Design)" },
@@ -205,7 +205,7 @@ export const INTERNATIONAL_PROGRAM_CATEGORIES: ProgramSchoolCategory[] = [
     programs: [
       { title: "BCA Hons. (Computer Applications)", href: "/programs/school-of-computer-science-and-engineering/bca" },
       { title: "BCA Hons. (Artificial Intelligence & Machine Learning)", href: "/programs/school-of-computer-science-and-engineering/bca-artificial-intelligence-and-machine-learning" },
-      { title: "BCA Hons. (Cyber Security)", href: "/programs/school-of-computer-science-and-engineering/bca-cyber-security" },
+      { title: "BCA Hons. (Cybersecurity)", href: "/programs/school-of-computer-science-and-engineering/bca-cyber-security" },
       { title: "BCA Hons. (Data Science & Business Analytics)", href: "/programs/school-of-computer-science-and-engineering/bca-data-science-and-business-analytics" },
       { title: "MCA (Master of Computer Applications)", href: "/programs/school-of-computer-science-and-engineering/mca" },
       { title: "Ph.D. (Computer Applications)", href: "/phd-computer-application" },

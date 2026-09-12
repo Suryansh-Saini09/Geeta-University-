@@ -52,7 +52,7 @@ export const PROGRAMS_FEE_DATABASE: Record<string, SchoolData> = {
     programs: [
       { programme: "B.Tech in CSE", level: "UG", prog_fee_per_sem: 95000, tuition_fee: 60000 },
       { programme: "B.Tech (H.) CSE - AI & ML", level: "UG", prog_fee_per_sem: 105000, tuition_fee: 65000 },
-      { programme: "B.Tech (H.) CSE - Cyber Security", level: "UG", prog_fee_per_sem: 105000, tuition_fee: 65000 },
+      { programme: "B.Tech (H.) CSE - Cybersecurity", level: "UG", prog_fee_per_sem: 105000, tuition_fee: 65000 },
       { programme: "B.Tech (H.) CSE - Data Science & Business Analytics", level: "UG", prog_fee_per_sem: 110000, tuition_fee: 70000 },
       { programme: "B.Tech (H.) CSE - Full Stack Development", level: "UG", prog_fee_per_sem: 105000, tuition_fee: 65000 },
       { programme: "B.Tech (H.) CSE - Specialization in AI System Design", level: "UG", scholarship_allowed: false, prog_fee_per_sem: 162500, tuition_fee: 100000 },
@@ -60,7 +60,7 @@ export const PROGRAMS_FEE_DATABASE: Record<string, SchoolData> = {
       { programme: "B.Tech (H.) CSE - Specialization in Quantum Computing", level: "UG", prog_fee_per_sem: 125000, tuition_fee: 70000 },
       { programme: "M.Tech in CSE", level: "PG", prog_fee_per_sem: 40000, tuition_fee: 25000 },
       { programme: "BCA (H.)", level: "UG", prog_fee_per_sem: 55000, tuition_fee: 35000 },
-      { programme: "BCA (H.) - Cyber Security", level: "UG", prog_fee_per_sem: 60000, tuition_fee: 35000 },
+      { programme: "BCA (H.) - Cybersecurity", level: "UG", prog_fee_per_sem: 60000, tuition_fee: 35000 },
       { programme: "BCA (H.) - Data Science & Business Analytics", level: "UG", prog_fee_per_sem: 60000, tuition_fee: 35000 },
       { programme: "BCA (H.) - AI & ML", level: "UG", prog_fee_per_sem: 60000, tuition_fee: 35000 },
       { programme: "MCA", level: "PG", prog_fee_per_sem: 50000, tuition_fee: 30000 },

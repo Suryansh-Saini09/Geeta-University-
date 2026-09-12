@@ -111,7 +111,7 @@ export const computerScienceSchool: ProgramPageData = {
     image: "https://geetauniversity.edu.in/uploads/all/2818/Codex-Image-Sep-11,-2026,-09_18_39-AM.png",
     schoolName: "School of Computer Science & Engineering",
     message:
-      "I welcome you to the School of Computer Science & Engineering at Geeta University! Students aiming for a strong career in tech are bound to thrive at Geeta University. Gain practical skills in AI, cybersecurity, cloud computing, and more with our industry-aligned programs. You not only gain in-depth theoretical knowledge but also master in-demand technologies to become job-ready. Our experienced faculty ensures your overall growth by supporting your learning endeavours. We also offer the benefit of strong industry collaborations, skill certifications, and assured placement support. Join us to pave your path to all-around development and career success in the world of tech.",
+      "I welcome you to the School of Computer Science & Engineering at Geeta University!\n\nStudents aiming for a strong career in tech are bound to thrive at Geeta University. Gain practical skills in AI, cybersecurity, cloud computing, and more with our industry-aligned programmes. You will not only gain in-depth theoretical knowledge but also master in-demand technologies to become job-ready.\n\nOur experienced faculty ensure your overall growth by supporting your learning endeavours. We also offer the benefit of strong industry collaborations, skill certifications, and assured placement support.\n\nJoin us to pave your path to all-round development and career success in the world of tech.",
   },
 
   faculty: [

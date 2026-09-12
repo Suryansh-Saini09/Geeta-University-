@@ -137,7 +137,7 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
 
               <div className="rounded-xl bg-[#F8FAFC] p-5 sm:p-6 border border-slate-100 text-slate-700 font-sans text-[15px] leading-relaxed italic">
                 <Quote className="h-6 w-6 text-[#E8871A] mb-2" />
-                <p>&ldquo;{dean.message}&rdquo;</p>
+                <p className="whitespace-pre-line">&ldquo;{dean.message}&rdquo;</p>
               </div>
 
               <div className="mt-6 flex justify-end">
