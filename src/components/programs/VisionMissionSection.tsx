@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Target, Compass, Sparkles, CheckCircle2 } from "lucide-react";
+import { Compass, Target, Lightbulb } from "lucide-react";
+import { mission as defaultMission, vision as defaultVision } from "@/data/about";
 import type { VisionMissionData } from "@/data/programs/types";
 
 interface VisionMissionSectionProps {
@@ -12,203 +13,88 @@ interface VisionMissionSectionProps {
 export default function VisionMissionSection({
   data,
   schoolName,
-}: VisionMissionSectionProps) {
-  if (!data || (!data.vision && (!data.mission || data.mission.length === 0))) {
+}: VisionMissionSectionProps = {}) {
+  const visionText = data?.vision || defaultVision;
+  const missionItems =
+    data?.mission && data.mission.length > 0 ? data.mission : defaultMission;
+
+  if (!visionText && (!missionItems || missionItems.length === 0)) {
     return null;
   }
 
   return (
-    <div style={{ marginTop: 56 }} id="VisionMission">
-      {/* Section Sub-header */}
-      <div style={{ marginBottom: 32 }}>
-        <span
-          style={{
-            color: "#E8871A",
-            fontWeight: 700,
-            fontSize: 12,
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-            marginBottom: 8,
-          }}
-        >
-          <Sparkles size={14} style={{ color: "#E8871A" }} />
-          INSTITUTIONAL PURPOSE
-        </span>
-        <h3
-          style={{
-            fontSize: 32,
-            fontWeight: 800,
-            color: "#0A1F44",
-            lineHeight: 1.2,
-            letterSpacing: "-0.5px",
-          }}
-        >
-          Our Vision & Mission
-        </h3>
-      </div>
+    <section id="vision-mission" className="w-full py-12 md:py-16 bg-slate-50/50">
+      <div id="VisionMission" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+          {/* Vision Card (Dark Navy) */}
+          <div className="bg-[#0B1B3D] text-white rounded-3xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl">
+            {/* Top Right Decorative Background Shape */}
+            <div className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-[#162A52] pointer-events-none opacity-80" />
 
-      {/* Vision Card */}
-      {data.vision && (
-        <div
-          style={{
-            background: "linear-gradient(135deg, #0A1F44 0%, #152E5A 100%)",
-            borderRadius: 20,
-            padding: "36px 40px",
-            color: "#FFFFFF",
-            boxShadow: "0 12px 30px rgba(10, 31, 68, 0.15)",
-            borderLeft: "6px solid #E8871A",
-            marginBottom: 36,
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          {/* Subtle Background Glow */}
-          <div
-            style={{
-              position: "absolute",
-              top: -50,
-              right: -50,
-              width: 200,
-              height: 200,
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(232, 135, 26, 0.15) 0%, transparent 70%)",
-              pointerEvents: "none",
-            }}
-          />
+            <div className="relative z-10">
+              {/* Compass Icon Badge */}
+              <div className="w-12 h-12 rounded-2xl bg-[#E8871A] flex items-center justify-center mb-8 shadow-md">
+                <Compass className="w-6 h-6 text-white" />
+              </div>
 
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "rgba(232, 135, 26, 0.18)",
-              border: "1px solid rgba(232, 135, 26, 0.4)",
-              borderRadius: 30,
-              padding: "6px 14px",
-              color: "#E8871A",
-              fontWeight: 700,
-              fontSize: 12,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              marginBottom: 16,
-            }}
-          >
-            <Target size={14} />
-            <span>OUR VISION</span>
+              {/* Subtitle */}
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#E8871A] mb-2.5">
+                OUR VISION
+              </p>
+
+              {/* Heading */}
+              <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-6 tracking-tight">
+                Academic Excellence
+              </h3>
+
+              {/* Thin Divider Line */}
+              <div className="w-full h-[1px] bg-white/15 mb-6" />
+
+              {/* Vision Text */}
+              <p className="text-slate-200 text-base md:text-[17px] leading-relaxed font-normal">
+                “{visionText}”
+              </p>
+            </div>
+
+            {/* Footer Tag */}
+            <div className="relative z-10 mt-8 pt-4 flex items-center gap-2.5 text-[#E8871A] font-semibold text-sm">
+              <Target className="w-4 h-4 shrink-0" />
+              <span>Nation-building through education</span>
+            </div>
           </div>
 
-          <p
-            style={{
-              fontFamily: "'Zilla Slab', Georgia, serif",
-              fontSize: 21,
-              lineHeight: 1.6,
-              fontWeight: 500,
-              color: "#FEF3C7",
-              margin: 0,
-              letterSpacing: "0.2px",
-            }}
-          >
-            {data.vision}
-          </p>
-        </div>
-      )}
-
-      {/* Mission Section */}
-      {data.mission && data.mission.length > 0 && (
-        <div>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              color: "#0A1F44",
-              fontWeight: 700,
-              fontSize: 14,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              marginBottom: 20,
-            }}
-          >
-            <Compass size={18} style={{ color: "#E8871A" }} />
-            <span>OUR MISSION STATEMENTS</span>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: 20,
-            }}
-          >
-            {data.mission.map((item, idx) => (
-              <div
-                key={idx}
-                className="mission-card"
-                style={{
-                  background: "#F8FAFC",
-                  border: "1.5px solid #E2E8F0",
-                  borderRadius: 16,
-                  padding: 24,
-                  transition: "all 0.3s ease",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 12,
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <span
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: 32,
-                      height: 32,
-                      borderRadius: 10,
-                      background: "#0A1F44",
-                      color: "#E8871A",
-                      fontWeight: 800,
-                      fontSize: 13,
-                    }}
-                  >
-                    0{idx + 1}
-                  </span>
-                  <CheckCircle2 size={18} style={{ color: "#E8871A", opacity: 0.7 }} />
+          {/* Mission Card (White) */}
+          <div className="bg-white rounded-3xl p-8 md:p-10 flex flex-col justify-between border border-slate-100 shadow-xl shadow-slate-200/40">
+            <div>
+              {/* Card Header with Subtitle, Heading and Lightbulb Icon */}
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#E8871A] mb-2.5">
+                    OUR MISSION
+                  </p>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-[#0B1B3D] tracking-tight">
+                    Turning Purpose Into Action
+                  </h3>
                 </div>
 
-                <p
-                  style={{
-                    fontSize: 14.5,
-                    color: "#334155",
-                    lineHeight: 1.7,
-                    fontWeight: 500,
-                    margin: 0,
-                  }}
-                >
-                  {item}
-                </p>
+                <div className="w-11 h-11 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center shrink-0">
+                  <Lightbulb className="w-5 h-5 text-[#E8871A]" />
+                </div>
               </div>
-            ))}
+
+              {/* Mission Bullet Points */}
+              <ul className="space-y-4 md:space-y-5 text-slate-600 text-sm md:text-[15px] leading-relaxed mt-8">
+                {missionItems.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3.5">
+                    <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#E8871A]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      )}
-
-      <style jsx>{`
-        .mission-card:hover {
-          background: #FFFFFF !important;
-          border-color: #E8871A !important;
-          box-shadow: 0 10px 25px rgba(232, 135, 26, 0.12) !important;
-          transform: translateY(-3px);
-        }
-      `}</style>
-    </div>
+      </div>
+    </section>
   );
 }
