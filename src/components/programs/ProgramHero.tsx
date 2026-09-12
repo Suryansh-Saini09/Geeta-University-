@@ -29,6 +29,23 @@ export default function ProgramHero({ hero }: ProgramHeroProps) {
   const activeSlide = hasSlides ? slides[currentHeroSlide] || slides[0] : null;
   const bgImage = activeSlide?.bgImage || hero.image || "/hero-full.webp";
 
+  if (hero.bannerOnly) {
+    return (
+      <section id="Overview" className="relative w-full overflow-hidden bg-[#050F24]">
+        <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[24/9] min-h-[320px] sm:min-h-[420px] md:min-h-[500px]">
+          <Image
+            src={hero.image || bgImage}
+            alt={hero.title || "School Banner"}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="Overview"
@@ -57,18 +74,14 @@ export default function ProgramHero({ hero }: ProgramHeroProps) {
               fill
               sizes="100vw"
               priority
-              className="object-cover object-center opacity-[0.05]"
+              className="object-cover object-center opacity-100"
             />
           </motion.div>
         </AnimatePresence>
 
-        {/* Deep Gradient Overlays for Readability while keeping complete image backdrop */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050F24]/95 via-[#050F24]/75 to-[#050F24]/40 z-[2]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050F24] via-transparent to-[#050F24]/60 z-[2]" />
-        <div
-          className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none z-[3]"
-          style={{ mixBlendMode: "overlay" }}
-        />
+        {/* Ultra-light targeted gradient overlays for crystal-clear background image visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050F24]/65 via-[#050F24]/30 to-transparent z-[2]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050F24]/40 via-transparent to-transparent z-[2]" />
       </motion.div>
 
       {/* Main Container - Expansive Left-aligned Layout */}
@@ -96,9 +109,9 @@ export default function ProgramHero({ hero }: ProgramHeroProps) {
                 </div>
 
                 {/* Heading */}
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[62px] font-black tracking-tight leading-[1.12] text-white max-w-4xl">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[62px] font-black tracking-tight leading-[1.12] text-white max-w-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
                   {activeSlide.titleThin && (
-                    <span className="font-light text-white/90 block text-2xl sm:text-3xl md:text-4xl lg:text-[38px] mb-1">
+                    <span className="font-light text-white/90 block text-2xl sm:text-3xl md:text-4xl lg:text-[38px] mb-1 drop-shadow-md">
                       {activeSlide.titleThin}
                     </span>
                   )}
@@ -108,10 +121,10 @@ export default function ProgramHero({ hero }: ProgramHeroProps) {
                 </h1>
 
                 {/* Accent Line */}
-                <div className="w-16 h-1 bg-[#E8871A] rounded-full my-1" />
+                <div className="w-16 h-1 bg-[#E8871A] rounded-full my-1 shadow-sm" />
 
                 {/* Description */}
-                <p className="text-gray-100 text-base sm:text-lg md:text-[20px] leading-relaxed max-w-4xl font-normal">
+                <p className="text-gray-100 text-base sm:text-lg md:text-[20px] leading-relaxed max-w-4xl font-normal drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                   {activeSlide.description}
                 </p>
 
@@ -169,15 +182,15 @@ export default function ProgramHero({ hero }: ProgramHeroProps) {
               </div>
 
               {/* Main Heading */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[62px] font-black tracking-tight leading-[1.12] text-white max-w-4xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[62px] font-black tracking-tight leading-[1.12] text-white max-w-4xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
                 {hero.title || "Excellence in Education & Career Leadership"}
               </h1>
 
               {/* Accent Line */}
-              <div className="w-16 h-1 bg-[#E8871A] rounded-full my-1" />
+              <div className="w-16 h-1 bg-[#E8871A] rounded-full my-1 shadow-sm" />
 
               {/* Description */}
-              <p className="text-gray-100 text-base sm:text-lg md:text-[20px] leading-relaxed max-w-4xl font-normal">
+              <p className="text-gray-100 text-base sm:text-lg md:text-[20px] leading-relaxed max-w-4xl font-normal drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                 {hero.description ||
                   "Industry-aligned curricula, experiential laboratories, global certification tracks, and dedicated mentorship for career excellence."}
               </p>

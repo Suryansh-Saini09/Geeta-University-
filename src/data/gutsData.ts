@@ -138,7 +138,7 @@ export const gutsSyllabusList: GutsSyllabusItem[] = [
   },
   {
     title: "MBA",
-    subtitle: "GUTS Syllabus for post-graduate management programs.",
+    subtitle: "GUTS Syllabus for postgraduate management programs.",
     pdfUrl: "https://geetauniversity.edu.in/uploads/all/2595/Syllabus-MBA.pdf",
     category: "Commerce & Mgmt",
   },

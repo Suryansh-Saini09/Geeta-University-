@@ -193,8 +193,8 @@ export const hospitalitySchool: ProgramPageData = {
       ],
     },
     {
-      level: "Post-Graduate",
-      title: "Post-Graduate Programs",
+      level: "Postgraduate",
+      title: "Postgraduate Programs",
       programs: [
         {
           name: "M.Sc. (Hotel Management)",
