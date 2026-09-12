@@ -317,6 +317,8 @@ export interface FacultyMember {
   name: string;
   designation?: string;
   role?: string;
+  qualification?: string;
+  department?: string;
   image?: string;
   img?: string;
   imagePosition?: string;
