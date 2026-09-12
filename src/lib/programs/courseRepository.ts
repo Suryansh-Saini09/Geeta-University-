@@ -34,6 +34,7 @@ import { mPharmacy } from "@/data/programs/courses/pharmacy/m-pharmacy";
 import { phdPharmacy } from "@/data/programs/courses/pharmacy/phd-pharmacy";
 import { diplomaHotelManagement } from "@/data/programs/courses/hospitality/diploma-in-hotel-management";
 import { bscHotelManagement } from "@/data/programs/courses/hospitality/bsc-hotel-management";
+import { btechCse } from "@/data/programs/courses/computer-science-and-engineering/btech-cse";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -71,6 +72,7 @@ const courses: CoursePageData[] = [
   phdPharmacy,
   diplomaHotelManagement,
   bscHotelManagement,
+  btechCse,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
