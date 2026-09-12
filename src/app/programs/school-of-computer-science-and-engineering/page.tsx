@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   keywords: computerScienceSchool.seo.keywords,
 };
 
+export const dynamic = "force-dynamic";
+
 export default function SchoolOfComputerSciencePage() {
   return <ProgramPage data={computerScienceSchool} />;
 }
