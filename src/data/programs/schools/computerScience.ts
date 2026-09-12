@@ -107,7 +107,7 @@ export const computerScienceSchool: ProgramPageData = {
   dean: {
     eyebrow: "LEADERSHIP NOTE",
     name: "Dr. Meenu Gupta",
-    designation: "School of Computer Science & Engineering",
+    designation: "Professor & Head",
     image: "https://geetauniversity.edu.in/uploads/all/2818/Codex-Image-Sep-11,-2026,-09_18_39-AM.png",
     schoolName: "School of Computer Science & Engineering",
     message:
@@ -117,21 +117,27 @@ export const computerScienceSchool: ProgramPageData = {
   faculty: [
     {
       name: "Dr. Kapil Saini",
-      role: "Head of Department, Ph.D.",
-      desc: "Published 25+ Scopus/WoS Papers; Contributed 6 Book Chapters (Springer, Elsevier, Taylor & Francis, IGI Global); Holds 3 Patents (IoT-based Health Monitoring); Recognized with Best Teacher Award (2022); Expertise in AI, ML, Cloud Computing, Recommender Systems.",
+      role: "Associate Professor",
+      desc: "Published 25+ Scopus/WoS Papers; Contributed 6 Book Chapters (Springer, Elsevier, Taylor & Francis, IGI Global); Holds 3 Patents (IoT-based Health Monitoring); Recognized with Best Teacher Award (2022); Expertise in AI, ML, Cloud Computing, and Recommender Systems.",
       image: "https://geetauniversity.edu.in/uploads/all/1513/conversions/kapil-Saini-full.webp",
     },
     {
-      name: "Ms. Rakhi Chauhan",
-      role: "Assistant Professor, M.Tech., Ph.D. (Pursuing)",
-      desc: "Ms. Rakhi Chauhan is an Assistant Professor and Ph.D. researcher specializing in Deep Learning, CNN Benchmarking, and Fake Face Detection. She has authored 10+ research papers and 20+ book chapters published in reputed journals, conferences, and edited volumes.",
-      image: "https://geetauniversity.edu.in/uploads/all/2666/conversions/WhatsApp-Image-2026-06-18-at-12.55.21-full.webp",
+      name: "Dr. Meenu Gupta",
+      role: "Professor & Head",
+      desc: "Head of the School of Computer Science & Engineering. Expert in computer applications, software engineering, intelligent computing systems, and academic leadership.",
+      image: "https://geetauniversity.edu.in/uploads/all/2818/Codex-Image-Sep-11,-2026,-09_18_39-AM.png",
     },
     {
-      name: "Ms. Richa Jain",
-      role: "Assistant Professor, M.Tech.",
-      desc: "Published research papers in Computer Science; focused on innovative teaching and academic excellence.",
-      image: "https://geetauniversity.edu.in/uploads/all/1471/conversions/Richa-Jain-(Custom)-full.webp",
+      name: "Mr. Jayant",
+      role: "Assistant Professor",
+      desc: "Assistant Professor in Computer Science & Engineering, dedicated to core computing foundations, programming, algorithms, and student mentorship.",
+      image: "/dummy.webp",
+    },
+    {
+      name: "Ms. Isha Dhingra",
+      role: "Assistant Professor",
+      desc: "Assistant Professor in Computer Science & Engineering, specializing in modern computer applications, programming paradigms, and software development.",
+      image: "/dummy.webp",
     },
     {
       name: "Ms. Jyoti",
@@ -140,16 +146,28 @@ export const computerScienceSchool: ProgramPageData = {
       image: "https://geetauniversity.edu.in/uploads/all/1877/conversions/Jyoti-full.webp",
     },
     {
+      name: "Ms. Kriti Gupta",
+      role: "Assistant Professor",
+      desc: "Assistant Professor in Computer Science & Engineering, focusing on emerging computing technologies, database systems, and hands-on laboratory learning.",
+      image: "/dummy.webp",
+    },
+    {
       name: "Ms. Radha Gautam",
       role: "Assistant Professor",
-      desc: "Ms. Radha Gautam is an Assistant Professor with expertise in Computer Science and Engineering. Dedicated to teaching, research, emerging technologies, artificial intelligence, and software development.",
+      desc: "Assistant Professor with expertise in Computer Science and Engineering. Dedicated to teaching, research, emerging technologies, artificial intelligence, and software development.",
       image: "https://geetauniversity.edu.in/uploads/all/2662/conversions/WhatsApp-Image-2026-06-18-at-12.55.20-(1)-full.webp",
     },
     {
-      name: "Ronak Duggar",
-      role: "Trainer",
-      desc: "Full Stack Developer, AI/ML Researcher, Technical Trainer, Innovator, and Emerging Scholar with 11 Publications, 7 Patents, and H-Index 6.",
-      image: "https://geetauniversity.edu.in/uploads/all/2682/conversions/RED06399-full.webp",
+      name: "Ms. Rakhi Chauhan",
+      role: "Assistant Professor",
+      desc: "Assistant Professor and Ph.D. researcher specializing in Deep Learning, CNN Benchmarking, and Fake Face Detection. She has authored 10+ research papers and 20+ book chapters published in reputed journals, conferences, and edited volumes.",
+      image: "https://geetauniversity.edu.in/uploads/all/2666/conversions/WhatsApp-Image-2026-06-18-at-12.55.21-full.webp",
+    },
+    {
+      name: "Ms. Richa Jain",
+      role: "Assistant Professor",
+      desc: "Assistant Professor in Computer Science & Engineering. Published research papers in Computer Science; focused on innovative teaching and academic excellence.",
+      image: "https://geetauniversity.edu.in/uploads/all/1471/conversions/Richa-Jain-(Custom)-full.webp",
     },
   ],
 
