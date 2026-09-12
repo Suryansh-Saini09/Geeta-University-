@@ -168,7 +168,7 @@ export default function ProgramMentors({
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            objectPosition: "center 15%",
+            objectPosition: "top center",
             display: "block",
           }}
           onError={(e) => {
@@ -184,7 +184,7 @@ export default function ProgramMentors({
       {/* Card Body - Name, Title & CTA */}
       <div
         style={{
-          padding: "18px 20px 22px",
+          padding: "18px 18px 20px",
           textAlign: "center",
           display: "flex",
           flexDirection: "column",
@@ -196,11 +196,11 @@ export default function ProgramMentors({
         <div style={{ width: "100%" }}>
           <h3
             style={{
-              fontSize: 18,
+              fontSize: 17.5,
               fontWeight: 800,
               color: "#0A1F44",
               margin: 0,
-              minHeight: 46,
+              minHeight: 44,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -216,7 +216,7 @@ export default function ProgramMentors({
               color: "#E8871A",
               fontWeight: 700,
               margin: "4px 0 0",
-              minHeight: 36,
+              minHeight: 34,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -228,7 +228,7 @@ export default function ProgramMentors({
         </div>
 
         <div style={{ width: "100%" }}>
-          <div style={{ width: "100%", borderBottom: "1px solid #F1F5F9", margin: "14px 0 12px" }} />
+          <div style={{ width: "100%", borderBottom: "1px solid #F1F5F9", margin: "12px 0 10px" }} />
 
           <button
             onClick={() => setSelectedMentor(m)}

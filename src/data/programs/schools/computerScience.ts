@@ -116,16 +116,16 @@ export const computerScienceSchool: ProgramPageData = {
 
   faculty: [
     {
-      name: "Dr. Kapil Saini",
-      role: "Associate Professor",
-      desc: "Published 25+ Scopus/WoS Papers; Contributed 6 Book Chapters (Springer, Elsevier, Taylor & Francis, IGI Global); Holds 3 Patents (IoT-based Health Monitoring); Recognized with Best Teacher Award (2022); Expertise in AI, ML, Cloud Computing, and Recommender Systems.",
-      image: "https://geetauniversity.edu.in/uploads/all/1513/conversions/kapil-Saini-full.webp",
-    },
-    {
       name: "Dr. Meenu Gupta",
       role: "Professor & Head",
       desc: "Head of the School of Computer Science & Engineering. Expert in computer applications, software engineering, intelligent computing systems, and academic leadership.",
       image: "https://geetauniversity.edu.in/uploads/all/2818/Codex-Image-Sep-11,-2026,-09_18_39-AM.png",
+    },
+    {
+      name: "Dr. Kapil Saini",
+      role: "Associate Professor",
+      desc: "Published 25+ Scopus/WoS Papers; Contributed 6 Book Chapters (Springer, Elsevier, Taylor & Francis, IGI Global); Holds 3 Patents (IoT-based Health Monitoring); Recognized with Best Teacher Award (2022); Expertise in AI, ML, Cloud Computing, and Recommender Systems.",
+      image: "https://geetauniversity.edu.in/uploads/all/1513/conversions/kapil-Saini-full.webp",
     },
     {
       name: "Mr. Jayant",
