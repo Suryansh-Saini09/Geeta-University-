@@ -105,7 +105,7 @@ export const computerScienceSchool: ProgramPageData = {
   },
 
   dean: {
-    eyebrow: "LEADERSHIP NOTE",
+    eyebrow: "HEAD OF SCHOOL",
     name: "Dr. Meenu Gupta",
     designation: "Professor & Head",
     image: "https://geetauniversity.edu.in/uploads/all/2818/Codex-Image-Sep-11,-2026,-09_18_39-AM.png",

@@ -91,7 +91,7 @@ export default function DeanMessage(props: DeanMessageProps) {
             <div className="flex items-center gap-3">
               <span className="h-[2px] w-9 bg-[#E8871A]" />
               <span className="text-[11px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-                Leadership Note
+                {data.eyebrow || "Head of School"}
               </span>
             </div>
 

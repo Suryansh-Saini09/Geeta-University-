@@ -46,7 +46,7 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
               <div className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-[#E8871A]" />
                 <span className="text-[11px] font-bold uppercase tracking-[2px] text-[#E8871A]">
-                  Head of School Note
+                  {dean.eyebrow || "Head of School"}
                 </span>
               </div>
               <Quote className="h-5 w-5 text-[#E8871A]/40" />
@@ -124,7 +124,7 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
                 <div>
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-[#E8871A]/10 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#E8871A]">
                     <Sparkles className="h-3 w-3" />
-                    Leadership Note
+                    {dean.eyebrow || "Head of School"}
                   </span>
                   <h3 className="mt-2 font-serif text-2xl font-bold text-[#0A1F44]">
                     {dean.name}
