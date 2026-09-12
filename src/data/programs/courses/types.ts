@@ -115,10 +115,14 @@ export interface CourseScholarshipsData {
 
 export interface FacultyMember {
   name: string;
-  designation: string;
-  qualification: string;
-  description: string;
-  image: string;
+  designation?: string;
+  role?: string;
+  image?: string;
+  img?: string;
+  imagePosition?: string;
+  imageScale?: number;
+  description?: string;
+  desc?: string;
 }
 
 export interface CourseTestimonial {

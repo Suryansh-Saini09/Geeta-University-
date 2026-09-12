@@ -168,7 +168,9 @@ export default function ProgramMentors({
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            objectPosition: "top center",
+            objectPosition: m.imagePosition || "center 20%",
+            transform: m.imageScale ? `scale(${m.imageScale})` : undefined,
+            transition: "transform 0.3s ease",
             display: "block",
           }}
           onError={(e) => {

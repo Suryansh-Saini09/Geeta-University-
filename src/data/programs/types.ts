@@ -319,6 +319,8 @@ export interface FacultyMember {
   role?: string;
   image?: string;
   img?: string;
+  imagePosition?: string;
+  imageScale?: number;
   description?: string;
   desc?: string;
 }
