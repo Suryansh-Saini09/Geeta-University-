@@ -176,6 +176,13 @@ export const mscForensicScience: CoursePageData = {
   ],
   testimonials: [
     {
+      name: "Sumera Din",
+      role: "M.Sc. Forensic Science Student",
+      image:
+        "/programs/forensic-sciences/msc-forensic-science/sumaira-testimonial.jpg",
+      text: "The programme provided me with strong practical exposure, advanced technical knowledge, and valuable industry insights. The supportive faculty and research-oriented learning environment helped me strengthen my professional capabilities.",
+    },
+    {
       name: "Sidhika Gautam",
       role: "B.Sc. Forensic Science Student",
       image:

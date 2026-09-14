@@ -187,6 +187,13 @@ export const bscForensicScience: CoursePageData = {
   ],
   testimonials: [
     {
+      name: "Himanshu Sharma",
+      role: "B.Sc. (H) Forensic Science Student",
+      image:
+        "/programs/forensic-sciences/bsc-forensic-science/himanshu-testimonial.jpg",
+      text: "Geeta University provided me with the right academic platform, laboratory exposure, and practical learning opportunities required to build a successful career in forensic science.",
+    },
+    {
       name: "Sidhika Gautam",
       role: "B.Sc. Forensic Science Student",
       image:
