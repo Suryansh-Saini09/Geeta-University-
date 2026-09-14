@@ -742,8 +742,8 @@ export const forensicSciencesSchool: ProgramPageData = {
     title: "Download School of Sciences Brochure",
     description:
       "Explore detailed curriculum outlines, laboratory facilities, faculty profiles, and admission guidelines for B.Sc., M.Sc., and Ph.D. Forensic Science programs.",
-    fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
-    fileName: "Geeta_University_Forensic_Sciences_Brochure.pdf",
+    fileUrl: "/programs/forensic-sciences/ForensicScienceBrochure.pdf",
+    fileName: "ForensicScienceBrochure.pdf",
   },
 
   cta: {

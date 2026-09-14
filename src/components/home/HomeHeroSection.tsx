@@ -189,7 +189,7 @@ export default function HomeHeroSection() {
 
               {/* Status Text */}
               <span className="text-xs sm:text-sm font-semibold tracking-wider text-white transition-colors group-hover:text-amber-100">
-                Admissions Open 2026–27
+                Admissions Open
               </span>
 
               {/* Arrow Indicator */}

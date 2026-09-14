@@ -668,7 +668,7 @@ export default function ProgramCourses({
                 "
               />
 
-              <span
+              {/* <span
                 className="
                   text-[10px]
                   font-bold
@@ -679,7 +679,7 @@ export default function ProgramCourses({
                 "
               >
                 Academic Directory
-              </span>
+              </span> */}
             </div>
 
             {/* Main title */}

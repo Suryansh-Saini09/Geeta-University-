@@ -8,7 +8,7 @@ export const mscNutritionAndDietetics: CoursePageData = {
   seo: {
     title: "MSc Nutrition Dietetics Course | Food & Clinical Nutrition",
     description:
-      "Study M.Sc Nutrition & Dietetics at GU, Panipat (Delhi NCR). Gain expertise in clinical nutrition, dietetics, food safety & research. Admission 2026 open",
+      "Study M.Sc Nutrition & Dietetics at GU, Panipat (Delhi NCR). Gain expertise in clinical nutrition, dietetics, food safety & research. Admissions Open",
     keywords: [
       "M.Sc. Nutrition and Dietetics",
       "MSc Nutrition Dietetics Haryana",

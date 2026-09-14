@@ -894,7 +894,7 @@ export const commerceSchool: ProgramPageData = {
       "Hotel Management",
       "Humanities",
     ],
-    qrLabel: "Admissions 2026–27",
+    qrLabel: "Admissions Open",
     qrCta: "Scan to Apply",
     qrImage: "/qr.png",
     applyLink: "/admissions",

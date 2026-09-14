@@ -859,7 +859,7 @@ export const humanitiesSchool: ProgramPageData = {
       "School of Hospitality & Hotel Management",
       "School of Forensic Sciences",
     ],
-    qrLabel: "Admissions 2026–27",
+    qrLabel: "Admissions Open",
     qrCta: "Scan to Apply",
     qrImage: "/qr.png",
     applyLink: "/admissions",

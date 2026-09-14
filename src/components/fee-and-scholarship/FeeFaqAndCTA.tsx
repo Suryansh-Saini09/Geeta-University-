@@ -104,7 +104,7 @@ export default function FeeFaqAndCTA() {
         <div className="rounded-[24px] bg-gradient-to-r from-[#06355F] via-[#0A1F44] to-[#06355F] p-8 sm:p-12 md:p-14 text-white shadow-xl text-center relative overflow-hidden">
           <div className="relative z-10 max-w-3xl mx-auto space-y-6">
             <span className="inline-block rounded-full bg-[#E8871A] px-4 py-1 text-xs font-black uppercase tracking-wider text-white">
-              Admissions Open 2026–27
+              Admissions Open
             </span>
 
             <h3 className="font-serif text-[28px] sm:text-[36px] md:text-[42px] font-black text-white leading-tight">

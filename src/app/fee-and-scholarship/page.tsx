@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Scholarship Predictor",
     "Hostel Fee",
     "Transport Fee",
-    "Geeta University Admissions 2026-27",
+    "Geeta University Admissions Open",
   ],
   alternates: {
     canonical: "https://geetauniversity.edu.in/fee-and-scholarship",

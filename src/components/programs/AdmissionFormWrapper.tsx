@@ -57,7 +57,7 @@ export default function AdmissionFormWrapper() {
       <div className="text-center pb-2 mb-2 border-b border-gray-200/80">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#E8871A]/10 text-[#E8871A] text-[10.5px] font-extrabold uppercase tracking-wider mb-1">
           <span className="w-1.5 h-1.5 rounded-full bg-[#E8871A] animate-pulse" />
-          Admissions Open 2026–27
+          Admissions Open
         </div>
         <h3 className="text-[#0A1F44] font-extrabold text-[15px] leading-tight">
           Apply Online / Enquire Now

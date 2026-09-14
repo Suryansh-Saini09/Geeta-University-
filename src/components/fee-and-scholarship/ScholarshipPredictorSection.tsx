@@ -334,7 +334,7 @@ export default function ScholarshipPredictorSection() {
                       </div>
                       <div>
                         <div style={{ color: "#FF7A00", fontWeight: 700, fontSize: "0.9rem" }}>
-                          Admission Session 2026–27
+                          Admissions Open
                         </div>
                         <div style={{ color: "#666", fontSize: "0.85rem", fontWeight: 500 }}>
                           Limited Seat availability.

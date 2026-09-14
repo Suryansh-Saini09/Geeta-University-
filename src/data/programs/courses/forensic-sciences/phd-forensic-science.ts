@@ -219,7 +219,7 @@ export const phdForensicScience: CoursePageData = {
       "Apply now at Geeta University and advance your research journey in forensic science and scientific investigation.",
     applyUrl: "https://admissions.geetauniversity.edu.in/",
     brochureUrl:
-      "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
+      "/programs/forensic-sciences/ForensicScienceBrochure.pdf",
     helpline: "+91 99963 03799",
   },
 };

@@ -22,7 +22,7 @@ export default function PlacementCTA() {
           <div className="relative z-10 grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
             <div className="lg:col-span-8">
               <span className="inline-flex rounded-full bg-[#E8871A] px-3.5 py-1 text-[11px] font-bold uppercase tracking-[2px] text-white">
-                Admissions Open 2026–2027
+                Admissions Open
               </span>
 
               <h2 className="mt-4 font-serif text-[32px] font-black leading-[1.1] text-white sm:text-[42px] lg:text-[48px]">

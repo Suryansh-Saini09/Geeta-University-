@@ -237,7 +237,7 @@ export const globalEdgePage: EdgePageData = {
 
   cta: {
     heading: "Shape the Future of Law & Justice",
-    subtitle: "Admissions Open for Session 2026–27",
+    subtitle: "Admissions Open",
     description:
       "Join Geeta Global Law School to learn from eminent jurists, practice in world-class moot courts, and launch a distinguished legal career.",
     buttonText: "Apply for Law",

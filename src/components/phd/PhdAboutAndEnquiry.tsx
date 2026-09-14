@@ -198,7 +198,7 @@ export default function PhdAboutAndEnquiry() {
                   Enquire Now
                 </h3>
                 <p className="mt-1 text-[14px] text-[#64748B]">
-                  Fill the details below to apply for Ph.D. Admissions 2026-27
+                  Fill the details below to apply for Ph.D. Admissions Open
                 </p>
               </div>
 
