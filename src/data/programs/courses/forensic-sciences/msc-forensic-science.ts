@@ -229,7 +229,7 @@ export const mscForensicScience: CoursePageData = {
       "Apply now at Geeta University and take your forensic expertise and scientific investigation skills to the next level.",
     applyUrl: "https://admissions.geetauniversity.edu.in/",
     brochureUrl:
-      "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
+      "/programs/forensic-sciences/ForensicScienceBrochure.pdf",
     helpline: "+91 99963 03799",
   },
 };

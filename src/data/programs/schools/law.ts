@@ -902,7 +902,7 @@ export const lawSchool: ProgramPageData = {
       "Hospitality & Hotel Management",
       "Health & Allied Sciences",
     ],
-    qrLabel: "Admissions 2026–27",
+    qrLabel: "Admissions Open",
     qrCta: "Scan to Apply",
     qrImage: "/qr.png",
     applyLink: "/admissions",

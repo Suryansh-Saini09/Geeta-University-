@@ -673,7 +673,7 @@ export const agricultureSchool: ProgramPageData = {
       "Hotel Management",
       "Law & Legal Studies",
     ],
-    qrLabel: "Admissions 2026–27",
+    qrLabel: "Admissions Open",
     qrCta: "Scan to Apply",
     qrImage: "/qr.png",
     applyLink: "/admissions",

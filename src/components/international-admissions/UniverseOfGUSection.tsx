@@ -109,7 +109,7 @@ export default function UniverseOfGUSection() {
                 <div className="flex items-center justify-between border-b border-white/15 pb-4 mb-6">
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-widest text-[#E8871A]">
-                      Admissions 2026-27
+                      Admissions Open
                     </span>
                     <h3 className="text-2xl font-black font-serif text-white mt-1">
                       International Enquiry

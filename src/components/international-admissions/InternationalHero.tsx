@@ -41,7 +41,7 @@ export default function InternationalHero() {
               className="inline-flex items-center gap-2 rounded-full border border-[#E8871A]/40 bg-[#E8871A]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E8871A] backdrop-blur-sm"
             >
               <Globe size={14} className="animate-spin-slow" />
-              International Admissions 2026-27
+              International Admissions Open
             </motion.div>
 
             <motion.h1

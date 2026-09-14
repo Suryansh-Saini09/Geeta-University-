@@ -157,7 +157,7 @@ export const nepPage: EdgePageData = {
 
   cta: {
     heading: "Experience the True Spirit of NEP 2020",
-    subtitle: "Admissions Open for Session 2026–2027",
+    subtitle: "Admissions Open",
     description:
       "Step into the future with an AI-enabled university where innovation, flexibility, and world-class education come together.",
     buttonText: "Apply Now",

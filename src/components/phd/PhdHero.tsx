@@ -41,7 +41,7 @@ export default function PhdHero() {
           <div className="mb-5 flex items-center gap-3">
             <span className="h-[2px] w-10 bg-[#E8871A]" />
             <span className="text-[12px] sm:text-[14px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Doctoral Admissions 2026-27
+              Admissions Open
             </span>
           </div>
 

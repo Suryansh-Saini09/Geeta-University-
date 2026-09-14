@@ -186,7 +186,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const announcements = [
-    "Admissions Open 2025-26 — Apply Now for UG, PG & PhD Programs",
+    "Admissions Open — Apply Now for UG, PG & PhD Programs",
     "Geeta University Ranked Among Top Universities in Haryana — NIRF 2024",
     "Joint Campus Placement Drive — 500+ Companies Visiting This Season",
     "International Student Exchange Program Now Open for Applications",

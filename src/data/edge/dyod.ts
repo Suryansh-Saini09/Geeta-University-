@@ -137,7 +137,7 @@ export const dyodPage: EdgePageData = {
 
   cta: {
     heading: "Design Your Degree. Define Your Destiny.",
-    subtitle: "Admissions Open for 2026–27",
+    subtitle: "Admissions Open",
     description:
       "Take control of your higher education journey with Geeta University's flexible, NEP 2020-aligned curriculum.",
     buttonText: "Apply Now",

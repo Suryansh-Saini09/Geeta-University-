@@ -91,7 +91,7 @@ export default function DepartmentHighlights({
           transition={{ duration: 0.6 }}
           style={{ textAlign: "center", marginBottom: 50 }}
         >
-          <div
+          {/* <div
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -110,7 +110,7 @@ export default function DepartmentHighlights({
           >
             <Sparkles size={14} />
             <span>Experiential Highlights</span>
-          </div>
+          </div> */}
 
           <h2
             style={{
