@@ -642,52 +642,60 @@ export const forensicSciencesSchool: ProgramPageData = {
 
   testimonials: [
     {
-      name: "Prikshit",
-      pkg: "Package - 30 LPA",
-      role: "Forensic & Risk Analyst",
+      name: "Sumera Din",
+      role: "M.Sc. Forensic Science Student",
+      image:
+        "/programs/forensic-sciences/msc-forensic-science/sumaira-testimonial.jpg",
       quote:
-        "Time I spent at Geeta University helped me fill the gap between theory-based learning and practical learning. The practical lessons and mock crime scene investigations helped me shape my career.",
-      image: "/programs/forensic-sciences/gallery-2.webp",
+        "The programme provided me with strong practical exposure, advanced technical knowledge, and valuable industry insights. The supportive faculty and research-oriented learning environment helped me strengthen my professional capabilities.",
     },
     {
-      name: "Vikas Bareja",
-      pkg: "Package - 34 LPA",
-      role: "Corporate Investigation Specialist",
+      name: "Himanshu Sharma",
+      role: "B.Sc. (H) Forensic Science Student",
+      image:
+        "/programs/forensic-sciences/bsc-forensic-science/himanshu-testimonial.jpg",
       quote:
-        "Geeta University provides a nurturing environment. The advanced infrastructure, high-tech labs, and strong placement support helped me gain the confidence to move into a high-profile role.",
-      image: "/programs/forensic-sciences/gallery-3.webp",
+        "Geeta University provided me with the right academic platform, laboratory exposure, and practical learning opportunities required to build a successful career in forensic science.",
     },
     {
-      name: "Manik Sharma",
-      pkg: "Package - 67.5 LPA",
-      role: "Senior Security Specialist",
+      name: "Sidhika Gautam",
+      role: "B.Sc. Forensic Science Student",
+      image:
+        "/programs/forensic-sciences/bsc-forensic-science/sidhika_testimonial.webp",
       quote:
-        "Geeta University offers a premier academic and campus life experience. The analytical skills and practical exposure I learned here were integral to my success and helped me achieve a ₹67.5 LPA package.",
-      image: "/programs/forensic-sciences/gallery-1.webp",
+        "My journey in B.Sc. Forensic Science at Geeta University improved my technical skills, observation abilities, and understanding of criminal investigation procedures. The university's academic support played a major role in my professional growth.",
     },
     {
-      name: "Mr. Abhishek Kumar",
-      pkg: "Package - INR 77.5 LPA",
-      role: "Lead Systems Analyst",
+      name: "Vaibhav Vashisht",
+      role: "B.Sc. Forensic Science Student",
+      image:
+        "/programs/forensic-sciences/bsc-forensic-science/vaibhav_testimonial.webp",
       quote:
-        "I’m deeply grateful to Geeta Campus and my mentors for laying the foundation of my career. Coming from a humble background, achieving this package is truly a dream come true.",
-      image: "/programs/forensic-sciences/gallery-4.webp",
+        "Geeta University's forensic science department helped me strengthen my problem-solving abilities and scientific knowledge through practical training and research exposure. The experience prepared me to face real-world forensic challenges with confidence.",
     },
     {
-      name: "Mr. Yakshup Goel",
-      pkg: "Package - 40 LPA",
-      role: "Technology Consultant",
+      name: "Mitali",
+      role: "B.Sc. Forensic Science Student",
+      image:
+        "/programs/forensic-sciences/bsc-forensic-science/mitali_testimonial.webp",
       quote:
-        "The time I spent at Geeta University inspired me to persevere & never give up on anything irrespective of how difficult it might seem. The practical lessons learnt here were instrumental in building my career.",
-      image: "/programs/forensic-sciences/gallery-5.webp",
+        "The B.Sc. Forensic Science program at Geeta University provided me with valuable hands-on experience and industry-oriented knowledge. The supportive faculty and modern learning environment helped me build confidence for my future career.",
     },
     {
-      name: "Rahul Mor",
-      pkg: "Package - 25 LPA",
-      role: "Research & Development Associate",
+      name: "Chodisetti Anapurna",
+      role: "Ph.D. Forensic Science Scholar",
+      image:
+        "/programs/forensic-sciences/phd-forensic-science/anapurna_testimonial.webp",
       quote:
-        "Geeta University helped me with communication, confidence, and real-world skills through structured training, expert mentoring, and placement preparation, which empowered me to excel in corporate environments.",
-      image: "/programs/forensic-sciences/gallery-6.webp",
+        "Geeta University provided me with excellent research opportunities and practical exposure during my Ph.D. in Forensic Science. The advanced learning environment and guidance from experienced faculty helped me strengthen my scientific knowledge and prepare for future career opportunities.",
+    },
+    {
+      name: "Saurav Kumar",
+      role: "Ph.D. Forensic Science Scholar",
+      image:
+        "/programs/forensic-sciences/phd-forensic-science/saurav_testimonial.webp",
+      quote:
+        "Pursuing my Ph.D. in Forensic Science at Geeta University enhanced my research capabilities, analytical thinking, and expertise in forensic investigation techniques. The university’s research-oriented environment and academic support played a vital role in my professional and intellectual development.",
     },
   ],
 
