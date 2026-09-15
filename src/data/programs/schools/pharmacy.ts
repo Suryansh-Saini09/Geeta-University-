@@ -516,7 +516,7 @@ export const pharmacySchool: ProgramPageData = {
     title: "Download Pharmacy Brochure",
     description:
       "Get comprehensive details on PCI approvals, D.Pharm, B.Pharm, M.Pharm courses, modern laboratories, faculty profiles, and placement track records.",
-    fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
+    fileUrl: "https://geetauniversity.edu.in/uploads/all/2690/pharmacy-brochure.pdf",
     fileName: "Geeta_Institute_of_Pharmacy_Brochure.pdf",
   },
 

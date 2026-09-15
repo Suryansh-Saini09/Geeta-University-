@@ -165,53 +165,71 @@ export default function ProgramCourses({
     >
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
         
-        {/* Section Header matching SCSE */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          style={{ marginBottom: 56 }}
+          style={{
+            marginBottom: 40,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 20,
+          }}
         >
-          <h2
-            style={{
-              fontSize: 48,
-              fontWeight: 900,
-              color: "#0A1F44",
-              margin: "0 0 12px",
-              lineHeight: 1.1,
-              letterSpacing: "-1px",
-            }}
-          >
-            {title}
-          </h2>
-          <p style={{ fontSize: 16, color: "#64748B", margin: 0, letterSpacing: 0.5 }}>
-            {subtitle}
-          </p>
-          <div
-            style={{
-              marginTop: 24,
-              fontSize: 15,
-              color: "#4A5568",
-              fontWeight: 400,
-              maxWidth: 800,
-              lineHeight: 1.6,
-            }}
-          >
-            <span
+          <div>
+            <h2
               style={{
-                fontWeight: 700,
-                color: "#E8871A",
-                letterSpacing: 0.5,
-                textTransform: "uppercase",
-                fontSize: 13,
-                marginRight: 8,
+                fontSize: 48,
+                fontWeight: 900,
+                color: "#0A1F44",
+                margin: "0 0 12px",
+                lineHeight: 1.1,
+                letterSpacing: "-1px",
               }}
             >
-              Level of Study:
-            </span>
-            Comprehensive academic pathways designed with industry-linked curricula, practical labs, and recognized career qualifications.
+              {title}
+            </h2>
+            <p style={{ fontSize: 16, color: "#64748B", margin: 0, letterSpacing: 0.5 }}>
+              {subtitle}
+            </p>
           </div>
+
+          <a
+            href="https://admissions.geetauniversity.edu.in/"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              background: "#E8871A",
+              color: "#FFFFFF",
+              padding: "13px 28px",
+              borderRadius: 8,
+              fontSize: 14,
+              fontWeight: 800,
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              transition: "all 0.3s ease",
+              textTransform: "uppercase",
+              letterSpacing: 1,
+              boxShadow: "0 4px 14px rgba(232,135,26,0.3)",
+              flexShrink: 0,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#0A1F44";
+              e.currentTarget.style.boxShadow = "0 8px 20px rgba(10,31,68,0.25)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "#E8871A";
+              e.currentTarget.style.boxShadow = "0 4px 14px rgba(232,135,26,0.3)";
+            }}
+          >
+            Apply Now <ArrowRight size={16} />
+          </a>
         </motion.div>
 
         {/* Tab Buttons matching SCSE */}
@@ -383,15 +401,15 @@ export default function ProgramCourses({
                     </div>
 
                     {/* Action Buttons */}
-                    <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-                      {prog.href && (
+                    {prog.href && (
+                      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                         <a
                           href={prog.href}
                           style={{
                             background: "#FFFFFF",
                             color: "#0A1F44",
                             border: "1.5px solid #0A1F44",
-                            padding: "11px 22px",
+                            padding: "10px 20px",
                             borderRadius: 8,
                             fontSize: 13,
                             fontWeight: 800,
@@ -414,40 +432,8 @@ export default function ProgramCourses({
                         >
                           Course Details <ArrowRight size={15} />
                         </a>
-                      )}
-
-                      <a
-                        href="https://admissions.geetauniversity.edu.in/"
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{
-                          background: "#E8871A",
-                          color: "#FFFFFF",
-                          padding: "12px 28px",
-                          borderRadius: 8,
-                          fontSize: 14,
-                          fontWeight: 800,
-                          textDecoration: "none",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 8,
-                          transition: "all 0.3s ease",
-                          textTransform: "uppercase",
-                          letterSpacing: 1,
-                          boxShadow: "0 4px 12px rgba(232,135,26,0.25)",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.background = "#0A1F44";
-                          e.currentTarget.style.boxShadow = "0 8px 20px rgba(10,31,68,0.2)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = "#E8871A";
-                          e.currentTarget.style.boxShadow = "0 4px 12px rgba(232,135,26,0.25)";
-                        }}
-                      >
-                        Apply Now <ArrowRight size={16} />
-                      </a>
-                    </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Divider */}
