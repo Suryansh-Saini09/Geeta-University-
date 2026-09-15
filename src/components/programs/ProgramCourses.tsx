@@ -325,7 +325,7 @@ export default function ProgramCourses({
                 boxShadow: "0 4px 12px rgba(245, 158, 11, 0.05)",
               }}
             >
-              {currentCategory.level} Courses
+              {currentCategory.level} Programs
             </div>
 
             {/* Courses Card Grid */}
@@ -430,7 +430,7 @@ export default function ProgramCourses({
                             e.currentTarget.style.color = "#0A1F44";
                           }}
                         >
-                          Course Details <ArrowRight size={15} />
+                          Program Details <ArrowRight size={15} />
                         </a>
                       </div>
                     )}
