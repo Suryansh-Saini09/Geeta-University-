@@ -25,32 +25,31 @@ export const phdForensicScience: CoursePageData = {
       "/programs/forensic-sciences/phd-forensic-science/phd-forensic-hero.jpeg",
   },
   quickInfo: {
-    program: "PhD in Forensic Science",
-    duration: "Minimum 3 years",
-    eligibility: "Master's degree with a minimum of 55% aggregate",
+    program: "Ph.D. in Forensic Science",
+    duration: "Minimum 3 Years",
+    eligibility: "Master's degree with a minimum of 55% aggregate marks (50% for SC/ST/OBC/PwD candidates)",
   },
   overview: {
-    title: "PhD in Forensic Science",
+    title: "Ph.D. in Forensic Science",
     paragraphs: [
-      "PhD in Forensic Science at Geeta University that prepares students for careers in research, academia, law enforcement, or legal sectors. This program provides in-depth knowledge and specialized skills related to the application of science in criminal investigations, legal matters, and crime scene analysis. This programme aims to produce experts in the field who can contribute to Forensic research, advancements in criminal investigation techniques, and the application of scientific knowledge in legal settings.",
-      "Ph.D. in Forensic Science programme at Geeta University is designed under the guidance of highly qualified, experienced and recognized faculty in their respective fields such as Digital & Cyber Forensics, Forensic Biology & Serology, Forensic Chemistry & Toxicology, Forensic Documents, Instrumentation and completely based on the research carried out by the scholars under the guidance of Supervisor/Co-Supervisor(s).",
+      "The Ph.D. in Forensic Science at Geeta University prepares scholars for distinguished careers in research, academia, law enforcement, and legal consultancy. This doctoral program provides in-depth domain knowledge and specialized research capabilities across criminalistics, molecular forensics, and analytical instrumentation. It aims to develop subject-matter experts who contribute original research, develop novel analytical methodologies, and advance the application of forensic science in the judicial system.",
+      "The doctoral program is mentored by recognized research guides across specialized disciplines including Digital & Cyber Forensics, Forensic Biology & Serology, Forensic Chemistry & Toxicology, Questioned Documents, and Analytical Instrumentation.",
     ],
   },
   takeaways: [
-    "A PhD in Forensic Science degree shall be for a minimum duration of three years",
-    "Familiarize learners with the field of forensic science, which involves investigating crimes by applying principles of forensic science",
-    "Provide students with the knowledge, skills, and abilities to prepare them for successful careers in forensic science",
-    "Develop students’ critical thinking ability, problem-solving skills, and advanced discipline-specific knowledge",
-    "Produce high-quality graduates capable of advancement into leadership positions",
-    "Engage in collaborative research that demonstrates industrial relevance and wider scientific awareness",
-    "Scholarship based on National Level Exams (CUCET, GPAT, and more)",
+    "Minimum 3-year research-oriented doctoral degree program",
+    "Advanced training in research methodologies, publication ethics, and laboratory diagnostics",
+    "Collaborative research opportunities with national forensic institutions and law enforcement agencies",
+    "Focus on developing original scientific problem-solving and critical investigative capabilities",
+    "Mentorship from experienced research supervisors with indexed publications and patents",
+    "Scholarship options available based on National Level Exams (such as NET/GATE/GPAT)",
   ],
   subjects: [
     "Research Methodology",
     "Research and Publication Ethics",
-    "IT Skills",
+    "IT Skills in Research",
     "Literature Survey",
-    "Domain Knowledge Course",
+    "Domain Specific Advanced Courses",
   ],
   learningOutcomes: [
     "Advanced Discipline-Specific Knowledge",
@@ -61,71 +60,71 @@ export const phdForensicScience: CoursePageData = {
   ],
   admission: {
     eligibility:
-      "The minimum eligibility for admission to a Doctorate degree in Forensic Science at Geeta University Panipat is Post Graduation with 55% in Forensic Science, or related fields such as Physics, Chemistry, Biochemistry, or Life Sciences, from a recognized university. A 5% relaxation is provided for reserved categories like SC/ST/OBC/EWS.",
-    whyChooseHeading: "Scope & Admission Process for PhD in Forensic Science",
+      "Candidates must hold a Master's degree with at least 55% aggregate marks in Forensic Science, Physics, Chemistry, Biochemistry, Life Sciences, or allied disciplines from a recognized university. A 5% relaxation is provided for reserved categories (SC/ST/OBC/EWS/PwD).",
+    whyChooseHeading: "Scope & Admission Process for Ph.D. in Forensic Science",
     whyChooseParagraphs: [
-      "Admissions are based on academic performance in Master's degree, research proposal evaluation, and entrance/interview performance.",
-      "Scholarships are offered based on National Level Exams (CUCET, GPAT, and relevant national eligibility tests).",
+      "Admissions are based on postgraduate academic merit, research proposal evaluation, and performance in the University entrance examination and interview.",
+      "Scholarships are available for qualifying national-level test holders (such as UGC-NET / CSIR-NET / GATE / GPAT).",
     ],
   },
   whyGeeta: {
-    title: "Reasons to Choose Geeta University for PhD in Forensic Science",
+    title: "Reasons to Choose Geeta University for Ph.D. in Forensic Science",
     intro:
-      "Geeta University distinguishes itself in offering a Doctorate in Forensic Science via its multidisciplinary research environment, advanced facilities, and committed professors with knowledge in advanced forensic techniques.",
+      "Geeta University offers a vibrant doctoral research environment supported by modern analytical laboratories, experienced faculty supervisors, and interdisciplinary collaboration opportunities.",
     reasons: [
       {
         title: "Multidisciplinary Research Environment",
         description:
-          "Engage in advanced research across Digital & Cyber Forensics, Forensic Biology, Serology, Chemistry, Toxicology, and Document Analysis.",
+          "Engage in cutting-edge doctoral research across Digital & Cyber Forensics, Forensic Biology, Serology, Chemistry, Toxicology, and Questioned Document Analysis.",
       },
       {
         title: "Advanced Laboratory Infrastructure",
         description:
-          "State-of-the-art analytical equipment, instrumentation labs, and simulation facilities to conduct cutting-edge doctoral research.",
+          "Equipped with modern analytical instrumentation, chromatography, spectrophotometry, and simulation facilities to support high-impact doctoral research.",
       },
       {
         title: "Expert Guidance & Mentorship",
         description:
-          "Supervised by highly qualified and recognized research guides with publications in high-impact journals and patents.",
+          "Supervised by recognized faculty guides with established records of patents, government grants, and high-impact journal publications.",
       },
       {
         title: "Industry & Legal Collaborations",
         description:
-          "Robust industry ties, ethical research protocols, and publication opportunities for global scientific engagement.",
+          "Institutional linkages with Central & State FSLs and law enforcement agencies provide authentic research exposure and collaborative avenues.",
       },
     ],
   },
   career: {
-    title: "Career Opportunities After PhD in Forensic Science",
+    title: "Career Opportunities After Ph.D. in Forensic Science",
     intro:
-      "A Doctorate degree in Forensic Science opens up multiple career options in both the public and private industries. Below are ideal career paths:",
+      "A doctorate in Forensic Science opens diverse high-level career pathways across academia, government scientific bureaus, and corporate consulting:",
     govtRoles: [
       {
-        title: "University Professor / Lecturer",
+        title: "University Professor / Research Scientist",
         description:
-          "Teach forensic science courses and direct academic research at colleges and universities.",
+          "Teach undergraduate and postgraduate courses and lead funded scientific research projects at universities.",
       },
       {
-        title: "Government Research Scientist",
+        title: "Senior Government Forensic Scientist",
         description:
-          "Conduct high-level forensic research in Central and State Forensic Science Laboratories and research institutions.",
+          "Conduct high-level forensic investigations and research in Central and State Forensic Science Laboratories.",
       },
       {
-        title: "Forensic Toxicologist & Analyst",
+        title: "Forensic Toxicologist & DNA Expert",
         description:
-          "Specialize in detecting toxins, drugs, and chemical evidence for law enforcement agencies.",
+          "Lead specialized forensic diagnostic units examining complex toxicological, chemical, and biological evidence.",
       },
     ],
     privateRoles: [
       {
         title: "Postdoctoral Researcher & Lead Investigator",
         description:
-          "Engage in advanced corporate, industrial, and global research projects.",
+          "Direct advanced research projects in corporate risk consultancies, analytical laboratories, and international research institutes.",
       },
       {
         title: "Forensic Laboratory Director & Consultant",
         description:
-          "Lead private forensic labs, corporate fraud risk teams, and expert legal witness consultancies.",
+          "Manage private analytical laboratories, corporate fraud investigation practices, and legal expert witness consultancies.",
       },
     ],
   },
@@ -136,7 +135,7 @@ export const phdForensicScience: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/forensic-sciences/parmjeet-kaur.webp",
       description:
-        "My specialisation is Atomic physics and spectroscopy Ibalso qualified CSIR NET of physical with all india 19 th rank",
+        "Specialized in Atomic Physics and Spectroscopy. Qualified CSIR-NET in Physical Sciences with All India Rank (AIR) 19.",
     },
     {
       name: "Mr. Sahil Sharma",
@@ -144,7 +143,7 @@ export const phdForensicScience: CoursePageData = {
       qualification: "M.Sc. (Forensic Science), UGC-NET",
       image: "/programs/forensic-sciences/sahil-sharma.webp",
       description:
-        "Published 2 Research Papers; Authored 2 Books; Active contributor to forensic science education and training.",
+        "Published 2 research papers and authored 2 textbooks. Active contributor to forensic science education and mock crime scene training.",
     },
     {
       name: "Dr. Aditi Sharma",
@@ -152,7 +151,7 @@ export const phdForensicScience: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/forensic-sciences/aditi-sharma.webp",
       description:
-        "Published research and review articles on Forensic Nanotechnology. Published 3 copyrights and two idea patents. Contributor to emerging areas of forensic research.",
+        "Published research and review articles in Forensic Nanotechnology. Holds 3 registered copyrights and 2 patents. Active contributor to emerging domains in forensic research.",
     },
     {
       name: "Dr. Yukti Mahajan",
@@ -160,15 +159,15 @@ export const phdForensicScience: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/forensic-sciences/yukti-mahajan.webp",
       description:
-        "Specialized in fractional calculus, special functions, integral transforms. Published 4 research papers. Active contribution in Mathematics Research",
+        "Specialized in fractional calculus, special functions, and integral transforms. Published 4 research papers with active contributions to mathematical modeling.",
     },
     {
-      name: "Deepmala Dalal",
-      designation: "Faculty Member",
-      qualification: "M.Sc. / Ph.D. Scholar",
+      name: "Ms. Deepmala Dalal",
+      designation: "Assistant Professor",
+      qualification: "M.Sc., Ph.D. Scholar",
       image: "/programs/forensic-sciences/deepmala-dalal.webp",
       description:
-        "Electrochemical sensing, nanomaterials, water quality assessment, and environmental remediation",
+        "Expertise in electrochemical sensing, nanomaterials, water quality assessment, and environmental remediation techniques.",
     },
   ],
   testimonials: [

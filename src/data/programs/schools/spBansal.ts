@@ -49,13 +49,13 @@ export const spBansalSchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To be a globally competitive business school by developing visionary leaders, entrepreneurs, strategists and innovators who are in the forefront of creating great businesses, disruptive innovations and economic development to foster nation-building”",
+      "“To be a globally competitive business school by developing visionary leaders, entrepreneurs, strategists, and innovators who are at the forefront of creating enduring enterprises, disruptive innovations, and driving economic development for nation-building.”",
     mission: [
-      "To deliver student-centered and results-oriented business education, develop strategic competencies and leadership capabilities, promote responsible businesses and encourage research in business practices",
-      "To develop human capital with entrepreneurial competencies and skills to meet the need for visionary leaders, innovative managers and quality personnel in a global business environment.",
-      "To develop knowledge in business through research and development, disruptive ideas and their implementation, and thought leadership in current business practices and processes.",
-      "To establish business school linkages with multinational corporations, enterprises, entrepreneurs, academic institutions, and businesses to provide the students with executive business coaching, consultancy projects, and training, exposure, business development, recruitment opportunities and collaborations.",
-      "To promote entrepreneurship and innovation by capacitating students and graduates to lead, create jobs and develop competitive businesses that add value to existing organizations and communities while encouraging economic development and transformation.",
+      "To deliver student-centered and results-oriented business education, develop strategic competencies and leadership capabilities, promote responsible business practices, and foster high-impact management research.",
+      "To develop human capital with entrepreneurial competencies and managerial skills to meet the growing need for visionary leaders and agile business executives in a globalized economy.",
+      "To advance business knowledge through rigorous research and development, innovative problem-solving, and thought leadership in contemporary corporate practices.",
+      "To establish active industry linkages with multinational corporations, emerging enterprises, global academic partners, and venture leaders to provide students with executive coaching, consultancy projects, and high-value career placements.",
+      "To champion entrepreneurship and innovation by empowering students and alumni to launch competitive ventures, generate sustainable employment, and create positive socio-economic transformation.",
     ],
   },
   faqs: [

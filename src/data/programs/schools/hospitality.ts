@@ -93,13 +93,13 @@ export const hospitalitySchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To become a leading centre of hospitality education, fostering the development of service-oriented professionals, hospitality leaders, entrepreneurs and innovators who are passionate about enhancing the guest experience, global hospitality standards and sustainable tourism while making a positive contribution to economic and social development.”",
+      "“To become a leading centre of hospitality education, fostering the development of service-oriented professionals, hospitality leaders, entrepreneurs, and innovators who are passionate about enhancing the guest experience, elevating global hospitality standards, and promoting sustainable tourism while making a positive contribution to economic and social development.”",
     mission: [
-      "To impart student-centric, outcomes-based hospitality education combining academic knowledge, hands-on training, industry exposure and best management practices from around the world..",
-      "To produce effective, ethical and customer focused hospitality professionals who have the knowledge, skills, professionalism and leadership skills to succeed in the dynamic hospitality and tourism sector.",
-      "To stimulate interdisciplinary research and innovation in hospitality, tourism, culinary arts, service management, and new trends in the industry that will contribute to the improvement of organizations' effectiveness and satisfaction of their guests",
-      "To improve partnerships with top hotels, hospitality companies, tourism organisations and industry stakeholders to provide practical learning, internships, professional certification and career development.",
-      "To encourage and support the development of entrepreneurship, innovation and responsible hospitality by providing students with the opportunity to establish sustainable hospitality businesses, accept cultural diversity and contribute to the development of the hospitality sector and nation-building.",
+      "To impart student-centric, outcomes-based hospitality education combining academic knowledge, hands-on training, industry exposure, and best management practices from around the world.",
+      "To produce effective, ethical, and customer-focused hospitality professionals who possess the knowledge, skills, professionalism, and leadership to succeed in the dynamic hospitality and tourism sector.",
+      "To stimulate interdisciplinary research and innovation in hospitality, tourism, culinary arts, service management, and emerging industry trends that contribute to operational excellence and guest satisfaction.",
+      "To strengthen partnerships with top luxury hotels, hospitality conglomerates, tourism organisations, and industry stakeholders to provide practical learning, internships, professional certification, and career development.",
+      "To encourage and support the development of entrepreneurship, innovation, and responsible hospitality by providing students with opportunities to establish sustainable hospitality businesses, celebrate cultural diversity, and contribute to nation-building.",
     ],
   },
 

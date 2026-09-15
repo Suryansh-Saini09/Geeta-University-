@@ -460,42 +460,36 @@ export const agricultureSchool: ProgramPageData = {
       title: "Postgraduate Program",
       duration: "2 Years",
       eligibility:
-        "B.Sc Agriculture with a minimum 50% marks",
+        "Graduation in a relevant discipline with a minimum 50% marks.",
       programs: [
         {
-          name: "M.Sc. Agronomy",
+          name: "M.Sc. Agriculture",
           href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
           duration: "2 Years",
+          specializations: [
+            {
+              name: "M.Sc. Agriculture (Agronomy)",
+              href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
+            },
+            {
+              name: "M.Sc. (Horticulture) Vegetable Science",
+              href: "/programs/school-of-agricultural-studies/msc-horticulture-vegetable-science",
+            },
+            {
+              name: "M.Sc. (Horticulture) Fruit Science",
+              href: "/programs/school-of-agricultural-studies/msc-horticulture-fruit-science",
+            },
+            {
+              name: "M.Sc. Genetics & Plant Breeding",
+              href: "/programs/school-of-agricultural-studies/msc-genetics-and-plant-breeding",
+            },
+            {
+              name: "M.Sc. Entomology",
+              href: "/programs/school-of-agricultural-studies/msc-entomology",
+            },
+          ],
           eligibility:
-            "B.Sc Agriculture with a minimum 50% marks",
-        },
-        {
-          name: "M.Sc. (Horticulture) Vegetable Science",
-          href: "/programs/school-of-agricultural-studies/msc-horticulture-vegetable-science",
-          duration: "2 Years",
-          eligibility:
-            "B.Sc Agriculture with a minimum 50% marks",
-        },
-        {
-          name: "M.Sc. (Horticulture) Fruit Science",
-          href: "/programs/school-of-agricultural-studies/msc-horticulture-fruit-science",
-          duration: "2 Years",
-          eligibility:
-            "B.Sc Agriculture with a minimum 50% marks",
-        },
-        {
-          name: "M.Sc. Genetics and plant breeding",
-          href: "/programs/school-of-agricultural-studies/msc-genetics-and-plant-breeding",
-          duration: "2 Years",
-          eligibility:
-            "B.Sc Agriculture with a minimum 50% marks",
-        },
-        {
-          name: "M.Sc. Entomology",
-          href: "/programs/school-of-agricultural-studies/msc-entomology",
-          duration: "2 Years",
-          eligibility:
-            "B.Sc Agriculture with a minimum 50% marks",
+            "Graduation in a relevant discipline with a minimum 50% marks.",
         },
       ],
     },

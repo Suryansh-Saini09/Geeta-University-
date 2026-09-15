@@ -390,13 +390,13 @@ export const healthSciencesSchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To be a centre of excellence in health sciences education nurturing competent, innovative and compassionate healthcare professional committed to advancing healthcare, nutrition, wellness and the overall wellbeing of individuals, communities and the nation”",
+      "“To be a centre of excellence in health sciences education, nurturing competent, innovative, and compassionate healthcare professionals committed to advancing healthcare, nutrition, wellness, and the overall well-being of individuals, communities, and the nation.”",
     mission: [
-      "To develop a Student-centered, outcome-based interactive instructional model that integrates science, clinical medicine, nutrition and allied health sciences knowledge and skills for healthcare professional education",
-      "To develop caring, competent and highly skilled healthcare professionals through education and training to provide quality healthcare services, achieve optimal patient management and healthy living",
-      "To promote research and innovation in health sciences, nutrition and allied health disciplines for the global advancement of healthcare",
-      "To establish partnerships with other health institutions, organizations and industries to facilitate teaching, learning, clinical skills, internship, research and development and consultancy in health, nutrition and wellness.",
-      "To develop leadership, entrepreneurial, innovative and community spirited healthcare professionals to advance healthcare, create wealth and serve society through promoting health and wellbeing in individuals, communities and the nation at large.",
+      "To develop a student-centered, outcome-based interactive instructional model that integrates science, clinical medicine, nutrition, and allied health sciences knowledge and skills for healthcare professional education.",
+      "To develop caring, competent, and highly skilled healthcare professionals through education and training to provide quality healthcare services, achieve optimal patient management, and promote healthy living.",
+      "To promote research and innovation in health sciences, nutrition, and allied health disciplines for the global advancement of healthcare.",
+      "To establish partnerships with leading health institutions, organizations, and industries to facilitate teaching, clinical skills, internships, research and development, and consultancy in health, nutrition, and wellness.",
+      "To develop leadership, entrepreneurial, innovative, and community-spirited healthcare professionals to advance healthcare, create sustainable impact, and serve society through promoting health and well-being in individuals, communities, and the nation at large.",
     ],
   },
 
@@ -740,7 +740,7 @@ export const healthSciencesSchool: ProgramPageData = {
       title: "Undergraduate Program",
       duration: "4 Years",
       eligibility:
-        "Passed 10+2 examination with Physics/Chemistry/Biology/ Nutrition/Home Science/ Mathematics/ Commerce/ or any Arts/ or Vocational subject and English as one of subject form a recognized university or board with at least 50% marks in the qualifying examination.",
+        "Passed 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized board or university, with at least 50% marks in the qualifying examination.",
       programs: [
         {
           name: "B.Sc. Hons. (Nutrition & Dietetics)",
@@ -752,7 +752,7 @@ export const healthSciencesSchool: ProgramPageData = {
       title: "Postgraduate Program",
       duration: "2 Years",
       eligibility:
-        "Candidate must have passed Bachelor in Nutrition and Dietetics (Honours)/ B.Sc. Nutrition and Dietetics (Honours)/ B.Sc. Food and Nutrition on regular mode from recognised university.",
+        "Candidate must have completed a Bachelor's degree in Nutrition and Dietetics (Honours), B.Sc. Nutrition and Dietetics (Honours), or B.Sc. Food and Nutrition in regular mode from a recognized university with at least 50% aggregate marks.",
       programs: [
         {
           name: "M.Sc. (Nutrition & Dietetics)",
@@ -764,7 +764,7 @@ export const healthSciencesSchool: ProgramPageData = {
       title: "Doctoral Program",
       duration: "Minimum 3 Years",
       eligibility:
-        "Candidate must have passed Postgraduate degree with at least 50% in Nutrition/Dietetics/Food Science and Technology/Home Science or related discipline.",
+        "Candidate must have passed a Postgraduate degree with at least 55% marks (50% for reserved categories) in Nutrition, Dietetics, Food Science and Technology, Home Science, or a related discipline.",
       programs: [
         {
           name: "Ph.D. (Nutrition & Dietetics)",
