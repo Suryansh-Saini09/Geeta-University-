@@ -537,6 +537,14 @@ export const healthSciencesSchool: ProgramPageData = {
     ],
   },
 
+  departmentHighlights: [
+    {
+      title: "Clinical Nutrition & Functional Dietetics",
+      desc: "Comprehensive practical training in clinical nutrition, therapeutic diet planning, live patient consultations, and health assessment.",
+      image: "/programs/health-sciences/15-full.webp",
+    },
+  ],
+
   placement: {
     eyebrow: "Career Outcomes",
     title: "Healthcare & Nutrition Placements & Opportunities",
@@ -590,40 +598,74 @@ export const healthSciencesSchool: ProgramPageData = {
 
   testimonials: [
     {
-      name: "Priyanka Saini",
-      pkg: "₹7.5 LPA",
-      company: "Medanta - The Medicity",
-      role: "Clinical Dietitian",
+      name: "Vaibhav Chaudhary",
+      role: "B.Sc. Nutrition & Dietetics Student",
+      image: "/programs/health-sciences/bsc-nutrition/vaibhav_testimonial.webp",
       quote:
-        "The real-patient consultations at Geeta University's In-House Diet Clinic and hospital internship at Medanta prepared me to independently design therapeutic meal plans for critical patients.",
-      image: "/programs/health-sciences/nd1-thumb.webp",
+        "My journey in Nutrition and Dietetics at Geeta University helped me gain valuable knowledge about health, wellness, and balanced nutrition. The university's positive learning environment and hands-on training prepared me to face real-world challenges with confidence and professionalism.",
     },
     {
-      name: "Meenakshi Sharma",
-      pkg: "₹6.8 LPA",
-      company: "Nestle India",
-      role: "Nutrition & Sensory Analyst",
+      name: "Vanshika",
+      role: "B.Sc. Nutrition & Dietetics Student",
+      image: "/programs/health-sciences/bsc-nutrition/vanshika_testimonial.webp",
       quote:
-        "The food chemistry, sensory evaluation, and microbiological quality control labs at GU gave me practical expertise that made me stand out during selection at Nestle.",
-      image: "/programs/health-sciences/nd2-thumb.webp",
+        "Geeta University's Department of Health and Allied Sciences provided me with excellent learning opportunities in Nutrition and Dietetics. The practical exposure, supportive faculty, and industry-oriented education helped me build confidence and develop the skills needed for a successful healthcare career.",
     },
     {
-      name: "Neha Malik",
-      pkg: "₹6.2 LPA",
-      company: "Max Healthcare",
-      role: "Pediatric & Oncology Nutritionist",
+      name: "Preeti Duhan",
+      role: "M.Sc. Nutrition & Dietetics Student",
+      image:
+        "/programs/health-sciences/msc-nutrition-and-dietetics/preeti_testimonial.webp",
       quote:
-        "The faculty mentorship and evidence-based nutrition curriculum at School of Health & Allied Sciences gave me the clinical competence to handle specialized patient care.",
-      image: "/programs/health-sciences/nd3-thumb.webp",
+        "Pursuing my M.Sc. in Nutrition & Dietetics at Geeta University has been an enriching academic journey. The university provides a balanced combination of theoretical knowledge and practical exposure that helped me understand modern nutrition practices and healthcare management. The faculty support and research-oriented learning environment enhanced my confidence and professional skills.",
     },
     {
-      name: "Kavita Rao",
-      pkg: "₹6.0 LPA",
-      company: "Cure.fit / Cult.fit",
-      role: "Sports & Fitness Nutritionist",
+      name: "Bhawna",
+      role: "M.Sc. Nutrition & Dietetics Student",
+      image:
+        "/programs/health-sciences/msc-nutrition-and-dietetics/bhawna_testimonial.webp",
       quote:
-        "Learning macronutrient timing, body composition analysis, and sports metabolism allowed me to build an exciting career with leading fitness and wellness platforms.",
-      image: "/programs/health-sciences/nd5-thumb.webp",
+        "My experience in the M.Sc. Nutrition & Dietetics program at Geeta University has greatly contributed to my academic and personal growth. The university encourages practical learning through workshops, seminars, and industry exposure, which helped me gain deeper insights into clinical nutrition, wellness, and healthy lifestyle management.",
+    },
+    {
+      name: "Garima",
+      role: "M.Sc. Nutrition & Dietetics Student",
+      image:
+        "/programs/health-sciences/msc-nutrition-and-dietetics/garima_testimonial.webp",
+      quote:
+        "Choosing Geeta University for my M.Sc. in Nutrition & Dietetics provided me with valuable learning opportunities and practical experience in the field of nutrition science. The experienced faculty members and supportive academic environment helped me strengthen my understanding of diet planning, public health nutrition, and patient care.",
+    },
+    {
+      name: "Aliyu Aliyu Gandi",
+      role: "M.Sc. Nutrition & Dietetics Student",
+      image:
+        "/programs/health-sciences/msc-nutrition-and-dietetics/aliyu_testimonial.webp",
+      quote:
+        "The M.Sc. Nutrition & Dietetics program at Geeta University helped me build a strong foundation in nutritional science and healthcare practices. The university’s focus on practical exposure, research activities, and skill development improved my analytical thinking and prepared me for professional opportunities in the health and wellness sector.",
+    },
+    {
+      name: "Ankita Pandey",
+      role: "Ph.D. Nutrition & Dietetics Scholar",
+      image:
+        "/programs/health-sciences/phd-nutrition-and-dietetics/ankita_testimonial.webp",
+      quote:
+        "Pursuing my Ph.D. in Nutrition & Dietetics at Geeta University has been an excellent academic experience. The university provides a research-driven environment with strong faculty mentorship and practical learning opportunities. The program helped me gain deeper insights into clinical nutrition, public health, and modern dietary practices while enhancing my research and analytical skills.",
+    },
+    {
+      name: "Sonakshi",
+      role: "Ph.D. Nutrition & Dietetics Scholar",
+      image:
+        "/programs/health-sciences/phd-nutrition-and-dietetics/sonakshi_testimonial.webp",
+      quote:
+        "My journey in the Ph.D. Nutrition & Dietetics program at Geeta University has greatly contributed to my professional and academic development. The university encourages scientific research, innovation, and practical exposure in the field of nutrition and healthcare. The guidance from experienced faculty members helped me strengthen my understanding of balanced nutrition, wellness, and community health.",
+    },
+    {
+      name: "Alisha",
+      role: "Ph.D. Nutrition & Dietetics Scholar",
+      image:
+        "/programs/health-sciences/phd-nutrition-and-dietetics/alisha_testimonial.webp",
+      quote:
+        "Choosing Geeta University for my Ph.D. in Nutrition & Dietetics provided me with valuable research opportunities and industry-relevant knowledge. The supportive academic environment, advanced learning resources, and focus on practical applications helped me improve my expertise in nutritional science, diet planning, and health management.",
     },
   ],
 
@@ -684,6 +726,13 @@ export const healthSciencesSchool: ProgramPageData = {
       "All facilities are integrated with community health outreach programs and clinical hospital tie-ups to ensure comprehensive real-world readiness.",
   },
 
+  brochure: {
+    title: "Download Health Science Brochure",
+    description:
+      "Get comprehensive details on Nutrition & Dietetics program, including curriculum, faculty, facilities, and placement opportunities.",
+    fileUrl: "https://geetauniversity.edu.in/uploads/all/2692/Health-Sciences-Brochure.pdf",
+    fileName: "Health_Science_Brochure.pdf",
+  },
 
 
   courses: [

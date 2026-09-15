@@ -291,40 +291,40 @@ export const bscAgriculture: CoursePageData = {
 
   testimonials: [
     {
-      name: "Parul",
-      role: "B.Sc. Agriculture Student",
-      text: "Studying agriculture at Geeta University gave me valuable industry exposure and practical understanding of modern farming techniques. The university's learning culture inspired me to stay focused, confident, and career-oriented.",
-      image: "/programs/agriculture/testimonial-anuj.webp",
-    },
-    {
-      name: "Annu",
-      role: "B.Sc. Agriculture Student",
-      text: "Geeta University's agriculture program helped me gain practical knowledge, confidence, and leadership skills. The supportive learning environment and field-based training prepared me to handle real agricultural challenges and work towards a successful future.",
-      image: "/programs/agriculture/testimonial-deepanshu.webp",
-    },
-    {
-      name: "Ajay Sandhu",
-      role: "B.Sc. Agriculture Student",
-      text: "The campus life and advanced agricultural learning at Geeta University motivated me to grow both personally and professionally. The hands-on experience and expert guidance strengthened my skills and career vision in the agriculture sector.",
-      image: "/programs/agriculture/testimonial-manik.webp",
-    },
-    {
-      name: "Riya Devi",
-      role: "B.Sc. Agriculture Student",
-      text: "The industry-focused education and practical training at Geeta University helped me build a strong foundation in agriculture. The experiences and learning opportunities shaped my personality and prepared me for professional success.",
-      image: "/programs/agriculture/testimonial-sumit.webp",
-    },
-    {
       name: "Sawan",
       role: "B.Sc. Agriculture Student",
       text: "Through Geeta University's agriculture department, I developed strong technical skills and a deeper understanding of sustainable farming practices. The positive campus environment encouraged me to achieve my goals with confidence.",
-      image: "/programs/agriculture/testimonial-vikas.webp",
+      image: "/programs/agriculture/bsc-agriculture/sawan-testimonial.webp",
     },
     {
       name: "Sumit",
       role: "B.Sc. Agriculture Student",
       text: "Geeta University provided me with the perfect platform to improve my agricultural knowledge and communication skills. The practical sessions and supportive faculty helped me overcome challenges and prepare for future opportunities.",
-      image: "/programs/agriculture/testimonial-anuj.webp",
+      image: "/programs/agriculture/bsc-agriculture/sumit-testimonial.webp",
+    },
+    {
+      name: "Parul",
+      role: "B.Sc. Agriculture Student",
+      text: "Studying agriculture at Geeta University gave me valuable industry exposure and practical understanding of modern farming techniques. The university's learning culture inspired me to stay focused, confident, and career-oriented.",
+      image: "/programs/agriculture/bsc-agriculture/parul-testimonial.webp",
+    },
+    {
+      name: "Annu",
+      role: "B.Sc. Agriculture Student",
+      text: "Geeta University's agriculture program helped me gain practical knowledge, confidence, and leadership skills. The supportive learning environment and field-based training prepared me to handle real agricultural challenges and work towards a successful future.",
+      image: "/programs/agriculture/bsc-agriculture/annu-testimonial.webp",
+    },
+    {
+      name: "Ajay Sandhu",
+      role: "B.Sc. Agriculture Student",
+      text: "The campus life and advanced agricultural learning at Geeta University motivated me to grow both personally and professionally. The hands-on experience and expert guidance strengthened my skills and career vision in the agriculture sector.",
+      image: "/programs/agriculture/bsc-agriculture/ajay-sandhu-testimonial.webp",
+    },
+    {
+      name: "Riya Devi",
+      role: "B.Sc. Agriculture Student",
+      text: "The industry-focused education and practical training at Geeta University helped me build a strong foundation in agriculture. The experiences and learning opportunities shaped my personality and prepared me for professional success.",
+      image: "/programs/agriculture/bsc-agriculture/riya-devi-testimonial.webp",
     },
   ],
 

@@ -341,40 +341,43 @@ export const pharmacySchool: ProgramPageData = {
 
   testimonials: [
     {
-      name: "Rohit Sharma",
-      pkg: "₹8.5 LPA",
+      name: "Anand Sharma",
+      company: "Medox Pharmaceuticals",
+      role: "Production Trainee",
+      quote:
+        "Heartiest congratulations to Mr. Anand Sharma on being placed as a Production Trainee at Medox Pharmaceuticals. We wish him continued success and a bright future in his professional career.",
+      image: "/programs/pharmacy/Anand-testimonial.webp",
+    },
+    {
+      name: "Rohit",
+      role: "Pharmacy Student",
+      quote:
+        "The practical exposure, supportive faculty, and research opportunities at Geeta Institute of Pharmacy helped me build a strong foundation for my professional journey.",
+      image: "/programs/pharmacy/Rohit-testimonial.webp",
+    },
+    {
+      name: "Naveen",
+      company: "Vardhman Neurospin Hospital",
+      role: "Resident Medical Trainee",
+      quote:
+        "Congratulations to Mr. Naveen Deswal on being placed as a Resident Medical Trainee at Vardhman Neurospin Hospital! We wish him continued success and a bright future in his medical career.",
+      image: "/programs/pharmacy/Naveen-testimonial.webp",
+    },
+    {
+      name: "Mr Bhavish",
+      pkg: "₹50-60 LPA",
+      role: "Wholesale Pharmaceutical Entrepreneur",
+      quote:
+        "Ignite Passion, Impact Lives - Discover, Design, Deliver in Pharmacy, where knowledge becomes cares and pharmacist dreams turn Into 50-60LPA wholesale pharmaceutical business.",
+      image: "/programs/pharmacy/Bhavish-testimonial.webp",
+    },
+    {
+      name: "Dinesh",
       company: "Sun Pharma",
-      role: "Formulation R&D Executive",
+      role: "Medical Representative",
       quote:
-        "The hands-on training in the advanced pharmaceutics and HPLC labs at Geeta Institute of Pharmacy gave me an unbeatable edge during technical interviews with Sun Pharma.",
-      image: "/programs/pharmacy/pharmacy-thumb.webp",
-    },
-    {
-      name: "Anjali Gupta",
-      pkg: "₹7.2 LPA",
-      company: "Pfizer India",
-      role: "Quality Assurance Associate",
-      quote:
-        "The PCI-aligned pedagogy, regular mock regulatory audits, and guidance from experienced professors made my transition from classroom to MNC pharma seamless.",
-      image: "/programs/pharmacy/pharmacy1-thumb.webp",
-    },
-    {
-      name: "Amit Verma",
-      pkg: "₹6.8 LPA",
-      company: "Alembic Pharmaceuticals",
-      role: "Pharmacovigilance Specialist",
-      quote:
-        "From clinical research case studies to bedside hospital internships, Geeta Institute of Pharmacy gave me real-world healthcare confidence from day one.",
-      image: "/programs/pharmacy/pharmacy3-thumb.webp",
-    },
-    {
-      name: "Pooja Malik",
-      pkg: "₹6.5 LPA",
-      company: "Laborate Pharmaceuticals",
-      role: "Regulatory Affairs Officer",
-      quote:
-        "Guidance on dossier preparation, US-FDA and CDSCO compliance, and patent filing during my M.Pharm research helped me secure a coveted role in regulatory affairs.",
-      image: "/programs/pharmacy/pharmacy4-thumb.webp",
+        "We are delighted to announce Dinesh’s successful placement as a Medical Representative with Sun Pharma. His achievement reflects his dedication and commitment to excellence. We wish him a bright and successful future.",
+      image: "/programs/pharmacy/Dinesh-testimonial.webp",
     },
   ],
 

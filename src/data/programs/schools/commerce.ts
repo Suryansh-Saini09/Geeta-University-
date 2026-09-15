@@ -536,140 +536,76 @@ export const commerceSchool: ProgramPageData = {
 
   testimonials: [
     {
-      name: "Tushar Singla",
-      pkg: "₹12.0 LPA",
-      company: "Amazon",
-      role: "Operations & Business Analyst",
+      name: "Srishti Ahuja",
+      pkg: "17 LPA",
+      role: "MBA Student",
       quote:
-        "The practical case-based learning and advanced analytics modules at the School of Commerce & Business Management prepared me for high-stakes problem-solving at Amazon.",
-      image: "/bba photo.jpeg",
+        "Choosing an MBA at Geeta University gave me the perfect blend and empowered me to secure a 17 LPA role right after my journey here.",
+      image: "/programs/commerce/srishti-testimonial.webp",
     },
     {
-      name: "Sneha Verma",
-      pkg: "₹8.5 LPA",
-      company: "HDFC Life",
-      role: "Corporate Finance Specialist",
+      name: "Arvind Kushwaha",
+      pkg: "8 LPA",
+      role: "MBA Student",
       quote:
-        "The ACCA-aligned curriculum and financial modeling training gave me strong analytical and strategic skills that helped me secure a high-growth finance role.",
-      image: "/uniimage.webp",
+        "Geeta University's learning ecosystem transformed my approach to challenges, leading me to begin my career.",
+      image: "/programs/commerce/arvind-testimonial.webp",
     },
     {
-      name: "Akash Sharma",
-      pkg: "₹7.5 LPA",
-      company: "Zomato",
-      role: "Growth & Brand Strategist",
+      name: "Mr. Vaibhav Arora",
+      pkg: "1.4 Cr PA",
+      role: "Alumni Entrepreneur",
       quote:
-        "From digital marketing masterclasses to mock corporate pitches, the Geeta Finishing School program built the confidence I needed to drive growth in dynamic corporate environments.",
-      image: "/bba photo.jpeg",
+        "Their focus on 360-degree development, mentorship programs, and industry interactions helped me become an entrepreneur instead of seeking a job.",
+      image: "/programs/commerce/Vaibhav-testimonial.webp",
     },
     {
-      name: "Ritika Goyal",
-      pkg: "₹6.8 LPA",
-      company: "Policybazaar",
-      role: "Key Account Manager",
+      name: "Manik Sharma",
+      pkg: "67.5 LPA",
+      role: "MBA Student",
       quote:
-        "The industry interactions and placement drives at Geeta University helped me understand market dynamics and land an exciting corporate career.",
-      image: "/uniimage.webp",
+        "Geeta University transformed my perspective with strong leadership skills and real-world exposure. The learning here empowered me to secure a 67.5 LPA package-truly a defining milestone in my career journey.",
+      image: "/programs/commerce/Manik-testimonial.webp",
+    },
+    {
+      name: "Rahul Mor",
+      pkg: "25 LPA",
+      role: "MBA Student",
+      quote:
+        "Geeta University's dynamic pedagogy and immersive learning environment helped me master core MBA skills and practical business insights. This experience shaped my confidence and led me to secure a high package.",
+      image: "/programs/commerce/rahul-testimonial.webp",
     },
   ],
 
   learningSpaces: {
-    title: "World-Class Business & Management Infrastructure",
-    description:
-      "Students learn in high-tech simulation environments designed to mirror modern corporate boardrooms, financial trading floors, and startup incubators:",
-    /*
+    eyebrow: "Infrastructure & Laboratories",
+    title: "Highlights of Our Learning Spaces",
     spaces: [
       {
-        title: "FinTech & Data Analytics Simulation Lab",
-        desc: "Equipped with financial modeling tools, Power BI, Excel Advanced, Python for finance, and algorithmic trading simulators.",
-        icon: "",
+        title: "Management Seminar Hall",
+        image: "/programs/commerce/mangement-thumb.webp",
       },
       {
-        title: "Harvard-Style Case Study Theatres",
-        desc: "Acoustically designed tiered classrooms configured for interactive case discussions, debates, and peer learning.",
-        icon: "",
+        title: "Management Lab 1",
+        image: "/programs/commerce/mangement1-thumb.webp",
       },
       {
-        title: "Corporate Incubation & Startup Lab",
-        desc: "Dedicated co-working spaces, mentor clinics, and prototyping resources for student entrepreneurs.",
-        icon: "",
+        title: "Management Lab 2",
+        image: "/programs/commerce/mangement7-thumb.webp",
       },
       {
-        title: "Group Discussion & Mock Interview Suites",
-        desc: "Professional video-recorded corporate interview suites and boardroom simulation chambers for placement grooming.",
-        icon: "",
+        title: "Management Lab 3",
+        image: "/programs/commerce/mangement3-thumb.webp",
       },
       {
-        title: "Digital Marketing & Brand Strategy Studio",
-        desc: "Equipped for SEO/SEM campaign simulations, social media analytics, and digital brand content creation.",
-        icon: "",
+        title: "Management Lab 4",
+        image: "/programs/commerce/mangement4-thumb.webp",
       },
       {
-        title: "Global Trade & Supply Chain Simulation Suite",
-        desc: "Interactive software tools for global customs documentation, logistics tracking, and cross-border trade analytics.",
-        icon: "",
+        title: "Management Lab 5",
+        image: "/programs/commerce/mangement5-thumb.webp",
       },
     ],
-    */
-    gallery: [
-      {
-        src: "/spbsb-immersive-classroom.jpg",
-        title: "Case Study Amphitheatre",
-        caption: "Tiered learning environment for strategic discussions and real-world case analysis.",
-      },
-      {
-        src: "/spbsb-budget-analysis-2026.png",
-        title: "Budget & Financial Analytics Lab",
-        caption: "Students conducting econometric evaluations and corporate valuation models.",
-      },
-      {
-        src: "/bba photo.jpeg",
-        title: "Executive Presentation Studio",
-        caption: "Students pitching startup proposals and marketing campaigns to industry panels.",
-      },
-      {
-        src: "/campus-life/facility-classrooms.jpg",
-        title: "Smart Collaborative Classroom",
-        caption: "Technology-enabled active learning classrooms with modern audio-visual systems.",
-      },
-      {
-        src: "/campus-life/facility-labs.jpg",
-        title: "Business Computing & Data Lab",
-        caption: "High-performance computing lab for analytics, modeling, and ERP training.",
-      },
-      {
-        src: "/campus-life/facility-library.jpg",
-        title: "Central Management Library",
-        caption: "Extensive repository of global business journals, case studies, and research papers.",
-      },
-      {
-        src: "/campus-life/facility-auditorium.jpg",
-        title: "University Grand Auditorium",
-        caption: "State-of-the-art venue for national conferences, conclaves, and guest lectures.",
-      },
-      {
-        src: "/campus-life/facility-conference.jpg",
-        title: "Executive Boardroom Suite",
-        caption: "Simulation chamber for corporate meetings, negotiations, and leadership debates.",
-      },
-      {
-        src: "/campus-life/facility-cafeteria.jpg",
-        title: "Student Cafeteria & Lounge",
-        caption: "Vibrant student collaboration space.",
-      },
-    ],
-    /*
-    previousGalleryWithLabels: [
-      { src: "/spbsb-infrastructure-glimpses/computer-lab.jpeg" },
-      { src: "/spbsb-infrastructure-glimpses/library.jpeg" },
-      { src: "/spbsb-infrastructure-glimpses/auditorium.jpeg" },
-      { src: "/spbsb-infrastructure-glimpses/conference-room.jpeg" },
-      { src: "/spbsb-infrastructure-glimpses/seminar-hall-1.jpeg" },
-      { src: "/spbsb-infrastructure-glimpses/classroom.jpeg" },
-    ],
-    */
-    closingNote:
-      "All facilities are crafted to provide authentic corporate readiness, strategic decision-making ability, and executive presence.",
   },
 
   /*
