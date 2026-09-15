@@ -354,31 +354,32 @@ export const lawSchool: ProgramPageData = {
 
   testimonials: [
     {
-      name: "Adv. Raghav Singhal",
-      pkg: "₹12 LPA",
-      company: "Shardul Amarchand Mangaldas",
-      role: "Associate - Corporate Law",
+      name: "Shvet Sharma",
+      role: "LL.M. Student",
+      image: "/programs/law/llm/shvet_testimonial.webp",
       quote:
-        "The rigorous moot court competitions, contract drafting sessions, and legal research databases at Geeta Global Law School gave me the exact foundation needed to thrive at a top-tier law firm.",
-      image: "/programs/law/gallery-1.webp",
+        "My journey at Geeta Global Law School helped me develop confidence, discipline, and a broader perspective on legal studies. The university’s research-oriented approach prepared me for future academic and professional opportunities.",
     },
     {
-      name: "Adv. Priya Narang",
-      pkg: "High Court Practice",
-      company: "Delhi High Court Chambers",
-      role: "Litigation Advocate",
+      name: "Anjali gupta",
+      role: "LL.M. Student",
+      image: "/programs/law/llm/anajli_testimonial.webp",
       quote:
-        "Practicing in Geeta University's Moot Court Hall and regular court visits gave me the confidence to argue complex constitutional and criminal matters right after graduation.",
-      image: "/programs/law/gallery-2.webp",
+        "Being at Geeta Global Law School allowed me to gain valuable knowledge, research exposure, and professional confidence. The university’s positive academic atmosphere inspired me to continuously learn and grow in the field of law.",
     },
     {
-      name: "Rohit Bansal",
-      pkg: "₹8.5 LPA",
-      company: "Deloitte Tax & Legal",
-      role: "Compliance & Legal Advisor",
+      name: "Garima Juneja",
+      role: "Ph.D. Scholar",
+      image: "/programs/law/phd-law/garima-testimonial.webp",
       quote:
-        "The interdisciplinary BBA LLB curriculum perfectly blended business strategy with corporate regulations, giving me an immediate edge in tax and regulatory consulting.",
-      image: "/programs/law/gallery-3.webp",
+        "Geeta Global Law School provided me with an excellent platform to enhance my legal research skills and deepen my understanding of the judicial system. The supportive learning culture motivated me to achieve academic excellence.",
+    },
+    {
+      name: "Musavir Ahmad Mir",
+      role: "Ph.D. Scholar",
+      image: "/programs/law/phd-law/musavir-testimonial.webp",
+      quote:
+        "Pursuing my PhD in Law at Geeta Global Law School has strengthened my research abilities, analytical thinking, and legal expertise. The academic environment and guidance from experienced faculty helped me grow professionally and intellectually.",
     },
   ],
 

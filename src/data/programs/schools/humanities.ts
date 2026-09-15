@@ -435,70 +435,30 @@ export const humanitiesSchool: ProgramPageData = {
   },
 
   learningSpaces: {
-    title: "Infrastructure Built for Human Understanding & Social Research",
-    description:
-      "Students engage in authentic psychological testing, behavioral observations, policy simulations, and community action across purpose-built spaces:",
+    eyebrow: "Infrastructure & Laboratories",
+    title: "Highlights of Our Learning Spaces",
     spaces: [
       {
-        title: "Psychology Counseling & Psychotherapy Suite",
-        desc: "Sound-isolated counseling booths equipped with one-way observation mirrors, biofeedback monitors, and relaxation therapy setups.",
-        icon: "",
+        title: "Psychology & Psychotherapy Lab",
+        image: "/programs/humanities/humanity-thumb.webp",
       },
       {
         title: "Cognitive & Psychometric Assessment Lab",
-        desc: "Comprehensive inventory of standardized psychological batteries, IQ tests, personality inventories (MMPI, MBTI), and neuropsychological tools.",
-        icon: "",
+        image: "/programs/humanities/humanity1-thumb.webp",
       },
       {
         title: "Policy Roundtables & Model Parliament Chamber",
-        desc: "Amphitheater-style discussion arena for parliamentary debates, mock diplomacy sessions, and policy drafting workshops.",
-        icon: "",
+        image: "/programs/humanities/humanity2-thumb.webp",
       },
       {
         title: "Social Work & Community Action Cell",
-        desc: "Dedicated hub for designing grassroots interventions, community health surveys, rural outreach, and CSR partnership operations.",
-        icon: "",
+        image: "/programs/humanities/humanity3-thumb.webp",
       },
       {
-        title: "Economics & Quantitative Data Lab",
-        desc: "High-performance computing systems loaded with SPSS, R, Stata, and Python for econometric modelling and demographic statistical analysis.",
-        icon: "",
-      },
-      {
-        title: "Language, Rhetoric & Communication Studio",
-        desc: "Modern digital language stations, phonetics tools, speech recording booths, and public speaking rehearsal suites.",
-        icon: "",
-      },
-      {
-        title: "Digital Humanities & Archive Center",
-        desc: "Extensive repository of historical manuscripts, socio-political treatises, global case studies, and digital academic archives.",
-        icon: "",
-      },
-      {
-        title: "Human Values & Ethics Reflection Lounge",
-        desc: "Collaborative space dedicated to group discussions on ethics, peace studies, cultural diversity, and holistic human wellness.",
-        icon: "",
+        title: "Language & Communication Studio",
+        image: "/programs/humanities/humanity4-thumb.webp",
       },
     ],
-    gallery: [
-      {
-        src: "/programs/humanities/gallery-1.webp",
-        title: "Psychometric Testing & Evaluation",
-        caption: "Students administering and evaluating standardized psychological assessments and clinical interviews.",
-      },
-      {
-        src: "/programs/humanities/gallery-2.webp",
-        title: "Model UN & Policy Summits",
-        caption: "Interactive diplomacy forums, youth parliaments, and public policy simulations.",
-      },
-      {
-        src: "/programs/humanities/gallery-3.webp",
-        title: "Community Outreach & Social Surveys",
-        caption: "Field action projects, NGO attachments, and community mental wellness campaigns.",
-      },
-    ],
-    closingNote:
-      "All facilities foster critical inquiry, emotional empathy, and evidence-based social analysis, preparing graduates for meaningful societal contributions.",
   },
 
   careerPathways: {

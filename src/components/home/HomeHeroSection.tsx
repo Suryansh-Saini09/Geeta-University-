@@ -82,7 +82,7 @@ export default function HomeHeroSection() {
         const nextVideo = videoRefs.current[nextIndex];
         if (nextVideo && nextVideo.paused) {
           nextVideo.currentTime = 0;
-          nextVideo.play().catch(() => {});
+          nextVideo.play().catch(() => { });
           setActiveVideoIndex(nextIndex);
           setNextVideoPreload(false);
         }
@@ -96,7 +96,7 @@ export default function HomeHeroSection() {
       const nextVideo = videoRefs.current[nextIndex];
       if (nextVideo) {
         nextVideo.currentTime = 0;
-        nextVideo.play().catch(() => {});
+        nextVideo.play().catch(() => { });
       }
       setActiveVideoIndex(nextIndex);
       setNextVideoPreload(false);
@@ -133,9 +133,8 @@ export default function HomeHeroSection() {
             poster="/about/campus.webp"
             onTimeUpdate={() => handleTimeUpdate(index)}
             onEnded={() => handleVideoEnded(index)}
-            className={`absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-center scale-[1.02] transition-opacity duration-1000 ease-in-out ${
-              index === activeVideoIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-            }`}
+            className={`absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-center scale-[1.02] transition-opacity duration-1000 ease-in-out ${index === activeVideoIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+              }`}
           >
             <source src={src} type="video/webm" />
           </video>
@@ -307,4 +306,4 @@ export default function HomeHeroSection() {
       </AnimatePresence>
     </section>
   );
-}
+}
