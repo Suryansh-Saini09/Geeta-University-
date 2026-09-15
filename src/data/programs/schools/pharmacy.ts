@@ -660,18 +660,20 @@ export const pharmacySchool: ProgramPageData = {
       programs: [
         {
           name: "M.Pharm. (Master of Pharmacy)",
-          href: "/programs/geeta-institute-of-pharmacy/m-pharmacy",
+          href: "/programs/geeta-institute-of-pharmacy/m-pharmacy-in-pharmaceutics",
           duration: "2 Years",
           specializations: [
             {
               name: "M.Pharm. (Pharmaceutics)",
-              href: "/programs/geeta-institute-of-pharmacy/m-pharmacy",
+              href: "/programs/geeta-institute-of-pharmacy/m-pharmacy-in-pharmaceutics",
             },
             {
               name: "M.Pharm. (Pharmacology)",
+              href: "/programs/geeta-institute-of-pharmacy/m-pharmacy-in-pharmaceutics",
             },
             {
               name: "M.Pharm. (Pharmaceutical Chemistry)",
+              href: "/programs/geeta-institute-of-pharmacy/m-pharmacy-in-pharmaceutics",
             },
           ],
           eligibility: "B. Pharm Degree examination of an Indian university established by law in India from an institution approved by Pharmacy Council of India and has scored not less than 55% of the maximum marks (aggregate of 4 years of B.Pharm.)",

@@ -473,7 +473,7 @@ export default function ProgramCourses({
                             {prog.specializations.map((specItem, sIdx) => {
                               const isObj = typeof specItem === "object" && specItem !== null;
                               const name = isObj ? specItem.name : specItem;
-                              const href = isObj ? specItem.href : undefined;
+                              const href = (isObj && specItem.href) ? specItem.href : prog.href || "#";
 
                               return (
                                 <li
@@ -495,35 +495,19 @@ export default function ProgramCourses({
                                       flexShrink: 0,
                                     }}
                                   />
-                                  {href ? (
-                                    <a
-                                      href={href}
-                                      className="spec-link"
-                                      style={{
-                                        color: "#0A1F44",
-                                        textDecoration: "none",
-                                        fontWeight: 600,
-                                        display: "inline-flex",
-                                        alignItems: "center",
-                                        gap: 5,
-                                        transition: "all 0.2s ease",
-                                      }}
-                                    >
-                                      <span>{name}</span>
-                                      {/* <ArrowRight
-                                        size={13}
-                                        className="spec-arrow"
-                                        style={{
-                                          opacity: 0.5,
-                                          color: "#E8871A",
-                                          transition: "all 0.2s ease",
-                                          flexShrink: 0,
-                                        }}
-                                      /> */}
-                                    </a>
-                                  ) : (
+                                  <a
+                                    href={href}
+                                    className="spec-link"
+                                    style={{
+                                      color: "#0A1F44",
+                                      textDecoration: "none",
+                                      fontWeight: 600,
+                                      display: "inline-block",
+                                      transition: "all 0.2s ease",
+                                    }}
+                                  >
                                     <span>{name}</span>
-                                  )}
+                                  </a>
                                 </li>
                               );
                             })}
