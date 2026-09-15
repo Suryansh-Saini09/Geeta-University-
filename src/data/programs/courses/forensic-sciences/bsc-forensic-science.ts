@@ -28,21 +28,21 @@ export const bscForensicScience: CoursePageData = {
     program: "B.Sc. Forensic Science",
     duration: "3/4 Years",
     eligibility:
-      "Passed or appeared in 10+2 (or its equivalent) in Science Stream, Physics, Chemistry, Biology / Mathematics with at least 55% for General/OBC (NCL)/EWS category candidates and 50% or equivalent for SC/ST and PwD category candidates.",
+      "Passed or appeared in 10+2 (or its equivalent) in the Science stream with Physics, Chemistry, and Biology or Mathematics, with at least 55% aggregate marks for General/OBC (NCL)/EWS candidates and 50% for SC/ST/PwD candidates.",
   },
   overview: {
     title: "B.Sc. Forensic Science",
     paragraphs: [
-      "BSc Forensic Science is a three year programme related to forensic science in the broad areas of Biology, Chemistry, Law and Methods of Forensic Investigation imparting students with skills necessary to carry out independent projects. The forensic science bsc colleges offers both theoretical and practical knowledge in every area of criminalistics which demonstrates proficiency in laboratory skills like forensic molecular biology, forensic chemistry and toxicology.",
-      "The forensic science bsc colleges is about Forensic science under which students study about crimes & crime scenes and also related techniques & tools used in solving any crime along with all Lab techniques and evidence collection techniques. They study about the methods of investigation for every type of crime scene and also their lab examination to identify the main culprit. Apart from that they also study the Laws of Criminal Psychology and techniques used. Students also get the live exposure to the crime scene and evidence examination in different labs during their Internship.",
+      "B.Sc. Forensic Science is a comprehensive undergraduate program that integrates biology, chemistry, law, and forensic investigation techniques to equip students with the analytical and practical skills required for criminalistics and laboratory analysis. The curriculum delivers robust theoretical knowledge and practical training in areas such as forensic molecular biology, chemical analysis, toxicology, and ballistics.",
+      "Students study physical crime scenes, modern investigative tools, laboratory examination methods, and evidentiary protocols necessary to identify perpetrators and substantiate legal cases. The program also explores the principles of criminal psychology and legal evidence presentation. Through mandatory internships, students gain hands-on exposure to active crime scene simulations and evidence processing in professional laboratory environments.",
     ],
   },
   takeaways: [
-    "The forensic science bsc colleges is a 3 to a maximum of 4 years of degree program",
-    "Learners get hands-on training in evidence handling",
-    "Focus on developing critical observation skills",
-    "Learners will gain practical exposure to crime scene investigation techniques",
-    "GU forensic science bsc colleges provides state-of-the-art forensic science facilities",
+    "3-year degree program (with 4-year Honours option under NEP guidelines)",
+    "Extensive hands-on training in evidence collection, preservation, and chain of custody",
+    "Focus on developing sharp observational and analytical problem-solving skills",
+    "Practical exposure to simulated crime scene investigations and laboratory diagnostics",
+    "Access to state-of-the-art forensic instrumentation and research facilities at Geeta University",
   ],
   subjects: [
     "Crime Scene Investigation",
@@ -65,49 +65,49 @@ export const bscForensicScience: CoursePageData = {
   ],
   admission: {
     eligibility:
-      "For admission to BSc in forensic science colleges, applicants must have completed 12th with Physics, Chemistry, Biology/Math/Biotech/CS and English with minimum 50% marks from a recognized board.",
-    whyChooseHeading: "Why Choose Geeta University for a BSc Forensic Degree?",
+      "Candidates must have passed 10+2 with Physics, Chemistry, and Biology / Mathematics / Biotechnology / Computer Science and English with minimum 50% aggregate marks from a recognized educational board.",
+    whyChooseHeading: "Why Choose Geeta University for B.Sc. Forensic Science?",
     whyChooseParagraphs: [
-      "Experienced Faculty: At Geeta BSc in forensic science colleges in Delhi, learn from highly qualified professors and seasoned industry professionals who bring years of experience from forensic labs, medical institutions and research centers.",
-      "Advanced Infrastructure: GU provides state-of-the-art laboratories, well-equipped with the latest forensic instruments, smart classrooms and digital learning resources.",
-      "Career-Focused Curriculum: The B.Sc. in Forensic Science program at GU follows an industry-oriented syllabus aligned with the latest developments in forensic and medical sciences.",
-      "Holistic Development: Beyond academics, students participate in national-level workshops, interactive seminars and cultural fests that encourage creativity, leadership and teamwork.",
-      "Strong Placement Record: With tie-ups with 100+ leading organizations and research facilities, GU ensures 100% placement assistance.",
-      "Safe Campus Environment: The GU campus provides a safe and inclusive environment with separate hostels for boys and girls, round-the-clock security and comprehensive student support services.",
+      "Experienced Faculty: Learn from highly qualified professors and seasoned forensic practitioners bringing years of expertise from forensic labs, medical institutions, and research centers.",
+      "Advanced Infrastructure: State-of-the-art laboratories equipped with modern analytical instruments, mock crime scene rooms, and digital forensics suites.",
+      "Career-Focused Curriculum: An industry-aligned syllabus incorporating the latest advancements in forensic investigation, molecular biology, and cyber forensics.",
+      "Holistic Development: Beyond academics, students engage in national workshops, forensic symposiums, and moot court exercises.",
+      "Strong Placement Record: Tie-ups with 100+ leading organizations, laboratories, and risk advisory firms ensure comprehensive placement assistance.",
+      "Safe Campus Environment: A secure, inclusive campus with modern amenities, student support services, and active scientific clubs.",
     ],
   },
   whyGeeta: {
-    title: "Why Choose Geeta University for a BSc Forensic Degree?",
+    title: "Why Choose Geeta University for B.Sc. Forensic Science?",
     intro:
-      "At Geeta University, education goes beyond textbooks—it's about building confidence, integrity and a strong professional identity.",
+      "At Geeta University, education goes beyond textbooks—it is about cultivating scientific inquiry, investigative rigor, and professional integrity.",
     reasons: [
       {
         title: "Experienced Faculty",
         description:
-          "Learn from highly qualified professors and seasoned industry professionals who bring years of experience from forensic labs, medical institutions and research centers.",
+          "Learn from highly qualified professors and seasoned industry professionals who bring years of experience from forensic laboratories, medical institutions, and research centers.",
       },
       {
         title: "Advanced Infrastructure",
         description:
-          "GU provides state-of-the-art laboratories, well-equipped with the latest forensic instruments, smart classrooms and digital learning resources.",
+          "GU provides state-of-the-art laboratories equipped with the latest analytical instruments, smart classrooms, and digital learning resources.",
       },
       {
         title: "Career-Focused Curriculum",
         description:
-          "The B.Sc. in Forensic Science program at GU follows an industry-oriented syllabus aligned with the latest developments in forensic and medical sciences.",
+          "The B.Sc. in Forensic Science program follows an industry-aligned syllabus reflecting modern developments in forensic science, law, and investigation techniques.",
       },
       {
         title: "Strong Placement Record & Tie-ups",
         description:
-          "With tie-ups with 100+ leading organizations and research facilities, GU ensures comprehensive placement assistance.",
+          "With institutional linkages across 100+ leading organizations, analytical labs, and risk advisory firms, GU ensures dedicated placement assistance.",
       },
     ],
   },
   career: {
     title:
-      "Career Opportunities After Graduating From Geeta Forensic Science BSc Colleges",
+      "Career Opportunities After Graduating with B.Sc. Forensic Science",
     intro:
-      "The career options after forensic science BSc colleges are endless hence such experts can work with the organizations of their choice. Be it a public organization or a private one the doors of these units are always open for these professionals. Candidates can make a successful career in the world of forensics by working as:",
+      "Graduates of B.Sc. Forensic Science have wide-ranging career opportunities across public and private sectors. Key career pathways include:",
     govtRoles: [
       {
         title: "Crime Scene Investigator (CSI)",

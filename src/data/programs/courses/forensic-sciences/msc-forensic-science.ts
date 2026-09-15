@@ -28,16 +28,16 @@ export const mscForensicScience: CoursePageData = {
     program: "M.Sc. Forensic Science",
     duration: "2 Years",
     eligibility:
-      "Bachelor's degree in Science/ Forensic Science/ Medicine/ Engineering/ Pharmacy 1 Dentistry/ Ayush with at least 55% for General/OBC (NCL)/EWS category candidate and 50% or equivalent for SC/ST and PwD category candidates.",
+      "Bachelor's degree in Science / Forensic Science / Medicine / Engineering / Pharmacy / Dentistry / AYUSH with at least 55% aggregate marks for General/OBC (NCL)/EWS candidates and 50% for SC/ST/PwD candidates.",
   },
   overview: {
     title: "M.Sc. Forensic Science",
     paragraphs: [
-      "Students pursuing an M.Sc. in Forensic Science from Geeta University are taught everything about digital evidence, toxicology, forensic serology, and DNA analysis. The course is designed to develop a robust theoretical background, practical forensic skills, and an interdisciplinary understanding. Geeta School of Sciences is one of the top Forensic Science Colleges in India, and offers training in simulation labs and teaches through case studies. It enables students to evolve into professionals for work in national labs, investigation bureaus, legal consultancy, and academia.",
+      "Students pursuing an M.Sc. in Forensic Science from Geeta University receive comprehensive instruction in digital evidence, toxicology, forensic serology, and DNA analysis. The program is designed to develop robust theoretical foundations, practical forensic competencies, and interdisciplinary problem-solving skills. As one of the top institutions for Forensic Science in India, Geeta University offers training in specialized simulation labs and case study analysis, preparing graduates for key roles in national forensic laboratories, investigation bureaus, legal consultancies, and academia.",
     ],
   },
   takeaways: [
-    "2 Years Master's degree program in Forensic Science",
+    "2-year full-time Master's degree program in Forensic Science",
     "Advanced training in digital evidence, toxicology, forensic serology, and DNA analysis",
     "Practical simulation lab training and case-study based pedagogy",
     "Interdisciplinary problem-solving and courtroom testimony readiness",
@@ -64,7 +64,7 @@ export const mscForensicScience: CoursePageData = {
   ],
   admission: {
     eligibility:
-      "Bachelor's degree in Science/ Forensic Science/ Medicine/ Engineering/ Pharmacy 1 Dentistry/ Ayush with at least 55% for General/OBC (NCL)/EWS category candidate and 50% or equivalent for SC/ST and PwD category candidates.",
+      "Bachelor's degree in Science / Forensic Science / Medicine / Engineering / Pharmacy / Dentistry / AYUSH with at least 55% aggregate marks for General/OBC (NCL)/EWS candidates and 50% for SC/ST/PwD candidates.",
     whyChooseHeading: "Scope & Advantages of M.Sc. Forensic Science",
     whyChooseParagraphs: [
       "M.Sc. Forensic Science provides advanced specialization in forensic molecular biology, digital evidence, toxicology, and crime scene reconstruction.",
@@ -139,7 +139,7 @@ export const mscForensicScience: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/forensic-sciences/parmjeet-kaur.webp",
       description:
-        "My specialisation is Atomic physics and spectroscopy Ibalso qualified CSIR NET of physical with all india 19 th rank",
+        "Specialized in Atomic Physics and Spectroscopy. Qualified CSIR-NET in Physical Sciences with All India Rank (AIR) 19.",
     },
     {
       name: "Mr. Sahil Sharma",
@@ -147,7 +147,7 @@ export const mscForensicScience: CoursePageData = {
       qualification: "M.Sc. (Forensic Science), UGC-NET",
       image: "/programs/forensic-sciences/sahil-sharma.webp",
       description:
-        "Published 2 Research Papers; Authored 2 Books; Active contributor to forensic science education and training.",
+        "Published 2 research papers and authored 2 textbooks. Active contributor to forensic science education and mock crime scene training.",
     },
     {
       name: "Dr. Aditi Sharma",
@@ -155,7 +155,7 @@ export const mscForensicScience: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/forensic-sciences/aditi-sharma.webp",
       description:
-        "Published research and review articles on Forensic Nanotechnology. Published 3 copyrights and two idea patents. Contributor to emerging areas of forensic research.",
+        "Published research and review articles in Forensic Nanotechnology. Holds 3 registered copyrights and 2 patents. Active contributor to emerging areas of forensic research.",
     },
     {
       name: "Dr. Yukti Mahajan",
@@ -163,15 +163,15 @@ export const mscForensicScience: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/forensic-sciences/yukti-mahajan.webp",
       description:
-        "Specialized in fractional calculus, special functions, integral transforms. Published 4 research papers. Active contribution in Mathematics Research",
+        "Specialized in fractional calculus, special functions, and integral transforms. Published 4 research papers with active contributions to mathematical modeling.",
     },
     {
-      name: "Deepmala Dalal",
-      designation: "Faculty Member",
-      qualification: "M.Sc. / Ph.D. Scholar",
+      name: "Ms. Deepmala Dalal",
+      designation: "Assistant Professor",
+      qualification: "M.Sc., Ph.D. Scholar",
       image: "/programs/forensic-sciences/deepmala-dalal.webp",
       description:
-        "Electrochemical sensing, nanomaterials, water quality assessment, and environmental remediation",
+        "Expertise in electrochemical sensing, nanomaterials, water quality assessment, and environmental remediation techniques.",
     },
   ],
   testimonials: [

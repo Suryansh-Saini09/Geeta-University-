@@ -132,7 +132,7 @@ export default function ProgramCourses({
         program: prog.name || prog.program || cat.title,
         duration: prog.duration || cat.duration || "Full Time",
         href: prog.href,
-        specializations: prog.specializations || prog.specialisations,
+        specializations: prog.specializations || prog.specialisations || prog.specialization || prog.specialisation,
         eligibility: prog.eligibility || cat.eligibility,
         details: prog.details,
       }));

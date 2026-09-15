@@ -463,9 +463,27 @@ export const agricultureSchool: ProgramPageData = {
         "Graduation in a relevant discipline with a minimum 50% marks.",
       programs: [
         {
-          name: "M.Sc. Agriculture (Agronomy)",
+          name: "M.Sc. Agriculture",
           href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
           duration: "2 Years",
+          specializations: [
+            {
+              name: "M.Sc. Agriculture (Agronomy)",
+              href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
+            },
+            {
+              name: "M.Sc. (Horticulture) Vegetable Science",
+            },
+            {
+              name: "M.Sc. (Horticulture) Fruit Science",
+            },
+            {
+              name: "M.Sc. Genetics & Plant Breeding",
+            },
+            {
+              name: "M.Sc. Entomology",
+            },
+          ],
           eligibility:
             "Graduation in a relevant discipline with a minimum 50% marks.",
         },
