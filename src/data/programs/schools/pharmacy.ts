@@ -181,109 +181,109 @@ export const pharmacySchool: ProgramPageData = {
       { 
         name: "Dr. Seema Rohilla", 
         designation: "Professor, M.Pharm (Pharmaceutics), Ph.D.", 
-        description: "Expertise: Pharmaceutics. Research Interest: Qbd, Cancer. Award: Extra Ordinary Researcher.", 
+        description: "Expertise in Pharmaceutics and formulation design. Primary research interests include Quality by Design (QbD) and oncology therapeutics. Recipient of the Extraordinary Researcher Award.", 
         image: "/programs/pharmacy/Seema.webp" 
       },
       { 
         name: "Dr. Sarita", 
         designation: "Professor, Ph.D.", 
-        description: "Pharmacognosy and Phytochemistry, inslico design and novel extraction methods and biological evaluations. 32 publications in international journal with total impact factor more than 25 , 10 books , 18 book chapters published , 5 patents granted and 714 citations.", 
+        description: "Expertise in Pharmacognosy and Phytochemistry, in silico drug design, novel extraction methods, and biological evaluations. Published 32 articles in international journals with a cumulative impact factor exceeding 25, authored 10 books, 18 book chapters, with 5 granted patents and 714+ citations.", 
         image: "/programs/pharmacy/Sarita.webp" 
       },
       { 
         name: "Dr. Priyanka Rathee", 
         designation: "Associate Professor, Ph.D.", 
-        description: "In silico screening, Phytochemical research, Medicinal Chemistry, Preservation & Enzyme Inhibition, Nanotechnology.", 
+        description: "Specialized in in silico screening, phytochemical research, medicinal chemistry, enzyme inhibition, and pharmaceutical nanotechnology.", 
         image: "/programs/pharmacy/Priyanka.webp" 
       },
       { 
         name: "Mr. Rakesh Redhu", 
         designation: "Associate Professor, M.Pharmacy (Pharmaceutics)", 
-        description: "Specialised in Solubility Enhancement, Nano-carriers, and Formulation Development; Skilled in Design of Experiment (DOE) methodology.", 
+        description: "Specialized in solubility enhancement, nanocarriers, and formulation development; skilled in Design of Experiment (DoE) methodology.", 
         image: "/programs/pharmacy/Rakesh.webp" 
       },
       { 
         name: "Mr. Ajay", 
         designation: "Assistant Professor, M.Pharmacy", 
-        description: "Pharmaceutical educator and researcher with 5 years' experience specializing in pharmaceutics, pharmacology, medicinal chemistry, advanced formulation design for maximized activity, and patent filings.", 
+        description: "Pharmaceutical educator and researcher with 5+ years of experience specializing in pharmaceutics, pharmacology, medicinal chemistry, advanced formulation design, and patent filings.", 
         image: "/programs/pharmacy/Ajay.webp" 
       },
       { 
         name: "Ms. Manita", 
         designation: "Assistant Professor, M.Pharmacy, Ph.D. (Pursuing)", 
-        description: "Ms. Manita, Assistant Professor in Geeta Institute of Pharmacy with 3.9 years of academic experience in pharmaceutical Sciences. I am currently pursuing PhD in pharmaceutical Sciences. I have published 1 research article and 6 review articles in Q1 journals indexed in Scopus and PubMed. I am a co-inventor of 3 patents which landscape my dedication to innovation and advancement in nanoformulations , Dermatology and advanced drug delivery system.", 
+        description: "Assistant Professor at Geeta Institute of Pharmacy with 3.9+ years of academic experience in Pharmaceutical Sciences. Published 1 research article and 6 review articles in Q1 Scopus and PubMed-indexed journals. Co-inventor of 3 patents in nanoformulations, dermatology, and advanced drug delivery systems.", 
         image: "/programs/pharmacy/Manita.webp" 
       },
       { 
         name: "Ms. Ranjna Rani", 
         designation: "Assistant Professor, M.Pharm. (Industrial Pharmacy), Ph.D. (Pursuing)", 
-        description: "Pharmacy professional specializing in drug formulation, solubility enhancement and bioavailability improvement. 6 patents, 1 book, 2 book chapters.", 
+        description: "Pharmacy professional specializing in drug formulation, solubility enhancement, and bioavailability improvement. Author of 6 patents, 1 book, and 2 book chapters.", 
         image: "/programs/pharmacy/Ranjna.webp" 
       },
       { 
         name: "Ms. Twinkle Chadda", 
         designation: "Assistant Professor, M. Pharm. (Pursuing Ph.D.)", 
-        description: "Masters in Pharmacology, File 10 patents, 3 Bentham and 1 Scopus.", 
+        description: "Master's in Pharmacology, co-inventor of 10 filed patents, with research published in Bentham Science and Scopus-indexed journals.", 
         image: "/programs/pharmacy/Twinkle.webp" 
       },
       { 
         name: "Mr. Charit Kumar", 
         designation: "Associate Professor, M.Pharm.", 
-        description: "Solid dispersions, Solubility enhancement, Microwave assisted techniques, DoE, Formulation design.", 
+        description: "Expert in solid dispersions, solubility enhancement, microwave-assisted formulation techniques, DoE, and novel formulation design.", 
         image: "/programs/pharmacy/Charit.webp" 
       },
       { 
         name: "Mr. Rahul Dhounchak", 
         designation: "Assistant Professor, M.Pharmacy", 
-        description: "Focused on Solubility Enhancement, Drug Development, and Formulation Development; Contributor to pharmaceutical academic research.", 
+        description: "Focused on solubility enhancement, drug discovery, and formulation development; active contributor to pharmaceutical academic research.", 
         image: "/programs/pharmacy/Rahul.webp" 
       },
       { 
         name: "Ms. Anjali Saini", 
         designation: "Assistant Professor, Ph.D. (Pursuing)", 
-        description: "Neurobiology, Neuroscience, Pathophysiology of neural disorder and their herbal and non herbal treatment.", 
+        description: "Specialized in Neurobiology, Neuroscience, pathophysiology of neural disorders, and their herbal and conventional therapeutics.", 
         image: "/programs/pharmacy/Anjali.webp" 
       },
       { 
         name: "Mr. Karan Jangra", 
         designation: "Assistant Professor, M.Pharmacy (Pharmaceutics)", 
-        description: "Published 1 research paper, and expert in Pharmacovigilance with hands-on experience in product development and research.", 
+        description: "Published researcher and expert in Pharmacovigilance with hands-on experience in product development and regulatory compliance.", 
         image: "/programs/pharmacy/Karan.webp" 
       },
       { 
         name: "Ms. Nikita Sharma", 
         designation: "Assistant Professor, M.Pharmacy (Pharmaceutical Chemistry)", 
-        description: "Specializes in heterocyclic compound synthesis, molecular docking, and synthetic chemistry.", 
+        description: "Specializes in heterocyclic compound synthesis, molecular docking, and synthetic medicinal chemistry.", 
         image: "/programs/pharmacy/Nikita.webp" 
       },
       { 
         name: "Mr. Arun", 
         designation: "Assistant Professor", 
-        description: "Drug Regulatory Affairs expert skilled in novel molecule synthesis and molecular docking, with 5+ Research & Review Articles, 5+ Book chapters and 1 Book.", 
+        description: "Drug Regulatory Affairs expert skilled in novel molecule synthesis and molecular docking, with 5+ research & review articles, 5+ book chapters, and 1 authored book.", 
         image: "/programs/pharmacy/Arun.webp" 
       },
       { 
         name: "Mr. Shamsher Singh", 
         designation: "Assistant Professor", 
-        description: "Interested in novel compound synthesis, I have all ready published in bentham publication of review/research article.", 
+        description: "Researcher in novel compound synthesis with published review and research articles in Bentham Science publications.", 
         image: "/programs/pharmacy/Shamsher.webp" 
       },
       { 
         name: "Dr. Neelam Malik", 
         designation: "Professor", 
-        description: "Area of expertise - Medicinal chemistry, Drug Design, Artificial intelligence, synthetic chemistry, Enzyme inhibition. Published more than 35 papers in indexed journal 15 book chapter, 3 books and patents. Got silver medal and best thesis award in PhD.", 
+        description: "Area of expertise covers Medicinal Chemistry, Drug Design, Artificial Intelligence in drug discovery, synthetic chemistry, and enzyme inhibition. Published over 35 papers in indexed journals, 15 book chapters, 3 books, and holds multiple patents. Recipient of Silver Medal and Best Thesis Award in Ph.D.", 
         image: "/programs/pharmacy/Neelam.webp" 
       },
       { 
         name: "Dr. Anil Kumar", 
         designation: "Associate Professor", 
-        description: "Ph.D in Pharmaceutics.", 
+        description: "Ph.D. in Pharmaceutics with extensive academic, formulation research, and student mentorship experience.", 
         image: "/programs/pharmacy/Anil.webp" 
       },
       { 
         name: "Dr. Ravinder", 
         designation: "Professor", 
-        description: "M.Pharm Ph.D; Pharmacology.", 
+        description: "Professor of Pharmacology holding M.Pharm and Ph.D. with deep research background in preclinical drug screening and pharmacodynamics.", 
         image: "/programs/pharmacy/Ravinder.webp" 
       }
     ],

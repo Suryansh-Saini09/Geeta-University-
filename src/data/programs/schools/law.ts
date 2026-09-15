@@ -104,11 +104,11 @@ export const lawSchool: ProgramPageData = {
     vision:
       "“To be a globally respected centre of excellence in legal education, nurturing competent legal professionals, ethical advocates, judicial leaders, researchers, and policymakers, dedicated to serving justice, the rule of law, and constitutional values, and committed to nation-building.”",
     mission: [
-      "To achieve student-centric, outcome-based quality legal education by providing values-based, strong foundational legal knowledge and skills, and encouraging ethical practices and experiential learning to meet the needs of the local, regional, and international legal practice..",
-      "To produce competent, ethical, and socially responsible legal professionals with knowledge and advocacy skills, leadership abilities, and analytical competencies needed in the legal practice, judiciary, and public service, as well as corporate law and alternative dispute resolution.",
+      "To achieve student-centric, outcome-based quality legal education by providing values-based, strong foundational legal knowledge and skills, and encouraging ethical practices and experiential learning to meet the needs of local, regional, and international legal practice.",
+      "To produce competent, ethical, and socially responsible legal professionals with knowledge and advocacy skills, leadership abilities, and analytical competencies needed in legal practice, the judiciary, public service, corporate law, and alternative dispute resolution.",
       "To promote interdisciplinary legal research and innovations that accelerate the development of solutions to pertinent legal issues, as well as advance justice, public policy, and the rule of law.",
       "To establish partnerships with courts, law firms, corporate entities, regulatory agencies, and international organizations in clinical legal education, internship placement, research, and teaching.",
-      "To develop leadership and encourage innovation and excellence in legal education while also promoting access to justice, the use of legal technologies, and service to society and the nation.",
+      "To develop leadership and encourage innovation and excellence in legal education while promoting access to justice, the use of legal technologies, and dedicated service to society and the nation.",
     ],
   },
 

@@ -95,13 +95,13 @@ export const humanitiesSchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To be a place for learning in the areas of humanities and social sciences helping people become scholars, teachers, leaders, researchers and people who make a difference focusing on improving values, thinking deeply about fairness and building the country.”",
+      "“To be a premier centre of excellence in the humanities and social sciences, empowering students to become visionary scholars, educators, leaders, and changemakers dedicated to ethical values, critical inquiry, social justice, and nation-building.”",
     mission: [
-      "To offer education that focuses on students and the results they achieve helping them think clearly, communicate effectively, make logical choices, understand different cultures and see how people and societies connect.",
-      "To train knowledgeable, socially aware and compassionate professionals who possess the skills, attitudes and world outlook necessary to understand and solve modern social, cultural and global problems.",
-      "To encourage research and novel ideas in the areas of humanities and social sciences that contribute to public policy helping communities grow, and making life better for everyone.",
-      "To strengthen the partnership with academic, governmental, community, industry and other stakeholders in the field of practice-oriented education, community service, consultancy, research activities and human resource development.",
-      "To develop leadership potential and life-long learning competencies to promote human development, diversity, social inclusion and active citizenship, as well as national and regional economic growth.",
+      "To offer student-centric, outcome-based education that equips learners to think critically, communicate effectively, make reasoned decisions, appreciate cultural diversity, and understand the intricate connections within human societies.",
+      "To train knowledgeable, socially aware, and compassionate professionals equipped with the analytical skills, ethical grounding, and global perspectives necessary to address complex contemporary challenges.",
+      "To foster impactful research and innovative scholarship in the humanities and social sciences that inform public policy, nurture community development, and advance human well-being.",
+      "To strengthen partnerships with academic, governmental, community, and industry stakeholders in the fields of practice-oriented education, community service, consultancy, and policy research.",
+      "To develop leadership potential and lifelong learning competencies to promote human development, diversity, social inclusion, and active citizenship.",
     ],
   },
 
