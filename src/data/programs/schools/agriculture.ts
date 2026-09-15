@@ -489,7 +489,7 @@ export const agricultureSchool: ProgramPageData = {
             },
           ],
           eligibility:
-            "Graduation in a relevant discipline with a minimum 50% marks.",
+            "B.Sc Agriculture with a minimum 50% marks.",
         },
       ],
     },
