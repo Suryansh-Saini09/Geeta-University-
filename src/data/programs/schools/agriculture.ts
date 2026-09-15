@@ -460,14 +460,42 @@ export const agricultureSchool: ProgramPageData = {
       title: "Postgraduate Program",
       duration: "2 Years",
       eligibility:
-        "Graduation in a relevant discipline with a minimum 50% marks.",
+        "B.Sc Agriculture with a minimum 50% marks",
       programs: [
         {
-          name: "M.Sc. Agriculture (Agronomy)",
+          name: "M.Sc. Agronomy",
           href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
           duration: "2 Years",
           eligibility:
-            "Graduation in a relevant discipline with a minimum 50% marks.",
+            "B.Sc Agriculture with a minimum 50% marks",
+        },
+        {
+          name: "M.Sc. (Horticulture) Vegetable Science",
+          href: "/programs/school-of-agricultural-studies/msc-horticulture-vegetable-science",
+          duration: "2 Years",
+          eligibility:
+            "B.Sc Agriculture with a minimum 50% marks",
+        },
+        {
+          name: "M.Sc. (Horticulture) Fruit Science",
+          href: "/programs/school-of-agricultural-studies/msc-horticulture-fruit-science",
+          duration: "2 Years",
+          eligibility:
+            "B.Sc Agriculture with a minimum 50% marks",
+        },
+        {
+          name: "M.Sc. Genetics and plant breeding",
+          href: "/programs/school-of-agricultural-studies/msc-genetics-and-plant-breeding",
+          duration: "2 Years",
+          eligibility:
+            "B.Sc Agriculture with a minimum 50% marks",
+        },
+        {
+          name: "M.Sc. Entomology",
+          href: "/programs/school-of-agricultural-studies/msc-entomology",
+          duration: "2 Years",
+          eligibility:
+            "B.Sc Agriculture with a minimum 50% marks",
         },
       ],
     },
@@ -557,41 +585,68 @@ export const agricultureSchool: ProgramPageData = {
   },
 
   testimonials: [
+   {
+  name: "Sumit Kadyan",
+  role: "Own Startup",
+  quote:
+    "Building my vermicompost business has been a rewarding journey, allowing me to turn organic waste into valuable fertilizer while contributing to sustainable farming and rural livelihoods.",
+  image: "/programs/agriculture/testimonial-sumit.webp",
+},
+
+{
+  name: "Anuj",
+  role: "Own Startup",
+  quote:
+    "My journey in vermicomposting has helped me promote sustainable agriculture by transforming organic waste into natural fertilizer and creating opportunities for rural communities.",
+  image: "/programs/agriculture/testimonial-anuj.webp",
+},
     {
-      name: "Sumit Kadyan & Anuj",
-      pkg: "Agri Startup",
-      company: "Eco Vermicompost & Bio-Fertilizers",
-      role: "Alumni Entrepreneurs",
+      name: "Sawan",
+      role: "B.Sc. Agriculture Student",
       quote:
-        "Sumit Kadyan and Anuj built a successful vermicompost business, transforming agricultural waste into organic fertilizer, promoting sustainable farming and creating rural employment opportunities.",
-      image: "/programs/agriculture/testimonial-sumit.webp",
+        "Through Geeta University's agriculture department, I developed strong technical skills and a deeper understanding of sustainable farming practices. The positive campus environment encouraged me to achieve my goals with confidence.",
+      image: "/programs/agriculture/bsc-agriculture/sawan-testimonial.webp",
     },
     {
-      name: "Deepanshu",
-      pkg: "67.5 LPA",
-      company: "Global Allied Agriculture",
-      role: "Agri-Industry Executive",
+      name: "Sumit",
+      role: "B.Sc. Agriculture Student",
       quote:
-        "My training at Geeta University equipped me with strong practical knowledge, field skills, and professional standards that helped me unlock global career opportunities in precision agribusiness.",
-      image: "/programs/agriculture/testimonial-deepanshu.webp",
+        "Geeta University provided me with the perfect platform to improve my agricultural knowledge and communication skills. The practical sessions and supportive faculty helped me overcome challenges and prepare for future opportunities.",
+      image: "/programs/agriculture/bsc-agriculture/sumit-testimonial.webp",
     },
     {
-      name: "Vikas Bareja",
-      pkg: "34 LPA",
-      company: "Agri-Analytics Corp",
-      role: "Corporate Executive",
+      name: "Parul",
+      role: "B.Sc. Agriculture Student",
       quote:
-        "Geeta University provides a nurturing environment. The advanced infrastructure, faculty mentorship, and strong placement support helped me gain the confidence to move into a high-profile agribusiness role.",
-      image: "/programs/agriculture/testimonial-vikas.webp",
+        "Studying agriculture at Geeta University gave me valuable industry exposure and practical understanding of modern farming techniques. The university's learning culture inspired me to stay focused, confident, and career-oriented.",
+      image: "/programs/agriculture/bsc-agriculture/parul-testimonial.webp",
     },
     {
-      name: "Manik Sharma",
-      pkg: "67.5 LPA",
-      company: "Global Enterprise",
-      role: "Technical Analyst",
+      name: "Annu",
+      role: "B.Sc. Agriculture Student",
       quote:
-        "Geeta University offers a premier academic and campus life experience. The practical research skills and agribusiness acumen I learned here were integral to my career journey.",
-      image: "/programs/agriculture/testimonial-manik.webp",
+        "Geeta University's agriculture program helped me gain practical knowledge, confidence, and leadership skills. The supportive learning environment and field-based training prepared me to handle real agricultural challenges and work towards a successful future.",
+      image: "/programs/agriculture/bsc-agriculture/annu-testimonial.webp",
+    },
+    {
+      name: "Ajay Sandhu",
+      role: "B.Sc. Agriculture Student",
+      quote:
+        "The campus life and advanced agricultural learning at Geeta University motivated me to grow both personally and professionally. The hands-on experience and expert guidance strengthened my skills and career vision in the agriculture sector.",
+      image: "/programs/agriculture/bsc-agriculture/ajay-sandhu-testimonial.webp",
+    },
+    {
+      name: "Riya Devi",
+      role: "B.Sc. Agriculture Student",
+      quote:
+        "The industry-focused education and practical training at Geeta University helped me build a strong foundation in agriculture. The experiences and learning opportunities shaped my personality and prepared me for professional success.",
+      image: "/programs/agriculture/bsc-agriculture/riya-devi-testimonial.webp",
+    },
+    {
+      name: "Dokala Mounika",
+      role: "Ph.D. Agriculture Scholar",
+      quote: "Pursuing my Ph.D. in Agriculture at Geeta University has been a highly enriching experience. The strong research environment, expert faculty, and practical exposure have deepened my understanding of sustainable farming and agricultural research.",
+      image: "/programs/agriculture/phd-agriculture/dokala_testimonial.webp",
     },
   ],
 
@@ -648,9 +703,40 @@ export const agricultureSchool: ProgramPageData = {
     ],
   },
 
-
-
-
+  learningSpaces: {
+    eyebrow: "Infrastructure & Laboratories",
+    title: "Highlights of Our Learning Spaces",
+    spaces: [
+      {
+        title: "Agronomy Experimental Farmlands",
+        image: "/programs/agriculture/agri-thumb.webp",
+      },
+      {
+        title: "Crop Research & Field Units",
+        image: "/programs/agriculture/agri1-thumb.webp",
+      },
+      {
+        title: "Protected Cultivation & Polyhouses",
+        image: "/programs/agriculture/agri2-thumb.webp",
+      },
+      {
+        title: "Soil & Agronomy Testing Facilities",
+        image: "/programs/agriculture/agri3-thumb.webp",
+      },
+      {
+        title: "Educational & Field Exposure Visits",
+        image: "/programs/agriculture/agri4-thumb.webp",
+      },
+      {
+        title: "Krishi Mela & Farmer Interface",
+        image: "/programs/agriculture/agri5-thumb.webp",
+      },
+      {
+        title: "Agronomy Research Lab",
+        image: "/programs/agriculture/agri6-thumb.webp",
+      },
+    ],
+  },
 
   faqs: agricultureFaqs.map((f) => ({
     q: f.question,

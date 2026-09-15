@@ -487,70 +487,30 @@ export const hospitalitySchool: ProgramPageData = {
   },
 
   learningSpaces: {
-    title: "Infrastructure Built for Hospitality Excellence",
-    description:
-      "Students train inside high-end simulation laboratories modeled after international five-star hotels and Michelin-level kitchens:",
+    eyebrow: "Infrastructure & Laboratories",
+    title: "Highlights of Our Learning Spaces",
     spaces: [
       {
-        title: "Basic & Advanced Training Kitchens",
-        desc: "Equipped with commercial culinary workstations, high-flame burners, and modern cooking appliances.",
-        icon: "",
-      },
-      {
-        title: "Bakery & Confectionery Studio",
-        desc: "Dedicated temperature-controlled zone for pastry making, chocolate tempering, and baking science.",
-        icon: "",
-      },
-      {
-        title: "Training Restaurant & Mock Bar",
-        desc: "Fine-dining simulation space with banquet setup, gueridon service trolleys, and beverage service counters.",
-        icon: "",
+        title: "Basic & Advanced Training Kitchen",
+        image: "/programs/hotel-management/Basic-Training-Kitchen-thumb.webp",
       },
       {
         title: "Front Office Simulation Lab",
-        desc: "Industry-standard Property Management System (PMS) software stations and reception desk setup.",
-        icon: "",
+        image: "/programs/hotel-management/Front-Office-Lab-thumb.webp",
       },
       {
-        title: "Model Guest Suite & Housekeeping Lab",
-        desc: "Full replica of luxury hotel suite designed for interior maintenance, linen management, and room inspection training.",
-        icon: "",
+        title: "Training Restaurant & Beverage Bar",
+        image: "/programs/hotel-management/HM-Course2-2-thumb.webp",
       },
       {
-        title: "Food & Beverage Analysis Lab",
-        desc: "Food technology testing equipment for quality assurance, nutritional analysis, and hygiene audits.",
-        icon: "",
+        title: "Bakery & Culinary Studio",
+        image: "/programs/hotel-management/HM-Course2-3-thumb.webp",
       },
       {
-        title: "Smart Hybrid Classrooms",
-        desc: "Interactive multimedia-equipped lecture halls for hospitality case studies and guest lectures.",
-        icon: "",
-      },
-      {
-        title: "Event & Banquet Arena",
-        desc: "Expansive hall for hosting real university banquets, themed culinary festivals, and hospitality summits.",
-        icon: "",
+        title: "Housekeeping & Guest Suite Lab",
+        image: "/programs/hotel-management/Housekeeping-Lab-thumb.webp",
       },
     ],
-    gallery: [
-      {
-        src: "/programs/hotel-management/17-full.webp",
-        title: "Culinary & Kitchen Studio",
-        caption: "Students preparing gourmet dishes under the guidance of seasoned master chefs.",
-      },
-      {
-        src: "/programs/hotel-management/18-full.webp",
-        title: "Fine Dining & Beverage Service",
-        caption: "Practical training in silver service, table layouts, and restaurant operations.",
-      },
-      {
-        src: "/programs/hotel-management/19-full.webp",
-        title: "Hospitality Reception & Front Office",
-        caption: "Front-desk operations, guest check-in simulations, and reservation software mastery.",
-      },
-    ],
-    closingNote:
-      "Every lab is crafted to provide authentic industry exposure, ensuring you step out confident and job-ready for top hotels worldwide.",
   },
 
   careerPathways: {
