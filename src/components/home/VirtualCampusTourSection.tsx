@@ -94,20 +94,10 @@ export default function VirtualCampusTourSection() {
             {/* Content */}
             <div className="relative z-10 flex min-h-[460px] items-center px-7 py-14 sm:min-h-[540px] sm:px-12 lg:min-h-[620px] lg:px-20">
               <div className="max-w-2xl">
-                <motion.p
-                  variants={itemVariants}
-                  className="text-xs font-bold uppercase tracking-[0.28em] sm:text-sm"
-                  style={{
-                    color: "var(--gu-gold)",
-                  }}
-                >
-                  Explore Geeta University
-                </motion.p>
-
                 <motion.h2
                   variants={itemVariants}
                   id="virtual-tour-heading"
-                  className="mt-4 font-serif text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
+                  className="font-serif text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
                 >
                   Experience the
                   <span
@@ -119,14 +109,6 @@ export default function VirtualCampusTourSection() {
                     Campus.
                   </span>
                 </motion.h2>
-
-                <motion.p
-                  variants={itemVariants}
-                  className="mt-6 max-w-xl text-base leading-7 text-white/80 sm:text-lg sm:leading-8"
-                >
-                  Step inside a future-ready campus built around learning,
-                  innovation, collaboration and student life.
-                </motion.p>
 
                 {/* Play button */}
                 <motion.button
@@ -170,16 +152,6 @@ export default function VirtualCampusTourSection() {
                   </span>
                 </motion.button>
               </div>
-            </div>
-
-            {/* Decorative campus label */}
-            <div className="absolute bottom-7 right-7 z-10 hidden sm:block lg:bottom-10 lg:right-12">
-              <p className="text-right text-[10px] font-semibold uppercase tracking-[0.25em] text-white/50">
-                Geeta University
-              </p>
-              <p className="mt-1 text-right text-xs text-white/70">
-                Panipat, Haryana
-              </p>
             </div>
           </motion.div>
         </div>
