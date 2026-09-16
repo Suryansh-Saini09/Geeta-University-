@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import type { ProgramPageData } from "@/data/programs/types";
 import VisionMissionSection from "./VisionMissionSection";
 import DeanNoteCard from "./DeanNoteCard";
@@ -32,11 +33,11 @@ export default function ProgramAbout({ about, intro, visionMission, dean, school
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         {/* Header Block */}
         <div style={{ marginBottom: careers.length > 0 ? 56 : 32, maxWidth: 960 }}>
-          {data.eyebrow && (
+          {/* {data.eyebrow && (
             <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", display: "inline-block", marginBottom: 12 }}>
               {data.eyebrow}
             </span>
-          )}
+          )} */}
           <h2
             style={{
               fontSize: 44,
@@ -63,6 +64,41 @@ export default function ProgramAbout({ about, intro, visionMission, dean, school
               {p}
             </p>
           ))}
+
+          {data.links && data.links.length > 0 && (
+            <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 12 }}>
+              {data.links.map((link, idx) => {
+                const isExternal = link.href.startsWith("http://") || link.href.startsWith("https://");
+                return (
+                  <Link
+                    key={idx}
+                    href={link.href}
+                    target={link.target || (isExternal ? "_blank" : undefined)}
+                    rel={link.rel || (isExternal ? "noopener noreferrer" : undefined)}
+                    style={{
+                      color: "#1a73e8",
+                      fontSize: 16.5,
+                      fontWeight: 600,
+                      textDecoration: "underline",
+                      textUnderlineOffset: "4px",
+                      display: "inline-block",
+                      lineHeight: 1.7,
+                      cursor: "pointer",
+                      transition: "color 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "#1557b0";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "#1a73e8";
+                    }}
+                  >
+                    {link.text}
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* Career Cards */}

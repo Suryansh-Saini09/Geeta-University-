@@ -191,7 +191,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
           <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
             {/* Section Header */}
             <div style={{ textAlign: "center", marginBottom: 54 }}>
-              <div
+              {/* <div
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -214,20 +214,20 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                   Alumni & Student Voices
                 </span>
                 <span style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-              </div>
+              </div> */}
               <h2
                 style={{
                   fontSize: 42,
                   fontWeight: 900,
                   color: "#FFFFFF",
-                  margin: "0 0 16px",
+                  margin: 0,
                   lineHeight: 1.1,
                   letterSpacing: "-1px",
                 }}
               >
                 Straight from Those Who've Been There
               </h2>
-              <p
+              {/* <p
                 style={{
                   fontSize: 16,
                   color: "rgba(255, 255, 255, 0.7)",
@@ -238,7 +238,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                 }}
               >
                 Read first-hand accounts from our alumni and students about their career transformations, academic mentorship, and experiential journey.
-              </p>
+              </p> */}
             </div>
 
             {/* Scrollable & Auto-Moving Testimonials Container */}

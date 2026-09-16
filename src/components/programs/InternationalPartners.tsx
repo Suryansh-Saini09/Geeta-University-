@@ -123,7 +123,7 @@ export default function InternationalPartners({
               fontSize: 44,
               fontWeight: 900,
               color: "#0A1F44",
-              margin: "0 0 16px",
+              margin: "0",
               lineHeight: 1.1,
               letterSpacing: "-1px",
             }}
@@ -131,6 +131,7 @@ export default function InternationalPartners({
             {title}
           </h2>
 
+          {/* Subtitle commented out
           <p
             style={{
               color: "#4A5568",
@@ -143,6 +144,7 @@ export default function InternationalPartners({
           >
             {subtitle}
           </p>
+          */}
         </motion.div>
 
         {/* Partners Grid */}

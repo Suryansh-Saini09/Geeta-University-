@@ -54,7 +54,8 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
       >
         <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px" }}>
           {/* Section Heading matching site standard */}
-          <div style={{ textAlign: "center", marginBottom: 56 }}>
+          <div style={{ textAlign: "center", marginBottom: 44 }}>
+            {/* Eyebrow commented out
             {eyebrow && (
               <span
                 style={{
@@ -70,18 +71,20 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
                 {eyebrow}
               </span>
             )}
+            */}
             <h2
               style={{
                 fontSize: 44,
                 fontWeight: 900,
                 color: "#0A1F44",
-                margin: "0 0 12px",
+                margin: 0,
                 lineHeight: 1.15,
                 letterSpacing: "-1px",
               }}
             >
               {title}
             </h2>
+            {/* Subtitle commented out
             {subtitle && (
               <p
                 style={{
@@ -95,6 +98,7 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
                 {subtitle}
               </p>
             )}
+            */}
           </div>
 
           {/* Cards Grid */}
@@ -211,20 +215,24 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
   return (
     <section id="Specialisations" style={{ padding: "100px 0", background: "#F8FAFC", position: "relative" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ textAlign: "center", marginBottom: 56 }}>
+        <div style={{ textAlign: "center", marginBottom: 44 }}>
+          {/* Eyebrow commented out
           {eyebrow && (
             <span style={{ color: "#E8871A", fontWeight: 700, fontSize: 13, letterSpacing: 2, textTransform: "uppercase" }}>
               {eyebrow}
             </span>
           )}
-          <h2 style={{ fontSize: 44, fontWeight: 900, color: "#0A1F44", margin: "12px 0 0", lineHeight: 1.1, letterSpacing: "-1px" }}>
+          */}
+          <h2 style={{ fontSize: 44, fontWeight: 900, color: "#0A1F44", margin: 0, lineHeight: 1.1, letterSpacing: "-1px" }}>
             {title}
           </h2>
+          {/* Subtitle commented out
           {subtitle && (
             <p style={{ fontSize: 18, color: "#4A5568", maxWidth: 800, margin: "14px auto 0", lineHeight: 1.6 }}>
               {subtitle}
             </p>
           )}
+          */}
         </div>
 
         <div

@@ -115,18 +115,19 @@ export default function RankingsAccreditations({
       }}
     >
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ textAlign: "center", marginBottom: 70 }}>
+        <div style={{ textAlign: "center", marginBottom: 50 }}>
           <h2
             style={{
               fontSize: 46,
               color: "#000",
               lineHeight: 1.2,
               letterSpacing: "-1px",
-              marginBottom: 20,
+              marginBottom: 0,
             }}
           >
             <span style={{ fontWeight: 800 }}>{title}</span>
           </h2>
+          {/* Subtitle commented out
           <p
             style={{
               fontSize: 18,
@@ -139,6 +140,7 @@ export default function RankingsAccreditations({
           >
             {subtitle}
           </p>
+          */}
         </div>
 
         <div>

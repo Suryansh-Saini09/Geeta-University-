@@ -15,6 +15,7 @@ import ProgramCourses from "./ProgramCourses";
 import DepartmentHighlights from "./DepartmentHighlights";
 import BrochureDownload from "./BrochureDownload";
 import ProgramSpecialisations from "./ProgramSpecialisations";
+import ProgramUsps from "./ProgramUsps";
 import ProgramExperts from "./ProgramExperts";
 import InternationalPartners from "./InternationalPartners";
 import ProgramCorporateConnect from "./ProgramCorporateConnect";
@@ -101,15 +102,17 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       {/* 8. DEPARTMENT HIGHLIGHTS (Rendered strictly when school-specific highlights are provided) */}
       {pageData.departmentHighlights && pageData.departmentHighlights.length > 0 && (
         <DepartmentHighlights
+          title={pageData.departmentHighlightsTitle}
+          subtitle={pageData.departmentHighlightsSubtitle}
           highlights={pageData.departmentHighlights}
           imageOnly={pageData.highlightsImageOnly || Boolean(pageData.slug?.includes("science") || pageData.slug?.includes("agri"))}
         />
       )}
 
       {/* 9. SPECIALISATIONS DIRECTORY */}
-      {pageData.specialisations && (
+      {/* {pageData.specialisations && (
         <ProgramSpecialisations specialisations={pageData.specialisations} />
-      )}
+      )} */}
 
       {/* 10. MEET OUR MENTORS (Rendered strictly when school-specific faculty are provided) */}
       {hasMentors && (
@@ -117,6 +120,11 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
           mentorsSection={pageData.mentorsSection}
           faculty={pageData.faculty || pageData.mentors}
         />
+      )}
+
+      {/* USPS OF THE INSTITUTE (Beige Background) */}
+      {pageData.usps && (
+        <ProgramUsps usps={pageData.usps} />
       )}
 
       {/* 11. EXPERTS & PILLARS OF EXCELLENCE (Rendered only when school provides expert streams or GTH) */}
@@ -155,7 +163,7 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       )}
 
       {/* 15. CAREER PATHWAYS */}
-      {pageData.careerPathways && (
+      {/* {pageData.careerPathways && (
         <CareerPathways
           eyebrow={pageData.careerPathways?.eyebrow}
           title={pageData.careerPathways?.title}
@@ -163,7 +171,7 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
           pathways={pageData.careerPathways?.pathways}
           notableRoles={pageData.careerPathways?.notableRoles}
         />
-      )}
+      )} */}
 
       {/* 16. BROCHURE DOWNLOAD */}
       {pageData.brochure && (

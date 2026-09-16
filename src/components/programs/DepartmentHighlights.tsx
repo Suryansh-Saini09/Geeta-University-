@@ -117,24 +117,26 @@ export default function DepartmentHighlights({
               fontSize: "clamp(32px, 3.8vw, 44px)",
               fontWeight: 900,
               color: "#0A1F44",
-              margin: "12px 0 16px",
+              margin: 0,
               lineHeight: 1.1,
               letterSpacing: "-1px",
             }}
           >
             {title}
           </h2>
-          <p
-            style={{
-              fontSize: 17.5,
-              color: "#4A5568",
-              maxWidth: 800,
-              margin: "0 auto",
-              lineHeight: 1.6,
-            }}
-          >
-            {subtitle}
-          </p>
+          {/* {subtitle && (
+            <p
+              style={{
+                fontSize: 17.5,
+                color: "#4A5568",
+                maxWidth: 800,
+                margin: "0 auto",
+                lineHeight: 1.6,
+              }}
+            >
+              {subtitle}
+            </p>
+          )} */}
         </motion.div>
       </div>
 
