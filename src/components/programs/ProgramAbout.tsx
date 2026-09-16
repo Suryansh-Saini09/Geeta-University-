@@ -101,8 +101,8 @@ export default function ProgramAbout({ about, intro, visionMission, dean, school
           )}
         </div>
 
-        {/* Career Cards */}
-        {careers.length > 0 && (
+        {/* Career Cards (Commented out) */}
+        {/* {careers.length > 0 && (
           <div>
             <p
               style={{
@@ -157,7 +157,7 @@ export default function ProgramAbout({ about, intro, visionMission, dean, school
               ))}
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Leadership Note Card */}
         {dean && <DeanNoteCard dean={dean} schoolName={schoolTitle} />}

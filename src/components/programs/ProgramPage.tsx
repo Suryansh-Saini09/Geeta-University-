@@ -64,19 +64,19 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       {/* 1. HERO BANNER & ADMISSIONS */}
       <ProgramHero hero={pageData.hero} />
 
-      {/* 2. TOP RECRUITERS MARQUEE (Only if not hidden and recruiters data is provided for this school) */}
-      {!pageData.hideRecruiters && !pageData.hideTopRecruiters && (
+      {/* 2. TOP RECRUITERS MARQUEE (Commented out) */}
+      {/* {!pageData.hideRecruiters && !pageData.hideTopRecruiters && (
         <TopRecruiters
           title="100+ Companies. Endless Possibilities."
           badgeText="Top Industry Recruiters"
           recruiters={pageData.placement?.recruiters}
         />
-      )}
+      )} */}
 
-      {/* 3. RANKINGS & ACCREDITATIONS (University-wide UGC/CSR/AAA accreditations) */}
-      {!pageData.hideRankings && (
+      {/* 3. RANKINGS & ACCREDITATIONS (Commented out) */}
+      {/* {!pageData.hideRankings && (
         <RankingsAccreditations rankings={pageData.rankings} />
-      )}
+      )} */}
 
       {/* 4. ABOUT THE SCHOOL & LEADERSHIP NOTE & VISION/MISSION */}
       {(pageData.about || pageData.intro) && (

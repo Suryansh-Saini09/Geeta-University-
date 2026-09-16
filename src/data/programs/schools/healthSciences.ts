@@ -537,13 +537,39 @@ export const healthSciencesSchool: ProgramPageData = {
     ],
   },
 
-  departmentHighlights: [
-    {
-      title: "Clinical Nutrition & Functional Dietetics",
-      desc: "Comprehensive practical training in clinical nutrition, therapeutic diet planning, live patient consultations, and health assessment.",
-      image: "/programs/health-sciences/15-full.webp",
-    },
-  ],
+
+  usps: {
+    title: "USPs Of Health & Allied Sciences",
+    cards: [
+      {
+        title: "Hands-on Learning",
+        points: [
+          "In-house Diet Clinic for hands-on training and community service.",
+          "Modern laboratories for food analysis, microbiology, and clinical nutrition.",
+        ],
+      },
+      {
+        title: "Industry Aligned Curriculum",
+        points: [
+          "Industry collaborations for internships, industrial visits, and expert sessions.",
+        ],
+      },
+      {
+        title: "Gain Real-world Experience",
+        points: [
+          "Strong clinical exposure through hospital internships and case-based learning.",
+          "Research-oriented curriculum with project work and publication support.",
+        ],
+      },
+      {
+        title: "New Age Certifications",
+        points: [
+          "Focus on emerging areas like lifestyle disorders, sports nutrition, and nutraceuticals.",
+          "Skill-based, NEP-aligned curriculum emphasizing employability and entrepreneurship.",
+        ],
+      },
+    ],
+  },
 
   placement: {
     eyebrow: "Career Outcomes",
@@ -706,6 +732,11 @@ export const healthSciencesSchool: ProgramPageData = {
       },
     ],
     gallery: [
+      {
+        src: "/programs/health-sciences/15-full.webp",
+        title: "National Nutrition Month Celebration",
+        caption: "Poster making competition and nutritional awareness campaign organized by the Department of Nutrition & Dietetics.",
+      },
       {
         src: "/programs/health-sciences/nd1-thumb.webp",
         title: "Functional Diet Clinic",
