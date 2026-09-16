@@ -88,12 +88,14 @@ export default function DeanMessage(props: DeanMessageProps) {
               <Quote size={22} strokeWidth={1.8} />
             </div>
 
-            <div className="flex items-center gap-3">
-              <span className="h-[2px] w-9 bg-[#E8871A]" />
-              <span className="text-[11px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-                {data.eyebrow || "Head of School"}
-              </span>
-            </div>
+            {data.eyebrow && data.eyebrow.toLowerCase() !== "head of school" && (
+              <div className="flex items-center gap-3">
+                <span className="h-[2px] w-9 bg-[#E8871A]" />
+                <span className="text-[11px] font-bold uppercase tracking-[3px] text-[#E8871A]">
+                  {data.eyebrow}
+                </span>
+              </div>
+            )}
 
             <h2 className="mt-4 max-w-xl pr-12 font-serif text-[30px] font-black leading-[1.1] text-[#0A1F44] sm:text-[36px] md:text-[40px]">
               {data.name}

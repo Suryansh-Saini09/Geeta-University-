@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Quote, Sparkles, X, ArrowRight } from "lucide-react";
+import { Quote, X, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { ProgramPageData } from "@/data/programs/types";
 
@@ -42,23 +42,17 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
 
           {/* Content */}
           <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#E8871A]" />
-                <span className="text-[11px] font-bold uppercase tracking-[2px] text-[#E8871A]">
-                  {dean.eyebrow || "Head of School"}
-                </span>
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h4 className="font-serif text-[21px] font-bold text-[#0A1F44] leading-snug">
+                  {dean.name}
+                </h4>
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-0.5">
+                  {dean.designation}
+                </p>
               </div>
-              <Quote className="h-5 w-5 text-[#E8871A]/40" />
+              <Quote className="h-5 w-5 text-[#E8871A]/40 shrink-0" />
             </div>
-
-            <h4 className="mt-1 font-serif text-[21px] font-bold text-[#0A1F44] leading-snug">
-              {dean.name}
-            </h4>
-
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-0.5">
-              {dean.designation}
-            </p>
 
             {/* Message preview */}
             <p className="mt-2.5 font-sans text-[14px] leading-relaxed text-slate-600 line-clamp-2 italic">
@@ -122,14 +116,10 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
                   </div>
                 )}
                 <div>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#E8871A]/10 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#E8871A]">
-                    <Sparkles className="h-3 w-3" />
-                    {dean.eyebrow || "Head of School"}
-                  </span>
-                  <h3 className="mt-2 font-serif text-2xl font-bold text-[#0A1F44]">
+                  <h3 className="font-serif text-2xl font-bold text-[#0A1F44]">
                     {dean.name}
                   </h3>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">
                     {dean.designation}
                   </p>
                 </div>

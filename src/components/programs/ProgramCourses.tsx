@@ -309,25 +309,6 @@ export default function ProgramCourses({
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            {/* Banner matching SCSE */}
-            <div
-              style={{
-                background: "#FDF1D6",
-                border: "1px solid #FCD34D",
-                borderRadius: 10,
-                padding: "16px 24px",
-                textAlign: "center",
-                fontWeight: 800,
-                color: "#92400E",
-                fontSize: 18,
-                marginBottom: 32,
-                letterSpacing: 0.5,
-                boxShadow: "0 4px 12px rgba(245, 158, 11, 0.05)",
-              }}
-            >
-              {currentCategory.level} Programs
-            </div>
-
             {/* Courses Card Grid */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 24 }}>
               {currentCategory.items.map((prog, i) => (
