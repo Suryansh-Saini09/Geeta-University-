@@ -30,6 +30,7 @@ export default function DepartmentHighlights({
 
   if (!highlights || highlights.length === 0) return null;
   const items = highlights;
+  const isSingle = items.length === 1;
 
   // Build a track with enough duplicates so both halves are wider than any screen, ensuring a 100% seamless zero-gap loop
   const repeatCount = Math.max(2, Math.ceil(8 / items.length));
@@ -89,29 +90,8 @@ export default function DepartmentHighlights({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          style={{ textAlign: "center", marginBottom: 50 }}
+          style={{ textAlign: "center", marginBottom: isSingle ? 36 : 50 }}
         >
-          {/* <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              borderRadius: 30,
-              border: "1px solid rgba(232,135,26,0.3)",
-              background: "rgba(232,135,26,0.15)",
-              padding: "6px 16px",
-              fontSize: 12,
-              fontWeight: 700,
-              textTransform: "uppercase",
-              letterSpacing: 1.5,
-              color: "#C46A08",
-              marginBottom: 12,
-            }}
-          >
-            <Sparkles size={14} />
-            <span>Experiential Highlights</span>
-          </div> */}
-
           <h2
             style={{
               fontSize: "clamp(32px, 3.8vw, 44px)",
@@ -124,68 +104,29 @@ export default function DepartmentHighlights({
           >
             {title}
           </h2>
-          {/* {subtitle && (
-            <p
-              style={{
-                fontSize: 17.5,
-                color: "#4A5568",
-                maxWidth: 800,
-                margin: "0 auto",
-                lineHeight: 1.6,
-              }}
-            >
-              {subtitle}
-            </p>
-          )} */}
         </motion.div>
-      </div>
 
-      {/* Seamless Continuous Marquee Container */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          width: "100%",
-          overflow: "hidden",
-          padding: "10px 0 20px",
-        }}
-      >
-        {/* Edge Gradient Masks for clean fading */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            bottom: 0,
-            left: 0,
-            width: 100,
-            background: "linear-gradient(90deg, #FDF1D6 0%, transparent 100%)",
-            zIndex: 3,
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            bottom: 0,
-            right: 0,
-            width: 100,
-            background: "linear-gradient(-90deg, #FDF1D6 0%, transparent 100%)",
-            zIndex: 3,
-            pointerEvents: "none",
-          }}
-        />
-
-        <div className="highlights-marquee-track">
-          {trackItems.map((item, idx) => (
+        {/* Single Item: Centered Display */}
+        {isSingle && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "10px 0 20px",
+            }}
+          >
             <div
-              key={idx}
               className="highlight-card"
-              onClick={imageOnly ? undefined : () => setSelectedHighlight(item)}
+              onClick={imageOnly ? undefined : () => setSelectedHighlight(items[0])}
               style={{
                 width: 360,
+                maxWidth: "100%",
                 height: 240,
-                flexShrink: 0,
                 background: "#0A1F44",
                 borderRadius: 18,
                 overflow: "hidden",
@@ -196,11 +137,10 @@ export default function DepartmentHighlights({
                 transition: "transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease",
               }}
             >
-              {/* Image */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={item.image}
-                alt={item.title}
+                src={items[0].image}
+                alt={items[0].title}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -215,15 +155,102 @@ export default function DepartmentHighlights({
                     const fallback = document.createElement("div");
                     fallback.style.cssText =
                       "width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#0A1F44;color:#FFFFFF;font-weight:700;padding:20px;text-align:center;";
-                    fallback.textContent = item.title;
+                    fallback.textContent = items[0].title;
                     t.parentElement.appendChild(fallback);
                   }
                 }}
               />
             </div>
-          ))}
-        </div>
+          </motion.div>
+        )}
       </div>
+
+      {/* Multiple Items: Seamless Continuous Marquee */}
+      {!isSingle && (
+        <div
+          style={{
+            position: "relative",
+            zIndex: 1,
+            width: "100%",
+            overflow: "hidden",
+            padding: "10px 0 20px",
+          }}
+        >
+          {/* Edge Gradient Masks for clean fading */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              width: 100,
+              background: "linear-gradient(90deg, #FDF1D6 0%, transparent 100%)",
+              zIndex: 3,
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              right: 0,
+              width: 100,
+              background: "linear-gradient(-90deg, #FDF1D6 0%, transparent 100%)",
+              zIndex: 3,
+              pointerEvents: "none",
+            }}
+          />
+
+          <div className="highlights-marquee-track">
+            {trackItems.map((item, idx) => (
+              <div
+                key={idx}
+                className="highlight-card"
+                onClick={imageOnly ? undefined : () => setSelectedHighlight(item)}
+                style={{
+                  width: 360,
+                  height: 240,
+                  flexShrink: 0,
+                  background: "#0A1F44",
+                  borderRadius: 18,
+                  overflow: "hidden",
+                  border: "1px solid rgba(10,31,68,0.08)",
+                  boxShadow: "0 8px 24px rgba(10,31,68,0.12)",
+                  position: "relative",
+                  cursor: imageOnly ? "default" : "pointer",
+                  transition: "transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease",
+                }}
+              >
+                {/* Image */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                    transition: "transform 0.5s ease",
+                  }}
+                  onError={(e) => {
+                    const t = e.currentTarget;
+                    t.style.display = "none";
+                    if (t.parentElement) {
+                      const fallback = document.createElement("div");
+                      fallback.style.cssText =
+                        "width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#0A1F44;color:#FFFFFF;font-weight:700;padding:20px;text-align:center;";
+                      fallback.textContent = item.title;
+                      t.parentElement.appendChild(fallback);
+                    }
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Modal for Read More - only when not imageOnly */}
       <AnimatePresence>
