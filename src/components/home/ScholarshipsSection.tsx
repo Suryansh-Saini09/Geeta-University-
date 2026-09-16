@@ -1,6 +1,5 @@
 "use client";
 
-import { Check } from "lucide-react";
 import { scholarshipData, gutsData } from "@/data/scholarships";
 
 export default function ScholarshipsSection() {
@@ -20,22 +19,12 @@ export default function ScholarshipsSection() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         {/* Section heading */}
         <div className="mb-12 text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[#F28C18]">
-            Financial Support
-          </p>
-
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
             Scholarships &{" "}
             <span className="text-[#F28C18]">Opportunities</span>
           </h2>
 
           <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#526579] sm:text-lg">
-            Your potential should never be limited by financial constraints.
-            Explore scholarship opportunities designed to support your journey
-            at Geeta University.
-          </p>
         </div>
 
         {/* Main cards */}
@@ -127,35 +116,20 @@ export default function ScholarshipsSection() {
             />
 
             <div className="relative z-10">
-              {/* GUTS badge (Aligned to the right) */}
-              <div className="flex items-center justify-end">
+              {/* GUTS badge (Aligned to the left) */}
+              <div className="flex items-center justify-start">
                 <span className="inline-flex items-center justify-center rounded-full bg-[#06355F] px-6 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base font-black tracking-[0.25em] text-white shadow-lg transition-transform duration-300 group-hover:scale-105 border border-white/10">
                   {gutsData.label}
                 </span>
               </div>
 
-              <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#F28C18]">
-                Scholarship Entrance Test
-              </p>
-
-              <h3 className="mt-3 font-serif text-2xl font-bold leading-tight text-[#06355F] sm:text-3xl">
+              <h3 className="mt-4 font-serif text-2xl font-bold leading-tight text-[#06355F] sm:text-3xl">
                 {gutsData.title}
               </h3>
 
               <p className="mt-5 text-sm leading-7 text-[#607284] sm:text-base">
                 {gutsData.description}
               </p>
-
-              {/* Highlight */}
-              <div className="mt-7 flex items-center gap-3 rounded-xl bg-[#F5F8FA] p-4">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#06355F] text-white">
-                  <Check size={18} />
-                </div>
-
-                <p className="text-sm font-semibold text-[#06355F]">
-                  Turn your academic potential into scholarship opportunities.
-                </p>
-              </div>
 
               {/* CTA */}
               <div className="mt-7">

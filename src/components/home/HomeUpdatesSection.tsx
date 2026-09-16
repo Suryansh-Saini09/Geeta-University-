@@ -161,10 +161,6 @@ function UpdateColumn({
       {/* Header */}
       <div className="border-b border-[#E2E8F0] bg-[#F8FAFC] px-6 py-6 sm:px-8">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#F28C18]">
-            Latest
-          </p>
-
           <h3 className="font-serif text-2xl font-bold text-[#06355F] sm:text-3xl">
             {title}
           </h3>
@@ -303,21 +299,12 @@ export default function HomeUpdatesSection() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         {/* Heading */}
         <div className="mb-12 max-w-3xl">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[#F28C18]">
-            Stay Connected
-          </p>
-
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
             What&apos;s Happening at{" "}
             <span className="text-[#F28C18]">GU?</span>
           </h2>
 
           <div className="mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
-
-          <p className="mt-6 max-w-2xl text-base leading-7 text-[#64748B] sm:text-lg">
-            Stay updated with the latest events, campus activities and
-            career opportunities happening across Geeta University.
-          </p>
         </div>
 
         {/* Update columns */}

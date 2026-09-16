@@ -101,23 +101,14 @@ export default function TopRecruitersSection() {
             variants={itemVariants}
             className="mx-auto max-w-3xl text-center"
           >
-            <p
-              className="text-sm font-bold uppercase tracking-[0.25em]"
-              style={{
-                color: "var(--gu-gold)",
-              }}
-            >
-              Top Placement Partners
-            </p>
-
             <h2
               id="top-recruiters-heading"
-              className="mt-3 font-serif text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
+              className="font-serif text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
               style={{
                 color: "var(--gu-navy)",
               }}
             >
-              Our Top Corporate Recruiters
+              Our Top Recruiters
             </h2>
 
             <div
@@ -126,15 +117,6 @@ export default function TopRecruitersSection() {
                 backgroundColor: "var(--gu-gold)",
               }}
             />
-
-            <p
-              className="mx-auto mt-6 max-w-2xl text-base leading-8 sm:text-lg"
-              style={{
-                color: "var(--gu-text-muted)",
-              }}
-            >
-              Geeta University takes pride in partnering with 550+ leading global MNCs, corporate giants, and tech leaders who actively recruit our talented students.
-            </p>
           </motion.div>
 
           {/* Recruiter marquee & scroll container */}
@@ -224,36 +206,7 @@ export default function TopRecruitersSection() {
             </div>
           </motion.div>
 
-          {/* Bottom information */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 flex flex-col items-center justify-center gap-3 text-center sm:flex-row"
-          >
-            <span
-              aria-hidden="true"
-              className="h-px w-10"
-              style={{
-                backgroundColor: "rgba(6, 53, 95, 0.15)",
-              }}
-            />
 
-            <p
-              className="text-xs font-bold uppercase tracking-[0.18em]"
-              style={{
-                color: "var(--gu-gold)",
-              }}
-            >
-              550+ Top Recruiters & Placement Partners Hiring Geeta University Graduates
-            </p>
-
-            <span
-              aria-hidden="true"
-              className="h-px w-10"
-              style={{
-                backgroundColor: "rgba(6, 53, 95, 0.15)",
-              }}
-            />
-          </motion.div>
         </motion.div>
       </div>
 

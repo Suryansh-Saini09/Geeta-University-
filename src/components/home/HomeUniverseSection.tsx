@@ -69,31 +69,17 @@ export default function HomeUniverseSection() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         {/* Section heading */}
         <div className="mb-12">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[#F28C18]">
-            Global Presence
-          </p>
-
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
             Universe of <span className="text-[#F28C18]">GU</span>
           </h2>
 
           <div className="mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
-
-          <p className="mt-6 max-w-3xl text-base leading-7 text-[#536B83] sm:text-lg">
-            A globally connected university creating opportunities for
-            students and staff through international partnerships,
-            internships and cross-cultural academic experiences.
-          </p>
         </div>
 
         {/* Main information cards */}
         <div className="grid gap-5 lg:grid-cols-3">
           {/* Global community */}
           <div className="group rounded-2xl border border-[#DCE5ED] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F28C18]/50 hover:shadow-lg">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-[#F28C18]">
-              Global Community
-            </p>
-
             <h3 className="font-sans text-2xl font-bold text-[#06355F]">
               31 Countries
             </h3>
@@ -110,10 +96,6 @@ export default function HomeUniverseSection() {
 
           {/* Global universities */}
           <div className="group rounded-2xl border border-[#DCE5ED] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F28C18]/50 hover:shadow-lg">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-[#F28C18]">
-              International Partnerships
-            </p>
-
             <h3 className="font-sans text-2xl font-bold text-[#06355F]">
               Prestigious Global Universities
             </h3>
@@ -133,10 +115,6 @@ export default function HomeUniverseSection() {
 
           {/* International internships */}
           <div className="group rounded-2xl border border-[#DCE5ED] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F28C18]/50 hover:shadow-lg">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider text-[#F28C18]">
-              International Internships
-            </p>
-
             <h3 className="font-sans text-2xl font-bold text-[#06355F]">
               Learn Beyond Borders
             </h3>
@@ -162,15 +140,6 @@ export default function HomeUniverseSection() {
 
         {/* Global image strip */}
         <div className="mt-12">
-          <div className="mb-5 flex items-center gap-4">
-            <div className="h-px flex-1 bg-[#DCE5ED]" />
-
-            <p className="whitespace-nowrap text-xs font-bold uppercase tracking-[0.2em] text-[#536B83]">
-              Our Global Connections
-            </p>
-
-            <div className="h-px flex-1 bg-[#DCE5ED]" />
-          </div>
 
           <div className="group relative overflow-hidden rounded-2xl border border-[#DCE5ED] bg-white py-5 shadow-sm">
             {/* Left navigation arrow */}

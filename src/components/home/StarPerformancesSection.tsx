@@ -71,10 +71,6 @@ export default function StarPerformancesSection() {
       <div className="relative mx-auto max-w-[1600px]">
         {/* Heading */}
         <div className="px-5 text-center sm:px-8">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[#F28C18]">
-            Moments That Inspire
-          </p>
-
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl md:text-6xl">
             Star Performances
             <span className="text-[#F28C18]">@GU</span>
@@ -86,13 +82,6 @@ export default function StarPerformancesSection() {
             <span className="h-1 w-16 rounded-full bg-[#06355F]" />
             <span className="h-1 w-8 rounded-full bg-[#F28C18]" />
           </div>
-
-          {/* Description */}
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#526579] sm:text-lg">
-            From music and entertainment to unforgettable campus moments,
-            Geeta University brings inspiring personalities and star
-            performances closer to our students.
-          </p>
 
           {/* YouTube CTA */}
           <a
@@ -198,16 +187,7 @@ export default function StarPerformancesSection() {
           </div>
         </div>
 
-        {/* Bottom statement */}
-        <div className="mt-10 flex flex-col items-center justify-center gap-3 text-center sm:flex-row">
-          <span className="h-2 w-2 rounded-full bg-[#F28C18]" />
 
-          <p className="text-sm font-medium text-[#526579] sm:text-base">
-            Celebrating talent, culture and unforgettable experiences at GU.
-          </p>
-
-          <span className="h-2 w-2 rounded-full bg-[#06355F]" />
-        </div>
       </div>
 
       {/* Marquee animation */}
