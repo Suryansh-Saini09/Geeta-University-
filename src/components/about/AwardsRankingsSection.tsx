@@ -139,29 +139,11 @@ export default function AwardsRankingsSection() {
     >
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
         {/* SECTION INTRO */}
-        <div className="mx-auto mb-12 max-w-[900px] text-center">
-          {/* Eyebrow */}
-          <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="h-0.5 w-8 bg-[#E8871A]" />
-            <span className="text-[11px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-              Awards &amp; Rankings
-            </span>
-            <span className="h-0.5 w-8 bg-[#E8871A]" />
-          </div>
-
+        <div className="mx-auto mb-10 max-w-[900px] text-center">
           {/* Heading */}
           <h2 className="font-serif text-[38px] font-black leading-[1.06] tracking-[-1.5px] text-[#0A1F44] sm:text-[46px] md:text-[54px] lg:text-[60px]">
-            Excellence.
-            <br />
-            <span className="text-[#E8871A]">Recognised &amp; Celebrated.</span>
+            Awards &amp; Rankings
           </h2>
-
-          {/* Description */}
-          <p className="mx-auto mt-5 max-w-[720px] text-[15px] leading-[1.8] text-[#64748B] md:text-[16px]">
-            Geeta University&apos;s journey of excellence is reflected through
-            recognitions, awards and achievements earned across education,
-            leadership and institutional growth.
-          </p>
         </div>
 
         {/* CAROUSEL CONTAINER */}

@@ -62,10 +62,6 @@ export default function IndustryIntegrationSection() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         {/* Heading */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[#F28C18]">
-            Industry Connect
-          </p>
-
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
             Skill Centers &amp;{" "}
             <span className="text-[#F28C18]">
@@ -74,12 +70,6 @@ export default function IndustryIntegrationSection() {
           </h2>
 
           <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#526579] sm:text-lg">
-            Bridging academic learning with industry exposure through
-            specialized skill centers, partnerships and real-world
-            opportunities.
-          </p>
         </div>
 
         {/* Industry marquee & scroll container */}
@@ -150,17 +140,7 @@ export default function IndustryIntegrationSection() {
           </div>
         </div>
 
-        {/* Bottom message */}
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 text-center sm:flex-row">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#F28C18]" />
 
-          <p className="text-sm font-medium text-[#526579] sm:text-base">
-            Building stronger connections between education, skills and
-            industry.
-          </p>
-
-          <span className="h-2.5 w-2.5 rounded-full bg-[#06355F]" />
-        </div>
       </div>
 
       {/* Marquee animation */}

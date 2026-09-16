@@ -27,21 +27,12 @@ export default function WhyJoinGeetaSection() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         {/* Section heading */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[#F28C18]">
-            The GU Advantage
-          </p>
-
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
             Why Join{" "}
             <span className="text-[#F28C18]">Geeta University?</span>
           </h2>
 
           <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#526579] sm:text-lg">
-            Discover an education ecosystem designed to develop knowledge,
-            skills, confidence and global career readiness.
-          </p>
         </div>
 
         {/* Main content */}
