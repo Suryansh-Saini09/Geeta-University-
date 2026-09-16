@@ -630,6 +630,39 @@ export const pharmacySchool: ProgramPageData = {
     campusAddress: "NH-71A, Naultha Panipat, Haryana (132145), India.",
   },
 
+  departmentHighlights: [
+    {
+      title: "Advanced Pharmaceutical & Analytical Labs",
+      desc: "State-of-the-art laboratory facilities equipped with modern instruments for drug analysis, synthesis, quality control, and formulation research.",
+      image: "/programs/pharmacy/3rd-full.webp",
+    },
+    {
+      title: "Hands-on Practical Training & Research",
+      desc: "Immersive practical learning empowering students with real-world skills in pharmaceutics, pharmacology, and drug discovery.",
+      image: "/programs/pharmacy/16-full.webp",
+    },
+    {
+      title: "Industrial & Experiential Exposure",
+      desc: "Regular workshops, expert lectures, and practical demonstrations bridging the gap between pharmaceutical academia and healthcare industries.",
+      image: "/programs/pharmacy/22-full.webp",
+    },
+    {
+      title: "Community Outreach & Health Camps",
+      desc: "Active participation in social initiatives like blood donation drives and community health awareness programs, promoting public wellness.",
+      image: "/programs/pharmacy/blood-donation-camp-full.webp",
+    },
+    {
+      title: "Industry & Academic MoUs",
+      desc: "Strategic partnerships and signed MoUs with leading pharmaceutical companies and healthcare organizations for research and placement opportunities.",
+      image: "/programs/pharmacy/MOU-full.webp",
+    },
+    {
+      title: "Global Educational & Institutional Alliances",
+      desc: "Fostering academic excellence through national and international collaborations, faculty exchange, and joint research ventures.",
+      image: "/programs/pharmacy/ou-full.webp",
+    },
+  ],
+
   courses: [
     {
       title: "Diploma Program",

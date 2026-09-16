@@ -90,9 +90,9 @@ Every academic and research initiative is strategically aligned with national an
 
   {
     id: 7,
-    name: "Prof. Dr. Saurabh Kumar Sharma",
+    name: "Dr. Amit Gupta",
     role: "Registrar, Geeta University",
-    image: "/about/20260131_14.webp",
+    image: "/about/amit_gupta.webp",
     message: `As the Registrar of Geeta University, it is my privilege to support an academic environment where every student is encouraged to realize their full potential and grow both personally and professionally. Our diverse range of programs is thoughtfully designed to inspire innovation, nurture talent, and prepare students for success in their chosen careers. With the guidance of our accomplished faculty and dedicated mentors, we ensure that every learner receives the support needed to excel.
 
 At Geeta University, we combine world-class infrastructure with a strong focus on skill development, industry readiness, and global exposure. Through our academic collaborations and exchange initiatives, we provide students with opportunities to broaden their perspectives and compete confidently in a globally connected world.`,

@@ -8,27 +8,18 @@ type Stat = {
   suffix: string;
   label: string;
   prefix?: string;
-  description: string;
 };
 
 const stats: Stat[] = [
-  // {
-  //   value: 40,
-  //   suffix: " LPA",
-  //   label: "Highest Package",
-  //   description: "A strong launchpad for ambitious careers.",
-  // },
   {
     value: 550,
     suffix: "+",
     label: "Recruiters",
-    description: "Industry connections creating career opportunities.",
   },
   {
     value: 3500,
     suffix: "+",
     label: "Job Offers",
-    description: "Opportunities generated for our students.",
   },
 ];
 
@@ -137,7 +128,7 @@ export default function HomeStatsSection() {
     <section
       ref={sectionRef}
       aria-labelledby="home-stats-heading"
-      className="relative overflow-hidden py-16 md:py-20 lg:py-24"
+      className="relative overflow-hidden py-12 md:py-16"
       style={{
         backgroundColor: "var(--gu-bg)",
       }}
@@ -169,52 +160,33 @@ export default function HomeStatsSection() {
             amount: 0.15,
           }}
         >
-          {/* SECTION HEADER */}
+          {/* Heading */}
           <motion.div
             variants={itemVariants}
-            className="mx-auto max-w-3xl text-center"
+            className="mb-10 text-center"
           >
-            <p
-              className="text-sm font-bold uppercase tracking-[0.25em]"
-              style={{
-                color: "var(--gu-gold)",
-              }}
-            >
-              Outcomes That Matter
-            </p>
-
             <h2
               id="home-stats-heading"
-              className="mt-3 font-serif text-4xl font-bold leading-tight sm:text-5xl"
+              className="font-serif text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl"
               style={{
                 color: "var(--gu-navy)",
               }}
             >
-              Turning Education Into Opportunity
+              Placement Speaks for Itself
             </h2>
 
             <div
-              className="mx-auto mt-5 h-1 w-16 rounded-full"
+              className="mx-auto mt-4 h-1 w-16 rounded-full"
               style={{
                 backgroundColor: "var(--gu-gold)",
               }}
             />
-
-            <p
-              className="mx-auto mt-6 max-w-2xl text-base leading-8 sm:text-lg"
-              style={{
-                color: "var(--gu-text-muted)",
-              }}
-            >
-              A future-ready education is measured not only by what students
-              learn, but by the opportunities they create after learning.
-            </p>
           </motion.div>
 
           {/* STATS */}
           <motion.div
             variants={itemVariants}
-            className="relative mt-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:mt-16"
+            className="relative flex flex-wrap justify-center gap-6 sm:gap-8"
           >
             {stats.map((stat, index) => (
               <motion.article
@@ -268,47 +240,9 @@ export default function HomeStatsSection() {
                   >
                     {stat.label}
                   </h3>
-
-                  <p
-                    className="mt-3 max-w-sm text-sm leading-7"
-                    style={{
-                      color: "var(--gu-text-muted)",
-                    }}
-                  >
-                    {stat.description}
-                  </p>
                 </div>
               </motion.article>
             ))}
-          </motion.div>
-
-          {/* TRUST LINE */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-10 flex flex-col items-center justify-center gap-3 text-center sm:flex-row"
-          >
-            <span
-              className="h-px w-10"
-              style={{
-                backgroundColor: "rgba(6, 53, 95, 0.15)",
-              }}
-            />
-
-            <p
-              className="text-xs font-semibold uppercase tracking-[0.18em]"
-              style={{
-                color: "var(--gu-text-muted)",
-              }}
-            >
-              Industry connected • Career focused • Future ready
-            </p>
-
-            <span
-              className="h-px w-10"
-              style={{
-                backgroundColor: "rgba(6, 53, 95, 0.15)",
-              }}
-            />
           </motion.div>
         </motion.div>
       </div>
