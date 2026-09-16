@@ -15,24 +15,6 @@ export default function ImpactRankings() {
       }}
       className="mt-12 md:mt-14"
     >
-      {/* Section heading */}
-      <div className="mx-auto mb-10 max-w-[850px] text-center">
-        <h3
-          className="
-            font-serif
-            text-[32px]
-            font-black
-            leading-[1.1]
-            tracking-[-0.8px]
-            text-[#0A1F44]
-            sm:text-[38px]
-            md:text-[44px]
-          "
-        >
-          Impact &amp; Rankings
-        </h3>
-      </div>
-
       {/* Ranking graphic */}
       <div
         className="

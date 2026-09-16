@@ -17,16 +17,6 @@ export default function ScholarshipsSection() {
       />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        {/* Section heading */}
-        <div className="mb-12 text-center">
-          <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
-            Scholarships &{" "}
-            <span className="text-[#F28C18]">Opportunities</span>
-          </h2>
-
-          <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
-        </div>
-
         {/* Main cards */}
         <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
           {/* Scholarships card */}

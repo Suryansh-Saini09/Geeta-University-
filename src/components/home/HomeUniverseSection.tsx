@@ -97,7 +97,7 @@ export default function HomeUniverseSection() {
           {/* Global universities */}
           <div className="group rounded-2xl border border-[#DCE5ED] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F28C18]/50 hover:shadow-lg">
             <h3 className="font-sans text-2xl font-bold text-[#06355F]">
-              Prestigious Global Universities
+              MOU with Prestigious Global Universities
             </h3>
 
             <div className="mt-5 space-y-3">
@@ -116,7 +116,7 @@ export default function HomeUniverseSection() {
           {/* International internships */}
           <div className="group rounded-2xl border border-[#DCE5ED] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F28C18]/50 hover:shadow-lg">
             <h3 className="font-sans text-2xl font-bold text-[#06355F]">
-              Learn Beyond Borders
+              International Internships
             </h3>
 
             <p className="mt-4 text-sm leading-6 text-[#64778A]">
