@@ -17,14 +17,6 @@ export default function LegacyEcosystem({
       <div className="gu-container">
         {/* Section Header with exact site typography */}
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <span className="h-px w-9 bg-[#E8871A]" />
-            <span className="text-[10px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-              Institutional Heritage
-            </span>
-            <span className="h-px w-9 bg-[#E8871A]" />
-          </div>
-
           <h2 className="font-serif text-[42px] font-black leading-[1.05] tracking-[-1.5px] text-[#0A1F44] sm:text-[50px] md:text-[58px]">
             Legacy &amp; <span className="text-[#E8871A]">Ecosystem</span>
           </h2>
@@ -84,6 +76,12 @@ export default function LegacyEcosystem({
                 <div className="w-1.5 shrink-0 rounded-full bg-[#013d55]" />
               </div>
             </div>
+
+            <p className="mt-6 text-[15.5px] font-medium leading-[1.7] text-[#64748B]">
+              Together, they form a holistic,{" "}
+              <br className="hidden sm:inline" />
+              future-ready talent development ecosystem.
+            </p>
           </div>
 
           {/* Right Campus Image (Increased size, static without animation) */}

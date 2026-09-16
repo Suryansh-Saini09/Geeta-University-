@@ -17,9 +17,9 @@ export const leadership: Leader[] = [
     featured: true,
     message: `I welcome you all to Geeta University, where academic learning is just one aspect of your all-around development. The University focuses on providing value-added education in diverse fields to turn you into job givers rather than job seekers. Our priority is to turn your dreams into reality and help you evolve into responsible citizens who make the world better.
 
-A bustling campus life, support of our distinguished teachers, and a welcoming environment all inspire you to learn, explore, and reach your true potential. With us, you evolve into futuristic entrepreneurs, leaders, and positive social contributors.`,
+    A bustling campus life, support of our distinguished teachers, and a welcoming environment all inspire you to learn, explore, and reach your true potential. With us, you evolve into futuristic entrepreneurs, leaders, and positive social contributors.`,
     quote:
-      "Join us to learn to think big, act with wisdom, and inspire others through your actions.",
+      "So, join us to learn to think big, act with wisdom, and inspire others through your actions.",
   },
 
   {
@@ -59,7 +59,7 @@ Through our Four-Quadrant Mission — helping students get industry-ready, suppo
 
 Here, learning is about more than books. It's about thinking creatively, working together, and turning ideas into action. It is the place where young minds develop into the leaders and changemakers of tomorrow.`,
     quote:
-      "Let's shape the future together by learning, innovating, and growing every step of the way.",
+      "So, let's shape the future together by learning, innovating, and growing every step of the way.",
   },
 
   {

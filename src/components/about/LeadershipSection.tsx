@@ -5,10 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import {
   ArrowRight,
-  ArrowUpRight,
-  BookOpen,
   Quote,
-  Sparkles,
   X,
 } from "lucide-react";
 
@@ -115,24 +112,6 @@ export default function LeadershipSection() {
             md:mb-20
           "
         >
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <span className="h-0.5 w-9 bg-[#E8871A]" />
-
-            <span
-              className="
-                text-[11px]
-                font-bold
-                uppercase
-                tracking-[3px]
-                text-[#E8871A]
-              "
-            >
-              Leadership
-            </span>
-
-            <span className="h-0.5 w-9 bg-[#E8871A]" />
-          </div>
-
           <h2
             className="
               font-serif
@@ -146,29 +125,8 @@ export default function LeadershipSection() {
               lg:text-[64px]
             "
           >
-            The People Behind
-            <br />
-
-            <span className="text-[#E8871A]">
-              The Vision.
-            </span>
+            Leadership
           </h2>
-
-          <p
-            className="
-              mx-auto
-              mt-6
-              max-w-[740px]
-              text-[16px]
-              leading-[1.8]
-              text-[#64748B]
-              md:text-[17px]
-            "
-          >
-            Guided by experienced academic leaders, Geeta University
-            continues to build an institution where knowledge,
-            innovation, values and opportunity come together.
-          </p>
         </motion.div>
 
         {/* ===================================================
@@ -243,38 +201,6 @@ export default function LeadershipSection() {
                 "
               />
 
-              {/* Chancellor badge */}
-
-              <div
-                className="
-                  absolute
-                  left-6
-                  top-6
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-white/20
-                  bg-[#0A1F44]/80
-                  px-4
-                  py-2
-                  text-[10px]
-                  font-bold
-                  uppercase
-                  tracking-[2px]
-                  text-white
-                  backdrop-blur-md
-                "
-              >
-                <Sparkles
-                  size={13}
-                  className="text-[#E8871A]"
-                />
-
-                Institutional Leadership
-              </div>
-
               {/* Image name */}
 
               <div
@@ -328,31 +254,8 @@ export default function LeadershipSection() {
                 lg:p-14
               "
             >
-              <div
-                className="
-                  flex
-                  items-center
-                  gap-3
-                "
-              >
-                <span className="h-0.5 w-9 bg-[#E8871A]" />
-
-                <span
-                  className="
-                    text-[11px]
-                    font-bold
-                    uppercase
-                    tracking-[2.5px]
-                    text-[#E8871A]
-                  "
-                >
-                  Leadership Message
-                </span>
-              </div>
-
               <h3
                 className="
-                  mt-5
                   font-serif
                   text-[31px]
                   font-black
@@ -363,6 +266,25 @@ export default function LeadershipSection() {
               >
                 {featuredLeader.role}
               </h3>
+
+              {/* Message */}
+
+              <div className="mt-6 space-y-4">
+                {featuredLeader.message
+                  .split("\n\n")
+                  .map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className="
+                        text-[15px]
+                        leading-[1.85]
+                        text-[#64748B]
+                      "
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+              </div>
 
               {/* Quote */}
 
@@ -403,82 +325,6 @@ export default function LeadershipSection() {
                   “{featuredLeader.quote}”
                 </p>
               </div>
-
-              {/* Message */}
-
-              <div className="mt-7 space-y-4">
-                {featuredLeader.message
-                  .split("\n\n")
-                  .map((paragraph, index) => (
-                    <p
-                      key={index}
-                      className="
-                        text-[15px]
-                        leading-[1.85]
-                        text-[#64748B]
-                      "
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-              </div>
-
-              {/* Bottom line */}
-
-              <div
-                className="
-                  mt-8
-                  flex
-                  items-center
-                  gap-3
-                  border-t
-                  border-[#E2E8F0]
-                  pt-6
-                "
-              >
-                <div
-                  className="
-                    flex
-                    h-10
-                    w-10
-                    items-center
-                    justify-center
-                    rounded-[10px]
-                    bg-[#0A1F44]
-                    text-[#E8871A]
-                  "
-                >
-                  <BookOpen
-                    size={18}
-                    strokeWidth={1.7}
-                  />
-                </div>
-
-                <div>
-                  <p
-                    className="
-                      text-[10px]
-                      font-bold
-                      uppercase
-                      tracking-[1.8px]
-                      text-[#94A3B8]
-                    "
-                  >
-                    Guiding Principle
-                  </p>
-
-                  <p
-                    className="
-                      mt-1
-                      text-[13px]
-                      font-semibold
-                      text-[#0A1F44]
-                    "
-                  >
-                    Education with purpose, values and vision.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </motion.article>
@@ -489,21 +335,8 @@ export default function LeadershipSection() {
 
         <div className="mb-10 flex items-end justify-between gap-5">
           <div>
-            <span
+            {/* <h3
               className="
-                text-[11px]
-                font-bold
-                uppercase
-                tracking-[2.5px]
-                text-[#E8871A]
-              "
-            >
-              Academic Leadership
-            </span>
-
-            <h3
-              className="
-                mt-2
                 font-serif
                 text-[30px]
                 font-black
@@ -512,7 +345,7 @@ export default function LeadershipSection() {
               "
             >
               Leadership Council
-            </h3>
+            </h3> */}
           </div>
 
           <div className="hidden h-px flex-1 bg-[#DCE2EB] md:block" />
@@ -537,49 +370,6 @@ export default function LeadershipSection() {
           ))}
         </div>
 
-        {/* ===================================================
-            CLOSING STATEMENT
-        =================================================== */}
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true,
-            amount: 0.3,
-          }}
-          variants={fadeUp}
-          className="mt-16 text-center md:mt-20"
-        >
-          <div className="mx-auto flex max-w-[760px] items-center justify-center gap-4">
-            <span className="h-px flex-1 bg-[#DCE2EB]" />
-
-            <Sparkles
-              size={17}
-              className="shrink-0 text-[#E8871A]"
-            />
-
-            <span className="h-px flex-1 bg-[#DCE2EB]" />
-          </div>
-
-          <p
-            className="
-              mt-6
-              font-serif
-              text-[19px]
-              font-semibold
-              italic
-              text-[#0A1F44]
-              md:text-[22px]
-            "
-          >
-            Leading with knowledge.
-            <span className="text-[#E8871A]">
-              {" "}
-              Inspiring with purpose.
-            </span>
-          </p>
-        </motion.div>
       </div>
 
       {/* =====================================================
@@ -673,41 +463,13 @@ function LeaderCard({
 
       {/* BASIC INFO */}
       <div className="flex flex-1 flex-col justify-between p-5">
-        <div className="flex items-start justify-between gap-4">
-          <div className="min-w-0">
-            <h3 className="font-serif text-[20px] font-black leading-tight text-[#0A1F44]">
-              {leader.name}
-            </h3>
-            <p className="mt-2 text-[12px] font-medium leading-[1.55] text-[#64748B]">
-              {leader.role}
-            </p>
-          </div>
-
-          <button
-            type="button"
-            onClick={onOpen}
-            aria-label={`Read message from ${leader.name}`}
-            className="
-              flex
-              h-9
-              w-9
-              shrink-0
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-[#DCE2EB]
-              bg-[#F7F9FC]
-              text-[#0A1F44]
-              transition-all
-              duration-300
-              hover:border-[#E8871A]
-              hover:bg-[#0A1F44]
-              hover:text-[#E8871A]
-            "
-          >
-            <ArrowUpRight size={17} />
-          </button>
+        <div className="min-w-0">
+          <h3 className="font-serif text-[20px] font-black leading-tight text-[#0A1F44]">
+            {leader.name}
+          </h3>
+          <p className="mt-2 text-[12px] font-medium leading-[1.55] text-[#64748B]">
+            {leader.role}
+          </p>
         </div>
 
         <button
@@ -857,6 +619,17 @@ function LeaderModal({
 
           {/* Modal Body */}
           <div className="space-y-7">
+            <div className="space-y-4">
+              {leader.message.split("\n\n").map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-[15px] leading-[1.85] text-[#64748B]"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
             {leader.quote && (
               <div className="relative rounded-2xl border-l-[3px] border-[#E8871A] bg-[#F7F9FC] px-6 py-5">
                 <Quote
@@ -868,17 +641,6 @@ function LeaderModal({
                 </p>
               </div>
             )}
-
-            <div className="space-y-4">
-              {leader.message.split("\n\n").map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="text-[15px] leading-[1.85] text-[#64748B]"
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
           </div>
         </motion.div>
       </div>
