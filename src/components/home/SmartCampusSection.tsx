@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowRight, ChevronDown, Building2, Cpu, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Building2, Cpu } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 type CampusFeature = {
@@ -152,18 +152,6 @@ export default function SmartCampusSection() {
             variants={itemVariants}
             className="mx-auto max-w-5xl text-center"
           >
-            <div
-              className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em]"
-              style={{
-                borderColor: "rgba(242, 140, 24, 0.3)",
-                backgroundColor: "rgba(242, 140, 24, 0.08)",
-                color: "var(--gu-gold)",
-              }}
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              Next Generation Education
-            </div>
-
             <h2
               id="smart-campus-heading"
               className="mt-4 font-serif text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
@@ -258,26 +246,6 @@ export default function SmartCampusSection() {
               {/* LEFT FEATURE NAVIGATION (WITH MOBILE INLINE ACCORDION) */}
               <div className="lg:col-span-5">
                 <div className="p-5 sm:p-7 lg:p-8">
-                  <div className="mb-6">
-                    <p
-                      className="text-xs font-bold uppercase tracking-[0.2em]"
-                      style={{
-                        color: "var(--gu-text-muted)",
-                      }}
-                    >
-                      Digital Campus Ecosystem
-                    </p>
-
-                    <h3
-                      className="mt-2 font-serif text-2xl font-bold sm:text-3xl"
-                      style={{
-                        color: "var(--gu-navy)",
-                      }}
-                    >
-                      Technology built around students
-                    </h3>
-                  </div>
-
                   <div className="space-y-3 lg:space-y-2">
                     {features.map((feature) => {
                       const isActive = feature.id === activeFeature;

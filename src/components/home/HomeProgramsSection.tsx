@@ -546,21 +546,15 @@ function getProgramLevel(name: string): "Undergraduate" | "Postgraduate" | "Ph.D
 const LEVEL_CONFIG = {
   Undergraduate: {
     label: "Undergraduate Programs",
-    sublabel: "Bachelor degrees, honours specialisations & diplomas",
     icon: GraduationCap,
-    badgeText: "UG Level",
   },
   Postgraduate: {
     label: "Postgraduate Programs",
-    sublabel: "Master's degrees & advanced professional pathways",
     icon: Award,
-    badgeText: "PG Level",
   },
   "Ph.D.": {
-    label: "Ph.D. & Doctoral Programs",
-    sublabel: "Research-driven doctorate & scholarly fellowships",
+    label: "Ph.D. Programs",
     icon: Atom,
-    badgeText: "Doctoral",
   },
 } as const;
 
@@ -586,7 +580,7 @@ function ProgramCategoryDetails({
   const programSections = [
     { level: "Undergraduate", label: "Undergraduate Programs", programs: ugPrograms },
     { level: "Postgraduate", label: "Postgraduate Programs", programs: pgPrograms },
-    { level: "Ph.D.", label: "Ph.D. & Doctoral Programs", programs: phdPrograms },
+    { level: "Ph.D.", label: "Ph.D. Programs", programs: phdPrograms },
   ].filter((section) => section.programs.length > 0);
 
   return (
@@ -601,12 +595,6 @@ function ProgramCategoryDetails({
           >
             {category.title}
           </h3>
-
-          <p
-            className="mt-2.5 max-w-2xl text-xs leading-relaxed text-[#536B83] sm:text-sm sm:leading-7"
-          >
-            {category.description}
-          </p>
         </div>
       </div>
 
@@ -652,41 +640,21 @@ function ProgramCategoryDetails({
                     <Icon className="h-4 w-4 sm:h-6 sm:w-6" />
                   </div>
 
-                  {/* Title & Subtitle */}
+                  {/* Title */}
                   <div className="min-w-0">
-                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                      <h4
-                        className="font-serif text-sm font-bold sm:text-lg"
-                        style={{
-                          color: "var(--gu-navy)",
-                        }}
-                      >
-                        {config.label}
-                      </h4>
-                      <span
-                        className="inline-flex items-center rounded-full px-2 py-0.5 text-[9px] sm:text-[11px] font-bold tracking-wider uppercase"
-                        style={{
-                          backgroundColor: "rgba(232, 135, 26, 0.10)",
-                          color: "var(--gu-gold)",
-                        }}
-                      >
-                        {config.badgeText}
-                      </span>
-                    </div>
-                    <p className="mt-0.5 text-[11px] text-slate-500 sm:text-sm line-clamp-1">
-                      {config.sublabel}
-                    </p>
+                    <h4
+                      className="font-serif text-sm font-bold sm:text-lg"
+                      style={{
+                        color: "var(--gu-navy)",
+                      }}
+                    >
+                      {config.label}
+                    </h4>
                   </div>
                 </div>
 
-                {/* Right Count & Chevron */}
+                {/* Right Chevron */}
                 <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-                  <span className="hidden sm:inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                    {section.programs.length}{" "}
-                    {section.programs.length === 1
-                      ? "Program"
-                      : "Programs"}
-                  </span>
                   <div
                     className={`flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border transition-all duration-300 ${
                       isOpen
@@ -794,16 +762,7 @@ function ProgramCategoryDetails({
         <div className="mt-5 sm:mt-8 flex flex-col gap-3 sm:gap-4 border-t pt-5 sm:pt-7 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p
-              className="text-xs font-bold uppercase tracking-[0.16em]"
-              style={{
-                color: "var(--gu-text-muted)",
-              }}
-            >
-              Want to explore more?
-            </p>
-
-            <p
-              className="mt-0.5 text-xs sm:text-sm font-semibold"
+              className="text-xs sm:text-sm font-semibold"
               style={{
                 color: "var(--gu-navy)",
               }}
@@ -878,18 +837,9 @@ export default function HomeProgramsSection() {
             variants={itemVariants}
             className="mx-auto max-w-3xl text-center"
           >
-            <p
-              className="text-sm font-bold uppercase tracking-[0.25em]"
-              style={{
-                color: "var(--gu-gold)",
-              }}
-            >
-              Academic Excellence
-            </p>
-
             <h2
               id="programs-heading"
-              className="mt-3 font-serif text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
+              className="font-serif text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
               style={{
                 color: "var(--gu-navy)",
               }}
@@ -910,9 +860,7 @@ export default function HomeProgramsSection() {
                 color: "var(--gu-text-muted)",
               }}
             >
-              Discover 70+ study programs across Diploma, Undergraduate,
-              Postgraduate and Ph.D. levels designed for the careers of
-              tomorrow.
+              70+ Study Programs at Diploma, UG, PG, and Ph.D. Levels
             </p>
           </motion.div>
 
@@ -934,15 +882,6 @@ export default function HomeProgramsSection() {
                 }}
               >
                 <div className="p-4 sm:p-6">
-                  <p
-                    className="mb-4 px-3 text-xs font-bold uppercase tracking-[0.2em]"
-                    style={{
-                      color: "var(--gu-text-muted)",
-                    }}
-                  >
-                    Explore Programs
-                  </p>
-
                   <div className="flex flex-col gap-2">
                     {programCategories.map((category) => {
                       const isActive = category.id === activeCategory;
@@ -1058,34 +997,7 @@ export default function HomeProgramsSection() {
             </div>
           </motion.div>
 
-          {/* Bottom note */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 flex flex-col items-center justify-center gap-3 text-center sm:flex-row"
-          >
-            <span
-              className="h-px w-10"
-              style={{
-                backgroundColor: "rgba(6, 53, 95, 0.15)",
-              }}
-            />
 
-            <p
-              className="text-xs font-semibold uppercase tracking-[0.16em]"
-              style={{
-                color: "var(--gu-text-muted)",
-              }}
-            >
-              Diploma • Undergraduate • Postgraduate • Ph.D.
-            </p>
-
-            <span
-              className="h-px w-10"
-              style={{
-                backgroundColor: "rgba(6, 53, 95, 0.15)",
-              }}
-            />
-          </motion.div>
         </motion.div>
       </div>
     </section>

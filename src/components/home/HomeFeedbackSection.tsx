@@ -108,22 +108,12 @@ export default function HomeFeedbackSection() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         {/* Section heading */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-[#F28C18]">
-            Student Success Stories
-          </p>
-
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
             From Campus to{" "}
             <span className="text-[#F28C18]">Corporate Success</span>
           </h2>
 
           <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#536B83] sm:text-lg">
-            Discover how Geeta University&apos;s academic environment,
-            industry exposure and holistic learning experience have helped
-            students build successful careers.
-          </p>
         </div>
 
         {/* Horizontally Scrollable & Draggable Cards Track */}
@@ -230,17 +220,6 @@ export default function HomeFeedbackSection() {
           >
             <ChevronRight size={20} />
           </button>
-        </div>
-
-        {/* Bottom message */}
-        <div className="mx-auto mt-12 flex max-w-2xl items-center justify-center gap-3 text-center">
-          <span className="h-px flex-1 bg-[#DCE5ED]" />
-
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#7C8FA2]">
-            Your journey could be next
-          </span>
-
-          <span className="h-px flex-1 bg-[#DCE5ED]" />
         </div>
       </div>
     </section>
