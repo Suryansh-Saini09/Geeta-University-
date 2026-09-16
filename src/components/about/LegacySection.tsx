@@ -278,8 +278,20 @@ export default function LegacySection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <div className="spbsb-legacy-eyebrow">{legacyIntro.eyebrow}</div>
-          <h2 className="spbsb-legacy-title">{legacyIntro.title} <span style={{color: '#D99A24'}}>{legacyIntro.highlightedTitle}</span></h2>
+          {legacyIntro.eyebrow ? (
+            <div className="spbsb-legacy-eyebrow">{legacyIntro.eyebrow}</div>
+          ) : null}
+          <h2 className="spbsb-legacy-title">
+            {legacyIntro.title}
+            {legacyIntro.highlightedTitle ? (
+              <>
+                {" "}
+                <span style={{ color: "#D99A24" }}>
+                  {legacyIntro.highlightedTitle}
+                </span>
+              </>
+            ) : null}
+          </h2>
           <p className="spbsb-legacy-copy">
             {legacyIntro.description}
           </p>

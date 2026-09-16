@@ -7,7 +7,6 @@ import { useLenis } from "lenis/react";
 import {
   ArrowDown,
   ArrowRight,
-  ShieldCheck,
 } from "lucide-react";
 import AboutVisionMission from "@/components/sections/AboutVisionMission";
 import AwardsRankingsSection from "@/components/about/AwardsRankingsSection";
@@ -290,31 +289,6 @@ export default function AboutPage() {
         className="scroll-mt-[190px] bg-[#F7F9FC] py-20 md:py-28"
       >
         <div className="gu-container">
-          {/* Section heading */}
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeUp}
-            className="mb-14 text-center"
-          >
-            <span className="text-[12px] font-bold uppercase tracking-[2.5px] text-[#E8871A]">
-              Recognitions & Approvals
-            </span>
-
-            <h2 className="mt-3 text-[42px] font-black leading-[1.1] tracking-[-1.5px] text-[#0A1F44] md:text-[52px]">
-              Recognised. Trusted.
-              <br />
-              <span className="text-[#E8871A]">Established.</span>
-            </h2>
-
-            <p className="mx-auto mt-5 max-w-[760px] text-[17px] leading-[1.7] text-[#64748B]">
-              Geeta University's academic standing is supported by
-              recognised regulatory and professional bodies.
-            </p>
-          </motion.div>
-
           {/* UGC featured recognition */}
 
           <motion.div
@@ -324,39 +298,22 @@ export default function AboutPage() {
             variants={fadeUp}
             className="relative mb-8 overflow-hidden rounded-[18px] border border-[#E2E8F0] bg-white shadow-[0_15px_45px_rgba(10,31,68,0.07)]"
           >
-            <div className="grid min-h-[260px] min-w-0 md:grid-cols-[280px_minmax(0,1fr)]">
-              <div className="flex items-center justify-center bg-[#0A1F44] p-10">
-                <div className="flex h-[150px] w-[150px] items-center justify-center rounded-full bg-white p-5 shadow-xl">
+            <div className="flex flex-col items-center justify-center text-center p-8 md:p-10">
+              <div className="mb-5 flex h-[140px] w-[140px] items-center justify-center rounded-full bg-[#0A1F44] p-4 shadow-xl">
+                <div className="flex h-full w-full items-center justify-center rounded-full bg-white p-3">
                   <Image
                     src="/about/19.png"
                     alt="University Grants Commission"
-                    width={120}
-                    height={120}
-                    className="h-auto max-h-[115px] w-auto object-contain"
+                    width={100}
+                    height={100}
+                    className="h-auto max-h-[95px] w-auto object-contain"
                   />
                 </div>
               </div>
 
-              <div className="min-w-0 flex flex-col justify-center p-7 md:p-10">
-                <span className="mb-3 text-[11px] font-bold uppercase tracking-[2px] text-[#E8871A]">
-                  Government Recognition
-                </span>
-
-                <h3 className="text-[30px] font-black tracking-[-0.7px] text-[#0A1F44] md:text-[38px]">
-                  University Grants Commission
-                </h3>
-
-                <p className="mt-4 max-w-[650px] text-[16px] leading-[1.7] text-[#64748B]">
-                  Geeta University is recognised by the University Grants
-                  Commission, forming an important part of its institutional
-                  academic standing.
-                </p>
-
-                <div className="mt-6 flex items-center gap-2 text-[13px] font-extrabold text-[#E8871A]">
-                  <ShieldCheck size={18} />
-                  Recognised Institution
-                </div>
-              </div>
+              <h3 className="text-[28px] font-black tracking-[-0.7px] text-[#0A1F44] md:text-[36px]">
+                University Grants Commission
+              </h3>
             </div>
           </motion.div>
 
@@ -384,33 +341,21 @@ export default function AboutPage() {
                     },
                   },
                 }}
-                className="group min-w-0 overflow-hidden rounded-[16px] border border-[#E2E8F0] bg-white p-7 shadow-[0_8px_25px_rgba(10,31,68,0.035)] transition-all duration-300 hover:-translate-y-2 hover:border-[#E8871A]/30 hover:shadow-[0_18px_35px_rgba(232,135,26,0.08)]"
+                className="group flex flex-col items-center justify-center text-center min-w-0 overflow-hidden rounded-[16px] border border-[#E2E8F0] bg-white p-7 shadow-[0_8px_25px_rgba(10,31,68,0.035)] transition-all duration-300 hover:-translate-y-2 hover:border-[#E8871A]/30 hover:shadow-[0_18px_35px_rgba(232,135,26,0.08)]"
               >
-                <div className="flex items-center">
-                  <div className="flex h-[82px] w-[82px] items-center justify-center rounded-[12px] bg-[#F8FAFC] p-3">
-                    <Image
-                      src={recognition.image}
-                      alt={recognition.fullName}
-                      width={70}
-                      height={70}
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
+                <div className="flex h-[82px] w-[82px] items-center justify-center rounded-[12px] bg-[#F8FAFC] p-3">
+                  <Image
+                    src={recognition.image}
+                    alt={recognition.name}
+                    width={70}
+                    height={70}
+                    className="h-full w-full object-contain"
+                  />
                 </div>
 
-                <div className="mt-7">
-                  <div className="text-[12px] font-bold uppercase tracking-[2px] text-[#E8871A]">
-                    Recognition
-                  </div>
-
-                  <h3 className="mt-2 text-[25px] font-black text-[#0A1F44]">
-                    {recognition.name}
-                  </h3>
-
-                  <p className="mt-2 text-[14px] leading-[1.6] text-[#64748B]">
-                    {recognition.fullName}
-                  </p>
-                </div>
+                <h3 className="mt-4 text-[25px] font-black text-[#0A1F44]">
+                  {recognition.name}
+                </h3>
               </motion.div>
             ))}
           </div>
