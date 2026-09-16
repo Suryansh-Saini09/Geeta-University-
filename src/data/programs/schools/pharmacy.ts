@@ -535,34 +535,34 @@ export const pharmacySchool: ProgramPageData = {
   // departmentHighlightsSubtitle: "A glimpse of world-class laboratories, live formulation research, health camps, and international conferences at Geeta Institute of Pharmacy:",
   departmentHighlights: [
     {
-      title: "State-of-the-Art Machine Room & Pilot Plant",
-      desc: "Industrial-grade rotary tablet press, dissolution testers, disintegration units, and fluidized bed dryers for practical formulation manufacturing.",
-      image: "/programs/pharmacy/22-full.webp",
-    },
-    {
-      title: "Central Instrumentation & Analytical Lab",
-      desc: "Equipped with HPLC, UV-Vis spectrophotometers, and FTIR instruments for drug purity evaluation and compound characterization.",
-      image: "/programs/pharmacy/16-full.webp",
-    },
-    {
-      title: "International Conferences & Research Dialogues",
-      desc: "Hosting international symposiums on new frontiers of pharmaceutical research with global healthcare scientists and industry delegates.",
+      title: "Advanced Pharmaceutical & Analytical Labs",
+      desc: "State-of-the-art laboratory facilities equipped with modern instruments for drug analysis, synthesis, quality control, and formulation research.",
       image: "/programs/pharmacy/3rd-full.webp",
     },
     {
-      title: "Community Health Outreach & Blood Donation",
-      desc: "Regular clinical health camps, patient counseling drives, and blood donation initiatives serving regional public health.",
+      title: "Hands-on Practical Training & Research",
+      desc: "Immersive practical learning empowering students with real-world skills in pharmaceutics, pharmacology, and drug discovery.",
+      image: "/programs/pharmacy/16-full.webp",
+    },
+    {
+      title: "Industrial & Experiential Exposure",
+      desc: "Regular workshops, expert lectures, and practical demonstrations bridging the gap between pharmaceutical academia and healthcare industries.",
+      image: "/programs/pharmacy/22-full.webp",
+    },
+    {
+      title: "Community Outreach & Health Camps",
+      desc: "Active participation in social initiatives like blood donation drives and community health awareness programs, promoting public wellness.",
       image: "/programs/pharmacy/blood-donation-camp-full.webp",
     },
     {
-      title: "Pharmaceutical Formulation & Drug Discovery",
-      desc: "Advanced dosage form design, pre-formulation studies, and novel drug delivery system development.",
-      image: "/programs/pharmacy/ou-full.webp",
+      title: "Industry & Academic MoUs",
+      desc: "Strategic partnerships and signed MoUs with leading pharmaceutical companies and healthcare organizations for research and placement opportunities.",
+      image: "/programs/pharmacy/MOU-full.webp",
     },
     {
-      title: "Industry MOUs & Corporate Collaborations",
-      desc: "Formal partnerships with top pharmaceutical corporations for live industrial projects, internships, and clinical research.",
-      image: "/programs/pharmacy/MOU-full.webp",
+      title: "Global Educational & Institutional Alliances",
+      desc: "Fostering academic excellence through national and international collaborations, faculty exchange, and joint research ventures.",
+      image: "/programs/pharmacy/ou-full.webp",
     },
   ],
 
@@ -627,41 +627,7 @@ export const pharmacySchool: ProgramPageData = {
     applyLink: "/admissions",
     helpline: "+91 92787 68000",
     website: "www.geetauniversity.edu.in",
-    campusAddress: "NH-71A, Naultha Panipat, Haryana (132145), India.",
-  },
-
-  departmentHighlights: [
-    {
-      title: "Advanced Pharmaceutical & Analytical Labs",
-      desc: "State-of-the-art laboratory facilities equipped with modern instruments for drug analysis, synthesis, quality control, and formulation research.",
-      image: "/programs/pharmacy/3rd-full.webp",
     },
-    {
-      title: "Hands-on Practical Training & Research",
-      desc: "Immersive practical learning empowering students with real-world skills in pharmaceutics, pharmacology, and drug discovery.",
-      image: "/programs/pharmacy/16-full.webp",
-    },
-    {
-      title: "Industrial & Experiential Exposure",
-      desc: "Regular workshops, expert lectures, and practical demonstrations bridging the gap between pharmaceutical academia and healthcare industries.",
-      image: "/programs/pharmacy/22-full.webp",
-    },
-    {
-      title: "Community Outreach & Health Camps",
-      desc: "Active participation in social initiatives like blood donation drives and community health awareness programs, promoting public wellness.",
-      image: "/programs/pharmacy/blood-donation-camp-full.webp",
-    },
-    {
-      title: "Industry & Academic MoUs",
-      desc: "Strategic partnerships and signed MoUs with leading pharmaceutical companies and healthcare organizations for research and placement opportunities.",
-      image: "/programs/pharmacy/MOU-full.webp",
-    },
-    {
-      title: "Global Educational & Institutional Alliances",
-      desc: "Fostering academic excellence through national and international collaborations, faculty exchange, and joint research ventures.",
-      image: "/programs/pharmacy/ou-full.webp",
-    },
-  ],
 
   courses: [
     {
