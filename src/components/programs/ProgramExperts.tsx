@@ -91,9 +91,9 @@ export default function ProgramExperts({ experts, gth }: ProgramExpertsProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.65 }}
-          style={{ marginBottom: 60 }}
+          style={{ marginBottom: 48 }}
         >
-          {/* Eyebrow */}
+          {/* Eyebrow - commented out
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
             <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
             <span
@@ -108,46 +108,43 @@ export default function ProgramExperts({ experts, gth }: ProgramExpertsProps) {
               {eyebrow}
             </span>
           </div>
+          */}
 
-          {/* Heading + Subheading + Description Grid */}
-          <div
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "flex-end" }}
-            className="gth-header-grid"
-          >
-            <div>
-              <h2
-                style={{
-                  fontSize: 52,
-                  fontWeight: 950,
-                  color: "#FFFFFF",
-                  margin: 0,
-                  lineHeight: 1.1,
-                  letterSpacing: "-1.5px",
-                }}
-              >
-                {title.includes("GTH") ? (
-                  <>
-                    Geeta Technical <span style={{ color: "#E8871A" }}>Hub (GTH)</span>
-                  </>
-                ) : (
-                  <>
-                    {title.split(" ")[0]}{" "}
-                    <span style={{ color: "#E8871A" }}>{title.split(" ").slice(1).join(" ")}</span>
-                  </>
-                )}
-              </h2>
-              <p
-                style={{
-                  fontSize: 20,
-                  fontWeight: 600,
-                  color: "rgba(255,255,255,0.85)",
-                  margin: "12px 0 0",
-                  lineHeight: 1.3,
-                }}
-              >
-                {subtitle}
-              </p>
-            </div>
+          {/* Heading */}
+          <div>
+            <h2
+              style={{
+                fontSize: 52,
+                fontWeight: 950,
+                color: "#FFFFFF",
+                margin: 0,
+                lineHeight: 1.1,
+                letterSpacing: "-1.5px",
+              }}
+            >
+              {title.includes("GTH") ? (
+                <>
+                  Geeta Technical <span style={{ color: "#E8871A" }}>Hub (GTH)</span>
+                </>
+              ) : (
+                <>
+                  {title.split(" ")[0]}{" "}
+                  <span style={{ color: "#E8871A" }}>{title.split(" ").slice(1).join(" ")}</span>
+                </>
+              )}
+            </h2>
+            {/* Subtitle & description commented out
+            <p
+              style={{
+                fontSize: 20,
+                fontWeight: 600,
+                color: "rgba(255,255,255,0.85)",
+                margin: "12px 0 0",
+                lineHeight: 1.3,
+              }}
+            >
+              {subtitle}
+            </p>
             <p
               style={{
                 color: "rgba(255,255,255,0.6)",
@@ -159,6 +156,7 @@ export default function ProgramExperts({ experts, gth }: ProgramExpertsProps) {
             >
               {description}
             </p>
+            */}
           </div>
         </motion.div>
 

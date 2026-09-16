@@ -76,18 +76,19 @@ export default function ProgramFeaturedPrograms({ featuredPrograms }: ProgramFea
             )}
           </div>
 
+          {/* Description and divider commented out
           {description && (
             <p className="font-medium m-auto font-['Source_Sans_3',sans-serif]" style={{ fontSize: "20px", lineHeight: 1.7, color: "rgba(255,255,255,0.85)", maxWidth: "760px", marginBottom: "24px" }}>
               {description}
             </p>
           )}
 
-          {/* SECTION DIVIDER */}
           <div className="flex items-center justify-center gap-4" style={{ width: "140px" }}>
             <div className="h-[1px] flex-1 bg-[#E8871A]/60" />
             <div className="w-2 h-2 rotate-45 bg-[#E8871A]" />
             <div className="h-[1px] flex-1 bg-[#E8871A]/60" />
           </div>
+          */}
         </motion.div>
 
         {/* 4-COLUMN CARDS ROW */}

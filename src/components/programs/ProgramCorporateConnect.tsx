@@ -44,7 +44,8 @@ export default function ProgramCorporateConnect({ corporateConnect }: ProgramCor
     >
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         {/* Section Header */}
-        <div style={{ textAlign: "center", marginBottom: 48, maxWidth: 900, margin: "0 auto 48px" }}>
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
+          {/* Eyebrow commented out
           {eyebrow && (
             <span
               style={{
@@ -60,6 +61,7 @@ export default function ProgramCorporateConnect({ corporateConnect }: ProgramCor
               {eyebrow}
             </span>
           )}
+          */}
           <h2
             style={{
               fontSize: "clamp(32px, 3.8vw, 44px)",
@@ -67,11 +69,12 @@ export default function ProgramCorporateConnect({ corporateConnect }: ProgramCor
               color: "#0A1F44",
               lineHeight: 1.15,
               letterSpacing: "-1px",
-              margin: "0 0 16px",
+              margin: 0,
             }}
           >
             {title}
           </h2>
+          {/* Description commented out
           {description && (
             <p
               style={{
@@ -85,6 +88,7 @@ export default function ProgramCorporateConnect({ corporateConnect }: ProgramCor
               {description}
             </p>
           )}
+          */}
         </div>
 
         {/* 1. CORPORATE VIDEOS SHOWCASE */}

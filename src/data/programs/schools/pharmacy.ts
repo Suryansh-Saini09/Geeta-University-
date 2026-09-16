@@ -3,6 +3,8 @@ import type { ProgramPageData } from "../types";
 export const pharmacySchool: ProgramPageData = {
   slug: "geeta-institute-of-pharmacy",
   type: "school",
+  hideRecruiters: true,
+  hideRankings: true,
 
   seo: {
     title: "Best Pharmacy College in Haryana & Delhi NCR | Get Admissions",
@@ -31,25 +33,31 @@ export const pharmacySchool: ProgramPageData = {
   },
 
   about: {
-    eyebrow: "ABOUT THE INSTITUTE",
+    // eyebrow: "ABOUT THE INSTITUTE",
     title: "Geeta Institute of Pharmacy",
     paragraphs: [
       "Geeta Institute of Pharmacy at Geeta University stands out as the best university for Pharmacy in Haryana, offering world-class education, cutting-edge research opportunities, and industry-driven programs. We have come to be recognized as the top university for pharmacy in Delhi NCR for providing a dynamic learning environment that nurtures innovation in drug discovery, clinical trials, and pharmaceutical marketing.",
       "Our team of expert faculty, an industry-focused research-oriented pedagogy, and state-of-the-art infrastructure have played a vital role in helping us evolve into the top private university for pharmacy in Panipat. Our PCI-approved programs are designed to ensure that our students are market-ready for taking up various roles in the constantly evolving pharmaceutical industry.",
       "With our commitment to excellence and the unique global exposure opportunities, we empower aspiring pharmacists like you to excel in your careers. Enroll with us today and take the first step towards a rewarding future in pharmacy!",
     ],
+    links: [
+      {
+        text: '"4th International Conference on New Frontiers of Pharmaceutical Research 2027"',
+        href: "/icnfpr",
+      },
+    ],
     image: "/programs/pharmacy/pharmacy2-thumb.webp",
     badgeText: "PCI Approved Excellence",
-    careers: [
-      "Clinical Research & Trials",
-      "Formulation & Production R&D",
-      "Quality Assurance & Quality Control",
-      "Pharmacovigilance & Drug Safety",
-      "Hospital & Community Pharmacy",
-      "Regulatory Affairs & IPR",
-      "Pharmaceutical Marketing & Sales",
-      "Drug Inspection & Analysis",
-    ],
+    // careers: [
+    //   "Clinical Research & Trials",
+    //   "Formulation & Production R&D",
+    //   "Quality Assurance & Quality Control",
+    //   "Pharmacovigilance & Drug Safety",
+    //   "Hospital & Community Pharmacy",
+    //   "Regulatory Affairs & IPR",
+    //   "Pharmaceutical Marketing & Sales",
+    //   "Drug Inspection & Analysis",
+    // ],
     closingText:
       "Our PCI-approved learning environment combines world-class pharmaceutical labs, hospital rounds, clinical trials exposure, and expert faculty mentorship.",
   },
@@ -178,113 +186,113 @@ export const pharmacySchool: ProgramPageData = {
     eyebrow: "EXPERT FACULTY",
     title: "Meet Our Mentors",
     faculty: [
-      { 
-        name: "Dr. Seema Rohilla", 
-        designation: "Professor, M.Pharm (Pharmaceutics), Ph.D.", 
-        description: "Expertise in Pharmaceutics and formulation design. Primary research interests include Quality by Design (QbD) and oncology therapeutics. Recipient of the Extraordinary Researcher Award.", 
-        image: "/programs/pharmacy/Seema.webp" 
+      {
+        name: "Dr. Seema Rohilla",
+        designation: "Professor, M.Pharm (Pharmaceutics), Ph.D.",
+        description: "Expertise in Pharmaceutics and formulation design. Primary research interests include Quality by Design (QbD) and oncology therapeutics. Recipient of the Extraordinary Researcher Award.",
+        image: "/programs/pharmacy/Seema.webp"
       },
-      { 
-        name: "Dr. Sarita", 
-        designation: "Professor, Ph.D.", 
-        description: "Expertise in Pharmacognosy and Phytochemistry, in silico drug design, novel extraction methods, and biological evaluations. Published 32 articles in international journals with a cumulative impact factor exceeding 25, authored 10 books, 18 book chapters, with 5 granted patents and 714+ citations.", 
-        image: "/programs/pharmacy/Sarita.webp" 
+      {
+        name: "Dr. Sarita",
+        designation: "Professor, Ph.D.",
+        description: "Expertise in Pharmacognosy and Phytochemistry, in silico drug design, novel extraction methods, and biological evaluations. Published 32 articles in international journals with a cumulative impact factor exceeding 25, authored 10 books, 18 book chapters, with 5 granted patents and 714+ citations.",
+        image: "/programs/pharmacy/Sarita.webp"
       },
-      { 
-        name: "Dr. Priyanka Rathee", 
-        designation: "Associate Professor, Ph.D.", 
-        description: "Specialized in in silico screening, phytochemical research, medicinal chemistry, enzyme inhibition, and pharmaceutical nanotechnology.", 
-        image: "/programs/pharmacy/Priyanka.webp" 
+      {
+        name: "Dr. Priyanka Rathee",
+        designation: "Associate Professor, Ph.D.",
+        description: "Specialized in in silico screening, phytochemical research, medicinal chemistry, enzyme inhibition, and pharmaceutical nanotechnology.",
+        image: "/programs/pharmacy/Priyanka.webp"
       },
-      { 
-        name: "Mr. Rakesh Redhu", 
-        designation: "Associate Professor, M.Pharmacy (Pharmaceutics)", 
-        description: "Specialized in solubility enhancement, nanocarriers, and formulation development; skilled in Design of Experiment (DoE) methodology.", 
-        image: "/programs/pharmacy/Rakesh.webp" 
+      {
+        name: "Mr. Rakesh Redhu",
+        designation: "Associate Professor, M.Pharmacy (Pharmaceutics)",
+        description: "Specialized in solubility enhancement, nanocarriers, and formulation development; skilled in Design of Experiment (DoE) methodology.",
+        image: "/programs/pharmacy/Rakesh.webp"
       },
-      { 
-        name: "Mr. Ajay", 
-        designation: "Assistant Professor, M.Pharmacy", 
-        description: "Pharmaceutical educator and researcher with 5+ years of experience specializing in pharmaceutics, pharmacology, medicinal chemistry, advanced formulation design, and patent filings.", 
-        image: "/programs/pharmacy/Ajay.webp" 
+      {
+        name: "Mr. Ajay",
+        designation: "Assistant Professor, M.Pharmacy",
+        description: "Pharmaceutical educator and researcher with 5+ years of experience specializing in pharmaceutics, pharmacology, medicinal chemistry, advanced formulation design, and patent filings.",
+        image: "/programs/pharmacy/Ajay.webp"
       },
-      { 
-        name: "Ms. Manita", 
-        designation: "Assistant Professor, M.Pharmacy, Ph.D. (Pursuing)", 
-        description: "Assistant Professor at Geeta Institute of Pharmacy with 3.9+ years of academic experience in Pharmaceutical Sciences. Published 1 research article and 6 review articles in Q1 Scopus and PubMed-indexed journals. Co-inventor of 3 patents in nanoformulations, dermatology, and advanced drug delivery systems.", 
-        image: "/programs/pharmacy/Manita.webp" 
+      {
+        name: "Ms. Manita",
+        designation: "Assistant Professor, M.Pharmacy, Ph.D. (Pursuing)",
+        description: "Assistant Professor at Geeta Institute of Pharmacy with 3.9+ years of academic experience in Pharmaceutical Sciences. Published 1 research article and 6 review articles in Q1 Scopus and PubMed-indexed journals. Co-inventor of 3 patents in nanoformulations, dermatology, and advanced drug delivery systems.",
+        image: "/programs/pharmacy/Manita.webp"
       },
-      { 
-        name: "Ms. Ranjna Rani", 
-        designation: "Assistant Professor, M.Pharm. (Industrial Pharmacy), Ph.D. (Pursuing)", 
-        description: "Pharmacy professional specializing in drug formulation, solubility enhancement, and bioavailability improvement. Author of 6 patents, 1 book, and 2 book chapters.", 
-        image: "/programs/pharmacy/Ranjna.webp" 
+      {
+        name: "Ms. Ranjna Rani",
+        designation: "Assistant Professor, M.Pharm. (Industrial Pharmacy), Ph.D. (Pursuing)",
+        description: "Pharmacy professional specializing in drug formulation, solubility enhancement, and bioavailability improvement. Author of 6 patents, 1 book, and 2 book chapters.",
+        image: "/programs/pharmacy/Ranjna.webp"
       },
-      { 
-        name: "Ms. Twinkle Chadda", 
-        designation: "Assistant Professor, M. Pharm. (Pursuing Ph.D.)", 
-        description: "Master's in Pharmacology, co-inventor of 10 filed patents, with research published in Bentham Science and Scopus-indexed journals.", 
-        image: "/programs/pharmacy/Twinkle.webp" 
+      {
+        name: "Ms. Twinkle Chadda",
+        designation: "Assistant Professor, M. Pharm. (Pursuing Ph.D.)",
+        description: "Master's in Pharmacology, co-inventor of 10 filed patents, with research published in Bentham Science and Scopus-indexed journals.",
+        image: "/programs/pharmacy/Twinkle.webp"
       },
-      { 
-        name: "Mr. Charit Kumar", 
-        designation: "Associate Professor, M.Pharm.", 
-        description: "Expert in solid dispersions, solubility enhancement, microwave-assisted formulation techniques, DoE, and novel formulation design.", 
-        image: "/programs/pharmacy/Charit.webp" 
+      {
+        name: "Mr. Charit Kumar",
+        designation: "Associate Professor, M.Pharm.",
+        description: "Expert in solid dispersions, solubility enhancement, microwave-assisted formulation techniques, DoE, and novel formulation design.",
+        image: "/programs/pharmacy/Charit.webp"
       },
-      { 
-        name: "Mr. Rahul Dhounchak", 
-        designation: "Assistant Professor, M.Pharmacy", 
-        description: "Focused on solubility enhancement, drug discovery, and formulation development; active contributor to pharmaceutical academic research.", 
-        image: "/programs/pharmacy/Rahul.webp" 
+      {
+        name: "Mr. Rahul Dhounchak",
+        designation: "Assistant Professor, M.Pharmacy",
+        description: "Focused on solubility enhancement, drug discovery, and formulation development; active contributor to pharmaceutical academic research.",
+        image: "/programs/pharmacy/Rahul.webp"
       },
-      { 
-        name: "Ms. Anjali Saini", 
-        designation: "Assistant Professor, Ph.D. (Pursuing)", 
-        description: "Specialized in Neurobiology, Neuroscience, pathophysiology of neural disorders, and their herbal and conventional therapeutics.", 
-        image: "/programs/pharmacy/Anjali.webp" 
+      {
+        name: "Ms. Anjali Saini",
+        designation: "Assistant Professor, Ph.D. (Pursuing)",
+        description: "Specialized in Neurobiology, Neuroscience, pathophysiology of neural disorders, and their herbal and conventional therapeutics.",
+        image: "/programs/pharmacy/Anjali.webp"
       },
-      { 
-        name: "Mr. Karan Jangra", 
-        designation: "Assistant Professor, M.Pharmacy (Pharmaceutics)", 
-        description: "Published researcher and expert in Pharmacovigilance with hands-on experience in product development and regulatory compliance.", 
-        image: "/programs/pharmacy/Karan.webp" 
+      {
+        name: "Mr. Karan Jangra",
+        designation: "Assistant Professor, M.Pharmacy (Pharmaceutics)",
+        description: "Published researcher and expert in Pharmacovigilance with hands-on experience in product development and regulatory compliance.",
+        image: "/programs/pharmacy/Karan.webp"
       },
-      { 
-        name: "Ms. Nikita Sharma", 
-        designation: "Assistant Professor, M.Pharmacy (Pharmaceutical Chemistry)", 
-        description: "Specializes in heterocyclic compound synthesis, molecular docking, and synthetic medicinal chemistry.", 
-        image: "/programs/pharmacy/Nikita.webp" 
+      {
+        name: "Ms. Nikita Sharma",
+        designation: "Assistant Professor, M.Pharmacy (Pharmaceutical Chemistry)",
+        description: "Specializes in heterocyclic compound synthesis, molecular docking, and synthetic medicinal chemistry.",
+        image: "/programs/pharmacy/Nikita.webp"
       },
-      { 
-        name: "Mr. Arun", 
-        designation: "Assistant Professor", 
-        description: "Drug Regulatory Affairs expert skilled in novel molecule synthesis and molecular docking, with 5+ research & review articles, 5+ book chapters, and 1 authored book.", 
-        image: "/programs/pharmacy/Arun.webp" 
+      {
+        name: "Mr. Arun",
+        designation: "Assistant Professor",
+        description: "Drug Regulatory Affairs expert skilled in novel molecule synthesis and molecular docking, with 5+ research & review articles, 5+ book chapters, and 1 authored book.",
+        image: "/programs/pharmacy/Arun.webp"
       },
-      { 
-        name: "Mr. Shamsher Singh", 
-        designation: "Assistant Professor", 
-        description: "Researcher in novel compound synthesis with published review and research articles in Bentham Science publications.", 
-        image: "/programs/pharmacy/Shamsher.webp" 
+      {
+        name: "Mr. Shamsher Singh",
+        designation: "Assistant Professor",
+        description: "Researcher in novel compound synthesis with published review and research articles in Bentham Science publications.",
+        image: "/programs/pharmacy/Shamsher.webp"
       },
-      { 
-        name: "Dr. Neelam Malik", 
-        designation: "Professor", 
-        description: "Area of expertise covers Medicinal Chemistry, Drug Design, Artificial Intelligence in drug discovery, synthetic chemistry, and enzyme inhibition. Published over 35 papers in indexed journals, 15 book chapters, 3 books, and holds multiple patents. Recipient of Silver Medal and Best Thesis Award in Ph.D.", 
-        image: "/programs/pharmacy/Neelam.webp" 
+      {
+        name: "Dr. Neelam Malik",
+        designation: "Professor",
+        description: "Area of expertise covers Medicinal Chemistry, Drug Design, Artificial Intelligence in drug discovery, synthetic chemistry, and enzyme inhibition. Published over 35 papers in indexed journals, 15 book chapters, 3 books, and holds multiple patents. Recipient of Silver Medal and Best Thesis Award in Ph.D.",
+        image: "/programs/pharmacy/Neelam.webp"
       },
-      { 
-        name: "Dr. Anil Kumar", 
-        designation: "Associate Professor", 
-        description: "Ph.D. in Pharmaceutics with extensive academic, formulation research, and student mentorship experience.", 
-        image: "/programs/pharmacy/Anil.webp" 
+      {
+        name: "Dr. Anil Kumar",
+        designation: "Associate Professor",
+        description: "Ph.D. in Pharmaceutics with extensive academic, formulation research, and student mentorship experience.",
+        image: "/programs/pharmacy/Anil.webp"
       },
-      { 
-        name: "Dr. Ravinder", 
-        designation: "Professor", 
-        description: "Professor of Pharmacology holding M.Pharm and Ph.D. with deep research background in preclinical drug screening and pharmacodynamics.", 
-        image: "/programs/pharmacy/Ravinder.webp" 
+      {
+        name: "Dr Ravinder",
+        designation: "Professor",
+        description: "Professor of Pharmacology holding M.Pharm and Ph.D. with deep research background in preclinical drug screening and pharmacodynamics.",
+        image: "/programs/pharmacy/Ravinder.webp"
       }
     ],
   },
@@ -523,84 +531,77 @@ export const pharmacySchool: ProgramPageData = {
     fileName: "Geeta_Institute_of_Pharmacy_Brochure.pdf",
   },
 
-  experts: {
-    eyebrow: "Geeta Institute of Pharmacy",
-    title: "Learn from 5 Categories of Healthcare Experts",
-    intro: "A cohesive pharmaceutical training ecosystem combining academic theory, hands-on lab experiments, clinical hospital rounds, and industrial regulatory mastery.",
-    feature: {
-      kicker: "Healthcare Leadership",
-      title: "Five expert streams. One future-ready pharmacist.",
-      description: "Learn directly from researchers, industrial formulation scientists, hospital practitioners, and regulatory consultants.",
-      stats: [
-        { value: "5", label: "Specialized Training Streams" },
-        { value: "100%", label: "PCI-Approved Curriculum" },
-      ],
+  departmentHighlightsTitle: "Experiential & Pharmaceutical Highlights",
+  // departmentHighlightsSubtitle: "A glimpse of world-class laboratories, live formulation research, health camps, and international conferences at Geeta Institute of Pharmacy:",
+  departmentHighlights: [
+    {
+      title: "State-of-the-Art Machine Room & Pilot Plant",
+      desc: "Industrial-grade rotary tablet press, dissolution testers, disintegration units, and fluidized bed dryers for practical formulation manufacturing.",
+      image: "/programs/pharmacy/22-full.webp",
     },
-    categories: [
+    {
+      title: "Central Instrumentation & Analytical Lab",
+      desc: "Equipped with HPLC, UV-Vis spectrophotometers, and FTIR instruments for drug purity evaluation and compound characterization.",
+      image: "/programs/pharmacy/16-full.webp",
+    },
+    {
+      title: "International Conferences & Research Dialogues",
+      desc: "Hosting international symposiums on new frontiers of pharmaceutical research with global healthcare scientists and industry delegates.",
+      image: "/programs/pharmacy/3rd-full.webp",
+    },
+    {
+      title: "Community Health Outreach & Blood Donation",
+      desc: "Regular clinical health camps, patient counseling drives, and blood donation initiatives serving regional public health.",
+      image: "/programs/pharmacy/blood-donation-camp-full.webp",
+    },
+    {
+      title: "Pharmaceutical Formulation & Drug Discovery",
+      desc: "Advanced dosage form design, pre-formulation studies, and novel drug delivery system development.",
+      image: "/programs/pharmacy/ou-full.webp",
+    },
+    {
+      title: "Industry MOUs & Corporate Collaborations",
+      desc: "Formal partnerships with top pharmaceutical corporations for live industrial projects, internships, and clinical research.",
+      image: "/programs/pharmacy/MOU-full.webp",
+    },
+  ],
+
+  usps: {
+    title: "USPs of Geeta Institute of Pharmacy",
+    cards: [
       {
-        number: 1,
-        title: "Pharmaceutical Sciences Faculty",
-        subtitle: "Foundations of Modern Drug Discovery",
+        title: "Academic Excellence & Expert Faculty",
         points: [
-          "Doctorate faculty with national research grants",
-          "Advanced Pharmaceutics & Pharmacology focus",
-          "Peer-reviewed publications and patent guidance",
-          "Personalized academic & career mentoring",
+          "A consistently high academic standard with universities that have merit and excellent career prospects",
+          "Highly skilled faculty with Ph.D. qualifications, professional expertise, and exposure to the world guarantee high-quality instruction and mentorship",
         ],
-        iconName: "GraduationCap",
-        ribbon: "#0A1F44",
       },
       {
-        number: 2,
-        title: "Clinical & Hospital Practitioners",
-        subtitle: "Direct Patient & Healthcare Exposure",
+        title: "Advanced Infrastructure & Learning Resources",
         points: [
-          "Tie-ups with leading multi-speciality hospitals",
-          "Clinical rounds and bedside patient care",
-          "Pharmacovigilance and drug interaction monitoring",
-          "Real-world prescription analysis and dispensing",
+          "Modern laboratories",
+          "State-of-the-art Machine Room",
+          "Central Instrumentation Laboratory",
+          "Intelligent classrooms incorporating advanced audio-visual aids",
+          "A well-stocked library including international and national journals that encourages research and development",
         ],
-        iconName: "Users",
-        ribbon: "#0F2A56",
       },
       {
-        number: 3,
-        title: "Industrial & Manufacturing Experts",
-        subtitle: "Good Manufacturing Practices (GMP)",
+        title: "Industry Exposure & Global Engagement",
         points: [
-          "Hands-on industrial machinery operations",
-          "Scale-up techniques and pilot plant exposure",
-          "Clean-room protocols and sterilization standards",
-          "Automation and instrumentation in pharma",
+          "MOUs with top pharmaceutical companies to provide live projects, internships, or research cooperations",
+          "Regular visits to factories",
+          "Expert lectures",
+          "International Conferences",
+          "The first institution in Haryana hosting PCI Pharma Anveshan",
         ],
-        iconName: "HardHat",
-        ribbon: "#1B4B8F",
       },
       {
-        number: 4,
-        title: "Geeta Finishing School",
-        subtitle: "Corporate Readiness & Communication",
+        title: "Strong Placements & Career Support",
         points: [
-          "Pharma sales & corporate presentation skills",
-          "Interview grooming and mock placement drives",
-          "Aptitude, reasoning, and data interpretation",
-          "Professional ethics and compliance mindset",
+          "Achieved excellent placement for top pharmaceutical firms and healthcare institutions",
+          "Career guidance, skills growth programs, as well as interview preparation assure high-level of potential for employment",
         ],
-        iconName: "BookOpen",
-        ribbon: "#2E63B8",
-      },
-      {
-        number: 5,
-        title: "Regulatory & Quality Specialists",
-        subtitle: "Global Compliance & QA/QC",
-        points: [
-          "US-FDA, WHO-GMP, and ISO compliance standards",
-          "High-performance liquid chromatography (HPLC)",
-          "Intellectual property rights & patent filing",
-          "Dossier preparation and regulatory submissions",
-        ],
-        iconName: "TrendingUp",
-        ribbon: "#5B8FD9",
       },
     ],
   },
@@ -662,23 +663,9 @@ export const pharmacySchool: ProgramPageData = {
       eligibility: "B. Pharm Degree examination of an Indian university established by law in India from an institution approved by Pharmacy Council of India and has scored not less than 55% of the maximum marks (aggregate of 4 years of B.Pharm.)",
       programs: [
         {
-          name: "M.Pharm. (Master of Pharmacy)",
+          name: "M.Pharm. (Pharmaceutics)",
           href: "/programs/geeta-institute-of-pharmacy/m-pharmacy-in-pharmaceutics",
           duration: "2 Years",
-          specializations: [
-            {
-              name: "M.Pharm. (Pharmaceutics)",
-              href: "/programs/geeta-institute-of-pharmacy/m-pharmacy-in-pharmaceutics",
-            },
-            {
-              name: "M.Pharm. (Pharmacology)",
-              href: "/programs/geeta-institute-of-pharmacy/m-pharmacy-in-pharmaceutics",
-            },
-            {
-              name: "M.Pharm. (Pharmaceutical Chemistry)",
-              href: "/programs/geeta-institute-of-pharmacy/m-pharmacy-in-pharmaceutics",
-            },
-          ],
           eligibility: "B. Pharm Degree examination of an Indian university established by law in India from an institution approved by Pharmacy Council of India and has scored not less than 55% of the maximum marks (aggregate of 4 years of B.Pharm.)",
         },
       ],
@@ -708,229 +695,229 @@ export const pharmacySchool: ProgramPageData = {
 
   faqs: [
     {
-        "q": "What pharmacy programmes are offered by Geeta Institute of Pharmacy?",
-        "a": "Currently the institute has programmes namely D.Pharm., B.Pharm., M.Pharm. (Pharmaceutics) and Ph.D. in Pharmaceutical Sciences, covering diploma, undergraduate, postgraduate and doctoral study.",
-        "category": "Admissions & Eligibility"
+      "q": "What pharmacy programmes are offered by Geeta Institute of Pharmacy?",
+      "a": "Currently the institute has programmes namely D.Pharm., B.Pharm., M.Pharm. (Pharmaceutics) and Ph.D. in Pharmaceutical Sciences, covering diploma, undergraduate, postgraduate and doctoral study.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "What is the eligibility for D.Pharm.?",
-        "a": "Applicants must have passed 10+2 in the Science stream with Physics, Chemistry and Biology or Mathematics, with at least 50% marks.",
-        "category": "Admissions & Eligibility"
+      "q": "What is the eligibility for D.Pharm.?",
+      "a": "Applicants must have passed 10+2 in the Science stream with Physics, Chemistry and Biology or Mathematics, with at least 50% marks.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "What is the eligibility for B.Pharm.?",
-        "a": "Applicants must have passed 10+2 with at least 55% marks, with English as one of the subjects and Physics, Chemistry and Mathematics and/or Biology as the specified subjects.",
-        "category": "Admissions & Eligibility"
+      "q": "What is the eligibility for B.Pharm.?",
+      "a": "Applicants must have passed 10+2 with at least 55% marks, with English as one of the subjects and Physics, Chemistry and Mathematics and/or Biology as the specified subjects.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "Can a student with PCB apply for B.Pharm.?",
-        "a": "Yes. Physics, Chemistry and Biology (PCB/PCMB) combinations are eligible backgrounds.",
-        "category": "Admissions & Eligibility"
+      "q": "Can a student with PCB apply for B.Pharm.?",
+      "a": "Yes. Physics, Chemistry and Biology (PCB/PCMB) combinations are eligible backgrounds.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "What is the eligibility for M.Pharm. (Pharmaceutics)?",
-        "a": "Applicants must hold a B.Pharm. degree from an institution approved by the Pharmacy Council of India and have at least 55% marks in the aggregate of the four-year B.Pharm. programme.",
-        "category": "Admissions & Eligibility"
+      "q": "What is the eligibility for M.Pharm. (Pharmaceutics)?",
+      "a": "Applicants must hold a B.Pharm. degree from an institution approved by the Pharmacy Council of India and have at least 55% marks in the aggregate of the four-year B.Pharm. programme.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "Who can apply for the Ph.D. in Pharmaceutical Sciences?",
-        "a": "Applicants should have a master's degree in a relevant field with at least 55% marks, subject to the University's applicable doctoral admission requirements.",
-        "category": "Admissions & Eligibility"
+      "q": "Who can apply for the Ph.D. in Pharmaceutical Sciences?",
+      "a": "Applicants should have a master's degree in a relevant field with at least 55% marks, subject to the University's applicable doctoral admission requirements.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "Can D.Pharm. students enter B.Pharm. directly from the second year?",
-        "a": "Yes. D.Pharm. students can join B.Pharm. directly in the second year through lateral entry, subject to applicable admission rules.",
-        "category": "Admissions & Eligibility"
+      "q": "Can D.Pharm. students enter B.Pharm. directly from the second year?",
+      "a": "Yes. D.Pharm. students can join B.Pharm. directly in the second year through lateral entry, subject to applicable admission rules.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "What is the difference between D.Pharm. and B.Pharm.?",
-        "a": "D.Pharm. is a two-year diploma providing foundational pharmaceutical knowledge and practical preparation. B.Pharm. is a four-year degree with deeper study of pharmaceutical sciences, drug development, clinical pharmacy, research and industry-oriented subjects.",
-        "category": "Programmes & Curriculum"
+      "q": "What is the difference between D.Pharm. and B.Pharm.?",
+      "a": "D.Pharm. is a two-year diploma providing foundational pharmaceutical knowledge and practical preparation. B.Pharm. is a four-year degree with deeper study of pharmaceutical sciences, drug development, clinical pharmacy, research and industry-oriented subjects.",
+      "category": "Programmes & Curriculum"
     },
     {
-        "q": "What subjects are taught in D.Pharm.?",
-        "a": "The programme includes Human Anatomy & Physiology, Pharmaceutics, Pharmaceutical Chemistry, Pharmacognosy, Hospital & Clinical Pharmacy, Health Education, Biochemistry & Clinical Pathology, Drug Store Management and practical laboratory training.",
-        "category": "Programmes & Curriculum"
+      "q": "What subjects are taught in D.Pharm.?",
+      "a": "The programme includes Human Anatomy & Physiology, Pharmaceutics, Pharmaceutical Chemistry, Pharmacognosy, Hospital & Clinical Pharmacy, Health Education, Biochemistry & Clinical Pathology, Drug Store Management and practical laboratory training.",
+      "category": "Programmes & Curriculum"
     },
     {
-        "q": "What subjects are covered in B.Pharm.?",
-        "a": "The B.Pharm. curriculum includes Pharmaceutical Chemistry, Pharmacology & Toxicology, Pharmaceutics & Drug Delivery, Clinical Pharmacy, Pharmaceutical Microbiology, Pharmacognosy, Biopharmaceutics, Hospital Pharmacy and Pharmaceutical Jurisprudence, along with research projects and internships.",
-        "category": "Programmes & Curriculum"
+      "q": "What subjects are covered in B.Pharm.?",
+      "a": "The B.Pharm. curriculum includes Pharmaceutical Chemistry, Pharmacology & Toxicology, Pharmaceutics & Drug Delivery, Clinical Pharmacy, Pharmaceutical Microbiology, Pharmacognosy, Biopharmaceutics, Hospital Pharmacy and Pharmaceutical Jurisprudence, along with research projects and internships.",
+      "category": "Programmes & Curriculum"
     },
     {
-        "q": "What is taught in M.Pharm. (Pharmaceutics)?",
-        "a": "The postgraduate programme focuses on advanced pharmaceutical formulation and related areas, including advanced drug formulation, pharmaceutical engineering and research-oriented study.",
-        "category": "Programmes & Curriculum"
+      "q": "What is taught in M.Pharm. (Pharmaceutics)?",
+      "a": "The postgraduate programme focuses on advanced pharmaceutical formulation and related areas, including advanced drug formulation, pharmaceutical engineering and research-oriented study.",
+      "category": "Programmes & Curriculum"
     },
     {
-        "q": "Does B.Pharm. include clinical and hospital pharmacy?",
-        "a": "Yes. Clinical Pharmacy and Hospital Pharmacy are explicitly included in the published B.Pharm. programme structure.",
-        "category": "Programmes & Curriculum"
+      "q": "Does B.Pharm. include clinical and hospital pharmacy?",
+      "a": "Yes. Clinical Pharmacy and Hospital Pharmacy are explicitly included in the published B.Pharm. programme structure.",
+      "category": "Programmes & Curriculum"
     },
     {
-        "q": "Does B.Pharm. include drug formulation and drug delivery?",
-        "a": "Yes. Pharmaceutics and Drug Delivery are core areas of the B.Pharm. curriculum.",
-        "category": "Programmes & Curriculum"
+      "q": "Does B.Pharm. include drug formulation and drug delivery?",
+      "a": "Yes. Pharmaceutics and Drug Delivery are core areas of the B.Pharm. curriculum.",
+      "category": "Programmes & Curriculum"
     },
     {
-        "q": "Is pharmacy education only about medicines and dispensing?",
-        "a": "No. The programmes cover drug formulation, pharmaceutical chemistry, pharmacology, clinical and hospital pharmacy, research, regulatory affairs, pharmacovigilance, drug discovery and pharmaceutical marketing.",
-        "category": "Programmes & Curriculum"
+      "q": "Is pharmacy education only about medicines and dispensing?",
+      "a": "No. The programmes cover drug formulation, pharmaceutical chemistry, pharmacology, clinical and hospital pharmacy, research, regulatory affairs, pharmacovigilance, drug discovery and pharmaceutical marketing.",
+      "category": "Programmes & Curriculum"
     },
     {
-        "q": "How much practical learning do pharmacy students receive?",
-        "a": "Practical learning is a major part of the Institute's approach through laboratory sessions, modern equipment, industrial visits, internships, projects and research-oriented activities.",
-        "category": "Practical Learning, Laboratories & Research"
+      "q": "How much practical learning do pharmacy students receive?",
+      "a": "Practical learning is a major part of the Institute's approach through laboratory sessions, modern equipment, industrial visits, internships, projects and research-oriented activities.",
+      "category": "Practical Learning, Laboratories & Research"
     },
     {
-        "q": "What laboratory facilities are available to pharmacy students?",
-        "a": "The Institute highlights modern laboratories, a state-of-the-art Machine Room, a Central Instrumentation Laboratory and intelligent classrooms with audio-visual facilities.",
-        "category": "Practical Learning, Laboratories & Research"
+      "q": "What laboratory facilities are available to pharmacy students?",
+      "a": "The Institute highlights modern laboratories, a state-of-the-art Machine Room, a Central Instrumentation Laboratory and intelligent classrooms with audio-visual facilities.",
+      "category": "Practical Learning, Laboratories & Research"
     },
     {
-        "q": "Will students get hands-on experience with pharmaceutical equipment?",
-        "a": "Yes. The Institute highlights practical laboratory training and advanced equipment supporting pharmaceutical analysis, formulation and related learning.",
-        "category": "Practical Learning, Laboratories & Research"
+      "q": "Will students get hands-on experience with pharmaceutical equipment?",
+      "a": "Yes. The Institute highlights practical laboratory training and advanced equipment supporting pharmaceutical analysis, formulation and related learning.",
+      "category": "Practical Learning, Laboratories & Research"
     },
     {
-        "q": "Does the Institute provide research opportunities?",
-        "a": "Yes. Research is a prominent part of the Institute's academic environment, with faculty publications, patents, research projects, conferences and pharmaceutical research activities.",
-        "category": "Practical Learning, Laboratories & Research"
+      "q": "Does the Institute provide research opportunities?",
+      "a": "Yes. Research is a prominent part of the Institute's academic environment, with faculty publications, patents, research projects, conferences and pharmaceutical research activities.",
+      "category": "Practical Learning, Laboratories & Research"
     },
     {
-        "q": "Can pharmacy students participate in research projects and conferences?",
-        "a": "Yes. The Institute highlights research projects and international conferences, giving students opportunities to engage with current pharmaceutical research.",
-        "category": "Practical Learning, Laboratories & Research"
+      "q": "Can pharmacy students participate in research projects and conferences?",
+      "a": "Yes. The Institute highlights research projects and international conferences, giving students opportunities to engage with current pharmaceutical research.",
+      "category": "Practical Learning, Laboratories & Research"
     },
     {
-        "q": "Are students exposed to drug discovery and development?",
-        "a": "Yes. Drug discovery and research are identified among the Institute's career pathways, alongside formulation, pharmaceutical chemistry, pharmacology and related research areas.",
-        "category": "Practical Learning, Laboratories & Research"
+      "q": "Are students exposed to drug discovery and development?",
+      "a": "Yes. Drug discovery and research are identified among the Institute's career pathways, alongside formulation, pharmaceutical chemistry, pharmacology and related research areas.",
+      "category": "Practical Learning, Laboratories & Research"
     },
     {
-        "q": "Does the B.Pharm. programme include internships?",
-        "a": "Yes. The B.Pharm. programme includes internship and practical-training components. Its programme FAQ states that students can undertake internships after completion of the first year for hands-on experience.",
-        "category": "Industry Exposure & Internships"
+      "q": "Does the B.Pharm. programme include internships?",
+      "a": "Yes. The B.Pharm. programme includes internship and practical-training components. Its programme FAQ states that students can undertake internships after completion of the first year for hands-on experience.",
+      "category": "Industry Exposure & Internships"
     },
     {
-        "q": "Can pharmacy students get practical exposure in hospitals as well as pharmaceutical companies?",
-        "a": "Yes. The Institute highlights opportunities across hospitals, pharmaceutical companies, research centres and other pharmacy settings. D.Pharm. information also highlights hospital and retail pharmacy exposure.",
-        "category": "Industry Exposure & Internships"
+      "q": "Can pharmacy students get practical exposure in hospitals as well as pharmaceutical companies?",
+      "a": "Yes. The Institute highlights opportunities across hospitals, pharmaceutical companies, research centres and other pharmacy settings. D.Pharm. information also highlights hospital and retail pharmacy exposure.",
+      "category": "Industry Exposure & Internships"
     },
     {
-        "q": "Does D.Pharm. include industrial visits?",
-        "a": "Yes. Industrial visits are explicitly included in the D.Pharm. programme information.",
-        "category": "Industry Exposure & Internships"
+      "q": "Does D.Pharm. include industrial visits?",
+      "a": "Yes. Industrial visits are explicitly included in the D.Pharm. programme information.",
+      "category": "Industry Exposure & Internships"
     },
     {
-        "q": "Does the Institute have collaborations with pharmaceutical companies?",
-        "a": "The Institute highlights MOUs with pharmaceutical companies for live projects, internships and research cooperation, along with factory visits and expert lectures.",
-        "category": "Industry Exposure & Internships"
+      "q": "Does the Institute have collaborations with pharmaceutical companies?",
+      "a": "The Institute highlights MOUs with pharmaceutical companies for live projects, internships and research cooperation, along with factory visits and expert lectures.",
+      "category": "Industry Exposure & Internships"
     },
     {
-        "q": "Will students get exposure to pharmaceutical manufacturing?",
-        "a": "Yes. Industry visits, practical training, formulation-related learning and industry collaborations are intended to expose students to pharmaceutical operations and manufacturing environments.",
-        "category": "Industry Exposure & Internships"
+      "q": "Will students get exposure to pharmaceutical manufacturing?",
+      "a": "Yes. Industry visits, practical training, formulation-related learning and industry collaborations are intended to expose students to pharmaceutical operations and manufacturing environments.",
+      "category": "Industry Exposure & Internships"
     },
     {
-        "q": "Can students gain exposure to regulatory affairs and pharmacovigilance?",
-        "a": "Yes. Regulatory affairs and pharmacovigilance are identified among the Institute's career pathways, and faculty expertise also includes these areas.",
-        "category": "Industry Exposure & Internships"
+      "q": "Can students gain exposure to regulatory affairs and pharmacovigilance?",
+      "a": "Yes. Regulatory affairs and pharmacovigilance are identified among the Institute's career pathways, and faculty expertise also includes these areas.",
+      "category": "Industry Exposure & Internships"
     },
     {
-        "q": "What career options are available after D.Pharm.?",
-        "a": "D.Pharm. graduates can pursue pharmacy-related roles in hospitals, community or retail pharmacies and pharmaceutical organisations, and can also progress to B.Pharm. through the applicable lateral-entry route.",
-        "category": "Placements & Career Opportunities"
+      "q": "What career options are available after D.Pharm.?",
+      "a": "D.Pharm. graduates can pursue pharmacy-related roles in hospitals, community or retail pharmacies and pharmaceutical organisations, and can also progress to B.Pharm. through the applicable lateral-entry route.",
+      "category": "Placements & Career Opportunities"
     },
     {
-        "q": "What career options are available after B.Pharm.?",
-        "a": "Career pathways include pharmacist, drug analyst, medical representative, clinical research associate, pharmaceutical marketing, quality assurance/quality control, production, regulatory affairs and research. Graduates can also pursue higher studies.",
-        "category": "Placements & Career Opportunities"
+      "q": "What career options are available after B.Pharm.?",
+      "a": "Career pathways include pharmacist, drug analyst, medical representative, clinical research associate, pharmaceutical marketing, quality assurance/quality control, production, regulatory affairs and research. Graduates can also pursue higher studies.",
+      "category": "Placements & Career Opportunities"
     },
     {
-        "q": "Can B.Pharm. graduates work in hospitals?",
-        "a": "Yes. Hospital Pharmacy and Clinical Pharmacy are part of the B.Pharm. curriculum, and hospital pharmacy is identified as a career pathway.",
-        "category": "Placements & Career Opportunities"
+      "q": "Can B.Pharm. graduates work in hospitals?",
+      "a": "Yes. Hospital Pharmacy and Clinical Pharmacy are part of the B.Pharm. curriculum, and hospital pharmacy is identified as a career pathway.",
+      "category": "Placements & Career Opportunities"
     },
     {
-        "q": "Can B.Pharm. graduates work in pharmaceutical manufacturing?",
-        "a": "Yes. Graduates can pursue production, formulation, quality and other roles within pharmaceutical manufacturing and related organisations, depending on their skills and employer requirements.",
-        "category": "Placements & Career Opportunities"
+      "q": "Can B.Pharm. graduates work in pharmaceutical manufacturing?",
+      "a": "Yes. Graduates can pursue production, formulation, quality and other roles within pharmaceutical manufacturing and related organisations, depending on their skills and employer requirements.",
+      "category": "Placements & Career Opportunities"
     },
     {
-        "q": "Can pharmacy graduates work in clinical research?",
-        "a": "Yes. Clinical Research is specifically identified as a career pathway.",
-        "category": "Placements & Career Opportunities"
+      "q": "Can pharmacy graduates work in clinical research?",
+      "a": "Yes. Clinical Research is specifically identified as a career pathway.",
+      "category": "Placements & Career Opportunities"
     },
     {
-        "q": "Can pharmacy graduates build careers in pharmacovigilance and drug safety?",
-        "a": "Yes. Pharmacovigilance is identified as a career pathway, and the Institute highlights drug-safety and regulatory areas.",
-        "category": "Placements & Career Opportunities"
+      "q": "Can pharmacy graduates build careers in pharmacovigilance and drug safety?",
+      "a": "Yes. Pharmacovigilance is identified as a career pathway, and the Institute highlights drug-safety and regulatory areas.",
+      "category": "Placements & Career Opportunities"
     },
     {
-        "q": "Can pharmacy graduates work in pharmaceutical data science and AI?",
-        "a": "Yes. Pharmaceutical data science & AI is listed among the Institute's career pathways.",
-        "category": "Placements & Career Opportunities"
+      "q": "Can pharmacy graduates work in pharmaceutical data science and AI?",
+      "a": "Yes. Pharmaceutical data science & AI is listed among the Institute's career pathways.",
+      "category": "Placements & Career Opportunities"
     },
     {
-        "q": "Can B.Pharm. graduates pursue higher studies after graduation?",
-        "a": "Yes. Students can pursue M.Pharm. and other higher-study pathways, and those meeting applicable requirements can explore research and doctoral routes.",
-        "category": "Placements & Career Opportunities"
+      "q": "Can B.Pharm. graduates pursue higher studies after graduation?",
+      "a": "Yes. Students can pursue M.Pharm. and other higher-study pathways, and those meeting applicable requirements can explore research and doctoral routes.",
+      "category": "Placements & Career Opportunities"
     },
     {
-        "q": "Does the Institute provide placement and career support?",
-        "a": "Yes. The Institute highlights career guidance, skill-development programmes and interview preparation alongside industry exposure and placement support.",
-        "category": "Placements & Career Opportunities"
+      "q": "Does the Institute provide placement and career support?",
+      "a": "Yes. The Institute highlights career guidance, skill-development programmes and interview preparation alongside industry exposure and placement support.",
+      "category": "Placements & Career Opportunities"
     },
     {
-        "q": "Who teaches students at Geeta Institute of Pharmacy?",
-        "a": "The Institute has faculty expertise across pharmaceutics, pharmacology, medicinal chemistry, pharmacognosy, phytochemistry, drug formulation, regulatory affairs, pharmacovigilance, neuroscience and related pharmaceutical research.",
-        "category": "Faculty, Learning Experience & Student Development"
+      "q": "Who teaches students at Geeta Institute of Pharmacy?",
+      "a": "The Institute has faculty expertise across pharmaceutics, pharmacology, medicinal chemistry, pharmacognosy, phytochemistry, drug formulation, regulatory affairs, pharmacovigilance, neuroscience and related pharmaceutical research.",
+      "category": "Faculty, Learning Experience & Student Development"
     },
     {
-        "q": "Do students learn from faculty with research and industry expertise?",
-        "a": "Yes. Faculty profiles highlight research publications, patents, specialised pharmaceutical expertise and professional experience.",
-        "category": "Faculty, Learning Experience & Student Development"
+      "q": "Do students learn from faculty with research and industry expertise?",
+      "a": "Yes. Faculty profiles highlight research publications, patents, specialised pharmaceutical expertise and professional experience.",
+      "category": "Faculty, Learning Experience & Student Development"
     },
     {
-        "q": "How does the Institute prepare students for real pharmaceutical careers?",
-        "a": "The approach combines academic foundations with laboratory training, research projects, industrial visits, internships, expert lectures, industry collaborations and career-development support.",
-        "category": "Faculty, Learning Experience & Student Development"
+      "q": "How does the Institute prepare students for real pharmaceutical careers?",
+      "a": "The approach combines academic foundations with laboratory training, research projects, industrial visits, internships, expert lectures, industry collaborations and career-development support.",
+      "category": "Faculty, Learning Experience & Student Development"
     },
     {
-        "q": "Will students receive guidance for competitive or postgraduate examinations such as GPAT?",
-        "a": "The B.Pharm. programme page states that GPAT preparation support is provided through guidance sessions, extra classes and practice tests.",
-        "category": "Faculty, Learning Experience & Student Development"
+      "q": "Will students receive guidance for competitive or postgraduate examinations such as GPAT?",
+      "a": "The B.Pharm. programme page states that GPAT preparation support is provided through guidance sessions, extra classes and practice tests.",
+      "category": "Faculty, Learning Experience & Student Development"
     },
     {
-        "q": "Are the pharmacy programmes approved by the Pharmacy Council of India?",
-        "a": "Yes. The Institute states that its pharmacy programmes are approved by the Pharmacy Council of India (PCI).",
-        "category": "Global Exposure, Professional Recognition & General"
+      "q": "Are the pharmacy programmes approved by the Pharmacy Council of India?",
+      "a": "Yes. The Institute states that its pharmacy programmes are approved by the Pharmacy Council of India (PCI).",
+      "category": "Global Exposure, Professional Recognition & General"
     },
     {
-        "q": "Does the Institute provide international exposure to pharmacy students?",
-        "a": "Yes. The Institute highlights global exposure opportunities, international conferences and international engagement.",
-        "category": "Global Exposure, Professional Recognition & General"
+      "q": "Does the Institute provide international exposure to pharmacy students?",
+      "a": "Yes. The Institute highlights global exposure opportunities, international conferences and international engagement.",
+      "category": "Global Exposure, Professional Recognition & General"
     },
     {
-        "q": "How long are the pharmacy programmes?",
-        "a": "D.Pharm. is two years, B.Pharm. is four years, M.Pharm. (Pharmaceutics) is two years, and Ph.D. in Pharmaceutical Sciences has a minimum duration of three years.",
-        "category": "Global Exposure, Professional Recognition & General"
+      "q": "How long are the pharmacy programmes?",
+      "a": "D.Pharm. is two years, B.Pharm. is four years, M.Pharm. (Pharmaceutics) is two years, and Ph.D. in Pharmaceutical Sciences has a minimum duration of three years.",
+      "category": "Global Exposure, Professional Recognition & General"
     },
     {
-        "q": "What makes Geeta Institute of Pharmacy different from a purely classroom-based pharmacy programme?",
-        "a": "The Institute combines pharmaceutical theory with modern laboratories, practical training, research opportunities, industry collaborations, industrial visits, internships, expert lectures, conferences and career support.",
-        "category": "Global Exposure, Professional Recognition & General"
+      "q": "What makes Geeta Institute of Pharmacy different from a purely classroom-based pharmacy programme?",
+      "a": "The Institute combines pharmaceutical theory with modern laboratories, practical training, research opportunities, industry collaborations, industrial visits, internships, expert lectures, conferences and career support.",
+      "category": "Global Exposure, Professional Recognition & General"
     },
     {
-        "q": "What should a student consider before choosing D.Pharm. or B.Pharm.?",
-        "a": "Students should consider their desired qualification level, career timeline and long-term goals. D.Pharm. provides a shorter foundational route, while B.Pharm. offers deeper four-year degree-level study and broader progression.",
-        "category": "Global Exposure, Professional Recognition & General"
+      "q": "What should a student consider before choosing D.Pharm. or B.Pharm.?",
+      "a": "Students should consider their desired qualification level, career timeline and long-term goals. D.Pharm. provides a shorter foundational route, while B.Pharm. offers deeper four-year degree-level study and broader progression.",
+      "category": "Global Exposure, Professional Recognition & General"
     },
     {
-        "q": "Can pharmacy students build careers beyond traditional pharmacist roles?",
-        "a": "Yes. The Institute identifies clinical research, pharmacovigilance, regulatory affairs, drug discovery and research, pharmaceutical data science & AI, pharmaceutical management, hospital pharmacy, government roles and manufacturing among its career pathways.",
-        "category": "Global Exposure, Professional Recognition & General"
+      "q": "Can pharmacy students build careers beyond traditional pharmacist roles?",
+      "a": "Yes. The Institute identifies clinical research, pharmacovigilance, regulatory affairs, drug discovery and research, pharmaceutical data science & AI, pharmaceutical management, hospital pharmacy, government roles and manufacturing among its career pathways.",
+      "category": "Global Exposure, Professional Recognition & General"
     }
-],
+  ],
 };

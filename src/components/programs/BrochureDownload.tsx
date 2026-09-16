@@ -80,11 +80,12 @@ export default function BrochureDownload({
                 color: "#FFFFFF",
                 lineHeight: 1.15,
                 letterSpacing: "-0.5px",
-                marginBottom: 16,
+                marginBottom: 0,
               }}
             >
               {title}
             </h2>
+            {/* Description commented out
             <p
               style={{
                 fontSize: 16,
@@ -96,6 +97,7 @@ export default function BrochureDownload({
             >
               {description}
             </p>
+            */}
           </div>
 
           {/* Right: Download Button */}

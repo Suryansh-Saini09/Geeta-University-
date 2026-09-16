@@ -50,34 +50,36 @@ export default function LearningSpaces({
       id="Infrastructure"
       className="w-full bg-[#F7F9FC] py-16 md:py-24 border-t border-slate-200/60 overflow-hidden"
     >
-      {/* Header with Title & Subtitle */}
-      <div className="max-w-[1240px] mx-auto px-6 md:px-10 mb-10 md:mb-12">
-        <span
-          style={{
-            color: "#E8871A",
-            fontWeight: 700,
-            fontSize: 13,
-            letterSpacing: 2,
-            textTransform: "uppercase",
-            display: "inline-block",
-            marginBottom: 8,
-          }}
-        >
-          {eyebrow}
-        </span>
+      {/* Header */}
+      <div style={{ maxWidth: 1240, margin: "0 auto 40px", padding: "0 24px", textAlign: "center" }}>
+        {/* {eyebrow && (
+          <span
+            style={{
+              color: "#E8871A",
+              fontWeight: 700,
+              fontSize: 12,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              display: "inline-block",
+              marginBottom: 8,
+            }}
+          >
+            {eyebrow}
+          </span>
+        )} */}
         <h2
           style={{
             fontSize: "clamp(30px, 3.8vw, 44px)",
             fontWeight: 900,
             color: "#0A1F44",
-            margin: "0 0 12px",
+            margin: 0,
             lineHeight: 1.15,
             letterSpacing: "-1px",
           }}
         >
           {title}
         </h2>
-        {subtitle && (
+        {/* {subtitle && (
           <p
             style={{
               fontSize: 16.5,
@@ -90,7 +92,7 @@ export default function LearningSpaces({
           >
             {subtitle}
           </p>
-        )}
+        )} */}
       </div>
 
       {/* 1. Infrastructure Highlights Grid (if text spaces exist) */}
@@ -151,11 +153,11 @@ export default function LearningSpaces({
         </div>
       )}
 
-      {closingNote && (
+      {/* {closingNote && (
         <div className="max-w-[1240px] mx-auto px-6 md:px-10 mt-10 text-center text-sm text-[#64748B] font-medium">
           {closingNote}
         </div>
-      )}
+      )} */}
 
       <style jsx>{`
         @keyframes marqueeScroll {

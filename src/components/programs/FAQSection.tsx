@@ -98,7 +98,7 @@ export default function FAQSection({
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 56 }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
+          {/* <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
             <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
             <span
               style={{
@@ -112,22 +112,22 @@ export default function FAQSection({
               Have Questions?
             </span>
             <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-          </div>
+          </div> */}
           <h2
             style={{
               fontSize: 48,
               fontWeight: 900,
               color: "#0A1F44",
-              margin: "0 0 16px",
+              margin: 0,
               lineHeight: 1.1,
               letterSpacing: "-1.5px",
             }}
           >
             {title}
           </h2>
-          <p style={{ fontSize: 16, color: "#64748B", maxWidth: 600, margin: "0 auto", lineHeight: 1.6 }}>
+          {/* <p style={{ fontSize: 16, color: "#64748B", maxWidth: 600, margin: "0 auto", lineHeight: 1.6 }}>
             {subtitle}
-          </p>
+          </p> */}
         </div>
 
         {/* Search Bar */}

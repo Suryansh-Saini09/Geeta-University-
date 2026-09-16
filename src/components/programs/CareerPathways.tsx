@@ -172,7 +172,8 @@ export default function CareerPathways({
         {/* Header & Carousel Slider */}
         {pathwayItems.length > 0 && (
           <>
-            <div style={{ textAlign: "center", marginBottom: 56 }}>
+            <div style={{ textAlign: "center", marginBottom: 40 }}>
+              {/* Eyebrow commented out
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
                 <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
                 <span
@@ -188,18 +189,20 @@ export default function CareerPathways({
                 </span>
                 <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
               </div>
+              */}
               <h2
                 style={{
                   fontSize: 48,
                   fontWeight: 900,
                   color: "#0A1F44",
-                  margin: "0 0 16px",
+                  margin: 0,
                   lineHeight: 1.1,
                   letterSpacing: "-1.5px",
                 }}
               >
                 {title}
               </h2>
+              {/* Subtitle commented out
               <p
                 style={{
                   fontSize: 16,
@@ -212,6 +215,7 @@ export default function CareerPathways({
               >
                 {subtitle}
               </p>
+              */}
             </div>
 
             <div style={{ position: "relative", marginTop: 40, padding: "0 20px" }}>

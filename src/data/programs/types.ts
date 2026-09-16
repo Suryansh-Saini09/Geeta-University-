@@ -33,6 +33,7 @@ export interface ProgramPageData {
     eyebrow?: string;
     title: string;
     paragraphs: string[];
+    links?: Array<{ text: string; href: string; target?: string; rel?: string }>;
     image?: string;
     badgeText?: string;
     careers?: string[];
@@ -95,7 +96,11 @@ export interface ProgramPageData {
     faculty: FacultyMember[];
   };
 
+  usps?: SchoolUspsSection;
+
   departmentHighlights?: DepartmentHighlightItem[];
+  departmentHighlightsTitle?: string;
+  departmentHighlightsSubtitle?: string;
   highlightsImageOnly?: boolean;
 
   brochure?: {
@@ -414,4 +419,16 @@ export interface CorporateConnectData {
   description?: string;
   videos?: CorporateConnectVideo[];
   events?: CorporateConnectEvent[];
+}
+
+export interface SchoolUspCard {
+  title: string;
+  points: string[];
+}
+
+export interface SchoolUspsSection {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  cards: SchoolUspCard[];
 }

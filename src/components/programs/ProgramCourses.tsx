@@ -186,16 +186,16 @@ export default function ProgramCourses({
                 fontSize: 48,
                 fontWeight: 900,
                 color: "#0A1F44",
-                margin: "0 0 12px",
+                margin: 0,
                 lineHeight: 1.1,
                 letterSpacing: "-1px",
               }}
             >
               {title}
             </h2>
-            <p style={{ fontSize: 16, color: "#64748B", margin: 0, letterSpacing: 0.5 }}>
+            {/* <p style={{ fontSize: 16, color: "#64748B", margin: 0, letterSpacing: 0.5 }}>
               {subtitle}
-            </p>
+            </p> */}
           </div>
 
           <a
