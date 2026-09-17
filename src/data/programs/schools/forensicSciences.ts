@@ -727,10 +727,10 @@ export const forensicSciencesSchool: ProgramPageData = {
   careerPathways: {
     title: "Pathway after Forensic Sciences",
     description:
-      "There are numerous jobs opportunities available in both the Government and Private Sectors including central forensic science laboratories, state forensic science laboratories, Crime Branches, CBI, CID, Police, Investigation Bureau, Defense/Army, Courts, Narcotics Dept., Universities, Detective Agencies, Banks, Insurance Companies, among others. Below are some of the top designations in the field of forensic science:",
+      "There are numerous job opportunities available in both the Government and Private Sectors including central forensic science laboratories, state forensic science laboratories, Crime Branches, CBI, CID, Police, Investigation Bureau, Defense/Army, Courts, Narcotics Dept., Universities, Detective Agencies, Banks, Insurance Companies, among others. Below are some of the top designations in the field of forensic science:",
     notableRoles: [
-      { name: "Investigative officers", iconName: "Target" },
-      { name: "Legal counselors", iconName: "Landmark" },
+      { name: "Investigative Officers", iconName: "Target" },
+      { name: "Legal Counselors", iconName: "Landmark" },
       { name: "Forensic Expert", iconName: "BrainCircuit" },
       { name: "Forensic Scientist", iconName: "BookOpenCheck" },
       { name: "Crime Scene Investigator", iconName: "Lightbulb" },
