@@ -139,7 +139,7 @@ export const bbaMarketing: CoursePageData = {
       {
         title: "Market Research & Consumer Insights Analyst",
         description:
-          "Studying consumer behavior trends, competitive landscapes, and quantitative market data.",
+          "Studying consumer behaviour trends, competitive landscapes, and quantitative market data.",
       },
     ],
   },
@@ -221,7 +221,7 @@ export const bbaMarketing: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp",
       description:
-        "Expert in Behavioral Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
+        "Expert in behavioural Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
     },
     {
       name: "Dr. Nidhi Gupta",

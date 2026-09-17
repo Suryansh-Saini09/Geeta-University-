@@ -1,55 +1,30 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { industryPartners } from "@/data/industryPartners";
+import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
 export default function IndustryIntegrationSection() {
-  const marqueeItems = [...industryPartners, ...industryPartners, ...industryPartners];
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Drag-to-scroll handlers
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return;
-    setIsDragging(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-    setIsHovered(false);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 1.6;
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  // Button scroll controls
-  const scroll = (direction: "left" | "right") => {
-    if (!scrollRef.current) return;
-    const scrollAmount = 360;
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  const {
+    containerRef,
+    maxIndex,
+    next,
+    prev,
+    handleScroll,
+    handleMouseDown,
+    handleMouseLeave,
+    handleMouseEnter,
+    handleMouseUp,
+    handleMouseMove,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useFiniteCarousel({
+    totalItems: industryPartners.length,
+    autoplayInterval: 4000,
+    enableAutoplay: true,
+  });
 
   return (
     <section className="relative overflow-hidden bg-white py-20 md:py-24">
@@ -75,24 +50,28 @@ export default function IndustryIntegrationSection() {
         {/* Industry marquee & scroll container */}
         <div className="group relative">
           {/* Left navigation arrow */}
-          <button
-            type="button"
-            onClick={() => scroll("left")}
-            aria-label="Scroll left"
-            className="absolute left-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-11 sm:w-11"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Scroll left"
+              className="absolute left-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-11 sm:w-11 cursor-pointer"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+          )}
 
           {/* Right navigation arrow */}
-          <button
-            type="button"
-            onClick={() => scroll("right")}
-            aria-label="Scroll right"
-            className="absolute right-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-11 sm:w-11"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Scroll right"
+              className="absolute right-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-11 sm:w-11 cursor-pointer"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          )}
 
           {/* Left fade */}
           <div
@@ -106,23 +85,23 @@ export default function IndustryIntegrationSection() {
             className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white to-transparent sm:w-28"
           />
 
-          {/* Marquee viewport with drag and scroll */}
+          {/* Viewport with drag and scroll */}
           <div className="overflow-hidden rounded-3xl border border-[#DCE5EC] bg-[#F8FAFC] py-7 shadow-sm sm:py-9">
             <div
-              ref={scrollRef}
+              ref={containerRef}
+              onScroll={handleScroll}
               onMouseDown={handleMouseDown}
               onMouseLeave={handleMouseLeave}
               onMouseEnter={handleMouseEnter}
               onMouseUp={handleMouseUp}
               onMouseMove={handleMouseMove}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
               className="flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
-              <div
-                className={`industry-marquee flex w-max items-center ${
-                  isHovered || isDragging ? "paused" : ""
-                }`}
-              >
-                {marqueeItems.map((partner, index) => (
+              <div className="flex w-max items-center">
+                {industryPartners.map((partner, index) => (
                   <div
                     key={`${partner.image}-${index}`}
                     className="group/item mx-3 flex h-28 w-44 shrink-0 items-center justify-center rounded-2xl border border-[#E1E8EE] bg-white px-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F28C18]/40 hover:shadow-lg sm:mx-4 sm:h-32 sm:w-52"
@@ -139,46 +118,7 @@ export default function IndustryIntegrationSection() {
             </div>
           </div>
         </div>
-
-
       </div>
-
-      {/* Marquee animation */}
-      <style jsx>{`
-        .industry-marquee {
-          animation: industry-scroll 42s linear infinite;
-        }
-
-        .industry-marquee.paused {
-          animation-play-state: paused !important;
-        }
-
-        .industry-marquee:hover {
-          animation-play-state: paused !important;
-        }
-
-        @keyframes industry-scroll {
-          from {
-            transform: translateX(0);
-          }
-
-          to {
-            transform: translateX(-33.333%);
-          }
-        }
-
-        @media (max-width: 640px) {
-          .industry-marquee {
-            animation-duration: 32s;
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .industry-marquee {
-            animation: none !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

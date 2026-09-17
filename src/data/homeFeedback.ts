@@ -25,7 +25,7 @@ export const homeFeedback: HomeFeedback[] = [
     package: "30 LPA",
     image: "/home/parikshit.jpg-full.webp",
     testimonial:
-      "Time I spent at Geeta University, helped me to fill the gap between theory-based learning and practical learning. The practical lessons helped me to shape my career.",
+      "The time I spent at Geeta University helped me to fill the gap between theory-based learning and practical learning. The practical lessons helped me to shape my career.",
   },
   {
     name: "Vikas Bareja",

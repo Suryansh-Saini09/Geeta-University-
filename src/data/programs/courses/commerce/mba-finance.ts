@@ -51,7 +51,7 @@ export const mbaFinance: CoursePageData = {
     "Working Capital Management",
     "Security Analysis",
     "Portfolio Management",
-    "Behavioral Finance",
+    "behavioural Finance",
     "Corporate Finance",
     "Financial Markets & Institutions",
     "Wealth Management",
@@ -238,7 +238,7 @@ export const mbaFinance: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp",
       description:
-        "Expert in Behavioral Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
+        "Expert in behavioural Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
     },
     {
       name: "Dr. Nidhi Gupta",

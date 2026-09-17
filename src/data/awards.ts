@@ -30,7 +30,7 @@ export const awards: Award[] = [
   {
     id: 2,
     image: "/about/AWARD-FOR-BEST-GROUP-OF-COLLEGES-IN-DELHI,-NCR.png",
-    title: "AWARD FOR BEST GROUP OF COLLEGES IN DELHI/NCR",
+    title: "BEST GROUP OF COLLEGES IN DELHI/NCR",
     presentedBy: "Ms. Raveena Tandon",
     designation: "Bollywood Actress",
     presenters: [
@@ -44,7 +44,7 @@ export const awards: Award[] = [
   {
     id: 3,
     image: "/about/Global-Excellence-&-leadership-Award-2025.png",
-    title: "AWARD FOR RANKED 1ST AMONG TOP PRIVATE B-SCHOOLS IN DELHI NCR",
+    title: "RANKED 1ST AMONG TOP PRIVATE B-SCHOOLS IN DELHI NCR",
     presentedBy: "Ms. Bipasha Basu",
     designation: "Bollywood Actress",
     presenters: [
@@ -58,7 +58,7 @@ export const awards: Award[] = [
   {
     id: 4,
     image: "/about/AWARD-FOR-FASTEST-GROWING-UNIVERSITY-OF-NORTH-INDIA.png",
-    title: "AWARD FOR FASTEST GROWING UNIVERSITY OF NORTH INDIA",
+    title: "FASTEST GROWING UNIVERSITY OF NORTH INDIA",
     presentedBy: "Smt. Jaya Prada",
     designation: "Bollywood Actress & Former Member of Parliament",
     presenters: [
@@ -72,8 +72,8 @@ export const awards: Award[] = [
   {
     id: 5,
     image: "/about/AWARD-FOR-BEST-EDUCATION-GROUP.png",
-    title: "AWARD FOR BEST EDUCATION GROUP",
-    presentedBy: "Smt. Sharmila Tagore & Dr. C P Thakur",
+    title: "BEST EDUCATION GROUP",
+    presentedBy: "Smt. Sharmila Tagore & Dr. C. P. Thakur",
     designation: "Padma Bhushan Awardee & Member of Parliament, Rajya Sabha",
     presenters: [
       {
@@ -81,7 +81,7 @@ export const awards: Award[] = [
         designation: "Padma Bhushan Awardee",
       },
       {
-        name: "Dr. C P Thakur",
+        name: "Dr. C. P. Thakur",
         designation: "Member of Parliament, Rajya Sabha",
       },
     ],
@@ -90,7 +90,7 @@ export const awards: Award[] = [
   {
     id: 6,
     image: "/about/awardd.png",
-    title: "AWARD FOR NORTH INDIA’S LEADER IN AI & EMERGING TECH EDUCATION",
+    title: "NORTH INDIA’S LEADER IN AI & EMERGING TECH EDUCATION",
     presentedBy: "Sh. Randeep Hooda",
     designation: "Bollywood Actor",
     presenters: [

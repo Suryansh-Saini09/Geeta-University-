@@ -106,7 +106,7 @@ export default function DepartmentHighlights({
           </h2>
         </motion.div>
 
-        {/* Single Item: Centered Display */}
+        {/* Single Item: centred Display */}
         {isSingle && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}

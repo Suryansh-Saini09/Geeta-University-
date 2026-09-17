@@ -277,8 +277,8 @@ export default function ProgramMentors({
                   mentors.length === 1
                     ? "minmax(280px, 320px)"
                     : mentors.length === 2
-                    ? "repeat(auto-fit, minmax(280px, 320px))"
-                    : "repeat(auto-fit, minmax(260px, 1fr))",
+                      ? "repeat(auto-fit, minmax(280px, 320px))"
+                      : "repeat(auto-fit, minmax(260px, 1fr))",
                 gap: 24,
                 justifyContent: mentors.length < 3 ? "flex-start" : "stretch",
                 width: "100%",

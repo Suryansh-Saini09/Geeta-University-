@@ -142,7 +142,7 @@ export default function SmartCampusSection() {
                 className="mx-auto mt-4 max-w-4xl text-base leading-8 sm:text-lg"
                 style={{ color: "var(--gu-text-muted)" }}
               >
-                It covers 40 acres of land. Geeta University carries the powerful tradition of the Geeta Group of Institutions. Based on the tenets on Karma along with a global outlook, GU blends academic excellence with cutting-edge technology to create an advanced and future-proof learning environment. From ICT-enabled classrooms to smart classes, learning platforms, and transparent digital systems, each interaction at GU is created to be effortless, creative and centered around students. Geeta University stands as the culmination of aspiration, ambition and a commitment to an elite, technologically-driven education that prepares students for the jobs of the future.
+                It covers 40 acres of land. Geeta University carries the powerful tradition of the Geeta Group of Institutions. Based on the tanets of Karma along with a global outlook, GU blends academic excellence with cutting-edge technology to create an advanced and future-proof learning environment. From ICT-enabled classrooms to smart classes, learning platforms, and transparent digital systems, each interaction at GU is created to be effortless, creative and centred around students. Geeta University stands as the culmination of aspiration, ambition and a commitment to an elite, technology-driven education that prepares students for the jobs of the future.
               </p>
             </div>
           </motion.div>

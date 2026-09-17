@@ -417,7 +417,7 @@ const spBansalFaqs = [
   },
   {
     q: "What is covered in MBA Finance?",
-    a: "The MBA Finance curriculum highlights behavioral finance, investment banking essentials, risk management and derivatives, corporate valuation, sustainable finance and financial modelling with AI.",
+    a: "The MBA Finance curriculum highlights behavioural finance, investment banking essentials, risk management and derivatives, corporate valuation, sustainable finance and financial modelling with AI.",
     category: "MBA Structure & Specialisations"
   },
   {
@@ -718,7 +718,7 @@ const spBansalFaqs = [
   },
   {
     q: "Can students combine business knowledge with AI and analytics?",
-    a: "Yes. AI-enabled analytics and decision-making, applied AI tools, enterprise applications and data-driven approaches are centered on business knowledge.",
+    a: "Yes. AI-enabled analytics and decision-making, applied AI tools, enterprise applications and data-driven approaches are centred on business knowledge.",
     category: "General & Decision-Making"
   },
   {

@@ -59,7 +59,7 @@ export const bscHotelManagement: CoursePageData = {
   learningOutcomes: [
     "Master operations in kitchen, restaurant, and hotel front desk",
     "Apply hospitality software and service automation tools",
-    "Understand guest behavior and enhance satisfaction",
+    "Understand guest behaviour and enhance satisfaction",
     "Manage events, hotel operations, and customer experience",
     "Develop entrepreneurial mindset for hospitality startups",
   ],

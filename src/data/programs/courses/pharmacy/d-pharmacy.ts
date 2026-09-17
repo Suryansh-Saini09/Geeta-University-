@@ -196,7 +196,7 @@ export const dPharmacy: CoursePageData = {
       title: "GUTS",
       subtitle: "GEETA UNIVERSITY TEST OF SCHOLARSHIP",
       description:
-        "Geeta University (GU) strongly believes that monetary constraints should not be an obstacle for a student to have access to quality education. Geeta University Test of Scholarship (GUTS) provides students with an opportunity to reduce the financial burden and get up to 100% off on tuition fees based on their performance.",
+        "Geeta University (GU) strongly believes that monetary constraints should not prevent students from accessing quality education. Geeta University Test of Scholarship (GUTS) provides students with an opportunity to reduce the financial burden and get up to 100% off on tuition fees based on their performance.",
       linkText: "Apply Now",
       linkUrl: "https://geetauniversity.edu.in/guts",
     },

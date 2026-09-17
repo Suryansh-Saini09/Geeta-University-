@@ -359,7 +359,7 @@ export const forensicSciencesSchool: ProgramPageData = {
     vision:
       "“To become a distinguished institution of scientific education and research, fostering inquisitive scientific minds, innovators, educators, and problem solvers who contribute towards scientific advancement, technological innovation, and sustainable development for the nation and the world at large.”",
     mission: [
-      "To deliver student-centered, outcome-based science education with a solid theoretical foundation, analytical thinking, scientific inquiry, and hands-on laboratory skills across scientific disciplines.",
+      "To deliver student-centred, outcome-based science education with a solid theoretical foundation, analytical thinking, scientific inquiry, and hands-on laboratory skills across scientific disciplines.",
       "To develop educated and ethical citizens equipped with the critical thinking and investigative imagination needed to address emerging scientific and societal challenges.",
       "To foster interdisciplinary research, innovation, and discovery that advance science, technology, environmental sustainability, and human welfare.",
       "To build meaningful partnerships with research institutions, industry leaders, and academic collaborators to enhance experiential learning and knowledge transfer.",
