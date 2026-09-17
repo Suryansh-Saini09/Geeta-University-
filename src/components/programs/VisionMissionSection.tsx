@@ -31,18 +31,8 @@ export default function VisionMissionSection({
   };
 
   return (
-    <section id="vision-mission" className="w-full py-12 md:py-16 bg-slate-50/50">
+    <section id="vision-mission" className="w-full py-6 md:py-8 bg-slate-50/50">
       <div id="VisionMission" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-8 sm:mb-10">
-          {/* <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#E8871A] bg-amber-50 border border-amber-200/60 px-4 py-1.5 rounded-full inline-block mb-3">
-            Guiding Principles
-          </span> */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0B1B3D] tracking-tight">
-            Our Vision &amp; Mission
-          </h2>
-        </div>
-
         {/* Stacked Dropdown (Accordion) Container */}
         <div className="flex flex-col gap-4 sm:gap-5">
           {/* ==================== OUR VISION ACCORDION ITEM ==================== */}
