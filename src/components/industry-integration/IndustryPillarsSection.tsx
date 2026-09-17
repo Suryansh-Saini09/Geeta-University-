@@ -21,7 +21,7 @@ export default function IndustryPillarsSection() {
   };
 
   return (
-    <section className="w-full bg-white py-16 md:py-24 border-t border-slate-200">
+    <section className="w-full bg-white py-12 md:py-16 border-t border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
           <span className="mb-3 inline-block rounded-full bg-[#E8871A]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#E8871A]">

@@ -4,7 +4,7 @@ import { scholarshipData, gutsData } from "@/data/scholarships";
 
 export default function ScholarshipsSection() {
   return (
-    <section className="relative overflow-hidden bg-[#F5F8FA] py-20 md:py-24">
+    <section className="relative overflow-hidden bg-[#F5F8FA] py-12 md:py-16">
       {/* Decorative background */}
       <div
         aria-hidden="true"

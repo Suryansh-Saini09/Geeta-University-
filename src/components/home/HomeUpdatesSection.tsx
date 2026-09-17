@@ -281,7 +281,7 @@ function UpdateItem({
 
 export default function HomeUpdatesSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-20 md:py-24">
+    <section className="relative overflow-hidden bg-white py-12 md:py-16">
       {/* Top orange line */}
       <div className="absolute left-0 right-0 top-0 h-1 bg-[#F28C18]" />
 

@@ -12,7 +12,7 @@ export default function LibraryFaqAccordion() {
   };
 
   return (
-    <section className="w-full bg-white py-16 md:py-24 border-t border-slate-200">
+    <section className="w-full bg-white py-12 md:py-16 border-t border-slate-200">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center mb-12">

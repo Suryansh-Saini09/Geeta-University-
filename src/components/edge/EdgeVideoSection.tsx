@@ -15,7 +15,7 @@ export default function EdgeVideoSection({ section }: EdgeVideoSectionProps) {
   const videos = section.playlist || (section.featuredVideo ? [section.featuredVideo] : []);
 
   return (
-    <section className="bg-slate-900 py-20 lg:py-28 relative text-white overflow-hidden border-t border-slate-800">
+    <section className="bg-slate-900 py-12 md:py-16 relative text-white overflow-hidden border-t border-slate-800">
       {/* Background Glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0A1F44] via-slate-900 to-slate-950" />
       <div className="absolute -left-20 top-20 w-80 h-80 bg-[#E8871A]/10 rounded-full blur-3xl pointer-events-none" />

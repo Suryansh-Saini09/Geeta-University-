@@ -13,7 +13,7 @@ export default function LegacyEcosystem({
   contextText = "Students benefit from the integrated ecosystem of:",
 }: LegacyEcosystemProps) {
   return (
-    <section id={id} className="scroll-mt-[190px] bg-white py-20 lg:py-24 border-t border-[#E2E8F0]">
+    <section id={id} className="scroll-mt-[190px] bg-white py-12 md:py-16 border-t border-[#E2E8F0]">
       <div className="gu-container">
         {/* Section Header with exact site typography */}
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">

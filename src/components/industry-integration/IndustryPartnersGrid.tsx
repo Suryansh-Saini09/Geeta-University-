@@ -6,7 +6,7 @@ import { industryPartners } from "@/data/industryIntegration";
 
 export default function IndustryPartnersGrid() {
   return (
-    <section id="partners-grid" className="w-full bg-[#F7F9FC] py-16 md:py-24">
+    <section id="partners-grid" className="w-full bg-[#F7F9FC] py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">

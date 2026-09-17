@@ -79,7 +79,7 @@ export default function TransportAndHostelPredictor() {
   };
 
   return (
-    <section id="hostel-transport-calculator" className="w-full bg-white py-16 sm:py-20 md:py-24 border-b border-[#E2E8F0]">
+    <section id="hostel-transport-calculator" className="w-full bg-white py-12 md:py-16 border-b border-[#E2E8F0]">
       <div className="gu-container">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">

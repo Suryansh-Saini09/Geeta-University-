@@ -11,7 +11,7 @@ interface EdgeCTAProps {
 
 export default function EdgeCTA({ cta }: EdgeCTAProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#06355F] via-[#0A1F44] to-[#041228] py-20 lg:py-24 text-white">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#06355F] via-[#0A1F44] to-[#041228] py-12 md:py-16 text-white">
       {/* Glow shapes */}
       <div className="absolute -top-40 right-0 h-96 w-96 rounded-full bg-[#E8871A]/20 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 left-0 h-96 w-96 rounded-full bg-[#1E4E8C]/30 blur-3xl pointer-events-none" />

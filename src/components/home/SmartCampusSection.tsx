@@ -86,7 +86,7 @@ export default function SmartCampusSection() {
   return (
     <section
       aria-labelledby="smart-campus-heading"
-      className="relative overflow-hidden bg-white py-16 md:py-20 lg:py-24"
+      className="relative overflow-hidden bg-white py-12 md:py-16"
     >
       {/* Decorative background */}
       <div
