@@ -97,6 +97,7 @@ export interface ProgramPageData {
   };
 
   usps?: SchoolUspsSection;
+  transformativeTracks?: TransformativeTracksSection;
 
   departmentHighlights?: DepartmentHighlightItem[];
   departmentHighlightsTitle?: string;
@@ -431,4 +432,15 @@ export interface SchoolUspsSection {
   title: string;
   subtitle?: string;
   cards: SchoolUspCard[];
+}
+
+export interface TransformativeTrackCard {
+  title: string;
+  points: string[];
+}
+
+export interface TransformativeTracksSection {
+  title?: string;
+  subtitle?: string;
+  cards: TransformativeTrackCard[];
 }

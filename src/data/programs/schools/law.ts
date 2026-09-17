@@ -241,7 +241,7 @@ export const lawSchool: ProgramPageData = {
 
   mentorsSection: {
     eyebrow: "EXPERT MENTORSHIP",
-    title: "Meet Our Mentors",
+    title: "Meet our Mentors",
     faculty: [
       {
         name: "Prof. (Dr) Sanjeevi Shanthakumar",

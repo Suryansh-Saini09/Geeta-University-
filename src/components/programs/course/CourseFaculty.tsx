@@ -20,7 +20,7 @@ const CARD_GAP = 24;
 const STEP = CARD_WIDTH + CARD_GAP; // 304px
 
 export default function ProgramMentors({
-  title = "Led by Experts, Guided by Industry.",
+  title = "Meet our Mentors",
   mentorsSection,
   faculty,
 }: ProgramMentorsProps) {

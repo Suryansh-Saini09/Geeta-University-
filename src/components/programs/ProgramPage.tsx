@@ -15,6 +15,7 @@ import ProgramCourses from "./ProgramCourses";
 import DepartmentHighlights from "./DepartmentHighlights";
 import BrochureDownload from "./BrochureDownload";
 import ProgramSpecialisations from "./ProgramSpecialisations";
+import TransformativeTracks from "./TransformativeTracks";
 import ProgramUsps from "./ProgramUsps";
 import ProgramExperts from "./ProgramExperts";
 import InternationalPartners from "./InternationalPartners";
@@ -109,10 +110,15 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
         />
       )}
 
-      {/* 9. SPECIALISATIONS DIRECTORY */}
-      {/* {pageData.specialisations && (
+      {/* TRANSFORMATIVE TRACKS ("We Don't Just Educate We Transform Futures !") */}
+      {pageData.transformativeTracks && (
+        <TransformativeTracks tracks={pageData.transformativeTracks} />
+      )}
+
+      {/* 9. SPECIALISATIONS DIRECTORY ("GU New Age Specializations") */}
+      {pageData.specialisations && (
         <ProgramSpecialisations specialisations={pageData.specialisations} />
-      )} */}
+      )}
 
       {/* 10. MEET OUR MENTORS (Rendered strictly when school-specific faculty are provided) */}
       {hasMentors && (
@@ -122,7 +128,7 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
         />
       )}
 
-      {/* USPS OF THE INSTITUTE (Beige Background) */}
+      {/* USPS OF THE INSTITUTE (Beige Background for Pharmacy, Health Sciences etc.) */}
       {pageData.usps && (
         <ProgramUsps usps={pageData.usps} />
       )}

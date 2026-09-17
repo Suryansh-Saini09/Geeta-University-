@@ -184,7 +184,7 @@ export const pharmacySchool: ProgramPageData = {
 
   mentorsSection: {
     eyebrow: "EXPERT FACULTY",
-    title: "Meet Our Mentors",
+    title: "Meet our Mentors",
     faculty: [
       {
         name: "Dr. Seema Rohilla",
@@ -531,7 +531,7 @@ export const pharmacySchool: ProgramPageData = {
     fileName: "Geeta_Institute_of_Pharmacy_Brochure.pdf",
   },
 
-  departmentHighlightsTitle: "Experiential & Pharmaceutical Highlights",
+  departmentHighlightsTitle: "Where Learning Meets Achievement",
   // departmentHighlightsSubtitle: "A glimpse of world-class laboratories, live formulation research, health camps, and international conferences at Geeta Institute of Pharmacy:",
   departmentHighlights: [
     {
