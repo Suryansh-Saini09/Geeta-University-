@@ -138,7 +138,7 @@ export const hrVoices: RecruiterVoice[] = [
 export const placementStories: StudentPlacementStory[] = [
   {
     id: "story-1",
-    name: "Mr. Vaibhav Arora",
+    name: "Vaibhav Arora",
     package: "INR 1.4 Crore PA",
     image: "/home/Vaibhav.jpg-full.webp",
     quote:
@@ -146,7 +146,7 @@ export const placementStories: StudentPlacementStory[] = [
   },
   {
     id: "story-2",
-    name: "Mr. Abhishek Kumar",
+    name: "Abhishek Kumar",
     package: "INR 77.5 LPA",
     image: "/home/Abhishek-Kumar-full.webp",
     quote:
@@ -162,7 +162,7 @@ export const placementStories: StudentPlacementStory[] = [
   },
   {
     id: "story-4",
-    name: "Mr. Rakesh",
+    name: "Rakesh",
     package: "INR 52 LPA",
     image: "/home/Rakesh-BTech.webp",
     quote:
@@ -170,7 +170,7 @@ export const placementStories: StudentPlacementStory[] = [
   },
   {
     id: "story-5",
-    name: "Mr. Yakshup Goel",
+    name: "Yakshup Goel",
     package: "40 LPA",
     image: "/home/Yakshup.jpeg-full.webp",
     quote:
