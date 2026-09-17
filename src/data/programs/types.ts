@@ -137,6 +137,8 @@ export interface ProgramPageData {
     eyebrow?: string;
     title?: string;
     description?: string;
+    designations?: string[];
+    checklist?: string[];
     pathways?: PathwayCardItem[];
     notableRoles?: NotableRoleItem[];
   };

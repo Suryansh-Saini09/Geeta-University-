@@ -178,15 +178,16 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       )}
 
       {/* 15. CAREER PATHWAYS */}
-      {/* {pageData.careerPathways && (
+      {pageData.careerPathways && (
         <CareerPathways
           eyebrow={pageData.careerPathways?.eyebrow}
           title={pageData.careerPathways?.title}
           subtitle={pageData.careerPathways?.description}
+          description={pageData.careerPathways?.description}
           pathways={pageData.careerPathways?.pathways}
           notableRoles={pageData.careerPathways?.notableRoles}
         />
-      )} */}
+      )}
 
       {/* 16. BROCHURE DOWNLOAD */}
       {pageData.brochure && (

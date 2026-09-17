@@ -377,9 +377,7 @@ export const forensicSciencesSchool: ProgramPageData = {
   },
 
   specialisations: {
-    eyebrow: "LET US HELP YOU PAVE THE WAY TO SUCCESS",
-    title: "Ensure a Successful Career Path with Forensic Science Programs",
-    subtitle: "Undergraduate, Postgraduate & Doctoral Science Disciplines",
+    title: "Let Us Help You Pave the Way to Success",
     items: [
       {
         title: "Hands-on Practical Training",
@@ -727,15 +725,19 @@ export const forensicSciencesSchool: ProgramPageData = {
   },
 
   careerPathways: {
+    title: "Pathway after Forensic Sciences",
+    description:
+      "There are numerous job opportunities available in both the Government and Private Sectors including central forensic science laboratories, state forensic science laboratories, Crime Branches, CBI, CID, Police, Investigation Bureau, Defense/Army, Courts, Narcotics Dept., Universities, Detective Agencies, Banks, Insurance Companies, among others. Below are some of the top designations in the field of forensic science:",
     notableRoles: [
-      { name: "Crime Scene Investigator (CSI)", iconName: "Target" },
-      { name: "Forensic DNA Analyst", iconName: "BrainCircuit" },
-      { name: "Forensic Toxicologist", iconName: "BookOpenCheck" },
-      { name: "Digital Forensics Specialist", iconName: "Lightbulb" },
-      { name: "Fingerprint & Ballistics Expert", iconName: "UsersRound" },
-      { name: "Questioned Document Examiner", iconName: "Landmark" },
-      { name: "Corporate Fraud Investigator", iconName: "Briefcase" },
-      { name: "Scientific Research Officer", iconName: "Award" },
+      { name: "Investigative Officers", iconName: "Target" },
+      { name: "Legal Counselors", iconName: "Landmark" },
+      { name: "Forensic Expert", iconName: "BrainCircuit" },
+      { name: "Forensic Scientist", iconName: "BookOpenCheck" },
+      { name: "Crime Scene Investigator", iconName: "Lightbulb" },
+      { name: "Teacher / Professor", iconName: "GraduationCap" },
+      { name: "Crime Reporter", iconName: "UsersRound" },
+      { name: "Law Consultant", iconName: "Briefcase" },
+      { name: "Handwriting Expert", iconName: "Award" },
     ],
   },
 
