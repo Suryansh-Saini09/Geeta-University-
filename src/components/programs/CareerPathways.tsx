@@ -132,20 +132,23 @@ interface CareerPathwaysProps {
   eyebrow?: string;
   title?: string;
   subtitle?: string;
+  description?: string;
   pathways?: PathwayCardItem[];
   notableRoles?: NotableRoleItem[];
 }
 
 export default function CareerPathways({
   eyebrow,
-  title = "Your Degree. Your Direction.",
-  subtitle = "Opens doors across a wide range of rewarding careers. Here's how academic paths map to professional outcomes:",
+  title = "Career Pathways",
+  subtitle,
+  description,
   pathways,
   notableRoles,
 }: CareerPathwaysProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const pathwayItems = pathways || [];
   const roleItems = notableRoles || [];
+  const descText = description || subtitle;
 
   if (pathwayItems.length === 0 && roleItems.length === 0) return null;
 
@@ -162,61 +165,64 @@ export default function CareerPathways({
       id="CareerPathways"
       style={{
         background: "#FDF1D6",
-        padding: pathwayItems.length > 0 ? "100px 0" : "60px 0",
+        padding: pathwayItems.length > 0 ? "80px 0 90px" : "64px 0 74px",
         position: "relative",
         borderTop: "1px solid rgba(0, 0, 0, 0.06)",
         overflow: "hidden",
       }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative" }}>
-        {/* Header & Carousel Slider */}
-        {pathwayItems.length > 0 && (
-          <>
-            <div style={{ textAlign: "center", marginBottom: 40 }}>
-              {/* Eyebrow commented out
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 20 }}>
-                <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-                <span
-                  style={{
-                    color: "#E8871A",
-                    fontWeight: 700,
-                    fontSize: 11,
-                    letterSpacing: "0.22em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {eyebrow || "CAREER PATHWAYS"}
-                </span>
-                <div style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-              </div>
-              */}
-              <h2
+        {/* Section Header */}
+        <div style={{ textAlign: "center", marginBottom: pathwayItems.length > 0 ? 40 : 36 }}>
+          {eyebrow && (
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 14 }}>
+              <div style={{ width: 28, height: 2, background: "#E8871A", borderRadius: 2 }} />
+              <span
                 style={{
-                  fontSize: 48,
-                  fontWeight: 900,
-                  color: "#0A1F44",
-                  margin: 0,
-                  lineHeight: 1.1,
-                  letterSpacing: "-1.5px",
+                  color: "#E8871A",
+                  fontWeight: 800,
+                  fontSize: 11.5,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
                 }}
               >
-                {title}
-              </h2>
-              {/* Subtitle commented out
-              <p
-                style={{
-                  fontSize: 16,
-                  color: "#4A5568",
-                  maxWidth: 850,
-                  margin: "0 auto",
-                  lineHeight: 1.7,
-                  fontWeight: 450,
-                }}
-              >
-                {subtitle}
-              </p>
-              */}
+                {eyebrow}
+              </span>
+              <div style={{ width: 28, height: 2, background: "#E8871A", borderRadius: 2 }} />
             </div>
+          )}
+
+          <h2
+            style={{
+              fontSize: "clamp(28px, 3.8vw, 42px)",
+              fontWeight: 900,
+              color: "#0A1F44",
+              margin: 0,
+              lineHeight: 1.15,
+              letterSpacing: "-1px",
+            }}
+          >
+            {title}
+          </h2>
+
+          {descText && (
+            <p
+              style={{
+                fontSize: 16,
+                color: "#334155",
+                maxWidth: 920,
+                margin: "16px auto 0",
+                lineHeight: 1.7,
+                fontWeight: 450,
+              }}
+            >
+              {descText}
+            </p>
+          )}
+        </div>
+
+        {/* Carousel Slider */}
+        {pathwayItems.length > 0 && (
 
             <div style={{ position: "relative", marginTop: 40, padding: "0 20px" }}>
           <div
@@ -451,8 +457,7 @@ export default function CareerPathways({
             </svg>
           </button>
         </div>
-      </>
-    )}
+      )}
 
         {/* Notable Career Roles Band */}
         {roleItems.length > 0 && (
