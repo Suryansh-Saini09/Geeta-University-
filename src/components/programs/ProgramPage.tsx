@@ -20,6 +20,7 @@ import ProgramUsps from "./ProgramUsps";
 import ProgramExperts from "./ProgramExperts";
 import InternationalPartners from "./InternationalPartners";
 import ProgramCorporateConnect from "./ProgramCorporateConnect";
+import CenterOfExcellence from "./CenterOfExcellence";
 import ProgramPlacement from "./ProgramPlacement";
 import LearningSpaces from "./LearningSpaces";
 import CareerPathways from "./CareerPathways";
@@ -146,6 +147,14 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       {/* 13. CORPORATE CONNECT & WORKSHOPS */}
       {pageData.corporateConnect && (
         <ProgramCorporateConnect corporateConnect={pageData.corporateConnect} />
+      )}
+
+      {/* CENTER OF EXCELLENCE BANNER */}
+      {pageData.centerOfExcellence && (
+        <CenterOfExcellence
+          title={typeof pageData.centerOfExcellence === "object" ? pageData.centerOfExcellence.title : undefined}
+          bg={typeof pageData.centerOfExcellence === "object" ? pageData.centerOfExcellence.bg : undefined}
+        />
       )}
 
       {/* 14. PLACEMENT ANALYTICS & TESTIMONIALS */}
