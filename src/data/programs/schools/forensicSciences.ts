@@ -398,7 +398,7 @@ export const forensicSciencesSchool: ProgramPageData = {
         ],
       },
       {
-        title: "Multi-Faceted Pedagogy",
+        title: "Multifaceted Pedagogy",
         iconName: "UsersRound",
         points: [
           "Interactive teaching combining theory lectures, laboratory experiments, and case study reviews.",

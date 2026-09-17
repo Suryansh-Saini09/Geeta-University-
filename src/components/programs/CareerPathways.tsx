@@ -132,27 +132,34 @@ interface CareerPathwaysProps {
   eyebrow?: string;
   title?: string;
   rolesTitle?: string;
+  recruitersTitle?: string;
   subtitle?: string;
   description?: string;
   pathways?: PathwayCardItem[];
   notableRoles?: NotableRoleItem[];
+  recruiters?: (NotableRoleItem | string)[];
 }
 
 export default function CareerPathways({
   eyebrow,
   title = "Career Pathways",
   rolesTitle,
+  recruitersTitle,
   subtitle,
   description,
   pathways,
   notableRoles,
+  recruiters,
 }: CareerPathwaysProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const pathwayItems = pathways || [];
   const roleItems = notableRoles || [];
+  const recruiterItems = (recruiters || []).map((r) =>
+    typeof r === "string" ? { name: r } : r
+  );
   const descText = description || subtitle;
 
-  if (pathwayItems.length === 0 && roleItems.length === 0) return null;
+  if (pathwayItems.length === 0 && roleItems.length === 0 && recruiterItems.length === 0) return null;
 
   const scrollLeft = () => {
     if (scrollRef.current) scrollRef.current.scrollBy({ left: -360, behavior: "smooth" });
@@ -340,7 +347,7 @@ export default function CareerPathways({
                           </li>
                         ))}
                       </ul>
-                    ) : (
+                    ) : (item.desc || (item.pathway && item.pathway !== cardTitle)) ? (
                       <p
                         style={{
                           fontSize: 14.5,
@@ -354,7 +361,7 @@ export default function CareerPathways({
                       >
                         {item.desc || item.pathway}
                       </p>
-                    )}
+                    ) : null}
 
                     {/* Huge ghost number at the bottom */}
                     <div
@@ -444,10 +451,10 @@ export default function CareerPathways({
         )}
 
         {/* Notable Career Roles Band */}
-        {roleItems.length > 0 && (
+        {(roleItems.length > 0 || recruiterItems.length > 0) && (
           <div
             style={{
-              marginTop: pathwayItems.length > 0 ? 80 : 0,
+              marginTop: pathwayItems.length > 0 ? 80 : 36,
               background: "rgba(255, 255, 255, 0.45)",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
@@ -457,94 +464,238 @@ export default function CareerPathways({
               boxShadow: "0 15px 35px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
             }}
           >
-            <div style={{ textAlign: "center", marginBottom: 36 }}>
-              <h3 style={{ fontSize: 26, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.6px", margin: "0" }}>
-                {rolesTitle || "Notable Career Roles Our Graduates Pursue:"}
-              </h3>
-            </div>
-
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-                gap: 20,
-                maxWidth: 1080,
-                margin: "0 auto",
-                alignItems: "center",
-              }}
-            >
-              {roleItems.map((role, idx) =>
-                role.logo ? (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ scale: 1.05, y: -3 }}
-                    transition={{ type: "spring", stiffness: 450, damping: 15 }}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "14px 20px",
-                      background: "#FFFFFF",
-                      border: "1.5px solid rgba(232, 135, 26, 0.14)",
-                      borderRadius: "20px",
-                      boxShadow: "0 6px 18px rgba(0, 0, 0, 0.04)",
-                      height: 90,
-                      transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                    }}
-                    className="career-recruiter-card"
-                  >
-                    <img
-                      src={role.logo}
-                      alt={role.name}
-                      style={{
-                        maxHeight: role.name === "Capgemini" ? 68 : 56,
-                        maxWidth: "92%",
-                        width: "auto",
-                        height: "auto",
-                        objectFit: "contain",
-                      }}
-                      loading="lazy"
-                    />
-                  </motion.div>
+            {/* Text Badges for Roles / Pathways if any */}
+            {roleItems.filter((r) => !r.logo).length > 0 && (
+              <div style={{ marginBottom: (recruiterItems.length > 0 || roleItems.some((r) => r.logo)) ? 44 : 0 }}>
+                {rolesTitle ? (
+                  <div style={{ textAlign: "center", marginBottom: 28 }}>
+                    <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0" }}>
+                      {rolesTitle}
+                    </h3>
+                  </div>
                 ) : (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ scale: 1.04, y: -2 }}
-                    transition={{ type: "spring", stiffness: 450, damping: 15 }}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 10,
-                      padding: "12px 22px",
-                      background: "#FFFFFF",
-                      border: "1px solid rgba(232, 135, 26, 0.08)",
-                      borderRadius: "16px",
-                      color: "#0A1F44",
-                      fontSize: "14.5px",
-                      fontWeight: 650,
-                      cursor: "pointer",
-                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.015)",
-                      transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                    }}
-                    className="career-role-badge"
-                  >
-                    <span
-                      className="career-role-icon"
-                      style={{
-                        color: "#E8871A",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        transition: "all 0.3s ease",
-                      }}
-                    >
-                      {getRoleIcon(role.name)}
-                    </span>
-                    <span>{role.name}</span>
-                  </motion.div>
-                )
-              )}
-            </div>
+                  !recruiterItems.length && !roleItems.some((r) => r.logo) ? (
+                    <div style={{ textAlign: "center", marginBottom: 32 }}>
+                      <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0" }}>
+                        Notable Career Roles Our Graduates Pursue:
+                      </h3>
+                    </div>
+                  ) : null
+                )}
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 14,
+                    justifyContent: "center",
+                    maxWidth: 1080,
+                    margin: "0 auto",
+                  }}
+                >
+                  {roleItems
+                    .filter((r) => !r.logo)
+                    .map((role, idx) => (
+                      <motion.div
+                        key={idx}
+                        whileHover={{ scale: 1.04, y: -2 }}
+                        transition={{ type: "spring", stiffness: 450, damping: 15 }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 10,
+                          padding: "12px 22px",
+                          background: "#FFFFFF",
+                          border: "1px solid rgba(232, 135, 26, 0.12)",
+                          borderRadius: "16px",
+                          color: "#0A1F44",
+                          fontSize: "14.5px",
+                          fontWeight: 650,
+                          cursor: "default",
+                          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.02)",
+                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                        }}
+                        className="career-role-badge"
+                      >
+                        <span
+                          className="career-role-icon"
+                          style={{
+                            color: "#E8871A",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            transition: "all 0.3s ease",
+                          }}
+                        >
+                          {getRoleIcon(role.name)}
+                        </span>
+                        <span>{role.name}</span>
+                      </motion.div>
+                    ))}
+                </div>
+              </div>
+            )}
+
+            {/* Dedicated Top Recruiters Grid if recruiterItems is supplied */}
+            {recruiterItems.length > 0 && (
+              <div>
+                <div style={{ textAlign: "center", marginBottom: 28 }}>
+                  <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0" }}>
+                    {recruitersTitle || "Top Recruiters"}
+                  </h3>
+                </div>
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+                    gap: 16,
+                    maxWidth: 1080,
+                    margin: "0 auto",
+                    alignItems: "stretch",
+                  }}
+                >
+                  {recruiterItems.map((recruiter, idx) =>
+                    recruiter.logo ? (
+                      <motion.div
+                        key={idx}
+                        whileHover={{ scale: 1.04, y: -3 }}
+                        transition={{ type: "spring", stiffness: 450, damping: 15 }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "14px 20px",
+                          background: "#FFFFFF",
+                          border: "1.5px solid rgba(232, 135, 26, 0.14)",
+                          borderRadius: "20px",
+                          boxShadow: "0 6px 18px rgba(0, 0, 0, 0.04)",
+                          height: 90,
+                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                        }}
+                        className="career-recruiter-card"
+                      >
+                        <img
+                          src={recruiter.logo}
+                          alt={recruiter.name}
+                          style={{
+                            maxHeight: recruiter.name === "Capgemini" ? 68 : 56,
+                            maxWidth: "92%",
+                            width: "auto",
+                            height: "auto",
+                            objectFit: "contain",
+                          }}
+                          loading="lazy"
+                        />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key={idx}
+                        whileHover={{ scale: 1.03, y: -2 }}
+                        transition={{ type: "spring", stiffness: 450, damping: 15 }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 12,
+                          padding: "16px 20px",
+                          background: "#FFFFFF",
+                          border: "1px solid rgba(232, 135, 26, 0.14)",
+                          borderRadius: "16px",
+                          color: "#0A1F44",
+                          boxShadow: "0 4px 14px rgba(0, 0, 0, 0.025)",
+                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                        }}
+                        className="career-recruiter-name-card"
+                      >
+                        <div
+                          style={{
+                            width: 32,
+                            height: 32,
+                            borderRadius: "10px",
+                            background: "#FFF4E8",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            flexShrink: 0,
+                          }}
+                        >
+                          <Building2 size={16} color="#E8871A" />
+                        </div>
+                        <span
+                          style={{
+                            fontSize: "14.5px",
+                            fontWeight: 700,
+                            color: "#0A1F44",
+                            letterSpacing: "-0.2px",
+                            lineHeight: 1.3,
+                          }}
+                        >
+                          {recruiter.name}
+                        </span>
+                      </motion.div>
+                    )
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Fallback Legacy Recruiter Logos Grid if only roleItems had logos and recruiterItems is empty */}
+            {recruiterItems.length === 0 && roleItems.filter((r) => r.logo).length > 0 && (
+              <div>
+                <div style={{ textAlign: "center", marginBottom: 32 }}>
+                  <h3 style={{ fontSize: 26, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.6px", margin: "0" }}>
+                    {rolesTitle || "Top Recruiters"}
+                  </h3>
+                </div>
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+                    gap: 20,
+                    maxWidth: 1080,
+                    margin: "0 auto",
+                    alignItems: "center",
+                  }}
+                >
+                  {roleItems
+                    .filter((r) => r.logo)
+                    .map((role, idx) => (
+                      <motion.div
+                        key={idx}
+                        whileHover={{ scale: 1.05, y: -3 }}
+                        transition={{ type: "spring", stiffness: 450, damping: 15 }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "14px 20px",
+                          background: "#FFFFFF",
+                          border: "1.5px solid rgba(232, 135, 26, 0.14)",
+                          borderRadius: "20px",
+                          boxShadow: "0 6px 18px rgba(0, 0, 0, 0.04)",
+                          height: 90,
+                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                        }}
+                        className="career-recruiter-card"
+                      >
+                        <img
+                          src={role.logo}
+                          alt={role.name}
+                          style={{
+                            maxHeight: role.name === "Capgemini" ? 68 : 56,
+                            maxWidth: "92%",
+                            width: "auto",
+                            height: "auto",
+                            objectFit: "contain",
+                          }}
+                          loading="lazy"
+                        />
+                      </motion.div>
+                    ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
 

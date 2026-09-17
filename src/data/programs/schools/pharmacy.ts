@@ -8,19 +8,19 @@ export const pharmacySchool: ProgramPageData = {
 
   seo: {
     title: "Best Pharmacy College in Haryana & Delhi NCR | Get Admissions",
-    description: "Best Pharmacy University in Haryana & Delhi NCR. Industry-ready curriculum, top faculty & research labs. Start your pharma career at Geeta University",
+    description: "Best Pharmacy University in Haryana & Delhi NCR. Industry-ready curriculum, top faculty & research labs. Start your pharma career at Geeta University.",
     keywords: [
-      "GEETA INSTITUTE OF PHARMACY",
-      "best pharmacy University in haryana",
-      "top pharmacy university in haryana",
-      "best pharma science university in haryana",
-      "top pharma science university in haryana",
-      "university in panipat",
-      "geeta university",
-      "gu",
-      "Best B.Pharmacy University in haryana",
+      "Geeta Institute of Pharmacy",
+      "Best Pharmacy University in Haryana",
+      "Top Pharmacy University in Haryana",
+      "Best Pharma Science University in Haryana",
+      "Top Pharma Science University in Haryana",
+      "University in Panipat",
+      "Geeta University",
+      "GU",
+      "Best B.Pharmacy University in Haryana",
       "Top B.Pharmacy University in Haryana",
-      "b pharmacy colleges in haryana",
+      "B Pharmacy Colleges in Haryana",
     ],
   },
 
@@ -71,68 +71,6 @@ export const pharmacySchool: ProgramPageData = {
       "To encourage interdisciplinary research and innovation in the pharmaceutical sciences, drug discovery (R&D), formulation development, and healthcare technologies to address emerging medical challenges.",
       "To boost the linkage with the pharmaceutical sector, hospitals, research institutes and regulatory agencies for experiential learning, industrial exposure, clinical training and professional development.",
       "To develop entrepreneurial, innovative and life-long learning skills, providing opportunities for students to think about delivering innovative solutions at affordable prices to the health sector, innovations in the pharmaceutical sector, and ethical approaches that will help build nations and public health.",
-    ],
-  },
-
-  specialisations: {
-    eyebrow: "EXPLORE PHARMACEUTICAL DISCIPLINES",
-    title: "Programs Designed for Modern Healthcare Pioneers",
-    subtitle: "Diploma, Undergraduate & Postgraduate Pharmacy Programs",
-    items: [
-      {
-        title: "Pharmaceutics & Drug Formulation",
-        iconName: "BrainCircuit",
-        points: [
-          "Master novel drug delivery systems and dosage design.",
-          "Perform pre-formulation studies and stability testing.",
-          "Operate advanced industrial manufacturing machinery.",
-        ],
-      },
-      {
-        title: "Pharmacology & Toxicology",
-        iconName: "Target",
-        points: [
-          "Understand drug mechanisms and therapeutic interactions.",
-          "Conduct preclinical screening and toxicity profiling.",
-          "Analyze clinical trial outcomes and bio-safety protocols.",
-        ],
-      },
-      {
-        title: "Pharmaceutical Chemistry & Analysis",
-        iconName: "BookOpenCheck",
-        points: [
-          "Synthesize active pharmaceutical ingredients (APIs).",
-          "Utilize HPLC, UV-Vis spectroscopy, and FTIR instruments.",
-          "Ensure strict quality control and regulatory pharmacopeial compliance.",
-        ],
-      },
-      {
-        title: "Pharmacognosy & Phytomedicine",
-        iconName: "Globe2",
-        points: [
-          "Isolate bioactive compounds from natural botanical sources.",
-          "Standardize herbal formulations and nutraceutical products.",
-          "Explore traditional medicine integration with modern healthcare.",
-        ],
-      },
-      {
-        title: "Clinical Pharmacy & Pharmacovigilance",
-        iconName: "UsersRound",
-        points: [
-          "Monitor adverse drug reactions and clinical patient safety.",
-          "Provide patient counseling and hospital pharmacy management.",
-          "Collaborate with multi-disciplinary clinical healthcare teams.",
-        ],
-      },
-      {
-        title: "Regulatory Affairs & IPR",
-        iconName: "Landmark",
-        points: [
-          "Navigate US-FDA, EMA, and CDSCO submission guidelines.",
-          "Draft Drug Master Files (DMF) and regulatory dossiers.",
-          "Manage intellectual property and patent filing in pharma.",
-        ],
-      },
     ],
   },
 
@@ -289,7 +227,7 @@ export const pharmacySchool: ProgramPageData = {
         image: "/programs/pharmacy/Anil.webp"
       },
       {
-        name: "Dr Ravinder",
+        name: "Dr. Ravinder",
         designation: "Professor",
         description: "Professor of Pharmacology holding M.Pharm and Ph.D. with deep research background in preclinical drug screening and pharmacodynamics.",
         image: "/programs/pharmacy/Ravinder.webp"
@@ -372,11 +310,11 @@ export const pharmacySchool: ProgramPageData = {
       image: "/programs/pharmacy/Naveen-testimonial.webp",
     },
     {
-      name: "Mr Bhavish",
+      name: "Mr. Bhavish",
       pkg: "₹50-60 LPA",
       role: "Wholesale Pharmaceutical Entrepreneur",
       quote:
-        "Ignite Passion, Impact Lives - Discover, Design, Deliver in Pharmacy, where knowledge becomes cares and pharmacist dreams turn Into 50-60LPA wholesale pharmaceutical business.",
+        "Ignite Passion, Impact Lives — Discover, Design, Deliver in Pharmacy, where knowledge becomes care and pharmacy dreams turn into a thriving ₹50-60 LPA wholesale pharmaceutical enterprise.",
       image: "/programs/pharmacy/Bhavish-testimonial.webp",
     },
     {
@@ -390,7 +328,7 @@ export const pharmacySchool: ProgramPageData = {
   ],
 
   learningSpaces: {
-    title: "World-Class Pharmaceutical Laboratories & Infrastructure",
+    title: "Highlights of Our Learning Spaces",
     description:
       "Students conduct research and practical experiments in PCI-compliant, specialized labs equipped with industrial-grade analytical instruments:",
     spaces: [
@@ -467,59 +405,28 @@ export const pharmacySchool: ProgramPageData = {
   },
 
   careerPathways: {
-    title: "Your Pharmacy Degree. Infinite Healthcare Horizons.",
+    title: "Career Pathways",
     description:
-      "A pharmacy degree from Geeta University prepares you for high-impact careers across clinical, research, industrial, and regulatory domains:",
-    pathways: [
-      {
-        area: "Drug Formulation & Industrial R&D",
-        pathway: "Pre-formulation, dosage design, product development, and pilot plant scale-up in pharmaceutical MNCs.",
-        icon: "",
-      },
-      {
-        area: "Quality Assurance & Quality Control (QA/QC)",
-        pathway: "Instrumental analysis, stability testing, pharmacopeial compliance, and Good Laboratory Practices (GLP).",
-        icon: "",
-      },
-      {
-        area: "Clinical Research & Pharmacovigilance",
-        pathway: "Managing clinical trials, monitoring adverse drug reactions (ADRs), and drug safety surveillance.",
-        icon: "",
-      },
-      {
-        area: "Hospital & Clinical Pharmacy",
-        pathway: "Direct patient counseling, inpatient medication management, and hospital healthcare team collaboration.",
-        icon: "",
-      },
-      {
-        area: "Drug Regulatory Affairs & Patent Filing",
-        pathway: "CDSCO, US-FDA, and EMA regulatory dossier preparation, Drug Master Files (DMF), and pharmaceutical IPR.",
-        icon: "",
-      },
-      {
-        area: "Government Drug Inspector & Public Health",
-        pathway: "Government drug control administration, food & drug testing laboratories, and public health policy.",
-        icon: "",
-      },
-      {
-        area: "Higher Studies & Pharmaceutical Research",
-        pathway: "M.Pharm, MBA in Pharma Management, and Ph.D. research fellowships in drug discovery.",
-        icon: "",
-      },
-    ],
+      "A large number of opportunities are available for students in both the public and the private sectors. After the completion of the course, the students can work as a Drug Therapist, Drug Inspector, Health Inspector, Pharmacist, Pathological Lab Scientist, Chemical/Drug Technician, Bio-Technology Industries, Hospital Drug Coordinator, Research & Development and Making Prescription to Patients",
     notableRoles: [
-      { name: "Formulation Scientist" },
-      { name: "QA / QC Analyst" },
-      { name: "Clinical Research Associate" },
-      { name: "Drug Safety / PV Officer" },
-      { name: "Hospital Pharmacist" },
-      { name: "Regulatory Affairs Executive" },
-      { name: "Drug Inspector (Govt.)" },
-      { name: "Pharma Brand Manager" },
-      { name: "Medical Writer" },
-      { name: "Bio-Analytical Researcher" },
-      { name: "Community Pharmacy Lead" },
-      { name: "Pharma Entrepreneur" },
+      { name: "Clinical Research" },
+      { name: "Pharmacovigilance" },
+      { name: "Regulatory Affairs" },
+      { name: "Drug Discovery and Research Scientist" },
+      { name: "Pharmaceutical Data Science & AI" },
+      { name: "MBA in Pharmaceutical Management" },
+      { name: "Hospital Pharmacy" },
+      { name: "Government Sector" },
+    ],
+    recruitersTitle: "Top Recruiters",
+    recruiters: [
+      "Zentech Pharma",
+      "Pfizer",
+      "Trueworth Healthcare",
+      "Alembic Pharmaceuticals",
+      "Sun Pharma",
+      "Laborate Pharmaceuticals",
+      "Stenkem Biolife Private Limited",
     ],
   },
 
@@ -572,35 +479,35 @@ export const pharmacySchool: ProgramPageData = {
       {
         title: "Academic Excellence & Expert Faculty",
         points: [
-          "A consistently high academic standard with universities that have merit and excellent career prospects",
-          "Highly skilled faculty with Ph.D. qualifications, professional expertise, and exposure to the world guarantee high-quality instruction and mentorship",
+          "Consistently high academic standards delivering proven merit and high-impact healthcare careers.",
+          "Distinguished faculty with Ph.D. credentials, national research awards, and extensive pharmaceutical industry experience.",
         ],
       },
       {
         title: "Advanced Infrastructure & Learning Resources",
         points: [
-          "Modern laboratories",
-          "State-of-the-art Machine Room",
-          "Central Instrumentation Laboratory",
-          "Intelligent classrooms incorporating advanced audio-visual aids",
-          "A well-stocked library including international and national journals that encourages research and development",
+          "Modern PCI-approved laboratories with high-precision analytical tools.",
+          "State-of-the-art Industrial Machine Room & Pilot Plant.",
+          "Central Instrumentation Laboratory featuring HPLC, FTIR, and UV-Vis spectrophotometers.",
+          "Smart multimedia classrooms with interactive audio-visual learning aids.",
+          "Well-stocked central library with extensive national and international pharmaceutical journals.",
         ],
       },
       {
         title: "Industry Exposure & Global Engagement",
         points: [
-          "MOUs with top pharmaceutical companies to provide live projects, internships, or research cooperations",
-          "Regular visits to factories",
-          "Expert lectures",
-          "International Conferences",
-          "The first institution in Haryana hosting PCI Pharma Anveshan",
+          "Strategic MoUs with premier pharmaceutical companies for live projects, internships, and collaborative research.",
+          "Regular industrial visits and manufacturing plant tours.",
+          "Interactive guest lectures and masterclasses by pharma leaders.",
+          "Annual international conferences and pharmaceutical research symposiums.",
+          "First institution in Haryana to host the prestigious PCI Pharma Anveshan.",
         ],
       },
       {
         title: "Strong Placements & Career Support",
         points: [
-          "Achieved excellent placement for top pharmaceutical firms and healthcare institutions",
-          "Career guidance, skills growth programs, as well as interview preparation assure high-level of potential for employment",
+          "Outstanding placement track record across leading pharmaceutical MNCs and top hospital chains.",
+          "Dedicated career counseling, skill enhancement modules, and interview preparation for maximum employability.",
         ],
       },
     ],
@@ -608,7 +515,7 @@ export const pharmacySchool: ProgramPageData = {
 
   cta: {
     heading: "Your Future in Pharmacy Starts Here",
-    quote: "“",
+    quote: "“Empowering the next generation of healthcare pioneers through world-class pharmaceutical education and research.”",
     paragraphs: [
       "Step into a noble profession dedicated to healing, innovation, and global healthcare advancement with Geeta Institute of Pharmacy.",
       "Experience world-class labs, seasoned mentors, PCI-accredited curricula, and vibrant campus life at Geeta University.",
@@ -646,39 +553,39 @@ export const pharmacySchool: ProgramPageData = {
     {
       title: "Undergraduate Program",
       duration: "4 years",
-      eligibility: "Passed the 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
+      eligibility: "Passed the 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (PCM) and/or Biology (PCB/PCMB) as optional subjects individually.",
       programs: [
         {
           name: "B.Pharm. (Bachelor of Pharmacy)",
           href: "/programs/geeta-institute-of-pharmacy/b-pharmacy",
           duration: "4 years",
-          eligibility: "Passed the 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
+          eligibility: "Passed the 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (PCM) and/or Biology (PCB/PCMB) as optional subjects individually.",
         },
       ],
     },
     {
       title: "Postgraduate Program",
       duration: "2 years",
-      eligibility: "B. Pharm Degree examination of an Indian university established by law in India from an institution approved by Pharmacy Council of India and has scored not less than 55% of the maximum marks (aggregate of 4 years of B.Pharm.)",
+      eligibility: "Passed B.Pharm. degree examination from an Indian university approved by the Pharmacy Council of India (PCI) with at least 55% aggregate marks.",
       programs: [
         {
           name: "M.Pharm. (Pharmaceutics)",
           href: "/programs/geeta-institute-of-pharmacy/m-pharmacy-in-pharmaceutics",
           duration: "2 years",
-          eligibility: "B. Pharm Degree examination of an Indian university established by law in India from an institution approved by Pharmacy Council of India and has scored not less than 55% of the maximum marks (aggregate of 4 years of B.Pharm.)",
+          eligibility: "Passed B.Pharm. degree examination from an Indian university approved by the Pharmacy Council of India (PCI) with at least 55% aggregate marks.",
         },
       ],
     },
     {
       title: "Doctoral Program",
       duration: "Minimum 3 years",
-      eligibility: "Masters in relevant field with minimum 55% marks.",
+      eligibility: "Master's degree in Pharmacy (M.Pharm.) or relevant discipline with minimum 55% marks.",
       programs: [
         {
           name: "Ph.D. in Pharmacy",
           href: "/programs/geeta-institute-of-pharmacy/phd-pharmacy",
           duration: "Min 3 years",
-          eligibility: "Masters in relevant field with minimum 55% marks.",
+          eligibility: "Master's degree in Pharmacy (M.Pharm.) or relevant discipline with minimum 55% marks.",
         },
       ],
     },

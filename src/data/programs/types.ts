@@ -137,11 +137,13 @@ export interface ProgramPageData {
     eyebrow?: string;
     title?: string;
     rolesTitle?: string;
+    recruitersTitle?: string;
     description?: string;
     designations?: string[];
     checklist?: string[];
     pathways?: PathwayCardItem[];
     notableRoles?: NotableRoleItem[];
+    recruiters?: (NotableRoleItem | string)[];
   };
 
   placement?: {
