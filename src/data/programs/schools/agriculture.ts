@@ -579,21 +579,21 @@ export const agricultureSchool: ProgramPageData = {
   },
 
   testimonials: [
-   {
-  name: "Sumit Kadyan",
-  role: "Own Startup",
-  quote:
-    "Building my vermicompost business has been a rewarding journey, allowing me to turn organic waste into valuable fertilizer while contributing to sustainable farming and rural livelihoods.",
-  image: "/programs/agriculture/testimonial-sumit.webp",
-},
+    {
+      name: "Sumit Kadyan",
+      role: "Own Startup",
+      quote:
+        "Building my vermicompost business has been a rewarding journey, allowing me to turn organic waste into valuable fertilizer while contributing to sustainable farming and rural livelihoods.",
+      image: "/programs/agriculture/testimonial-sumit.webp",
+    },
 
-{
-  name: "Anuj",
-  role: "Own Startup",
-  quote:
-    "My journey in vermicomposting has helped me promote sustainable agriculture by transforming organic waste into natural fertilizer and creating opportunities for rural communities.",
-  image: "/programs/agriculture/testimonial-anuj.webp",
-},
+    {
+      name: "Anuj",
+      role: "Own Startup",
+      quote:
+        "My journey in vermicomposting has helped me promote sustainable agriculture by transforming organic waste into natural fertilizer and creating opportunities for rural communities.",
+      image: "/programs/agriculture/testimonial-anuj.webp",
+    },
     {
       name: "Sawan",
       role: "B.Sc. Agriculture Student",

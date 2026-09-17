@@ -332,22 +332,20 @@ export default function AlumniFeedbackPage() {
                     {/* Step Badges */}
                     <div className="flex items-center gap-2">
                       <div
-                        className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
-                          step === 1
+                        className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${step === 1
                             ? "bg-[#E8871A] text-white shadow-md shadow-amber-500/30"
                             : "bg-white/10 text-slate-300"
-                        }`}
+                          }`}
                       >
                         <span>1</span>
                         <span className="hidden sm:inline">Profile</span>
                       </div>
                       <ChevronRight className="h-3 w-3 text-white/40" />
                       <div
-                        className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
-                          step === 2
+                        className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${step === 2
                             ? "bg-[#E8871A] text-white shadow-md shadow-amber-500/30"
                             : "bg-white/10 text-slate-300"
-                        }`}
+                          }`}
                       >
                         <span>2</span>
                         <span className="hidden sm:inline">Feedback</span>
@@ -405,11 +403,10 @@ export default function AlumniFeedbackPage() {
                           value={formData.contact_no}
                           onChange={handleChange}
                           placeholder="10-digit mobile number"
-                          className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 transition-colors focus:outline-none focus:ring-2 ${
-                            contactError
+                          className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 transition-colors focus:outline-none focus:ring-2 ${contactError
                               ? "border-red-500 bg-red-50/30 focus:ring-red-500/20"
                               : "border-slate-300 bg-slate-50/50 focus:border-[#0A1F44] focus:bg-white focus:ring-[#0A1F44]/20"
-                          }`}
+                            }`}
                         />
                         {contactError && (
                           <p className="text-xs text-red-600 font-medium">{contactError}</p>
@@ -609,11 +606,10 @@ export default function AlumniFeedbackPage() {
                                     key={opt}
                                     type="button"
                                     onClick={() => handleRatingSelect(fieldKey, opt)}
-                                    className={`flex flex-col items-center justify-center rounded-xl p-2.5 text-center text-xs font-semibold transition-all ${
-                                      isSelected
+                                    className={`flex flex-col items-center justify-center rounded-xl p-2.5 text-center text-xs font-semibold transition-all ${isSelected
                                         ? "border-[#0A1F44] bg-[#0A1F44] text-white shadow-md shadow-blue-950/20 scale-[1.02]"
                                         : "border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-100"
-                                    }`}
+                                      }`}
                                   >
                                     <span className="leading-tight">{opt}</span>
                                   </button>

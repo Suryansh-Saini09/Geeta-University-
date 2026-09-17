@@ -55,8 +55,8 @@ export const vision =
   "To reach the pinnacle of academic excellence and nurture the dreams and aspirations of students aspiring to evolve into well-rounded technocrats, professionals, scientists, leaders, and entrepreneurs dedicated to nation-building.";
 
 export const mission = [
-  "To inspire academic excellence through a student-centered and outcome-based teaching-learning process.",
-  "To develop the right knowledge, skills, behavior, and attitude among students.",
+  "To inspire academic excellence through a student-centred and outcome-based teaching-learning process.",
+  "To develop the right knowledge, skills, behaviour, and attitude among students.",
   "To promote interdisciplinary research.",
   "To establish a strong industry-academia connection.",
   "To nurture entrepreneurship and support the innovative ideas of students.",
@@ -72,7 +72,7 @@ export const awards: Award[] = [
   {
     image:
       "/about/AWARD-FOR-BEST-GROUP-OF-COLLEGES-IN-DELHI,-NCR.png",
-    title: "AWARD FOR BEST GROUP OF COLLEGES IN DELHI/NCR",
+    title: "BEST GROUP OF COLLEGES IN DELHI/NCR",
     presentedBy: "Ms. Raveena Tandon",
     designation: "Bollywood Actress",
   },
@@ -84,13 +84,13 @@ export const awards: Award[] = [
   },
   {
     image: "/about/AWARD-FOR-BEST-EDUCATION-GROUP.png",
-    title: "AWARD FOR BEST EDUCATION GROUP",
+    title: "BEST EDUCATION GROUP",
     presentedBy: "",
     designation: "",
   },
   {
     image: "/about/AWARD-FOR-FASTEST-GROWING-UNIVERSITY-OF-NORTH-INDIA.png",
-    title: "AWARD FOR FASTEST GROWING UNIVERSITY OF NORTH INDIA",
+    title: "FASTEST GROWING UNIVERSITY OF NORTH INDIA",
     presentedBy: "Smt. Jaya Prada",
     designation: "Bollywood Actress & Former Member of Parliament",
   },

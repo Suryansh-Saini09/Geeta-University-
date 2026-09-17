@@ -43,11 +43,11 @@ export const bbaHumanResourceManagement: CoursePageData = {
     "The BBA in Human Resource Management at GU is a 3 Year Honours program, and 4 Year with Research option split into semesters.",
     "Provides a detailed overview of managerial, interpersonal, and executive communication skills.",
     "Prepares learners to take on key leadership and talent management roles in top organizational HR departments.",
-    "Covers major subjects including organizational behavior, talent acquisition, labor laws, and quality management.",
+    "Covers major subjects including organizational behaviour, talent acquisition, labor laws, and quality management.",
     "Scholarships available based on National Level Entrance Exams (JEE, CUET, NEET, CLAT), Merit Lists & Sports.",
   ],
   subjects: [
-    "Organizational Behavior",
+    "Organizational behaviour",
     "Talent Acquisition & Retention",
     "Training & Development",
     "Labor Laws and IR",
@@ -80,7 +80,7 @@ export const bbaHumanResourceManagement: CoursePageData = {
       "Geeta University is a recognized leader in management education in Haryana, delivering a holistic curriculum backed by UGC recognition, NAAC accreditation, and corporate partnerships.",
     reasons: [
       {
-        title: "Industry-Centered Curriculum",
+        title: "Industry-centred Curriculum",
         description:
           "Combines core business administration fundamentals with specialized training in HR analytics, labor laws, and talent management.",
       },
@@ -237,7 +237,7 @@ export const bbaHumanResourceManagement: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp",
       description:
-        "Expert in Behavioral Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
+        "Expert in behavioural Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
     },
     {
       name: "Dr. Nidhi Gupta",

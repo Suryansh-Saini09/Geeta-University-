@@ -97,20 +97,18 @@ export default function CampusLifeNav() {
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={(e) => scrollToSection(e, item.id)}
-                className={`group relative cursor-pointer select-none whitespace-nowrap px-4 py-2.5 text-[13px] font-bold no-underline outline-none transition-colors duration-150 ${
-                  isActive
+                className={`group relative cursor-pointer select-none whitespace-nowrap px-4 py-2.5 text-[13px] font-bold no-underline outline-none transition-colors duration-150 ${isActive
                     ? "text-[#0A1F44]"
                     : "text-[#64748B] hover:text-[#0A1F44]"
-                }`}
+                  }`}
               >
                 {item.label}
 
                 <span
-                  className={`absolute bottom-0 left-4 right-4 h-[2px] bg-[#E8871A] transition-transform duration-200 ${
-                    isActive
+                  className={`absolute bottom-0 left-4 right-4 h-[2px] bg-[#E8871A] transition-transform duration-200 ${isActive
                       ? "scale-x-100"
                       : "origin-left scale-x-0 group-hover:scale-x-100"
-                  }`}
+                    }`}
                 />
               </a>
             );

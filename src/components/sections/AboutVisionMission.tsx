@@ -3,8 +3,8 @@
 import Image from "next/image";
 
 const MISSION_POINTS = [
-  "To inspire academic excellence through a student-centered and outcome-based teaching-learning process.",
-  "To develop the right knowledge, skills, behavior, and attitude among students.",
+  "To inspire academic excellence through a student-centred and outcome-based teaching-learning process.",
+  "To develop the right knowledge, skills, behaviour, and attitude among students.",
   "To promote interdisciplinary research.",
   "To establish a strong industry-academia connection.",
   "To nurture entrepreneurship and support the innovative ideas of students.",
@@ -118,7 +118,7 @@ export default function AboutVisionMission() {
               {/* Saffron side */}
               <div className="flex items-center justify-center bg-[#EA5823] p-8 sm:p-12 md:pr-24">
                 <p className="text-center text-base sm:text-lg leading-relaxed text-white md:text-left">
-                  <span className="font-bold italic">Saffron</span> symbolizes the timeless
+                  <span className="font-bold italic">Saffron</span> symbolises the timeless
                   knowledge of Indian saints — a nod to our deep-rooted cultural legacy.
                 </p>
               </div>
@@ -135,7 +135,7 @@ export default function AboutVisionMission() {
             {/* Center circle overlay */}
             <div className="absolute left-1/2 top-1/2 z-10 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-[#E2E8F0] bg-white p-3 text-center shadow-xl sm:h-44 sm:w-44 md:h-48 md:w-48">
               <p className="px-2 text-center text-xs font-semibold leading-snug text-[#2D3748] sm:px-4 sm:text-sm">
-                Our theme colours reflect this philosophy:
+                Our theme colours reflect this philosophy.
               </p>
             </div>
           </div>

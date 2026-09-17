@@ -142,8 +142,8 @@ export const gfsPage: EdgePageData = {
       },
       {
         name: "Mr. Tanmay Mukherjee",
-        designation: "Behavioural Educator",
-        role: "Behavioural Educator",
+        designation: "behavioural Educator",
+        role: "behavioural Educator",
         description:
           "Specializes in human psychology, social dynamics, and cognitive resilience.",
         fullBio:
@@ -222,7 +222,7 @@ export const gfsPage: EdgePageData = {
           "ATS-Optimized Resume & Cover Letter Writing",
           "Quantitative Aptitude & Logical Reasoning",
           "Group Discussions (GD) & Case Study Analysis",
-          "Workplace Behaviour & MBTI Personality Assessment",
+          "Workplace behaviour & MBTI Personality Assessment",
         ],
         iconName: "FileCheck",
       },

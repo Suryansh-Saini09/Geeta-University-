@@ -378,7 +378,7 @@ function SchoolAboutSection() {
         </motion.div>
       </motion.div>
 
-    
+
 
       {/* ── Watermark ── */}
       <div className="spbsb-abt-watermark">SPBSB</div>
@@ -389,7 +389,7 @@ function SchoolAboutSection() {
 /* ── VISION & MISSION SECTION ── */
 function VisionMissionSection() {
   const missionPoints = [
-    "To deliver student-centered and results-oriented business education, develop strategic competencies and leadership capabilities, promote responsible businesses and encourage research in business practices",
+    "To deliver student-centred and results-oriented business education, develop strategic competencies and leadership capabilities, promote responsible businesses and encourage research in business practices",
     "To develop human capital with entrepreneurial competencies and skills to meet the need for visionary leaders, innovative managers and quality personnel in a global business environment.",
     "To develop knowledge in business through research and development, disruptive ideas and their implementation, and thought leadership in current business practices and processes.",
     "To establish business school linkages with multinational corporations, enterprises, entrepreneurs, academic institutions, and businesses to provide the students with executive business coaching, consultancy projects, and training, exposure, business development, recruitment opportunities and collaborations.",
@@ -2821,7 +2821,7 @@ function ProgrammesOfferedCseStyleSection() {
         {
           program: "Finance",
           duration: "MBA Specialisation Track",
-          details: "Behavioral finance, investment strategies, risk management, derivatives, financial instruments, corporate valuation, AI-enabled financial modeling, sustainable finance, ESG practices, investment banking, and financial decision-making.",
+          details: "behavioural finance, investment strategies, risk management, derivatives, financial instruments, corporate valuation, AI-enabled financial modeling, sustainable finance, ESG practices, investment banking, and financial decision-making.",
         },
         {
           program: "Logistics & Supply Chain Management",
@@ -4571,7 +4571,7 @@ function CorporateConnectWorkshopsSection() {
       title: "Workshop on Design Thinking",
       image: "/spbsb-design-thinking-workshop.jpg",
       alt: "Design Thinking workshop at Geeta University",
-      text: "The School of Commerce and Business Management at Geeta University hosted a Design Thinking workshop featuring Prof. Vijay Ghei. The session explored empathy, ideation, and prototyping, emphasizing human-centered approaches like empathy mapping. Faculty and students learned to create innovative solutions, enabling them to address real-world challenges while fostering critical and creative thinking for a future-ready, problem-solving oriented curriculum.",
+      text: "The School of Commerce and Business Management at Geeta University hosted a Design Thinking workshop featuring Prof. Vijay Ghei. The session explored empathy, ideation, and prototyping, emphasizing human-centred approaches like empathy mapping. Faculty and students learned to create innovative solutions, enabling them to address real-world challenges while fostering critical and creative thinking for a future-ready, problem-solving oriented curriculum.",
       imageFirst: true,
     },
   ];
@@ -7469,7 +7469,7 @@ function PreFooterImageSection() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-      
+
       </motion.div>
       <motion.div
         className="spbsb-prefooter-info-strip"
@@ -7511,7 +7511,7 @@ function PreFooterImageSection() {
 export default function SPBansalSchoolOfBusiness() {
   return (
     <div className="w-full flex-1 block bg-white min-h-screen text-[#1A1A2E] overflow-x-hidden selection:bg-[#E8871A] selection:text-white font-sans">
-      
+
       {/* ── BANNER IMAGE SECTION ── */}
       <div className="relative w-full overflow-hidden flex flex-col">
         <Image

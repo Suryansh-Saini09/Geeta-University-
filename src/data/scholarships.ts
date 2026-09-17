@@ -41,7 +41,7 @@ export const gutsData = {
   title: "GEETA UNIVERSITY TEST OF SCHOLARSHIP",
 
   description:
-    "Geeta University (GU) strongly believes that monetary constraints should not be an obstacle for a student to have access to quality education.",
+    "Geeta University (GU) strongly believes that monetary constraints should not prevent students from accessing quality education.",
 
   buttonText: "Apply for GUTS",
   buttonHref: "/guts",

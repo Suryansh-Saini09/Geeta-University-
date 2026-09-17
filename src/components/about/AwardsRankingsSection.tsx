@@ -1,136 +1,34 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import React from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { awards } from "@/data/awards";
 import ImpactRankings from "@/components/about/ImpactRankings";
-
-// Tripled list for a 100% seamless infinite scroll loop
-const infiniteAwards = [...awards, ...awards, ...awards];
-const CARD_WIDTH = 360; // 340px card + 20px gap
+import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
 export default function AwardsRankingsSection() {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeftState, setScrollLeftState] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const animFrameId = useRef<number | null>(null);
-
-  // Initialize scroll position to the middle set on mount
-  useEffect(() => {
-    if (scrollRef.current) {
-      const singleSetWidth = scrollRef.current.scrollWidth / 3;
-      scrollRef.current.scrollLeft = singleSetWidth;
-    }
-  }, []);
-
-  // Universal scroll handler: seamless infinite loop wrap & active index tracking
-  const handleScroll = useCallback(() => {
-    if (!scrollRef.current) return;
-    const container = scrollRef.current;
-    const singleSetWidth = container.scrollWidth / 3;
-
-    if (singleSetWidth <= 0) return;
-
-    // Infinite loop seamless wrap for ALL scroll methods (trackpad, drag, buttons, auto-glide)
-    if (container.scrollLeft >= singleSetWidth * 2) {
-      container.scrollLeft -= singleSetWidth;
-    } else if (container.scrollLeft <= 10) {
-      container.scrollLeft += singleSetWidth;
-    }
-
-    // Active dot calculation based on relative scroll position
-    const relativeScroll = container.scrollLeft % singleSetWidth;
-    const normalizedIndex = Math.round(relativeScroll / CARD_WIDTH) % awards.length;
-    setActiveIndex(normalizedIndex);
-  }, []);
-
-  // Continuous smooth auto-glide via requestAnimationFrame
-  useEffect(() => {
-    let lastTime = performance.now();
-
-    const glide = (time: number) => {
-      if (!scrollRef.current) return;
-
-      const delta = time - lastTime;
-      lastTime = time;
-
-      // Only auto-glide when user is not hovering or dragging
-      if (!isHovered && !isDragging) {
-        const container = scrollRef.current;
-        const speed = 0.045; // ~45px/sec
-        container.scrollLeft += delta * speed;
-      }
-
-      animFrameId.current = requestAnimationFrame(glide);
-    };
-
-    animFrameId.current = requestAnimationFrame(glide);
-
-    return () => {
-      if (animFrameId.current) {
-        cancelAnimationFrame(animFrameId.current);
-      }
-    };
-  }, [isHovered, isDragging]);
-
-  // Mouse drag-to-scroll handlers
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return;
-    setIsDragging(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeftState(scrollRef.current.scrollLeft);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-    setIsHovered(false);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    scrollRef.current.scrollLeft = scrollLeftState - walk;
-  };
-
-  // Button navigation controls
-  const scroll = (direction: "left" | "right", e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    if (!scrollRef.current) return;
-    const container = scrollRef.current;
-    const scrollAmount = direction === "left" ? -CARD_WIDTH : CARD_WIDTH;
-
-    container.scrollBy({
-      left: scrollAmount,
-      behavior: "smooth",
-    });
-  };
-
-  const scrollToCard = (index: number) => {
-    if (!scrollRef.current) return;
-    const container = scrollRef.current;
-    const singleSetWidth = container.scrollWidth / 3;
-
-    const targetScroll = singleSetWidth + index * CARD_WIDTH;
-    container.scrollTo({
-      left: targetScroll,
-      behavior: "smooth",
-    });
-    setActiveIndex(index);
-  };
+  const {
+    containerRef,
+    currentIndex,
+    maxIndex,
+    next,
+    prev,
+    goTo,
+    handleScroll,
+    handleMouseDown,
+    handleMouseLeave,
+    handleMouseEnter,
+    handleMouseUp,
+    handleMouseMove,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useFiniteCarousel({
+    totalItems: awards.length,
+    autoplayInterval: 4500,
+    enableAutoplay: true,
+  });
 
   return (
     <section
@@ -147,45 +45,48 @@ export default function AwardsRankingsSection() {
         </div>
 
         {/* CAROUSEL CONTAINER */}
-        <div
-          className="group relative"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="group relative">
           {/* Left Arrow */}
-          {/* <button
-            type="button"
-            onClick={(e) => scroll("left", e)}
-            aria-label="Previous award"
-            className="absolute -left-2 sm:left-1 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/90 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
-          >
-            <ChevronLeft size={18} strokeWidth={2.5} />
-          </button> */}
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Previous award"
+              className="absolute -left-2 sm:left-1 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/90 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+            >
+              <ChevronLeft size={18} strokeWidth={2.5} />
+            </button>
+          )}
 
           {/* Right Arrow */}
-          {/* <button
-            type="button"
-            onClick={(e) => scroll("right", e)}
-            aria-label="Next award"
-            className="absolute -right-2 sm:right-1 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/90 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
-          >
-            <ChevronRight size={18} strokeWidth={2.5} />
-          </button> */}
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Next award"
+              className="absolute -right-2 sm:right-1 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/90 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+            >
+              <ChevronRight size={18} strokeWidth={2.5} />
+            </button>
+          )}
 
           {/* Horizontally Scrollable & Draggable Track */}
           <div
-            ref={scrollRef}
+            ref={containerRef}
             onScroll={handleScroll}
             onMouseDown={handleMouseDown}
             onMouseLeave={handleMouseLeave}
             onMouseEnter={handleMouseEnter}
             onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
             className="flex w-full gap-5 overflow-x-auto pb-6 pt-2 cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {infiniteAwards.map((award, index) => (
+            {awards.map((award) => (
               <div
-                key={`${award.id}-${index}`}
+                key={award.id}
                 className="w-[280px] sm:w-[310px] md:w-[340px] shrink-0"
               >
                 <article className="group/card flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-400 ease-out hover:-translate-y-1.5 hover:border-[#E8871A]/50 hover:shadow-xl hover:shadow-[#0A1F44]/10">
@@ -268,9 +169,9 @@ export default function AwardsRankingsSection() {
               key={award.id}
               type="button"
               aria-label={`Go to award ${index + 1}`}
-              onClick={() => scrollToCard(index)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                index === activeIndex
+              onClick={() => goTo(index)}
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                index === currentIndex
                   ? "w-8 bg-[#E8871A]"
                   : "w-1.5 bg-[#B8C0CD] hover:bg-[#0A1F44]"
               }`}

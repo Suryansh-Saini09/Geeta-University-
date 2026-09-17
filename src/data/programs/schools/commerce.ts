@@ -224,7 +224,7 @@ export const commerceSchool: ProgramPageData = {
         iconName: "Target",
         points: [
           "Design strategic marketing campaigns and brand positioning.",
-          "Analyze consumer behavior and market research data.",
+          "Analyze consumer behaviour and market research data.",
           "Manage retail, sales, and distribution channels effectively.",
         ],
       },
@@ -234,7 +234,7 @@ export const commerceSchool: ProgramPageData = {
         points: [
           "Implement talent acquisition and workforce planning strategies.",
           "Manage employee relations, compensation, and benefits.",
-          "Foster organizational behavior and leadership development.",
+          "Foster organizational behaviour and leadership development.",
         ],
       },
     ],
@@ -297,7 +297,7 @@ export const commerceSchool: ProgramPageData = {
         designation: "Professor, Ph.D.",
         role: "Professor, Ph.D.",
         description:
-          "Dr. Vivek Rastogi is an academician and researcher with expertise in Management, Human Resource Management, Learning & Development, and Emerging Technologies. He is committed to fostering student growth through innovative teaching, research, industry collaboration, and mentorship. His research interests include technology adoption, consumer behavior, electric vehicles, digital transformation, and organizational development.",
+          "Dr. Vivek Rastogi is an academician and researcher with expertise in Management, Human Resource Management, Learning & Development, and Emerging Technologies. He is committed to fostering student growth through innovative teaching, research, industry collaboration, and mentorship. His research interests include technology adoption, consumer behaviour, electric vehicles, digital transformation, and organizational development.",
         image: "/programs/commerce/scbm faculty/vivek.webp",
       },
       {
@@ -449,7 +449,7 @@ export const commerceSchool: ProgramPageData = {
         designation: "Associate Professor, Ph.D.",
         role: "Associate Professor, Ph.D.",
         description:
-          "Expert in Behavioral Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development in management and finance.",
+          "Expert in behavioural Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development in management and finance.",
         image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp",
       },
       {
@@ -808,7 +808,7 @@ export const commerceSchool: ProgramPageData = {
         title: "Workshop on Design Thinking",
         image: "/spbsb-design-thinking-workshop.jpg",
         alt: "Design Thinking workshop at Geeta University",
-        text: "The School of Commerce and Business Management at Geeta University hosted a Design Thinking workshop featuring Prof. Vijay Ghei. The session explored empathy, ideation, and prototyping, emphasizing human-centered approaches like empathy mapping. Faculty and students learned to create innovative solutions, enabling them to address real-world challenges while fostering critical and creative thinking for a future-ready, problem-solving oriented curriculum.",
+        text: "The School of Commerce and Business Management at Geeta University hosted a Design Thinking workshop featuring Prof. Vijay Ghei. The session explored empathy, ideation, and prototyping, emphasizing human-centred approaches like empathy mapping. Faculty and students learned to create innovative solutions, enabling them to address real-world challenges while fostering critical and creative thinking for a future-ready, problem-solving oriented curriculum.",
         imageFirst: true,
       },
     ],
@@ -933,7 +933,7 @@ export const commerceSchool: ProgramPageData = {
             { name: "Strategic Management & Governance", href: "/phd-management" },
             { name: "Financial Markets & Banking", href: "/phd-management" },
             { name: "Digital Marketing & Consumer Insights", href: "/phd-management" },
-            { name: "Organizational Behavior & HRM", href: "/phd-management" },
+            { name: "Organizational behaviour & HRM", href: "/phd-management" },
           ],
         },
       ],
@@ -950,196 +950,196 @@ export const commerceSchool: ProgramPageData = {
 
   faqs: [
     {
-        "q": "What programmes are offered by the School of Commerce & Business Management at Geeta University?",
-        "a": "The School offers undergraduate BBA and B.Com. pathways along with M.Com. at the postgraduate level. Its programmes include specialised routes in finance, marketing, human resources, AI and data analytics, international accounting, FinTech, digital marketing, entrepreneurship, banking and finance, auditing and taxation, and supply chain management.",
-        "category": "Admissions & Eligibility"
+      "q": "What programmes are offered by the School of Commerce & Business Management at Geeta University?",
+      "a": "The School offers undergraduate BBA and B.Com. pathways along with M.Com. at the postgraduate level. Its programmes include specialised routes in finance, marketing, human resources, AI and data analytics, international accounting, FinTech, digital marketing, entrepreneurship, banking and finance, auditing and taxation, and supply chain management.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "What is the eligibility for BBA programmes?",
-        "a": "The School lists 10+2 with at least 50% marks in the qualifying examination as the eligibility requirement for BBA programmes.",
-        "category": "Admissions & Eligibility"
+      "q": "What is the eligibility for BBA programmes?",
+      "a": "The School lists 10+2 with at least 50% marks in the qualifying examination as the eligibility requirement for BBA programmes.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "What is the eligibility for B.Com. programmes?",
-        "a": "The School lists 10+2 with at least 50% marks as the eligibility requirement for B.Com. programmes.",
-        "category": "Admissions & Eligibility"
+      "q": "What is the eligibility for B.Com. programmes?",
+      "a": "The School lists 10+2 with at least 50% marks as the eligibility requirement for B.Com. programmes.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "What is the eligibility for M.Com.?",
-        "a": "Applicants should have passed B.Com. with a minimum of 50% marks in the qualifying examination.",
-        "category": "Admissions & Eligibility"
+      "q": "What is the eligibility for M.Com.?",
+      "a": "Applicants should have passed B.Com. with a minimum of 50% marks in the qualifying examination.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "Can students from any Class 12 stream apply for BBA?",
-        "a": "The general BBA eligibility is 10+2 (in any stream) with at least 50% marks.",
-        "category": "Admissions & Eligibility"
+      "q": "Can students from any Class 12 stream apply for BBA?",
+      "a": "The general BBA eligibility is 10+2 (in any stream) with at least 50% marks.",
+      "category": "Admissions & Eligibility"
     },
     {
-        "q": "How do I choose between BBA and B.Com. after Class 12?",
-        "a": "BBA is more focused on business administration, management and leadership, while B.Com. gives greater emphasis to commerce, accounting, taxation and finance. The right choice depends on the student's interests and intended career direction.",
-        "category": "Programmes & Specialisations"
+      "q": "How do I choose between BBA and B.Com. after Class 12?",
+      "a": "BBA is more focused on business administration, management and leadership, while B.Com. gives greater emphasis to commerce, accounting, taxation and finance. The right choice depends on the student's interests and intended career direction.",
+      "category": "Programmes & Specialisations"
     },
     {
-        "q": "What specialisations are available in BBA?",
-        "a": "The School lists BBA specializations in Business Administration, International Accounting with ACCA UK, Artificial Intelligence & Data Analytics, Human Resource Management, Import & Export Management, Banking & Finance, Marketing, FinTech, Digital Marketing, and Entrepreneurship & Family Business.",
-        "category": "Programmes & Specialisations"
+      "q": "What specialisations are available in BBA?",
+      "a": "The School lists BBA specializations in Business Administration, International Accounting with ACCA UK, Artificial Intelligence & Data Analytics, Human Resource Management, Import & Export Management, Banking & Finance, Marketing, FinTech, Digital Marketing, and Entrepreneurship & Family Business.",
+      "category": "Programmes & Specialisations"
     },
     {
-        "q": "What specialisations are available in B.Com.?",
-        "a": "The School lists B.Com. pathways in General Commerce, International Accounting with ACCA UK, Auditing & Taxation, Banking & Insurance, and Advanced Accounting.",
-        "category": "Programmes & Specialisations"
+      "q": "What specialisations are available in B.Com.?",
+      "a": "The School lists B.Com. pathways in General Commerce, International Accounting with ACCA UK, Auditing & Taxation, Banking & Insurance, and Advanced Accounting.",
+      "category": "Programmes & Specialisations"
     },
     {
-        "q": "What is special about B.Com. International Accounting with ACCA UK?",
-        "a": "The programme combines undergraduate commerce and accounting education with the ACCA pathway, covering areas such as financial reporting, auditing, taxation, financial management and corporate governance.",
-        "category": "Programmes & Specialisations"
+      "q": "What is special about B.Com. International Accounting with ACCA UK?",
+      "a": "The programme combines undergraduate commerce and accounting education with the ACCA pathway, covering areas such as financial reporting, auditing, taxation, financial management and corporate governance.",
+      "category": "Programmes & Specialisations"
     },
     {
-        "q": "Is BBA FinTech suitable for a student interested in both finance and technology?",
-        "a": "Yes. The programme brings together business and financial concepts with areas such as blockchain, AI and data analytics, making it relevant for students interested in technology-driven financial services.",
-        "category": "Programmes & Specialisations"
+      "q": "Is BBA FinTech suitable for a student interested in both finance and technology?",
+      "a": "Yes. The programme brings together business and financial concepts with areas such as blockchain, AI and data analytics, making it relevant for students interested in technology-driven financial services.",
+      "category": "Programmes & Specialisations"
     },
     {
-        "q": "What does BBA in AI & Data Analytics focus on?",
-        "a": "The programme combines business administration with AI and data analytics, helping students understand how data and technology can support better business decisions.",
-        "category": "Programmes & Specialisations"
+      "q": "What does BBA in AI & Data Analytics focus on?",
+      "a": "The programme combines business administration with AI and data analytics, helping students understand how data and technology can support better business decisions.",
+      "category": "Programmes & Specialisations"
     },
     {
-        "q": "What does BBA in Digital Marketing cover?",
-        "a": "The programme covers digital marketing, social media management, market research, consumer psychology, brand development and data analytics.",
-        "category": "Programmes & Specialisations"
+      "q": "What does BBA in Digital Marketing cover?",
+      "a": "The programme covers digital marketing, social media management, market research, consumer psychology, brand development and data analytics.",
+      "category": "Programmes & Specialisations"
     },
     {
-        "q": "What does BBA in Entrepreneurship & Family Business prepare students for?",
-        "a": "It is designed for students who want to start, manage or grow a business, particularly entrepreneurial and family-owned ventures, while building broader management and leadership skills.",
-        "category": "Programmes & Specialisations"
+      "q": "What does BBA in Entrepreneurship & Family Business prepare students for?",
+      "a": "It is designed for students who want to start, manage or grow a business, particularly entrepreneurial and family-owned ventures, while building broader management and leadership skills.",
+      "category": "Programmes & Specialisations"
     },
     {
-        "q": "What does BBA in Import & Export Management cover?",
-        "a": "The programme focuses on international trade, including export-import procedures, documentation, payments, sourcing, customs, global logistics and supply-chain processes.",
-        "category": "Programmes & Specialisations"
+      "q": "What does BBA in Import & Export Management cover?",
+      "a": "The programme focuses on international trade, including export-import procedures, documentation, payments, sourcing, customs, global logistics and supply-chain processes.",
+      "category": "Programmes & Specialisations"
     },
     {
-        "q": "Is the School's teaching mainly theoretical or practice-oriented?",
-        "a": "The School places strong emphasis on experiential learning through role plays, simulations, real-world case studies, business games, internships and industry interaction.",
-        "category": "Curriculum & Learning Experience"
+      "q": "Is the School's teaching mainly theoretical or practice-oriented?",
+      "a": "The School places strong emphasis on experiential learning through role plays, simulations, real-world case studies, business games, internships and industry interaction.",
+      "category": "Curriculum & Learning Experience"
     },
     {
-        "q": "Will students work on real business cases and simulations?",
-        "a": "Yes. Real-world case studies, simulations, role plays and business games help students apply concepts in practical business situations.",
-        "category": "Curriculum & Learning Experience"
+      "q": "Will students work on real business cases and simulations?",
+      "a": "Yes. Real-world case studies, simulations, role plays and business games help students apply concepts in practical business situations.",
+      "category": "Curriculum & Learning Experience"
     },
     {
-        "q": "What practical business skills can students develop alongside their degree?",
-        "a": "Students can develop skills such as Excel and Power BI, digital marketing, leadership and negotiation, WordPress and HTML basics, corporate attitude, career skills and other competency-based abilities.",
-        "category": "Curriculum & Learning Experience"
+      "q": "What practical business skills can students develop alongside their degree?",
+      "a": "Students can develop skills such as Excel and Power BI, digital marketing, leadership and negotiation, WordPress and HTML basics, corporate attitude, career skills and other competency-based abilities.",
+      "category": "Curriculum & Learning Experience"
     },
     {
-        "q": "Does the School offer flexible or customised learning options?",
-        "a": "Yes. The School highlights degree customisation, passion-based electives, research-integrated options and competency-based modules.",
-        "category": "Curriculum & Learning Experience"
+      "q": "Does the School offer flexible or customised learning options?",
+      "a": "Yes. The School highlights degree customisation, passion-based electives, research-integrated options and competency-based modules.",
+      "category": "Curriculum & Learning Experience"
     },
     {
-        "q": "How does the curriculum connect classroom learning with industry requirements?",
-        "a": "Academic concepts are supported by case studies, simulations, internships, industry interaction, practical skill development and pre-placement preparation so students can relate learning to workplace situations.",
-        "category": "Curriculum & Learning Experience"
+      "q": "How does the curriculum connect classroom learning with industry requirements?",
+      "a": "Academic concepts are supported by case studies, simulations, internships, industry interaction, practical skill development and pre-placement preparation so students can relate learning to workplace situations.",
+      "category": "Curriculum & Learning Experience"
     },
     {
-        "q": "Are research opportunities available at undergraduate and postgraduate level?",
-        "a": "The School highlights research-integrated learning and academic research opportunities. Students may engage in research projects depending on their programme, faculty guidance and available opportunities.",
-        "category": "Curriculum & Learning Experience"
+      "q": "Are research opportunities available at undergraduate and postgraduate level?",
+      "a": "The School highlights research-integrated learning and academic research opportunities. Students may engage in research projects depending on their programme, faculty guidance and available opportunities.",
+      "category": "Curriculum & Learning Experience"
     },
     {
-        "q": "Do commerce and management students get internship opportunities?",
-        "a": "Yes. Internship-based learning is an important part of the School's practical learning approach, with programme-level industry exposure built into the student experience.",
-        "category": "Industry Exposure, Internships & Global Opportunities"
+      "q": "Do commerce and management students get internship opportunities?",
+      "a": "Yes. Internship-based learning is an important part of the School's practical learning approach, with programme-level industry exposure built into the student experience.",
+      "category": "Industry Exposure, Internships & Global Opportunities"
     },
     {
-        "q": "How does an internship benefit a BBA or B.Com. student?",
-        "a": "An internship helps students apply classroom knowledge, understand professional work culture, develop practical skills and gain experience that can strengthen their career profile.",
-        "category": "Industry Exposure, Internships & Global Opportunities"
+      "q": "How does an internship benefit a BBA or B.Com. student?",
+      "a": "An internship helps students apply classroom knowledge, understand professional work culture, develop practical skills and gain experience that can strengthen their career profile.",
+      "category": "Industry Exposure, Internships & Global Opportunities"
     },
     {
-        "q": "Does the School offer international internships?",
-        "a": "The School highlights international internship opportunities as part of its global exposure initiatives. Availability may depend on the programme, cohort and applicable arrangements.",
-        "category": "Industry Exposure, Internships & Global Opportunities"
+      "q": "Does the School offer international internships?",
+      "a": "The School highlights international internship opportunities as part of its global exposure initiatives. Availability may depend on the programme, cohort and applicable arrangements.",
+      "category": "Industry Exposure, Internships & Global Opportunities"
     },
     {
-        "q": "Are student exchange or international study opportunities available?",
-        "a": "Yes. The School highlights international study tours and structured exchange opportunities that expose students to different academic and business environments.",
-        "category": "Industry Exposure, Internships & Global Opportunities"
+      "q": "Are student exchange or international study opportunities available?",
+      "a": "Yes. The School highlights international study tours and structured exchange opportunities that expose students to different academic and business environments.",
+      "category": "Industry Exposure, Internships & Global Opportunities"
     },
     {
-        "q": "What kind of industry interaction do students receive?",
-        "a": "Students can interact with industry through corporate sessions, expert talks, case studies, simulations, internships, conclaves, industry collaborations and practical business activities.",
-        "category": "Industry Exposure, Internships & Global Opportunities"
+      "q": "What kind of industry interaction do students receive?",
+      "a": "Students can interact with industry through corporate sessions, expert talks, case studies, simulations, internships, conclaves, industry collaborations and practical business activities.",
+      "category": "Industry Exposure, Internships & Global Opportunities"
     },
     {
-        "q": "Can students gain exposure to multinational companies?",
-        "a": "Yes. The School highlights corporate and MNC interaction, giving students opportunities to understand how large organisations operate. Specific company participation can vary by year and programme.",
-        "category": "Industry Exposure, Internships & Global Opportunities"
+      "q": "Can students gain exposure to multinational companies?",
+      "a": "Yes. The School highlights corporate and MNC interaction, giving students opportunities to understand how large organisations operate. Specific company participation can vary by year and programme.",
+      "category": "Industry Exposure, Internships & Global Opportunities"
     },
     {
-        "q": "What career options are available after BBA?",
-        "a": "Depending on their specialisation and skills, BBA graduates can explore marketing, sales, human resources, finance, operations, business development, digital marketing, banking, analytics, entrepreneurship and other business roles.",
-        "category": "Career Opportunities & Higher Studies"
+      "q": "What career options are available after BBA?",
+      "a": "Depending on their specialisation and skills, BBA graduates can explore marketing, sales, human resources, finance, operations, business development, digital marketing, banking, analytics, entrepreneurship and other business roles.",
+      "category": "Career Opportunities & Higher Studies"
     },
     {
-        "q": "What career options are available after B.Com.?",
-        "a": "B.Com. graduates can pursue accounting, auditing, taxation, banking, financial analysis, business analysis, insurance and other corporate roles. They can also pursue professional qualifications or higher studies.",
-        "category": "Career Opportunities & Higher Studies"
+      "q": "What career options are available after B.Com.?",
+      "a": "B.Com. graduates can pursue accounting, auditing, taxation, banking, financial analysis, business analysis, insurance and other corporate roles. They can also pursue professional qualifications or higher studies.",
+      "category": "Career Opportunities & Higher Studies"
     },
     {
-        "q": "Can B.Com. students pursue CA, CS, CMA or higher management studies after graduation?",
-        "a": "Yes. A B.Com. background can provide a foundation for professional qualifications such as CA, CS and CMA, as well as postgraduate study and other higher-management pathways.",
-        "category": "Career Opportunities & Higher Studies"
+      "q": "Can B.Com. students pursue CA, CS, CMA or higher management studies after graduation?",
+      "a": "Yes. A B.Com. background can provide a foundation for professional qualifications such as CA, CS and CMA, as well as postgraduate study and other higher-management pathways.",
+      "category": "Career Opportunities & Higher Studies"
     },
     {
-        "q": "What opportunities are available after M.Com.?",
-        "a": "M.Com. graduates can explore roles in accounting, finance, commerce and education, while also pursuing research, UGC NET, Ph.D. and other higher-study pathways subject to the relevant eligibility requirements.",
-        "category": "Career Opportunities & Higher Studies"
+      "q": "What opportunities are available after M.Com.?",
+      "a": "M.Com. graduates can explore roles in accounting, finance, commerce and education, while also pursuing research, UGC NET, Ph.D. and other higher-study pathways subject to the relevant eligibility requirements.",
+      "category": "Career Opportunities & Higher Studies"
     },
     {
-        "q": "What placement support is available to students?",
-        "a": "The School highlights placement support, pre-placement training, LinkedIn and mock-interview preparation, industry interaction and other career-readiness activities.",
-        "category": "Career Opportunities & Higher Studies"
+      "q": "What placement support is available to students?",
+      "a": "The School highlights placement support, pre-placement training, LinkedIn and mock-interview preparation, industry interaction and other career-readiness activities.",
+      "category": "Career Opportunities & Higher Studies"
     },
     {
-        "q": "Which recruiters are associated with the School?",
-        "a": "The School lists organisations such as Amazon, ProGrad, Capgemini, Jaro Education, Tech Mahindra, IBM, HCL and Philips among its recruiter ecosystem.",
-        "category": "Career Opportunities & Higher Studies"
+      "q": "Which recruiters are associated with the School?",
+      "a": "The School lists organisations such as Amazon, ProGrad, Capgemini, Jaro Education, Tech Mahindra, IBM, HCL and Philips among its recruiter ecosystem.",
+      "category": "Career Opportunities & Higher Studies"
     },
     {
-        "q": "What placement figures are displayed by the School?",
-        "a": "The School currently displays up to ₹40 LPA as the highest package, 550+ recruiters and 3,500+ job offers. These are broad placement figures and should not be interpreted as a guaranteed outcome for every student.",
-        "category": "Career Opportunities & Higher Studies"
+      "q": "What placement figures are displayed by the School?",
+      "a": "The School currently displays up to ₹40 LPA as the highest package, 550+ recruiters and 3,500+ job offers. These are broad placement figures and should not be interpreted as a guaranteed outcome for every student.",
+      "category": "Career Opportunities & Higher Studies"
     },
     {
-        "q": "What kind of faculty teach at the School of Commerce & Business Management?",
-        "a": "The School has faculty and mentors with expertise across commerce, management, finance, marketing, HR and related business disciplines, supported by professionals with industry experience.",
-        "category": "Faculty, Mentorship & Student Development"
+      "q": "What kind of faculty teach at the School of Commerce & Business Management?",
+      "a": "The School has faculty and mentors with expertise across commerce, management, finance, marketing, HR and related business disciplines, supported by professionals with industry experience.",
+      "category": "Faculty, Mentorship & Student Development"
     },
     {
-        "q": "Do students learn from industry professionals as well as academics?",
-        "a": "Yes. The School highlights professors of practice, industry experts, corporate interaction and practitioner-led learning alongside academic teaching.",
-        "category": "Faculty, Mentorship & Student Development"
+      "q": "Do students learn from industry professionals as well as academics?",
+      "a": "Yes. The School highlights professors of practice, industry experts, corporate interaction and practitioner-led learning alongside academic teaching.",
+      "category": "Faculty, Mentorship & Student Development"
     },
     {
-        "q": "How does the School develop communication and leadership skills?",
-        "a": "Students receive exposure to soft-skills training, personality development, leadership activities, negotiation, corporate attitude and career and life skills.",
-        "category": "Faculty, Mentorship & Student Development"
+      "q": "How does the School develop communication and leadership skills?",
+      "a": "Students receive exposure to soft-skills training, personality development, leadership activities, negotiation, corporate attitude and career and life skills.",
+      "category": "Faculty, Mentorship & Student Development"
     },
     {
-        "q": "What is the XEDGE Programme and how does it benefit students?",
-        "a": "XEDGE is a student-development initiative focused on corporate attitude, career and life skills, leadership mindset and social responsibility alongside academic learning.",
-        "category": "Faculty, Mentorship & Student Development"
+      "q": "What is the XEDGE Programme and how does it benefit students?",
+      "a": "XEDGE is a student-development initiative focused on corporate attitude, career and life skills, leadership mindset and social responsibility alongside academic learning.",
+      "category": "Faculty, Mentorship & Student Development"
     },
     {
-        "q": "How does the School prepare students for corporate interviews?",
-        "a": "Students can receive support through pre-placement training, mock interviews, LinkedIn preparation, communication and soft-skills development, practical activities and industry exposure.",
-        "category": "Faculty, Mentorship & Student Development"
+      "q": "How does the School prepare students for corporate interviews?",
+      "a": "Students can receive support through pre-placement training, mock interviews, LinkedIn preparation, communication and soft-skills development, practical activities and industry exposure.",
+      "category": "Faculty, Mentorship & Student Development"
     }
-],
+  ],
 };
 
 export const commerceFaqs: CourseFAQItem[] = (commerceSchool.faqs || []).map((item) => ({

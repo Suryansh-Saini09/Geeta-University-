@@ -47,7 +47,7 @@ export const mbaMarketing: CoursePageData = {
     "Scholarships available based on GUTS test, academic merit, national entrance scores, and sports excellence.",
   ],
   subjects: [
-    "Consumer Behaviour",
+    "Consumer behaviour",
     "Service Marketing",
     "Sales & Distribution Management",
     "B2B Marketing",
@@ -63,7 +63,7 @@ export const mbaMarketing: CoursePageData = {
     "Analyze market research to inform business decisions",
     "Implement branding and positioning techniques",
     "Lead digital transformation in marketing",
-    "Understand global consumer behavior trends",
+    "Understand global consumer behaviour trends",
   ],
   admission: {
     eligibility:
@@ -89,7 +89,7 @@ export const mbaMarketing: CoursePageData = {
       {
         title: "Brand Strategy Simulations",
         description:
-          "Harvard-style marketing case studies, product launching simulations, and consumer behavior analysis labs.",
+          "Harvard-style marketing case studies, product launching simulations, and consumer behaviour analysis labs.",
       },
       {
         title: "X-EDGE Leadership & Finishing School",
@@ -161,7 +161,7 @@ export const mbaMarketing: CoursePageData = {
       name: "Gautam Tomar",
       role: "MBA (Marketing)",
       text:
-        "Studying MBA Marketing has helped me understand modern business trends and consumer behavior in a better way. The guidance from faculty and hands-on projects made learning more engaging and career-focused.",
+        "Studying MBA Marketing has helped me understand modern business trends and consumer behaviour in a better way. The guidance from faculty and hands-on projects made learning more engaging and career-focused.",
       image: "/programs/commerce/mba-marketing/gautam-testimonial.webp",
     },
     {
@@ -238,7 +238,7 @@ export const mbaMarketing: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp",
       description:
-        "Expert in Behavioral Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
+        "Expert in behavioural Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
     },
     {
       name: "Dr. Nidhi Gupta",

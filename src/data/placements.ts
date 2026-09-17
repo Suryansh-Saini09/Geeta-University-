@@ -206,7 +206,7 @@ export const placementStories: StudentPlacementStory[] = [
     package: "30 LPA",
     image: "/home/parikshit.jpg-full.webp",
     quote:
-      "Time spent at Geeta University helped bridge the gap between theory and practical industry application, shaping a high-growth trajectory.",
+      "The time I spent at Geeta University helped bridge the gap between theory and practical industry application, shaping a high-growth trajectory.",
   },
   {
     id: "story-10",
