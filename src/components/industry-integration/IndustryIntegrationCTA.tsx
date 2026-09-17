@@ -5,7 +5,7 @@ import { ArrowRight, PhoneCall, Sparkles } from "lucide-react";
 
 export default function IndustryIntegrationCTA() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#0A1F44] via-[#1A3A6B] to-[#0A1F44] py-16 text-white md:py-20">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#0A1F44] via-[#1A3A6B] to-[#0A1F44] py-12 text-white md:py-16">
       {/* Decorative Glow */}
       <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#E8871A]/20 blur-3xl" />
       <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-[#2C5282]/30 blur-3xl" />

@@ -30,7 +30,7 @@ export default function StarPerformancesSection() {
   const youtubeUrl = "https://www.youtube.com/embed/D-TW0dcqMDA";
 
   return (
-    <section className="relative overflow-hidden bg-[#F7F9FC] py-20 md:py-24">
+    <section className="relative overflow-hidden bg-[#F7F9FC] py-12 md:py-16">
       {/* Decorative background elements */}
       <div
         aria-hidden="true"

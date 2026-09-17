@@ -53,9 +53,8 @@ export default function LeadershipSection() {
         relative
         overflow-hidden
         bg-[#F7F9FC]
-        py-24
-        md:py-28
-        lg:py-32
+        py-12
+        md:py-16
       "
     >
       {/* =====================================================

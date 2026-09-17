@@ -25,7 +25,7 @@ export default function EdgeMentors({ section }: EdgeMentorsProps) {
   };
 
   return (
-    <section className="bg-white py-20 lg:py-28 relative overflow-hidden border-t border-slate-200">
+    <section className="bg-white py-12 md:py-16 relative overflow-hidden border-t border-slate-200">
       <div className="gu-container">
 
         {/* Section Header */}

@@ -50,7 +50,7 @@ export default function FeeFaqAndCTA() {
   };
 
   return (
-    <section className="w-full bg-[#FAF7F2] py-16 sm:py-20 md:py-24">
+    <section className="w-full bg-[#FAF7F2] py-12 md:py-16">
       <div className="gu-container">
         {/* FAQs Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">

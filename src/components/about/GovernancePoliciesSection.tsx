@@ -28,8 +28,8 @@ export default function GovernancePoliciesSection() {
         relative
         overflow-hidden
         bg-[#F8FAFC]
-        py-16
-        md:py-20
+        py-12
+        md:py-16
       "
     >
       {/* Background subtle blur gradients */}

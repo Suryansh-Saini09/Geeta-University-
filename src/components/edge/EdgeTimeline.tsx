@@ -20,7 +20,7 @@ export default function EdgeTimeline({ section }: EdgeTimelineProps) {
   };
 
   return (
-    <section className="relative bg-slate-50 py-20 lg:py-28 border-y border-slate-200/80 overflow-hidden">
+    <section className="relative bg-slate-50 py-12 md:py-16 border-y border-slate-200/80 overflow-hidden">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#06355F]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#E8871A]/5 rounded-full blur-3xl pointer-events-none" />

@@ -125,7 +125,7 @@ export default function PlacementSnapshotSection() {
   }, []);
 
   return (
-    <section id="snapshot" className="scroll-mt-[190px] bg-white py-20 lg:py-24 border-t border-[#E2E8F0]">
+    <section id="snapshot" className="scroll-mt-[190px] bg-white py-12 md:py-16 border-t border-[#E2E8F0]">
       {/* Inline styles for vertical scrolling badge marquee (0.1x speed - 250s duration) */}
       <style>{`
         @keyframes marqueeVertical {

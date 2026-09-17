@@ -24,7 +24,7 @@ export default function EdgeTrainingModel({ section }: EdgeTrainingModelProps) {
   };
 
   return (
-    <section className="bg-slate-50 py-20 lg:py-28 relative overflow-hidden border-y border-slate-200">
+    <section className="bg-slate-50 py-12 md:py-16 relative overflow-hidden border-y border-slate-200">
       <div className="gu-container">
         
         {/* Section Header */}

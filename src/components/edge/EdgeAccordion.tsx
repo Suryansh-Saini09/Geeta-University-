@@ -17,7 +17,7 @@ export default function EdgeAccordion({ section }: EdgeAccordionProps) {
   };
 
   return (
-    <section id={section.id} className="bg-slate-50 py-20 lg:py-28 relative overflow-hidden border-t border-slate-200">
+    <section id={section.id} className="bg-slate-50 py-12 md:py-16 relative overflow-hidden border-t border-slate-200">
       <div className="gu-container max-w-5xl">
         
         {/* Section Header */}

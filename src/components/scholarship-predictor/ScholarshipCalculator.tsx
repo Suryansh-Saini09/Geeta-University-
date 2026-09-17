@@ -148,7 +148,7 @@ export default function ScholarshipCalculator() {
   }, [currentProgram, selectedSlabPercent]);
 
   return (
-    <section id="scholarship-calculator-section" className="scroll-mt-20 bg-white py-20 lg:py-24 border-t border-[#E2E8F0]">
+    <section id="scholarship-calculator-section" className="scroll-mt-20 bg-white py-12 md:py-16 border-t border-[#E2E8F0]">
       <div className="gu-container">
         {/* Section Title */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
