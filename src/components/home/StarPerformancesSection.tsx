@@ -22,7 +22,7 @@ export default function StarPerformancesSection() {
     handleTouchEnd,
   } = useFiniteCarousel({
     totalItems: starPerformances.length,
-    autoplayInterval: 4500,
+    autoplayInterval: 2500,
     enableAutoplay: true,
   });
 
