@@ -471,22 +471,6 @@ export const agricultureSchool: ProgramPageData = {
               name: "M.Sc. Agriculture (Agronomy)",
               href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
             },
-            {
-              name: "M.Sc. (Horticulture) Vegetable Science",
-              href: "/programs/school-of-agricultural-studies/msc-horticulture-vegetable-science",
-            },
-            {
-              name: "M.Sc. (Horticulture) Fruit Science",
-              href: "/programs/school-of-agricultural-studies/msc-horticulture-fruit-science",
-            },
-            {
-              name: "M.Sc. Genetics & Plant Breeding",
-              href: "/programs/school-of-agricultural-studies/msc-genetics-and-plant-breeding",
-            },
-            {
-              name: "M.Sc. Entomology",
-              href: "/programs/school-of-agricultural-studies/msc-entomology",
-            },
           ],
           eligibility:
             "B.Sc Agriculture with a minimum 50% marks.",
@@ -729,6 +713,23 @@ export const agricultureSchool: ProgramPageData = {
         title: "Agronomy Research Lab",
         image: "/programs/agriculture/agri6-thumb.webp",
       },
+    ],
+  },
+
+  careerPathways: {
+    title: "Pathway after Agricultural Sciences",
+    description:
+      "Industries involved in feeding the world, primarily the agriculture sector, will never face a recession or slowdown. In fact, with the advances in technology, research, and innovation, the agriculture sector is one of the fastest-growing sectors today. This has ensured great career prospects for students with comprehensive knowledge of the field. Agriculture Science students with a recognized degree can find employment in the following sectors:",
+    notableRoles: [
+      { name: "Agriculture / Dairy", iconName: "Sprout" },
+      { name: "Commercial Farming", iconName: "Tractor" },
+      { name: "Academic Institutions", iconName: "GraduationCap" },
+      { name: "Food Processing Units", iconName: "Utensils" },
+      { name: "Agricultural Products Marketing Firms", iconName: "TrendingUp" },
+      { name: "Agronomist & Crop Specialist", iconName: "Leaf" },
+      { name: "Seed & Agrochemical Industries", iconName: "FlaskConical" },
+      { name: "Government Agriculture Officer", iconName: "Award" },
+      { name: "Agri-Tech & Precision Farming", iconName: "Laptop" },
     ],
   },
 

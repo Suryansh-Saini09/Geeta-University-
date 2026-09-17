@@ -298,29 +298,29 @@ export const computerScienceSchool: ProgramPageData = {
   ],
 
   transformativeTracks: {
-    title: "We Don't Just Educate We Transform Futures !",
+    title: "We Don't Just Educate, We Transform Futures!",
     cards: [
       {
         title: "Certification Tracks",
         points: [
           "Amazon AWS",
-          "RedHat",
+          "Red Hat",
           "Cisco",
           "HubSpot",
           "GitHub",
           "Oracle",
-          "Microsoft Azure.",
+          "Microsoft Azure",
         ],
       },
       {
         title: "Drive Ready Tracks",
         points: [
-          "MEAN/MERN Stack",
+          "MEAN / MERN Stack",
           "PHP & MySQL",
           "Python Development",
-          "Cyber Security Fundamentals",
+          "Cybersecurity Fundamentals",
           "Artificial Intelligence",
-          "Machine Learning.",
+          "Machine Learning",
         ],
       },
       {
@@ -328,21 +328,21 @@ export const computerScienceSchool: ProgramPageData = {
         points: [
           "Logic Building",
           "Problem-Solving Techniques",
-          "Data Structure & Algorithms",
+          "Data Structures & Algorithms",
           "Coding Profile on In-house Platform",
           "Advanced Algorithms",
-          "Competitive Programming.",
+          "Competitive Programming",
         ],
       },
       {
         title: "Milestone Actions",
         points: [
-          "G-connect",
+          "G-Connect",
           "Alumni Connect",
-          "T Shaped Technocrat",
+          "T-Shaped Technocrat",
           "Multi-Skill Development",
           "Project Roundup",
-          "Techno Coders.",
+          "Techno Coders",
         ],
       },
     ],
@@ -397,61 +397,19 @@ export const computerScienceSchool: ProgramPageData = {
   },
 
   careerPathways: {
-    eyebrow: "NEW AGE TECH DOMAINS",
-    title: "GU New Age Specializations",
+    title: "Pathway After Computer Science & Engineering",
     description:
-      "Explore high-impact technological specialisations engineered for high-growth tech careers.",
-    pathways: [
-      {
-        area: "Artificial Intelligence & Machine Learning",
-        pathway: "Artificial Intelligence & Machine Learning",
-        roles: [
-          "Specialization in advanced machine learning (Computer Vision, Big Data, Robotics)",
-          "Artificial neural networks & deep learning for image recognition",
-          "Real-world AI/ML industry projects",
-          "Competencies in data mining & progression analytics",
-        ],
-      },
-      {
-        area: "Cybersecurity",
-        pathway: "Cybersecurity",
-        roles: [
-          "Software development security & network security",
-          "Risk management and compliance frameworks",
-          "Cryptography & cybersecurity regulations",
-          "Information security (INFOSEC) & security architecture",
-        ],
-      },
-      {
-        area: "Data Sciences & Business Analytics",
-        pathway: "Data Sciences & Business Analytics",
-        roles: [
-          "Certified analytics professional framework",
-          "Data frames and core programming principles",
-          "Data science with R programming & Python for data science",
-          "Predictive modeling & business intelligence",
-        ],
-      },
-      {
-        area: "Full Stack Web Development",
-        pathway: "Full Stack Web Development",
-        roles: [
-          "Basics of web development and responsive UI design",
-          "HTML5/CSS3 and modern JavaScript essentials",
-          "Advanced JavaScript frameworks & MEAN/MERN stack",
-          "Cloud deployment & scalable web applications",
-        ],
-      },
-    ],
+      "The booming IT sector in India has plenty of jobs for fresh computer science graduates. Besides, Computer Engineers have plenty of options to work in IT companies in departments such as design, development, assembly, manufacture, and maintenance, etc. Working as a programmer, web developer, and E-commerce specialist with telecommunications companies, automotive companies, aerospace companies, etc. can be a lucrative career option as well...",
+    rolesTitle: "Top Recruiters",
     notableRoles: [
-      { name: "Full-Stack Software Developer" },
-      { name: "AI & Machine Learning Engineer" },
-      { name: "Cybersecurity Specialist & Ethical Hacker" },
-      { name: "Data Scientist & Business Analyst" },
-      { name: "Cloud Architect & DevOps Engineer" },
-      { name: "Solutions Architect" },
-      { name: "Quantum Computing Researcher" },
-      { name: "Database & Back-End Engineer" },
+      { name: "Capgemini", iconName: "Building2" },
+      { name: "ProGrad", iconName: "Laptop" },
+      { name: "Tech Mahindra", iconName: "Code2" },
+      { name: "Hike Edu", iconName: "GraduationCap" },
+      { name: "Genpact", iconName: "Globe" },
+      { name: "Learning Routes", iconName: "Award" },
+      { name: "Ubiquiti", iconName: "BrainCircuit" },
+      { name: "Infosys", iconName: "Building2" },
     ],
   },
 

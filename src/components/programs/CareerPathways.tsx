@@ -131,6 +131,7 @@ function getRoleIcon(name: string) {
 interface CareerPathwaysProps {
   eyebrow?: string;
   title?: string;
+  rolesTitle?: string;
   subtitle?: string;
   description?: string;
   pathways?: PathwayCardItem[];
@@ -140,6 +141,7 @@ interface CareerPathwaysProps {
 export default function CareerPathways({
   eyebrow,
   title = "Career Pathways",
+  rolesTitle,
   subtitle,
   description,
   pathways,
@@ -174,24 +176,6 @@ export default function CareerPathways({
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative" }}>
         {/* Section Header */}
         <div style={{ textAlign: "center", marginBottom: pathwayItems.length > 0 ? 40 : 36 }}>
-          {eyebrow && (
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 14 }}>
-              <div style={{ width: 28, height: 2, background: "#E8871A", borderRadius: 2 }} />
-              <span
-                style={{
-                  color: "#E8871A",
-                  fontWeight: 800,
-                  fontSize: 11.5,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {eyebrow}
-              </span>
-              <div style={{ width: 28, height: 2, background: "#E8871A", borderRadius: 2 }} />
-            </div>
-          )}
-
           <h2
             style={{
               fontSize: "clamp(28px, 3.8vw, 42px)",
@@ -475,7 +459,7 @@ export default function CareerPathways({
           >
             <div style={{ textAlign: "center", marginBottom: 36 }}>
               <h3 style={{ fontSize: 26, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.6px", margin: "0" }}>
-                Notable Career Roles Our Graduates Pursue:
+                {rolesTitle || "Notable Career Roles Our Graduates Pursue:"}
               </h3>
             </div>
 
