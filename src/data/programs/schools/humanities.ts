@@ -170,17 +170,17 @@ export const humanitiesSchool: ProgramPageData = {
     {
       level: "Undergraduate Programs",
       title: "Undergraduate Programs",
-      duration: "3 / 4 Years",
+      duration: "3 / 4 years",
       eligibility:
-        "Passed 10+2 examination with at least 50% marks in the qualifying examination from a recognized board.",
+        "Passed the 10+2 examination with at least 50% marks in the qualifying examination from a recognized board.",
       programs: [
         {
           name: "B.A. Hons. (Bachelor of Arts)",
           program: "B.A. Hons. (Bachelor of Arts)",
           href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
-          duration: "3 / 4 Years",
-          eligibility: "Passed 10+2 examination with minimum 50% aggregate marks from a recognized board.",
-          specializations: [
+          duration: "3 / 4 years",
+          eligibility: "Passed the 10+2 examination with minimum 50% aggregate marks from a recognized board.",
+          specialisations: [
             {
               name: "B.A. Hons. (Psychology)",
               href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-psychology",
@@ -203,7 +203,7 @@ export const humanitiesSchool: ProgramPageData = {
           name: "B.Sc. (Hons.) Psychology",
           program: "B.Sc. (Hons.) Psychology",
           href: "https://geetauniversity.edu.in/bsc-psychology",
-          duration: "3 / 4 Years",
+          duration: "3 / 4 years",
           eligibility: "10+2 with at least 50% marks from a recognized board.",
         },
       ],
@@ -211,7 +211,7 @@ export const humanitiesSchool: ProgramPageData = {
     {
       level: "Postgraduate Programs",
       title: "Postgraduate Programs",
-      duration: "2 Years",
+      duration: "2 years",
       eligibility:
         "Passed Bachelor's degree with 50% marks in the relevant or allied discipline.",
       programs: [
@@ -219,9 +219,9 @@ export const humanitiesSchool: ProgramPageData = {
           name: "M.A. (Master of Arts)",
           program: "M.A. (Master of Arts)",
           href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility: "Passed Bachelor's degree with 50% marks in the relevant or allied discipline.",
-          specializations: [
+          specialisations: [
             {
               name: "M.A. (Political Science)",
               href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ma-political-science",
@@ -237,7 +237,7 @@ export const humanitiesSchool: ProgramPageData = {
     {
       level: "Doctoral Programs",
       title: "Doctoral Programs (Ph.D.)",
-      duration: "Minimum 3 Years",
+      duration: "Minimum 3 years",
       eligibility:
         "Master's in a relevant field with a minimum 55% aggregate marks (50% for reserved categories).",
       programs: [
@@ -245,9 +245,9 @@ export const humanitiesSchool: ProgramPageData = {
           name: "Ph.D. (Doctor of Philosophy)",
           program: "Ph.D. (Doctor of Philosophy)",
           href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
-          duration: "Minimum 3 Years",
+          duration: "Minimum 3 years",
           eligibility: "Master's in a relevant field with a minimum 55% aggregate marks (50% for reserved categories).",
-          specializations: [
+          specialisations: [
             {
               name: "Ph.D. (Psychology)",
               href: "https://geetauniversity.edu.in/phd-psychology",
@@ -512,12 +512,12 @@ export const humanitiesSchool: ProgramPageData = {
     },
     {
         "q": "What is the eligibility for the B.A. programmes?",
-        "a": "Candidates need to have passed the 10+2 examination with a minimum of 50% marks, in any stream.",
+        "a": "Candidates need to have Passed the 10+2 examination with a minimum of 50% marks, in any stream.",
         "category": "Admissions & Eligibility"
     },
     {
         "q": "Can students from different Class 12 streams apply for the B.A. programmes?",
-        "a": "Yes. There is no restriction based on Class 12 stream — students from Science, Commerce, Arts/Humanities or any other stream can apply for the B.A. programmes, as long as they have passed 10+2 with at least 50% marks.",
+        "a": "Yes. There is no restriction based on Class 12 stream — students from Science, Commerce, Arts/Humanities or any other stream can apply for the B.A. programmes, as long as they have Passed the 10+2 with at least 50% marks.",
         "category": "Admissions & Eligibility"
     },
     {

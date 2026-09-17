@@ -103,7 +103,7 @@ export const commerceSchool: ProgramPageData = {
         ],
       },
       {
-        title: "Wide Specialization Options",
+        title: "Wide Specialisation Options",
         points: [
           "BBA & MBA pathways",
           "Commerce and finance tracks",
@@ -361,7 +361,7 @@ export const commerceSchool: ProgramPageData = {
         designation: "Assistant Professor, Ph.D. (Human Resource)",
         role: "Assistant Professor, Ph.D. (Human Resource)",
         description:
-          "Core specialization in Human Resources, researching human resource dynamics, contemporary management practices, and academic development with publications in Scopus-indexed and ABDC journals.",
+          "Core specialisation in Human Resources, researching human resource dynamics, contemporary management practices, and academic development with publications in Scopus-indexed and ABDC journals.",
         image: "/programs/commerce/scbm faculty/nidhig.webp",
       },
       {
@@ -843,18 +843,18 @@ export const commerceSchool: ProgramPageData = {
     {
       title: "Undergraduate Programs",
       level: "Undergraduate",
-      duration: "3/4 Years",
+      duration: "3/4 years",
       eligibility:
-        "Passed 10+2 examination (in any stream) with at least 50% marks in aggregate from any recognized board.",
+        "Passed the 10+2 examination (in any stream) with at least 50% marks in aggregate from any recognized board.",
       programs: [
         {
           name: "BBA Hons. (Bachelor of Business Administration)",
           program: "BBA Hons. (Bachelor of Business Administration)",
           href: "/programs/school-of-commerce-and-business-management/bba",
-          duration: "3/4 Years",
+          duration: "3/4 years",
           eligibility:
-            "Passed 10+2 examination with at least 50% marks in aggregate from any recognized board.",
-          specializations: [
+            "Passed the 10+2 examination with at least 50% marks in aggregate from any recognized board.",
+          specialisations: [
             { name: "General Business Administration", href: "/programs/school-of-commerce-and-business-management/bba" },
             { name: "International Accounting with ACCA UK", href: "/programs/school-of-commerce-and-business-management/bba-international-accounting-acca" },
             { name: "Artificial Intelligence & Data Analytics", href: "/programs/school-of-commerce-and-business-management/bba-ai-data-analytics" },
@@ -871,9 +871,9 @@ export const commerceSchool: ProgramPageData = {
           name: "B.Com. Hons. (Bachelor of Commerce)",
           program: "B.Com. Hons. (Bachelor of Commerce)",
           href: "/programs/school-of-commerce-and-business-management/bcom",
-          duration: "3/4 Years",
-          eligibility: "Passed 10+2 examination with at least 50% marks.",
-          specializations: [
+          duration: "3/4 years",
+          eligibility: "Passed the 10+2 examination with at least 50% marks.",
+          specialisations: [
             { name: "General Commerce & Accountancy", href: "/programs/school-of-commerce-and-business-management/bcom" },
             { name: "International Accounting with ACCA UK", href: "/programs/school-of-commerce-and-business-management/bcom-international-accounting-acca" },
             { name: "Auditing & Taxation", href: "/programs/school-of-commerce-and-business-management/bcom-auditing-taxation" },
@@ -886,7 +886,7 @@ export const commerceSchool: ProgramPageData = {
     {
       title: "Postgraduate Programs",
       level: "Postgraduate",
-      duration: "2 Years",
+      duration: "2 years",
       eligibility:
         "Passed Bachelor's Degree of minimum 3 years duration with at least 50% marks in aggregate.",
       programs: [
@@ -894,10 +894,10 @@ export const commerceSchool: ProgramPageData = {
           name: "MBA (Master of Business Administration)",
           program: "MBA (Master of Business Administration)",
           href: "/programs/school-of-commerce-and-business-management/mba",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility:
             "Passed Bachelor's Degree of minimum 3 years duration with at least 50% marks in aggregate.",
-          specializations: [
+          specialisations: [
             { name: "Finance", href: "/programs/school-of-commerce-and-business-management/mba-finance" },
             { name: "Marketing", href: "/programs/school-of-commerce-and-business-management/mba-marketing" },
             { name: "Human Resource Management", href: "/programs/school-of-commerce-and-business-management/mba-hrm" },
@@ -909,7 +909,7 @@ export const commerceSchool: ProgramPageData = {
           name: "M.Com. (Master of Commerce)",
           program: "M.Com. (Master of Commerce)",
           href: "/programs/school-of-commerce-and-business-management/mcom",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility:
             "Passed B.Com. with a minimum of 50% marks in the qualifying examination from a recognized university.",
         },
@@ -918,7 +918,7 @@ export const commerceSchool: ProgramPageData = {
     /* {
       title: "Doctoral Programs",
       level: "Doctoral (Ph.D.)",
-      duration: "Minimum 3 Years",
+      duration: "Minimum 3 years",
       eligibility:
         "Relevant Master's degree in Management / Commerce or allied discipline with at least 55% marks.",
       programs: [
@@ -926,10 +926,10 @@ export const commerceSchool: ProgramPageData = {
           name: "Ph.D. in Management & Commerce",
           program: "Ph.D. in Management & Commerce",
           href: "/phd-management",
-          duration: "Minimum 3 Years",
+          duration: "Minimum 3 years",
           eligibility:
             "Master's degree in Management / Commerce or allied discipline with a minimum of 55% aggregate marks.",
-          specializations: [
+          specialisations: [
             { name: "Strategic Management & Governance", href: "/phd-management" },
             { name: "Financial Markets & Banking", href: "/phd-management" },
             { name: "Digital Marketing & Consumer Insights", href: "/phd-management" },
@@ -981,7 +981,7 @@ export const commerceSchool: ProgramPageData = {
     },
     {
         "q": "What specialisations are available in BBA?",
-        "a": "The School lists BBA specializations in Business Administration, International Accounting with ACCA UK, Artificial Intelligence & Data Analytics, Human Resource Management, Import & Export Management, Banking & Finance, Marketing, FinTech, Digital Marketing, and Entrepreneurship & Family Business.",
+        "a": "The School lists BBA specialisations in Business Administration, International Accounting with ACCA UK, Artificial Intelligence & Data Analytics, Human Resource Management, Import & Export Management, Banking & Finance, Marketing, FinTech, Digital Marketing, and Entrepreneurship & Family Business.",
         "category": "Programmes & Specialisations"
     },
     {

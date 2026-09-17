@@ -25,7 +25,7 @@ export const DEFAULT_FAQS: FAQ[] = [
   {
     q: "Are there opportunities to learn emerging technologies beyond the core syllabus?",
     a: "Yes. Official specialisations and training tracks cover AI, Machine Learning, Cybersecurity, Data Science, Cloud Computing, and Full Stack Development — giving students exposure to in-demand, future-facing areas.",
-    category: "Specializations & Technology",
+    category: "Specialisations & Technology",
   },
   {
     q: "What kinds of industry-linked learning opportunities are available?",

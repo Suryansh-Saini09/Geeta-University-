@@ -184,7 +184,7 @@ export const forensicSciencesFaqs: CourseFAQItem[] = [
   },
   {
     question: "Can I work in a forensic laboratory after graduation?",
-    answer: "Yes. Forensic laboratories in government and private sectors offer roles based on candidate qualifications, specializations, and competitive recruitment processes.",
+    answer: "Yes. Forensic laboratories in government and private sectors offer roles based on candidate qualifications, specialisations, and competitive recruitment processes.",
     category: "Careers & Higher Studies"
   },
   {
@@ -420,9 +420,9 @@ export const forensicSciencesSchool: ProgramPageData = {
 
   featuredPrograms: {
     title1: "Bachelor of Science",
-    tag1: "B.Sc. Forensic Science (3/4 Years)",
+    tag1: "B.Sc. Forensic Science (3/4 years)",
     title2: "Master of Science",
-    tag2: "M.Sc. Forensic Science (2 Years)",
+    tag2: "M.Sc. Forensic Science (2 years)",
     description:
       "UGC-recognized and industry-aligned forensic science curricula combining classroom theory, advanced laboratory practicals, mock crime scenes, and professional internship training.",
     cards: [
@@ -463,7 +463,7 @@ export const forensicSciencesSchool: ProgramPageData = {
     {
       level: "Undergraduate",
       title: "Undergraduate Programs",
-      duration: "3/4 Years",
+      duration: "3/4 years",
       eligibility:
         "Passed or appeared in 10+2 (or its equivalent) in the Science stream with Physics, Chemistry, and Biology or Mathematics, with at least 55% marks for General/OBC (NCL)/EWS candidates and 50% for SC/ST/PwD candidates.",
       programs: [
@@ -471,7 +471,7 @@ export const forensicSciencesSchool: ProgramPageData = {
           name: "B.Sc. Forensic Science",
           program: "B.Sc. Forensic Science",
           href: "/programs/school-of-forensic-sciences/bsc-forensic-science",
-          duration: "3/4 Years",
+          duration: "3/4 years",
           eligibility:
             "Passed or appeared in 10+2 (or its equivalent) in the Science stream (Physics, Chemistry, Biology/Mathematics) with minimum 55% aggregate marks (50% for SC/ST/PwD).",
         },
@@ -480,7 +480,7 @@ export const forensicSciencesSchool: ProgramPageData = {
     {
       level: "Postgraduate",
       title: "Postgraduate Programs",
-      duration: "2 Years",
+      duration: "2 years",
       eligibility:
         "Bachelor's degree in Science / Forensic Science / Medicine / Engineering / Pharmacy / Dentistry / AYUSH with at least 55% aggregate marks for General/OBC (NCL)/EWS candidates and 50% for SC/ST/PwD candidates.",
       programs: [
@@ -488,7 +488,7 @@ export const forensicSciencesSchool: ProgramPageData = {
           name: "M.Sc. Forensic Science",
           program: "M.Sc. Forensic Science",
           href: "/programs/school-of-forensic-sciences/msc-forensic-science",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility:
             "Bachelor's degree in Science / Forensic Science / Medicine / Engineering / Pharmacy / Dentistry / AYUSH with at least 55% aggregate marks (50% for SC/ST/PwD).",
         },
@@ -497,14 +497,14 @@ export const forensicSciencesSchool: ProgramPageData = {
     {
       level: "Doctoral (Ph.D.)",
       title: "Doctoral Programs",
-      duration: "Minimum 3 Years",
+      duration: "Minimum 3 years",
       eligibility: "Master's degree in a relevant discipline with a minimum aggregate score of 55% (50% for reserved categories).",
       programs: [
         {
           name: "Ph.D. Forensic Science",
           program: "Ph.D. Forensic Science",
           href: "/programs/school-of-forensic-sciences/phd-forensic-science",
-          duration: "Minimum 3 Years",
+          duration: "Minimum 3 years",
           eligibility:
             "Master's degree in Forensic Science / Physical Sciences / Chemical Sciences / Biological Sciences or an allied discipline with at least 55% marks.",
         },

@@ -61,7 +61,7 @@ export const spBansalSchool: ProgramPageData = {
   faqs: [
     {
         "q": "What programmes are offered by SP Bansal School of Business (SPBSB)?",
-        "a": "The SPBSB offers MBA with specializations in AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business, along with a Ph.D. programme.",
+        "a": "The SPBSB offers MBA with specialisations in AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business, along with a Ph.D. programme.",
         "category": "Admissions & Eligibility"
     },
     {
@@ -90,8 +90,8 @@ export const spBansalSchool: ProgramPageData = {
         "category": "Admissions & Eligibility"
     },
     {
-        "q": "Can a student choose an MBA specialization according to their career goal?",
-        "a": "Yes. A student can choose his or her preferable specialization from multiple specializations offered, allowing students to align their MBA with areas such as AI, marketing, finance, HR, supply chain, digital marketing or entrepreneurship.",
+        "q": "Can a student choose an MBA specialisation according to their career goal?",
+        "a": "Yes. A student can choose his or her preferable specialisation from multiple specialisations offered, allowing students to align their MBA with areas such as AI, marketing, finance, HR, supply chain, digital marketing or entrepreneurship.",
         "category": "Admissions & Eligibility"
     },
     {
@@ -101,7 +101,7 @@ export const spBansalSchool: ProgramPageData = {
     },
     {
         "q": "How many MBA specialisations are available?",
-        "a": "There are 7 specializations offered: AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business.",
+        "a": "There are 7 specialisations offered: AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business.",
         "category": "MBA Structure & Specialisations"
     },
     {
@@ -111,7 +111,7 @@ export const spBansalSchool: ProgramPageData = {
     },
     {
         "q": "What is covered in MBA Digital Marketing?",
-        "a": "MBA Digital Marketing specialization includes SEO and SEM, social media analytics, email and mobile marketing, influencer and affiliate marketing, data-driven campaigns, UI/UX, AI and quick commerce.",
+        "a": "MBA Digital Marketing specialisation includes SEO and SEM, social media analytics, email and mobile marketing, influencer and affiliate marketing, data-driven campaigns, UI/UX, AI and quick commerce.",
         "category": "MBA Structure & Specialisations"
     },
     {
@@ -121,7 +121,7 @@ export const spBansalSchool: ProgramPageData = {
     },
     {
         "q": "What is covered in MBA Human Resource Management?",
-        "a": "This specialization covers talent analytics and AI recruitment, diversity and inclusion, employee experience, HR technology, people analytics, performance management and leadership development.",
+        "a": "This specialisation covers talent analytics and AI recruitment, diversity and inclusion, employee experience, HR technology, people analytics, performance management and leadership development.",
         "category": "MBA Structure & Specialisations"
     },
     {
@@ -131,7 +131,7 @@ export const spBansalSchool: ProgramPageData = {
     },
     {
         "q": "What is covered in MBA Supply Chain Management?",
-        "a": "The specialization covers supply-chain analytics, sustainable logistics, global trade compliance, warehouse automation, e-SCM and last-mile delivery.",
+        "a": "The specialisation covers supply-chain analytics, sustainable logistics, global trade compliance, warehouse automation, e-SCM and last-mile delivery.",
         "category": "MBA Structure & Specialisations"
     },
     {

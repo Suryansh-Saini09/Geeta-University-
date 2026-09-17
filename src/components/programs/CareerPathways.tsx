@@ -463,50 +463,197 @@ export default function CareerPathways({
               </h3>
             </div>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", maxWidth: 1080, margin: "0 auto" }}>
-              {roleItems.map((role, idx) => (
-                <motion.div
-                  key={idx}
-                  whileHover={{ scale: 1.04, y: -2 }}
-                  transition={{ type: "spring", stiffness: 450, damping: 15 }}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 10,
-                    padding: "12px 22px",
-                    background: "#FFFFFF",
-                    border: "1px solid rgba(232, 135, 26, 0.08)",
-                    borderRadius: "16px",
-                    color: "#0A1F44",
-                    fontSize: "14.5px",
-                    fontWeight: 650,
-                    cursor: "pointer",
-                    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.015)",
-                    transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                  }}
-                  className="career-role-badge"
-                >
-                  <span
-                    className="career-role-icon"
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+                gap: 20,
+                maxWidth: 1080,
+                margin: "0 auto",
+                alignItems: "center",
+              }}
+            >
+              {roleItems.map((role, idx) =>
+                role.logo ? (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    transition={{ type: "spring", stiffness: 450, damping: 15 }}
                     style={{
-                      color: "#E8871A",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      transition: "all 0.3s ease",
+                      padding: "14px 20px",
+                      background: "#FFFFFF",
+                      border: "1.5px solid rgba(232, 135, 26, 0.14)",
+                      borderRadius: "20px",
+                      boxShadow: "0 6px 18px rgba(0, 0, 0, 0.04)",
+                      height: 90,
+                      transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                     }}
+                    className="career-recruiter-card"
                   >
-                    {getRoleIcon(role.name)}
-                  </span>
-                  <span>{role.name}</span>
-                </motion.div>
-              ))}
+                    <img
+                      src={role.logo}
+                      alt={role.name}
+                      style={{
+                        maxHeight: role.name === "Capgemini" ? 68 : 56,
+                        maxWidth: "92%",
+                        width: "auto",
+                        height: "auto",
+                        objectFit: "contain",
+                      }}
+                      loading="lazy"
+                    />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ scale: 1.04, y: -2 }}
+                    transition={{ type: "spring", stiffness: 450, damping: 15 }}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      padding: "12px 22px",
+                      background: "#FFFFFF",
+                      border: "1px solid rgba(232, 135, 26, 0.08)",
+                      borderRadius: "16px",
+                      color: "#0A1F44",
+                      fontSize: "14.5px",
+                      fontWeight: 650,
+                      cursor: "pointer",
+                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.015)",
+                      transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                    }}
+                    className="career-role-badge"
+                  >
+                    <span
+                      className="career-role-icon"
+                      style={{
+                        color: "#E8871A",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        transition: "all 0.3s ease",
+                      }}
+                    >
+                      {getRoleIcon(role.name)}
+                    </span>
+                    <span>{role.name}</span>
+                  </motion.div>
+                )
+              )}
             </div>
           </div>
         )}
+
+        {/* Milestone Stats Cards (550+ Recruiters & 3500+ Job Offers) */}
+        <div
+          style={{
+            marginTop: roleItems.length > 0 || pathwayItems.length > 0 ? 48 : 24,
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: 24,
+            maxWidth: 680,
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          {/* Card 1: 550+ Recruiters */}
+          <div
+            style={{
+              background: "#0D2738",
+              borderRadius: 20,
+              padding: "36px 28px",
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 10px 30px rgba(10, 31, 68, 0.15)",
+              border: "1px solid rgba(255, 255, 255, 0.06)",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+            }}
+            className="career-milestone-card"
+          >
+            <div
+              style={{
+                fontSize: "clamp(36px, 4.2vw, 44px)",
+                fontWeight: 900,
+                color: "#E8871A",
+                lineHeight: 1.1,
+                letterSpacing: "-0.5px",
+                marginBottom: 10,
+              }}
+            >
+              550+
+            </div>
+            <div
+              style={{
+                fontSize: 19,
+                fontWeight: 800,
+                color: "#FFFFFF",
+                letterSpacing: "0.2px",
+              }}
+            >
+              Recruiters
+            </div>
+          </div>
+
+          {/* Card 2: 3500+ Job Offers */}
+          <div
+            style={{
+              background: "#0D2738",
+              borderRadius: 20,
+              padding: "36px 28px",
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 10px 30px rgba(10, 31, 68, 0.15)",
+              border: "1px solid rgba(255, 255, 255, 0.06)",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+            }}
+            className="career-milestone-card"
+          >
+            <div
+              style={{
+                fontSize: "clamp(36px, 4.2vw, 44px)",
+                fontWeight: 900,
+                color: "#E8871A",
+                lineHeight: 1.1,
+                letterSpacing: "-0.5px",
+                marginBottom: 10,
+              }}
+            >
+              3500+
+            </div>
+            <div
+              style={{
+                fontSize: 19,
+                fontWeight: 800,
+                color: "#FFFFFF",
+                letterSpacing: "0.2px",
+              }}
+            >
+              Job Offers
+            </div>
+          </div>
+        </div>
       </div>
 
       <style>{`
+        .career-recruiter-card:hover {
+          transform: translateY(-3px) scale(1.03) !important;
+          border-color: #E8871A !important;
+          box-shadow: 0 10px 24px rgba(232, 135, 26, 0.15) !important;
+        }
+        .career-milestone-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 16px 36px rgba(10, 31, 68, 0.22) !important;
+        }
         .pathway-slider-card:hover {
           border-color: rgba(232, 135, 26, 0.18) !important;
           box-shadow: 0 15px 30px rgba(232, 135, 26, 0.07), 0 0 18px rgba(232, 135, 26, 0.04) !important;

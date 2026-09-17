@@ -129,9 +129,9 @@ export const hospitalitySchool: ProgramPageData = {
         name: "Ms. Dimpy Khera",
         role: "Assistant Professor (IHM Pusa Alumna)",
         designation: "Assistant Professor, Master’s (IHM PUSA)",
-        desc: "M.Sc. in Hospitality and Hotel Administration from IHM Pusa, New Delhi. Specialization in Front Office and Hospitality Operations.",
+        desc: "M.Sc. in Hospitality and Hotel Administration from IHM Pusa, New Delhi. Specialisation in Front Office and Hospitality Operations.",
         description:
-          "M.Sc. in Hospitality and Hotel Administration from IHM Pusa, New Delhi. Specialization in Front Office and Hospitality Operations.",
+          "M.Sc. in Hospitality and Hotel Administration from IHM Pusa, New Delhi. Specialisation in Front Office and Hospitality Operations.",
         image: "/programs/hotel-management/dimpy.webp",
       },
       {
@@ -164,8 +164,8 @@ export const hospitalitySchool: ProgramPageData = {
           name: "Diploma in Hotel Management (Residential Program)",
           program: "Diploma in Hotel Management (Residential Program)",
           href: "/programs/school-of-hospitality-and-hotel-management/diploma-in-hotel-management",
-          duration: "2 Years (1 Year at GU Campus + 1 Year in Five-Star Hotel)",
-          eligibility: "Passed 10+2 examination with at least 50% marks in the qualifying examination from any recognized board.",
+          duration: "2 years (1 year at GU Campus + 1 year in Five-Star Hotel)",
+          eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination from any recognized board.",
           details:
             "A fast-track residential diploma delivering hands-on hotel operations training during Year 1 on campus, followed by Year 2 paid industry immersion inside top hotel chains.",
         },
@@ -173,8 +173,8 @@ export const hospitalitySchool: ProgramPageData = {
           name: "B.Sc. Hons. (Hotel Management)",
           program: "B.Sc. Hons. (Hotel Management)",
           href: "/programs/school-of-hospitality-and-hotel-management/bsc-hotel-management",
-          duration: "3 / 4 Years",
-          eligibility: "Passed 10+2 examination with at least 50% marks in the qualifying examination from any recognized board.",
+          duration: "3 / 4 years",
+          eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination from any recognized board.",
           details:
             "Comprehensive degree program providing full-stack hospitality training, live masterclasses with celebrity chefs, front-office software simulations, and international internships.",
         },
@@ -187,7 +187,7 @@ export const hospitalitySchool: ProgramPageData = {
         {
           name: "M.Sc. (Hotel Management)",
           program: "M.Sc. (Hotel Management)",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility: "Passed any bachelor's graduation degree from any stream with at least 50% marks (e.g., B.Sc., B.A., B.Com., B.Tech., B.Voc., BCA).",
           details:
             "Advanced master's degree focusing on leadership, multi-property management, hospitality analytics, and global service innovation.",
@@ -201,7 +201,7 @@ export const hospitalitySchool: ProgramPageData = {
         {
           name: "Ph.D. (Hotel & Tourism Management)",
           program: "Ph.D. (Hotel & Tourism Management)",
-          duration: "Minimum 3 Years",
+          duration: "Minimum 3 years",
           eligibility: "Master's degree in a relevant field with a minimum of 55% marks from an approved university.",
           details:
             "Rigorous research program empowering scholars to conduct high-impact academic and applied studies in tourism policy, hotel tech, and service leadership.",
@@ -578,12 +578,12 @@ export const hospitalitySchool: ProgramPageData = {
     },
     {
       "q": "Who is eligible to apply for the B.Sc. Hotel Management programme, and can students from any Class 12 stream apply?",
-      "a": "Students who have passed 10+2 from a recognised board with at least 50% marks can apply for the B.Sc. Hotel Management programme. The eligibility is open to students from any stream.",
+      "a": "Students who have Passed the 10+2 from a recognised board with at least 50% marks can apply for the B.Sc. Hotel Management programme. The eligibility is open to students from any stream.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What is the eligibility for the Diploma in Hotel Management (Residential Program)?",
-      "a": "Applicants must have passed 10+2 in any stream with a minimum of 50% marks in the qualifying examination.",
+      "a": "Applicants must have Passed the 10+2 in any stream with a minimum of 50% marks in the qualifying examination.",
       "category": "Admissions & Eligibility"
     },
     {

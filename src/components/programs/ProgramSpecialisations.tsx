@@ -20,7 +20,7 @@ export const DEFAULT_SPECIALISATIONS_DATA: SpecialisationItem[] = [
   {
     title: "Artificial Intelligence & Machine Learning",
     points: [
-      "Specialization in advanced machine learning areas like Computer Vision, Big Data, Robotics, etc.",
+      "Specialisation in advanced machine learning areas like Computer Vision, Big Data, Robotics, etc.",
       "Understanding artificial networks",
       "Applications of deep learning in image recognition",
       "Real world projects",
@@ -64,7 +64,7 @@ export const DEFAULT_SPECIALISATIONS_DATA: SpecialisationItem[] = [
 export default function ProgramSpecialisations({ specialisations }: ProgramSpecialisationsProps) {
   if (!specialisations) return null;
 
-  const title = specialisations.title || "GU New Age Specializations";
+  const title = specialisations.title || "GU New-Age Specialisations";
   const rawItems = specialisations.items;
   const items = rawItems && rawItems.length > 0 ? rawItems : DEFAULT_SPECIALISATIONS_DATA;
 

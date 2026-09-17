@@ -44,7 +44,7 @@ export const computerScienceSchool: ProgramPageData = {
     title: "Building Intelligent Solutions. Shaping the Future.",
     eyebrow: "Geeta University",
     description:
-      "Industry-oriented CSE programs with specializations in AI, Cybersecurity, Data Science, and Cloud Computing. Excellent placement support with 550+ recruiters and packages up to 40 LPA.",
+      "Industry-oriented CSE programs with specialisations in AI, Cybersecurity, Data Science, and Cloud Computing. Excellent placement support with 550+ recruiters and packages up to 40 LPA.",
     slides: [
       {
         studentName: "Saransh",
@@ -87,7 +87,7 @@ export const computerScienceSchool: ProgramPageData = {
       "Our expert faculty and world-class infrastructure have contributed greatly to helping us become the top B.Tech. CSE University in Delhi NCR. In addition to providing hands-on learning, our strong industry collaborations and placement support provide our students with a much-needed competitive edge in the tech world.",
       "We are the preferred choice for students looking for the best university to study in Delhi NCR. We help open the doorways to professional success and growth in the ever-evolving digital landscape. Enroll now and shape your future with skill and excellence!",
     ],
-    badgeText: "Center of Excellence in Computing",
+    badgeText: "Centre of Excellence in Computing",
     closingText:
       "Our learning ecosystem integrates intensive coding tracks, hackathons, professors of practice from leading tech companies, and dedicated placement support.",
   },
@@ -195,9 +195,9 @@ export const computerScienceSchool: ProgramPageData = {
       items: [
         {
           program: "B.Tech. CSE — Computer Science & Engineering",
-          duration: "4 Years",
+          duration: "4 years",
           href: "/programs/school-of-computer-science-and-engineering/btech-cse",
-          specializations: [
+          specialisations: [
             {
               name: "B.Tech. Hons. CSE (Computer Science & Engineering)",
               href: "/programs/school-of-computer-science-and-engineering/btech-cse",
@@ -228,13 +228,13 @@ export const computerScienceSchool: ProgramPageData = {
             },
           ],
           eligibility:
-            "Passed 10+2 examination with Physics and Mathematics as compulsory subjects along with one of Chemistry / Computer Science / Electronics / Information Technology / Biology / Informatics Practices / Biotechnology / Technical Vocational Subject / Agriculture / Engineering Graphics / Business Studies / Entrepreneurship with a minimum of 55% marks, or passed D.Voc. stream with a minimum of 55% marks in the same or allied sector.",
+            "Passed the 10+2 examination with Physics and Mathematics as compulsory subjects along with one of Chemistry / Computer Science / Electronics / Information Technology / Biology / Informatics Practices / Biotechnology / Technical Vocational Subject / Agriculture / Engineering Graphics / Business Studies / Entrepreneurship with a minimum of 55% marks, or passed the D.Voc. stream with a minimum of 55% marks in the same or allied sector.",
         },
         {
           program: "BCA — Bachelor of Computer Applications",
-          duration: "3/4 Years",
+          duration: "3/4 years",
           href: "/programs/school-of-computer-science-and-engineering/bca",
-          specializations: [
+          specialisations: [
             {
               name: "BCA Hons. (Computer Applications)",
               href: "/programs/school-of-computer-science-and-engineering/bca",
@@ -253,7 +253,7 @@ export const computerScienceSchool: ProgramPageData = {
             },
           ],
           eligibility:
-            "Passed 10+2 examination with at least 50% marks, or passed Diploma in Commercial Practice or equivalent with at least 50% marks.",
+            "Passed the 10+2 examination with at least 50% marks, or passed Diploma in Commercial Practice or equivalent with at least 50% marks.",
         },
       ],
     },
@@ -263,14 +263,14 @@ export const computerScienceSchool: ProgramPageData = {
       items: [
         {
           program: "M.Tech. in Computer Science & Engineering",
-          duration: "2 Years",
+          duration: "2 years",
           href: "/programs/school-of-computer-science-and-engineering/mtech-cse",
           eligibility:
             "Passed B.Tech. in relevant stream / M.Sc.-IT / MCA or equivalent with at least 50% marks in the qualifying examination.",
         },
         {
           program: "Master of Computer Applications (MCA)",
-          duration: "2 Years",
+          duration: "2 years",
           href: "/programs/school-of-computer-science-and-engineering/mca",
           eligibility:
             "Passed any graduation degree (e.g., B.E. / B.Tech. / B.Sc. / B.Com. / B.A. / B.Voc. / BCA, etc.) preferably with Mathematics at 10+2 level or at graduation level, obtaining at least 50% marks in the qualifying examination.",
@@ -283,13 +283,13 @@ export const computerScienceSchool: ProgramPageData = {
       items: [
         {
           program: "Ph.D. (Computer Applications)",
-          duration: "Min 3 Years",
+          duration: "Min 3 years",
           href: "/phd-computer-application",
           eligibility: "Master's degree in a relevant field with a minimum of 55% marks.",
         },
         {
           program: "Ph.D. CSE (Computer Science & Engineering)",
-          duration: "Min 3 Years",
+          duration: "Min 3 years",
           href: "/phd-cse",
           eligibility: "Master's degree in a relevant field with a minimum of 55% marks.",
         },
@@ -313,7 +313,7 @@ export const computerScienceSchool: ProgramPageData = {
         ],
       },
       {
-        title: "Drive Ready Tracks",
+        title: "Drive-Ready Tracks",
         points: [
           "MEAN / MERN Stack",
           "PHP & MySQL",
@@ -349,12 +349,12 @@ export const computerScienceSchool: ProgramPageData = {
   },
 
   specialisations: {
-    title: "GU New Age Specializations",
+    title: "GU New-Age Specialisations",
     items: [
       {
         title: "Artificial Intelligence & Machine Learning",
         points: [
-          "Specialization in advanced machine learning areas like Computer Vision, Big Data, Robotics, etc.",
+          "Specialisation in advanced machine learning areas like Computer Vision, Big Data, Robotics, etc.",
           "Understanding artificial networks",
           "Applications of deep learning in image recognition",
           "Real world projects",
@@ -402,14 +402,38 @@ export const computerScienceSchool: ProgramPageData = {
       "The booming IT sector in India has plenty of jobs for fresh computer science graduates. Besides, Computer Engineers have plenty of options to work in IT companies in departments such as design, development, assembly, manufacture, and maintenance, etc. Working as a programmer, web developer, and E-commerce specialist with telecommunications companies, automotive companies, aerospace companies, etc. can be a lucrative career option as well...",
     rolesTitle: "Top Recruiters",
     notableRoles: [
-      { name: "Capgemini", iconName: "Building2" },
-      { name: "ProGrad", iconName: "Laptop" },
-      { name: "Tech Mahindra", iconName: "Code2" },
-      { name: "Hike Edu", iconName: "GraduationCap" },
-      { name: "Genpact", iconName: "Globe" },
-      { name: "Learning Routes", iconName: "Award" },
-      { name: "Ubiquiti", iconName: "BrainCircuit" },
-      { name: "Infosys", iconName: "Building2" },
+      { name: "Capgemini", logo: "/recruiters/capgemini.png" },
+      { name: "ProGrad", logo: "/recruiters/prograd.png" },
+      { name: "Tech Mahindra", logo: "/recruiters/tech_mahindra.svg" },
+      { name: "Hike Edu", logo: "/recruiters/hike_education.png" },
+      { name: "Genpact", logo: "/recruiters/genpact.svg" },
+      { name: "Learning Routes", logo: "/recruiters/learning-routes.svg" },
+    ],
+  },
+
+  learningSpaces: {
+    title: "Highlights of Our Learning Spaces",
+    spaces: [
+      {
+        title: "AR / VR & Immersive Computing Lab",
+        image: "/programs/computer-science/cse1-thumb.webp",
+      },
+      {
+        title: "Advanced Coding & Software Development Lab",
+        image: "/programs/computer-science/cse2-thumb.webp",
+      },
+      {
+        title: "Hardware, IoT & Embedded Systems Lab",
+        image: "/programs/computer-science/cse3-thumb.webp",
+      },
+      {
+        title: "Robotics & Drone Technology Center",
+        image: "/programs/computer-science/cse4-thumb.webp",
+      },
+      {
+        title: "Collaborative Innovation & Coding Commons",
+        image: "/programs/computer-science/cse5-thumb.webp",
+      },
     ],
   },
 
@@ -428,7 +452,7 @@ export const computerScienceSchool: ProgramPageData = {
   },
 
   centerOfExcellence: {
-    title: "Center Of Excellence",
+    title: "Centre of Excellence",
   },
 
   departmentHighlights: [
@@ -453,7 +477,7 @@ export const computerScienceSchool: ProgramPageData = {
       image: "https://geetauniversity.edu.in/uploads/all/776/conversions/cr-4-full.webp",
     },
     {
-      title: "Center of Excellence & Smart Labs",
+      title: "Centre of Excellence & Smart Labs",
       desc: "State-of-the-art facilities for robotics, intelligent systems, data sciences, and enterprise cloud solutions.",
       image: "https://geetauniversity.edu.in/uploads/all/778/conversions/cr-6-full.webp",
     },
@@ -551,9 +575,9 @@ export const computerScienceSchool: ProgramPageData = {
       pkg: "₹20 LPA",
       package: "₹20 LPA",
       quote:
-        "The personalized faculty mentorship and industry workshops enabled me to hone my full stack capabilities and secure high-value placements.",
+        "The personalised faculty mentorship and industry workshops enabled me to hone my full-stack capabilities and secure high-value placements.",
       testimonial:
-        "The personalized faculty mentorship and industry workshops enabled me to hone my full stack capabilities and secure high-value placements.",
+        "The personalised faculty mentorship and industry workshops enabled me to hone my full-stack capabilities and secure high-value placements.",
       image: "/rishabh-full.webp",
     },
     {
@@ -581,12 +605,12 @@ export const computerScienceSchool: ProgramPageData = {
   faqs: [
     {
       q: "What programmes are offered by the School of Computer Science & Engineering at Geeta University?",
-      a: "The School currently lists B.Tech. Hons. CSE with specializations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cybersecurity, and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programmes in Computer Applications and CSE.",
+      a: "The School currently lists B.Tech. Hons. CSE with specialisations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cybersecurity, and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programmes in Computer Applications and CSE.",
       category: "Admissions & Eligibility",
     },
     {
       q: "What is the eligibility for B.Tech. CSE at Geeta University?",
-      a: "Applicants must have passed 10+2 examination with Physics and Mathematics as compulsory subjects, along with one of the specified subjects such as Chemistry, Computer Science, Electronics, Information Technology, Biology, Informatics Practices, Biotechnology, Technical Vocational Subject, Agriculture, Engineering Graphics, Business Studies, or Entrepreneurship, with at least 55% marks. Students from the D.Voc. stream may also be eligible with 55% marks in the same or allied sector.",
+      a: "Applicants must have Passed the 10+2 examination with Physics and Mathematics as compulsory subjects, along with one of the specified subjects such as Chemistry, Computer Science, Electronics, Information Technology, Biology, Informatics Practices, Biotechnology, Technical Vocational Subject, Agriculture, Engineering Graphics, Business Studies, or Entrepreneurship, with at least 55% marks. Students from the D.Voc. stream may also be eligible with 55% marks in the same or allied sector.",
       category: "Admissions & Eligibility",
     },
     {
@@ -601,7 +625,7 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "What is the eligibility for BCA at Geeta University?",
-      a: "Passed 10+2 or equivalent examination with at least 50% marks, or passed Diploma in Commercial Practice or equivalent with at least 50% marks.",
+      a: "Passed the 10+2 or equivalent examination with at least 50% marks, or passed Diploma in Commercial Practice or equivalent with at least 50% marks.",
       category: "Admissions & Eligibility",
     },
     {
@@ -631,7 +655,7 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "What specialisations are available under B.Tech. CSE?",
-      a: "The specializations include Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling.",
+      a: "The specialisations include Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling.",
       category: "Programmes, Specialisations & Curriculum",
     },
     {
@@ -771,7 +795,7 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "Can a CSE graduate build a career in AI without choosing an AI specialisation?",
-      a: "Yes. A strong CSE foundation can lead toward AI-related roles, particularly when students build additional skills through projects, certifications, electives, and specialised training. The School also offers AI & ML as a dedicated specialization for students who want deeper structured exposure.",
+      a: "Yes. A strong CSE foundation can lead toward AI-related roles, particularly when students build additional skills through projects, certifications, electives, and specialised training. The School also offers AI & ML as a dedicated specialisation for students who want deeper structured exposure.",
       category: "Placements & Career Opportunities",
     },
     {
@@ -911,7 +935,7 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "Can students customize their learning according to their interests?",
-      a: "Specialisations, certification tracks, drive-ready tracks, milestone activities, and multi-skill development give students multiple ways to build a profile around their preferred technology domain.",
+      a: "Specialisations, certification tracks, Drive-Ready Tracks, milestone activities, and multi-skill development give students multiple ways to build a profile around their preferred technology domain.",
       category: "General",
     },
   ],

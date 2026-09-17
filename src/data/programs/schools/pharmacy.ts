@@ -138,9 +138,9 @@ export const pharmacySchool: ProgramPageData = {
 
   featuredPrograms: {
     title1: "Bachelor of Pharmacy",
-    tag1: "B.Pharm (4 Years)",
+    tag1: "B.Pharm (4 years)",
     title2: "Master of Pharmacy",
-    tag2: "M.Pharm (2 Years)",
+    tag2: "M.Pharm (2 years)",
     description: "PCI-approved programs with modern laboratory training, clinical internships, and rigorous academic guidance.",
     cards: [
       {
@@ -632,52 +632,52 @@ export const pharmacySchool: ProgramPageData = {
   courses: [
     {
       title: "Diploma Program",
-      duration: "2 Years",
+      duration: "2 years",
       eligibility: "A pass in 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
       programs: [
         {
           name: "D.Pharm. (Diploma in Pharmacy)",
           href: "/programs/geeta-institute-of-pharmacy/d-pharmacy",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility: "A pass in 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
         },
       ],
     },
     {
       title: "Undergraduate Program",
-      duration: "4 Years",
-      eligibility: "Passed 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
+      duration: "4 years",
+      eligibility: "Passed the 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
       programs: [
         {
           name: "B.Pharm. (Bachelor of Pharmacy)",
           href: "/programs/geeta-institute-of-pharmacy/b-pharmacy",
-          duration: "4 Years",
-          eligibility: "Passed 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
+          duration: "4 years",
+          eligibility: "Passed the 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
         },
       ],
     },
     {
       title: "Postgraduate Program",
-      duration: "2 Years",
+      duration: "2 years",
       eligibility: "B. Pharm Degree examination of an Indian university established by law in India from an institution approved by Pharmacy Council of India and has scored not less than 55% of the maximum marks (aggregate of 4 years of B.Pharm.)",
       programs: [
         {
           name: "M.Pharm. (Pharmaceutics)",
           href: "/programs/geeta-institute-of-pharmacy/m-pharmacy-in-pharmaceutics",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility: "B. Pharm Degree examination of an Indian university established by law in India from an institution approved by Pharmacy Council of India and has scored not less than 55% of the maximum marks (aggregate of 4 years of B.Pharm.)",
         },
       ],
     },
     {
       title: "Doctoral Program",
-      duration: "Minimum 3 Years",
+      duration: "Minimum 3 years",
       eligibility: "Masters in relevant field with minimum 55% marks.",
       programs: [
         {
           name: "Ph.D. in Pharmacy",
           href: "/programs/geeta-institute-of-pharmacy/phd-pharmacy",
-          duration: "Min 3 Years",
+          duration: "Min 3 years",
           eligibility: "Masters in relevant field with minimum 55% marks.",
         },
       ],
@@ -700,12 +700,12 @@ export const pharmacySchool: ProgramPageData = {
     },
     {
       "q": "What is the eligibility for D.Pharm.?",
-      "a": "Applicants must have passed 10+2 in the Science stream with Physics, Chemistry and Biology or Mathematics, with at least 50% marks.",
+      "a": "Applicants must have Passed the 10+2 in the Science stream with Physics, Chemistry and Biology or Mathematics, with at least 50% marks.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What is the eligibility for B.Pharm.?",
-      "a": "Applicants must have passed 10+2 with at least 55% marks, with English as one of the subjects and Physics, Chemistry and Mathematics and/or Biology as the specified subjects.",
+      "a": "Applicants must have Passed the 10+2 with at least 55% marks, with English as one of the subjects and Physics, Chemistry and Mathematics and/or Biology as the specified subjects.",
       "category": "Admissions & Eligibility"
     },
     {

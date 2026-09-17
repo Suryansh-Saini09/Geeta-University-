@@ -10,7 +10,12 @@ interface ProgramFinalCTAProps {
 }
 
 export default function ProgramFinalCTA({ cta, schoolName }: ProgramFinalCTAProps) {
-  const heading = cta?.heading || (schoolName ? `Ready to Join ${schoolName} at Geeta University?` : "Ready to Join Geeta University?");
+  const normalizedSchool = schoolName
+    ? (schoolName.toLowerCase().startsWith("the ") || schoolName.toLowerCase().startsWith("geeta ")
+        ? schoolName
+        : `the ${schoolName}`)
+    : "";
+  const heading = cta?.heading || (normalizedSchool ? `Ready to Join ${normalizedSchool} at Geeta University?` : "Ready to Join Geeta University?");
   const applyLink = cta?.applyLink || "https://admissions.geetauniversity.edu.in/";
   const brochureUrl = cta?.brochureUrl || "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf";
   const brochureName = cta?.brochureName || "Geeta_University_Brochure.pdf";
