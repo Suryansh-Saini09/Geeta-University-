@@ -117,7 +117,7 @@ export const cuetTestimonials: CuetTestimonial[] = [
     name: "Prikshit",
     package: "Package - 30 LPA",
     image: "https://geetauniversity.edu.in/uploads/all/1900/conversions/parikshit.jpg-full.webp",
-    quote: "Time I spent at Geeta University, helped me to fill the gap between theory-based learning and practical learning. The practical lessons helped me to shape my career.",
+    quote: "The time I spent at Geeta University helped me to fill the gap between theory-based learning and practical learning. The practical lessons helped me to shape my career.",
   },
   {
     name: "Vikas Bareja",

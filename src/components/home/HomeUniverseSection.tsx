@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import Image from "next/image";
+import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
 const flagItems = [
   { name: "Australia", image: "/home/universe-flags/4-full.webp" },
@@ -17,9 +17,9 @@ const flagItems = [
   { name: "Malaysia", image: "/home/universe-flags/19-1-full.webp" },
   { name: "Global Partner 1", image: "/international-admissions/logo-11.webp" },
   { name: "Global Partner 2", image: "/international-admissions/logo-12.webp" },
-  { name: "Global Partner 3", image: "/international-admissions/logo-10.webp" },
-  { name: "Global Partner 4", image: "/international-admissions/logo-7.webp" },
-  { name: "Global Partner 5", image: "/international-admissions/logo-8.webp" },
+  // { name: "Global Partner 3", image: "/international-admissions/logo-10.webp" },
+  // { name: "Global Partner 4", image: "/international-admissions/logo-7.webp" },
+  // { name: "Global Partner 5", image: "/international-admissions/logo-8.webp" },
 ];
 
 const globalUniversities = [
@@ -41,17 +41,25 @@ const internships = [
 ];
 
 export default function HomeUniverseSection() {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-
-  // Button scroll controls
-  const scroll = (direction: "left" | "right") => {
-    if (!scrollRef.current) return;
-    const scrollAmount = 360;
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  const {
+    containerRef,
+    maxIndex,
+    next,
+    prev,
+    handleScroll,
+    handleMouseDown,
+    handleMouseLeave,
+    handleMouseEnter,
+    handleMouseUp,
+    handleMouseMove,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useFiniteCarousel({
+    totalItems: flagItems.length,
+    autoplayInterval: 2500,
+    enableAutoplay: true,
+  });
 
   return (
     <section className="relative overflow-hidden bg-[#F5F8FB] py-16 md:py-20">
@@ -140,27 +148,30 @@ export default function HomeUniverseSection() {
 
         {/* Global image strip */}
         <div className="mt-12">
-
           <div className="group relative overflow-hidden rounded-2xl border border-[#DCE5ED] bg-white py-5 shadow-sm">
             {/* Left navigation arrow */}
-            <button
-              type="button"
-              onClick={() => scroll("left")}
-              aria-label="Scroll left"
-              className="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-10 sm:w-10 cursor-pointer"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
+            {maxIndex > 0 && (
+              <button
+                type="button"
+                onClick={prev}
+                aria-label="Scroll left"
+                className="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-10 sm:w-10 cursor-pointer"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+            )}
 
             {/* Right navigation arrow */}
-            <button
-              type="button"
-              onClick={() => scroll("right")}
-              aria-label="Scroll right"
-              className="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-10 sm:w-10 cursor-pointer"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
+            {maxIndex > 0 && (
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Scroll right"
+                className="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-md transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-10 sm:w-10 cursor-pointer"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            )}
 
             {/* Left fade */}
             <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white to-transparent sm:w-20" />
@@ -170,83 +181,44 @@ export default function HomeUniverseSection() {
 
             {/* Scrollable & Draggable container */}
             <div
-              ref={scrollRef}
-              className="universe-marquee-container flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-              style={{
-                display: "flex",
-                gap: 24,
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-                WebkitOverflowScrolling: "touch",
-              }}
+              ref={containerRef}
+              onScroll={handleScroll}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleMouseEnter}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              className="flex w-full gap-6 overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
-              {[0, 1, 2, 3].map((setIndex) => (
-                <div
-                  key={setIndex}
-                  className="universe-marquee-track flex shrink-0 items-center"
-                  style={{ display: "flex", gap: 24, flexShrink: 0 }}
-                >
-                  {flagItems.map((item, index) => (
-                    <div
-                      key={`flag-${setIndex}-${index}`}
-                      className="group/flag flex h-20 w-36 sm:h-24 sm:w-44 shrink-0 items-center justify-center rounded-xl border border-[#E4EAF0] bg-white p-3 shadow-2xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#F28C18]/40 hover:shadow-md"
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        style={{
-                          maxHeight: "56px",
-                          maxWidth: "100%",
-                          width: "auto",
-                          height: "auto",
-                          objectFit: "contain",
-                          pointerEvents: "none",
-                        }}
-                      />
-                    </div>
-                  ))}
-                </div>
-              ))}
+              <div className="flex w-max items-center gap-6">
+                {flagItems.map((item, index) => (
+                  <div
+                    key={`flag-${item.name}-${index}`}
+                    className="group/flag flex h-20 w-36 sm:h-24 sm:w-44 shrink-0 items-center justify-center rounded-xl border border-[#E4EAF0] bg-white p-3 shadow-2xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#F28C18]/40 hover:shadow-md"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      style={{
+                        maxHeight: "56px",
+                        maxWidth: "100%",
+                        width: "auto",
+                        height: "auto",
+                        objectFit: "contain",
+                        pointerEvents: "none",
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .universe-marquee-container::-webkit-scrollbar {
-          display: none;
-        }
-
-        @keyframes universeMarquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-100% - 24px));
-          }
-        }
-
-        .universe-marquee-track {
-          animation: universeMarquee 32s linear infinite;
-        }
-
-        .universe-marquee-container:hover .universe-marquee-track {
-          animation-play-state: paused !important;
-        }
-
-        @media (max-width: 768px) {
-          .universe-marquee-track {
-            animation-duration: 24s;
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .universe-marquee-track {
-            animation: none !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

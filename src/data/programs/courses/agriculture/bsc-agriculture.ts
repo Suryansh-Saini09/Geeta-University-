@@ -79,7 +79,7 @@ export const bscAgriculture: CoursePageData = {
     whyChooseHeading:
       "Reasons To Choose Geeta University for B.Sc (Agriculture)",
     whyChooseParagraphs: [
-      "The university is widely recognized as a leading agricultural education institution in North India owing to the fact that it offers a curriculum that is centered on the industry, superior facilities, and practical training.",
+      "The university is widely recognized as a leading agricultural education institution in North India owing to the fact that it offers a curriculum that is centred on the industry, superior facilities, and practical training.",
       "Geeta University is a top choice among B.Sc agriculture colleges in Haryana, offering quality education with strong future scope.",
     ],
   },
@@ -226,7 +226,7 @@ export const bscAgriculture: CoursePageData = {
       title: "GUTS",
       subtitle: "Geeta University Test of Scholarship",
       description:
-        "Geeta University (GU) strongly believes that monetary constraints should not be an obstacle for a student to have access to quality education. Geeta University Test of Scholarship (GUTS) provides students with an opportunity to reduce the financial burden and get up to 100% off on tuition fees based on their performance.",
+        "Geeta University (GU) strongly believes that monetary constraints should not prevent students from accessing quality education. Geeta University Test of Scholarship (GUTS) provides students with an opportunity to reduce the financial burden and get up to 100% off on tuition fees based on their performance.",
       linkText: "Apply Now",
       linkUrl: "https://geetauniversity.edu.in/guts",
     },

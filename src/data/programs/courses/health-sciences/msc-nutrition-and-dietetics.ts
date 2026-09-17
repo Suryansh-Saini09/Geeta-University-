@@ -33,7 +33,7 @@ export const mscNutritionAndDietetics: CoursePageData = {
   overview: {
     title: "M.Sc. Nutrition & Dietetics",
     paragraphs: [
-      "MSc Nutrition and Dietetics is a two-year program at Geeta University. It is a competency-based curriculum that combines didactic coursework with supervised clinical experience. The curriculum emphasizes nutrition counseling and behavior change. It also emphasises interprofessional teamwork, advocacy, and service. Students must complete the program within seven academic quarters.",
+      "MSc Nutrition and Dietetics is a two-year program at Geeta University. It is a competency-based curriculum that combines didactic coursework with supervised clinical experience. The curriculum emphasizes nutrition counseling and behaviour change. It also emphasises interprofessional teamwork, advocacy, and service. Students must complete the program within seven academic quarters.",
       "The curriculum in a nutrition program prepares students to evaluate the latest research in the field, solve problems, and communicate effectively. Students study with experienced faculty involved in research, education, administration, professional practice, and communication. Practicum experiences are usually required in a professional setting and can include large urban hospitals, sports nutrition practices, and clinical research centers at teaching hospitals.",
       "In addition to the coursework, students may also choose to pursue a role as a public health planner, dietitian, or food chemist. Many students choose to become teachers or health coaches. Whether they decide to become a dietitian or public health planner, a MSc Nutrition and Dietetics degree is an excellent option.",
     ],

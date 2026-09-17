@@ -218,7 +218,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-xs text-slate-300 leading-relaxed">
-              Step into the future with AI Enabled University where innovation, technology, and world-class education come together to shape tomorrow’s leaders.
+              Step into the future with NextGen Smart Campus where innovation, technology, and world-class education come together to shape tomorrow’s leaders.
             </p>
 
             <a

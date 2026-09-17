@@ -66,7 +66,7 @@ export const pharmacySchool: ProgramPageData = {
     vision:
       "“To become a centre of excellence in pharmaceutical education and research providing competent pharmacists, researchers, health care workers and innovators for the betterment of healthcare, advancement of pharmaceutical sciences and service to the society with integrity.”",
     mission: [
-      "To provide a student-centered, outcome-based pharmaceutical education combining scientific knowledge, skills, ethics and patient care.",
+      "To provide a student-centred, outcome-based pharmaceutical education combining scientific knowledge, skills, ethics and patient care.",
       "To produce competent, responsible and caring Pharmacy professionals who can be a part of an effective health care system in the pharmaceutical industries, regulatory agencies and clinical practice.",
       "To encourage interdisciplinary research and innovation in the pharmaceutical sciences, drug discovery (R&D), formulation development, and healthcare technologies to address emerging medical challenges.",
       "To boost the linkage with the pharmaceutical sector, hospitals, research institutes and regulatory agencies for experiential learning, industrial exposure, clinical training and professional development.",
@@ -627,7 +627,7 @@ export const pharmacySchool: ProgramPageData = {
     applyLink: "/admissions",
     helpline: "+91 92787 68000",
     website: "www.geetauniversity.edu.in",
-    },
+  },
 
   courses: [
     {

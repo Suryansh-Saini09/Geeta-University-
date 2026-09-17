@@ -236,7 +236,7 @@ export const bba: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp",
       description:
-        "Expert in Behavioral Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development in management and finance.",
+        "Expert in behavioural Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development in management and finance.",
     },
     {
       name: "Dr. Nidhi Gupta",

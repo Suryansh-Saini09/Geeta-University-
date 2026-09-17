@@ -59,7 +59,7 @@ function renderPathwayIcon(item: PathwayCardItem) {
   if (text.includes("culinary") || text.includes("hotel") || text.includes("hospitality") || text.includes("food") || text.includes("chef") || text.includes("beverage") || text.includes("catering")) {
     return <Utensils size={24} color="#0A1F44" />;
   }
-  if (text.includes("psycholog") || text.includes("mental health") || text.includes("counsel") || text.includes("therapy") || text.includes("behavior")) {
+  if (text.includes("psycholog") || text.includes("mental health") || text.includes("counsel") || text.includes("therapy") || text.includes("behaviour")) {
     return <BrainCircuit size={24} color="#0A1F44" />;
   }
   if (text.includes("policy") || text.includes("civil service") || text.includes("upsc") || text.includes("govern") || text.includes("administr") || text.includes("diplomacy")) {
@@ -208,240 +208,240 @@ export default function CareerPathways({
         {/* Carousel Slider */}
         {pathwayItems.length > 0 && (
 
-            <div style={{ position: "relative", marginTop: 40, padding: "0 20px" }}>
-          <div
-            ref={scrollRef}
-            className="hide-scroll"
-            style={{
-              display: "flex",
-              gap: 28,
-              overflowX: "auto",
-              paddingBottom: "32px",
-              scrollSnapType: "x mandatory",
-              scrollBehavior: "smooth",
-            }}
-          >
-            {pathwayItems.map((item, idx) => {
-              const numStr = `0${idx + 1}`;
-              const points = item.roles || item.points || [];
-              const cardTitle = item.pathway && item.pathway !== item.area ? item.pathway : item.area;
-              const cardArea = item.pathway && item.pathway !== item.area && item.area ? item.area : null;
+          <div style={{ position: "relative", marginTop: 40, padding: "0 20px" }}>
+            <div
+              ref={scrollRef}
+              className="hide-scroll"
+              style={{
+                display: "flex",
+                gap: 28,
+                overflowX: "auto",
+                paddingBottom: "32px",
+                scrollSnapType: "x mandatory",
+                scrollBehavior: "smooth",
+              }}
+            >
+              {pathwayItems.map((item, idx) => {
+                const numStr = `0${idx + 1}`;
+                const points = item.roles || item.points || [];
+                const cardTitle = item.pathway && item.pathway !== item.area ? item.pathway : item.area;
+                const cardArea = item.pathway && item.pathway !== item.area && item.area ? item.area : null;
 
-              return (
-                <div
-                  key={idx}
-                  style={{
-                    scrollSnapAlign: "start",
-                    flexShrink: 0,
-                    width: "340px",
-                    minHeight: "460px",
-                    background: "linear-gradient(180deg, #F5E6C9 0%, #EAD7B2 100%)",
-                    borderRadius: "24px",
-                    padding: "36px 28px",
-                    position: "relative",
-                    overflow: "hidden",
-                    display: "flex",
-                    flexDirection: "column",
-                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.02)",
-                    border: "1px solid rgba(0, 0, 0, 0.03)",
-                    transition:
-                      "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-                  }}
-                  className="pathway-slider-card"
-                >
+                return (
                   <div
+                    key={idx}
                     style={{
-                      fontSize: 24,
-                      background: "rgba(255, 255, 255, 0.45)",
-                      width: 48,
-                      height: 48,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "12px",
-                      marginBottom: 20,
-                    }}
-                  >
-                    {renderPathwayIcon(item)}
-                  </div>
-
-                  {cardArea && (
-                    <span
-                      style={{
-                        color: "#E8871A",
-                        fontSize: "11.5px",
-                        fontWeight: 800,
-                        letterSpacing: "1px",
-                        textTransform: "uppercase",
-                        marginBottom: "6px",
-                        display: "block",
-                        position: "relative",
-                        zIndex: 2,
-                      }}
-                    >
-                      {cardArea}
-                    </span>
-                  )}
-
-                  <h3
-                    style={{
-                      fontSize: 19,
-                      fontWeight: 800,
-                      color: "#0A1F44",
-                      margin: "0 0 16px",
-                      lineHeight: 1.3,
+                      scrollSnapAlign: "start",
+                      flexShrink: 0,
+                      width: "340px",
+                      minHeight: "460px",
+                      background: "linear-gradient(180deg, #F5E6C9 0%, #EAD7B2 100%)",
+                      borderRadius: "24px",
+                      padding: "36px 28px",
                       position: "relative",
-                      zIndex: 2,
+                      overflow: "hidden",
+                      display: "flex",
+                      flexDirection: "column",
+                      boxShadow: "0 10px 30px rgba(0, 0, 0, 0.02)",
+                      border: "1px solid rgba(0, 0, 0, 0.03)",
+                      transition:
+                        "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
                     }}
+                    className="pathway-slider-card"
                   >
-                    {cardTitle}
-                  </h3>
-
-                  {points.length > 0 ? (
-                    <ul
+                    <div
                       style={{
-                        listStyle: "none",
-                        padding: 0,
-                        margin: "0 0 24px",
+                        fontSize: 24,
+                        background: "rgba(255, 255, 255, 0.45)",
+                        width: 48,
+                        height: 48,
                         display: "flex",
-                        flexDirection: "column",
-                        gap: 10,
-                        position: "relative",
-                        zIndex: 2,
-                        flex: 1,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: "12px",
+                        marginBottom: 20,
                       }}
                     >
-                      {points.map((pt, pIdx) => (
-                        <li
-                          key={pIdx}
-                          style={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            gap: 8,
-                            fontSize: 13.5,
-                            color: "#334155",
-                            lineHeight: 1.5,
-                            fontWeight: 500,
-                          }}
-                        >
-                          <span
+                      {renderPathwayIcon(item)}
+                    </div>
+
+                    {cardArea && (
+                      <span
+                        style={{
+                          color: "#E8871A",
+                          fontSize: "11.5px",
+                          fontWeight: 800,
+                          letterSpacing: "1px",
+                          textTransform: "uppercase",
+                          marginBottom: "6px",
+                          display: "block",
+                          position: "relative",
+                          zIndex: 2,
+                        }}
+                      >
+                        {cardArea}
+                      </span>
+                    )}
+
+                    <h3
+                      style={{
+                        fontSize: 19,
+                        fontWeight: 800,
+                        color: "#0A1F44",
+                        margin: "0 0 16px",
+                        lineHeight: 1.3,
+                        position: "relative",
+                        zIndex: 2,
+                      }}
+                    >
+                      {cardTitle}
+                    </h3>
+
+                    {points.length > 0 ? (
+                      <ul
+                        style={{
+                          listStyle: "none",
+                          padding: 0,
+                          margin: "0 0 24px",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 10,
+                          position: "relative",
+                          zIndex: 2,
+                          flex: 1,
+                        }}
+                      >
+                        {points.map((pt, pIdx) => (
+                          <li
+                            key={pIdx}
                             style={{
-                              color: "#E8871A",
-                              fontWeight: 700,
-                              fontSize: 16,
-                              lineHeight: "16px",
-                              marginTop: 2,
-                              flexShrink: 0,
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: 8,
+                              fontSize: 13.5,
+                              color: "#334155",
+                              lineHeight: 1.5,
+                              fontWeight: 500,
                             }}
                           >
-                            •
-                          </span>
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p
+                            <span
+                              style={{
+                                color: "#E8871A",
+                                fontWeight: 700,
+                                fontSize: 16,
+                                lineHeight: "16px",
+                                marginTop: 2,
+                                flexShrink: 0,
+                              }}
+                            >
+                              •
+                            </span>
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p
+                        style={{
+                          fontSize: 14.5,
+                          color: "#475569",
+                          margin: 0,
+                          lineHeight: 1.6,
+                          fontWeight: 450,
+                          position: "relative",
+                          zIndex: 2,
+                        }}
+                      >
+                        {item.desc || item.pathway}
+                      </p>
+                    )}
+
+                    {/* Huge ghost number at the bottom */}
+                    <div
+                      className="ghost-number"
                       style={{
-                        fontSize: 14.5,
-                        color: "#475569",
-                        margin: 0,
-                        lineHeight: 1.6,
-                        fontWeight: 450,
-                        position: "relative",
-                        zIndex: 2,
+                        position: "absolute",
+                        bottom: "-10px",
+                        right: "20px",
+                        fontSize: "90px",
+                        fontWeight: 900,
+                        color: "rgba(255, 255, 255, 0.22)",
+                        lineHeight: 1,
+                        userSelect: "none",
+                        zIndex: 1,
+                        pointerEvents: "none",
+                        transition:
+                          "color 0.4s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
                       }}
                     >
-                      {item.desc || item.pathway}
-                    </p>
-                  )}
-
-                  {/* Huge ghost number at the bottom */}
-                  <div
-                    className="ghost-number"
-                    style={{
-                      position: "absolute",
-                      bottom: "-10px",
-                      right: "20px",
-                      fontSize: "90px",
-                      fontWeight: 900,
-                      color: "rgba(255, 255, 255, 0.22)",
-                      lineHeight: 1,
-                      userSelect: "none",
-                      zIndex: 1,
-                      pointerEvents: "none",
-                      transition:
-                        "color 0.4s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-                    }}
-                  >
-                    {numStr}
+                      {numStr}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+
+            {/* Left Arrow Button */}
+            <button
+              onClick={scrollLeft}
+              style={{
+                position: "absolute",
+                left: "-16px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "#FFFFFF",
+                width: 48,
+                height: 48,
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "1px solid #E2E8F0",
+                cursor: "pointer",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+                color: "#0A1F44",
+                zIndex: 10,
+                transition: "transform 0.2s",
+              }}
+              className="slider-nav-btn"
+              aria-label="Previous pathway"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            {/* Right Arrow Button */}
+            <button
+              onClick={scrollRight}
+              style={{
+                position: "absolute",
+                right: "-16px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "#FFFFFF",
+                width: 48,
+                height: 48,
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "1px solid #E2E8F0",
+                cursor: "pointer",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+                color: "#0A1F44",
+                zIndex: 10,
+                transition: "transform 0.2s",
+              }}
+              className="slider-nav-btn"
+              aria-label="Next pathway"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
           </div>
-
-          {/* Left Arrow Button */}
-          <button
-            onClick={scrollLeft}
-            style={{
-              position: "absolute",
-              left: "-16px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "#FFFFFF",
-              width: 48,
-              height: 48,
-              borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              border: "1px solid #E2E8F0",
-              cursor: "pointer",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
-              color: "#0A1F44",
-              zIndex: 10,
-              transition: "transform 0.2s",
-            }}
-            className="slider-nav-btn"
-            aria-label="Previous pathway"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            onClick={scrollRight}
-            style={{
-              position: "absolute",
-              right: "-16px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "#FFFFFF",
-              width: 48,
-              height: 48,
-              borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              border: "1px solid #E2E8F0",
-              cursor: "pointer",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
-              color: "#0A1F44",
-              zIndex: 10,
-              transition: "transform 0.2s",
-            }}
-            className="slider-nav-btn"
-            aria-label="Next pathway"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        </div>
-      )}
+        )}
 
         {/* Notable Career Roles Band */}
         {roleItems.length > 0 && (

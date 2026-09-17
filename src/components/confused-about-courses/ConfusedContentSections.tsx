@@ -227,7 +227,7 @@ export default function ConfusedContentSections() {
                     2. Psychometric Career Test
                   </h4>
                   <p className="text-[15.5px] leading-relaxed text-[#475569]">
-                    Psychometric assessments are standard scientific tests used to measure mental capabilities, cognitive abilities, behavioral style, and stream suitability based on personality characteristics.
+                    Psychometric assessments are standard scientific tests used to measure mental capabilities, cognitive abilities, behavioural style, and stream suitability based on personality characteristics.
                   </p>
                   <p className="mt-3 text-[15.5px] leading-relaxed text-[#475569]">
                     GU&apos;s Psychometric Test is fine-tuned to global standards by psychologists and research teams to deliver easy-to-understand actionable recommendations.

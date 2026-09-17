@@ -11,7 +11,7 @@ Whenever you design or implement a page, prioritize clean proportion, spacing, h
 
 - Use a clear page structure: header, main content, sections, and footer where appropriate.
 - Every section must have enough breathing room. Use consistent vertical padding, usually `48px-96px` on desktop and `32px-56px` on mobile.
-- Use a centered max-width container for readable content, usually `max-width: 1100px-1280px`.
+- Use a centred max-width container for readable content, usually `max-width: 1100px-1280px`.
 - Do not let content touch the screen edges. Always use horizontal padding, usually `24px` mobile, `32px-64px` desktop.
 - Avoid placing too many large cards or text blocks side by side without enough gap.
 - Use CSS Grid or Flexbox with proper `gap`, not manual margins everywhere.

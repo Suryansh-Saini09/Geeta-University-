@@ -42,14 +42,14 @@ export const mbaHumanResourceManagement: CoursePageData = {
     ],
   },
   takeaways: [
-    "Comprehensive coverage of organizational behavior, talent acquisition, labor law, performance management, and HR analytics.",
+    "Comprehensive coverage of organizational behaviour, talent acquisition, labor law, performance management, and HR analytics.",
     "Industry-aligned curriculum designed in collaboration with corporate HR leaders and capability experts.",
     "Experiential learning through case studies, role plays, competency mapping workshops, and corporate internships.",
     "Focus on AI in HR, talent analytics, diversity & inclusion strategies, and global human capital trends.",
     "Scholarships available based on GUTS test, academic merit, national entrance scores, and sports excellence.",
   ],
   subjects: [
-    "Organizational Behavior",
+    "Organizational behaviour",
     "Leadership & Team Building",
     "Industrial Relations & Labor Law",
     "Performance Management System",
@@ -246,7 +246,7 @@ export const mbaHumanResourceManagement: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp",
       description:
-        "Expert in Behavioral Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
+        "Expert in behavioural Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
     },
     {
       name: "Dr. Nidhi Gupta",

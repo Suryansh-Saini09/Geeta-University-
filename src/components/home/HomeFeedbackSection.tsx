@@ -1,96 +1,33 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { homeFeedback } from "@/data/homeFeedback";
+import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
 export default function HomeFeedbackSection() {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Update active dot based on scroll position
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    const maxScroll = scrollWidth - clientWidth;
-    if (maxScroll <= 0) return;
-    const progress = scrollLeft / maxScroll;
-    const index = Math.min(
-      Math.round(progress * (homeFeedback.length - 1)),
-      homeFeedback.length - 1
-    );
-    setActiveIndex(index);
-  };
-
-  // Drag-to-scroll handlers
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return;
-    setIsDragging(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setScrollLeft(scrollRef.current.scrollLeft);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-    setIsHovered(false);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  // Button navigation controls
-  const scroll = (direction: "left" | "right") => {
-    if (!scrollRef.current) return;
-    const cardWidth = 380;
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -cardWidth : cardWidth,
-      behavior: "smooth",
-    });
-  };
-
-  const scrollToCard = (index: number) => {
-    if (!scrollRef.current) return;
-    const cardWidth = 380;
-    scrollRef.current.scrollTo({
-      left: index * cardWidth,
-      behavior: "smooth",
-    });
-    setActiveIndex(index);
-  };
-
-  // Auto-scroll every 5 seconds when not hovered
-  useEffect(() => {
-    if (isHovered || isDragging) return;
-    const interval = window.setInterval(() => {
-      if (!scrollRef.current) return;
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      if (scrollLeft + clientWidth >= scrollWidth - 10) {
-        scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        scrollRef.current.scrollBy({ left: 380, behavior: "smooth" });
-      }
-    }, 4500);
-
-    return () => window.clearInterval(interval);
-  }, [isHovered, isDragging]);
+  const {
+    containerRef,
+    currentIndex,
+    maxIndex,
+    next,
+    prev,
+    goTo,
+    handleScroll,
+    handleMouseDown,
+    handleMouseLeave,
+    handleMouseEnter,
+    handleMouseUp,
+    handleMouseMove,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useFiniteCarousel({
+    totalItems: homeFeedback.length,
+    autoplayInterval: 3000,
+    enableAutoplay: true,
+  });
 
   return (
     <section className="relative overflow-hidden bg-[#F5F8FB] pt-8 md:pt-10 pb-16 md:pb-20">
@@ -118,22 +55,23 @@ export default function HomeFeedbackSection() {
 
         {/* Horizontally Scrollable & Draggable Cards Track */}
         <div
-          ref={scrollRef}
+          ref={containerRef}
           onScroll={handleScroll}
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
           onMouseEnter={handleMouseEnter}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
           className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {homeFeedback.map((student, index) => (
             <article
               key={`${student.name}-${index}`}
               className={`group relative flex w-[300px] sm:w-[350px] md:w-[380px] shrink-0 flex-col overflow-hidden rounded-3xl border bg-white p-7 pb-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
-                index % 2 === 1
-                  ? "border-[#F28C18]/40"
-                  : "border-[#DCE5ED]"
+                index % 2 === 1 ? "border-[#F28C18]/40" : "border-[#DCE5ED]"
               }`}
             >
               {/* Top Accent Bar */}
@@ -187,14 +125,16 @@ export default function HomeFeedbackSection() {
 
         {/* Controls */}
         <div className="mt-10 flex items-center justify-center gap-5">
-          <button
-            type="button"
-            onClick={() => scroll("left")}
-            aria-label="Previous student stories"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white active:scale-95"
-          >
-            <ChevronLeft size={20} />
-          </button>
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Previous student stories"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white active:scale-95 cursor-pointer"
+            >
+              <ChevronLeft size={20} />
+            </button>
+          )}
 
           <div className="flex items-center gap-2">
             {homeFeedback.map((_, index) => (
@@ -202,9 +142,9 @@ export default function HomeFeedbackSection() {
                 key={index}
                 type="button"
                 aria-label={`Go to student story ${index + 1}`}
-                onClick={() => scrollToCard(index)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  activeIndex === index
+                onClick={() => goTo(index)}
+                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  currentIndex === index
                     ? "w-8 bg-[#F28C18]"
                     : "w-2.5 bg-[#B9C7D4] hover:bg-[#06355F]"
                 }`}
@@ -212,14 +152,16 @@ export default function HomeFeedbackSection() {
             ))}
           </div>
 
-          <button
-            type="button"
-            onClick={() => scroll("right")}
-            aria-label="Next student stories"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white active:scale-95"
-          >
-            <ChevronRight size={20} />
-          </button>
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Next student stories"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white active:scale-95 cursor-pointer"
+            >
+              <ChevronRight size={20} />
+            </button>
+          )}
         </div>
       </div>
     </section>

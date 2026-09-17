@@ -477,11 +477,10 @@ export default function GeetaInNewsPage() {
                   <button
                     key={pub}
                     onClick={() => handlePubChange(pub)}
-                    className={`rounded-xl px-4 py-2 text-xs font-bold transition-all ${
-                      isActive
+                    className={`rounded-xl px-4 py-2 text-xs font-bold transition-all ${isActive
                         ? "bg-[#0A1F44] text-white shadow-md shadow-slate-900/10 scale-105"
                         : "bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50"
-                    }`}
+                      }`}
                   >
                     {pub}
                   </button>
@@ -572,11 +571,10 @@ export default function GeetaInNewsPage() {
                         setCurrentPage(page);
                         window.scrollTo({ top: 350, behavior: "smooth" });
                       }}
-                      className={`h-9 w-9 rounded-xl text-xs font-bold transition ${
-                        currentPage === page
+                      className={`h-9 w-9 rounded-xl text-xs font-bold transition ${currentPage === page
                           ? "bg-[#0A1F44] text-white shadow-md shadow-slate-900/20"
                           : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
-                      }`}
+                        }`}
                     >
                       {page}
                     </button>

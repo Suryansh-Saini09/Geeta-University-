@@ -38,7 +38,7 @@ export const bbaInternationalAccounting: CoursePageData = {
     paragraphs: [
       "The Bachelor of Business Administration (BBA) in International Accounting & Finance, accredited by the Association of Chartered Certified Accountants (ACCA) – UK, represents a prestigious opportunity for aspiring accountants and financial experts. The BBA International Accounting program at Geeta University is designed to provide learners with a deep and comprehensive understanding of global financial principles and practices.",
       "Through our program students are prepared to execute the planning, budgeting, forecasting and internal financial reporting functions in organisations as per globally accepted standards as well as to contribute to financial decision making and control processes in global organisations.",
-      "The university is widely recognized as one of the top BBA with ACCA colleges in India owing to the fact that it offers a curriculum that is centered on the industry, superior facilities, and practical training.",
+      "The university is widely recognized as one of the top BBA with ACCA colleges in India owing to the fact that it offers a curriculum that is centred on the industry, superior facilities, and practical training.",
       "People opt for ACCA as it's globally respected, aligned with widely used standards like IFRS, and allows flexible learning, leading to varied opportunities in accounting, audit, financial management, taxation and corporate finance.",
       "ACCA is a strong global add-on for those who are confident with accounting and finance basics and want the freedom to build a career abroad or within multinational organisations. It suits students who are ready for a steady, long-term qualification involving exams, an ethics module and practical experience.",
     ],
@@ -243,7 +243,7 @@ export const bbaInternationalAccounting: CoursePageData = {
       qualification: "Ph.D.",
       image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp",
       description:
-        "Expert in Behavioral Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
+        "Expert in behavioural Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development.",
     },
     {
       name: "Dr. Nidhi Gupta",

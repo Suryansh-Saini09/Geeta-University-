@@ -29,7 +29,7 @@ export const eventUpdates: HomeUpdate[] = [
     description: "9 May 2026",
   },
   {
-    title: "Inter-Department Volleyball Tournamen",
+    title: "Inter-Department Volleyball Tournament",
     description: "5 - 6 May 2026",
   },
   {
@@ -86,11 +86,11 @@ export const eventUpdates: HomeUpdate[] = [
     description: "13 Mar 2026",
   },
   {
-    title: "Roadies (Karam ya kaand) - Round 1st",
+    title: "Roadies (Karam ya kaand) - Round 1",
     description: "07 March 2026",
   },
   {
-    title: "Rastriya Dairy Mela and Agri Expo-2026",
+    title: "Rashtriya Dairy Mela and Agri Expo-2026",
     description: "07 March 2026",
   },
   {
@@ -276,7 +276,7 @@ export const placementUpdates: HomeUpdate[] = [
   {
     title: "Placement Drive of Bajaj Life Insurance",
     description:
-      "Geeta University facilitated a dynamic Placement Drive with Bajaj Life Insurance 19 February 2026, helping students move closer to their career aspirations.",
+      "Geeta University facilitated a dynamic Placement Drive with Bajaj Life Insurance on 19 February 2026, helping students move closer to their career aspirations.",
   },
   {
     title: "Placement Drive of Innovative Soch",

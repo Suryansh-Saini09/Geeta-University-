@@ -47,7 +47,7 @@ export default function TeachingPedagogyGrid() {
             Innovative <span className="text-[#E8871A]">Pedagogical Practices</span>
           </h2>
           <p className="mt-4 text-base text-slate-600 sm:text-lg">
-            Transforming education through active engagement, technology integration, and student-centered learning loops.
+            Transforming education through active engagement, technology integration, and student-centred learning loops.
           </p>
         </div>
 

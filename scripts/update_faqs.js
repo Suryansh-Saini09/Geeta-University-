@@ -1649,7 +1649,7 @@ function updateSchoolFaqs(filename, faqs) {
 
   // Replace faqs array in the file
   const formattedFaqs = JSON.stringify(faqs, null, 4);
-  
+
   // Find where faqs: [ ... ] starts
   const faqsRegex = /faqs:\s*\[[\s\S]*?\n  \],/
   if (faqsRegex.test(content)) {

@@ -392,7 +392,7 @@ export const healthSciencesSchool: ProgramPageData = {
     vision:
       "“To be a centre of excellence in health sciences education, nurturing competent, innovative, and compassionate healthcare professionals committed to advancing healthcare, nutrition, wellness, and the overall well-being of individuals, communities, and the nation.”",
     mission: [
-      "To develop a student-centered, outcome-based interactive instructional model that integrates science, clinical medicine, nutrition, and allied health sciences knowledge and skills for healthcare professional education.",
+      "To develop a student-centred, outcome-based interactive instructional model that integrates science, clinical medicine, nutrition, and allied health sciences knowledge and skills for healthcare professional education.",
       "To develop caring, competent, and highly skilled healthcare professionals through education and training to provide quality healthcare services, achieve optimal patient management, and promote healthy living.",
       "To promote research and innovation in health sciences, nutrition, and allied health disciplines for the global advancement of healthcare.",
       "To establish partnerships with leading health institutions, organizations, and industries to facilitate teaching, clinical skills, internships, research and development, and consultancy in health, nutrition, and wellness.",

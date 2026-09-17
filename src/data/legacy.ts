@@ -15,7 +15,7 @@ export const legacyIntro = {
   title: "Our Legacy",
   highlightedTitle: "",
   description:
-    "Geeta Group of Institutions, which provides quality education across diverse levels and fields, initiated its journey in 1985. Today, it has become an educational hub operating many schools, colleges and even an esteemed University under its aegis. The group is committed to shaping countless futures, ensuring holistic student development for the past four decades.",
+    "Geeta Group of Institutions, which provides quality education across diverse levels and fields, initiated its journey in 1985. Today, it has become an educational hub operating many schools, colleges and even an esteemed university under its aegis. The group is committed to shaping countless futures, ensuring holistic student development for the past four decades.",
 };
 
 export const legacyMilestones: LegacyMilestone[] = [
