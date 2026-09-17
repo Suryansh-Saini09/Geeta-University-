@@ -47,19 +47,6 @@ export default function TransformativeTracks({ tracks }: TransformativeTracksPro
           >
             {title}
           </h2>
-          {tracks.subtitle && (
-            <p
-              style={{
-                fontSize: 15.5,
-                color: "#64748B",
-                maxWidth: 760,
-                margin: "12px auto 0",
-                lineHeight: 1.6,
-              }}
-            >
-              {tracks.subtitle}
-            </p>
-          )}
         </div>
 
         {/* 4-Column Grid */}

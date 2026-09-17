@@ -80,7 +80,7 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
         <RankingsAccreditations rankings={pageData.rankings} />
       )} */}
 
-      {/* 4. ABOUT THE SCHOOL & LEADERSHIP NOTE & VISION/MISSION */}
+      {/* 2. ABOUT THE SCHOOL & HEAD OF SCHOOL & VISION/MISSION */}
       {(pageData.about || pageData.intro) && (
         <ProgramAbout
           about={pageData.about}
@@ -91,17 +91,20 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
         />
       )}
 
-      {/* 6. FEATURED PROGRAMS (If school defines prominent degree tiers) */}
-      {/* {pageData.featuredPrograms && (
-        <ProgramFeaturedPrograms featuredPrograms={pageData.featuredPrograms} />
-      )} */}
+      {/* 3. MEET OUR MENTORS */}
+      {hasMentors && (
+        <ProgramMentors
+          mentorsSection={pageData.mentorsSection}
+          faculty={pageData.faculty || pageData.mentors}
+        />
+      )}
 
-      {/* 7. PROGRAMS / COURSES OFFERED */}
+      {/* 4. PROGRAMS / COURSES OFFERED */}
       {pageData.courses && pageData.courses.length > 0 && (
         <ProgramCourses courses={pageData.courses} />
       )}
 
-      {/* 8. DEPARTMENT HIGHLIGHTS (Rendered strictly when school-specific highlights are provided) */}
+      {/* 5. DEPARTMENT HIGHLIGHTS ("Where Learning Meets Achievement") */}
       {pageData.departmentHighlights && pageData.departmentHighlights.length > 0 && (
         <DepartmentHighlights
           title={pageData.departmentHighlightsTitle}
@@ -111,45 +114,37 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
         />
       )}
 
-      {/* TRANSFORMATIVE TRACKS ("We Don't Just Educate We Transform Futures !") */}
+      {/* 6. TRANSFORMATIVE TRACKS ("We Don't Just Educate We Transform Futures !") */}
       {pageData.transformativeTracks && (
         <TransformativeTracks tracks={pageData.transformativeTracks} />
       )}
 
-      {/* 9. SPECIALISATIONS DIRECTORY ("GU New Age Specializations") */}
+      {/* 7. SPECIALISATIONS DIRECTORY */}
       {pageData.specialisations && (
         <ProgramSpecialisations specialisations={pageData.specialisations} />
       )}
 
-      {/* 10. MEET OUR MENTORS (Rendered strictly when school-specific faculty are provided) */}
-      {hasMentors && (
-        <ProgramMentors
-          mentorsSection={pageData.mentorsSection}
-          faculty={pageData.faculty || pageData.mentors}
-        />
-      )}
-
-      {/* USPS OF THE INSTITUTE (Beige Background for Pharmacy, Health Sciences etc.) */}
+      {/* 8. USPS OF THE INSTITUTE */}
       {pageData.usps && (
         <ProgramUsps usps={pageData.usps} />
       )}
 
-      {/* 11. EXPERTS & PILLARS OF EXCELLENCE (Rendered only when school provides expert streams or GTH) */}
+      {/* 9. EXPERTS & PILLARS OF EXCELLENCE */}
       {(pageData.experts || pageData.gth) && (
         <ProgramExperts experts={pageData.experts} gth={pageData.gth} />
       )}
 
-      {/* 12. INTERNATIONAL & INDUSTRY PARTNERS (Rendered strictly when school partners exist) */}
+      {/* 10. INTERNATIONAL & INDUSTRY PARTNERS */}
       {pageData.partners && pageData.partners.length > 0 && (
         <InternationalPartners partners={pageData.partners} />
       )}
 
-      {/* 13. CORPORATE CONNECT & WORKSHOPS */}
+      {/* 11. CORPORATE CONNECT & WORKSHOPS */}
       {pageData.corporateConnect && (
         <ProgramCorporateConnect corporateConnect={pageData.corporateConnect} />
       )}
 
-      {/* CENTER OF EXCELLENCE BANNER */}
+      {/* 12. CENTER OF EXCELLENCE BANNER */}
       {pageData.centerOfExcellence && (
         <CenterOfExcellence
           title={typeof pageData.centerOfExcellence === "object" ? pageData.centerOfExcellence.title : undefined}
@@ -157,7 +152,7 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
         />
       )}
 
-      {/* 14. PLACEMENT ANALYTICS & TESTIMONIALS */}
+      {/* 13. STUDENT TESTIMONIALS & PLACEMENT */}
       {(pageData.placement || (pageData.testimonials && pageData.testimonials.length > 0)) && (
         <ProgramPlacement
           // placement={pageData.placement}
@@ -182,6 +177,7 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
         <CareerPathways
           eyebrow={pageData.careerPathways?.eyebrow}
           title={pageData.careerPathways?.title}
+          rolesTitle={pageData.careerPathways?.rolesTitle}
           subtitle={pageData.careerPathways?.description}
           description={pageData.careerPathways?.description}
           pathways={pageData.careerPathways?.pathways}

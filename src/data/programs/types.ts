@@ -136,6 +136,7 @@ export interface ProgramPageData {
   careerPathways?: {
     eyebrow?: string;
     title?: string;
+    rolesTitle?: string;
     description?: string;
     designations?: string[];
     checklist?: string[];

@@ -163,21 +163,6 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         {/* Section Header */}
         <div style={{ textAlign: "center", marginBottom: 40 }}>
-          {specialisations.eyebrow && (
-            <span
-              style={{
-                fontSize: 12,
-                fontWeight: 800,
-                color: "#E8871A",
-                letterSpacing: "1.5px",
-                textTransform: "uppercase",
-                display: "inline-block",
-                marginBottom: 8,
-              }}
-            >
-              {specialisations.eyebrow}
-            </span>
-          )}
           <h2
             style={{
               fontSize: "clamp(26px, 3.4vw, 36px)",
@@ -190,19 +175,6 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
           >
             {title}
           </h2>
-          {specialisations.subtitle && (
-            <p
-              style={{
-                fontSize: 15.5,
-                color: "#64748B",
-                maxWidth: 700,
-                margin: "10px auto 0",
-                lineHeight: 1.6,
-              }}
-            >
-              {specialisations.subtitle}
-            </p>
-          )}
         </div>
 
         {/* 2-Column Cards Grid */}
