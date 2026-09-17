@@ -114,7 +114,7 @@ export const hospitalitySchool: ProgramPageData = {
 
   mentorsSection: {
     eyebrow: "Guiding Futures with Expertise, Experience & Empathy",
-    title: "Meet Our Mentors",
+    title: "Meet our Mentors",
     faculty: [
       {
         name: "Dr. Renu",

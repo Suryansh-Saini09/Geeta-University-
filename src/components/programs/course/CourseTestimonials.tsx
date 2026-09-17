@@ -149,7 +149,7 @@ export default function CourseTestimonials({
               letterSpacing: "-1px",
             }}
           >
-            Straight from Those Who've Been There
+            Student Testimonials
           </h2>
           <p
             style={{

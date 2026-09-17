@@ -511,7 +511,7 @@ export const healthSciencesSchool: ProgramPageData = {
 
   mentorsSection: {
     eyebrow: "EXPERT FACULTY",
-    title: "Meet Our Mentors",
+    title: "Meet our Mentors",
     faculty: [
       {
         name: "Dr. Sonal",

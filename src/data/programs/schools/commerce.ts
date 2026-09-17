@@ -290,7 +290,7 @@ export const commerceSchool: ProgramPageData = {
 
   mentorsSection: {
     eyebrow: "EXPERT FACULTY",
-    title: "Meet Our Mentors",
+    title: "Meet our Mentors",
     faculty: [
       {
         name: "Dr. Vivek Rastogi",

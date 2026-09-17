@@ -297,34 +297,30 @@ export const computerScienceSchool: ProgramPageData = {
     },
   ],
 
-  specialisations: {
-    eyebrow: "TRANSFORMATIVE LEARNING PATHWAYS",
-    title: "We Don't Just Educate, We Transform Futures!",
-    subtitle:
-      "Industry-aligned tracks empowering students with real-world competence and competitive coding mastery.",
-    layout: "cards",
-    items: [
+  transformativeTracks: {
+    title: "We Don't Just Educate We Transform Futures !",
+    cards: [
       {
         title: "Certification Tracks",
         points: [
           "Amazon AWS",
-          "Red Hat",
+          "RedHat",
           "Cisco",
           "HubSpot",
           "GitHub",
           "Oracle",
-          "Microsoft Azure",
+          "Microsoft Azure.",
         ],
       },
       {
-        title: "Drive-Ready Tracks",
+        title: "Drive Ready Tracks",
         points: [
           "MEAN/MERN Stack",
           "PHP & MySQL",
           "Python Development",
-          "Cybersecurity Fundamentals",
+          "Cyber Security Fundamentals",
           "Artificial Intelligence",
-          "Machine Learning",
+          "Machine Learning.",
         ],
       },
       {
@@ -332,20 +328,69 @@ export const computerScienceSchool: ProgramPageData = {
         points: [
           "Logic Building",
           "Problem-Solving Techniques",
-          "Data Structures & Algorithms",
+          "Data Structure & Algorithms",
           "Coding Profile on In-house Platform",
           "Advanced Algorithms",
-          "Competitive Programming",
+          "Competitive Programming.",
         ],
       },
       {
         title: "Milestone Actions",
         points: [
-          "G-connect & Alumni Connect",
-          "T-Shaped Technocrat",
+          "G-connect",
+          "Alumni Connect",
+          "T Shaped Technocrat",
           "Multi-Skill Development",
           "Project Roundup",
-          "Techno Coders Community",
+          "Techno Coders.",
+        ],
+      },
+    ],
+  },
+
+  specialisations: {
+    title: "GU New Age Specializations",
+    items: [
+      {
+        title: "Artificial Intelligence & Machine Learning",
+        points: [
+          "Specialization in advanced machine learning areas like Computer Vision, Big Data, Robotics, etc.",
+          "Understanding artificial networks",
+          "Applications of deep learning in image recognition",
+          "Real world projects",
+          "AI & ML application competencies in data mining & progression analytics..",
+        ],
+      },
+      {
+        title: "Cyber Security",
+        points: [
+          "Software development security",
+          "Network security",
+          "Risk management and compliance",
+          "Cryptography",
+          "Cyber security regulation",
+          "Information security (INFOSEC)",
+          "Security architecture..",
+        ],
+      },
+      {
+        title: "Data Sciences & Business Analytics",
+        points: [
+          "Certified analytics professional",
+          "Data frames",
+          "Core programming principles",
+          "Data science with R programming",
+          "Python for data science",
+        ],
+      },
+      {
+        title: "Full Stack Web Development",
+        points: [
+          "Basics of web development and coding",
+          "Introduction to HTML/CSS - creating web pages",
+          "JavaScript essentials",
+          "Advanced JavaScript",
+          "CSS fundamentals and web applications..",
         ],
       },
     ],

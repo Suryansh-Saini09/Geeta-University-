@@ -116,7 +116,7 @@ export const humanitiesSchool: ProgramPageData = {
 
   mentorsSection: {
     eyebrow: "Guiding Futures with Expertise, Experience & Empathy",
-    title: "Meet Our Mentors",
+    title: "Meet our Mentors",
     faculty: [
       {
         name: "Ms. Deepika Jaglan",
@@ -281,45 +281,23 @@ export const humanitiesSchool: ProgramPageData = {
   ],
 
   specialisations: {
-    eyebrow: "CORE DISCIPLINES",
-    title: "We Don't Just Educate, We Transform Futures!",
-    subtitle: "Empowering Social Awareness, Cognitive Understanding & Public Governance",
+    title: "WE DON'T JUST EDUCATE WE TRANSFORM FUTURES !",
     items: [
       {
-        title: "Political Science & International Relations",
-        iconName: "Globe",
-        points: [
-          "Explore governance, public policy, political philosophy, and comparative constitutions.",
-          "Analyze international geopolitics, strategic diplomacy, and foreign affairs.",
-          "Prepare for civil services, think-tanks, and policy advisory leadership.",
-        ],
+        title: "Political Science",
+        desc: "Explore governance, public policy, political systems, and international relations to shape informed global citizens and leaders.",
       },
       {
-        title: "Psychology & Behavioral Sciences",
-        iconName: "BrainCircuit",
-        points: [
-          "Study cognitive processes, developmental psychology, psychopathology, and counseling.",
-          "Hands-on psychometric testing, diagnostic evaluation, and mental wellness tools.",
-          "Pathways into clinical practice, organizational HR, school psychology, and research.",
-        ],
+        title: "Psychology",
+        desc: "Study human behavior, cognition, and mental health with practical exposure in counseling, research, and clinical settings.",
       },
       {
-        title: "Economics & Development Policy",
-        iconName: "TrendingUp",
-        points: [
-          "Understand micro/macroeconomic models, econometrics, and fiscal policies.",
-          "Analyze market trends, financial datasets, and socio-economic developmental indices.",
-          "Career tracks in financial institutions, policy research, and corporate consulting.",
-        ],
+        title: "Economics",
+        desc: "Understand economic theories, market trends, and policy-making to solve real-world financial and developmental challenges.",
       },
       {
-        title: "Social Work & Community Empowerment",
-        iconName: "Users",
-        points: [
-          "Develop skills to empower grassroots communities and vulnerable demographic groups.",
-          "Design sustainable social intervention models and welfare campaigns.",
-          "Direct engagement with NGOs, CSR foundations, and UN-affiliated agencies.",
-        ],
+        title: "Social Work",
+        desc: "Develop skills to empower communities, support vulnerable populations, and advocate for social justice and change.",
       },
     ],
   },
