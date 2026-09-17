@@ -120,6 +120,7 @@ export interface ProgramPageData {
   };
 
   partners?: PartnerItem[];
+  centerOfExcellence?: boolean | { title?: string; bg?: string };
 
   testimonials?: TestimonialItem[];
 

@@ -469,6 +469,10 @@ export const computerScienceSchool: ProgramPageData = {
     ],
   },
 
+  centerOfExcellence: {
+    title: "Center Of Excellence",
+  },
+
   departmentHighlights: [
     {
       title: "Advanced Computing Laboratories",
