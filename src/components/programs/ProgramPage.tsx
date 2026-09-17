@@ -178,10 +178,12 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
           eyebrow={pageData.careerPathways?.eyebrow}
           title={pageData.careerPathways?.title}
           rolesTitle={pageData.careerPathways?.rolesTitle}
+          recruitersTitle={pageData.careerPathways?.recruitersTitle}
           subtitle={pageData.careerPathways?.description}
           description={pageData.careerPathways?.description}
           pathways={pageData.careerPathways?.pathways}
           notableRoles={pageData.careerPathways?.notableRoles}
+          recruiters={pageData.careerPathways?.recruiters}
         />
       )}
 
