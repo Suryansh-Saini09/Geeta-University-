@@ -401,6 +401,7 @@ export interface PathwayCardItem {
 export interface NotableRoleItem {
   name: string;
   iconName?: string;
+  logo?: string;
 }
 
 export interface CorporateConnectVideo {

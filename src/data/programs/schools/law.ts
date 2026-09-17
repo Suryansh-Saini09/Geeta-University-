@@ -193,10 +193,10 @@ export const lawSchool: ProgramPageData = {
   },
 
   featuredPrograms: {
-    title1: "Integrated Law (5 Years)",
+    title1: "Integrated Law (5 years)",
     tag1: "B.A. LL.B. / B.B.A. LL.B.",
     title2: "Postgraduate & Research",
-    tag2: "LL.M. (1 Year) & Ph.D.",
+    tag2: "LL.M. (1 year) & Ph.D.",
     description:
       "Comprehensive, Bar Council of India (BCI) recognized law programs preparing students for litigation, corporate law, judicial services, and academic research.",
     cards: [
@@ -610,35 +610,35 @@ export const lawSchool: ProgramPageData = {
   courses: [
     {
       title: "Undergraduate Integrated Programs",
-      level: "Undergraduate (5 Years Integrated)",
-      duration: "5 Years",
+      level: "Undergraduate (5 years Integrated)",
+      duration: "5 years",
       eligibility:
-        "Passed 10+2 examination in any stream with at least 50% marks in aggregate (45% for reserved category) from any recognized board.",
+        "Passed the 10+2 examination in any stream with at least 50% marks in aggregate (45% for reserved category) from any recognized board.",
       programs: [
         {
           name: "B.A. LL.B. (Hons.)",
-          duration: "5 Years Integrated",
-          eligibility: "Passed 10+2 examination with at least 50% marks from a recognized board.",
+          duration: "5 years Integrated",
+          eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
           href: "https://geetauniversity.edu.in/programs/geeta-global-law-school/ba-llb",
         },
         {
           name: "B.B.A. LL.B. (Hons.)",
-          duration: "5 Years Integrated",
-          eligibility: "Passed 10+2 examination with at least 50% marks from a recognized board.",
+          duration: "5 years Integrated",
+          eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
           href: "https://geetauniversity.edu.in/programs/geeta-global-law-school/bba-llb",
         },
       ],
     },
     {
       title: "Postgraduate Law Program",
-      level: "Postgraduate (1 Year Full-Time)",
-      duration: "1 Year",
+      level: "Postgraduate (1 year Full-Time)",
+      duration: "1 year",
       eligibility:
-        "Passed Bachelor's degree in Law (LL.B. 3 Years or 5 Years Integrated) with at least 50% marks from a recognized university.",
+        "Passed Bachelor's degree in Law (LL.B. 3 years or 5 years Integrated) with at least 50% marks from a recognized university.",
       programs: [
         {
           name: "LL.M. – Master of Laws",
-          duration: "1 Year Full-Time",
+          duration: "1 year Full-Time",
           eligibility: "Passed Bachelor's degree in Law (LL.B.) with minimum 50% marks in aggregate.",
           href: "/programs/geeta-global-law-school/llm",
         },
@@ -646,14 +646,14 @@ export const lawSchool: ProgramPageData = {
     },
     {
       title: "Doctoral Program in Law",
-      level: "Doctoral (Minimum 3 Years)",
-      duration: "Minimum 3 Years",
+      level: "Doctoral (Minimum 3 years)",
+      duration: "Minimum 3 years",
       eligibility:
         "Candidate must have passed Master's in Law (LL.M.) with at least 55% marks from a recognized university.",
       programs: [
         {
           name: "Ph.D. in Law",
-          duration: "Minimum 3 Years",
+          duration: "Minimum 3 years",
           eligibility: "Masters in Law (LL.M.) with minimum 55% marks.",
           href: "/programs/geeta-global-law-school/phd-law",
         },
@@ -703,7 +703,7 @@ export const lawSchool: ProgramPageData = {
     },
     {
         "q": "What is the eligibility for BA LL.B./BBA LL.B.?",
-        "a": "Passed 10+2 in any stream with the minimum percentage prescribed by the university (typically 50%).",
+        "a": "Passed the 10+2 in any stream with the minimum percentage prescribed by the university (typically 50%).",
         "category": "Programmes & Eligibility"
     },
     {
@@ -717,7 +717,7 @@ export const lawSchool: ProgramPageData = {
         "category": "Programmes & Eligibility"
     },
     {
-        "q": "What specializations are available?",
+        "q": "What specialisations are available?",
         "a": "Corporate Law, Criminal Law, Constitutional Law, IPR Law, and Family Law offered as elective tracks in later years.",
         "category": "Programmes & Eligibility"
     },
@@ -813,7 +813,7 @@ export const lawSchool: ProgramPageData = {
     },
     {
         "q": "What is the eligibility for B.A. LL.B. (Hons.)?",
-        "a": "Candidates must have passed 10+2 with at least 45% aggregate marks for the General Category and 42.75% for SC/ST, with English as one of the subjects.",
+        "a": "Candidates must have Passed the 10+2 with at least 45% aggregate marks for the General Category and 42.75% for SC/ST, with English as one of the subjects.",
         "category": "Admissions & Eligibility"
     },
     {

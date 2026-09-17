@@ -9,7 +9,7 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
   },
   {
     question: "What is the eligibility for B.Sc. Hons. Nutrition & Dietetics?",
-    answer: "Applicants should have passed 10+2 with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or a vocational subject, with English as one of the subjects, and at least 50% marks in the qualifying examination.",
+    answer: "Applicants should have Passed the 10+2 with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or a vocational subject, with English as one of the subjects, and at least 50% marks in the qualifying examination.",
     category: "Admissions & Eligibility"
   },
   {
@@ -372,7 +372,7 @@ export const healthSciencesSchool: ProgramPageData = {
     paragraphs: [
       "The Department of Nutrition and Dietetics at Geeta University is dedicated to excellence in nutrition education, research, and community service. The department offers industry-aligned programs that integrate theoretical knowledge with practical training in clinical, community, and food industry settings.",
       "Equipped with modern laboratories and a functional diet clinic, it provides hands-on learning experiences. Experienced faculty members mentor students in research, internships, and professional development. The department prepares graduates to become competent nutrition professionals and leaders in health and wellness.",
-      "The School of Health and Allied Sciences offers B.Sc. and M.Sc. programs in Nutrition & Dietetics with specializations in diet planning, food science and technology, and fitness management.",
+      "The School of Health and Allied Sciences offers B.Sc. and M.Sc. programs in Nutrition & Dietetics with specialisations in diet planning, food science and technology, and fitness management.",
     ],
     image: "/programs/health-sciences/nd4-thumb.webp",
     badgeText: "Excellence in Health & Nutrition",
@@ -446,7 +446,7 @@ export const healthSciencesSchool: ProgramPageData = {
         iconName: "BookOpenCheck",
         points: [
           "Therapeutic diet design for lifestyle diseases and critical care.",
-          "Comprehensive nutritional assessment and personalized meal formulation.",
+          "Comprehensive nutritional assessment and personalised meal formulation.",
           "Evidence-based practice in clinical and community healthcare setups.",
         ],
       },
@@ -464,9 +464,9 @@ export const healthSciencesSchool: ProgramPageData = {
 
   featuredPrograms: {
     title1: "Bachelor of Science",
-    tag1: "B.Sc. (4 Years)",
+    tag1: "B.Sc. (4 years)",
     title2: "Master of Science",
-    tag2: "M.Sc. (2 Years)",
+    tag2: "M.Sc. (2 years)",
     description:
       "Industry-aligned degree programs in Nutrition & Dietetics integrating clinical practice, modern laboratories, and research-led education.",
     cards: [
@@ -769,9 +769,9 @@ export const healthSciencesSchool: ProgramPageData = {
   courses: [
     {
       title: "Undergraduate Program",
-      duration: "4 Years",
+      duration: "4 years",
       eligibility:
-        "Passed 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized board or university, with at least 50% marks in the qualifying examination.",
+        "Passed the 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized board or university, with at least 50% marks in the qualifying examination.",
       programs: [
         {
           name: "B.Sc. Hons. (Nutrition & Dietetics)",
@@ -781,7 +781,7 @@ export const healthSciencesSchool: ProgramPageData = {
     },
     {
       title: "Postgraduate Program",
-      duration: "2 Years",
+      duration: "2 years",
       eligibility:
         "Candidate must have completed a Bachelor's degree in Nutrition and Dietetics (Honours), B.Sc. Nutrition and Dietetics (Honours), or B.Sc. Food and Nutrition in regular mode from a recognized university with at least 50% aggregate marks.",
       programs: [
@@ -793,7 +793,7 @@ export const healthSciencesSchool: ProgramPageData = {
     },
     {
       title: "Doctoral Program",
-      duration: "Minimum 3 Years",
+      duration: "Minimum 3 years",
       eligibility:
         "Candidate must have passed a Postgraduate degree with at least 55% marks (50% for reserved categories) in Nutrition, Dietetics, Food Science and Technology, Home Science, or a related discipline.",
       programs: [

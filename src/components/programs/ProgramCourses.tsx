@@ -15,7 +15,7 @@ interface NormalizedProgramItem {
   program: string;
   duration?: string;
   href?: string;
-  specializations?: (string | { name: string; href?: string })[];
+  specialisations?: (string | { name: string; href?: string })[];
   eligibility?: string;
   details?: React.ReactNode;
 }
@@ -33,8 +33,8 @@ export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
     items: [
       {
         program: "B.Tech — Computer Science & Engineering",
-        duration: "4 Years",
-        specializations: [
+        duration: "4 years",
+        specialisations: [
           "Artificial Intelligence & Machine Learning",
           "Cybersecurity",
           "Data Science & Business Analytics (with HCL)",
@@ -43,18 +43,18 @@ export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
           "NIAT Upskilling",
         ],
         eligibility:
-          "Passed 10+2 with Physics and Mathematics as compulsory subjects plus one technical or science subject with a minimum of 55% marks.",
+          "Passed the 10+2 with Physics and Mathematics as compulsory subjects plus one technical or science subject with a minimum of 55% marks.",
       },
       {
         program: "BCA — Bachelor of Computer Applications",
-        duration: "3/4 Years",
-        specializations: [
+        duration: "3/4 years",
+        specialisations: [
           "Computer Applications",
           "Artificial Intelligence & Machine Learning",
           "Cybersecurity",
           "Data Science & Business Analytics",
         ],
-        eligibility: "Passed 10+2 with a minimum of 50% marks from any recognized board.",
+        eligibility: "Passed the 10+2 with a minimum of 50% marks from any recognized board.",
       },
     ],
   },
@@ -64,13 +64,13 @@ export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
     items: [
       {
         program: "M.Tech — Computer Science & Engineering",
-        duration: "2 Years",
+        duration: "2 years",
         eligibility:
           "Bachelor's degree in relevant engineering or science stream with a minimum of 50% marks; Mathematics preferred at graduation level.",
       },
       {
         program: "MCA — Master of Computer Applications",
-        duration: "2 Years",
+        duration: "2 years",
         eligibility:
           "BCA / B.Sc. (CS) / equivalent, or graduate degree with Mathematics at 10+2 or graduation level, and a minimum of 50% marks.",
       },
@@ -82,7 +82,7 @@ export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
     items: [
       {
         program: "Ph.D. — Advanced Research & Doctoral Programs",
-        duration: "Minimum 3 Years",
+        duration: "Minimum 3 years",
         eligibility: "Relevant master's degree with a minimum of 55% marks from an approved university.",
       },
     ],
@@ -132,7 +132,7 @@ export default function ProgramCourses({
         program: prog.name || prog.program || cat.title,
         duration: prog.duration || cat.duration || "Full Time",
         href: prog.href,
-        specializations: prog.specializations || prog.specialisations || prog.specialization || prog.specialisation,
+        specialisations: prog.specialisations || prog.specialisations || prog.specialisation || prog.specialisation,
         eligibility: prog.eligibility || cat.eligibility,
         details: prog.details,
       }));
@@ -427,7 +427,7 @@ export default function ProgramCourses({
                     </div>
                   ) : (
                     <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.75, fontWeight: 400 }}>
-                      {prog.specializations && prog.specializations.length > 0 && (
+                      {prog.specialisations && prog.specialisations.length > 0 && (
                         <div style={{ marginBottom: 16 }}>
                           <strong
                             style={{
@@ -438,7 +438,7 @@ export default function ProgramCourses({
                               marginBottom: 8,
                             }}
                           >
-                            Specializations available:
+                            Specialisations available:
                           </strong>
                           <ul
                             style={{
@@ -447,11 +447,11 @@ export default function ProgramCourses({
                               listStyle: "none",
                               display: "grid",
                               gridTemplateColumns:
-                                prog.specializations.length > 3 ? "repeat(auto-fit, minmax(260px, 1fr))" : "1fr",
+                                prog.specialisations.length > 3 ? "repeat(auto-fit, minmax(260px, 1fr))" : "1fr",
                               gap: "8px 20px",
                             }}
                           >
-                            {prog.specializations.map((specItem, sIdx) => {
+                            {prog.specialisations.map((specItem, sIdx) => {
                               const isObj = typeof specItem === "object" && specItem !== null;
                               const name = isObj ? specItem.name : specItem;
                               const href = (isObj && specItem.href) ? specItem.href : prog.href || "#";

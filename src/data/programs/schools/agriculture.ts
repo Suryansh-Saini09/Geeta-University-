@@ -442,14 +442,14 @@ export const agricultureSchool: ProgramPageData = {
     {
       level: "Undergraduate Program",
       title: "Undergraduate Program",
-      duration: "4 Years",
+      duration: "4 years",
       eligibility:
         "10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
       programs: [
         {
           name: "B.Sc. Hons. (Agriculture)",
           href: "/programs/school-of-agricultural-studies/bsc-agriculture",
-          duration: "4 Years",
+          duration: "4 years",
           eligibility:
             "10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
         },
@@ -458,15 +458,15 @@ export const agricultureSchool: ProgramPageData = {
     {
       level: "Postgraduate Program",
       title: "Postgraduate Program",
-      duration: "2 Years",
+      duration: "2 years",
       eligibility:
         "Graduation in a relevant discipline with a minimum 50% marks.",
       programs: [
         {
           name: "M.Sc. Agriculture",
           href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
-          duration: "2 Years",
-          specializations: [
+          duration: "2 years",
+          specialisations: [
             {
               name: "M.Sc. Agriculture (Agronomy)",
               href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
@@ -480,14 +480,14 @@ export const agricultureSchool: ProgramPageData = {
     {
       level: "Doctoral Program",
       title: "Doctoral Program",
-      duration: "Minimum 3 Years",
+      duration: "Minimum 3 years",
       eligibility:
         "Masters in a relevant discipline with minimum aggregate score of 55%",
       programs: [
         {
           name: "Ph.D. (Agriculture)",
           href: "/programs/school-of-agricultural-studies/phd-agriculture",
-          duration: "Minimum 3 Years",
+          duration: "Minimum 3 years",
           eligibility:
             "Masters in a relevant discipline with minimum aggregate score of 55%",
         },

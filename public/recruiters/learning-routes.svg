@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 54" width="100%" height="100%">
+  <g transform="translate(6, 4)">
+    <!-- LR Monogram -->
+    <g transform="translate(0, 0)">
+      <!-- Amber dot -->
+      <circle cx="22" cy="9" r="6.5" fill="#F5A623" />
+      <!-- Stylized L and R shapes -->
+      <path d="M 8,18 L 18,18 L 18,38 L 36,38 L 36,46 L 8,46 Z" fill="#0A1F44" />
+      <path d="M 23,18 L 37,18 L 37,30 L 30,30 L 37,46 L 27,46 L 21,33 L 23,33 Z" fill="#1B4282" />
+    </g>
+    <!-- Text: Learning Routes -->
+    <text x="50" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="900" fill="#0A1F44" letter-spacing="-0.3">LEARNING</text>
+    <text x="50" y="45" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="800" fill="#F5A623" letter-spacing="1.5">ROUTES</text>
+  </g>
+</svg>
