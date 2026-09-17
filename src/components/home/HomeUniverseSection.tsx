@@ -57,7 +57,7 @@ export default function HomeUniverseSection() {
     handleTouchEnd,
   } = useFiniteCarousel({
     totalItems: flagItems.length,
-    autoplayInterval: 4000,
+    autoplayInterval: 2500,
     enableAutoplay: true,
   });
 

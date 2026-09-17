@@ -52,7 +52,7 @@ export default function TopRecruitersSection() {
     handleTouchEnd,
   } = useFiniteCarousel({
     totalItems: recruiters.length,
-    autoplayInterval: 4000,
+    autoplayInterval: 2500,
     enableAutoplay: true,
   });
 

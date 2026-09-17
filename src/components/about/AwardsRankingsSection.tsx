@@ -26,7 +26,7 @@ export default function AwardsRankingsSection() {
     handleTouchEnd,
   } = useFiniteCarousel({
     totalItems: awards.length,
-    autoplayInterval: 4500,
+    autoplayInterval: 3000,
     enableAutoplay: true,
   });
 

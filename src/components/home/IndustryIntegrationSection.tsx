@@ -22,7 +22,7 @@ export default function IndustryIntegrationSection() {
     handleTouchEnd,
   } = useFiniteCarousel({
     totalItems: industryPartners.length,
-    autoplayInterval: 4000,
+    autoplayInterval: 2500,
     enableAutoplay: true,
   });
 

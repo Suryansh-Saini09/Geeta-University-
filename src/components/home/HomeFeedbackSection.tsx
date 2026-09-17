@@ -25,7 +25,7 @@ export default function HomeFeedbackSection() {
     handleTouchEnd,
   } = useFiniteCarousel({
     totalItems: homeFeedback.length,
-    autoplayInterval: 4500,
+    autoplayInterval: 3000,
     enableAutoplay: true,
   });
 
