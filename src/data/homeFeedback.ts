@@ -42,28 +42,28 @@ export const homeFeedback: HomeFeedback[] = [
       "Geeta University offers a premier academic and campus life experience. The skills I learned here were integral to my success and helped me achieve a ₹67.5 LPA package.",
   },
   {
-    name: "Mr. Rakesh",
+    name: "Rakesh",
     package: "INR 52 LPA",
     image: "/home/Rakesh-BTech.webp",
     testimonial:
       "Engineering at Geeta Campus gave me the skills and confidence to excel in the industry. My journey from campus to securing a 52 LPA package at Reliance has truly been life-changing.",
   },
   {
-    name: "Mr. Vaibhav Arora",
+    name: "Vaibhav Arora",
     package: "INR 1.4 Crore PA",
     image: "/home/Vaibhav.jpg-full.webp",
     testimonial:
       "Their focus on 360-degree development, mentorship programs, and industry interactions helped me become an entrepreneur instead of seeking a job.",
   },
   {
-    name: "Mr. Yakshup Goel",
+    name: "Yakshup Goel",
     package: "40 LPA",
     image: "/home/Yakshup.jpeg-full.webp",
     testimonial:
       "The two years I spent at the Geeta University Campus, inspired me to persevere & never give up on anything irrespective of how difficult it might seem. The practical lessons learnt here were instrumental in building my career.",
   },
   {
-    name: "Mr. Abhishek Kumar",
+    name: "Abhishek Kumar",
     package: "INR 77.5 LPA",
     image: "/home/Abhishek-Kumar-full.webp",
     testimonial:
