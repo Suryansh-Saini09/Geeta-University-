@@ -44,7 +44,7 @@ export default function DepartmentHighlights({
     <section
       id="DepartmentHighlights"
       style={{
-        padding: "90px 0 100px",
+        padding: "52px 0 48px",
         background: "#FDF1D6",
         position: "relative",
         overflow: "hidden",

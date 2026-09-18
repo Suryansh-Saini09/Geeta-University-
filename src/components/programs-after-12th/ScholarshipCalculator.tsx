@@ -39,7 +39,7 @@ export default function ScholarshipCalculator() {
 
   const programLevel = useMemo(() => {
     if (!currentProgram) return "UG";
-    return currentProgram.level || detectLevel(currentProgram.programme);
+    return currentProgram.level || detectLevel(currentProgram.program);
   }, [currentProgram]);
 
   const availableCategories = useMemo(() => {
@@ -186,7 +186,7 @@ export default function ScholarshipCalculator() {
             </option>
             {programOptions.map((p, idx) => (
               <option key={idx} value={idx}>
-                {p.programme}
+                {p.program}
               </option>
             ))}
           </select>

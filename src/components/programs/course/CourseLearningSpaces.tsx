@@ -19,7 +19,7 @@ export default function CourseLearningSpaces({
   const spaceItems = [...learningSpaces.spaces, ...learningSpaces.spaces];
 
   return (
-    <section className="w-full bg-[#F7F9FC] py-14 md:py-20 border-t border-slate-200/60 overflow-hidden">
+    <section className="w-full bg-[#F7F9FC] py-10 md:py-14 border-t border-slate-200/60 overflow-hidden">
       {/* Header with Title & Subtitle */}
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 mb-8 md:mb-10">
         <span

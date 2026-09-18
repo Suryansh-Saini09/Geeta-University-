@@ -28,9 +28,9 @@ export const globalEdgePage: EdgePageData = {
     description:
       "Grooming future advocates, corporate counsels, judicial officers, and global policy thinkers with practice-oriented legal training, international conferences, and state-of-the-art moot courts.",
     badges: [
-      "5 Years Integrated B.A. LL.B. Programme",
-      "5 Years Integrated BBA LL.B. (Hons.) Programme",
-      "3 Years LL.B. (Hons.) Programme",
+      "5 Years Integrated B.A. LL.B. Program",
+      "5 Years Integrated BBA LL.B. (Hons.) Program",
+      "3 Years LL.B. (Hons.) Program",
     ],
     graphicType: "tech-circle",
     theme: "dark",
@@ -130,9 +130,9 @@ export const globalEdgePage: EdgePageData = {
 
   accordions: [
     {
-      id: "law-programmes",
+      id: "law-programs",
       eyebrow: "ACADEMIC OFFERINGS",
-      title: "Law Programmes - Ahead of Its Time",
+      title: "Law programs - Ahead of Its Time",
       subtitle: "Undergraduate, Postgraduate, and Doctoral Programs in Law",
       description:
         "Comprehensive, Bar Council of India (BCI) approved degree tracks designed to build analytical rigor, courtroom eloquence, and ethical leadership.",

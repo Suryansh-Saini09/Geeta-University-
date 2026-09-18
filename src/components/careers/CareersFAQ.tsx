@@ -13,7 +13,7 @@ export default function CareersFAQ() {
   };
 
   return (
-    <section className="bg-[#F8FAFC] py-20 lg:py-24 border-t border-[#E2E8F0]">
+    <section className="bg-[#F8FAFC] py-10 md:py-14 border-t border-[#E2E8F0]">
       <div className="gu-container">
         {/* Section Header */}
         <div className="mx-auto mb-14 max-w-3xl text-center">

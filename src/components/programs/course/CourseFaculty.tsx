@@ -260,7 +260,7 @@ export default function ProgramMentors({
   );
 
   return (
-    <section id="Mentors" style={{ padding: "80px 0", background: "#FFFFFF", overflow: "hidden" }}>
+    <section id="Mentors" style={{ padding: "52px 0 48px", background: "#FFFFFF", overflow: "hidden" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         <h2 style={{ fontSize: 44, fontWeight: 800, color: "#0A1F44", lineHeight: 1.2, letterSpacing: "-1px" }}>
           {sectionTitle}

@@ -156,7 +156,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
           id="Testimonials"
           style={{
             background: "#0A1F44",
-            padding: "90px 0",
+            padding: "52px 0",
             position: "relative",
             overflow: "hidden",
             borderTop: "1px solid rgba(255, 255, 255, 0.05)",
@@ -538,7 +538,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
 
       {/* ── PLACEMENT METRICS & ANALYTICS ────────────────────────────────────── */}
       {placement && (
-        <section style={{ padding: "90px 0", background: "#FFFFFF" }}>
+        <section style={{ padding: "52px 0 48px", background: "#FFFFFF" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
             <div
               style={{

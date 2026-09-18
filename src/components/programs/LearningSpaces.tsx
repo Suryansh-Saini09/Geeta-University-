@@ -48,7 +48,7 @@ export default function LearningSpaces({
   return (
     <section
       id="Infrastructure"
-      className="w-full bg-[#F7F9FC] py-16 md:py-24 border-t border-slate-200/60 overflow-hidden"
+      className="w-full bg-[#F7F9FC] py-10 md:py-14 border-t border-slate-200/60 overflow-hidden"
     >
       {/* Header */}
       <div style={{ maxWidth: 1240, margin: "0 auto 40px", padding: "0 24px", textAlign: "center" }}>

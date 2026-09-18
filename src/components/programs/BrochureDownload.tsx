@@ -21,7 +21,7 @@ export default function BrochureDownload({
     <section
       id="Brochure"
       style={{
-        padding: "80px 0",
+        padding: "48px 0 44px",
         background: "#0A1F44",
         position: "relative",
         overflow: "hidden",

@@ -45,7 +45,7 @@ const BENEFITS = [
 
 export default function CareersWhyUs() {
   return (
-    <section id="why-join-us" className="scroll-mt-20 bg-[#F8FAFC] py-20 lg:py-24">
+    <section id="why-join-us" className="scroll-mt-20 bg-[#F8FAFC] py-10 md:py-14">
       <div className="gu-container">
         {/* Section Header */}
         <div className="mx-auto mb-14 max-w-3xl text-center">

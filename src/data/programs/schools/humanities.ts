@@ -506,22 +506,22 @@ export const humanitiesSchool: ProgramPageData = {
 
   faqs: [
     {
-      "q": "What programmes are currently offered by the School of Humanities & Social Sciences?",
-      "a": "The School currently offers B.A. programmes in Political Science, Psychology, Economics, Social Work and English; M.A. programmes in Political Science and Psychology; and Ph.D. programmes in Psychology and Political Science.",
+      "q": "What programs are currently offered by the School of Humanities & Social Sciences?",
+      "a": "The School currently offers B.A. programs in Political Science, Psychology, Economics, Social Work and English; M.A. programs in Political Science and Psychology; and Ph.D. programs in Psychology and Political Science.",
       "category": "Admissions & Eligibility"
     },
     {
-      "q": "What is the eligibility for the B.A. programmes?",
+      "q": "What is the eligibility for the B.A. programs?",
       "a": "Candidates need to have Passed the 10+2 examination with a minimum of 50% marks, in any stream.",
       "category": "Admissions & Eligibility"
     },
     {
-      "q": "Can students from different Class 12 streams apply for the B.A. programmes?",
-      "a": "Yes. There is no restriction based on Class 12 stream — students from Science, Commerce, Arts/Humanities or any other stream can apply for the B.A. programmes, as long as they have Passed the 10+2 with at least 50% marks.",
+      "q": "Can students from different Class 12 streams apply for the B.A. programs?",
+      "a": "Yes. There is no restriction based on Class 12 stream — students from Science, Commerce, Arts/Humanities or any other stream can apply for the B.A. programs, as long as they have Passed the 10+2 with at least 50% marks.",
       "category": "Admissions & Eligibility"
     },
     {
-      "q": "What is the eligibility for the M.A. programmes?",
+      "q": "What is the eligibility for the M.A. programs?",
       "a": "For both M.A. Political Science and M.A. Psychology, applicants need a Bachelor's degree with a minimum of 50% marks in a relevant subject.",
       "category": "Admissions & Eligibility"
     },
@@ -533,37 +533,37 @@ export const humanitiesSchool: ProgramPageData = {
     {
       "q": "How do I choose between B.A. Psychology, Political Science, Economics and Social Work?",
       "a": "Choose Psychology for human behaviour, Political Science for governance, Economics for markets and quantitative analysis, and Social Work for community welfare and social intervention.",
-      "category": "Choosing the Right Programme"
+      "category": "Choosing the Right Program"
     },
     {
       "q": "What does B.A. Psychology focus on?",
       "a": "B.A. (Hons.) Psychology builds a foundation in cognitive, developmental and abnormal psychology, blending theory with lab-based experiments, psychological assessments and community outreach. It prepares students for counselling, HR, mental health and education-related roles.",
-      "category": "Choosing the Right Programme"
+      "category": "Choosing the Right Program"
     },
     {
       "q": "What will I study in B.A. Political Science?",
-      "a": "The programme covers politics, governance, institutions, public affairs and political thought, with links to policy and administration.",
-      "category": "Choosing the Right Programme"
+      "a": "The program covers politics, governance, institutions, public affairs and political thought, with links to policy and administration.",
+      "category": "Choosing the Right Program"
     },
     {
       "q": "What does B.A. Economics prepare students for?",
       "a": "It builds knowledge of economic systems, markets, policy and analytical decision-making, with applications in business, finance, research and development.",
-      "category": "Choosing the Right Programme"
+      "category": "Choosing the Right Program"
     },
     {
       "q": "What is the focus of B.A. Social Work?",
-      "a": "The programme centres on social issues, welfare, community engagement and professional social-work practice.",
-      "category": "Choosing the Right Programme"
+      "a": "The program centres on social issues, welfare, community engagement and professional social-work practice.",
+      "category": "Choosing the Right Program"
     },
     {
       "q": "What is the difference between B.A. and M.A. Psychology?",
       "a": "B.A. Psychology provides the foundation — human behaviour, psychological processes and core testing skills. M.A. Psychology builds on this with deeper subject knowledge, specialised study and stronger research preparation, requiring a Bachelor's degree with 50% marks in a relevant subject for entry.",
-      "category": "Choosing the Right Programme"
+      "category": "Choosing the Right Program"
     },
     {
       "q": "What is the difference between B.A. and M.A. Political Science?",
       "a": "B.A. Political Science builds the fundamentals of politics and governance, while M.A. Political Science (open to Bachelor's degree holders with 50% marks in a relevant subject) develops more advanced analysis and specialisation.",
-      "category": "Choosing the Right Programme"
+      "category": "Choosing the Right Program"
     },
     {
       "q": "Is learning at the School mainly theoretical?",
@@ -642,7 +642,7 @@ export const humanitiesSchool: ProgramPageData = {
     },
     {
       "q": "Can Political Science graduates work with NGOs and development organisations?",
-      "a": "Yes. Knowledge of governance, society and public institutions is useful in development, advocacy and community programmes.",
+      "a": "Yes. Knowledge of governance, society and public institutions is useful in development, advocacy and community programs.",
       "category": "Career Opportunities — Political Science"
     },
     {
@@ -677,22 +677,22 @@ export const humanitiesSchool: ProgramPageData = {
     },
     {
       "q": "What career options are available after B.A. Social Work?",
-      "a": "Graduates can work in NGOs, community development, CSR, public and development programmes, rehabilitation and welfare organisations.",
+      "a": "Graduates can work in NGOs, community development, CSR, public and development programs, rehabilitation and welfare organisations.",
       "category": "Career Opportunities — Social Work"
     },
     {
       "q": "Will Social Work students work with communities?",
-      "a": "Yes. B.A. Social Work is practice-oriented — students engage directly with communities through fieldwork placements, internships and outreach projects as part of the programme's professional social-work practice component.",
+      "a": "Yes. B.A. Social Work is practice-oriented — students engage directly with communities through fieldwork placements, internships and outreach projects as part of the program's professional social-work practice component.",
       "category": "Career Opportunities — Social Work"
     },
     {
       "q": "Can Social Work graduates work in CSR?",
-      "a": "Yes. Community engagement, programme implementation and social-impact skills are relevant to CSR roles.",
+      "a": "Yes. Community engagement, program implementation and social-impact skills are relevant to CSR roles.",
       "category": "Career Opportunities — Social Work"
     },
     {
       "q": "Can Social Work graduates work with development organisations?",
-      "a": "Yes. NGOs and development organisations are important career areas for graduates with strong community, research and programme skills.",
+      "a": "Yes. NGOs and development organisations are important career areas for graduates with strong community, research and program skills.",
       "category": "Career Opportunities — Social Work"
     },
     {
@@ -722,7 +722,7 @@ export const humanitiesSchool: ProgramPageData = {
     },
     {
       "q": "Is a humanities or social-science degree useful for employment?",
-      "a": "Yes. These programmes build research, communication, writing and analytical skills. Career prospects improve further with practical experience, specialisation or higher study.",
+      "a": "Yes. These programs build research, communication, writing and analytical skills. Career prospects improve further with practical experience, specialisation or higher study.",
       "category": "Parents & Student Decision-Making"
     },
     {
@@ -747,22 +747,22 @@ export const humanitiesSchool: ProgramPageData = {
     },
     {
       "q": "Can I change my career direction after completing a B.A.?",
-      "a": "Yes. Depending on eligibility, graduates can move into master's programmes, professional qualifications, competitive examinations and careers that value transferable skills.",
+      "a": "Yes. Depending on eligibility, graduates can move into master's programs, professional qualifications, competitive examinations and careers that value transferable skills.",
       "category": "Parents & Student Decision-Making"
     },
     {
-      "q": "Which postgraduate programmes are available at the School?",
+      "q": "Which postgraduate programs are available at the School?",
       "a": "The School currently offers M.A. Political Science and M.A. Psychology, both requiring a Bachelor's degree with a minimum of 50% marks in a relevant subject.",
       "category": "Higher Studies, Research & General"
     },
     {
       "q": "Does the School offer doctoral study?",
-      "a": "Yes. The School currently offers Ph.D. programmes in Psychology and Political Science, both requiring a Master's degree in a relevant field with a minimum of 55% marks.",
+      "a": "Yes. The School currently offers Ph.D. programs in Psychology and Political Science, both requiring a Master's degree in a relevant field with a minimum of 55% marks.",
       "category": "Higher Studies, Research & General"
     },
     {
       "q": "Can an M.A. graduate pursue a Ph.D.?",
-      "a": "Yes, subject to the relevant doctoral programme's eligibility, research and admission requirements — a Master's degree with a minimum of 55% marks in a relevant field.",
+      "a": "Yes, subject to the relevant doctoral program's eligibility, research and admission requirements — a Master's degree with a minimum of 55% marks in a relevant field.",
       "category": "Higher Studies, Research & General"
     },
     {

@@ -90,7 +90,7 @@ export default function FAQSection({
       id="FAQ"
       style={{
         background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)",
-        padding: "100px 0",
+        padding: "52px 0 48px",
         position: "relative",
         borderTop: "1px solid #E2E8F0",
       }}

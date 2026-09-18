@@ -97,7 +97,7 @@ export const industryPartners: IndustryPartnerItem[] = [
       "Dedicated Training & Research Center Access",
       "Student Exchange & Cross-Institutional Programs",
       "Joint Research & Development Projects",
-      "Value-Added Skill Programmers",
+      "Value-Added Skill Programs",
     ],
   },
   {

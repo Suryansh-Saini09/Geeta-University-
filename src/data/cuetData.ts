@@ -63,7 +63,7 @@ export const cuetWhyBenefits: CuetWhyBenefit[] = [
     iconName: "zap",
   },
   {
-    title: "Multiple Programme Options",
+    title: "Multiple Program Options",
     iconName: "book-open",
   },
   {

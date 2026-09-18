@@ -601,8 +601,8 @@ export const pharmacySchool: ProgramPageData = {
 
   faqs: [
     {
-      "q": "What pharmacy programmes are offered by Geeta Institute of Pharmacy?",
-      "a": "Currently the institute has programmes namely D.Pharm., B.Pharm., M.Pharm. (Pharmaceutics) and Ph.D. in Pharmaceutical Sciences, covering diploma, undergraduate, postgraduate and doctoral study.",
+      "q": "What pharmacy programs are offered by Geeta Institute of Pharmacy?",
+      "a": "Currently the institute has programs namely D.Pharm., B.Pharm., M.Pharm. (Pharmaceutics) and Ph.D. in Pharmaceutical Sciences, covering diploma, undergraduate, postgraduate and doctoral study.",
       "category": "Admissions & Eligibility"
     },
     {
@@ -622,7 +622,7 @@ export const pharmacySchool: ProgramPageData = {
     },
     {
       "q": "What is the eligibility for M.Pharm. (Pharmaceutics)?",
-      "a": "Applicants must hold a B.Pharm. degree from an institution approved by the Pharmacy Council of India and have at least 55% marks in the aggregate of the four-year B.Pharm. programme.",
+      "a": "Applicants must hold a B.Pharm. degree from an institution approved by the Pharmacy Council of India and have at least 55% marks in the aggregate of the four-year B.Pharm. program.",
       "category": "Admissions & Eligibility"
     },
     {
@@ -638,37 +638,37 @@ export const pharmacySchool: ProgramPageData = {
     {
       "q": "What is the difference between D.Pharm. and B.Pharm.?",
       "a": "D.Pharm. is a two-year diploma providing foundational pharmaceutical knowledge and practical preparation. B.Pharm. is a four-year degree with deeper study of pharmaceutical sciences, drug development, clinical pharmacy, research and industry-oriented subjects.",
-      "category": "Programmes & Curriculum"
+      "category": "programs & Curriculum"
     },
     {
       "q": "What subjects are taught in D.Pharm.?",
-      "a": "The programme includes Human Anatomy & Physiology, Pharmaceutics, Pharmaceutical Chemistry, Pharmacognosy, Hospital & Clinical Pharmacy, Health Education, Biochemistry & Clinical Pathology, Drug Store Management and practical laboratory training.",
-      "category": "Programmes & Curriculum"
+      "a": "The program includes Human Anatomy & Physiology, Pharmaceutics, Pharmaceutical Chemistry, Pharmacognosy, Hospital & Clinical Pharmacy, Health Education, Biochemistry & Clinical Pathology, Drug Store Management and practical laboratory training.",
+      "category": "programs & Curriculum"
     },
     {
       "q": "What subjects are covered in B.Pharm.?",
       "a": "The B.Pharm. curriculum includes Pharmaceutical Chemistry, Pharmacology & Toxicology, Pharmaceutics & Drug Delivery, Clinical Pharmacy, Pharmaceutical Microbiology, Pharmacognosy, Biopharmaceutics, Hospital Pharmacy and Pharmaceutical Jurisprudence, along with research projects and internships.",
-      "category": "Programmes & Curriculum"
+      "category": "programs & Curriculum"
     },
     {
       "q": "What is taught in M.Pharm. (Pharmaceutics)?",
-      "a": "The postgraduate programme focuses on advanced pharmaceutical formulation and related areas, including advanced drug formulation, pharmaceutical engineering and research-oriented study.",
-      "category": "Programmes & Curriculum"
+      "a": "The postgraduate program focuses on advanced pharmaceutical formulation and related areas, including advanced drug formulation, pharmaceutical engineering and research-oriented study.",
+      "category": "programs & Curriculum"
     },
     {
       "q": "Does B.Pharm. include clinical and hospital pharmacy?",
-      "a": "Yes. Clinical Pharmacy and Hospital Pharmacy are explicitly included in the published B.Pharm. programme structure.",
-      "category": "Programmes & Curriculum"
+      "a": "Yes. Clinical Pharmacy and Hospital Pharmacy are explicitly included in the published B.Pharm. program structure.",
+      "category": "programs & Curriculum"
     },
     {
       "q": "Does B.Pharm. include drug formulation and drug delivery?",
       "a": "Yes. Pharmaceutics and Drug Delivery are core areas of the B.Pharm. curriculum.",
-      "category": "Programmes & Curriculum"
+      "category": "programs & Curriculum"
     },
     {
       "q": "Is pharmacy education only about medicines and dispensing?",
-      "a": "No. The programmes cover drug formulation, pharmaceutical chemistry, pharmacology, clinical and hospital pharmacy, research, regulatory affairs, pharmacovigilance, drug discovery and pharmaceutical marketing.",
-      "category": "Programmes & Curriculum"
+      "a": "No. The programs cover drug formulation, pharmaceutical chemistry, pharmacology, clinical and hospital pharmacy, research, regulatory affairs, pharmacovigilance, drug discovery and pharmaceutical marketing.",
+      "category": "programs & Curriculum"
     },
     {
       "q": "How much practical learning do pharmacy students receive?",
@@ -701,8 +701,8 @@ export const pharmacySchool: ProgramPageData = {
       "category": "Practical Learning, Laboratories & Research"
     },
     {
-      "q": "Does the B.Pharm. programme include internships?",
-      "a": "Yes. The B.Pharm. programme includes internship and practical-training components. Its programme FAQ states that students can undertake internships after completion of the first year for hands-on experience.",
+      "q": "Does the B.Pharm. program include internships?",
+      "a": "Yes. The B.Pharm. program includes internship and practical-training components. Its program FAQ states that students can undertake internships after completion of the first year for hands-on experience.",
       "category": "Industry Exposure & Internships"
     },
     {
@@ -712,7 +712,7 @@ export const pharmacySchool: ProgramPageData = {
     },
     {
       "q": "Does D.Pharm. include industrial visits?",
-      "a": "Yes. Industrial visits are explicitly included in the D.Pharm. programme information.",
+      "a": "Yes. Industrial visits are explicitly included in the D.Pharm. program information.",
       "category": "Industry Exposure & Internships"
     },
     {
@@ -772,7 +772,7 @@ export const pharmacySchool: ProgramPageData = {
     },
     {
       "q": "Does the Institute provide placement and career support?",
-      "a": "Yes. The Institute highlights career guidance, skill-development programmes and interview preparation alongside industry exposure and placement support.",
+      "a": "Yes. The Institute highlights career guidance, skill-development programs and interview preparation alongside industry exposure and placement support.",
       "category": "Placements & Career Opportunities"
     },
     {
@@ -792,12 +792,12 @@ export const pharmacySchool: ProgramPageData = {
     },
     {
       "q": "Will students receive guidance for competitive or postgraduate examinations such as GPAT?",
-      "a": "The B.Pharm. programme page states that GPAT preparation support is provided through guidance sessions, extra classes and practice tests.",
+      "a": "The B.Pharm. program page states that GPAT preparation support is provided through guidance sessions, extra classes and practice tests.",
       "category": "Faculty, Learning Experience & Student Development"
     },
     {
-      "q": "Are the pharmacy programmes approved by the Pharmacy Council of India?",
-      "a": "Yes. The Institute states that its pharmacy programmes are approved by the Pharmacy Council of India (PCI).",
+      "q": "Are the pharmacy programs approved by the Pharmacy Council of India?",
+      "a": "Yes. The Institute states that its pharmacy programs are approved by the Pharmacy Council of India (PCI).",
       "category": "Global Exposure, Professional Recognition & General"
     },
     {
@@ -806,12 +806,12 @@ export const pharmacySchool: ProgramPageData = {
       "category": "Global Exposure, Professional Recognition & General"
     },
     {
-      "q": "How long are the pharmacy programmes?",
+      "q": "How long are the pharmacy programs?",
       "a": "D.Pharm. is two years, B.Pharm. is four years, M.Pharm. (Pharmaceutics) is two years, and Ph.D. in Pharmaceutical Sciences has a minimum duration of three years.",
       "category": "Global Exposure, Professional Recognition & General"
     },
     {
-      "q": "What makes Geeta Institute of Pharmacy different from a purely classroom-based pharmacy programme?",
+      "q": "What makes Geeta Institute of Pharmacy different from a purely classroom-based pharmacy program?",
       "a": "The Institute combines pharmaceutical theory with modern laboratories, practical training, research opportunities, industry collaborations, industrial visits, internships, expert lectures, conferences and career support.",
       "category": "Global Exposure, Professional Recognition & General"
     },

@@ -45,7 +45,7 @@ export default function DeanMessage(props: DeanMessageProps) {
   if (!data.name || !data.message) return null;
 
   return (
-    <section className="overflow-hidden bg-[#F8FAFC] py-20 md:py-24 lg:py-28">
+    <section className="overflow-hidden bg-[#F8FAFC] py-10 md:py-14">
       <div className="w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid overflow-hidden rounded-[24px] border border-[#E2E8F0] bg-white shadow-[0_18px_50px_rgba(10,31,68,0.07)] lg:grid-cols-[minmax(320px,0.75fr)_minmax(0,1.25fr)]">
           {/* Dean Image */}

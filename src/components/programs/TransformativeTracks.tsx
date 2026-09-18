@@ -26,7 +26,7 @@ export default function TransformativeTracks({ tracks }: TransformativeTracksPro
     <section
       id="TransformativeTracks"
       style={{
-        padding: "76px 0 84px",
+        padding: "48px 0 52px",
         background: "#FFFFFF",
         position: "relative",
         borderTop: "1px solid rgba(0, 0, 0, 0.05)",

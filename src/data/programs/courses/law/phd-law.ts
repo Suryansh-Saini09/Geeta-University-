@@ -110,7 +110,7 @@ export const phdLaw: CoursePageData = {
       {
         title: "Academic Careers",
         description:
-          "Professor / Assistant Professor · Research Supervisor · Academic Dean · Programme Coordinator",
+          "Professor / Assistant Professor · Research Supervisor · Academic Dean · Program Coordinator",
       },
       {
         title: "Legal Research & Policy",
