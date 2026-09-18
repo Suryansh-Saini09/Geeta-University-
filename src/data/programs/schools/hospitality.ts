@@ -520,13 +520,13 @@ export const hospitalitySchool: ProgramPageData = {
     recruitersTitle: "Top Recruiters",
     recruiters: [
       { name: "Westin Hotels & Resorts" },
-      { name: "Oberoi Hotels & Resorts", logo: "/programs/hotel-management/recruiters/oberoi.svg" },
-      { name: "ITC Hotels", logo: "/programs/hotel-management/recruiters/itc_hotels.svg" },
+      { name: "Oberoi Hotels & Resorts" },
+      { name: "ITC Hotels" },
       { name: "The LaLit" },
       { name: "Crowne Plaza" },
-      { name: "Hyatt Hotels & Resorts", logo: "/programs/hotel-management/recruiters/hyatt.svg" },
-      { name: "Taj Hotels, Resorts & Palaces", logo: "/programs/hotel-management/recruiters/taj.svg" },
-      { name: "Marriott Hotels", logo: "/programs/hotel-management/recruiters/marriott.svg" },
+      { name: "Hyatt Hotels & Resorts" },
+      { name: "Taj Hotels, Resorts & Palaces" },
+      { name: "Marriott Hotels" },
     ],
     rolesTitle: "Top Industries",
     notableRoles: [
