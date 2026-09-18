@@ -93,7 +93,7 @@ export const hospitalitySchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To become a leading centre of hospitality education, fostering the development of service-oriented professionals, hospitality leaders, entrepreneurs, and innovators who are passionate about enhancing the guest experience, elevating global hospitality standards, and promoting sustainable tourism while making a positive contribution to economic and social development.”",
+      "To become a leading centre of hospitality education, fostering the development of service-oriented professionals, hospitality leaders, entrepreneurs, and innovators who are passionate about enhancing the guest experience, elevating global hospitality standards, and promoting sustainable tourism while making a positive contribution to economic and social development.",
     mission: [
       "To impart student-centric, outcomes-based hospitality education combining academic knowledge, hands-on training, industry exposure, and best management practices from around the world.",
       "To produce effective, ethical, and customer-focused hospitality professionals who possess the knowledge, skills, professionalism, and leadership to succeed in the dynamic hospitality and tourism sector.",

@@ -64,7 +64,7 @@ export const pharmacySchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To become a centre of excellence in pharmaceutical education and research providing competent pharmacists, researchers, health care workers and innovators for the betterment of healthcare, advancement of pharmaceutical sciences and service to the society with integrity.”",
+      "To become a centre of excellence in pharmaceutical education and research providing competent pharmacists, researchers, health care workers and innovators for the betterment of healthcare, advancement of pharmaceutical sciences and service to the society with integrity.",
     mission: [
       "To provide a student-centred, outcome-based pharmaceutical education combining scientific knowledge, skills, ethics and patient care.",
       "To produce competent, responsible and caring Pharmacy professionals who can be a part of an effective health care system in the pharmaceutical industries, regulatory agencies and clinical practice.",

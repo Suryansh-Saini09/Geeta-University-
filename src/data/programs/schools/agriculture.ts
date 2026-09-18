@@ -376,7 +376,7 @@ export const agricultureSchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To be a centre of excellence in agricultural education, research, and innovation, nurturing skilled agricultural professionals, researchers, and entrepreneurs committed to sustainable farming, food security, rural development, and nation-building.”",
+      "To be a centre of excellence in agricultural education, research, and innovation, nurturing skilled agricultural professionals, researchers, and entrepreneurs committed to sustainable farming, food security, rural development, and nation-building.",
     mission: [
       "To provide outcome based, learner-centred agricultural education that includes scientific knowledge, current agricultural practices, modern technologies and practical experience.",
       "To develop competent, ethical, and future-ready agricultural professionals equipped with the knowledge, skills, and leadership qualities to address evolving challenges in agriculture, agribusiness, and environmental sustainability.",

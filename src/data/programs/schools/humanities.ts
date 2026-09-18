@@ -95,7 +95,7 @@ export const humanitiesSchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To be a premier centre of excellence in the humanities and social sciences, empowering students to become visionary scholars, educators, leaders, and changemakers dedicated to ethical values, critical inquiry, social justice, and nation-building.”",
+      "To be a premier centre of excellence in the humanities and social sciences, empowering students to become visionary scholars, educators, leaders, and changemakers dedicated to ethical values, critical inquiry, social justice, and nation-building.",
     mission: [
       "To offer student-centric, outcome-based education that equips learners to think critically, communicate effectively, make reasoned decisions, appreciate cultural diversity, and understand the intricate connections within human societies.",
       "To train knowledgeable, socially aware, and compassionate professionals equipped with the analytical skills, ethical grounding, and global perspectives necessary to address complex contemporary challenges.",

@@ -59,7 +59,7 @@ export const commerceSchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To emerge as a premier center of business and management education by nurturing ethical business leaders, entrepreneurs, innovators and decision makers who contribute towards sustainable growth of industries, society and the nation.”",
+      "To emerge as a premier center of business and management education by nurturing ethical business leaders, entrepreneurs, innovators and decision makers who contribute towards sustainable growth of industries, society and the nation.",
     mission: [
       "To provide student centric and outcome based management education that enhances business knowledge, analytical skills, leadership capabilities and problem solving aptitude",
       "To groom socially responsible and professionally competent managers with values, vision and skills for meeting demands of industry and nation",
