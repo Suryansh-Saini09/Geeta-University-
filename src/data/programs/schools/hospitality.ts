@@ -479,7 +479,7 @@ export const hospitalitySchool: ProgramPageData = {
   },
 
   brochure: {
-    title: "Download School Brochure",
+    title: "Want to know more?",
     description:
       "Get detailed information about our hospitality courses, curriculum, paid international internships, and career pathways.",
     fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",

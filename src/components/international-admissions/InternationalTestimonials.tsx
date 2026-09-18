@@ -127,22 +127,6 @@ export default function InternationalTestimonials() {
             ))}
           </motion.div>
         </div>
-
-        {/* Indicator Dots / Bar */}
-        <div className="flex justify-center gap-2 mt-6">
-          {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                currentIndex === idx
-                  ? "w-8 bg-[#E8871A]"
-                  : "w-2.5 bg-white/30 hover:bg-white/50"
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );

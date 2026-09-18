@@ -595,7 +595,7 @@ export const computerScienceSchool: ProgramPageData = {
   ],
 
   brochure: {
-    title: "Download School of Computer Science & Engineering Brochure",
+    title: "Want to know more?",
     description:
       "Download the official School of Computer Science & Engineering brochure for detailed information on programs, specialisations, placements, certifications, and student outcomes.",
     fileUrl: "https://geetauniversity.edu.in/uploads/pdf/GU-Brochure-25-26.pdf",

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { cuetTestimonials } from "@/data/cuetData";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 
 export default function CuetTestimonials() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -73,38 +73,6 @@ export default function CuetTestimonials() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Carousel Pagination Controls */}
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <button
-            onClick={handlePrev}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD5E1] bg-white text-[#0A1F44] shadow-sm hover:bg-[#E8871A] hover:text-white transition-colors"
-            aria-label="Previous testimonials"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-
-          <div className="flex items-center gap-2">
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentPage(i)}
-                className={`h-2.5 rounded-full transition-all ${
-                  currentPage === i ? "w-8 bg-[#E8871A]" : "w-2.5 bg-[#CBD5E1]"
-                }`}
-                aria-label={`Page ${i + 1}`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={handleNext}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD5E1] bg-white text-[#0A1F44] shadow-sm hover:bg-[#E8871A] hover:text-white transition-colors"
-            aria-label="Next testimonials"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
         </div>
       </div>
     </section>

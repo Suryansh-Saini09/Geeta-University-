@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import type { CourseLearningSpacesData } from "@/data/programs/courses/types";
+import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
 interface CourseLearningSpacesProps {
   learningSpaces: CourseLearningSpacesData;
@@ -11,98 +12,100 @@ interface CourseLearningSpacesProps {
 export default function CourseLearningSpaces({
   learningSpaces,
 }: CourseLearningSpacesProps) {
-  if (!learningSpaces || !learningSpaces.spaces || learningSpaces.spaces.length === 0) {
+  const items = learningSpaces?.spaces || [];
+
+  const {
+    containerRef,
+    currentIndex,
+    maxIndex,
+    next,
+    prev,
+    goTo,
+    handleScroll,
+    handleMouseDown,
+    handleMouseLeave,
+    handleMouseEnter,
+    handleMouseUp,
+    handleMouseMove,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useFiniteCarousel({
+    totalItems: items.length,
+    autoplayInterval: 3000,
+    enableAutoplay: true,
+  });
+
+  if (!learningSpaces || items.length === 0) {
     return null;
   }
 
-  // Duplicate items to create a seamless infinite loop
-  const spaceItems = [...learningSpaces.spaces, ...learningSpaces.spaces];
-
   return (
-    <section className="w-full bg-[#F7F9FC] py-14 md:py-20 border-t border-slate-200/60 overflow-hidden">
-      {/* Header with Title & Subtitle */}
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 mb-8 md:mb-10">
-        <span
-          style={{
-            color: "#E8871A",
-            fontWeight: 700,
-            fontSize: 13,
-            letterSpacing: 2,
-            textTransform: "uppercase",
-            display: "inline-block",
-            marginBottom: 6,
-          }}
-        >
-          {learningSpaces.eyebrow || "Infrastructure & Laboratories"}
-        </span>
-        <h2
-          style={{
-            fontSize: "clamp(30px, 3.8vw, 46px)",
-            fontWeight: 900,
-            color: "#0A1F44",
-            margin: "0",
-            lineHeight: 1.15,
-            letterSpacing: "-1.2px",
-          }}
-        >
-          {learningSpaces.title}
-        </h2>
-        {learningSpaces.description && (
-          <p
-            style={{
-              fontSize: 16,
-              color: "#4A5568",
-              marginTop: 10,
-              maxWidth: 800,
-              lineHeight: 1.7,
-              fontWeight: 450,
-            }}
+    <section className="relative w-full overflow-hidden bg-[#F7F9FC] py-16 md:py-24 border-t border-slate-200/60">
+      {/* Decorative background elements */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#E8871A]/5 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-[#0A1F44]/5 blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        {/* Header with Title & Subtitle */}
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <span className="mb-2 inline-block text-xs font-bold uppercase tracking-widest text-[#E8871A]">
+            {learningSpaces.eyebrow || "Infrastructure & Laboratories"}
+          </span>
+          <h2 className="font-serif text-3xl font-bold leading-tight text-[#0A1F44] sm:text-4xl md:text-5xl">
+            {learningSpaces.title}
+          </h2>
+          <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-[#E8871A]" />
+          {learningSpaces.description && (
+            <p className="mt-4 text-[15px] leading-relaxed text-[#4A5568] sm:text-base">
+              {learningSpaces.description}
+            </p>
+          )}
+        </div>
+
+        {/* Carousel Track */}
+        <div className="relative">
+          <div
+            ref={containerRef}
+            onScroll={handleScroll}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {learningSpaces.description}
-          </p>
-        )}
-      </div>
-
-      {/* Infinite Auto-Scrolling Track */}
-      <div className="relative w-full overflow-hidden flex select-none group">
-        {/* Left & Right Edge Gradient Fades for Smooth Visual Transitions */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-12 md:w-28 bg-gradient-to-r from-[#F7F9FC] to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-12 md:w-28 bg-gradient-to-l from-[#F7F9FC] to-transparent" />
-
-        {/* Scrolling Flex Container */}
-        <div className="flex gap-5 animate-marquee group-hover:[animation-play-state:paused] shrink-0">
-          {spaceItems.map((space, idx) => (
-            <div
-              key={idx}
-              className="relative w-[210px] sm:w-[250px] md:w-[295px] aspect-[16/11] rounded-xl overflow-hidden border border-slate-200/80 bg-slate-100 shadow-sm shrink-0 group/card hover:shadow-lg transition-all duration-300"
-            >
-              <Image
-                src={space.image}
-                alt={space.title || "Learning Space"}
-                fill
-                sizes="(max-width: 640px) 210px, (max-width: 1024px) 250px, 295px"
-                className="object-cover group-hover/card:scale-105 transition-transform duration-500"
-              />
-            </div>
-          ))}
+            {items.map((space, idx) => (
+              <div
+                key={idx}
+                className="group relative aspect-[16/11] w-[270px] sm:w-[320px] md:w-[370px] shrink-0 overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              >
+                <Image
+                  src={space.image}
+                  alt={space.title || "Learning Space"}
+                  fill
+                  sizes="(max-width: 640px) 270px, (max-width: 1024px) 320px, 370px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                />
+                {space.title && (
+                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-[#0A1F44]/90 via-[#0A1F44]/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end">
+                    <span className="text-sm font-bold leading-tight">{space.title}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-          display: flex;
-          width: max-content;
-        }
-      `}</style>
     </section>
   );
 }

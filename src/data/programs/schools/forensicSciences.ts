@@ -749,7 +749,7 @@ export const forensicSciencesSchool: ProgramPageData = {
   })),
 
   brochure: {
-    title: "Download School of Sciences Brochure",
+    title: "Want to know more?",
     description:
       "Explore detailed curriculum outlines, laboratory facilities, faculty profiles, and admission guidelines for B.Sc., M.Sc., and Ph.D. Forensic Science programs.",
     fileUrl: "/programs/forensic-sciences/ForensicScienceBrochure.pdf",

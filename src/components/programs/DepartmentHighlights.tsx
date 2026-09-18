@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ArrowRight, X, Sparkles } from "lucide-react";
+import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { DepartmentHighlightItem } from "@/data/programs/types";
+import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
 interface DepartmentHighlightsProps {
   title?: string;
@@ -28,126 +29,87 @@ export default function DepartmentHighlights({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  if (!highlights || highlights.length === 0) return null;
-  const items = highlights;
+  const items = highlights || [];
   const isSingle = items.length === 1;
 
-  // Build a track with enough duplicates so both halves are wider than any screen, ensuring a 100% seamless zero-gap loop
-  const repeatCount = Math.max(2, Math.ceil(8 / items.length));
-  const baseItems: DepartmentHighlightItem[] = [];
-  for (let i = 0; i < repeatCount; i++) {
-    baseItems.push(...items);
-  }
-  const trackItems = [...baseItems, ...baseItems];
+  const {
+    containerRef,
+    currentIndex,
+    maxIndex,
+    next,
+    prev,
+    goTo,
+    handleScroll,
+    handleMouseDown,
+    handleMouseLeave,
+    handleMouseEnter,
+    handleMouseUp,
+    handleMouseMove,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useFiniteCarousel({
+    totalItems: items.length,
+    autoplayInterval: 3000,
+    enableAutoplay: true,
+  });
+
+  if (items.length === 0) return null;
 
   return (
     <section
       id="DepartmentHighlights"
-      style={{
-        padding: "90px 0 100px",
-        background: "#FDF1D6",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className="relative overflow-hidden bg-[#FDF1D6] py-16 md:py-24"
     >
       {/* Decorative Background Elements */}
       <div
-        style={{
-          position: "absolute",
-          top: "-20%",
-          left: "-10%",
-          width: 600,
-          height: 600,
-          background: "radial-gradient(circle, rgba(232,135,26,0.1) 0%, transparent 70%)",
-          borderRadius: "50%",
-          pointerEvents: "none",
-        }}
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[#E8871A]/10 blur-3xl"
       />
       <div
-        style={{
-          position: "absolute",
-          bottom: "-20%",
-          right: "-10%",
-          width: 800,
-          height: 800,
-          background: "radial-gradient(circle, rgba(10,31,68,0.04) 0%, transparent 70%)",
-          borderRadius: "50%",
-          pointerEvents: "none",
-        }}
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-24 -right-24 h-[500px] w-[500px] rounded-full bg-[#0A1F44]/5 blur-3xl"
       />
 
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "0 24px",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          style={{ textAlign: "center", marginBottom: isSingle ? 36 : 50 }}
+          className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <h2
-            style={{
-              fontSize: "clamp(32px, 3.8vw, 44px)",
-              fontWeight: 900,
-              color: "#0A1F44",
-              margin: 0,
-              lineHeight: 1.1,
-              letterSpacing: "-1px",
-            }}
-          >
+          <h2 className="font-serif text-3xl font-bold leading-tight text-[#0A1F44] sm:text-4xl md:text-5xl">
             {title}
           </h2>
+          <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-[#E8871A]" />
+          {subtitle && (
+            <p className="mt-4 text-[15px] leading-relaxed text-[#4A5568] sm:text-base">
+              {subtitle}
+            </p>
+          )}
         </motion.div>
 
-        {/* Single Item: centred Display */}
-        {isSingle && (
+        {/* Single Item: Centered Display */}
+        {isSingle ? (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "10px 0 20px",
-            }}
+            className="flex items-center justify-center py-4"
           >
             <div
-              className="highlight-card"
               onClick={imageOnly ? undefined : () => setSelectedHighlight(items[0])}
-              style={{
-                width: 360,
-                maxWidth: "100%",
-                height: 240,
-                background: "#0A1F44",
-                borderRadius: 18,
-                overflow: "hidden",
-                border: "1px solid rgba(10,31,68,0.08)",
-                boxShadow: "0 8px 24px rgba(10,31,68,0.12)",
-                position: "relative",
-                cursor: imageOnly ? "default" : "pointer",
-                transition: "transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease",
-              }}
+              className={`group relative h-[220px] w-[340px] sm:h-[260px] sm:w-[400px] md:h-[280px] md:w-[460px] overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+                imageOnly ? "cursor-default" : "cursor-pointer"
+              }`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={items[0].image}
-                alt={items[0].title}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
-                  transition: "transform 0.5s ease",
-                }}
+                alt={items[0].title || "Department Highlight"}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
                 onError={(e) => {
                   const t = e.currentTarget;
                   t.style.display = "none";
@@ -155,129 +117,72 @@ export default function DepartmentHighlights({
                     const fallback = document.createElement("div");
                     fallback.style.cssText =
                       "width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#0A1F44;color:#FFFFFF;font-weight:700;padding:20px;text-align:center;";
-                    fallback.textContent = items[0].title;
+                    fallback.textContent = items[0].title || "Department Highlight";
                     t.parentElement.appendChild(fallback);
                   }
                 }}
               />
             </div>
           </motion.div>
+        ) : (
+          /* Multiple Items: Interactive Carousel Track */
+          <div className="relative">
+            <div
+              ref={containerRef}
+              onScroll={handleScroll}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleMouseEnter}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {items.map((item, idx) => (
+                <div
+                  key={idx}
+                  onClick={imageOnly ? undefined : () => setSelectedHighlight(item)}
+                  className={`group relative flex h-[210px] w-[290px] sm:h-[240px] sm:w-[340px] md:h-[250px] md:w-[380px] shrink-0 overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+                    imageOnly ? "cursor-default" : "cursor-pointer"
+                  }`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.image}
+                    alt={item.title || `Highlight ${idx + 1}`}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                    onError={(e) => {
+                      const t = e.currentTarget;
+                      t.style.display = "none";
+                      if (t.parentElement) {
+                        const fallback = document.createElement("div");
+                        fallback.style.cssText =
+                          "width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#0A1F44;color:#FFFFFF;font-weight:700;padding:20px;text-align:center;";
+                        fallback.textContent = item.title || "Department Highlight";
+                        t.parentElement.appendChild(fallback);
+                      }
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         )}
       </div>
-
-      {/* Multiple Items: Seamless Continuous Marquee */}
-      {!isSingle && (
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            width: "100%",
-            overflow: "hidden",
-            padding: "10px 0 20px",
-          }}
-        >
-          {/* Edge Gradient Masks for clean fading */}
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              bottom: 0,
-              left: 0,
-              width: 100,
-              background: "linear-gradient(90deg, #FDF1D6 0%, transparent 100%)",
-              zIndex: 3,
-              pointerEvents: "none",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              bottom: 0,
-              right: 0,
-              width: 100,
-              background: "linear-gradient(-90deg, #FDF1D6 0%, transparent 100%)",
-              zIndex: 3,
-              pointerEvents: "none",
-            }}
-          />
-
-          <div className="highlights-marquee-track">
-            {trackItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="highlight-card"
-                onClick={imageOnly ? undefined : () => setSelectedHighlight(item)}
-                style={{
-                  width: 360,
-                  height: 240,
-                  flexShrink: 0,
-                  background: "#0A1F44",
-                  borderRadius: 18,
-                  overflow: "hidden",
-                  border: "1px solid rgba(10,31,68,0.08)",
-                  boxShadow: "0 8px 24px rgba(10,31,68,0.12)",
-                  position: "relative",
-                  cursor: imageOnly ? "default" : "pointer",
-                  transition: "transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease",
-                }}
-              >
-                {/* Image */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                    transition: "transform 0.5s ease",
-                  }}
-                  onError={(e) => {
-                    const t = e.currentTarget;
-                    t.style.display = "none";
-                    if (t.parentElement) {
-                      const fallback = document.createElement("div");
-                      fallback.style.cssText =
-                        "width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#0A1F44;color:#FFFFFF;font-weight:700;padding:20px;text-align:center;";
-                      fallback.textContent = item.title;
-                      t.parentElement.appendChild(fallback);
-                    }
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Modal for Read More - only when not imageOnly */}
       <AnimatePresence>
         {!imageOnly && selectedHighlight && (
-          <div
-            style={{
-              position: "fixed",
-              inset: 0,
-              zIndex: 99999,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: 24,
-            }}
-          >
+          <div className="fixed inset-0 z-[99999] flex items-center justify-center p-6">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedHighlight(null)}
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: "rgba(10,31,68,0.65)",
-                backdropFilter: "blur(6px)",
-              }}
+              className="absolute inset-0 bg-[#0A1F44]/65 backdrop-blur-sm"
             />
 
             {/* Modal Card */}
@@ -286,146 +191,45 @@ export default function DepartmentHighlights({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 16 }}
               transition={{ type: "spring", duration: 0.4 }}
-              style={{
-                position: "relative",
-                background: "#FFFFFF",
-                borderRadius: 24,
-                overflow: "hidden",
-                maxWidth: 620,
-                width: "100%",
-                boxShadow: "0 24px 60px rgba(0,0,0,0.25)",
-                zIndex: 100000,
-                display: "flex",
-                flexDirection: "column",
-              }}
+              className="relative z-[100000] flex w-full max-w-[620px] flex-col overflow-hidden rounded-3xl bg-white shadow-2xl"
             >
               {/* Close Button */}
               <button
                 type="button"
                 onClick={() => setSelectedHighlight(null)}
-                style={{
-                  position: "absolute",
-                  top: 16,
-                  right: 16,
-                  background: "rgba(0,0,0,0.5)",
-                  border: "none",
-                  width: 36,
-                  height: 36,
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: "pointer",
-                  color: "#FFFFFF",
-                  zIndex: 2,
-                  transition: "all 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(0,0,0,0.75)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "rgba(0,0,0,0.5)";
-                }}
                 aria-label="Close details"
+                className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/80"
               >
                 <X size={18} />
               </button>
 
               {/* Modal Image */}
-              <div
-                style={{
-                  width: "100%",
-                  height: 280,
-                  position: "relative",
-                  background: "#0A1F44",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+              <div className="relative flex h-[280px] w-full items-center justify-center bg-[#0A1F44]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={selectedHighlight.image}
-                  alt={selectedHighlight.title}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                  }}
+                  alt={selectedHighlight.title || "Highlight preview"}
+                  className="h-full w-full object-cover"
                 />
               </div>
 
               {/* Modal Content */}
-              <div style={{ padding: "28px 32px 32px" }}>
-                <h3
-                  style={{
-                    fontSize: 22,
-                    fontWeight: 800,
-                    color: "#0A1F44",
-                    marginBottom: 12,
-                    lineHeight: 1.25,
-                  }}
-                >
-                  {selectedHighlight.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: 16,
-                    color: "#4A5568",
-                    lineHeight: 1.7,
-                    margin: 0,
-                  }}
-                >
-                  {selectedHighlight.desc}
-                </p>
+              <div className="p-7 sm:p-8">
+                {selectedHighlight.title && (
+                  <h3 className="text-xl font-bold text-[#0A1F44] sm:text-2xl">
+                    {selectedHighlight.title}
+                  </h3>
+                )}
+                {selectedHighlight.desc && (
+                  <p className="mt-3 text-sm leading-relaxed text-[#4A5568] sm:text-base">
+                    {selectedHighlight.desc}
+                  </p>
+                )}
               </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
-
-      <style jsx>{`
-        @keyframes continuousMarquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .highlights-marquee-track {
-          display: flex;
-          width: max-content;
-          gap: 24px;
-          animation: continuousMarquee 38s linear infinite;
-        }
-
-        .highlights-marquee-track:hover {
-          animation-play-state: paused;
-        }
-
-        .highlight-card:hover {
-          transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 18px 38px rgba(10, 31, 68, 0.2) !important;
-        }
-
-        .highlight-card:hover img {
-          transform: scale(1.08);
-        }
-
-        @media (max-width: 768px) {
-          .highlight-card {
-            width: 290px !important;
-            height: 200px !important;
-          }
-          .highlights-marquee-track {
-            gap: 16px !important;
-            animation-duration: 25s !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

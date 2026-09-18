@@ -11,7 +11,7 @@ interface BrochureDownloadProps {
 }
 
 export default function BrochureDownload({
-  title = "Download School Brochure",
+  title = "Want to know more?",
   description = "Download the official brochure for detailed information on programs, specialisations, placements, certifications, and student outcomes.",
   fileUrl = "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
   fileName = "Geeta_University_Brochure.pdf",
