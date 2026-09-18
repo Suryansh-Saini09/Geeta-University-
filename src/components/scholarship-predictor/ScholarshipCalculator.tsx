@@ -39,7 +39,7 @@ export default function ScholarshipCalculator() {
     if (!currentProgram || !selectedArea) return [];
     if (currentProgram.scholarship_allowed === false) return [];
 
-    const programLevel = detectLevel(currentProgram.programme);
+    const programLevel = detectLevel(currentProgram.program);
 
     return Object.entries(RULES_DATA)
       .filter(([_, rule]) => {
@@ -148,7 +148,7 @@ export default function ScholarshipCalculator() {
   }, [currentProgram, selectedSlabPercent]);
 
   return (
-    <section id="scholarship-calculator-section" className="scroll-mt-20 bg-white py-20 lg:py-24 border-t border-[#E2E8F0]">
+    <section id="scholarship-calculator-section" className="scroll-mt-20 bg-white py-12 md:py-16 border-t border-[#E2E8F0]">
       <div className="gu-container">
         {/* Section Title */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
@@ -221,8 +221,8 @@ export default function ScholarshipCalculator() {
                       {selectedArea ? "Select Academic Program" : "Select Area of Interest First"}
                     </option>
                     {availablePrograms.map((p) => (
-                      <option key={p.programme} value={JSON.stringify(p)}>
-                        {p.programme} ({p.level})
+                      <option key={p.program} value={JSON.stringify(p)}>
+                        {p.program} ({p.level})
                       </option>
                     ))}
                   </select>

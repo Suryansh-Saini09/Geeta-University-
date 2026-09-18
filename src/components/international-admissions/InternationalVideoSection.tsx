@@ -8,7 +8,7 @@ export default function InternationalVideoSection() {
   const [activeModalVideo, setActiveModalVideo] = useState<string | null>(null);
 
   return (
-    <section className="py-20 bg-white border-t border-[#E2E8F0]">
+    <section className="py-10 md:py-14 bg-white border-t border-[#E2E8F0]">
       <div className="gu-container">
         <div className="text-center mb-12">
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#E8871A]">

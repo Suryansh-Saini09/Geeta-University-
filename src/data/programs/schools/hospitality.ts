@@ -572,13 +572,13 @@ export const hospitalitySchool: ProgramPageData = {
 
   faqs: [
     {
-      "q": "What programmes are offered by the School of Hospitality & Hotel Management at Geeta University?",
-      "a": "The School currently lists a Diploma in Hotel Management (Residential Program), B.Sc. Hons. (Hotel Management), M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management). Each programme is designed for a different stage of academic and professional progression.",
+      "q": "What programs are offered by the School of Hospitality & Hotel Management at Geeta University?",
+      "a": "The School currently lists a Diploma in Hotel Management (Residential Program), B.Sc. Hons. (Hotel Management), M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management). Each program is designed for a different stage of academic and professional progression.",
       "category": "Admissions & Eligibility"
     },
     {
-      "q": "Who is eligible to apply for the B.Sc. Hotel Management programme, and can students from any Class 12 stream apply?",
-      "a": "Students who have Passed the 10+2 from a recognised board with at least 50% marks can apply for the B.Sc. Hotel Management programme. The eligibility is open to students from any stream.",
+      "q": "Who is eligible to apply for the B.Sc. Hotel Management program, and can students from any Class 12 stream apply?",
+      "a": "Students who have Passed the 10+2 from a recognised board with at least 50% marks can apply for the B.Sc. Hotel Management program. The eligibility is open to students from any stream.",
       "category": "Admissions & Eligibility"
     },
     {
@@ -587,7 +587,7 @@ export const hospitalitySchool: ProgramPageData = {
       "category": "Admissions & Eligibility"
     },
     {
-      "q": "What are the eligibility requirements for the M.Sc. Hotel Management programme?",
+      "q": "What are the eligibility requirements for the M.Sc. Hotel Management program?",
       "a": "The School lists eligibility as a graduation degree from any stream (including B.E./B.Tech., B.Sc., B.Com., B.A., and BCA.) with a minimum of 50% marks.",
       "category": "Admissions & Eligibility"
     },
@@ -597,73 +597,73 @@ export const hospitalitySchool: ProgramPageData = {
       "category": "Admissions & Eligibility"
     },
     {
-      "q": "Is an entrance examination required for admission to the hospitality programmes?",
-      "a": "No specific entrance examination is there for the hospitality programmes admission. Students can directly contact the admission department. Admission will be considered on the basis of qualifying exam percentage.",
+      "q": "Is an entrance examination required for admission to the hospitality programs?",
+      "a": "No specific entrance examination is there for the hospitality programs admission. Students can directly contact the admission department. Admission will be considered on the basis of qualifying exam percentage.",
       "category": "Admissions & Eligibility"
     },
     {
-      "q": "What documents are generally required while applying for a hospitality programme?",
-      "a": "A list of documents are required while applying for a hospitality programme namely Academic transcripts & mark sheets — 10th and 12th, Transfer / Migration certificate, Category certificate (if applicable), Identity proof + Aadhar card, and 3 passport-size photographs.",
+      "q": "What documents are generally required while applying for a hospitality program?",
+      "a": "A list of documents are required while applying for a hospitality program namely Academic transcripts & mark sheets — 10th and 12th, Transfer / Migration certificate, Category certificate (if applicable), Identity proof + Aadhar card, and 3 passport-size photographs.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What does a B.Sc. Hotel Management student actually study?",
-      "a": "The programme covers core hospitality operations including Food Production and Culinary Techniques, Food & Beverage Service, Front Office and Housekeeping Management, along with areas such as hospitality marketing, event planning, hotel accounting, tourism and travel management, customer relationship management, and environmental health and safety.",
-      "category": "Programmes & Curriculum"
+      "a": "The program covers core hospitality operations including Food Production and Culinary Techniques, Food & Beverage Service, Front Office and Housekeeping Management, along with areas such as hospitality marketing, event planning, hotel accounting, tourism and travel management, customer relationship management, and environmental health and safety.",
+      "category": "programs & Curriculum"
     },
     {
       "q": "Is B.Sc. Hotel Management mainly theoretical, or does it involve practical learning?",
-      "a": "The programme has a strong experiential component. Students develop technical skills through practical learning in food production, food and beverage service, front office and housekeeping, supported by industrial training and live hotel projects.",
-      "category": "Programmes & Curriculum"
+      "a": "The program has a strong experiential component. Students develop technical skills through practical learning in food production, food and beverage service, front office and housekeeping, supported by industrial training and live hotel projects.",
+      "category": "programs & Curriculum"
     },
     {
-      "q": "Will I learn culinary skills as part of the programme?",
+      "q": "Will I learn culinary skills as part of the program?",
       "a": "Yes. Food Production and Culinary Techniques form a core part of the B.Sc. Hotel Management curriculum, giving students practical exposure to professional food preparation and kitchen operations.",
-      "category": "Programmes & Curriculum"
+      "category": "programs & Curriculum"
     },
     {
-      "q": "Does the programme cover Front Office and Housekeeping, or only food and restaurant operations?",
+      "q": "Does the program cover Front Office and Housekeeping, or only food and restaurant operations?",
       "a": "It covers all major hotel-operation areas. Front Office and Housekeeping Management are explicitly included alongside Food Production and Food & Beverage Service.",
-      "category": "Programmes & Curriculum"
+      "category": "programs & Curriculum"
     },
     {
       "q": "Does the curriculum include hotel management software and technology?",
-      "a": "Yes. The programme's stated learning outcomes include applying hospitality software and service automation tools. It includes practical learning using original open-source and licensed software, tools and techniques.",
-      "category": "Programmes & Curriculum"
+      "a": "Yes. The program's stated learning outcomes include applying hospitality software and service automation tools. It includes practical learning using original open-source and licensed software, tools and techniques.",
+      "category": "programs & Curriculum"
     },
     {
       "q": "Will students learn business and management skills in addition to hotel operations?",
       "a": "Yes. The curriculum includes subjects and skill areas such as accounting for hospitality and tourism, human resource management in hospitality, strategic management, marketing for hospitality and tourism, facility planning, business communication and personality development.",
-      "category": "Programmes & Curriculum"
+      "category": "programs & Curriculum"
     },
     {
       "q": "Does the curriculum include event management and catering?",
-      "a": "Yes. Event Planning and Catering Services are part of the stated B.Sc. programme structure. Students therefore gain exposure beyond conventional hotel-room and restaurant operations.",
-      "category": "Programmes & Curriculum"
+      "a": "Yes. Event Planning and Catering Services are part of the stated B.Sc. program structure. Students therefore gain exposure beyond conventional hotel-room and restaurant operations.",
+      "category": "programs & Curriculum"
     },
     {
-      "q": "Does the programme cover tourism and travel management?",
-      "a": "Yes. Tourism and Travel Management is included in the programme structure, helping students understand hospitality within the wider tourism and travel ecosystem.",
-      "category": "Programmes & Curriculum"
+      "q": "Does the program cover tourism and travel management?",
+      "a": "Yes. Tourism and Travel Management is included in the program structure, helping students understand hospitality within the wider tourism and travel ecosystem.",
+      "category": "programs & Curriculum"
     },
     {
       "q": "What is the difference between the B.Sc. Hotel Management and the Diploma in Hotel Management at Geeta University?",
-      "a": "The B.Sc. is a longer undergraduate degree programme with broader academic, managerial and operational coverage. The Diploma is a two-year industry-integrated programme comprising one year of academic learning on campus followed by one year of hotel industry exposure.",
-      "category": "Programmes & Curriculum"
+      "a": "The B.Sc. is a longer undergraduate degree program with broader academic, managerial and operational coverage. The Diploma is a two-year industry-integrated program comprising one year of academic learning on campus followed by one year of hotel industry exposure.",
+      "category": "programs & Curriculum"
     },
     {
-      "q": "How much industry exposure do hospitality students receive during the programme?",
+      "q": "How much industry exposure do hospitality students receive during the program?",
       "a": "Industry exposure is a central part of the School's learning approach. The School highlights experiential learning, optimal industry exposure, industrial training, live hotel projects, internships and real-time hospitality practice.",
       "category": "Industry Exposure & Internships"
     },
     {
       "q": "Does the School provide hotel internships or industrial training?",
-      "a": "Yes. The School highlights internships and industrial training as part of its hospitality programmes. The Diploma specifically includes one full year of hotel industry exposure, while the B.Sc. programme includes industrial training and live hotel projects.",
+      "a": "Yes. The School highlights internships and industrial training as part of its hospitality programs. The Diploma specifically includes one full year of hotel industry exposure, while the B.Sc. program includes industrial training and live hotel projects.",
       "category": "Industry Exposure & Internships"
     },
     {
       "q": "Are internships available in luxury and premium hotel environments?",
-      "a": "Students featured on the School webpage have undertaken training with organisations and properties including The Leela, Radisson, Kimmane Luxury Golf Resort, Heritage Awali in Mauritius, RIU Hotels and other properties. Internship opportunities are subject to programme, availability and selection.",
+      "a": "Students featured on the School webpage have undertaken training with organisations and properties including The Leela, Radisson, Kimmane Luxury Golf Resort, Heritage Awali in Mauritius, RIU Hotels and other properties. Internship opportunities are subject to program, availability and selection.",
       "category": "Industry Exposure & Internships"
     },
     {
@@ -717,7 +717,7 @@ export const hospitalitySchool: ProgramPageData = {
       "category": "Placements & Career Opportunities"
     },
     {
-      "q": "Does the programme prepare students for management roles or only entry-level operational jobs?",
+      "q": "Does the program prepare students for management roles or only entry-level operational jobs?",
       "a": "The curriculum combines operational training with management-oriented subjects such as accounting, human resources, marketing, strategic management and facility planning. This foundation can support progression toward supervisory and management roles as students gain industry experience.",
       "category": "Placements & Career Opportunities"
     },
@@ -752,13 +752,13 @@ export const hospitalitySchool: ProgramPageData = {
       "category": "Campus Life & Student Experience"
     },
     {
-      "q": "How important are grooming and communication skills in the programme?",
+      "q": "How important are grooming and communication skills in the program?",
       "a": "They are highly relevant to hospitality careers because students regularly interact with guests, colleagues and industry professionals. The curriculum includes Personality Development and Business Communication, while the School emphasises guest service and professional standards.",
       "category": "Campus Life & Student Experience"
     },
     {
       "q": "Will students get opportunities to participate in events and real service environments?",
-      "a": "The programme includes Event Planning and Catering Services and the School emphasises practical, experiential learning. Such activities can provide opportunities to apply service, coordination, guest-handling and teamwork skills in realistic settings.",
+      "a": "The program includes Event Planning and Catering Services and the School emphasises practical, experiential learning. Such activities can provide opportunities to apply service, coordination, guest-handling and teamwork skills in realistic settings.",
       "category": "Campus Life & Student Experience"
     },
     {
@@ -817,7 +817,7 @@ export const hospitalitySchool: ProgramPageData = {
       "category": "Parents & Decision-Making"
     },
     {
-      "q": "What makes Geeta University's hospitality programmes different from a purely classroom-based hotel management course?",
+      "q": "What makes Geeta University's hospitality programs different from a purely classroom-based hotel management course?",
       "a": "The School emphasises experiential and practice-based learning, dedicated hospitality labs, industry exposure, internships, live hotel projects, skill enhancement certifications, industry experts and placement assistance. The Diploma additionally integrates a full year of hotel industry exposure.",
       "category": "Parents & Decision-Making"
     },
@@ -827,8 +827,8 @@ export const hospitalitySchool: ProgramPageData = {
       "category": "General"
     },
     {
-      "q": "How long are the hospitality programmes offered by the School?",
-      "a": "The School lists the Diploma in Hotel Management as a two-year programme, with one year on campus and one year of hotel industry exposure; the B.Sc. Hotel Management as a three/four-year programme; the M.Sc. Hotel Management as a two-year programme; and the Ph.D. in Hotel & Tourism Management with a minimum duration of three years.",
+      "q": "How long are the hospitality programs offered by the School?",
+      "a": "The School lists the Diploma in Hotel Management as a two-year program, with one year on campus and one year of hotel industry exposure; the B.Sc. Hotel Management as a three/four-year program; the M.Sc. Hotel Management as a two-year program; and the Ph.D. in Hotel & Tourism Management with a minimum duration of three years.",
       "category": "General"
     },
     {

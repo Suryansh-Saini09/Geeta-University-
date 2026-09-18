@@ -284,7 +284,7 @@ export default function AboutPage() {
 
       <section
         id="recognitions"
-        className="scroll-mt-[190px] bg-[#F7F9FC] py-20 md:py-28"
+        className="scroll-mt-[190px] bg-[#F7F9FC] py-12 md:py-16"
       >
         <div className="gu-container">
           {/* UGC featured recognition */}

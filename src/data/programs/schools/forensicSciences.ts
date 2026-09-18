@@ -3,7 +3,7 @@ import type { CourseFAQItem } from "../courses/types";
 
 export const forensicSciencesFaqs: CourseFAQItem[] = [
   {
-    question: "What programmes are currently offered in Forensic Science at Geeta University?",
+    question: "What programs are currently offered in Forensic Science at Geeta University?",
     answer: "The School currently offers B.Sc. Forensic Science, M.Sc. Forensic Science, and Ph.D. in Forensic Science.",
     category: "Admissions & Eligibility"
   },
@@ -35,32 +35,32 @@ export const forensicSciencesFaqs: CourseFAQItem[] = [
   {
     question: "What is B.Sc. Forensic Science actually about?",
     answer: "It applies rigorous scientific principles and analytical laboratory techniques to criminal investigations, physical evidence examination, and legal proceedings.",
-    category: "Understanding the Programme"
+    category: "Understanding the Program"
   },
   {
     question: "Is Forensic Science a science degree or a criminal investigation course?",
     answer: "It is primarily an applied science degree that utilizes laboratory methods, chemical analysis, biology, and digital forensics to evaluate evidence in criminal investigations.",
-    category: "Understanding the Programme"
+    category: "Understanding the Program"
   },
   {
     question: "What subjects are covered in B.Sc. Forensic Science?",
     answer: "Key subjects include crime scene investigation, forensic biology, serology, forensic chemistry, toxicology, ballistics, fingerprint analysis, cyber forensics, criminal law basics, and extensive laboratory practicals.",
-    category: "Understanding the Programme"
+    category: "Understanding the Program"
   },
   {
     question: "What is taught in M.Sc. Forensic Science?",
     answer: "The postgraduate curriculum delves deeply into advanced forensic biology, molecular serology, toxicology, DNA profiling, criminalistics, digital and cyber forensics, crime scene reconstruction, and forensic psychology.",
-    category: "Understanding the Programme"
+    category: "Understanding the Program"
   },
   {
     question: "What is the main difference between B.Sc. and M.Sc. Forensic Science?",
     answer: "The B.Sc. program builds strong foundational scientific and investigative skills, whereas the M.Sc. develops advanced specialist competencies, research methodologies, and analytical mastery.",
-    category: "Understanding the Programme"
+    category: "Understanding the Program"
   },
   {
     question: "What does Ph.D. in Forensic Science involve?",
     answer: "The Ph.D. is a research-intensive doctoral program enabling scholars to investigate specialized forensic challenges, publish in indexed journals, and develop innovative analytical methods under expert academic supervision.",
-    category: "Understanding the Programme"
+    category: "Understanding the Program"
   },
   {
     question: "Will I get hands-on laboratory training in Forensic Science?",
@@ -78,7 +78,7 @@ export const forensicSciencesFaqs: CourseFAQItem[] = [
     category: "Practical Learning & Laboratories"
   },
   {
-    question: "Does the programme include DNA analysis?",
+    question: "Does the program include DNA analysis?",
     answer: "Yes. DNA extraction, quantification, amplification, and DNA profiling are integral components of our forensic biology curriculum.",
     category: "Practical Learning & Laboratories"
   },
@@ -108,7 +108,7 @@ export const forensicSciencesFaqs: CourseFAQItem[] = [
     category: "Practical Learning & Laboratories"
   },
   {
-    question: "Are internships included in Forensic Science programmes?",
+    question: "Are internships included in Forensic Science programs?",
     answer: "Yes. Students undergo mandatory internships and practical training at government forensic laboratories, police departments, and private analytical firms.",
     category: "Internships, Industry & Exposure"
   },
@@ -148,7 +148,7 @@ export const forensicSciencesFaqs: CourseFAQItem[] = [
     category: "Faculty & Learning Experience"
   },
   {
-    question: "How does the programme develop investigative thinking?",
+    question: "How does the program develop investigative thinking?",
     answer: "Through simulated investigations, evidence-based reasoning, scientific analysis, and courtroom presentation exercises, students develop sharp analytical and critical-thinking skills.",
     category: "Faculty & Learning Experience"
   },
@@ -645,7 +645,7 @@ export const forensicSciencesSchool: ProgramPageData = {
       image:
         "/programs/forensic-sciences/msc-forensic-science/sumaira-testimonial.jpg",
       quote:
-        "The programme provided me with strong practical exposure, advanced technical knowledge, and valuable industry insights. The supportive faculty and research-oriented learning environment helped me strengthen my professional capabilities.",
+        "The program provided me with strong practical exposure, advanced technical knowledge, and valuable industry insights. The supportive faculty and research-oriented learning environment helped me strengthen my professional capabilities.",
     },
     {
       name: "Himanshu Sharma",

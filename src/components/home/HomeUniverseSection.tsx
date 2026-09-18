@@ -62,7 +62,7 @@ export default function HomeUniverseSection() {
   });
 
   return (
-    <section className="relative overflow-hidden bg-[#F5F8FB] py-16 md:py-20">
+    <section className="relative overflow-hidden bg-[#F5F8FB] py-12 md:py-16">
       {/* Decorative background */}
       <div
         aria-hidden="true"

@@ -218,7 +218,7 @@ export default function EmployerFeedbackPage() {
       </section>
 
       {/* ── Main Form Section ── */}
-      <section className="py-16 md:py-20">
+      <section className="py-10 md:py-14">
         <div className="gu-container">
           <div className="mx-auto max-w-3xl">
             {isSubmitted ? (

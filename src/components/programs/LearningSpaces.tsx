@@ -68,7 +68,7 @@ export default function LearningSpaces({
   return (
     <section
       id="Infrastructure"
-      className="relative w-full overflow-hidden bg-[#F7F9FC] py-16 md:py-24 border-t border-slate-200/60"
+      className="w-full bg-[#F7F9FC] py-10 md:py-14 border-t border-slate-200/60 overflow-hidden relative"
     >
       {/* Decorative background elements */}
       <div

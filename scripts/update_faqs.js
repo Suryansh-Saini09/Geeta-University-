@@ -4,13 +4,13 @@ const path = require('path');
 const hospitalityFaqs = [
   // Admissions & Eligibility
   {
-    q: "What programmes are offered by the School of Hospitality & Hotel Management at Geeta University?",
-    a: "The School currently lists a Diploma in Hotel Management (Residential Program), B.Sc. Hons. (Hotel Management), M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management). Each programme is designed for a different stage of academic and professional progression.",
+    q: "What programs are offered by the School of Hospitality & Hotel Management at Geeta University?",
+    a: "The School currently lists a Diploma in Hotel Management (Residential Program), B.Sc. Hons. (Hotel Management), M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management). Each program is designed for a different stage of academic and professional progression.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "Who is eligible to apply for the B.Sc. Hotel Management programme, and can students from any Class 12 stream apply?",
-    a: "Students who have passed 10+2 from a recognised board with at least 50% marks can apply for the B.Sc. Hotel Management programme. The eligibility is open to students from any stream.",
+    q: "Who is eligible to apply for the B.Sc. Hotel Management program, and can students from any Class 12 stream apply?",
+    a: "Students who have passed 10+2 from a recognised board with at least 50% marks can apply for the B.Sc. Hotel Management program. The eligibility is open to students from any stream.",
     category: "Admissions & Eligibility"
   },
   {
@@ -19,7 +19,7 @@ const hospitalityFaqs = [
     category: "Admissions & Eligibility"
   },
   {
-    q: "What are the eligibility requirements for the M.Sc. Hotel Management programme?",
+    q: "What are the eligibility requirements for the M.Sc. Hotel Management program?",
     a: "The School lists eligibility as a graduation degree from any stream (including B.E./B.Tech., B.Sc., B.Com., B.A., and BCA.) with a minimum of 50% marks.",
     category: "Admissions & Eligibility"
   },
@@ -29,77 +29,77 @@ const hospitalityFaqs = [
     category: "Admissions & Eligibility"
   },
   {
-    q: "Is an entrance examination required for admission to the hospitality programmes?",
-    a: "No specific entrance examination is there for the hospitality programmes admission. Students can directly contact the admission department. Admission will be considered on the basis of qualifying exam percentage.",
+    q: "Is an entrance examination required for admission to the hospitality programs?",
+    a: "No specific entrance examination is there for the hospitality programs admission. Students can directly contact the admission department. Admission will be considered on the basis of qualifying exam percentage.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "What documents are generally required while applying for a hospitality programme?",
-    a: "A list of documents are required while applying for a hospitality programme namely Academic transcripts & mark sheets — 10th and 12th, Transfer / Migration certificate, Category certificate (if applicable), Identity proof + Aadhar card, and 3 passport-size photographs.",
+    q: "What documents are generally required while applying for a hospitality program?",
+    a: "A list of documents are required while applying for a hospitality program namely Academic transcripts & mark sheets — 10th and 12th, Transfer / Migration certificate, Category certificate (if applicable), Identity proof + Aadhar card, and 3 passport-size photographs.",
     category: "Admissions & Eligibility"
   },
 
-  // Programmes & Curriculum
+  // programs & Curriculum
   {
     q: "What does a B.Sc. Hotel Management student actually study?",
-    a: "The programme covers core hospitality operations including Food Production and Culinary Techniques, Food & Beverage Service, Front Office and Housekeeping Management, along with areas such as hospitality marketing, event planning, hotel accounting, tourism and travel management, customer relationship management, and environmental health and safety.",
-    category: "Programmes & Curriculum"
+    a: "The program covers core hospitality operations including Food Production and Culinary Techniques, Food & Beverage Service, Front Office and Housekeeping Management, along with areas such as hospitality marketing, event planning, hotel accounting, tourism and travel management, customer relationship management, and environmental health and safety.",
+    category: "programs & Curriculum"
   },
   {
     q: "Is B.Sc. Hotel Management mainly theoretical, or does it involve practical learning?",
-    a: "The programme has a strong experiential component. Students develop technical skills through practical learning in food production, food and beverage service, front office and housekeeping, supported by industrial training and live hotel projects.",
-    category: "Programmes & Curriculum"
+    a: "The program has a strong experiential component. Students develop technical skills through practical learning in food production, food and beverage service, front office and housekeeping, supported by industrial training and live hotel projects.",
+    category: "programs & Curriculum"
   },
   {
-    q: "Will I learn culinary skills as part of the programme?",
+    q: "Will I learn culinary skills as part of the program?",
     a: "Yes. Food Production and Culinary Techniques form a core part of the B.Sc. Hotel Management curriculum, giving students practical exposure to professional food preparation and kitchen operations.",
-    category: "Programmes & Curriculum"
+    category: "programs & Curriculum"
   },
   {
-    q: "Does the programme cover Front Office and Housekeeping, or only food and restaurant operations?",
+    q: "Does the program cover Front Office and Housekeeping, or only food and restaurant operations?",
     a: "It covers all major hotel-operation areas. Front Office and Housekeeping Management are explicitly included alongside Food Production and Food & Beverage Service.",
-    category: "Programmes & Curriculum"
+    category: "programs & Curriculum"
   },
   {
     q: "Does the curriculum include hotel management software and technology?",
-    a: "Yes. The programme's stated learning outcomes include applying hospitality software and service automation tools. It includes practical learning using original open-source and licensed software, tools and techniques.",
-    category: "Programmes & Curriculum"
+    a: "Yes. The program's stated learning outcomes include applying hospitality software and service automation tools. It includes practical learning using original open-source and licensed software, tools and techniques.",
+    category: "programs & Curriculum"
   },
   {
     q: "Will students learn business and management skills in addition to hotel operations?",
     a: "Yes. The curriculum includes subjects and skill areas such as accounting for hospitality and tourism, human resource management in hospitality, strategic management, marketing for hospitality and tourism, facility planning, business communication and personality development.",
-    category: "Programmes & Curriculum"
+    category: "programs & Curriculum"
   },
   {
     q: "Does the curriculum include event management and catering?",
-    a: "Yes. Event Planning and Catering Services are part of the stated B.Sc. programme structure. Students therefore gain exposure beyond conventional hotel-room and restaurant operations.",
-    category: "Programmes & Curriculum"
+    a: "Yes. Event Planning and Catering Services are part of the stated B.Sc. program structure. Students therefore gain exposure beyond conventional hotel-room and restaurant operations.",
+    category: "programs & Curriculum"
   },
   {
-    q: "Does the programme cover tourism and travel management?",
-    a: "Yes. Tourism and Travel Management is included in the programme structure, helping students understand hospitality within the wider tourism and travel ecosystem.",
-    category: "Programmes & Curriculum"
+    q: "Does the program cover tourism and travel management?",
+    a: "Yes. Tourism and Travel Management is included in the program structure, helping students understand hospitality within the wider tourism and travel ecosystem.",
+    category: "programs & Curriculum"
   },
   {
     q: "What is the difference between the B.Sc. Hotel Management and the Diploma in Hotel Management at Geeta University?",
-    a: "The B.Sc. is a longer undergraduate degree programme with broader academic, managerial and operational coverage. The Diploma is a two-year industry-integrated programme comprising one year of academic learning on campus followed by one year of hotel industry exposure.",
-    category: "Programmes & Curriculum"
+    a: "The B.Sc. is a longer undergraduate degree program with broader academic, managerial and operational coverage. The Diploma is a two-year industry-integrated program comprising one year of academic learning on campus followed by one year of hotel industry exposure.",
+    category: "programs & Curriculum"
   },
 
   // Industry Exposure & Internships
   {
-    q: "How much industry exposure do hospitality students receive during the programme?",
+    q: "How much industry exposure do hospitality students receive during the program?",
     a: "Industry exposure is a central part of the School's learning approach. The School highlights experiential learning, optimal industry exposure, industrial training, live hotel projects, internships and real-time hospitality practice.",
     category: "Industry Exposure & Internships"
   },
   {
     q: "Does the School provide hotel internships or industrial training?",
-    a: "Yes. The School highlights internships and industrial training as part of its hospitality programmes. The Diploma specifically includes one full year of hotel industry exposure, while the B.Sc. programme includes industrial training and live hotel projects.",
+    a: "Yes. The School highlights internships and industrial training as part of its hospitality programs. The Diploma specifically includes one full year of hotel industry exposure, while the B.Sc. program includes industrial training and live hotel projects.",
     category: "Industry Exposure & Internships"
   },
   {
     q: "Are internships available in luxury and premium hotel environments?",
-    a: "Students featured on the School webpage have undertaken training with organisations and properties including The Leela, Radisson, Kimmane Luxury Golf Resort, Heritage Awali in Mauritius, RIU Hotels and other properties. Internship opportunities are subject to programme, availability and selection.",
+    a: "Students featured on the School webpage have undertaken training with organisations and properties including The Leela, Radisson, Kimmane Luxury Golf Resort, Heritage Awali in Mauritius, RIU Hotels and other properties. Internship opportunities are subject to program, availability and selection.",
     category: "Industry Exposure & Internships"
   },
   {
@@ -155,7 +155,7 @@ const hospitalityFaqs = [
     category: "Placements & Career Opportunities"
   },
   {
-    q: "Does the programme prepare students for management roles or only entry-level operational jobs?",
+    q: "Does the program prepare students for management roles or only entry-level operational jobs?",
     a: "The curriculum combines operational training with management-oriented subjects such as accounting, human resources, marketing, strategic management and facility planning. This foundation can support progression toward supervisory and management roles as students gain industry experience.",
     category: "Placements & Career Opportunities"
   },
@@ -192,13 +192,13 @@ const hospitalityFaqs = [
     category: "Campus Life & Student Experience"
   },
   {
-    q: "How important are grooming and communication skills in the programme?",
+    q: "How important are grooming and communication skills in the program?",
     a: "They are highly relevant to hospitality careers because students regularly interact with guests, colleagues and industry professionals. The curriculum includes Personality Development and Business Communication, while the School emphasises guest service and professional standards.",
     category: "Campus Life & Student Experience"
   },
   {
     q: "Will students get opportunities to participate in events and real service environments?",
-    a: "The programme includes Event Planning and Catering Services and the School emphasises practical, experiential learning. Such activities can provide opportunities to apply service, coordination, guest-handling and teamwork skills in realistic settings.",
+    a: "The program includes Event Planning and Catering Services and the School emphasises practical, experiential learning. Such activities can provide opportunities to apply service, coordination, guest-handling and teamwork skills in realistic settings.",
     category: "Campus Life & Student Experience"
   },
   {
@@ -263,7 +263,7 @@ const hospitalityFaqs = [
     category: "Parents & Decision-Making"
   },
   {
-    q: "What makes Geeta University's hospitality programmes different from a purely classroom-based hotel management course?",
+    q: "What makes Geeta University's hospitality programs different from a purely classroom-based hotel management course?",
     a: "The School emphasises experiential and practice-based learning, dedicated hospitality labs, industry exposure, internships, live hotel projects, skill enhancement certifications, industry experts and placement assistance. The Diploma additionally integrates a full year of hotel industry exposure.",
     category: "Parents & Decision-Making"
   },
@@ -275,8 +275,8 @@ const hospitalityFaqs = [
     category: "General"
   },
   {
-    q: "How long are the hospitality programmes offered by the School?",
-    a: "The School lists the Diploma in Hotel Management as a two-year programme, with one year on campus and one year of hotel industry exposure; the B.Sc. Hotel Management as a three/four-year programme; the M.Sc. Hotel Management as a two-year programme; and the Ph.D. in Hotel & Tourism Management with a minimum duration of three years.",
+    q: "How long are the hospitality programs offered by the School?",
+    a: "The School lists the Diploma in Hotel Management as a two-year program, with one year on campus and one year of hotel industry exposure; the B.Sc. Hotel Management as a three/four-year program; the M.Sc. Hotel Management as a two-year program; and the Ph.D. in Hotel & Tourism Management with a minimum duration of three years.",
     category: "General"
   },
   {
@@ -294,7 +294,7 @@ const hospitalityFaqs = [
 const agricultureFaqs = [
   // Admissions & Eligibility
   {
-    q: "What programmes are currently offered by the School of Agricultural Sciences?",
+    q: "What programs are currently offered by the School of Agricultural Sciences?",
     a: "The School offers B.Sc. (Hons.) Agriculture, M.Sc. Agronomy, M.Sc. (Horticulture) Vegetable Science, M.Sc. (Horticulture) Fruit Science, M.Sc. Genetics & Plant Breeding, M.Sc. Entomology and Ph.D. Agriculture.",
     category: "Admissions & Eligibility"
   },
@@ -305,7 +305,7 @@ const agricultureFaqs = [
   },
   {
     q: "Can PCB students apply for B.Sc. (Hons.) Agriculture?",
-    a: "Yes. Biology is one of the accepted subject backgrounds for the programme.",
+    a: "Yes. Biology is one of the accepted subject backgrounds for the program.",
     category: "Admissions & Eligibility"
   },
   {
@@ -319,8 +319,8 @@ const agricultureFaqs = [
     category: "Admissions & Eligibility"
   },
   {
-    q: "What is the eligibility for the M.Sc. programmes?",
-    a: "Applicants should hold a relevant graduation degree with at least 50% marks, subject to the specific programme's admission requirements.",
+    q: "What is the eligibility for the M.Sc. programs?",
+    a: "Applicants should hold a relevant graduation degree with at least 50% marks, subject to the specific program's admission requirements.",
     category: "Admissions & Eligibility"
   },
   {
@@ -329,46 +329,46 @@ const agricultureFaqs = [
     category: "Admissions & Eligibility"
   },
 
-  // Programmes & Specialisations
+  // programs & Specialisations
   {
-    q: "How long is the B.Sc. (Hons.) Agriculture programme?",
-    a: "It is a four-year undergraduate programme spread across eight semesters.",
-    category: "Programmes & Specialisations"
+    q: "How long is the B.Sc. (Hons.) Agriculture program?",
+    a: "It is a four-year undergraduate program spread across eight semesters.",
+    category: "programs & Specialisations"
   },
   {
     q: "What are the M.Sc. specialisations available at the School?",
     a: "Students can choose M.Sc. Agronomy, M.Sc. (Horticulture) Vegetable Science, M.Sc. (Horticulture) Fruit Science, M.Sc. Genetics & Plant Breeding or M.Sc. Entomology.",
-    category: "Programmes & Specialisations"
+    category: "programs & Specialisations"
   },
   {
     q: "What does M.Sc. Agronomy focus on?",
     a: "It focuses on crop production, agronomic practices, productivity and sustainable management of agricultural systems.",
-    category: "Programmes & Specialisations"
+    category: "programs & Specialisations"
   },
   {
     q: "What will I study in M.Sc. Horticulture – Vegetable Science?",
-    a: "The programme focuses on scientific vegetable production, crop improvement, cultivation practices and related horticultural management.",
-    category: "Programmes & Specialisations"
+    a: "The program focuses on scientific vegetable production, crop improvement, cultivation practices and related horticultural management.",
+    category: "programs & Specialisations"
   },
   {
     q: "What does M.Sc. Horticulture – Fruit Science cover?",
     a: "It focuses on fruit production, crop management, improvement, post-harvest aspects and scientific fruit cultivation.",
-    category: "Programmes & Specialisations"
+    category: "programs & Specialisations"
   },
   {
     q: "What is M.Sc. Genetics & Plant Breeding about?",
     a: "It deals with plant genetics, breeding methods and crop improvement for developing better-performing plant varieties.",
-    category: "Programmes & Specialisations"
+    category: "programs & Specialisations"
   },
   {
     q: "What will I learn in M.Sc. Entomology?",
-    a: "The programme focuses on insects affecting agriculture, their identification, management and integrated approaches to pest control.",
-    category: "Programmes & Specialisations"
+    a: "The program focuses on insects affecting agriculture, their identification, management and integrated approaches to pest control.",
+    category: "programs & Specialisations"
   },
   {
     q: "What areas can be explored through Ph.D. Agriculture?",
     a: "Research can span areas such as agronomy, soil science, plant breeding, entomology, horticulture, biotechnology and climate-smart agriculture, depending on available research expertise.",
-    category: "Programmes & Specialisations"
+    category: "programs & Specialisations"
   },
 
   // Curriculum & Practical Learning
@@ -463,7 +463,7 @@ const agricultureFaqs = [
   },
   {
     q: "Does the School organise interactions with farmers?",
-    a: "Yes. Kisan Interaction Programmes are among the School's listed academic and engagement activities.",
+    a: "Yes. Kisan Interaction programs are among the School's listed academic and engagement activities.",
     category: "Industry Exposure, Research & Activities"
   },
   {
@@ -483,7 +483,7 @@ const agricultureFaqs = [
   },
   {
     q: "Can students work with space and remote-sensing technologies in agriculture?",
-    a: "The School's earlier academic profile highlights exposure to Remote Sensing and GIS through its IIRS-ISRO linkage, subject to the opportunities available in the programme.",
+    a: "The School's earlier academic profile highlights exposure to Remote Sensing and GIS through its IIRS-ISRO linkage, subject to the opportunities available in the program.",
     category: "Industry Exposure, Research & Activities"
   },
 
@@ -549,7 +549,7 @@ const agricultureFaqs = [
   // Parents & Student Decision-Making
   {
     q: "Is B.Sc. Agriculture suitable for a student who does not come from a farming family?",
-    a: "Yes. The programme is science-based and does not require students to come from a farming background.",
+    a: "Yes. The program is science-based and does not require students to come from a farming background.",
     category: "Parents & Student Decision-Making"
   },
   {
@@ -568,7 +568,7 @@ const agricultureFaqs = [
     category: "Parents & Student Decision-Making"
   },
   {
-    q: "What makes the School different from a classroom-only agriculture programme?",
+    q: "What makes the School different from a classroom-only agriculture program?",
     a: "It combines an ICAR-aligned academic framework with laboratories, experimental farms, RAWE, field activities, protected cultivation, precision-farming exposure, research and industry interaction.",
     category: "Parents & Student Decision-Making"
   },
@@ -594,7 +594,7 @@ const agricultureFaqs = [
 const forensicFaqs = [
   // Admissions & Eligibility
   {
-    q: "What programmes are currently offered in Forensic Science at Geeta University?",
+    q: "What programs are currently offered in Forensic Science at Geeta University?",
     a: "The School currently offers B.Sc. Forensic Science, M.Sc. Forensic Science and Ph.D. Forensic Science.",
     category: "Admissions & Eligibility"
   },
@@ -605,7 +605,7 @@ const forensicFaqs = [
   },
   {
     q: "Can a PCB student apply for B.Sc. Forensic Science?",
-    a: "Yes. Biology is one of the accepted subject combinations for the programme.",
+    a: "Yes. Biology is one of the accepted subject combinations for the program.",
     category: "Admissions & Eligibility"
   },
   {
@@ -628,38 +628,38 @@ const forensicFaqs = [
   {
     q: "What is B.Sc. Forensic Science actually about?",
     a: "It applies scientific methods to crime investigation, evidence examination and the interpretation of forensic findings.",
-    category: "Understanding the Programme"
+    category: "Understanding the Program"
   },
   {
     q: "Is Forensic Science a science degree or a criminal-investigation course?",
-    a: "It is primarily a science-based programme that applies laboratory and analytical methods to criminal investigations and evidence.",
-    category: "Understanding the Programme"
+    a: "It is primarily a science-based program that applies laboratory and analytical methods to criminal investigations and evidence.",
+    category: "Understanding the Program"
   },
   {
     q: "What subjects are covered in B.Sc. Forensic Science?",
     a: "Key areas include crime scene investigation, forensic biology, forensic chemistry, toxicology, ballistics, fingerprint analysis, cyber forensics, criminal law basics and laboratory practicals.",
-    category: "Understanding the Programme"
+    category: "Understanding the Program"
   },
   {
     q: "What is taught in M.Sc. Forensic Science?",
-    a: "The programme goes deep into forensic biology, serology, toxicology, DNA fingerprinting, criminalistics, digital and cyber forensics, crime-scene reconstruction and forensic psychology.",
-    category: "Understanding the Programme"
+    a: "The program goes deep into forensic biology, serology, toxicology, DNA fingerprinting, criminalistics, digital and cyber forensics, crime-scene reconstruction and forensic psychology.",
+    category: "Understanding the Program"
   },
   {
     q: "What is the main difference between B.Sc. and M.Sc. Forensic Science?",
     a: "B.Sc. builds foundational scientific and forensic skills, while M.Sc. develops deeper specialist, analytical and research capabilities.",
-    category: "Understanding the Programme"
+    category: "Understanding the Program"
   },
   {
     q: "What does Ph.D. Forensic Science involve?",
     a: "The Ph.D. is research-focused, with scholars working on specialised forensic problems under academic supervision and completing research and publication-related requirements.",
-    category: "Understanding the Programme"
+    category: "Understanding the Program"
   },
 
   // Practical Learning & Laboratories
   {
     q: "Will I get hands-on laboratory training in Forensic Science?",
-    a: "Yes. Practical laboratory work is a central part of the programmes, alongside scientific and theoretical learning.",
+    a: "Yes. Practical laboratory work is a central part of the programs, alongside scientific and theoretical learning.",
     category: "Practical Learning & Laboratories"
   },
   {
@@ -673,7 +673,7 @@ const forensicFaqs = [
     category: "Practical Learning & Laboratories"
   },
   {
-    q: "Does the programme include DNA analysis?",
+    q: "Does the program include DNA analysis?",
     a: "Yes. DNA analysis and DNA fingerprinting are included in the forensic curriculum, particularly at the postgraduate level.",
     category: "Practical Learning & Laboratories"
   },
@@ -705,8 +705,8 @@ const forensicFaqs = [
 
   // Internships, Industry & Exposure
   {
-    q: "Are internships included in Forensic Science programmes?",
-    a: "Yes. The programmes include regular internship and practical exposure at different intervals.",
+    q: "Are internships included in Forensic Science programs?",
+    a: "Yes. The programs include regular internship and practical exposure at different intervals.",
     category: "Internships, Industry & Exposure"
   },
   {
@@ -747,13 +747,13 @@ const forensicFaqs = [
     category: "Faculty & Learning Experience"
   },
   {
-    q: "How does the programme develop investigative thinking?",
+    q: "How does the program develop investigative thinking?",
     a: "Students practise observation, evidence analysis, case interpretation and problem-solving through simulations, laboratory work and forensic case studies.",
     category: "Faculty & Learning Experience"
   },
   {
     q: "Will I learn how forensic findings are presented in legal settings?",
-    a: "The programmes include exposure to legal procedures and, at postgraduate level, courtroom-testimony readiness as part of professional preparation.",
+    a: "The programs include exposure to legal procedures and, at postgraduate level, courtroom-testimony readiness as part of professional preparation.",
     category: "Faculty & Learning Experience"
   },
   {
@@ -775,12 +775,12 @@ const forensicFaqs = [
   },
   {
     q: "Can I work as a Crime Scene Investigator after B.Sc. Forensic Science?",
-    a: "Crime Scene Investigator is one of the prominent career roles associated with the programme, although appointment depends on the employer's conditions and hiring requirements.",
+    a: "Crime Scene Investigator is one of the prominent career roles associated with the program, although appointment depends on the employer's conditions and hiring requirements.",
     category: "Careers & Higher Studies"
   },
   {
     q: "Can Forensic Science graduates work in cybercrime?",
-    a: "Yes. Students will definitely get relevant digital and cyber-forensics skills during their programme, which can in turn help them pursue roles related to cybercrime investigation and digital evidence.",
+    a: "Yes. Students will definitely get relevant digital and cyber-forensics skills during their program, which can in turn help them pursue roles related to cybercrime investigation and digital evidence.",
     category: "Careers & Higher Studies"
   },
   {
@@ -827,7 +827,7 @@ const forensicFaqs = [
   },
   {
     q: "Is Forensic Science a good choice if I prefer practical learning?",
-    a: "Yes. The programme includes laboratory work, crime-scene simulations, evidence examination and other hands-on activities.",
+    a: "Yes. The program includes laboratory work, crime-scene simulations, evidence examination and other hands-on activities.",
     category: "Student Decision-Making"
   },
   {
@@ -837,24 +837,24 @@ const forensicFaqs = [
   },
   {
     q: "Can I choose Forensic Science if I am interested in both science and law?",
-    a: "Yes. The programme connects scientific evidence with criminal-law procedures and investigative practice, making it suitable for students interested in both science and law.",
+    a: "Yes. The program connects scientific evidence with criminal-law procedures and investigative practice, making it suitable for students interested in both science and law.",
     category: "Student Decision-Making"
   },
 
   // General
   {
     q: "What is the duration of B.Sc. Forensic Science?",
-    a: "The programme duration is 3 years and 4 years for B.Sc. Forensic Science and B.Sc. (Honors) Forensic science respectively.",
+    a: "The program duration is 3 years and 4 years for B.Sc. Forensic Science and B.Sc. (Honors) Forensic science respectively.",
     category: "General"
   },
   {
     q: "What is the duration of M.Sc. Forensic Science?",
-    a: "M.Sc. Forensic Science is a two-year postgraduate programme.",
+    a: "M.Sc. Forensic Science is a two-year postgraduate program.",
     category: "General"
   },
   {
     q: "What is the minimum duration of Ph.D. Forensic Science?",
-    a: "The Ph.D. programme has a minimum duration of three years.",
+    a: "The Ph.D. program has a minimum duration of three years.",
     category: "General"
   },
   {
@@ -877,22 +877,22 @@ const forensicFaqs = [
 const humanitiesFaqs = [
   // Admissions & Eligibility
   {
-    q: "What programmes are currently offered by the School of Humanities & Social Sciences?",
-    a: "The School currently offers B.A. programmes in Political Science, Psychology, Economics, Social Work and English; M.A. programmes in Political Science and Psychology; and Ph.D. programmes in Psychology and Political Science.",
+    q: "What programs are currently offered by the School of Humanities & Social Sciences?",
+    a: "The School currently offers B.A. programs in Political Science, Psychology, Economics, Social Work and English; M.A. programs in Political Science and Psychology; and Ph.D. programs in Psychology and Political Science.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "What is the eligibility for the B.A. programmes?",
+    q: "What is the eligibility for the B.A. programs?",
     a: "Candidates need to have passed the 10+2 examination with a minimum of 50% marks, in any stream.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "Can students from different Class 12 streams apply for the B.A. programmes?",
-    a: "Yes. There is no restriction based on Class 12 stream — students from Science, Commerce, Arts/Humanities or any other stream can apply for the B.A. programmes, as long as they have passed 10+2 with at least 50% marks.",
+    q: "Can students from different Class 12 streams apply for the B.A. programs?",
+    a: "Yes. There is no restriction based on Class 12 stream — students from Science, Commerce, Arts/Humanities or any other stream can apply for the B.A. programs, as long as they have passed 10+2 with at least 50% marks.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "What is the eligibility for the M.A. programmes?",
+    q: "What is the eligibility for the M.A. programs?",
     a: "For both M.A. Political Science and M.A. Psychology, applicants need a Bachelor's degree with a minimum of 50% marks in a relevant subject.",
     category: "Admissions & Eligibility"
   },
@@ -906,37 +906,37 @@ const humanitiesFaqs = [
   {
     q: "How do I choose between B.A. Psychology, Political Science, Economics and Social Work?",
     a: "Choose Psychology for human behaviour, Political Science for governance, Economics for markets and quantitative analysis, and Social Work for community welfare and social intervention.",
-    category: "Choosing the Right Programme"
+    category: "Choosing the Right Program"
   },
   {
     q: "What does B.A. Psychology focus on?",
     a: "B.A. (Hons.) Psychology builds a foundation in cognitive, developmental and abnormal psychology, blending theory with lab-based experiments, psychological assessments and community outreach. It prepares students for counselling, HR, mental health and education-related roles.",
-    category: "Choosing the Right Programme"
+    category: "Choosing the Right Program"
   },
   {
     q: "What will I study in B.A. Political Science?",
-    a: "The programme covers politics, governance, institutions, public affairs and political thought, with links to policy and administration.",
-    category: "Choosing the Right Programme"
+    a: "The program covers politics, governance, institutions, public affairs and political thought, with links to policy and administration.",
+    category: "Choosing the Right Program"
   },
   {
     q: "What does B.A. Economics prepare students for?",
     a: "It builds knowledge of economic systems, markets, policy and analytical decision-making, with applications in business, finance, research and development.",
-    category: "Choosing the Right Programme"
+    category: "Choosing the Right Program"
   },
   {
     q: "What is the focus of B.A. Social Work?",
-    a: "The programme centres on social issues, welfare, community engagement and professional social-work practice.",
-    category: "Choosing the Right Programme"
+    a: "The program centres on social issues, welfare, community engagement and professional social-work practice.",
+    category: "Choosing the Right Program"
   },
   {
     q: "What is the difference between B.A. and M.A. Psychology?",
     a: "B.A. Psychology provides the foundation — human behaviour, psychological processes and core testing skills. M.A. Psychology builds on this with deeper subject knowledge, specialised study and stronger research preparation, requiring a Bachelor's degree with 50% marks in a relevant subject for entry.",
-    category: "Choosing the Right Programme"
+    category: "Choosing the Right Program"
   },
   {
     q: "What is the difference between B.A. and M.A. Political Science?",
     a: "B.A. Political Science builds the fundamentals of politics and governance, while M.A. Political Science (open to Bachelor's degree holders with 50% marks in a relevant subject) develops more advanced analysis and specialisation.",
-    category: "Choosing the Right Programme"
+    category: "Choosing the Right Program"
   },
 
   // Learning, Research & Exposure
@@ -1021,7 +1021,7 @@ const humanitiesFaqs = [
   },
   {
     q: "Can Political Science graduates work with NGOs and development organisations?",
-    a: "Yes. Knowledge of governance, society and public institutions is useful in development, advocacy and community programmes.",
+    a: "Yes. Knowledge of governance, society and public institutions is useful in development, advocacy and community programs.",
     category: "Career Opportunities — Political Science"
   },
   {
@@ -1060,22 +1060,22 @@ const humanitiesFaqs = [
   // Career Opportunities — Social Work
   {
     q: "What career options are available after B.A. Social Work?",
-    a: "Graduates can work in NGOs, community development, CSR, public and development programmes, rehabilitation and welfare organisations.",
+    a: "Graduates can work in NGOs, community development, CSR, public and development programs, rehabilitation and welfare organisations.",
     category: "Career Opportunities — Social Work"
   },
   {
     q: "Will Social Work students work with communities?",
-    a: "Yes. B.A. Social Work is practice-oriented — students engage directly with communities through fieldwork placements, internships and outreach projects as part of the programme's professional social-work practice component.",
+    a: "Yes. B.A. Social Work is practice-oriented — students engage directly with communities through fieldwork placements, internships and outreach projects as part of the program's professional social-work practice component.",
     category: "Career Opportunities — Social Work"
   },
   {
     q: "Can Social Work graduates work in CSR?",
-    a: "Yes. Community engagement, programme implementation and social-impact skills are relevant to CSR roles.",
+    a: "Yes. Community engagement, program implementation and social-impact skills are relevant to CSR roles.",
     category: "Career Opportunities — Social Work"
   },
   {
     q: "Can Social Work graduates work with development organisations?",
-    a: "Yes. NGOs and development organisations are important career areas for graduates with strong community, research and programme skills.",
+    a: "Yes. NGOs and development organisations are important career areas for graduates with strong community, research and program skills.",
     category: "Career Opportunities — Social Work"
   },
 
@@ -1109,7 +1109,7 @@ const humanitiesFaqs = [
   // Parents & Student Decision-Making
   {
     q: "Is a humanities or social-science degree useful for employment?",
-    a: "Yes. These programmes build research, communication, writing and analytical skills. Career prospects improve further with practical experience, specialisation or higher study.",
+    a: "Yes. These programs build research, communication, writing and analytical skills. Career prospects improve further with practical experience, specialisation or higher study.",
     category: "Parents & Student Decision-Making"
   },
   {
@@ -1134,24 +1134,24 @@ const humanitiesFaqs = [
   },
   {
     q: "Can I change my career direction after completing a B.A.?",
-    a: "Yes. Depending on eligibility, graduates can move into master's programmes, professional qualifications, competitive examinations and careers that value transferable skills.",
+    a: "Yes. Depending on eligibility, graduates can move into master's programs, professional qualifications, competitive examinations and careers that value transferable skills.",
     category: "Parents & Student Decision-Making"
   },
 
   // Higher Studies, Research & General
   {
-    q: "Which postgraduate programmes are available at the School?",
+    q: "Which postgraduate programs are available at the School?",
     a: "The School currently offers M.A. Political Science and M.A. Psychology, both requiring a Bachelor's degree with a minimum of 50% marks in a relevant subject.",
     category: "Higher Studies, Research & General"
   },
   {
     q: "Does the School offer doctoral study?",
-    a: "Yes. The School currently offers Ph.D. programmes in Psychology and Political Science, both requiring a Master's degree in a relevant field with a minimum of 55% marks.",
+    a: "Yes. The School currently offers Ph.D. programs in Psychology and Political Science, both requiring a Master's degree in a relevant field with a minimum of 55% marks.",
     category: "Higher Studies, Research & General"
   },
   {
     q: "Can an M.A. graduate pursue a Ph.D.?",
-    a: "Yes, subject to the relevant doctoral programme's eligibility, research and admission requirements — a Master's degree with a minimum of 55% marks in a relevant field.",
+    a: "Yes, subject to the relevant doctoral program's eligibility, research and admission requirements — a Master's degree with a minimum of 55% marks in a relevant field.",
     category: "Higher Studies, Research & General"
   },
   {
@@ -1175,7 +1175,7 @@ const lawFaqs = [
   // About the School
   {
     q: "What is Geeta Global Law School (GGLS)?",
-    a: "GGLS is a constituent law school of Geeta University, Panipat, established in 2022–23, offering integrated undergraduate, postgraduate, and doctoral law programmes with a practice-first, moot-court-driven pedagogy.",
+    a: "GGLS is a constituent law school of Geeta University, Panipat, established in 2022–23, offering integrated undergraduate, postgraduate, and doctoral law programs with a practice-first, moot-court-driven pedagogy.",
     category: "About the School"
   },
   {
@@ -1199,47 +1199,47 @@ const lawFaqs = [
     category: "About the School"
   },
 
-  // Programmes & Eligibility
+  // programs & Eligibility
   {
-    q: "What law programmes does GGLS offer?",
-    a: "BA LL.B. (Hons.) and BBA LL.B. (Hons.) as 5-year integrated undergraduate programmes, LL.M. as a 1-year postgraduate programme, and a Ph.D. in Law.",
-    category: "Programmes & Eligibility"
+    q: "What law programs does GGLS offer?",
+    a: "BA LL.B. (Hons.) and BBA LL.B. (Hons.) as 5-year integrated undergraduate programs, LL.M. as a 1-year postgraduate program, and a Ph.D. in Law.",
+    category: "programs & Eligibility"
   },
   {
     q: "What is the eligibility for BA LL.B./BBA LL.B.?",
     a: "Passed 10+2 in any stream with the minimum percentage prescribed by the university (typically 50%).",
-    category: "Programmes & Eligibility"
+    category: "programs & Eligibility"
   },
   {
     q: "What is the eligibility for LL.M.?",
     a: "A Bachelor's degree in Law (LL.B./integrated law degree) with a minimum of 50% marks.",
-    category: "Programmes & Eligibility"
+    category: "programs & Eligibility"
   },
   {
     q: "What is the eligibility for Ph.D. in Law?",
     a: "A Master's degree in Law (LL.M.) with a minimum of 55% marks, plus the university's entrance/interview process.",
-    category: "Programmes & Eligibility"
+    category: "programs & Eligibility"
   },
   {
     q: "What specializations are available?",
     a: "Corporate Law, Criminal Law, Constitutional Law, IPR Law, and Family Law offered as elective tracks in later years.",
-    category: "Programmes & Eligibility"
+    category: "programs & Eligibility"
   },
   {
     q: "Is the curriculum based on NEP 2020?",
     a: "Yes — a NEP 2020-aligned, choice-based credit system with interdisciplinary electives across Geeta University's other schools.",
-    category: "Programmes & Eligibility"
+    category: "programs & Eligibility"
   },
 
   // Admissions
   {
     q: "How do I apply to GGLS?",
-    a: "By Clicking on Apply Now, You may apply to GGLS — fill in personal and academic details and choose your programme.",
+    a: "By Clicking on Apply Now, You may apply to GGLS — fill in personal and academic details and choose your program.",
     category: "Admissions"
   },
   {
     q: "Is there an entrance exam for admission?",
-    a: "Admission is generally through direct visit, through CUET, or merit in the qualifying exam (generally CLAT)— the route depends on the programme; check the current admission guidelines.",
+    a: "Admission is generally through direct visit, through CUET, or merit in the qualifying exam (generally CLAT)— the route depends on the program; check the current admission guidelines.",
     category: "Admissions"
   },
   {
@@ -1250,8 +1250,8 @@ const lawFaqs = [
 
   // Fees & Scholarships
   {
-    q: "What is the fee structure for law programmes?",
-    a: "Fee details vary by programme and scholarship eligibility and are on the official fee structure page; you may check total Fee through Fees Structure..",
+    q: "What is the fee structure for law programs?",
+    a: "Fee details vary by program and scholarship eligibility and are on the official fee structure page; you may check total Fee through Fees Structure..",
     category: "Fees & Scholarships"
   },
   {
@@ -1316,14 +1316,14 @@ const lawFaqs = [
 
   // Geeta Institute of Law FAQs
   {
-    q: "What law programmes are offered at Geeta Institute of Law?",
-    a: "GIL offers B.A. LL.B. (Hons.), BBA LL.B. (Hons.), LL.B. and LL.M. programmes.",
+    q: "What law programs are offered at Geeta Institute of Law?",
+    a: "GIL offers B.A. LL.B. (Hons.), BBA LL.B. (Hons.), LL.B. and LL.M. programs.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "How long is the B.A. LL.B. (Hons.) programme?",
-    a: "It is a 5-year integrated programme spread across 10 semesters.",
-    category: "Programmes & Curriculum"
+    q: "How long is the B.A. LL.B. (Hons.) program?",
+    a: "It is a 5-year integrated program spread across 10 semesters.",
+    category: "programs & Curriculum"
   },
   {
     q: "What is the eligibility for B.A. LL.B. (Hons.)?",
@@ -1338,17 +1338,17 @@ const lawFaqs = [
   {
     q: "How is B.A. LL.B. different from BBA LL.B.?",
     a: "B.A. LL.B. combines Law with humanities subjects such as Political Science and Sociology, while BBA LL.B. combines Law with business and management subjects.",
-    category: "Programmes & Curriculum"
+    category: "programs & Curriculum"
   },
   {
-    q: "Who can apply for the 3-year LL.B. programme?",
+    q: "Who can apply for the 3-year LL.B. program?",
     a: "Graduates from any stream can apply, provided they have at least 45% aggregate marks for the General Category and 42.75% for SC/ST.",
     category: "Admissions & Eligibility"
   },
   {
-    q: "How long is the LL.B. programme?",
-    a: "LL.B. is a 3-year programme comprising six semesters.",
-    category: "Programmes & Curriculum"
+    q: "How long is the LL.B. program?",
+    a: "LL.B. is a 3-year program comprising six semesters.",
+    category: "programs & Curriculum"
   },
   {
     q: "What is the eligibility for LL.M.?",
@@ -1357,11 +1357,11 @@ const lawFaqs = [
   },
   {
     q: "What is GLAT?",
-    a: "GLAT is the Geeta Law Admission Test conducted by GIL for admission to its 5-year B.A. LL.B. (Hons.) and BBA LL.B. (Hons.) programmes.",
+    a: "GLAT is the Geeta Law Admission Test conducted by GIL for admission to its 5-year B.A. LL.B. (Hons.) and BBA LL.B. (Hons.) programs.",
     category: "Admission Process & GLAT"
   },
   {
-    q: "Is GLAT compulsory for admission to the 5-year law programmes?",
+    q: "Is GLAT compulsory for admission to the 5-year law programs?",
     a: "GIL uses GLAT along with qualifying-examination merit and the admission interaction process for selecting candidates. Scores from national exams such as CLAT, AILET or LSAT India may also be accepted in lieu of GLAT.",
     category: "Admission Process & GLAT"
   },
@@ -1397,7 +1397,7 @@ const lawFaqs = [
   },
   {
     q: "Does GIL offer scholarships?",
-    a: "Yes. GLAT performance can make students eligible for merit-based scholarships, including scholarships of up to 100% for the five-year programmes.",
+    a: "Yes. GLAT performance can make students eligible for merit-based scholarships, including scholarships of up to 100% for the five-year programs.",
     category: "Scholarships & Student Support"
   }
 ];
@@ -1405,8 +1405,8 @@ const lawFaqs = [
 const pharmacyFaqs = [
   // Admissions & Eligibility
   {
-    q: "What pharmacy programmes are offered by Geeta Institute of Pharmacy?",
-    a: "Currently the institute has programmes namely D.Pharm., B.Pharm., M.Pharm. (Pharmaceutics) and Ph.D. in Pharmaceutical Sciences, covering diploma, undergraduate, postgraduate and doctoral study.",
+    q: "What pharmacy programs are offered by Geeta Institute of Pharmacy?",
+    a: "Currently the institute has programs namely D.Pharm., B.Pharm., M.Pharm. (Pharmaceutics) and Ph.D. in Pharmaceutical Sciences, covering diploma, undergraduate, postgraduate and doctoral study.",
     category: "Admissions & Eligibility"
   },
   {
@@ -1426,7 +1426,7 @@ const pharmacyFaqs = [
   },
   {
     q: "What is the eligibility for M.Pharm. (Pharmaceutics)?",
-    a: "Applicants must hold a B.Pharm. degree from an institution approved by the Pharmacy Council of India and have at least 55% marks in the aggregate of the four-year B.Pharm. programme.",
+    a: "Applicants must hold a B.Pharm. degree from an institution approved by the Pharmacy Council of India and have at least 55% marks in the aggregate of the four-year B.Pharm. program.",
     category: "Admissions & Eligibility"
   },
   {
@@ -1440,41 +1440,41 @@ const pharmacyFaqs = [
     category: "Admissions & Eligibility"
   },
 
-  // Programmes & Curriculum
+  // programs & Curriculum
   {
     q: "What is the difference between D.Pharm. and B.Pharm.?",
     a: "D.Pharm. is a two-year diploma providing foundational pharmaceutical knowledge and practical preparation. B.Pharm. is a four-year degree with deeper study of pharmaceutical sciences, drug development, clinical pharmacy, research and industry-oriented subjects.",
-    category: "Programmes & Curriculum"
+    category: "programs & Curriculum"
   },
   {
     q: "What subjects are taught in D.Pharm.?",
-    a: "The programme includes Human Anatomy & Physiology, Pharmaceutics, Pharmaceutical Chemistry, Pharmacognosy, Hospital & Clinical Pharmacy, Health Education, Biochemistry & Clinical Pathology, Drug Store Management and practical laboratory training.",
-    category: "Programmes & Curriculum"
+    a: "The program includes Human Anatomy & Physiology, Pharmaceutics, Pharmaceutical Chemistry, Pharmacognosy, Hospital & Clinical Pharmacy, Health Education, Biochemistry & Clinical Pathology, Drug Store Management and practical laboratory training.",
+    category: "programs & Curriculum"
   },
   {
     q: "What subjects are covered in B.Pharm.?",
     a: "The B.Pharm. curriculum includes Pharmaceutical Chemistry, Pharmacology & Toxicology, Pharmaceutics & Drug Delivery, Clinical Pharmacy, Pharmaceutical Microbiology, Pharmacognosy, Biopharmaceutics, Hospital Pharmacy and Pharmaceutical Jurisprudence, along with research projects and internships.",
-    category: "Programmes & Curriculum"
+    category: "programs & Curriculum"
   },
   {
     q: "What is taught in M.Pharm. (Pharmaceutics)?",
-    a: "The postgraduate programme focuses on advanced pharmaceutical formulation and related areas, including advanced drug formulation, pharmaceutical engineering and research-oriented study.",
-    category: "Programmes & Curriculum"
+    a: "The postgraduate program focuses on advanced pharmaceutical formulation and related areas, including advanced drug formulation, pharmaceutical engineering and research-oriented study.",
+    category: "programs & Curriculum"
   },
   {
     q: "Does B.Pharm. include clinical and hospital pharmacy?",
-    a: "Yes. Clinical Pharmacy and Hospital Pharmacy are explicitly included in the published B.Pharm. programme structure.",
-    category: "Programmes & Curriculum"
+    a: "Yes. Clinical Pharmacy and Hospital Pharmacy are explicitly included in the published B.Pharm. program structure.",
+    category: "programs & Curriculum"
   },
   {
     q: "Does B.Pharm. include drug formulation and drug delivery?",
     a: "Yes. Pharmaceutics and Drug Delivery are core areas of the B.Pharm. curriculum.",
-    category: "Programmes & Curriculum"
+    category: "programs & Curriculum"
   },
   {
     q: "Is pharmacy education only about medicines and dispensing?",
-    a: "No. The programmes cover drug formulation, pharmaceutical chemistry, pharmacology, clinical and hospital pharmacy, research, regulatory affairs, pharmacovigilance, drug discovery and pharmaceutical marketing.",
-    category: "Programmes & Curriculum"
+    a: "No. The programs cover drug formulation, pharmaceutical chemistry, pharmacology, clinical and hospital pharmacy, research, regulatory affairs, pharmacovigilance, drug discovery and pharmaceutical marketing.",
+    category: "programs & Curriculum"
   },
 
   // Practical Learning, Laboratories & Research
@@ -1511,8 +1511,8 @@ const pharmacyFaqs = [
 
   // Industry Exposure & Internships
   {
-    q: "Does the B.Pharm. programme include internships?",
-    a: "Yes. The B.Pharm. programme includes internship and practical-training components. Its programme FAQ states that students can undertake internships after completion of the first year for hands-on experience.",
+    q: "Does the B.Pharm. program include internships?",
+    a: "Yes. The B.Pharm. program includes internship and practical-training components. Its program FAQ states that students can undertake internships after completion of the first year for hands-on experience.",
     category: "Industry Exposure & Internships"
   },
   {
@@ -1522,7 +1522,7 @@ const pharmacyFaqs = [
   },
   {
     q: "Does D.Pharm. include industrial visits?",
-    a: "Yes. Industrial visits are explicitly included in the D.Pharm. programme information.",
+    a: "Yes. Industrial visits are explicitly included in the D.Pharm. program information.",
     category: "Industry Exposure & Internships"
   },
   {
@@ -1584,7 +1584,7 @@ const pharmacyFaqs = [
   },
   {
     q: "Does the Institute provide placement and career support?",
-    a: "Yes. The Institute highlights career guidance, skill-development programmes and interview preparation alongside industry exposure and placement support.",
+    a: "Yes. The Institute highlights career guidance, skill-development programs and interview preparation alongside industry exposure and placement support.",
     category: "Placements & Career Opportunities"
   },
 
@@ -1606,14 +1606,14 @@ const pharmacyFaqs = [
   },
   {
     q: "Will students receive guidance for competitive or postgraduate examinations such as GPAT?",
-    a: "The B.Pharm. programme page states that GPAT preparation support is provided through guidance sessions, extra classes and practice tests.",
+    a: "The B.Pharm. program page states that GPAT preparation support is provided through guidance sessions, extra classes and practice tests.",
     category: "Faculty, Learning Experience & Student Development"
   },
 
   // Global Exposure, Professional Recognition & General
   {
-    q: "Are the pharmacy programmes approved by the Pharmacy Council of India?",
-    a: "Yes. The Institute states that its pharmacy programmes are approved by the Pharmacy Council of India (PCI).",
+    q: "Are the pharmacy programs approved by the Pharmacy Council of India?",
+    a: "Yes. The Institute states that its pharmacy programs are approved by the Pharmacy Council of India (PCI).",
     category: "Global Exposure, Professional Recognition & General"
   },
   {
@@ -1622,12 +1622,12 @@ const pharmacyFaqs = [
     category: "Global Exposure, Professional Recognition & General"
   },
   {
-    q: "How long are the pharmacy programmes?",
+    q: "How long are the pharmacy programs?",
     a: "D.Pharm. is two years, B.Pharm. is four years, M.Pharm. (Pharmaceutics) is two years, and Ph.D. in Pharmaceutical Sciences has a minimum duration of three years.",
     category: "Global Exposure, Professional Recognition & General"
   },
   {
-    q: "What makes Geeta Institute of Pharmacy different from a purely classroom-based pharmacy programme?",
+    q: "What makes Geeta Institute of Pharmacy different from a purely classroom-based pharmacy program?",
     a: "The Institute combines pharmaceutical theory with modern laboratories, practical training, research opportunities, industry collaborations, industrial visits, internships, expert lectures, conferences and career support.",
     category: "Global Exposure, Professional Recognition & General"
   },

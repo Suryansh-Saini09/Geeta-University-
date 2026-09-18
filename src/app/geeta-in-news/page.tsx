@@ -442,7 +442,7 @@ export default function GeetaInNewsPage() {
       </section>
 
       {/* ── Filters & News Clippings Grid ── */}
-      <section className="py-16 md:py-20">
+      <section className="py-10 md:py-14">
         <div className="gu-container">
           <div className="max-w-6xl mx-auto space-y-8">
             {/* Controls Bar: Search & Publications */}

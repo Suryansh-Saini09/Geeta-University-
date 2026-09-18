@@ -3,7 +3,7 @@ import type { CourseFAQItem } from "../courses/types";
 
 export const healthSciencesFaqs: CourseFAQItem[] = [
   {
-    question: "What programmes are offered by the School of Health & Allied Sciences at Geeta University?",
+    question: "What programs are offered by the School of Health & Allied Sciences at Geeta University?",
     answer: "The current School page lists B.Sc. Hons. (Nutrition & Dietetics), M.Sc. (Nutrition & Dietetics) and Ph.D. (Nutrition & Dietetics).",
     category: "Admissions & Eligibility"
   },
@@ -38,59 +38,59 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
     category: "Admissions & Eligibility"
   },
   {
-    question: "Is prior work experience required for the B.Sc. programme?",
-    answer: "No, it is not required for the admission for the B.Sc. programme.",
+    question: "Is prior work experience required for the B.Sc. program?",
+    answer: "No, it is not required for the admission for the B.Sc. program.",
     category: "Admissions & Eligibility"
   },
   {
-    question: "How long is the B.Sc. Hons. Nutrition & Dietetics programme?",
-    answer: "The B.Sc. Hons. programme is a four-year degree.",
-    category: "Programme & Curriculum"
+    question: "How long is the B.Sc. Hons. Nutrition & Dietetics program?",
+    answer: "The B.Sc. Hons. program is a four-year degree.",
+    category: "Program & Curriculum"
   },
   {
-    question: "How long is the M.Sc. Nutrition & Dietetics programme?",
-    answer: "The M.Sc. Nutrition & Dietetics programme is a two-year postgraduate degree.",
-    category: "Programme & Curriculum"
+    question: "How long is the M.Sc. Nutrition & Dietetics program?",
+    answer: "The M.Sc. Nutrition & Dietetics program is a two-year postgraduate degree.",
+    category: "Program & Curriculum"
   },
   {
     question: "What is the minimum duration of the Ph.D. in Nutrition & Dietetics?",
     answer: "There is a minimum duration of three years for Ph.D. in Nutrition & Dietetics.",
-    category: "Programme & Curriculum"
+    category: "Program & Curriculum"
   },
   {
     question: "What does Nutrition & Dietetics actually cover?",
     answer: "The discipline combines nutrition science, human physiology, diet planning, clinical nutrition, food science and technology, public health, wellness and evidence-based approaches to improving health and preventing nutrition-related problems.",
-    category: "Programme & Curriculum"
+    category: "Program & Curriculum"
   },
   {
     question: "What specialisation areas are available within Nutrition & Dietetics?",
     answer: "The Specialisation areas include diet planning, food science and technology and fitness management, while its broader curriculum also highlights clinical nutrition, public health, sports nutrition and nutraceuticals.",
-    category: "Programme & Curriculum"
+    category: "Program & Curriculum"
   },
   {
-    question: "Does the programme focus only on diet charts and meal planning?",
-    answer: "No. The programme combines scientific nutrition knowledge with clinical, community and food-industry applications, laboratory work, research and professional training.",
-    category: "Programme & Curriculum"
+    question: "Does the program focus only on diet charts and meal planning?",
+    answer: "No. The program combines scientific nutrition knowledge with clinical, community and food-industry applications, laboratory work, research and professional training.",
+    category: "Program & Curriculum"
   },
   {
     question: "Does the curriculum include clinical nutrition?",
     answer: "Yes. Clinical nutrition is specifically highlighted as an area of practical exposure and a career pathway.",
-    category: "Programme & Curriculum"
+    category: "Program & Curriculum"
   },
   {
-    question: "Does the programme include food science and technology?",
+    question: "Does the program include food science and technology?",
     answer: "Yes. Food science and technology is included in the form of food-analysis laboratories and food-industry exposure.",
-    category: "Programme & Curriculum"
+    category: "Program & Curriculum"
   },
   {
-    question: "Does the programme include sports nutrition and fitness?",
-    answer: "Yes. The programme focuses on emerging areas such as sports nutrition and fitness management, along with certifications related to exercise and human-body fundamentals.",
-    category: "Programme & Curriculum"
+    question: "Does the program include sports nutrition and fitness?",
+    answer: "Yes. The program focuses on emerging areas such as sports nutrition and fitness management, along with certifications related to exercise and human-body fundamentals.",
+    category: "Program & Curriculum"
   },
   {
-    question: "Does the programme cover nutraceuticals?",
+    question: "Does the program cover nutraceuticals?",
     answer: "Yes. Nutraceuticals are specifically identified among the emerging areas covered through the School's new-age certification and skill-development focus.",
-    category: "Programme & Curriculum"
+    category: "Program & Curriculum"
   },
   {
     question: "How much practical training do Nutrition & Dietetics students receive?",
@@ -133,7 +133,7 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
     category: "Practical Learning, Labs & Clinical Exposure"
   },
   {
-    question: "Are internships part of the Nutrition & Dietetics programmes?",
+    question: "Are internships part of the Nutrition & Dietetics programs?",
     answer: "Yes. Internships are a key part of industry-aligned training, including hospital internships and exposure to nutritionists and food-industry professionals.",
     category: "Internships, Industry & Professional Exposure"
   },
@@ -169,7 +169,7 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
   },
   {
     question: "Can undergraduate students participate in research projects?",
-    answer: "Project work and research-oriented learning are an imperative part of school. Specific undergraduate research opportunities depend on faculty projects, the academic calendar and the student's programme.",
+    answer: "Project work and research-oriented learning are an imperative part of school. Specific undergraduate research opportunities depend on faculty projects, the academic calendar and the student's program.",
     category: "Research & Higher Education"
   },
   {
@@ -194,7 +194,7 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
   },
   {
     question: "What career opportunities are available after B.Sc. Nutrition & Dietetics?",
-    answer: "Graduates can explore roles in clinical nutrition, hospitals, wellness organisations, food companies, public-health programmes, sports and fitness, corporate wellness, research and other nutrition-related sectors.",
+    answer: "Graduates can explore roles in clinical nutrition, hospitals, wellness organisations, food companies, public-health programs, sports and fitness, corporate wellness, research and other nutrition-related sectors.",
     category: "Career Opportunities & Professional Pathways"
   },
   {
@@ -289,7 +289,7 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
   },
   {
     question: "Is B.Sc. Nutrition & Dietetics suitable for students who did not study PCB?",
-    answer: "Yes. Unlike many health programmes, several backgrounds are eligible, including Nutrition, Home Science, Mathematics, Commerce, Arts and vocational subjects, along with PCB.",
+    answer: "Yes. Unlike many health programs, several backgrounds are eligible, including Nutrition, Home Science, Mathematics, Commerce, Arts and vocational subjects, along with PCB.",
     category: "Faculty, Student Experience & Decision-Making"
   },
   {
@@ -298,13 +298,13 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
     category: "Faculty, Student Experience & Decision-Making"
   },
   {
-    question: "What makes the School different from a purely classroom-based nutrition programme?",
+    question: "What makes the School different from a purely classroom-based nutrition program?",
     answer: "The School combines an in-house Diet Clinic, modern food and clinical laboratories, hospital exposure, case-based learning, internships, industry visits, research projects, community health activities and emerging-area certifications.",
     category: "Faculty, Student Experience & Decision-Making"
   },
   {
     question: "Can Nutrition & Dietetics students work in both healthcare and the food industry?",
-    answer: "Yes. The programme is intentionally positioned across clinical nutrition, community health and food-industry applications, giving students exposure to both healthcare and food-related career environments.",
+    answer: "Yes. The program is intentionally positioned across clinical nutrition, community health and food-industry applications, giving students exposure to both healthcare and food-related career environments.",
     category: "General"
   },
   {
@@ -329,7 +329,7 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
   },
   {
     question: "What is the difference between Nutrition and Dietetics?",
-    answer: "Nutrition is the broader science of nutrients, food and their relationship with health, while dietetics applies nutrition science to practical dietary planning and professional settings such as clinical and community care. The programme integrates both perspectives.",
+    answer: "Nutrition is the broader science of nutrients, food and their relationship with health, while dietetics applies nutrition science to practical dietary planning and professional settings such as clinical and community care. The program integrates both perspectives.",
     category: "General"
   }
 ];

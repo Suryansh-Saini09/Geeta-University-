@@ -183,7 +183,7 @@ export default function ScholarshipPredictorSection() {
                 Find your true potential by using our simple-to-use scholarship
                 Predictor Tool created to assist you in determining the amount
                 of scholarships you&apos;re qualified for on Geeta University. Just a
-                couple of quick selections--your category, your programme and
+                couple of quick selections--your category, your program and
                 academic record--you&apos;ll get an exact, precise estimation in just
                 a few seconds.
               </p>
@@ -236,7 +236,7 @@ export default function ScholarshipPredictorSection() {
                         fontSize: "0.85rem",
                       }}
                     >
-                      Special Programme
+                      Special Program
                     </span>
 
                     <h3 className="font-bold mb-3 font-serif" style={{ color: "#06355F", fontSize: "1.6rem" }}>
@@ -244,7 +244,7 @@ export default function ScholarshipPredictorSection() {
                     </h3>
 
                     <p className="mb-4" style={{ color: "#444", fontSize: "1.05rem", lineHeight: 1.6 }}>
-                      A special scholarship programme of Geeta University.<br />
+                      A special scholarship program of Geeta University.<br />
                       <strong style={{ color: "#06355F" }}>
                         For the students of Himachal Pradesh, Jammu &amp; Kashmir, Ladakh, and Northeast India.
                       </strong>
@@ -313,7 +313,7 @@ export default function ScholarshipPredictorSection() {
                     >
                       <p className="mb-0" style={{ color: "#444", fontSize: "0.95rem" }}>
                         Applicable for selected programs in Engineering, Computer Applications, Management, Nutrition &amp;
-                        Dietetics, Hospitality, Humanities, Forensic Science, Pharmacy, Commerce, Agriculture, and Law programmes.
+                        Dietetics, Hospitality, Humanities, Forensic Science, Pharmacy, Commerce, Agriculture, and Law programs.
                       </p>
                     </div>
 
@@ -379,11 +379,11 @@ export default function ScholarshipPredictorSection() {
                       value={
                         selectedProgramData
                           ? JSON.stringify({
-                              fee: selectedProgramData.fee,
-                              tuition: selectedProgramData.tuition,
-                              name: selectedProgramData.name,
-                              level: selectedProgramData.level,
-                            })
+                            fee: selectedProgramData.fee,
+                            tuition: selectedProgramData.tuition,
+                            name: selectedProgramData.name,
+                            level: selectedProgramData.level,
+                          })
                           : ""
                       }
                       onChange={handleProgramChange}
@@ -397,11 +397,11 @@ export default function ScholarshipPredictorSection() {
                           value={JSON.stringify({
                             fee: p.prog_fee_per_sem,
                             tuition: p.tuition_fee,
-                            name: p.programme,
+                            name: p.program,
                             level: p.level,
                           })}
                         >
-                          {p.programme}
+                          {p.program}
                         </option>
                       ))}
                     </select>

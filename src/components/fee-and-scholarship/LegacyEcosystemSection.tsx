@@ -30,7 +30,7 @@ export default function LegacyEcosystemSection() {
   ];
 
   return (
-    <section className="w-full bg-white py-16 sm:py-20 md:py-24 border-b border-[#E2E8F0]">
+    <section className="w-full bg-white py-12 md:py-16 border-b border-[#E2E8F0]">
       <div className="gu-container">
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">

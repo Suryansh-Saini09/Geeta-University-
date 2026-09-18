@@ -29,7 +29,7 @@ export default function ProgramAbout({ about, intro, visionMission, dean, school
   const closingText = data.closingText || "Our learning environment combines strong academic foundations, real-world practical experience, expert mentorship, and dedicated career support — ensuring graduates are ready to contribute from day one.";
 
   return (
-    <section id="About" style={{ padding: "90px 0", background: "#FFFFFF", color: "#000" }}>
+    <section id="About" style={{ padding: "52px 0 48px", background: "#FFFFFF", color: "#000" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         {/* Header Block */}
         <div style={{ marginBottom: careers.length > 0 ? 56 : 32, maxWidth: 960 }}>

@@ -64,7 +64,13 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
       {testimonialItems.length > 0 && (
         <section
           id="Testimonials"
-          className="relative overflow-hidden bg-[#0A1F44] py-16 md:py-24 border-t border-white/5"
+          style={{
+            background: "#0A1F44",
+            padding: "52px 0",
+            position: "relative",
+            overflow: "hidden",
+            borderTop: "1px solid rgba(255, 255, 255, 0.05)",
+          }}
         >
           {/* Decorative Blur Spheres */}
           <div
@@ -199,7 +205,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
 
       {/* ── PLACEMENT METRICS & ANALYTICS ────────────────────────────────────── */}
       {placement && (
-        <section style={{ padding: "90px 0", background: "#FFFFFF" }}>
+        <section style={{ padding: "52px 0 48px", background: "#FFFFFF" }}>
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
             <div
               style={{

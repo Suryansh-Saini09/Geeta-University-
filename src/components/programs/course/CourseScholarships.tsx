@@ -23,7 +23,7 @@ export default function ScholarshipsSection({ scholarships }: CourseScholarships
   const gutsButtonText = scholarships?.guts?.linkText || gutsData.buttonText;
   const gutsButtonHref = scholarships?.guts?.linkUrl || gutsData.buttonHref;
   return (
-    <section className="relative overflow-hidden bg-[#F5F8FA] py-20 md:py-24">
+    <section className="relative overflow-hidden bg-[#F5F8FA] py-10 md:py-14">
       {/* Decorative background */}
       <div
         aria-hidden="true"

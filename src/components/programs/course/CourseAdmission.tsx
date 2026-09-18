@@ -11,7 +11,7 @@ export default function CourseAdmission({ admission }: CourseAdmissionProps) {
   if (!admission) return null;
 
   return (
-    <section className="w-full bg-white py-14 md:py-20 border-t border-slate-100">
+    <section className="w-full bg-white py-10 md:py-14 border-t border-slate-100">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
           {/* Admission Process / Eligibility */}
@@ -36,7 +36,7 @@ export default function CourseAdmission({ admission }: CourseAdmissionProps) {
           {admission.whyChooseHeading && (
             <div>
               <span className="text-xs uppercase tracking-widest text-amber-600 font-semibold">
-                Programme Insight
+                Program Insight
               </span>
               <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#0A1F44] mt-1 mb-4">
                 {admission.whyChooseHeading}

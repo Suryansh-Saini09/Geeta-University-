@@ -110,7 +110,7 @@ export default function RankingsAccreditations({
       id="Rankings"
       style={{
         background: "#FDF1D6",
-        padding: "80px 0 100px",
+        padding: "48px 0 52px",
         position: "relative",
       }}
     >

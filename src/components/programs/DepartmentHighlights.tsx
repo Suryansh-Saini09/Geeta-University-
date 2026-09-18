@@ -59,7 +59,12 @@ export default function DepartmentHighlights({
   return (
     <section
       id="DepartmentHighlights"
-      className="relative overflow-hidden bg-[#FDF1D6] py-16 md:py-24"
+      style={{
+        padding: "52px 0 48px",
+        background: "#FDF1D6",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
       {/* Decorative Background Elements */}
       <div

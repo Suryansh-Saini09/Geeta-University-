@@ -43,7 +43,7 @@ export default function EdgePage({ data }: EdgePageProps) {
           <EdgeFeatureGrid key={featureSection.id} section={featureSection} />
         ))}
 
-      {/* 7. Accordion Sections (e.g. Law Programmes) */}
+      {/* 7. Accordion Sections (e.g. Law programs) */}
       {data.accordions &&
         data.accordions.map((accSection) => (
           <EdgeAccordion key={accSection.id} section={accSection} />

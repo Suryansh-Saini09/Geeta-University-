@@ -811,7 +811,7 @@ export default function HomeProgramsSection() {
   return (
     <section
       aria-labelledby="programs-heading"
-      className="relative overflow-hidden bg-white py-16 md:py-20 lg:py-24"
+      className="relative overflow-hidden bg-white py-12 md:py-16"
     >
       {/* Background accent */}
       <div

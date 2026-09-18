@@ -169,7 +169,7 @@ export default function AboutPanipatPage() {
       </section>
 
       {/* ── The 3 Historic Battles Section ── */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-14">
         <div className="gu-container">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full bg-[#0A1F44]/5 px-4 py-1.5 mb-3 border border-[#0A1F44]/10">
@@ -246,7 +246,7 @@ export default function AboutPanipatPage() {
       </section>
 
       {/* ── Landmarks of Panipat Section ── */}
-      <section className="bg-slate-100/70 py-16 md:py-24 border-y border-slate-200">
+      <section className="bg-slate-100/70 py-10 md:py-14 border-y border-slate-200">
         <div className="gu-container">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 rounded-full bg-[#0A1F44]/5 px-4 py-1.5 mb-3 border border-[#0A1F44]/10">
@@ -300,7 +300,7 @@ export default function AboutPanipatPage() {
       </section>
 
       {/* ── Geography & Demographics Section ── */}
-      <section className="py-16 md:py-20">
+      <section className="py-10 md:py-14">
         <div className="gu-container">
           <div className="max-w-4xl mx-auto">
             <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-12 shadow-xl shadow-slate-100">

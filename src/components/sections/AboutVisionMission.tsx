@@ -96,7 +96,7 @@ export default function AboutVisionMission() {
 
       <section
         id="identity"
-        className="scroll-mt-[190px] relative overflow-hidden bg-white py-16 md:py-24"
+        className="scroll-mt-[190px] relative overflow-hidden bg-white py-12 md:py-16"
       >
         <div className="gu-container relative">
           {/* Heading */}

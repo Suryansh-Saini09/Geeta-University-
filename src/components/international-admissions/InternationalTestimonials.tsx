@@ -33,7 +33,7 @@ export default function InternationalTestimonials() {
   };
 
   return (
-    <section className="py-20 bg-[#0A1F44] text-white overflow-hidden relative">
+    <section className="py-10 md:py-14 bg-[#0A1F44] text-white overflow-hidden relative">
       {/* Ambient background glows */}
       <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-[#E8871A]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />

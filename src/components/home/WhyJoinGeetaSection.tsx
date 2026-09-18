@@ -12,7 +12,7 @@ export default function WhyJoinGeetaSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 md:py-24">
+    <section className="relative overflow-hidden bg-white py-12 md:py-16">
       {/* Decorative background element */}
       <div
         aria-hidden="true"

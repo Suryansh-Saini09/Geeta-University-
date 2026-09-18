@@ -86,7 +86,7 @@ export default function InternationalProgramsAccordion() {
   }, [searchTerm, activeTab]);
 
   return (
-    <section className="py-20 bg-[#F7F9FC]" id="programs-offered">
+    <section className="py-10 md:py-14 bg-[#F7F9FC]" id="programs-offered">
       <div className="gu-container">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">

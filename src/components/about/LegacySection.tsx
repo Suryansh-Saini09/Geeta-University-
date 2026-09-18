@@ -27,7 +27,7 @@ export default function LegacySection() {
           background:
             linear-gradient(180deg, #FFFFFF 0%, #F7FAFE 54%, #FFFFFF 100%);
           color: #0A1F44;
-          padding: 76px 24px 86px;
+          padding: 48px 24px 56px;
           font-family: 'Sapient', 'Source Sans 3', sans-serif;
           overflow: hidden;
           position: relative;
@@ -192,12 +192,14 @@ export default function LegacySection() {
         .spbsb-legacy-year {
           display: block;
           color: #243A9A;
-          font-family: 'Zilla Slab', serif;
-          font-size: clamp(22px, 2.3vw, 28px);
+          font-family: 'Source Sans 3', var(--font-sans), sans-serif !important;
+          font-variant-numeric: lining-nums tabular-nums;
+          font-feature-settings: "lnum" 1;
+          font-size: clamp(24px, 2.5vw, 30px);
           line-height: 1;
-          font-weight: 700;
-          letter-spacing: 0.02em;
-          margin-bottom: 5px;
+          font-weight: 800;
+          letter-spacing: 0.01em;
+          margin-bottom: 6px;
         }
         .spbsb-legacy-text {
           color: #535760;
@@ -219,7 +221,7 @@ export default function LegacySection() {
         }
         @media (max-width: 900px) {
           .spbsb-legacy-section {
-            padding: 62px 20px 72px;
+            padding: 36px 20px 44px;
           }
           .spbsb-legacy-intro {
             margin-bottom: 34px;
@@ -323,7 +325,7 @@ export default function LegacySection() {
                 transition={{ duration: 0.4, delay: Math.min(index * 0.06, 0.35) + 0.08 }}
               />
               <div className="spbsb-legacy-content">
-                <span className="spbsb-legacy-year">{item.year}</span>
+                <span className="spbsb-legacy-year font-sans font-bold">{item.year}</span>
                 <p className="spbsb-legacy-text">{item.title}</p>
               </div>
             </motion.article>

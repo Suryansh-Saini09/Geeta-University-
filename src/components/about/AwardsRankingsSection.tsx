@@ -33,7 +33,7 @@ export default function AwardsRankingsSection() {
   return (
     <section
       id="awards-ranking"
-      className="scroll-mt-[190px] overflow-hidden bg-[#F7F8FA] pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-12"
+      className="scroll-mt-[190px] overflow-hidden bg-[#F7F8FA] pt-12 md:pt-16 pb-8 md:pb-10"
     >
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
         {/* SECTION INTRO */}

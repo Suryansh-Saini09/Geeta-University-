@@ -71,7 +71,7 @@ export default function InfrastructureSection({ onOpenVirtualTour }: Infrastruct
   };
 
   return (
-    <section id="infrastructure" className="scroll-mt-[190px] bg-[#F7F9FC] py-20 lg:py-24">
+    <section id="infrastructure" className="scroll-mt-[190px] bg-[#F7F9FC] py-10 md:py-14">
       <div className="gu-container">
         {/* Section Header */}
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">

@@ -158,7 +158,7 @@ export default function ProgramCourses({
     <section
       id="Programs"
       style={{
-        padding: "100px 0",
+        padding: "52px 0 48px",
         background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)",
         position: "relative",
       }}

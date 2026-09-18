@@ -21,7 +21,7 @@ export default function StudentSuccessStories() {
   };
 
   return (
-    <section id="stories" className="scroll-mt-[190px] bg-[#F7F9FC] py-20 lg:py-24 border-t border-[#E2E8F0] overflow-hidden">
+    <section id="stories" className="scroll-mt-[190px] bg-[#F7F9FC] py-12 md:py-16 border-t border-[#E2E8F0] overflow-hidden">
       <div className="gu-container">
         {/* Section Header */}
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">

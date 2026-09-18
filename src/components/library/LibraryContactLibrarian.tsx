@@ -4,7 +4,7 @@ import { librarianContactData } from "@/data/libraryData";
 
 export default function LibraryContactLibrarian() {
   return (
-    <section className="w-full bg-[#F7F9FC] py-16 border-t border-slate-200">
+    <section className="w-full bg-[#F7F9FC] py-12 border-t border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 shadow-xl">
           <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">

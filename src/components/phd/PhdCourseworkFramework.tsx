@@ -207,7 +207,7 @@ export default function PhdCourseworkFramework() {
               </h3>
             </div>
             <p className="text-[15.5px] leading-relaxed text-[#334155]">
-              The Ph.D. Programme shall be for a minimum duration of <strong>three (3) years</strong>, including coursework, and a maximum duration of <strong>six (6) years</strong> from the date of admission to the doctoral programme.
+              The Ph.D. Program shall be for a minimum duration of <strong>three (3) years</strong>, including coursework, and a maximum duration of <strong>six (6) years</strong> from the date of admission to the doctoral program.
             </p>
           </div>
 

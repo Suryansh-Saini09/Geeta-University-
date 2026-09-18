@@ -28,7 +28,7 @@ interface AlumniFormData {
   organisation: string;
   current_role: string;
   year_of_passout: string;
-  programme_level: string;
+  program_level: string;
   school: string;
   q1_career_development: string;
   q2_entrepreneur_support: string;
@@ -45,7 +45,7 @@ const initialFormData: AlumniFormData = {
   organisation: "",
   current_role: "",
   year_of_passout: "",
-  programme_level: "",
+  program_level: "",
   school: "",
   q1_career_development: "",
   q2_entrepreneur_support: "",
@@ -144,7 +144,7 @@ export default function AlumniFeedbackPage() {
       !formData.organisation.trim() ||
       !formData.current_role.trim() ||
       !formData.year_of_passout ||
-      !formData.programme_level ||
+      !formData.program_level ||
       !formData.school
     ) {
       return false;
@@ -187,7 +187,7 @@ export default function AlumniFeedbackPage() {
         organisation: formData.organisation.trim(),
         current_role: formData.current_role.trim(),
         year_of_passout: formData.year_of_passout,
-        programme_level: formData.programme_level,
+        program_level: formData.program_level,
         school: formData.school,
         q1_career_development: formData.q1_career_development,
         q2_entrepreneur_support: formData.q2_entrepreneur_support,
@@ -282,7 +282,7 @@ export default function AlumniFeedbackPage() {
       </section>
 
       {/* ── Main Form Section ── */}
-      <section className="py-16 md:py-20">
+      <section className="py-10 md:py-14">
         <div className="gu-container">
           <div className="mx-auto max-w-3xl">
             {isSubmitted ? (
@@ -503,20 +503,20 @@ export default function AlumniFeedbackPage() {
                         </select>
                       </div>
 
-                      {/* Programme Level */}
+                      {/* Program Level */}
                       <div className="space-y-2">
                         <label className="block text-sm font-semibold text-slate-700">
-                          Programme Level <span className="text-red-500">*</span>
+                          Program Level <span className="text-red-500">*</span>
                         </label>
                         <select
-                          name="programme_level"
+                          name="program_level"
                           required
-                          value={formData.programme_level}
+                          value={formData.program_level}
                           onChange={handleChange}
                           className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 transition-colors focus:border-[#0A1F44] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0A1F44]/20"
                         >
                           <option value="" disabled>
-                            Select Programme Level
+                            Select Program Level
                           </option>
                           <option value="UG">Undergraduate (UG)</option>
                           <option value="PG">Postgraduate (PG)</option>

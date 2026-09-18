@@ -21,7 +21,7 @@ export default function UniverseOfGUSection() {
   };
 
   return (
-    <section id="universe-of-gu" className="scroll-mt-24 py-20 bg-[#F7F9FC]">
+    <section id="universe-of-gu" className="scroll-mt-24 py-10 md:py-14 bg-[#F7F9FC]">
       <div className="gu-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Narrative & MOUs */}

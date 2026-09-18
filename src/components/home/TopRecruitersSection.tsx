@@ -59,7 +59,7 @@ export default function TopRecruitersSection() {
   return (
     <section
       aria-labelledby="top-recruiters-heading"
-      className="relative overflow-hidden bg-white py-16 md:py-20 lg:py-24"
+      className="relative overflow-hidden bg-white py-12 md:py-16"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
         <motion.div
