@@ -200,23 +200,6 @@ export default function CampusEventsSection({ onOpenEventsVideo }: CampusEventsS
               ))}
             </div>
           </div>
-
-          {/* Bottom Pagination Bullets */}
-          <div className="mt-10 flex items-center justify-center gap-2">
-            {Array.from({ length: totalSlides }).map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => setCurrentIndex(idx)}
-                aria-label={`Go to slide ${idx + 1}`}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  currentIndex === idx
-                    ? "w-8 bg-[#E8871A]"
-                    : "w-2.5 bg-[#CBD5E1] hover:bg-[#94A3B8]"
-                }`}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </section>

@@ -600,7 +600,7 @@ export const lawSchool: ProgramPageData = {
   },
 
   brochure: {
-    title: "Download Geeta Global Law School Brochure",
+    title: "Want to know more?",
     description:
       "Access detailed syllabus guides for B.A. LL.B., B.B.A. LL.B., LL.M., and Ph.D., moot court achievements, mentor profiles, and admission guidelines.",
     fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",

@@ -1,20 +1,16 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import React from "react";
 import {
   Award,
   Building2,
   BriefcaseBusiness,
   ChartNoAxesColumnIncreasing,
   PieChart,
-  ChevronLeft,
-  ChevronRight,
-  Quote,
 } from "lucide-react";
 import type { ProgramPageData, TestimonialItem } from "@/data/programs/types";
 import { getProgramIcon } from "./iconHelper";
+import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
 interface ProgramPlacementProps {
   placement?: ProgramPageData["placement"];
@@ -23,114 +19,28 @@ interface ProgramPlacementProps {
 
 export default function ProgramPlacement({ placement, testimonials }: ProgramPlacementProps) {
   const testimonialItems = testimonials && testimonials.length > 0 ? testimonials : [];
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const track0Ref = useRef<HTMLDivElement>(null);
-  const isHoveredRef = useRef(false);
-  const isInteractingRef = useRef(false);
-  const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const getSetWidth = useCallback(() => {
-    if (track0Ref.current) {
-      return track0Ref.current.offsetWidth + 24;
-    }
-    return 0;
-  }, []);
-
-  const getScrollStep = useCallback(() => {
-    if (!scrollContainerRef.current) return 404;
-    const wrapper = scrollContainerRef.current.querySelector(".testimonial-card-wrapper") as HTMLElement;
-    if (wrapper) {
-      return wrapper.offsetWidth + 24;
-    }
-    return 404;
-  }, []);
-
-  const pauseAutoScroll = useCallback(() => {
-    isInteractingRef.current = true;
-    if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
-    interactionTimeoutRef.current = setTimeout(() => {
-      isInteractingRef.current = false;
-    }, 4000);
-  }, []);
-
-  const handleScroll = useCallback(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    const setWidth = getSetWidth();
-    if (setWidth <= 0) return;
-
-    if (container.scrollLeft >= setWidth * 2) {
-      container.scrollLeft -= setWidth;
-    } else if (container.scrollLeft <= 20) {
-      container.scrollLeft += setWidth;
-    }
-  }, [getSetWidth]);
-
-  const scrollLeft = useCallback(() => {
-    pauseAutoScroll();
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    const setWidth = getSetWidth();
-    const step = getScrollStep();
-
-    if (setWidth > 0 && container.scrollLeft < setWidth - 50) {
-      container.scrollLeft += setWidth;
-    }
-
-    container.scrollBy({ left: -step, behavior: "smooth" });
-  }, [getSetWidth, getScrollStep, pauseAutoScroll]);
-
-  const scrollRight = useCallback(() => {
-    pauseAutoScroll();
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    const setWidth = getSetWidth();
-    const step = getScrollStep();
-
-    if (setWidth > 0 && container.scrollLeft >= setWidth * 2 - 50) {
-      container.scrollLeft -= setWidth;
-    }
-
-    container.scrollBy({ left: step, behavior: "smooth" });
-  }, [getSetWidth, getScrollStep, pauseAutoScroll]);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container || testimonialItems.length === 0) return;
-
-    const initPos = () => {
-      if (track0Ref.current && container.scrollLeft === 0) {
-        const setWidth = track0Ref.current.offsetWidth + 24;
-        container.scrollLeft = setWidth;
-      }
-    };
-    initPos();
-    const timer = setTimeout(initPos, 150);
-
-    let animationFrameId: number;
-
-    const autoScrollStep = () => {
-      if (container && !isHoveredRef.current && !isInteractingRef.current) {
-        container.scrollLeft += 0.8;
-        const setWidth = track0Ref.current ? track0Ref.current.offsetWidth + 24 : 0;
-        if (setWidth > 0) {
-          if (container.scrollLeft >= setWidth * 2) {
-            container.scrollLeft -= setWidth;
-          } else if (container.scrollLeft <= 10) {
-            container.scrollLeft += setWidth;
-          }
-        }
-      }
-      animationFrameId = requestAnimationFrame(autoScrollStep);
-    };
-
-    animationFrameId = requestAnimationFrame(autoScrollStep);
-
-    return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [testimonialItems.length]);
+  const {
+    containerRef,
+    currentIndex,
+    maxIndex,
+    next,
+    prev,
+    goTo,
+    handleScroll,
+    handleMouseDown,
+    handleMouseLeave,
+    handleMouseEnter,
+    handleMouseUp,
+    handleMouseMove,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useFiniteCarousel({
+    totalItems: testimonialItems.length,
+    autoplayInterval: 3000,
+    enableAutoplay: true,
+  });
 
   const stats = placement?.stats && placement.stats.length > 0 ? placement.stats : [
     { value: "40 LPA", label: "Highest Package", iconName: "Award" },
@@ -164,375 +74,132 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
         >
           {/* Decorative Blur Spheres */}
           <div
-            style={{
-              position: "absolute",
-              top: "-10%",
-              left: "-10%",
-              width: 500,
-              height: 500,
-              background: "radial-gradient(circle, rgba(232,135,26,0.08) 0%, transparent 70%)",
-              borderRadius: "50%",
-              pointerEvents: "none",
-            }}
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-20 -left-20 h-96 w-96 rounded-full bg-[#E8871A]/10 blur-3xl"
           />
           <div
-            style={{
-              position: "absolute",
-              bottom: "-10%",
-              right: "-10%",
-              width: 500,
-              height: 500,
-              background: "radial-gradient(circle, rgba(232,135,26,0.06) 0%, transparent 70%)",
-              borderRadius: "50%",
-              pointerEvents: "none",
-            }}
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-[#E8871A]/8 blur-3xl"
           />
 
-          <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
+          <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
             {/* Section Header */}
-            <div style={{ textAlign: "center", marginBottom: 54 }}>
-              {/* <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 12,
-                  marginBottom: 16,
-                }}
-              >
-                <span style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-                <span
-                  style={{
-                    color: "#E8871A",
-                    fontSize: 12,
-                    fontWeight: 800,
-                    letterSpacing: "2px",
-                    textTransform: "uppercase",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  Alumni & Student Voices
-                </span>
-                <span style={{ width: 32, height: 2, background: "#E8871A", borderRadius: 2 }} />
-              </div> */}
-              <h2
-                style={{
-                  fontSize: 42,
-                  fontWeight: 900,
-                  color: "#FFFFFF",
-                  margin: 0,
-                  lineHeight: 1.1,
-                  letterSpacing: "-1px",
-                }}
-              >
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <h2 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
                 Student Testimonials
               </h2>
-              {/* <p
-                style={{
-                  fontSize: 16,
-                  color: "rgba(255, 255, 255, 0.7)",
-                  maxWidth: 750,
-                  margin: "0 auto",
-                  lineHeight: 1.7,
-                  fontWeight: 450,
-                }}
-              >
-                Read first-hand accounts from our alumni and students about their career transformations, academic mentorship, and experiential journey.
-              </p> */}
+              <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-[#E8871A]" />
             </div>
 
-            {/* Scrollable & Auto-Moving Testimonials Container */}
-            <div style={{ position: "relative" }}>
-              {/* Previous Slide Button */}
-              {testimonialItems.length > 2 && (
-                <button
-                  type="button"
-                  onClick={scrollLeft}
-                  aria-label="Scroll left testimonials"
-                  style={{
-                    position: "absolute",
-                    left: -20,
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    zIndex: 20,
-                    width: 46,
-                    height: 46,
-                    borderRadius: "50%",
-                    background: "rgba(10, 31, 68, 0.85)",
-                    border: "1px solid rgba(232, 135, 26, 0.4)",
-                    color: "#FFFFFF",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
-                    backdropFilter: "blur(10px)",
-                    transition: "all 0.3s ease",
-                  }}
-                  className="carousel-arrow prev-arrow"
-                >
-                  <ChevronLeft size={22} strokeWidth={2.2} />
-                </button>
-              )}
-
-              {/* Next Slide Button */}
-              {testimonialItems.length > 2 && (
-                <button
-                  type="button"
-                  onClick={scrollRight}
-                  aria-label="Scroll right testimonials"
-                  style={{
-                    position: "absolute",
-                    right: -20,
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    zIndex: 20,
-                    width: 46,
-                    height: 46,
-                    borderRadius: "50%",
-                    background: "rgba(10, 31, 68, 0.85)",
-                    border: "1px solid rgba(232, 135, 26, 0.4)",
-                    color: "#FFFFFF",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
-                    backdropFilter: "blur(10px)",
-                    transition: "all 0.3s ease",
-                  }}
-                  className="carousel-arrow next-arrow"
-                >
-                  <ChevronRight size={22} strokeWidth={2.2} />
-                </button>
-              )}
-
-              {/* Scrollable & Auto-Moving Track */}
+            {/* Scrollable & Draggable Testimonials Track */}
+            <div className="relative">
               <div
-                ref={scrollContainerRef}
+                ref={containerRef}
                 onScroll={handleScroll}
-                onMouseEnter={() => {
-                  isHoveredRef.current = true;
-                }}
-                onMouseLeave={() => {
-                  isHoveredRef.current = false;
-                }}
-                onTouchStart={pauseAutoScroll}
-                className="alumni-scroll-container"
-                style={{
-                  display: "flex",
-                  overflowX: "auto",
-                  overflowY: "hidden",
-                  padding: "10px 0 30px",
-                  gap: 24,
-                  scrollbarWidth: "none",
-                  msOverflowStyle: "none",
-                  cursor: "grab",
-                  WebkitOverflowScrolling: "touch",
-                }}
+                onMouseDown={handleMouseDown}
+                onMouseLeave={handleMouseLeave}
+                onMouseEnter={handleMouseEnter}
+                onMouseUp={handleMouseUp}
+                onMouseMove={handleMouseMove}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               >
-                {[0, 1, 2].map((setIndex) => (
-                  <div
-                    key={setIndex}
-                    ref={setIndex === 0 ? track0Ref : undefined}
-                    className="alumni-scroll-track"
-                    style={{ display: "flex", gap: 24, flexShrink: 0 }}
-                  >
-                    {testimonialItems.map((item, idx) => {
-                      const initials = item.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("");
-                      const pkg = item.pkg || item.package;
-                      const quote = item.quote || item.testimonial || "";
-                      const role = item.role || "";
-                      const company = item.company || "";
+                {testimonialItems.map((item, index) => {
+                  const initials = item.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("");
+                  const pkg = item.pkg || item.package;
+                  const quote = item.quote || item.testimonial || "";
+                  const role = item.role || "";
+                  const company = item.company || "";
 
-                      const detailsParts = [];
-                      if (role) detailsParts.push(role);
-                      if (company && !role.includes(company)) detailsParts.push(company);
-                      if (pkg && !role.includes(pkg) && !company.includes(pkg)) detailsParts.push(pkg);
-                      const displayDetails = detailsParts.join(" • ") || company || role;
+                  const detailsParts = [];
+                  if (role) detailsParts.push(role);
+                  if (company && !role.includes(company)) detailsParts.push(company);
+                  if (pkg && !role.includes(pkg) && !company.includes(pkg)) detailsParts.push(pkg);
+                  const displayDetails = detailsParts.join(" • ") || company || role;
 
-                      return (
-                        <div
-                          key={`${setIndex}-${idx}`}
-                          className="testimonial-card-wrapper"
-                          style={{
-                            width: 380,
-                            maxWidth: "85vw",
-                            flexShrink: 0,
-                            boxSizing: "border-box",
-                          }}
-                        >
-                          <div
-                            style={{
-                              background: "rgba(255, 255, 255, 0.03)",
-                              backdropFilter: "blur(20px)",
-                              WebkitBackdropFilter: "blur(20px)",
-                              border: "1px solid rgba(255, 255, 255, 0.08)",
-                              borderRadius: "24px",
-                              padding: "36px 30px",
-                              display: "flex",
-                              flexDirection: "column",
-                              justifyContent: "space-between",
-                              height: "100%",
-                              minHeight: 280,
-                              position: "relative",
-                              overflow: "hidden",
-                              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
-                              transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-                            }}
-                            className="testimonial-card"
-                          >
-                            <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
-                              {/* Quote Icon Header */}
-                              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
-                                <svg
-                                  className="quote-icon"
-                                  width="34"
-                                  height="34"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="rgba(232, 135, 26, 0.4)"
-                                  strokeWidth="2.2"
-                                  style={{ transition: "all 0.3s ease" }}
-                                >
-                                  <path d="M3 21c3 0 7-1 7-8V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1z" />
-                                  <path d="M12 0c3 0 7-1 7-8V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h4c0 3.5-2.5 6-6 6v1z" />
-                                </svg>
+                  return (
+                    <article
+                      key={`${item.name}-${index}`}
+                      className={`group relative flex w-[300px] sm:w-[350px] md:w-[380px] shrink-0 flex-col overflow-hidden rounded-3xl border bg-white/[0.04] backdrop-blur-md p-7 pb-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:bg-white/[0.07] ${
+                        index % 2 === 1 ? "border-[#E8871A]/40" : "border-white/10"
+                      }`}
+                    >
+                      {/* Top Accent Bar */}
+                      <div
+                        className={`absolute left-0 top-0 h-1.5 w-full transition-all duration-300 ${
+                          index % 2 === 1 ? "bg-[#E8871A]" : "bg-white/20"
+                        }`}
+                      />
 
-                                {pkg && (
-                                  <span
-                                    style={{
-                                      background: "rgba(232, 135, 26, 0.15)",
-                                      border: "1px solid rgba(232, 135, 26, 0.3)",
-                                      color: "#E8871A",
-                                      fontSize: 12,
-                                      fontWeight: 750,
-                                      padding: "4px 10px",
-                                      borderRadius: 999,
-                                      whiteSpace: "nowrap",
-                                    }}
-                                  >
-                                    {pkg}
-                                  </span>
-                                )}
-                              </div>
-
-                              {/* Quote Body */}
-                              <p
-                                style={{
-                                  fontSize: "14.5px",
-                                  color: "rgba(255, 255, 255, 0.85)",
-                                  margin: "0 0 24px",
-                                  lineHeight: 1.7,
-                                  fontWeight: 400,
-                                  fontStyle: "italic",
-                                  flex: 1,
-                                }}
-                              >
-                                &ldquo;{quote}&rdquo;
-                              </p>
-                            </div>
-
-                            {/* User Profile Footer */}
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: 14,
-                                borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                                paddingTop: 20,
-                                marginTop: "auto",
+                      {/* Student identity header */}
+                      <div className="flex items-center gap-4">
+                        <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border-2 border-white/15 bg-white/5 flex items-center justify-center">
+                          {item.image ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                              onError={(e) => {
+                                e.currentTarget.style.display = "none";
                               }}
-                            >
-                              {/* Avatar Image / Fallback Initials */}
-                              <div
-                                style={{
-                                  width: 46,
-                                  height: 46,
-                                  borderRadius: "50%",
-                                  overflow: "hidden",
-                                  background: "rgba(232, 135, 26, 0.15)",
-                                  display: "flex",
-                                  alignItems: "center",
-                                  justifyContent: "center",
-                                  border: "1px solid rgba(232, 135, 26, 0.4)",
-                                  flexShrink: 0,
-                                  position: "relative",
-                                }}
-                              >
-                                {item.image ? (
-                                  // eslint-disable-next-line @next/next/no-img-element
-                                  <img
-                                    src={item.image}
-                                    alt={item.name}
-                                    style={{
-                                      width: "100%",
-                                      height: "100%",
-                                      objectFit: "cover",
-                                      position: "absolute",
-                                      top: 0,
-                                      left: 0,
-                                      zIndex: 2,
-                                    }}
-                                    onError={(e) => {
-                                      e.currentTarget.style.display = "none";
-                                    }}
-                                  />
-                                ) : null}
-                                <span style={{ color: "#E8871A", fontWeight: 800, fontSize: 15, position: "relative", zIndex: 1 }}>
-                                  {initials}
-                                </span>
-                              </div>
-
-                              {/* Meta Details */}
-                              <div style={{ overflow: "hidden" }}>
-                                <h4 style={{ color: "#FFFFFF", fontSize: "15px", fontWeight: 750, margin: "0 0 3px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                                  {item.name}
-                                </h4>
-                                <p style={{ color: "rgba(255, 255, 255, 0.55)", fontSize: "12px", margin: 0, fontWeight: 450, lineHeight: 1.3, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                                  {displayDetails}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
+                            />
+                          ) : null}
+                          <span className="text-base font-bold text-[#E8871A]">
+                            {initials}
+                          </span>
                         </div>
-                      );
-                    })}
-                  </div>
-                ))}
+
+                        <div className="min-w-0">
+                          <h3 className="font-serif text-lg font-bold text-white truncate">
+                            {item.name}
+                          </h3>
+
+                          {pkg ? (
+                            <div className="mt-1.5 inline-flex items-center rounded-full bg-[#E8871A]/15 border border-[#E8871A]/30 px-2.5 py-0.5 text-xs font-bold text-[#E8871A]">
+                              Package · {pkg}
+                            </div>
+                          ) : (
+                            <p className="text-xs text-white/60 truncate mt-1">
+                              {displayDetails}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Quote Body */}
+                      <div className="mt-6 flex flex-1 flex-col justify-between">
+                        <div>
+                          <span
+                            aria-hidden="true"
+                            className="font-serif text-4xl font-bold leading-none text-[#E8871A]/30"
+                          >
+                            “
+                          </span>
+
+                          <p className="mt-[-4px] text-[14px] leading-relaxed text-white/80 italic line-clamp-4">
+                            {quote}
+                          </p>
+                        </div>
+
+                        {/* Footer details if package is rendered above */}
+                        {pkg && displayDetails && (
+                          <div className="mt-5 border-t border-white/10 pt-3 text-xs text-white/50 truncate">
+                            {displayDetails}
+                          </div>
+                        )}
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
             </div>
           </div>
-
-          <style>{`
-            .alumni-scroll-container::-webkit-scrollbar {
-              display: none;
-            }
-            .testimonial-card:hover {
-              background: rgba(255, 255, 255, 0.07) !important;
-              border-color: rgba(232, 135, 26, 0.45) !important;
-              transform: translateY(-4px) !important;
-              box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 24px rgba(232, 135, 26, 0.1) !important;
-            }
-            .testimonial-card:hover .quote-icon {
-              stroke: #E8871A !important;
-              transform: scale(1.1) rotate(-5deg);
-            }
-            .carousel-arrow:hover {
-              background: #E8871A !important;
-              border-color: #E8871A !important;
-              color: #FFFFFF !important;
-              box-shadow: 0 0 20px rgba(232, 135, 26, 0.4) !important;
-            }
-            @media (max-width: 640px) {
-              .carousel-arrow {
-                display: none !important;
-              }
-            }
-          `}</style>
         </section>
       )}
 

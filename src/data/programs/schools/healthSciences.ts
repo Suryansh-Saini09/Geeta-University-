@@ -758,7 +758,7 @@ export const healthSciencesSchool: ProgramPageData = {
   },
 
   brochure: {
-    title: "Download Health Science Brochure",
+    title: "Want to know more?",
     description:
       "Get comprehensive details on Nutrition & Dietetics program, including curriculum, faculty, facilities, and placement opportunities.",
     fileUrl: "https://geetauniversity.edu.in/uploads/all/2692/Health-Sciences-Brochure.pdf",

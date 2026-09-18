@@ -162,23 +162,6 @@ export default function AwardsRankingsSection() {
           </div>
         </div>
 
-        {/* PAGINATION DOTS */}
-        <div className="mt-7 flex items-center justify-center gap-2">
-          {awards.map((award, index) => (
-            <button
-              key={award.id}
-              type="button"
-              aria-label={`Go to award ${index + 1}`}
-              onClick={() => goTo(index)}
-              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                index === currentIndex
-                  ? "w-8 bg-[#E8871A]"
-                  : "w-1.5 bg-[#B8C0CD] hover:bg-[#0A1F44]"
-              }`}
-            />
-          ))}
-        </div>
-
         {/* IMPACT RANKINGS */}
         <ImpactRankings />
       </div>

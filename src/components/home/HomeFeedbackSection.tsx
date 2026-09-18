@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { homeFeedback } from "@/data/homeFeedback";
 import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
@@ -121,47 +120,6 @@ export default function HomeFeedbackSection() {
               </div>
             </article>
           ))}
-        </div>
-
-        {/* Controls */}
-        <div className="mt-10 flex items-center justify-center gap-5">
-          {maxIndex > 0 && (
-            <button
-              type="button"
-              onClick={prev}
-              aria-label="Previous student stories"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white active:scale-95 cursor-pointer"
-            >
-              <ChevronLeft size={20} />
-            </button>
-          )}
-
-          <div className="flex items-center gap-2">
-            {homeFeedback.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                aria-label={`Go to student story ${index + 1}`}
-                onClick={() => goTo(index)}
-                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentIndex === index
-                    ? "w-8 bg-[#F28C18]"
-                    : "w-2.5 bg-[#B9C7D4] hover:bg-[#06355F]"
-                }`}
-              />
-            ))}
-          </div>
-
-          {maxIndex > 0 && (
-            <button
-              type="button"
-              onClick={next}
-              aria-label="Next student stories"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-[#CBD8E3] bg-white text-[#06355F] shadow-sm transition-all duration-200 hover:border-[#F28C18] hover:bg-[#F28C18] hover:text-white active:scale-95 cursor-pointer"
-            >
-              <ChevronRight size={20} />
-            </button>
-          )}
         </div>
       </div>
     </section>

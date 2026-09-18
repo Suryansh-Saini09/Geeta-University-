@@ -668,7 +668,7 @@ export const commerceSchool: ProgramPageData = {
   */
 
   brochure: {
-    title: "Download Commerce & Management Brochure",
+    title: "Want to know more?",
     description:
       "Explore comprehensive curriculum guides for BBA, B.Com, MBA, ACCA certifications, faculty profiles, and placement track records.",
     fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
