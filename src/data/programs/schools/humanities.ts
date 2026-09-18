@@ -57,7 +57,7 @@ export const humanitiesSchool: ProgramPageData = {
         program: "Policy & Leadership",
         image: "/programs/humanities/testimonial-vikas.webp",
         titleThin: "Holistic Human Growth",
-        titleBoldLine1: "behavioural Sciences &",
+        titleBoldLine1: "Behavioural Sciences &",
         titleBoldLine2: "Public Policy",
         subtitle: "OUTCOME-BASED LEARNING · EXPERT MENTORSHIP · NEP 2020",
         description:
@@ -143,7 +143,7 @@ export const humanitiesSchool: ProgramPageData = {
         desc: "Expert faculty in Psychology with active research in positive psychology, social psychology, and organizational behavioural interventions.",
         description:
           "Expert faculty in Psychology with active research in positive psychology, social psychology, and organizational behavioural interventions.",
-        image: "/programs/humanities/sheetal-khatri.webp",
+        image: "/programs/humanities/sheetal.webp",
       },
       {
         name: "Ms. Himani",
