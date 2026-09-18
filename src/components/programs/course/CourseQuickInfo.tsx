@@ -15,7 +15,7 @@ export default function CourseQuickInfo({ quickInfo }: CourseQuickInfoProps) {
           {/* Program */}
           <div className="pt-4 md:pt-0 md:pr-6">
             <span className="block text-xs uppercase tracking-widest text-amber-400 font-semibold mb-1">
-              PROGRAMME
+              PROGRAM
             </span>
             <h2 className="text-xl md:text-2xl font-bold font-serif text-white tracking-tight">
               {quickInfo.program}

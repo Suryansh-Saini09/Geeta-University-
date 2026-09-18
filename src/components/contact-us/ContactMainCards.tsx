@@ -4,7 +4,7 @@ import { contactMainInfo } from "@/data/contactUsData";
 
 export default function ContactMainCards() {
   return (
-    <section className="w-full bg-[#F7F9FC] py-12 md:py-16 border-b border-slate-200">
+    <section className="w-full bg-[#F7F9FC] py-10 md:py-14 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {/* Card 1: Location */}

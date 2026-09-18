@@ -110,7 +110,7 @@ export const computerScienceSchool: ProgramPageData = {
     image: "https://geetauniversity.edu.in/uploads/all/2818/Codex-Image-Sep-11,-2026,-09_18_39-AM.png",
     schoolName: "School of Computer Science & Engineering",
     message:
-      "I welcome you to the School of Computer Science & Engineering at Geeta University!\n\nStudents aiming for a strong career in tech are bound to thrive at Geeta University. Gain practical skills in AI, cybersecurity, cloud computing, and more with our industry-aligned programmes. You will not only gain in-depth theoretical knowledge but also master in-demand technologies to become job-ready.\n\nOur experienced faculty ensure your overall growth by supporting your learning endeavours. We also offer the benefit of strong industry collaborations, skill certifications, and assured placement support.\n\nJoin us to pave your path to all-round development and career success in the world of tech.",
+      "I welcome you to the School of Computer Science & Engineering at Geeta University!\n\nStudents aiming for a strong career in tech are bound to thrive at Geeta University. Gain practical skills in AI, cybersecurity, cloud computing, and more with our industry-aligned programs. You will not only gain in-depth theoretical knowledge but also master in-demand technologies to become job-ready.\n\nOur experienced faculty ensure your overall growth by supporting your learning endeavours. We also offer the benefit of strong industry collaborations, skill certifications, and assured placement support.\n\nJoin us to pave your path to all-round development and career success in the world of tech.",
   },
 
   faculty: [
@@ -604,8 +604,8 @@ export const computerScienceSchool: ProgramPageData = {
 
   faqs: [
     {
-      q: "What programmes are offered by the School of Computer Science & Engineering at Geeta University?",
-      a: "The School currently lists B.Tech. Hons. CSE with specialisations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cybersecurity, and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programmes in Computer Applications and CSE.",
+      q: "What programs are offered by the School of Computer Science & Engineering at Geeta University?",
+      a: "The School currently lists B.Tech. Hons. CSE with specialisations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cybersecurity, and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programs in Computer Applications and CSE.",
       category: "Admissions & Eligibility",
     },
     {
@@ -630,7 +630,7 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "Is Mathematics compulsory for BCA?",
-      a: "The School's programme information does not impose the same Physics-and-Mathematics requirement as B.Tech. CSE. Students should, however, verify the current programme-specific eligibility before applying.",
+      a: "The School's program information does not impose the same Physics-and-Mathematics requirement as B.Tech. CSE. Students should, however, verify the current program-specific eligibility before applying.",
       category: "Admissions & Eligibility",
     },
     {
@@ -644,74 +644,74 @@ export const computerScienceSchool: ProgramPageData = {
       category: "Admissions & Eligibility",
     },
     {
-      q: "Who is eligible for Ph.D. programmes in the School?",
-      a: "A relevant master's degree with at least 55% marks is required to be eligible for Ph.D. programmes in the School.",
+      q: "Who is eligible for Ph.D. programs in the School?",
+      a: "A relevant master's degree with at least 55% marks is required to be eligible for Ph.D. programs in the School.",
       category: "Admissions & Eligibility",
     },
     {
       q: "What is the difference between B.Tech. CSE and BCA at Geeta University?",
-      a: "B.Tech. CSE is a four-year engineering programme built around deeper computer science and engineering foundations, while BCA is a three-to-four-year computer applications degree with a more application-oriented structure. Both offer exposure to contemporary areas such as AI, cybersecurity, and data-related technologies, but their academic routes and eligibility requirements differ.",
-      category: "Programmes, Specialisations & Curriculum",
+      a: "B.Tech. CSE is a four-year engineering program built around deeper computer science and engineering foundations, while BCA is a three-to-four-year computer applications degree with a more application-oriented structure. Both offer exposure to contemporary areas such as AI, cybersecurity, and data-related technologies, but their academic routes and eligibility requirements differ.",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "What specialisations are available under B.Tech. CSE?",
       a: "The specialisations include Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling.",
-      category: "Programmes, Specialisations & Curriculum",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "What specialisations are available under BCA?",
       a: "BCA in Computer Applications, Artificial Intelligence & Machine Learning, Cybersecurity, and Data Science & Business Analytics are available within the School.",
-      category: "Programmes, Specialisations & Curriculum",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "How should a student choose between AI & ML, Data Science, Cybersecurity and Full Stack Development?",
       a: "AI & ML is suited to students interested in intelligent systems, automation, and predictive models; Data Science suits students interested in data analysis and insight generation; Cybersecurity suits students interested in digital protection, risk, and security; and Full Stack Development suits students who want to build end-to-end web applications.",
-      category: "Programmes, Specialisations & Curriculum",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "Does the curriculum cover core programming and computer science fundamentals?",
       a: "Yes. Core areas of the curriculum include programming, data structures and algorithms, operating systems, databases, software engineering, computer networks, cloud fundamentals, web and mobile development, and IoT.",
-      category: "Programmes, Specialisations & Curriculum",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "Will students learn multiple programming languages?",
-      a: "The programming exposure includes C, C++, Java, and Python, with additional technologies depending on the selected programme or specialisation.",
-      category: "Programmes, Specialisations & Curriculum",
+      a: "The programming exposure includes C, C++, Java, and Python, with additional technologies depending on the selected program or specialisation.",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "Does the School teach AI and Machine Learning beyond a basic introduction?",
       a: "Yes. AI & ML is offered as a dedicated specialisation, and the School highlights areas such as machine learning, deep learning, neural networks, computer vision, robotics, natural language processing, and predictive analytics.",
-      category: "Programmes, Specialisations & Curriculum",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "What will students learn in the Cybersecurity specialisation?",
       a: "Students will learn software development security, network security, risk management and compliance, cryptography, information security, security architecture, ethical hacking, and digital-forensics-oriented areas.",
-      category: "Programmes, Specialisations & Curriculum",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "What does the Data Science & Business Analytics pathway focus on?",
       a: "The pathway combines programming and data-oriented skills with analytics. The School highlights data frames, Python for data science, R programming, core programming principles, and analytics-oriented learning.",
-      category: "Programmes, Specialisations & Curriculum",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "What does the Full Stack Web Development specialisation cover?",
       a: "This specialisation covers web-development fundamentals, HTML/CSS, JavaScript, advanced JavaScript, and CSS-based web applications, with the wider curriculum supporting end-to-end software and web development.",
-      category: "Programmes, Specialisations & Curriculum",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "What is special about the B.Tech. CSE Quantum Computing pathway?",
-      a: "It combines computer science with quantum computing and related mathematics and physics. The programme highlights quantum mechanics for computing, quantum algorithms, quantum programming, quantum cryptography, quantum machine learning, quantum hardware and architectures, simulations, and an industry-based quantum innovation lab.",
-      category: "Programmes, Specialisations & Curriculum",
+      a: "It combines computer science with quantum computing and related mathematics and physics. The program highlights quantum mechanics for computing, quantum algorithms, quantum programming, quantum cryptography, quantum machine learning, quantum hardware and architectures, simulations, and an industry-based quantum innovation lab.",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "Does the M.Tech. CSE curriculum include advanced technologies?",
-      a: "Yes. The M.Tech. programme covers areas such as advanced programming, data structures and algorithms, operating systems, databases, computer networks, cloud fundamentals, IoT, cyber law basics, web/mobile development, and an industry internship or capstone project.",
-      category: "Programmes, Specialisations & Curriculum",
+      a: "Yes. The M.Tech. program covers areas such as advanced programming, data structures and algorithms, operating systems, databases, computer networks, cloud fundamentals, IoT, cyber law basics, web/mobile development, and an industry internship or capstone project.",
+      category: "programs, Specialisations & Curriculum",
     },
     {
-      q: "What does the MCA programme focus on?",
-      a: "MCA focuses on application development, system design, and data analytics, with programme areas including advanced programming, databases, web technologies, operating systems, software engineering, AI & ML, cloud computing, big data tools, UI/UX, and IoT, along with an industry internship.",
-      category: "Programmes, Specialisations & Curriculum",
+      q: "What does the MCA program focus on?",
+      a: "MCA focuses on application development, system design, and data analytics, with program areas including advanced programming, databases, web technologies, operating systems, software engineering, AI & ML, cloud computing, big data tools, UI/UX, and IoT, along with an industry internship.",
+      category: "programs, Specialisations & Curriculum",
     },
     {
       q: "Is the School focused more on theory or practical learning?",
@@ -725,7 +725,7 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "Are internships part of the CSE learning experience?",
-      a: "Yes. Industry internships are explicitly included in the B.Tech. CSE, M.Tech. CSE, and MCA programme structures, while the School also highlights internships more broadly as part of industry-oriented learning.",
+      a: "Yes. Industry internships are explicitly included in the B.Tech. CSE, M.Tech. CSE, and MCA program structures, while the School also highlights internships more broadly as part of industry-oriented learning.",
       category: "Practical Learning, Projects & Industry Exposure",
     },
     {
@@ -750,12 +750,12 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "What kind of certifications can CSE students pursue?",
-      a: "Certification tracks are associated with Amazon AWS, Red Hat, Cisco, HubSpot, GitHub, Oracle, and Microsoft Azure. The exact certifications available to a student may depend on the programme and current certification track.",
+      a: "Certification tracks are associated with Amazon AWS, Red Hat, Cisco, HubSpot, GitHub, Oracle, and Microsoft Azure. The exact certifications available to a student may depend on the program and current certification track.",
       category: "Practical Learning, Projects & Industry Exposure",
     },
     {
-      q: "Are industry certifications automatically included in the programme fee?",
-      a: "The School highlights certification tracks, but the exact inclusion, certification provider, examination charges, and fee coverage can vary by programme or training model. Students should confirm the current terms with the School or admissions team.",
+      q: "Are industry certifications automatically included in the program fee?",
+      a: "The School highlights certification tracks, but the exact inclusion, certification provider, examination charges, and fee coverage can vary by program or training model. Students should confirm the current terms with the School or admissions team.",
       category: "Practical Learning, Projects & Industry Exposure",
     },
     {
@@ -785,7 +785,7 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "What career opportunities are available after M.Tech. CSE?",
-      a: "The programme supports advanced technical and research-oriented pathways, including roles in R&D, cloud architecture, cybersecurity, and intelligent systems, as well as further research and doctoral study.",
+      a: "The program supports advanced technical and research-oriented pathways, including roles in R&D, cloud architecture, cybersecurity, and intelligent systems, as well as further research and doctoral study.",
       category: "Placements & Career Opportunities",
     },
     {
@@ -864,13 +864,13 @@ export const computerScienceSchool: ProgramPageData = {
       category: "Campus Life, Technology & Student Experience",
     },
     {
-      q: "Can students build a portfolio during the programme?",
+      q: "Can students build a portfolio during the program?",
       a: "The project-based and practical learning approach provides opportunities to build projects, technical work, and other demonstrable outputs. Students can use these experiences to develop a portfolio alongside their academic qualification.",
       category: "Campus Life, Technology & Student Experience",
     },
     {
       q: "Does the School support research and innovation?",
-      a: "Yes. Research is visible through faculty publications, patents, doctoral programmes, research-oriented postgraduate study, project work, and emerging technology areas.",
+      a: "Yes. Research is visible through faculty publications, patents, doctoral programs, research-oriented postgraduate study, project work, and emerging technology areas.",
       category: "Global Exposure, Research & Higher Studies",
     },
     {
@@ -909,23 +909,23 @@ export const computerScienceSchool: ProgramPageData = {
       category: "Parents & Decision-Making",
     },
     {
-      q: "What should parents consider before choosing a CSE programme?",
+      q: "What should parents consider before choosing a CSE program?",
       a: "Parents should look beyond the degree title and compare curriculum depth, practical exposure, internships, project opportunities, faculty support, industry certifications, emerging-technology exposure, placement preparation, and the student's own interests and aptitude.",
       category: "Parents & Decision-Making",
     },
     {
-      q: "How long is the B.Tech. CSE programme?",
-      a: "The B.Tech. CSE programme is four years in duration, comprising eight semesters.",
+      q: "How long is the B.Tech. CSE program?",
+      a: "The B.Tech. CSE program is four years in duration, comprising eight semesters.",
       category: "General",
     },
     {
-      q: "How long is the BCA programme?",
-      a: "The BCA programme is structured as a three-to-four-year degree, depending on the applicable degree pathway.",
+      q: "How long is the BCA program?",
+      a: "The BCA program is structured as a three-to-four-year degree, depending on the applicable degree pathway.",
       category: "General",
     },
     {
-      q: "How long are the MCA and M.Tech. CSE programmes?",
-      a: "Both MCA and M.Tech. CSE are structured as two-year postgraduate programmes.",
+      q: "How long are the MCA and M.Tech. CSE programs?",
+      a: "Both MCA and M.Tech. CSE are structured as two-year postgraduate programs.",
       category: "General",
     },
     {

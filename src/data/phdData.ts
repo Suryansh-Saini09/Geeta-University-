@@ -56,7 +56,7 @@ export const phdImportantDates: ImportantDateRow[] = [
   },
   {
     srNo: 4,
-    activityTitle: "Issue of admission letter to the recommended candidates for admission in Ph.D. programme",
+    activityTitle: "Issue of admission letter to the recommended candidates for admission in Ph.D. program",
     dates: "02.09.2026",
   },
   {
@@ -185,7 +185,7 @@ export const phdFaqsData: FAQ[] = [
   },
   {
     q: "What is the duration of the Ph.D. program?",
-    a: "The Ph.D. programme shall be for a minimum duration of three (3) years, including coursework, and a maximum duration of six (6) years from the date of admission.",
+    a: "The Ph.D. program shall be for a minimum duration of three (3) years, including coursework, and a maximum duration of six (6) years from the date of admission.",
     category: "Program Structure",
   },
   {

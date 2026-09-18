@@ -13,7 +13,7 @@ export default function IcnfprSchedule() {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center justify-center gap-2 mb-3 text-[#E8871A] font-extrabold text-xs tracking-widest uppercase">
             <Calendar size={16} />
-            <span>Programme Timeline</span>
+            <span>Program Timeline</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A1F44] tracking-tight">
             Schedule of <span className="text-[#E8871A]">Conference</span>

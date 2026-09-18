@@ -157,7 +157,7 @@ export default function MedalPolicyPage() {
       </section>
 
       {/* ── Section 1: Academic Medals ── */}
-      <section className="py-16 md:py-20">
+      <section className="py-10 md:py-14">
         <div className="gu-container">
           <div className="max-w-5xl mx-auto space-y-12">
             {/* Section Heading */}
@@ -249,7 +249,7 @@ export default function MedalPolicyPage() {
       </section>
 
       {/* ── Section 2: Chancellor's Medal ── */}
-      <section className="bg-slate-100/70 py-16 md:py-20 border-y border-slate-200">
+      <section className="bg-slate-100/70 py-10 md:py-14 border-y border-slate-200">
         <div className="gu-container">
           <div className="max-w-5xl mx-auto space-y-8">
             {/* Section Heading */}

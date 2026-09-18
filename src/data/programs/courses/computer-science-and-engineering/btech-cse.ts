@@ -186,8 +186,8 @@ export const btechCse: CoursePageData = {
   ],
   faqs: [
     {
-      question: "What programmes are offered by the School of Computer Science & Engineering at Geeta University?",
-      answer: "The School currently lists B.Tech. Hons. CSE with specializations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cyber Security, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cyber Security and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programmes in Computer Applications and CSE.",
+      question: "What programs are offered by the School of Computer Science & Engineering at Geeta University?",
+      answer: "The School currently lists B.Tech. Hons. CSE with specializations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cyber Security, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cyber Security and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programs in Computer Applications and CSE.",
     },
     {
       question: "What is the eligibility for B.Tech. CSE at Geeta University?",
@@ -207,7 +207,7 @@ export const btechCse: CoursePageData = {
     },
     {
       question: "Is Mathematics compulsory for BCA?",
-      answer: "The School's programme information does not impose the same Physics-and-Mathematics requirement as B.Tech. CSE. Students should, however, verify the current programme-specific eligibility before applying.",
+      answer: "The School's program information does not impose the same Physics-and-Mathematics requirement as B.Tech. CSE. Students should, however, verify the current program-specific eligibility before applying.",
     },
     {
       question: "What is the eligibility for MCA?",
@@ -218,12 +218,12 @@ export const btechCse: CoursePageData = {
       answer: "Applicants should have a B.Tech. in a relevant stream, M.Sc.-IT, MCA or equivalent qualification with at least 50% marks in the qualifying examination.",
     },
     {
-      question: "Who is eligible for Ph.D. programmes in the School?",
-      answer: "A relevant master's degree with at least 55% marks is required to be eligible for Ph.D. programmes in the School.",
+      question: "Who is eligible for Ph.D. programs in the School?",
+      answer: "A relevant master's degree with at least 55% marks is required to be eligible for Ph.D. programs in the School.",
     },
     {
       question: "What is the difference between B.Tech. CSE and BCA at Geeta University?",
-      answer: "B.Tech. CSE is a four-year engineering programme built around deeper computer science and engineering foundations, while BCA is a three/four-year computer applications degree with a more application-oriented structure. Both offer exposure to contemporary areas such as AI, cybersecurity and data-related technologies, but their academic routes and eligibility requirements differ.",
+      answer: "B.Tech. CSE is a four-year engineering program built around deeper computer science and engineering foundations, while BCA is a three/four-year computer applications degree with a more application-oriented structure. Both offer exposure to contemporary areas such as AI, cybersecurity and data-related technologies, but their academic routes and eligibility requirements differ.",
     },
   ],
 };

@@ -63,7 +63,7 @@ export default function CoursePage({ course, school }: CoursePageProps) {
         <CourseLearningOutcomes learningOutcomes={course.learningOutcomes} />
       )}
 
-      {/* 7. Admission & Why Choose Programme */}
+      {/* 7. Admission & Why Choose Program */}
       {course.admission && <CourseAdmission admission={course.admission} />}
 
       {/* 8. Career Opportunities */}

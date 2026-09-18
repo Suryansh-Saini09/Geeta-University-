@@ -44,7 +44,7 @@ export default function ProgramUsps({ usps }: ProgramUspsProps) {
       id="USPs"
       style={{
         background: "#FDF1D6",
-        padding: "96px 0",
+        padding: "52px 0 48px",
         position: "relative",
         borderTop: "1px solid rgba(0, 0, 0, 0.06)",
         borderBottom: "1px solid rgba(0, 0, 0, 0.06)",

@@ -36,7 +36,7 @@ export const mscAgricultureAgronomy: CoursePageData = {
   overview: {
     title: "M.Sc. Agriculture (Agronomy)",
     paragraphs: [
-      "M.Sc. Agriculture (Agronomy) is a two-year postgraduate course offered by Geeta University that focuses on crop production, soil management, irrigation, and sustainable farming. This programme helps students gain advanced knowledge of modern agriculture and prepares them for careers in both government and private sectors.",
+      "M.Sc. Agriculture (Agronomy) is a two-year postgraduate course offered by Geeta University that focuses on crop production, soil management, irrigation, and sustainable farming. This program helps students gain advanced knowledge of modern agriculture and prepares them for careers in both government and private sectors.",
       "This M. Sc. Agronomy course offered at Geeta University tells you about the agricultural industry and how to become an agricultural master. You will not simply be cramming information because the focus on practicality also includes working in a laboratory, completing tasks as part of a project, and using new approaches to produce more food with less harm to the earth. It combines theoretical knowledge with an option for practical experience, enabling the student to gain broader perspectives on different professional agronomic approaches and fully utilize modern techniques.",
     ],
   },

@@ -3,7 +3,7 @@ import type { CourseFAQItem } from "../courses/types";
 
 export const agricultureFaqs: CourseFAQItem[] = [
   {
-    question: "What programmes are currently offered by the School of Agricultural Sciences?",
+    question: "What programs are currently offered by the School of Agricultural Sciences?",
     answer: "The School offers B.Sc. (Hons.) Agriculture, M.Sc. Agronomy, M.Sc. (Horticulture) Vegetable Science, M.Sc. (Horticulture) Fruit Science, M.Sc. Genetics & Plant Breeding, M.Sc. Entomology and Ph.D. Agriculture.",
     category: "Admissions & Eligibility"
   },
@@ -14,7 +14,7 @@ export const agricultureFaqs: CourseFAQItem[] = [
   },
   {
     question: "Can PCB students apply for B.Sc. (Hons.) Agriculture?",
-    answer: "Yes. Biology is one of the accepted subject backgrounds for the programme.",
+    answer: "Yes. Biology is one of the accepted subject backgrounds for the program.",
     category: "Admissions & Eligibility"
   },
   {
@@ -28,8 +28,8 @@ export const agricultureFaqs: CourseFAQItem[] = [
     category: "Admissions & Eligibility"
   },
   {
-    question: "What is the eligibility for the M.Sc. programmes?",
-    answer: "Applicants should hold a relevant graduation degree with at least 50% marks, subject to the specific programme's admission requirements.",
+    question: "What is the eligibility for the M.Sc. programs?",
+    answer: "Applicants should hold a relevant graduation degree with at least 50% marks, subject to the specific program's admission requirements.",
     category: "Admissions & Eligibility"
   },
   {
@@ -38,44 +38,44 @@ export const agricultureFaqs: CourseFAQItem[] = [
     category: "Admissions & Eligibility"
   },
   {
-    question: "How long is the B.Sc. (Hons.) Agriculture programme?",
-    answer: "It is a four-year undergraduate programme spread across eight semesters.",
-    category: "Programmes & Specialisations"
+    question: "How long is the B.Sc. (Hons.) Agriculture program?",
+    answer: "It is a four-year undergraduate program spread across eight semesters.",
+    category: "programs & Specialisations"
   },
   {
     question: "What are the M.Sc. specialisations available at the School?",
     answer: "Students can choose M.Sc. Agronomy, M.Sc. (Horticulture) Vegetable Science, M.Sc. (Horticulture) Fruit Science, M.Sc. Genetics & Plant Breeding or M.Sc. Entomology.",
-    category: "Programmes & Specialisations"
+    category: "programs & Specialisations"
   },
   {
     question: "What does M.Sc. Agronomy focus on?",
     answer: "It focuses on crop production, agronomic practices, productivity and sustainable management of agricultural systems.",
-    category: "Programmes & Specialisations"
+    category: "programs & Specialisations"
   },
   {
     question: "What will I study in M.Sc. Horticulture – Vegetable Science?",
-    answer: "The programme focuses on scientific vegetable production, crop improvement, cultivation practices and related horticultural management.",
-    category: "Programmes & Specialisations"
+    answer: "The program focuses on scientific vegetable production, crop improvement, cultivation practices and related horticultural management.",
+    category: "programs & Specialisations"
   },
   {
     question: "What does M.Sc. Horticulture – Fruit Science cover?",
     answer: "It focuses on fruit production, crop management, improvement, post-harvest aspects and scientific fruit cultivation.",
-    category: "Programmes & Specialisations"
+    category: "programs & Specialisations"
   },
   {
     question: "What is M.Sc. Genetics & Plant Breeding about?",
     answer: "It deals with plant genetics, breeding methods and crop improvement for developing better-performing plant varieties.",
-    category: "Programmes & Specialisations"
+    category: "programs & Specialisations"
   },
   {
     question: "What will I learn in M.Sc. Entomology?",
-    answer: "The programme focuses on insects affecting agriculture, their identification, management and integrated approaches to pest control.",
-    category: "Programmes & Specialisations"
+    answer: "The program focuses on insects affecting agriculture, their identification, management and integrated approaches to pest control.",
+    category: "programs & Specialisations"
   },
   {
     question: "What areas can be explored through Ph.D. Agriculture?",
     answer: "Research can span areas such as agronomy, soil science, plant breeding, entomology, horticulture, biotechnology and climate-smart agriculture, depending on available research expertise.",
-    category: "Programmes & Specialisations"
+    category: "programs & Specialisations"
   },
   {
     question: "Is the agriculture curriculum aligned with ICAR guidelines?",
@@ -164,7 +164,7 @@ export const agricultureFaqs: CourseFAQItem[] = [
   },
   {
     question: "Does the School organise interactions with farmers?",
-    answer: "Yes. Kisan Interaction Programmes are among the School's listed academic and engagement activities.",
+    answer: "Yes. Kisan Interaction programs are among the School's listed academic and engagement activities.",
     category: "Industry Exposure, Research & Activities"
   },
   {
@@ -184,7 +184,7 @@ export const agricultureFaqs: CourseFAQItem[] = [
   },
   {
     question: "Can students work with space and remote-sensing technologies in agriculture?",
-    answer: "The School's earlier academic profile highlights exposure to Remote Sensing and GIS through its IIRS-ISRO linkage, subject to the opportunities available in the programme.",
+    answer: "The School's earlier academic profile highlights exposure to Remote Sensing and GIS through its IIRS-ISRO linkage, subject to the opportunities available in the program.",
     category: "Industry Exposure, Research & Activities"
   },
   {
@@ -244,7 +244,7 @@ export const agricultureFaqs: CourseFAQItem[] = [
   },
   {
     question: "Is B.Sc. Agriculture suitable for a student who does not come from a farming family?",
-    answer: "Yes. The programme is science-based and does not require students to come from a farming background.",
+    answer: "Yes. The program is science-based and does not require students to come from a farming background.",
     category: "Parents & Student Decision-Making"
   },
   {
@@ -263,7 +263,7 @@ export const agricultureFaqs: CourseFAQItem[] = [
     category: "Parents & Student Decision-Making"
   },
   {
-    question: "What makes the School different from a classroom-only agriculture programme?",
+    question: "What makes the School different from a classroom-only agriculture program?",
     answer: "It combines an ICAR-aligned academic framework with laboratories, experimental farms, RAWE, field activities, protected cultivation, precision-farming exposure, research and industry interaction.",
     category: "Parents & Student Decision-Making"
   },
@@ -468,8 +468,24 @@ export const agricultureSchool: ProgramPageData = {
           duration: "2 years",
           specialisations: [
             {
-              name: "M.Sc. Agriculture (Agronomy)",
+              name: "M.Sc. Agriculture — Agronomy",
               href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
+            },
+            {
+              name: "M.Sc. (Horticulture) Vegetable Science",
+              href: "/programs/school-of-agricultural-studies",
+            },
+            {
+              name: "M.Sc. (Horticulture) Fruit Science",
+              href: "/programs/school-of-agricultural-studies",
+            },
+            {
+              name: "M.Sc. Genetics & Plant Breeding",
+              href: "/programs/school-of-agricultural-studies",
+            },
+            {
+              name: "M.Sc. Entomology",
+              href: "/programs/school-of-agricultural-studies",
             },
           ],
           eligibility:

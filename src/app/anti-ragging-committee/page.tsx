@@ -4,7 +4,7 @@ import { Shield, Phone, FileText, AlertTriangle, ExternalLink, Mail, Users } fro
 
 export const metadata = {
   title: 'Anti-Ragging Committee | Geeta University',
-  description: 'National Ragging Prevention Programme at Geeta University. View contact details, helplines, and policies against ragging.',
+  description: 'National Ragging Prevention Program at Geeta University. View contact details, helplines, and policies against ragging.',
 };
 
 export default function AntiRaggingPage() {
@@ -19,7 +19,7 @@ export default function AntiRaggingPage() {
           Anti-Ragging <span className="text-[#E8871A]">Committee</span>
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-slate-600 leading-relaxed">
-          Geeta University is committed to providing a safe, secure, and ragging-free environment for all students. We strictly adhere to the National Ragging Prevention Programme.
+          Geeta University is committed to providing a safe, secure, and ragging-free environment for all students. We strictly adhere to the National Ragging Prevention Program.
         </p>
       </div>
 

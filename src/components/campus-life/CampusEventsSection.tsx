@@ -71,7 +71,7 @@ export default function CampusEventsSection({ onOpenEventsVideo }: CampusEventsS
   };
 
   return (
-    <section id="events" className="scroll-mt-[190px] bg-[#F7F9FC] py-20 lg:py-24 border-t border-[#E2E8F0]">
+    <section id="events" className="scroll-mt-[190px] bg-[#F7F9FC] py-10 md:py-14 border-t border-[#E2E8F0]">
       <div className="gu-container">
         {/* Section Header */}
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">

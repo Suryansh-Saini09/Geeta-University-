@@ -950,18 +950,18 @@ export const commerceSchool: ProgramPageData = {
 
   faqs: [
     {
-      "q": "What programmes are offered by the School of Commerce & Business Management at Geeta University?",
-      "a": "The School offers undergraduate BBA and B.Com. pathways along with M.Com. at the postgraduate level. Its programmes include specialised routes in finance, marketing, human resources, AI and data analytics, international accounting, FinTech, digital marketing, entrepreneurship, banking and finance, auditing and taxation, and supply chain management.",
+      "q": "What programs are offered by the School of Commerce & Business Management at Geeta University?",
+      "a": "The School offers undergraduate BBA and B.Com. pathways along with M.Com. at the postgraduate level. Its programs include specialised routes in finance, marketing, human resources, AI and data analytics, international accounting, FinTech, digital marketing, entrepreneurship, banking and finance, auditing and taxation, and supply chain management.",
       "category": "Admissions & Eligibility"
     },
     {
-      "q": "What is the eligibility for BBA programmes?",
-      "a": "The School lists 10+2 with at least 50% marks in the qualifying examination as the eligibility requirement for BBA programmes.",
+      "q": "What is the eligibility for BBA programs?",
+      "a": "The School lists 10+2 with at least 50% marks in the qualifying examination as the eligibility requirement for BBA programs.",
       "category": "Admissions & Eligibility"
     },
     {
-      "q": "What is the eligibility for B.Com. programmes?",
-      "a": "The School lists 10+2 with at least 50% marks as the eligibility requirement for B.Com. programmes.",
+      "q": "What is the eligibility for B.Com. programs?",
+      "a": "The School lists 10+2 with at least 50% marks as the eligibility requirement for B.Com. programs.",
       "category": "Admissions & Eligibility"
     },
     {
@@ -977,47 +977,47 @@ export const commerceSchool: ProgramPageData = {
     {
       "q": "How do I choose between BBA and B.Com. after Class 12?",
       "a": "BBA is more focused on business administration, management and leadership, while B.Com. gives greater emphasis to commerce, accounting, taxation and finance. The right choice depends on the student's interests and intended career direction.",
-      "category": "Programmes & Specialisations"
+      "category": "programs & Specialisations"
     },
     {
       "q": "What specialisations are available in BBA?",
       "a": "The School lists BBA specialisations in Business Administration, International Accounting with ACCA UK, Artificial Intelligence & Data Analytics, Human Resource Management, Import & Export Management, Banking & Finance, Marketing, FinTech, Digital Marketing, and Entrepreneurship & Family Business.",
-      "category": "Programmes & Specialisations"
+      "category": "programs & Specialisations"
     },
     {
       "q": "What specialisations are available in B.Com.?",
       "a": "The School lists B.Com. pathways in General Commerce, International Accounting with ACCA UK, Auditing & Taxation, Banking & Insurance, and Advanced Accounting.",
-      "category": "Programmes & Specialisations"
+      "category": "programs & Specialisations"
     },
     {
       "q": "What is special about B.Com. International Accounting with ACCA UK?",
-      "a": "The programme combines undergraduate commerce and accounting education with the ACCA pathway, covering areas such as financial reporting, auditing, taxation, financial management and corporate governance.",
-      "category": "Programmes & Specialisations"
+      "a": "The program combines undergraduate commerce and accounting education with the ACCA pathway, covering areas such as financial reporting, auditing, taxation, financial management and corporate governance.",
+      "category": "programs & Specialisations"
     },
     {
       "q": "Is BBA FinTech suitable for a student interested in both finance and technology?",
-      "a": "Yes. The programme brings together business and financial concepts with areas such as blockchain, AI and data analytics, making it relevant for students interested in technology-driven financial services.",
-      "category": "Programmes & Specialisations"
+      "a": "Yes. The program brings together business and financial concepts with areas such as blockchain, AI and data analytics, making it relevant for students interested in technology-driven financial services.",
+      "category": "programs & Specialisations"
     },
     {
       "q": "What does BBA in AI & Data Analytics focus on?",
-      "a": "The programme combines business administration with AI and data analytics, helping students understand how data and technology can support better business decisions.",
-      "category": "Programmes & Specialisations"
+      "a": "The program combines business administration with AI and data analytics, helping students understand how data and technology can support better business decisions.",
+      "category": "programs & Specialisations"
     },
     {
       "q": "What does BBA in Digital Marketing cover?",
-      "a": "The programme covers digital marketing, social media management, market research, consumer psychology, brand development and data analytics.",
-      "category": "Programmes & Specialisations"
+      "a": "The program covers digital marketing, social media management, market research, consumer psychology, brand development and data analytics.",
+      "category": "programs & Specialisations"
     },
     {
       "q": "What does BBA in Entrepreneurship & Family Business prepare students for?",
       "a": "It is designed for students who want to start, manage or grow a business, particularly entrepreneurial and family-owned ventures, while building broader management and leadership skills.",
-      "category": "Programmes & Specialisations"
+      "category": "programs & Specialisations"
     },
     {
       "q": "What does BBA in Import & Export Management cover?",
-      "a": "The programme focuses on international trade, including export-import procedures, documentation, payments, sourcing, customs, global logistics and supply-chain processes.",
-      "category": "Programmes & Specialisations"
+      "a": "The program focuses on international trade, including export-import procedures, documentation, payments, sourcing, customs, global logistics and supply-chain processes.",
+      "category": "programs & Specialisations"
     },
     {
       "q": "Is the School's teaching mainly theoretical or practice-oriented?",
@@ -1046,12 +1046,12 @@ export const commerceSchool: ProgramPageData = {
     },
     {
       "q": "Are research opportunities available at undergraduate and postgraduate level?",
-      "a": "The School highlights research-integrated learning and academic research opportunities. Students may engage in research projects depending on their programme, faculty guidance and available opportunities.",
+      "a": "The School highlights research-integrated learning and academic research opportunities. Students may engage in research projects depending on their program, faculty guidance and available opportunities.",
       "category": "Curriculum & Learning Experience"
     },
     {
       "q": "Do commerce and management students get internship opportunities?",
-      "a": "Yes. Internship-based learning is an important part of the School's practical learning approach, with programme-level industry exposure built into the student experience.",
+      "a": "Yes. Internship-based learning is an important part of the School's practical learning approach, with program-level industry exposure built into the student experience.",
       "category": "Industry Exposure, Internships & Global Opportunities"
     },
     {
@@ -1061,7 +1061,7 @@ export const commerceSchool: ProgramPageData = {
     },
     {
       "q": "Does the School offer international internships?",
-      "a": "The School highlights international internship opportunities as part of its global exposure initiatives. Availability may depend on the programme, cohort and applicable arrangements.",
+      "a": "The School highlights international internship opportunities as part of its global exposure initiatives. Availability may depend on the program, cohort and applicable arrangements.",
       "category": "Industry Exposure, Internships & Global Opportunities"
     },
     {
@@ -1076,7 +1076,7 @@ export const commerceSchool: ProgramPageData = {
     },
     {
       "q": "Can students gain exposure to multinational companies?",
-      "a": "Yes. The School highlights corporate and MNC interaction, giving students opportunities to understand how large organisations operate. Specific company participation can vary by year and programme.",
+      "a": "Yes. The School highlights corporate and MNC interaction, giving students opportunities to understand how large organisations operate. Specific company participation can vary by year and program.",
       "category": "Industry Exposure, Internships & Global Opportunities"
     },
     {
@@ -1130,7 +1130,7 @@ export const commerceSchool: ProgramPageData = {
       "category": "Faculty, Mentorship & Student Development"
     },
     {
-      "q": "What is the XEDGE Programme and how does it benefit students?",
+      "q": "What is the XEDGE Program and how does it benefit students?",
       "a": "XEDGE is a student-development initiative focused on corporate attitude, career and life skills, leadership mindset and social responsibility alongside academic learning.",
       "category": "Faculty, Mentorship & Student Development"
     },

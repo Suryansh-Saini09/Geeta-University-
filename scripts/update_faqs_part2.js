@@ -4,8 +4,8 @@ const path = require('path');
 const cseFaqs = [
   // Admissions & Eligibility
   {
-    q: "What programmes are offered by the School of Computer Science & Engineering at Geeta University?",
-    a: "The School currently lists B.Tech. Hons. CSE with specializations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cyber Security, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cyber Security and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programmes in Computer Applications and CSE.",
+    q: "What programs are offered by the School of Computer Science & Engineering at Geeta University?",
+    a: "The School currently lists B.Tech. Hons. CSE with specializations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cyber Security, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cyber Security and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programs in Computer Applications and CSE.",
     category: "Admissions & Eligibility"
   },
   {
@@ -30,7 +30,7 @@ const cseFaqs = [
   },
   {
     q: "Is Mathematics compulsory for BCA?",
-    a: "The School's programme information does not impose the same Physics-and-Mathematics requirement as B.Tech. CSE. Students should, however, verify the current programme-specific eligibility before applying.",
+    a: "The School's program information does not impose the same Physics-and-Mathematics requirement as B.Tech. CSE. Students should, however, verify the current program-specific eligibility before applying.",
     category: "Admissions & Eligibility"
   },
   {
@@ -44,76 +44,76 @@ const cseFaqs = [
     category: "Admissions & Eligibility"
   },
   {
-    q: "Who is eligible for Ph.D. programmes in the School?",
-    a: "A relevant master's degree with at least 55% marks is required to be eligible for Ph.D. programmes in the School.",
+    q: "Who is eligible for Ph.D. programs in the School?",
+    a: "A relevant master's degree with at least 55% marks is required to be eligible for Ph.D. programs in the School.",
     category: "Admissions & Eligibility"
   },
 
-  // Programmes, Specialisations & Curriculum
+  // programs, Specialisations & Curriculum
   {
     q: "What is the difference between B.Tech. CSE and BCA at Geeta University?",
-    a: "B.Tech. CSE is a four-year engineering programme built around deeper computer science and engineering foundations, while BCA is a three/four-year computer applications degree with a more application-oriented structure. Both offer exposure to contemporary areas such as AI, cybersecurity and data-related technologies, but their academic routes and eligibility requirements differ.",
-    category: "Programmes, Specialisations & Curriculum"
+    a: "B.Tech. CSE is a four-year engineering program built around deeper computer science and engineering foundations, while BCA is a three/four-year computer applications degree with a more application-oriented structure. Both offer exposure to contemporary areas such as AI, cybersecurity and data-related technologies, but their academic routes and eligibility requirements differ.",
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "What specialisations are available under B.Tech. CSE?",
     a: "The specializations include Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cyber Security, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing and NIAT Upskilling.",
-    category: "Programmes, Specialisations & Curriculum"
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "What specialisations are available under BCA?",
     a: "BCA in Computer Applications, Artificial Intelligence & Machine Learning, Cyber Security and Data Science & Business Analytics are available within the school.",
-    category: "Programmes, Specialisations & Curriculum"
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "How should a student choose between AI & ML, Data Science, Cyber Security and Full Stack Development?",
     a: "AI & ML is suited to students interested in intelligent systems, automation and predictive models; Data Science suits students interested in data analysis and insight generation; Cyber Security suits students interested in digital protection, risk and security; and Full Stack Development suits students who want to build end-to-end web applications.",
-    category: "Programmes, Specialisations & Curriculum"
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "Does the curriculum cover core programming and computer science fundamentals?",
     a: "Yes. Core areas of Curriculum include programming, data structures and algorithms, operating systems, databases, software engineering, computer networks, cloud fundamentals, web and mobile development and IoT.",
-    category: "Programmes, Specialisations & Curriculum"
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "Will students learn multiple programming languages?",
-    a: "The programming exposure includes C, C++, Java and Python, with additional technologies depending on the selected programme or specialisation.",
-    category: "Programmes, Specialisations & Curriculum"
+    a: "The programming exposure includes C, C++, Java and Python, with additional technologies depending on the selected program or specialisation.",
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "Does the School teach AI and Machine Learning beyond a basic introduction?",
     a: "Yes. AI & ML is offered as a dedicated specialisation, and the School highlights areas such as machine learning, deep learning, neural networks, computer vision, robotics, natural language processing and predictive analytics.",
-    category: "Programmes, Specialisations & Curriculum"
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "What will students learn in the Cyber Security specialisation?",
     a: "The students will learn software development security, network security, risk management and compliance, cryptography, information security, security architecture, ethical hacking and digital-forensics-oriented areas.",
-    category: "Programmes, Specialisations & Curriculum"
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "What does the Data Science & Business Analytics pathway focus on?",
     a: "The pathway combines programming and data-oriented skills with analytics. The School highlights data frames, Python for data science, R programming, core programming principles and analytics-oriented learning.",
-    category: "Programmes, Specialisations & Curriculum"
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "What does the Full Stack Web Development specialisation cover?",
     a: "This specialization covers web-development fundamentals, HTML/CSS, JavaScript, advanced JavaScript and CSS-based web applications, with the wider curriculum supporting end-to-end software and web development.",
-    category: "Programmes, Specialisations & Curriculum"
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "What is special about the B.Tech. CSE Quantum Computing pathway?",
-    a: "It combines computer science with quantum computing and related mathematics and physics. The programme highlights quantum mechanics for computing, quantum algorithms, quantum programming, quantum cryptography, quantum machine learning, quantum hardware and architectures, simulations and an industry-based quantum innovation lab.",
-    category: "Programmes, Specialisations & Curriculum"
+    a: "It combines computer science with quantum computing and related mathematics and physics. The program highlights quantum mechanics for computing, quantum algorithms, quantum programming, quantum cryptography, quantum machine learning, quantum hardware and architectures, simulations and an industry-based quantum innovation lab.",
+    category: "programs, Specialisations & Curriculum"
   },
   {
     q: "Does the M.Tech. CSE curriculum include advanced technologies?",
-    a: "Yes. The M.Tech. programme covers areas such as advanced programming, data structures and algorithms, operating systems, databases, computer networks, cloud fundamentals, IoT, cyber law basics, web/mobile development and an industry internship or capstone project.",
-    category: "Programmes, Specialisations & Curriculum"
+    a: "Yes. The M.Tech. program covers areas such as advanced programming, data structures and algorithms, operating systems, databases, computer networks, cloud fundamentals, IoT, cyber law basics, web/mobile development and an industry internship or capstone project.",
+    category: "programs, Specialisations & Curriculum"
   },
   {
-    q: "What does the MCA programme focus on?",
-    a: "MCA focuses on application development, system design and data analytics, with programme areas including advanced programming, databases, web technologies, operating systems, software engineering, AI & ML, cloud computing, big data tools, UI/UX and IoT, along with industry internship.",
-    category: "Programmes, Specialisations & Curriculum"
+    q: "What does the MCA program focus on?",
+    a: "MCA focuses on application development, system design and data analytics, with program areas including advanced programming, databases, web technologies, operating systems, software engineering, AI & ML, cloud computing, big data tools, UI/UX and IoT, along with industry internship.",
+    category: "programs, Specialisations & Curriculum"
   },
 
   // Practical Learning, Projects & Industry Exposure
@@ -129,7 +129,7 @@ const cseFaqs = [
   },
   {
     q: "Are internships part of the CSE learning experience?",
-    a: "Yes. Industry internships are explicitly included in the B.Tech. CSE, M.Tech. CSE and MCA programme structures, while the School also highlights internships more broadly as part of industry-oriented learning.",
+    a: "Yes. Industry internships are explicitly included in the B.Tech. CSE, M.Tech. CSE and MCA program structures, while the School also highlights internships more broadly as part of industry-oriented learning.",
     category: "Practical Learning, Projects & Industry Exposure"
   },
   {
@@ -154,12 +154,12 @@ const cseFaqs = [
   },
   {
     q: "What kind of certifications can CSE students pursue?",
-    a: "Certification tracks are associated with Amazon AWS, Red Hat, Cisco, HubSpot, GitHub, Oracle and Microsoft Azure. The exact certifications available to a student may depend on the programme and current certification track.",
+    a: "Certification tracks are associated with Amazon AWS, Red Hat, Cisco, HubSpot, GitHub, Oracle and Microsoft Azure. The exact certifications available to a student may depend on the program and current certification track.",
     category: "Practical Learning, Projects & Industry Exposure"
   },
   {
-    q: "Are industry certifications automatically included in the programme fee?",
-    a: "The School highlights certification tracks, but the exact inclusion, certification provider, examination charges and fee coverage can vary by programme or training model. Students should confirm the current terms with the School or admissions team.",
+    q: "Are industry certifications automatically included in the program fee?",
+    a: "The School highlights certification tracks, but the exact inclusion, certification provider, examination charges and fee coverage can vary by program or training model. Students should confirm the current terms with the School or admissions team.",
     category: "Practical Learning, Projects & Industry Exposure"
   },
   {
@@ -191,7 +191,7 @@ const cseFaqs = [
   },
   {
     q: "What career opportunities are available after M.Tech. CSE?",
-    a: "The programme supports advanced technical and research-oriented pathways, including roles in R&D, cloud architecture, cybersecurity and intelligent systems, as well as further research and doctoral study.",
+    a: "The program supports advanced technical and research-oriented pathways, including roles in R&D, cloud architecture, cybersecurity and intelligent systems, as well as further research and doctoral study.",
     category: "Placements & Career Opportunities"
   },
   {
@@ -274,7 +274,7 @@ const cseFaqs = [
     category: "Campus Life, Technology & Student Experience"
   },
   {
-    q: "Can students build a portfolio during the programme?",
+    q: "Can students build a portfolio during the program?",
     a: "The project-based and practical learning approach provides opportunities to build projects, technical work and other demonstrable outputs. Students can use these experiences to develop a portfolio alongside their academic qualification.",
     category: "Campus Life, Technology & Student Experience"
   },
@@ -282,7 +282,7 @@ const cseFaqs = [
   // Global Exposure, Research & Higher Studies
   {
     q: "Does the School support research and innovation?",
-    a: "Yes. Research is visible through faculty publications, patents, doctoral programmes, research-oriented postgraduate study, project work and emerging technology areas.",
+    a: "Yes. Research is visible through faculty publications, patents, doctoral programs, research-oriented postgraduate study, project work and emerging technology areas.",
     category: "Global Exposure, Research & Higher Studies"
   },
   {
@@ -323,25 +323,25 @@ const cseFaqs = [
     category: "Parents & Decision-Making"
   },
   {
-    q: "What should parents consider before choosing a CSE programme?",
+    q: "What should parents consider before choosing a CSE program?",
     a: "Parents should look beyond the degree title and compare curriculum depth, practical exposure, internships, project opportunities, faculty support, industry certifications, emerging-technology exposure, placement preparation and the student's own interests and aptitude.",
     category: "Parents & Decision-Making"
   },
 
   // General
   {
-    q: "How long is the B.Tech. CSE programme?",
-    a: "The B.Tech. CSE programme is of four years, comprising eight semesters.",
+    q: "How long is the B.Tech. CSE program?",
+    a: "The B.Tech. CSE program is of four years, comprising eight semesters.",
     category: "General"
   },
   {
-    q: "How long is the BCA programme?",
-    a: "The BCA programme is listed as a three/four-year degree, depending on the applicable degree pathway.",
+    q: "How long is the BCA program?",
+    a: "The BCA program is listed as a three/four-year degree, depending on the applicable degree pathway.",
     category: "General"
   },
   {
-    q: "How long are the MCA and M.Tech. CSE programmes?",
-    a: "Both MCA and M.Tech. CSE are listed as two-year postgraduate programmes.",
+    q: "How long are the MCA and M.Tech. CSE programs?",
+    a: "Both MCA and M.Tech. CSE are listed as two-year postgraduate programs.",
     category: "General"
   },
   {
@@ -359,8 +359,8 @@ const cseFaqs = [
 const spBansalFaqs = [
   // Admissions & Eligibility
   {
-    q: "What programmes are offered by SP Bansal School of Business (SPBSB)?",
-    a: "The SPBSB offers MBA with specializations in AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business, along with a Ph.D. programme.",
+    q: "What programs are offered by SP Bansal School of Business (SPBSB)?",
+    a: "The SPBSB offers MBA with specializations in AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business, along with a Ph.D. program.",
     category: "Admissions & Eligibility"
   },
   {
@@ -374,13 +374,13 @@ const spBansalFaqs = [
     category: "Admissions & Eligibility"
   },
   {
-    q: "What is the eligibility for the Ph.D. programme at SPBSB?",
+    q: "What is the eligibility for the Ph.D. program at SPBSB?",
     a: "A master's degree in a relevant field with a minimum of 55% marks.",
     category: "Admissions & Eligibility"
   },
   {
     q: "Is work experience mandatory for the MBA?",
-    a: "No. Fresh graduates can consider the programme, subject to the current admission rules.",
+    a: "No. Fresh graduates can consider the program, subject to the current admission rules.",
     category: "Admissions & Eligibility"
   },
   {
@@ -496,7 +496,7 @@ const spBansalFaqs = [
   },
   {
     q: "Does SPBSB teach machine learning to MBA students?",
-    a: "The School entails hands-on labs and an AI-enabled management ecosystem that includes AI, ML and analytics. The depth and modules depend on the student's selected programme or specialisation.",
+    a: "The School entails hands-on labs and an AI-enabled management ecosystem that includes AI, ML and analytics. The depth and modules depend on the student's selected program or specialisation.",
     category: "Certifications, Technology & AI Ecosystem"
   },
   {
@@ -522,7 +522,7 @@ const spBansalFaqs = [
     category: "Industry Exposure, Internships & Corporate Connect"
   },
   {
-    q: "Why are internships important in an MBA programme?",
+    q: "Why are internships important in an MBA program?",
     a: "Internships allow students to test classroom concepts in real organisational settings, develop professional behaviour, understand business functions and build industry networks.",
     category: "Industry Exposure, Internships & Corporate Connect"
   },
@@ -538,7 +538,7 @@ const spBansalFaqs = [
   },
   {
     q: "Does SPBSB offer international exposure?",
-    a: "Yes. The School also provides a ten-day learning experience in Dubai, Malaysia or Europe through its global-certification/immersion proposition, subject to the applicable programme and offering.",
+    a: "Yes. The School also provides a ten-day learning experience in Dubai, Malaysia or Europe through its global-certification/immersion proposition, subject to the applicable program and offering.",
     category: "Industry Exposure, Internships & Corporate Connect"
   },
   {
@@ -663,7 +663,7 @@ const spBansalFaqs = [
     category: "Entrepreneurship & Family Business"
   },
   {
-    q: "Does the programme cover succession planning in family businesses?",
+    q: "Does the program cover succession planning in family businesses?",
     a: "Yes. Succession planning is explicitly included in the Family Business specialisation.",
     category: "Entrepreneurship & Family Business"
   },
@@ -686,11 +686,11 @@ const spBansalFaqs = [
   },
   {
     q: "Is SPBSB suitable for fresh graduates?",
-    a: "Yes. The MBA eligibility does not require prior work experience, making the programme accessible to eligible graduates at the start of their careers.",
+    a: "Yes. The MBA eligibility does not require prior work experience, making the program accessible to eligible graduates at the start of their careers.",
     category: "Faculty, Campus & Student Experience"
   },
   {
-    q: "What makes SPBSB different from a generic management programme?",
+    q: "What makes SPBSB different from a generic management program?",
     a: "Its stated differentiators include AI-enabled management education, semiannual curriculum updates, live industry problem solving, global certifications, technology labs, case-based learning, internships, Leadership Odyssey and international/industry immersion opportunities.",
     category: "Faculty, Campus & Student Experience"
   },

@@ -20,7 +20,7 @@ export default function ContactFormSection() {
   };
 
   return (
-    <section className="w-full bg-[#F7F9FC] py-16 md:py-24 border-b border-slate-200">
+    <section className="w-full bg-[#F7F9FC] py-10 md:py-14 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Text Column */}

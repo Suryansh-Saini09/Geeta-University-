@@ -60,8 +60,8 @@ export const spBansalSchool: ProgramPageData = {
     },
     faqs: [
         {
-            "q": "What programmes are offered by SP Bansal School of Business (SPBSB)?",
-            "a": "The SPBSB offers MBA with specializations in AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business, along with a Ph.D. programme.",
+            "q": "What programs are offered by SP Bansal School of Business (SPBSB)?",
+            "a": "The SPBSB offers MBA with specializations in AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business, along with a Ph.D. program.",
             "category": "Admissions & Eligibility"
         },
         {
@@ -75,13 +75,13 @@ export const spBansalSchool: ProgramPageData = {
             "category": "Admissions & Eligibility"
         },
         {
-            "q": "What is the eligibility for the Ph.D. programme at SPBSB?",
+            "q": "What is the eligibility for the Ph.D. program at SPBSB?",
             "a": "A master's degree in a relevant field with a minimum of 55% marks.",
             "category": "Admissions & Eligibility"
         },
         {
             "q": "Is work experience mandatory for the MBA?",
-            "a": "No. Fresh graduates can consider the programme, subject to the current admission rules.",
+            "a": "No. Fresh graduates can consider the program, subject to the current admission rules.",
             "category": "Admissions & Eligibility"
         },
         {
@@ -191,7 +191,7 @@ export const spBansalSchool: ProgramPageData = {
         },
         {
             "q": "Does SPBSB teach machine learning to MBA students?",
-            "a": "The School entails hands-on labs and an AI-enabled management ecosystem that includes AI, ML and analytics. The depth and modules depend on the student's selected programme or specialisation.",
+            "a": "The School entails hands-on labs and an AI-enabled management ecosystem that includes AI, ML and analytics. The depth and modules depend on the student's selected program or specialisation.",
             "category": "Certifications, Technology & AI Ecosystem"
         },
         {
@@ -215,7 +215,7 @@ export const spBansalSchool: ProgramPageData = {
             "category": "Industry Exposure, Internships & Corporate Connect"
         },
         {
-            "q": "Why are internships important in an MBA programme?",
+            "q": "Why are internships important in an MBA program?",
             "a": "Internships allow students to test classroom concepts in real organisational settings, develop professional behaviour, understand business functions and build industry networks.",
             "category": "Industry Exposure, Internships & Corporate Connect"
         },
@@ -231,7 +231,7 @@ export const spBansalSchool: ProgramPageData = {
         },
         {
             "q": "Does SPBSB offer international exposure?",
-            "a": "Yes. The School also provides a ten-day learning experience in Dubai, Malaysia or Europe through its global-certification/immersion proposition, subject to the applicable programme and offering.",
+            "a": "Yes. The School also provides a ten-day learning experience in Dubai, Malaysia or Europe through its global-certification/immersion proposition, subject to the applicable program and offering.",
             "category": "Industry Exposure, Internships & Corporate Connect"
         },
         {
@@ -350,7 +350,7 @@ export const spBansalSchool: ProgramPageData = {
             "category": "Entrepreneurship & Family Business"
         },
         {
-            "q": "Does the programme cover succession planning in family businesses?",
+            "q": "Does the program cover succession planning in family businesses?",
             "a": "Yes. Succession planning is explicitly included in the Family Business specialisation.",
             "category": "Entrepreneurship & Family Business"
         },
@@ -371,11 +371,11 @@ export const spBansalSchool: ProgramPageData = {
         },
         {
             "q": "Is SPBSB suitable for fresh graduates?",
-            "a": "Yes. The MBA eligibility does not require prior work experience, making the programme accessible to eligible graduates at the start of their careers.",
+            "a": "Yes. The MBA eligibility does not require prior work experience, making the program accessible to eligible graduates at the start of their careers.",
             "category": "Faculty, Campus & Student Experience"
         },
         {
-            "q": "What makes SPBSB different from a generic management programme?",
+            "q": "What makes SPBSB different from a generic management program?",
             "a": "Its stated differentiators include AI-enabled management education, semiannual curriculum updates, live industry problem solving, global certifications, technology labs, case-based learning, internships, Leadership Odyssey and international/industry immersion opportunities.",
             "category": "Faculty, Campus & Student Experience"
         },

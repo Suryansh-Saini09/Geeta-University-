@@ -32,13 +32,13 @@ export default function PhdEligibilitySection() {
               Eligibility Criteria
             </h3>
             <p className="text-[16px] font-semibold text-[#0A1F44] mb-3">
-              Eligibility criteria for admission to the Ph.D. Programme:
+              Eligibility criteria for admission to the Ph.D. Program:
             </p>
             <ul className="space-y-4 text-[15.5px] leading-relaxed text-[#334155]">
               <li className="flex items-start gap-3">
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#0E395C] text-xs font-bold text-white">1</span>
                 <div>
-                  Candidates who have completed: A 1-year/2-semester Master’s degree programme after a 4-year/8-semester bachelor’s degree programme, or a 2-year/4-semester Master’s degree programme after a 3-year bachelor’s degree programme, or qualifications declared equivalent to the master’s degree by the corresponding statutory regulatory body, with at least <strong>55% marks in aggregate</strong> (or equivalent grade on a point scale).
+                  Candidates who have completed: A 1-year/2-semester Master’s degree program after a 4-year/8-semester bachelor’s degree program, or a 2-year/4-semester Master’s degree program after a 3-year bachelor’s degree program, or qualifications declared equivalent to the master’s degree by the corresponding statutory regulatory body, with at least <strong>55% marks in aggregate</strong> (or equivalent grade on a point scale).
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -51,7 +51,7 @@ export default function PhdEligibilitySection() {
 
             <div className="mt-6 rounded-[14px] bg-[#FFF8F2] border border-[#FFD9B3] p-4.5 text-[14.5px] text-[#8C4300] space-y-2">
               <p>
-                <strong>4-Year Bachelor's Degree Pathway:</strong> A candidate seeking admission after a 4-year/8-semester bachelor’s degree programme with research should have a minimum of <strong>75% marks in aggregate</strong> or its equivalent grade on a point scale.
+                <strong>4-Year Bachelor's Degree Pathway:</strong> A candidate seeking admission after a 4-year/8-semester bachelor’s degree program with research should have a minimum of <strong>75% marks in aggregate</strong> or its equivalent grade on a point scale.
               </p>
               <p>
                 <strong>Foreign/NRI Applicants:</strong> Applicants with a Master’s degree from a foreign university must apply with an equivalent certificate of AIU along with the online application.

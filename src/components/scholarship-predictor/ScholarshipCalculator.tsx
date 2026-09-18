@@ -39,7 +39,7 @@ export default function ScholarshipCalculator() {
     if (!currentProgram || !selectedArea) return [];
     if (currentProgram.scholarship_allowed === false) return [];
 
-    const programLevel = detectLevel(currentProgram.programme);
+    const programLevel = detectLevel(currentProgram.program);
 
     return Object.entries(RULES_DATA)
       .filter(([_, rule]) => {
@@ -221,8 +221,8 @@ export default function ScholarshipCalculator() {
                       {selectedArea ? "Select Academic Program" : "Select Area of Interest First"}
                     </option>
                     {availablePrograms.map((p) => (
-                      <option key={p.programme} value={JSON.stringify(p)}>
-                        {p.programme} ({p.level})
+                      <option key={p.program} value={JSON.stringify(p)}>
+                        {p.program} ({p.level})
                       </option>
                     ))}
                   </select>

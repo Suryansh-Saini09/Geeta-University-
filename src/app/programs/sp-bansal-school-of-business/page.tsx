@@ -2674,7 +2674,7 @@ function ProgramObjectivesOutcomesSection() {
             <h2 className="spbsb-outcomes-title">Program Objectives <span>&amp;</span> Outcomes</h2>
           </div>
           <p className="spbsb-outcomes-subtitle">
-            The programme is written around a simple promise: students should graduate with sound management fundamentals, practical confidence, and the judgement to use technology responsibly.
+            The program is written around a simple promise: students should graduate with sound management fundamentals, practical confidence, and the judgement to use technology responsibly.
           </p>
         </motion.div>
 
@@ -2687,7 +2687,7 @@ function ProgramObjectivesOutcomesSection() {
         >
           <div className="spbsb-outcomes-note">
             <h3 className="spbsb-outcomes-block-title">Objectives</h3>
-            <p className="spbsb-outcomes-helper">What the programme is designed to build.</p>
+            <p className="spbsb-outcomes-helper">What the program is designed to build.</p>
             <ul className="spbsb-outcomes-lines">
               {objectives.map((objective, index) => (
                 <motion.li
@@ -2754,11 +2754,11 @@ function ProgramObjectivesOutcomesSection() {
   );
 }
 
-/* ── PROGRAMMES OFFERED SECTION ── */
-function ProgrammesOfferedCseStyleSection() {
+/* ── programs OFFERED SECTION ── */
+function ProgramsOfferedCseStyleSection() {
   const [activeTab, setActiveTab] = useState(0);
 
-  const programmeGroups = [
+  const programGroups = [
     {
       level: "Postgraduate",
       icon: <GraduationCap size={18} />,
@@ -2935,7 +2935,7 @@ function ProgrammesOfferedCseStyleSection() {
           className="spbsb-cse-program-tabs"
           style={{ display: "flex", gap: 16, borderBottom: "1px solid #E2E8F0", paddingBottom: 20, marginBottom: 40, overflowX: "auto" }}
         >
-          {programmeGroups.map((cat, idx) => (
+          {programGroups.map((cat, idx) => (
             <button
               key={cat.level}
               onClick={() => setActiveTab(idx)}
@@ -2998,11 +2998,11 @@ function ProgrammesOfferedCseStyleSection() {
                 boxShadow: "0 4px 12px rgba(245, 158, 11, 0.05)",
               }}
             >
-              {programmeGroups[activeTab].level} Courses
+              {programGroups[activeTab].level} Courses
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 24 }}>
-              {programmeGroups[activeTab].items.map((prog, index) => (
+              {programGroups[activeTab].items.map((prog, index) => (
                 <motion.div
                   className="spbsb-cse-program-card"
                   key={prog.program}
@@ -7543,7 +7543,7 @@ export default function SPBansalSchoolOfBusiness() {
 
       <ProgramObjectivesOutcomesSection />
 
-      <ProgrammesOfferedCseStyleSection />
+      <ProgramsOfferedCseStyleSection />
 
       <CurriculumPedagogySection />
 

@@ -35,7 +35,7 @@ export const bbaHumanResourceManagement: CoursePageData = {
   overview: {
     title: "Bachelor of Business Administration in Human Resource Management",
     paragraphs: [
-      "The BBA in Human Resource Management program from Geeta University, Panipat, Haryana is a comprehensive undergraduate programme designed to equip students with a deep understanding of workforce management, organisational behaviour, and strategic HR practices. This degree covers key areas such as talent acquisition, employee relations, performance management, and labour laws, ensuring a well-rounded foundation in human resource management.",
+      "The BBA in Human Resource Management program from Geeta University, Panipat, Haryana is a comprehensive undergraduate program designed to equip students with a deep understanding of workforce management, organisational behaviour, and strategic HR practices. This degree covers key areas such as talent acquisition, employee relations, performance management, and labour laws, ensuring a well-rounded foundation in human resource management.",
       "Students gain practical insights through case studies, industry projects, internships, and research opportunities, enhancing their analytical and decision-making skills. The syllabus is implemented to develop leadership abilities and strategic thinking, preparing graduates for dynamic careers in HR management, talent development, and organisational consulting.",
     ],
   },

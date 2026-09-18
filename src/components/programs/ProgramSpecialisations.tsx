@@ -70,7 +70,7 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
 
   if (specialisations.layout === "table") {
     return (
-      <section id="Specialisations" style={{ padding: "80px 0 90px", background: "#FFFFFF", position: "relative" }}>
+      <section id="Specialisations" style={{ padding: "52px 0 48px", background: "#FFFFFF", position: "relative" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
           <div style={{ textAlign: "center", marginBottom: 44 }}>
             <h2 style={{ fontSize: "clamp(28px, 3.6vw, 40px)", fontWeight: 900, color: "#0A1F44", margin: 0, lineHeight: 1.15, letterSpacing: "-0.5px" }}>
@@ -154,7 +154,7 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
     <section
       id="Specialisations"
       style={{
-        padding: "72px 0 84px",
+        padding: "52px 0 48px",
         background: "#FFFFFF",
         position: "relative",
         borderTop: "1px solid rgba(0, 0, 0, 0.05)",

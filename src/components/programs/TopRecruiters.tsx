@@ -374,7 +374,7 @@ export default function TopRecruiters({
       id="TopRecruiters"
       style={{
         background: "linear-gradient(135deg, #C94210 0%, #D94E1A 35%, #E8771A 70%, #D4500F 100%)",
-        padding: "80px 0 76px",
+        padding: "52px 0 48px",
         overflow: "hidden",
         position: "relative",
       }}

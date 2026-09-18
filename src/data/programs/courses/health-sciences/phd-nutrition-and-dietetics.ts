@@ -72,7 +72,7 @@ export const phdNutritionAndDietetics: CoursePageData = {
       "The minimum eligibility for admission to PhD in Nutrition and Dietetics in Delhi at Geeta University is Post Graduation with 55% in Nutrition & Dietetics, Home Science, Food Technology, or related fields (Biochemistry, Life Sciences). A 5% relaxation is provided for reserved categories (SC/ST/OBC/EWS).",
     whyChooseHeading: "Scope of PhD in Nutrition and Dietetics",
     whyChooseParagraphs: [
-      "There is a wide range of opportunities for candidates with a PhD in Nutrition and Dietetics in Delhi. Candidates can expect job opportunities in various fields like research, teaching, and management. Students will get hands-on experience in the chosen field as they work on practicals. A PhD in Nutrition and Dietetics programme includes various specialisations such as biochemistry, microbiology, statistics, and human metabolism.",
+      "There is a wide range of opportunities for candidates with a PhD in Nutrition and Dietetics in Delhi. Candidates can expect job opportunities in various fields like research, teaching, and management. Students will get hands-on experience in the chosen field as they work on practicals. A PhD in Nutrition and Dietetics program includes various specialisations such as biochemistry, microbiology, statistics, and human metabolism.",
       "Candidates will also perform case studies while pursuing their PhD in Food and Nutrition in Delhi and check the impact of food and nutrition, human health, metabolism rate, obesity, and ageing on individuals. There are also other specialisations related to Nutrition and Dietetics, such as Sports Nutrition, Management Dietitian, and Paediatric Dietitian.",
     ],
   },

@@ -157,7 +157,7 @@ export default function CareersForm() {
   };
 
   return (
-    <section id="careers-form-section" className="scroll-mt-20 bg-white py-20 lg:py-24 border-t border-[#E2E8F0]">
+    <section id="careers-form-section" className="scroll-mt-20 bg-white py-10 md:py-14 border-t border-[#E2E8F0]">
       <div className="gu-container">
         {/* Section Title */}
         <div className="mx-auto mb-14 max-w-3xl text-center">

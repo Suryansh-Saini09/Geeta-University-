@@ -56,7 +56,7 @@ export default function IcnfprPage() {
       {/* 3. Keynote & Invited Speakers + Guests of Honour */}
       <IcnfprSpeakers />
 
-      {/* 4. Conference Programme Schedule (Day 1 & Day 2) */}
+      {/* 4. Conference Program Schedule (Day 1 & Day 2) */}
       <IcnfprSchedule />
 
       {/* 5. Call for Papers (CFP) Guidelines & Important Deadlines */}
