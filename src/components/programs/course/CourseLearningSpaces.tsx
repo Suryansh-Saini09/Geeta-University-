@@ -22,9 +22,9 @@ export default function CourseLearningSpaces({
     handleMouseEnter,
     handleMouseUp,
     handleMouseMove,
-    onTouchStart: handleTouchStart,
-    onTouchMove: handleTouchMove,
-    onTouchEnd: handleTouchEnd,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
   } = useFiniteCarousel({
     totalItems: items.length,
     autoplayInterval: 3000,
