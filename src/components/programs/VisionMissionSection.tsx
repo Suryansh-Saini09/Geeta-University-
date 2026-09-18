@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Compass, Lightbulb, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { mission as defaultMission, vision as defaultVision } from "@/data/about";
 import type { VisionMissionData } from "@/data/programs/types";
@@ -16,11 +16,16 @@ export default function VisionMissionSection({
 }: VisionMissionSectionProps = {}) {
   const [openSection, setOpenSection] = useState<"vision" | "mission">("vision");
 
-  const visionText = data?.vision || defaultVision;
-  const missionItems =
-    data?.mission && data.mission.length > 0 ? data.mission : defaultMission;
+  const rawVision = data?.vision || defaultVision;
+  const cleanVision = rawVision ? rawVision.trim().replace(/^["“]+|["”]+$/g, "").trim() : "";
 
-  if (!visionText && (!missionItems || missionItems.length === 0)) {
+  const rawMissionItems =
+    data?.mission && data.mission.length > 0 ? data.mission : defaultMission;
+  const missionItems = (rawMissionItems || []).map((m) =>
+    m.trim().replace(/^["“]+|["”]+$/g, "").trim()
+  );
+
+  if (!cleanVision && (!missionItems || missionItems.length === 0)) {
     return null;
   }
 
@@ -50,30 +55,19 @@ export default function VisionMissionSection({
               className="w-full px-6 py-5 sm:px-8 sm:py-6 flex items-center justify-between gap-4 text-left transition-colors"
               aria-expanded={openSection === "vision"}
             >
-              <div className="flex items-center gap-4">
-                <div
-                  className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center shrink-0 transition-colors ${
-                    openSection === "vision"
-                      ? "bg-[#E8871A] text-white shadow-md"
-                      : "bg-amber-50 text-[#E8871A] border border-amber-100"
+              <div className="flex flex-col">
+                <h3
+                  className={`text-lg sm:text-xl md:text-2xl font-extrabold uppercase tracking-wide ${
+                    openSection === "vision" ? "text-[#E8871A]" : "text-[#0B1B3D]"
                   }`}
                 >
-                  <Compass className="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
-                <div>
-                  <h3
-                    className={`text-lg sm:text-xl md:text-2xl font-extrabold uppercase tracking-wide ${
-                      openSection === "vision" ? "text-[#E8871A]" : "text-[#0B1B3D]"
-                    }`}
-                  >
-                    Our Vision
-                  </h3>
-                  {openSection !== "vision" && (
-                    <p className="text-xs sm:text-sm text-slate-500 line-clamp-1 mt-0.5">
-                      “{visionText.substring(0, 90)}...”
-                    </p>
-                  )}
-                </div>
+                  Our Vision
+                </h3>
+                {openSection !== "vision" && (
+                  <p className="text-xs sm:text-sm text-slate-500 line-clamp-1 mt-1 font-normal">
+                    “{cleanVision.substring(0, 90)}...”
+                  </p>
+                )}
               </div>
 
               <div
@@ -102,7 +96,7 @@ export default function VisionMissionSection({
                     <div className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-[#162A52] pointer-events-none opacity-80" />
 
                     <p className="relative z-10 text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
-                      “{visionText}”
+                      “{cleanVision}”
                     </p>
                   </div>
                 </motion.div>
@@ -125,30 +119,19 @@ export default function VisionMissionSection({
               className="w-full px-6 py-5 sm:px-8 sm:py-6 flex items-center justify-between gap-4 text-left transition-colors"
               aria-expanded={openSection === "mission"}
             >
-              <div className="flex items-center gap-4">
-                <div
-                  className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center shrink-0 transition-colors ${
-                    openSection === "mission"
-                      ? "bg-[#E8871A] text-white shadow-md"
-                      : "bg-amber-50 text-[#E8871A] border border-amber-100"
+              <div className="flex flex-col">
+                <h3
+                  className={`text-lg sm:text-xl md:text-2xl font-extrabold uppercase tracking-wide ${
+                    openSection === "mission" ? "text-[#E8871A]" : "text-[#0B1B3D]"
                   }`}
                 >
-                  <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
-                <div>
-                  <h3
-                    className={`text-lg sm:text-xl md:text-2xl font-extrabold uppercase tracking-wide ${
-                      openSection === "mission" ? "text-[#E8871A]" : "text-[#0B1B3D]"
-                    }`}
-                  >
-                    Our Mission
-                  </h3>
-                  {openSection !== "mission" && missionItems.length > 0 && (
-                    <p className="text-xs sm:text-sm text-slate-500 line-clamp-1 mt-0.5">
-                      {missionItems[0]}
-                    </p>
-                  )}
-                </div>
+                  Our Mission
+                </h3>
+                {openSection !== "mission" && missionItems.length > 0 && (
+                  <p className="text-xs sm:text-sm text-slate-500 line-clamp-1 mt-1 font-normal">
+                    {missionItems[0]}
+                  </p>
+                )}
               </div>
 
               <div

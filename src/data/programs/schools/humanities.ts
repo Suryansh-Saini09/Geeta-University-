@@ -95,7 +95,7 @@ export const humanitiesSchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To be a premier centre of excellence in the humanities and social sciences, empowering students to become visionary scholars, educators, leaders, and changemakers dedicated to ethical values, critical inquiry, social justice, and nation-building.”",
+      "To be a premier centre of excellence in the humanities and social sciences, empowering students to become visionary scholars, educators, leaders, and changemakers dedicated to ethical values, critical inquiry, social justice, and nation-building.",
     mission: [
       "To offer student-centric, outcome-based education that equips learners to think critically, communicate effectively, make reasoned decisions, appreciate cultural diversity, and understand the intricate connections within human societies.",
       "To train knowledgeable, socially aware, and compassionate professionals equipped with the analytical skills, ethical grounding, and global perspectives necessary to address complex contemporary challenges.",
@@ -440,59 +440,17 @@ export const humanitiesSchool: ProgramPageData = {
   },
 
   careerPathways: {
-    title: "Your Humanities Degree. Infinite Horizons.",
+    title: "Career Pathways",
     description:
-      "A qualification from the School of Humanities & Social Sciences opens prestigious career tracks across civil administration, mental health, corporate strategy, and global bodies:",
-    pathways: [
-      {
-        area: "Civil Services & Administrative Governance (UPSC / State PSC)",
-        pathway: "Strong foundational preparation for IAS, IPS, IFS, and State Civil Services through comprehensive political science and economic training.",
-        icon: "",
-      },
-      {
-        area: "Clinical & Counseling Psychology",
-        pathway: "Practicing in hospitals, mental wellness clinics, rehabilitation centers, and educational institutions as licensed therapists and counselors.",
-        icon: "",
-      },
-      {
-        area: "Public Policy Think Tanks & Strategic Advisory",
-        pathway: "Authoring policy briefs, legislative analyses, and governance frameworks for national think tanks, consultancies, and ministries.",
-        icon: "",
-      },
-      {
-        area: "Corporate HR, Talent Management & Organizational Psychology",
-        pathway: "Leading talent acquisition, employee wellness programs, organizational culture design, and leadership training in top MNCs.",
-        icon: "",
-      },
-      {
-        area: "International NGOs & UN Development Agencies",
-        pathway: "Managing humanitarian projects, child rights advocacy, women's empowerment initiatives, and disaster relief at UNICEF, Oxfam, and UNDP.",
-        icon: "",
-      },
-      {
-        area: "Economic Research & Market Intelligence",
-        pathway: "Conducting macro-economic trend forecasting, consumer behavioural research, and financial risk assessments in research bureaus.",
-        icon: "",
-      },
-      {
-        area: "Media, Content Strategy & Publishing",
-        pathway: "Roles as investigative journalists, editorial directors, communication specialists, and digital narrative strategists.",
-        icon: "",
-      },
-    ],
+      "Graduates from Humanities & Social Sciences programs can choose from career options in both government and private sectors. They can opt for a career in civil service, education, counselling, policy research, NGOs, and the corporate sector. Our programs help build your analytical, communication, and problem-solving skills, which are essential for roles in governance, mental health, economics, and community development. Graduates may also choose to pursue higher studies or research, leading to career pathways enabling them to contribute meaningfully to academia, administration, and societal progress.",
+    rolesTitle: "Top Recruiting Industries",
     notableRoles: [
-      { name: "Counseling Psychologist" },
-      { name: "Clinical Psychology Specialist" },
-      { name: "Public Policy Analyst" },
-      { name: "Civil Services Officer (IAS / IPS / IFS)" },
-      { name: "Organizational HR Specialist" },
-      { name: "Economic Research Associate" },
-      { name: "NGO Program Director" },
-      { name: "International Relations Consultant" },
-      { name: "Social Welfare Officer" },
-      { name: "Content & Communications Lead" },
-      { name: "Academic Lecturer / Professor" },
-      { name: "Mental Health Wellness Coach" },
+      { name: "Government Departments and Civil Services" },
+      { name: "Educational Institutions and Universities" },
+      { name: "Research and Policy Think Tanks" },
+      { name: "NGOs and Social Welfare Organizations" },
+      { name: "Healthcare and Mental Wellness Centers" },
+      { name: "Media and Communication Firms" },
     ],
   },
 

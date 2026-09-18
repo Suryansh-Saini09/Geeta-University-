@@ -49,7 +49,7 @@ export const spBansalSchool: ProgramPageData = {
 
     visionMission: {
         vision:
-            "“To be a globally competitive business school by developing visionary leaders, entrepreneurs, strategists, and innovators who are at the forefront of creating enduring enterprises, disruptive innovations, and driving economic development for nation-building.”",
+            "To be a globally competitive business school by developing visionary leaders, entrepreneurs, strategists, and innovators who are at the forefront of creating enduring enterprises, disruptive innovations, and driving economic development for nation-building.",
         mission: [
             "To deliver student-centred and results-oriented business education, develop strategic competencies and leadership capabilities, promote responsible business practices, and foster high-impact management research.",
             "To develop human capital with entrepreneurial competencies and managerial skills to meet the growing need for visionary leaders and agile business executives in a globalized economy.",

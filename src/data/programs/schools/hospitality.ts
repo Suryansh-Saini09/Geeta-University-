@@ -93,7 +93,7 @@ export const hospitalitySchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "“To become a leading centre of hospitality education, fostering the development of service-oriented professionals, hospitality leaders, entrepreneurs, and innovators who are passionate about enhancing the guest experience, elevating global hospitality standards, and promoting sustainable tourism while making a positive contribution to economic and social development.”",
+      "To become a leading centre of hospitality education, fostering the development of service-oriented professionals, hospitality leaders, entrepreneurs, and innovators who are passionate about enhancing the guest experience, elevating global hospitality standards, and promoting sustainable tourism while making a positive contribution to economic and social development.",
     mission: [
       "To impart student-centric, outcomes-based hospitality education combining academic knowledge, hands-on training, industry exposure, and best management practices from around the world.",
       "To produce effective, ethical, and customer-focused hospitality professionals who possess the knowledge, skills, professionalism, and leadership to succeed in the dynamic hospitality and tourism sector.",
@@ -514,59 +514,28 @@ export const hospitalitySchool: ProgramPageData = {
   },
 
   careerPathways: {
-    title: "Your Hospitality Degree. Global Directions.",
+    title: "Career Opportunities After Hospitality & Hotel Management",
     description:
-      "Opens doors to prestigious careers in five-star hotels, luxury cruise liners, airlines, event empires, and food entrepreneurship:",
-    pathways: [
-      {
-        area: "Five-Star Hotel & Resort Operations",
-        pathway: "General management, front office direction, housekeeping management, and luxury guest relations.",
-        icon: "",
-      },
-      {
-        area: "Culinary Arts & Master Chef Careers",
-        pathway: "Executive chef, pastry chef, sous chef, and specialized international cuisine mastery.",
-        icon: "",
-      },
-      {
-        area: "Food & Beverage Management",
-        pathway: "Restaurant management, bar supervision, banquet catering, and wine curation.",
-        icon: "",
-      },
-      {
-        area: "Luxury Cruise Liners & Aviation",
-        pathway: "High-paying hospitality roles aboard international cruise ships, VIP airline lounges, and flight services.",
-        icon: "",
-      },
-      {
-        area: "Event, Wedding & Convention Planning",
-        pathway: "Destination wedding planning, MICE event coordination, and mega-banquet management.",
-        icon: "",
-      },
-      {
-        area: "Food Entrepreneurship & Cloud Kitchens",
-        pathway: "Launching bespoke restaurant chains, cloud kitchen networks, and culinary ventures.",
-        icon: "",
-      },
-      {
-        area: "Higher Study & Hospitality Research",
-        pathway: "Master's and Ph.D. pathways in sustainable tourism policy, international hospitality law, and academia.",
-        icon: "",
-      },
+      "The hotel and hospitality sector is set to grow by 8% annually over the next decade, offering dynamic career opportunities. From hotel management and event planning to culinary arts and tourism, this industry provides diverse pathways for growth, leadership, and global exposure, making it an exciting choice for aspiring professionals.",
+    recruitersTitle: "Top Recruiters",
+    recruiters: [
+      { name: "Westin Hotels & Resorts" },
+      { name: "Oberoi Hotels & Resorts" },
+      { name: "ITC Hotels" },
+      { name: "The LaLit" },
+      { name: "Crowne Plaza" },
+      { name: "Hyatt Hotels & Resorts" },
+      { name: "Taj Hotels, Resorts & Palaces" },
+      { name: "Marriott Hotels" },
     ],
+    rolesTitle: "Top Industries",
     notableRoles: [
-      { name: "Executive Chef" },
-      { name: "Hotel General Manager" },
-      { name: "Food & Beverage Director" },
-      { name: "Front Office Manager" },
-      { name: "Pastry Chef" },
-      { name: "Cruise Hospitality Officer" },
-      { name: "Event & Banquet Manager" },
-      { name: "Sommelier" },
-      { name: "Resort Operations Lead" },
-      { name: "Diet & Nutrition Planner" },
-      { name: "Hospitality Consultant" },
-      { name: "Restaurateur / Entrepreneur" },
+      { name: "Catering industries" },
+      { name: "Education" },
+      { name: "Airline industry" },
+      { name: "Online food apps" },
+      { name: "Tour and travels" },
+      { name: "Event Management" },
     ],
   },
 
