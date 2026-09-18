@@ -514,59 +514,28 @@ export const hospitalitySchool: ProgramPageData = {
   },
 
   careerPathways: {
-    title: "Your Hospitality Degree. Global Directions.",
+    title: "Career Opportunities After Hospitality & Hotel Management",
     description:
-      "Opens doors to prestigious careers in five-star hotels, luxury cruise liners, airlines, event empires, and food entrepreneurship:",
-    pathways: [
-      {
-        area: "Five-Star Hotel & Resort Operations",
-        pathway: "General management, front office direction, housekeeping management, and luxury guest relations.",
-        icon: "",
-      },
-      {
-        area: "Culinary Arts & Master Chef Careers",
-        pathway: "Executive chef, pastry chef, sous chef, and specialized international cuisine mastery.",
-        icon: "",
-      },
-      {
-        area: "Food & Beverage Management",
-        pathway: "Restaurant management, bar supervision, banquet catering, and wine curation.",
-        icon: "",
-      },
-      {
-        area: "Luxury Cruise Liners & Aviation",
-        pathway: "High-paying hospitality roles aboard international cruise ships, VIP airline lounges, and flight services.",
-        icon: "",
-      },
-      {
-        area: "Event, Wedding & Convention Planning",
-        pathway: "Destination wedding planning, MICE event coordination, and mega-banquet management.",
-        icon: "",
-      },
-      {
-        area: "Food Entrepreneurship & Cloud Kitchens",
-        pathway: "Launching bespoke restaurant chains, cloud kitchen networks, and culinary ventures.",
-        icon: "",
-      },
-      {
-        area: "Higher Study & Hospitality Research",
-        pathway: "Master's and Ph.D. pathways in sustainable tourism policy, international hospitality law, and academia.",
-        icon: "",
-      },
+      "The hotel and hospitality sector is set to grow by 8% annually over the next decade, offering dynamic career opportunities. From hotel management and event planning to culinary arts and tourism, this industry provides diverse pathways for growth, leadership, and global exposure, making it an exciting choice for aspiring professionals.",
+    recruitersTitle: "Top Recruiters",
+    recruiters: [
+      { name: "Westin Hotels & Resorts" },
+      { name: "Oberoi Hotels & Resorts", logo: "/programs/hotel-management/recruiters/oberoi.svg" },
+      { name: "ITC Hotels", logo: "/programs/hotel-management/recruiters/itc_hotels.svg" },
+      { name: "The LaLit" },
+      { name: "Crowne Plaza" },
+      { name: "Hyatt Hotels & Resorts", logo: "/programs/hotel-management/recruiters/hyatt.svg" },
+      { name: "Taj Hotels, Resorts & Palaces", logo: "/programs/hotel-management/recruiters/taj.svg" },
+      { name: "Marriott Hotels", logo: "/programs/hotel-management/recruiters/marriott.svg" },
     ],
+    rolesTitle: "Top Industries",
     notableRoles: [
-      { name: "Executive Chef" },
-      { name: "Hotel General Manager" },
-      { name: "Food & Beverage Director" },
-      { name: "Front Office Manager" },
-      { name: "Pastry Chef" },
-      { name: "Cruise Hospitality Officer" },
-      { name: "Event & Banquet Manager" },
-      { name: "Sommelier" },
-      { name: "Resort Operations Lead" },
-      { name: "Diet & Nutrition Planner" },
-      { name: "Hospitality Consultant" },
-      { name: "Restaurateur / Entrepreneur" },
+      { name: "Catering industries" },
+      { name: "Education" },
+      { name: "Airline industry" },
+      { name: "Online food apps" },
+      { name: "Tour and travels" },
+      { name: "Event Management" },
     ],
   },
 
