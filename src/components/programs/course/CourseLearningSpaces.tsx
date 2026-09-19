@@ -116,11 +116,6 @@ export default function CourseLearningSpaces({
                 sizes="(max-width: 640px) 270px, (max-width: 1024px) 320px, 370px"
                 className="object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
               />
-              {space.title && (
-                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-[#0A1F44]/90 via-[#0A1F44]/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end">
-                  <span className="text-sm font-bold leading-tight">{space.title}</span>
-                </div>
-              )}
             </div>
           ))}
         </div>
