@@ -473,12 +473,12 @@ export default function CareerPathways({
 
                 <div
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
                     gap: 20,
                     maxWidth: 1140,
                     margin: "0 auto",
-                    alignItems: "stretch",
                   }}
                 >
                   {recruiterItems.map((recruiter, idx) =>
@@ -491,13 +491,15 @@ export default function CareerPathways({
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          padding: "20px 24px",
+                          padding: "16px 24px",
                           background: "#FFFFFF",
                           border: "1.5px solid rgba(232, 135, 26, 0.18)",
                           borderRadius: "20px",
-                          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.05)",
-                          height: 125,
-                          minHeight: 125,
+                          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.04)",
+                          height: 110,
+                          minWidth: 200,
+                          maxWidth: 255,
+                          flex: "1 1 210px",
                           transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                         }}
                         className="career-recruiter-card"
@@ -506,8 +508,8 @@ export default function CareerPathways({
                           src={recruiter.logo}
                           alt={recruiter.name}
                           style={{
-                            maxHeight: 80,
-                            maxWidth: "88%",
+                            maxHeight: 70,
+                            maxWidth: "85%",
                             width: "auto",
                             height: "auto",
                             objectFit: "contain",
@@ -569,18 +571,18 @@ export default function CareerPathways({
 
             {/* Text Badges for Roles / Pathways / Employment Sectors */}
             {roleItems.filter((r) => !r.logo).length > 0 && (
-              <div>
+              <div style={{ marginTop: recruiterItems.length > 0 ? 48 : 0 }}>
                 {rolesTitle ? (
-                  <div style={{ textAlign: "center", marginBottom: 24 }}>
-                    <h3 style={{ fontSize: 20, fontWeight: 800, color: "#0A1F44", letterSpacing: "-0.4px", margin: "0", lineHeight: 1.4 }}>
+                  <div style={{ textAlign: "center", marginBottom: 26 }}>
+                    <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0", lineHeight: 1.3 }}>
                       {rolesTitle}
                     </h3>
                   </div>
                 ) : (
                   !recruiterItems.length && !roleItems.some((r) => r.logo) ? (
-                    <div style={{ textAlign: "center", marginBottom: 32 }}>
+                    <div style={{ textAlign: "center", marginBottom: 28 }}>
                       <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0" }}>
-                        Notable Career Roles Our Graduates Pursue:
+                        Notable Career Roles Our Graduates Pursue
                       </h3>
                     </div>
                   ) : null
