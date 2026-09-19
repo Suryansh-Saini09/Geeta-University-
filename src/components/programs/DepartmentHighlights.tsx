@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import type { DepartmentHighlightItem } from "@/data/programs/types";
 import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
@@ -17,28 +16,12 @@ export default function DepartmentHighlights({
   title = "Where Learning Meets Achievement",
   subtitle = "An active, achievement-driven school — not just a classroom environment. Here's a glimpse of what students experience:",
   highlights,
-  imageOnly = false,
 }: DepartmentHighlightsProps) {
-  const [selectedHighlight, setSelectedHighlight] = useState<DepartmentHighlightItem | null>(null);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelectedHighlight(null);
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
   const items = highlights || [];
   const isSingle = items.length === 1;
 
   const {
     containerRef,
-    currentIndex,
-    maxIndex,
-    next,
-    prev,
-    goTo,
     handleScroll,
     handleMouseDown,
     handleMouseLeave,
@@ -104,12 +87,7 @@ export default function DepartmentHighlights({
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex items-center justify-center py-4"
           >
-            <div
-              onClick={imageOnly ? undefined : () => setSelectedHighlight(items[0])}
-              className={`group relative h-[220px] w-[340px] sm:h-[260px] sm:w-[400px] md:h-[280px] md:w-[460px] overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
-                imageOnly ? "cursor-default" : "cursor-pointer"
-              }`}
-            >
+            <div className="group relative h-[220px] w-[340px] sm:h-[260px] sm:w-[400px] md:h-[280px] md:w-[460px] overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-default">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={items[0].image}
@@ -148,10 +126,7 @@ export default function DepartmentHighlights({
               {items.map((item, idx) => (
                 <div
                   key={idx}
-                  onClick={imageOnly ? undefined : () => setSelectedHighlight(item)}
-                  className={`group relative flex h-[210px] w-[290px] sm:h-[240px] sm:w-[340px] md:h-[250px] md:w-[380px] shrink-0 overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
-                    imageOnly ? "cursor-default" : "cursor-pointer"
-                  }`}
+                  className="group relative flex h-[210px] w-[290px] sm:h-[240px] sm:w-[340px] md:h-[250px] md:w-[380px] shrink-0 overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-default"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -176,65 +151,6 @@ export default function DepartmentHighlights({
           </div>
         )}
       </div>
-
-      {/* Modal for Read More - only when not imageOnly */}
-      <AnimatePresence>
-        {!imageOnly && selectedHighlight && (
-          <div className="fixed inset-0 z-[99999] flex items-center justify-center p-6">
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedHighlight(null)}
-              className="absolute inset-0 bg-[#0A1F44]/65 backdrop-blur-sm"
-            />
-
-            {/* Modal Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 16 }}
-              transition={{ type: "spring", duration: 0.4 }}
-              className="relative z-[100000] flex w-full max-w-[620px] flex-col overflow-hidden rounded-3xl bg-white shadow-2xl"
-            >
-              {/* Close Button */}
-              <button
-                type="button"
-                onClick={() => setSelectedHighlight(null)}
-                aria-label="Close details"
-                className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/80"
-              >
-                <X size={18} />
-              </button>
-
-              {/* Modal Image */}
-              <div className="relative flex h-[280px] w-full items-center justify-center bg-[#0A1F44]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={selectedHighlight.image}
-                  alt={selectedHighlight.title || "Highlight preview"}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-
-              {/* Modal Content */}
-              <div className="p-7 sm:p-8">
-                {selectedHighlight.title && (
-                  <h3 className="text-xl font-bold text-[#0A1F44] sm:text-2xl">
-                    {selectedHighlight.title}
-                  </h3>
-                )}
-                {selectedHighlight.desc && (
-                  <p className="mt-3 text-sm leading-relaxed text-[#4A5568] sm:text-base">
-                    {selectedHighlight.desc}
-                  </p>
-                )}
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

@@ -210,6 +210,25 @@ export const hospitalitySchool: ProgramPageData = {
     },
   ],
 
+  departmentHighlightsTitle: "Where Learning Meets Achievement",
+  departmentHighlights: [
+    {
+      title: "State-of-the-Art Culinary & Training Labs",
+      desc: "Live culinary training environments simulating executive hotel kitchens with modern stations.",
+      image: "/programs/hotel-management/19-full.webp",
+    },
+    {
+      title: "Hands-on Practical Demonstrations",
+      desc: "Comprehensive culinary sessions and cocktail & mocktail craft workshops.",
+      image: "/programs/hotel-management/18-full.webp",
+    },
+    {
+      title: "Five-Star Service & Hospitality Excellence",
+      desc: "Masterclasses in luxury table layouts, guest etiquette, and fine dining operations.",
+      image: "/programs/hotel-management/17-full.webp",
+    },
+  ],
+
   specialisations: {
     eyebrow: "CAREER-READY HIGHLIGHTS",
     title: "Let Us Help You Pave the Way to Success",
