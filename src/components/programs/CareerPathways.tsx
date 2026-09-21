@@ -462,9 +462,81 @@ export default function CareerPathways({
               boxShadow: "0 15px 35px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
             }}
           >
+            {/* Text Badges for Roles / Pathways / Employment Sectors */}
+            {roleItems.filter((r) => !r.logo).length > 0 && (
+              <div style={{ marginBottom: recruiterItems.length > 0 ? 48 : 0 }}>
+                {rolesTitle ? (
+                  <div style={{ textAlign: "center", marginBottom: 26 }}>
+                    <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0", lineHeight: 1.3 }}>
+                      {rolesTitle}
+                    </h3>
+                  </div>
+                ) : (
+                  !recruiterItems.length && !roleItems.some((r) => r.logo) ? (
+                    <div style={{ textAlign: "center", marginBottom: 28 }}>
+                      <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0" }}>
+                        Notable Career Roles Our Graduates Pursue
+                      </h3>
+                    </div>
+                  ) : null
+                )}
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 14,
+                    justifyContent: "center",
+                    maxWidth: 1080,
+                    margin: "0 auto",
+                  }}
+                >
+                  {roleItems
+                    .filter((r) => !r.logo)
+                    .map((role, idx) => (
+                      <motion.div
+                        key={idx}
+                        whileHover={{ scale: 1.04, y: -2 }}
+                        transition={{ type: "spring", stiffness: 450, damping: 15 }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 10,
+                          padding: "12px 22px",
+                          background: "#FFFFFF",
+                          border: "1px solid rgba(232, 135, 26, 0.12)",
+                          borderRadius: "16px",
+                          color: "#0A1F44",
+                          fontSize: "14.5px",
+                          fontWeight: 650,
+                          cursor: "default",
+                          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.02)",
+                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                        }}
+                        className="career-role-badge"
+                      >
+                        <span
+                          className="career-role-icon"
+                          style={{
+                            color: "#E8871A",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            transition: "all 0.3s ease",
+                          }}
+                        >
+                          {getRoleIcon(role.name)}
+                        </span>
+                        <span>{role.name}</span>
+                      </motion.div>
+                    ))}
+                </div>
+              </div>
+            )}
+
             {/* Dedicated Top Recruiters Grid if recruiterItems is supplied */}
             {recruiterItems.length > 0 && (
-              <div style={{ marginBottom: roleItems.filter((r) => !r.logo).length > 0 ? 44 : 0 }}>
+              <div>
                 <div style={{ textAlign: "center", marginBottom: 28 }}>
                   <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0" }}>
                     {recruitersTitle || "Top Recruiters"}
@@ -589,78 +661,6 @@ export default function CareerPathways({
                       ))}
                   </div>
                 )}
-              </div>
-            )}
-
-            {/* Text Badges for Roles / Pathways / Employment Sectors */}
-            {roleItems.filter((r) => !r.logo).length > 0 && (
-              <div style={{ marginTop: recruiterItems.length > 0 ? 48 : 0 }}>
-                {rolesTitle ? (
-                  <div style={{ textAlign: "center", marginBottom: 26 }}>
-                    <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0", lineHeight: 1.3 }}>
-                      {rolesTitle}
-                    </h3>
-                  </div>
-                ) : (
-                  !recruiterItems.length && !roleItems.some((r) => r.logo) ? (
-                    <div style={{ textAlign: "center", marginBottom: 28 }}>
-                      <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0" }}>
-                        Notable Career Roles Our Graduates Pursue
-                      </h3>
-                    </div>
-                  ) : null
-                )}
-
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: 14,
-                    justifyContent: "center",
-                    maxWidth: 1080,
-                    margin: "0 auto",
-                  }}
-                >
-                  {roleItems
-                    .filter((r) => !r.logo)
-                    .map((role, idx) => (
-                      <motion.div
-                        key={idx}
-                        whileHover={{ scale: 1.04, y: -2 }}
-                        transition={{ type: "spring", stiffness: 450, damping: 15 }}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 10,
-                          padding: "12px 22px",
-                          background: "#FFFFFF",
-                          border: "1px solid rgba(232, 135, 26, 0.12)",
-                          borderRadius: "16px",
-                          color: "#0A1F44",
-                          fontSize: "14.5px",
-                          fontWeight: 650,
-                          cursor: "default",
-                          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.02)",
-                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                        }}
-                        className="career-role-badge"
-                      >
-                        <span
-                          className="career-role-icon"
-                          style={{
-                            color: "#E8871A",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            transition: "all 0.3s ease",
-                          }}
-                        >
-                          {getRoleIcon(role.name)}
-                        </span>
-                        <span>{role.name}</span>
-                      </motion.div>
-                    ))}
-                </div>
               </div>
             )}
 

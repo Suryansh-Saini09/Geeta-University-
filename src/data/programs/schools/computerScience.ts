@@ -51,7 +51,7 @@ export const computerScienceSchool: ProgramPageData = {
         pkg: "30 Lakh PA",
         company: "Wabtec Corp",
         program: "B.Tech CSE Alumni",
-        image: "/saransh.png",
+        image: "/saransh.webp",
         titleThin: "Shape the Future of",
         titleBoldLine1: "Computing",
         titleBoldLine2: "at Geeta University",
@@ -66,7 +66,7 @@ export const computerScienceSchool: ProgramPageData = {
         pkg: "30 Lakhs PA",
         company: "Microsoft India",
         program: "B.Tech CSE Alumni",
-        image: "/prikshit.png",
+        image: "/prikshit.webp",
         titleThin: "Earn Global",
         titleBoldLine1: "Certifications",
         titleBoldLine2: "AWS, Azure & Cisco",
@@ -530,7 +530,7 @@ export const computerScienceSchool: ProgramPageData = {
         "My time at the university helped me bridge the gap between theory-based and practical learning — something that made a real difference when I entered the industry.",
       testimonial:
         "My time at the university helped me bridge the gap between theory-based and practical learning — something that made a real difference when I entered the industry.",
-      image: "/prikshit.png",
+      image: "/prikshit.webp",
     },
     {
       name: "Saransh",
@@ -542,7 +542,7 @@ export const computerScienceSchool: ProgramPageData = {
         "The campus environment pushed me to grow as an individual, developed my determination, and made me genuinely ready for the real world.",
       testimonial:
         "The campus environment pushed me to grow as an individual, developed my determination, and made me genuinely ready for the real world.",
-      image: "/saransh.png",
+      image: "/saransh.webp",
     },
     {
       name: "Monty",
@@ -566,7 +566,7 @@ export const computerScienceSchool: ProgramPageData = {
         "From competitive coding sessions to real-world cloud projects, Geeta University's CSE department prepared me for top-tier corporate roles.",
       testimonial:
         "From competitive coding sessions to real-world cloud projects, Geeta University's CSE department prepared me for top-tier corporate roles.",
-      image: "/VIDHAN-full.webp",
+      image: "/vidhan.webp",
     },
     {
       name: "Rishabh",
@@ -578,7 +578,7 @@ export const computerScienceSchool: ProgramPageData = {
         "The personalised faculty mentorship and industry workshops enabled me to hone my full-stack capabilities and secure high-value placements.",
       testimonial:
         "The personalised faculty mentorship and industry workshops enabled me to hone my full-stack capabilities and secure high-value placements.",
-      image: "/rishabh-full.webp",
+      image: "/risabh.webp",
     },
     {
       name: "Shanu",
@@ -590,7 +590,7 @@ export const computerScienceSchool: ProgramPageData = {
         "The practical lab environment and project-based hackathons helped me stand out in the technical interview rounds.",
       testimonial:
         "The practical lab environment and project-based hackathons helped me stand out in the technical interview rounds.",
-      image: "/shanu-full.webp",
+      image: "/shanu.webp",
     },
   ],
 
