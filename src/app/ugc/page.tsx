@@ -2,7 +2,6 @@ import React from "react";
 import type { Metadata } from "next";
 
 import UGCHero from "@/components/ugc/UGCHero";
-import UGCStatutoryApprovals from "@/components/ugc/UGCStatutoryApprovals";
 import UGCDocumentsGrid from "@/components/ugc/UGCDocumentsGrid";
 import IndustryEcosystemSection from "@/components/industry-integration/IndustryEcosystemSection";
 import UGCCalloutCTA from "@/components/ugc/UGCCalloutCTA";
@@ -33,9 +32,6 @@ export default function UGCPage() {
     <main className="min-h-screen bg-[#F7F9FC] text-[#0A1F44]">
       {/* Hero Section */}
       <UGCHero />
-
-      {/* Statutory Recognitions Grid */}
-      <UGCStatutoryApprovals />
 
       {/* Official Inspection Documents & Downloads */}
       <UGCDocumentsGrid />

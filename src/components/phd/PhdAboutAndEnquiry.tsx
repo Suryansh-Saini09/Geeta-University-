@@ -147,12 +147,6 @@ export default function PhdAboutAndEnquiry() {
           {/* Left Column: About Program & Disciplines */}
           <div className="lg:col-span-7 xl:col-span-7 space-y-6">
             <div>
-              <div className="mb-3 flex items-center gap-3">
-                <span className="h-[2px] w-8 bg-[#E8871A]" />
-                <span className="text-[12px] font-extrabold uppercase tracking-[2.5px] text-[#E8871A]">
-                  Advanced Doctoral Research
-                </span>
-              </div>
               <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[46px] font-black text-[#0A1F44] leading-tight">
                 ABOUT THE PROGRAM
               </h2>
@@ -166,11 +160,8 @@ export default function PhdAboutAndEnquiry() {
 
             {/* Disciplines Grid / List */}
             <div className="rounded-[20px] bg-white p-6 sm:p-8 border border-[#E2E8F0] shadow-sm">
-              <h3 className="font-serif text-[20px] sm:text-[22px] font-bold text-[#0A1F44] mb-4 pb-3 border-b border-[#F1F5F9] flex items-center justify-between">
-                <span>Available Ph.D. Disciplines</span>
-                <span className="text-xs font-sans font-bold bg-[#FFF4EB] text-[#E8871A] px-2.5 py-1 rounded-full">
-                  11 Specializations
-                </span>
+              <h3 className="font-serif text-[20px] sm:text-[22px] font-bold text-[#0A1F44] mb-4 pb-3 border-b border-[#F1F5F9]">
+                Available Ph.D. Disciplines
               </h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

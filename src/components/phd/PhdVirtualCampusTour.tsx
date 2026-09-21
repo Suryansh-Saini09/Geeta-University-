@@ -1,67 +1,222 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { Play, Sparkles } from "lucide-react";
-import VideoModal from "@/components/campus-life/VideoModal";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 
-export default function PhdVirtualCampusTour() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.65,
+      ease: "easeOut",
+    },
+  },
+};
+
+export default function VirtualCampusTourSection() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section id="virtual-tour" className="w-full bg-white py-14 sm:py-18">
-      <div className="gu-container">
-        <div className="mx-auto mb-8 max-w-3xl text-center">
-          <div className="mb-3 flex items-center justify-center gap-3">
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-            <span className="text-[12px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Explore Campus
-            </span>
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-          </div>
-          <h2 className="font-serif text-[32px] sm:text-[40px] font-black text-[#0A1F44]">
-            Experience Geeta University Campus
-          </h2>
-          <p className="mt-2 text-[16px] text-[#64748B]">
-            Take a virtual walkthrough of our state-of-the-art research laboratories, computing centers, and academic infrastructure.
-          </p>
-        </div>
+    <>
+      <section
+        aria-labelledby="virtual-tour-heading"
+        className="relative overflow-hidden bg-[#062F56] py-5"
+      >
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            className="relative min-h-[460px] overflow-hidden rounded-[28px] sm:min-h-[540px] lg:min-h-[620px]"
+          >
+            {/* Campus image */}
+            <Image
+              src="/about/campus.webp"
+              alt="Aerial view of Geeta University campus"
+              fill
+              priority={false}
+              sizes="100vw"
+              className="object-cover"
+            />
 
-        {/* Video Trigger Card */}
-        <div
-          onClick={() => setIsModalOpen(true)}
-          className="group relative h-[300px] sm:h-[420px] md:h-[500px] w-full overflow-hidden rounded-[24px] border border-[#E2E8F0] shadow-xl cursor-pointer"
-        >
-          <Image
-            src="https://geetauniversity.edu.in/uploads/all/1639/phdpage.webp"
-            alt="Geeta University Campus Tour"
-            fill
-            sizes="100vw"
-            className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-          />
+            {/* Cinematic overlay */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(3, 29, 53, 0.88) 0%, rgba(3, 29, 53, 0.55) 42%, rgba(3, 29, 53, 0.18) 75%, rgba(3, 29, 53, 0.35) 100%)",
+              }}
+            />
 
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/30" />
+            {/* Bottom gradient */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 bottom-0 h-1/2"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(3, 29, 53, 0.7), transparent)",
+              }}
+            />
 
-          {/* Play Button & Overlay Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-            <div className="flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-[#E8871A] text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
-              <Play className="h-8 w-8 sm:h-10 sm:w-10 fill-current translate-x-0.5" />
+            {/* Gold edge */}
+            <div
+              aria-hidden="true"
+              className="absolute left-0 top-0 h-full w-1"
+              style={{
+                backgroundColor: "var(--gu-gold)",
+              }}
+            />
+
+            {/* Content */}
+            <div className="relative z-10 flex min-h-[460px] items-center px-7 py-14 sm:min-h-[540px] sm:px-12 lg:min-h-[620px] lg:px-20">
+              <div className="max-w-2xl">
+                <motion.h2
+                  variants={itemVariants}
+                  id="virtual-tour-heading"
+                  className="font-serif text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
+                >
+                  Experience the
+                  <span
+                    className="block"
+                    style={{
+                      color: "var(--gu-gold)",
+                    }}
+                  >
+                    Campus.
+                  </span>
+                </motion.h2>
+
+                {/* Play button */}
+                <motion.button
+                  variants={itemVariants}
+                  type="button"
+                  onClick={() => setIsOpen(true)}
+                  aria-label="Play Geeta University virtual campus tour"
+                  className="group mt-9 flex items-center gap-4 rounded-full border border-white/30 bg-white/10 px-5 py-3 text-left backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white/15"
+                >
+                  <span
+                    className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                  >
+                    {/* Authentic YouTube Icon SVG */}
+                    <svg
+                      width="42"
+                      height="42"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"
+                        fill="#FF0000"
+                      />
+                      <path
+                        d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                        fill="white"
+                      />
+                    </svg>
+                  </span>
+
+                  <span>
+                    <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+                      Watch the tour
+                    </span>
+
+                    <span className="mt-1 block text-sm font-bold text-white sm:text-base">
+                      Virtual Campus Tour
+                    </span>
+                  </span>
+                </motion.button>
+              </div>
             </div>
-            <span className="mt-5 rounded-full bg-black/60 px-5 py-2 text-sm font-bold text-white backdrop-blur-md">
-              Click to Watch 360° Campus Tour
-            </span>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
-      {/* Video Modal Component */}
-      <VideoModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        videoId="arnFS6rf454"
-        title="Geeta University Virtual Campus Tour"
-      />
-    </section>
+      {/* Video modal */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm sm:p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Geeta University Virtual Campus Tour"
+          >
+            <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.94,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.94,
+                y: 20,
+              }}
+              transition={{
+                duration: 0.3,
+                ease: "easeOut",
+              }}
+              className="relative w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
+              onClick={(event) => event.stopPropagation()}
+            >
+              {/* Close */}
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                aria-label="Close virtual campus tour"
+                className="absolute right-3 top-3 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
+              >
+                ×
+              </button>
+
+              {/* Video */}
+              <div className="aspect-video w-full">
+                <iframe
+                  title="Geeta University Virtual Campus Tour"
+                  src="https://www.youtube.com/embed/arnFS6rf454?autoplay=1"
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

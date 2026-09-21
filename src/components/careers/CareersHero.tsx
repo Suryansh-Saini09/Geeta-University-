@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { ArrowDown, Briefcase, FileText, Sparkles } from "lucide-react";
+import { ArrowDown, FileText } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 25 },
@@ -18,14 +18,6 @@ export default function CareersHero() {
   const scrollToForm = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const el = document.getElementById("careers-form-section");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const scrollToWhyUs = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const el = document.getElementById("why-join-us");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
@@ -60,16 +52,6 @@ export default function CareersHero() {
             }}
             className="max-w-[800px]"
           >
-            {/* Tag Badge */}
-            <motion.div variants={fadeUp}>
-              <div className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-[#E8871A]/30 bg-[#E8871A]/10 px-4 py-1.5 backdrop-blur-md">
-                <Sparkles className="h-4 w-4 text-[#E8871A]" />
-                <span className="text-[12px] font-bold uppercase tracking-[2.5px] text-[#E8871A]">
-                  Join Our Team
-                </span>
-              </div>
-            </motion.div>
-
             {/* Main Title */}
             <motion.h1
               variants={fadeUp}
@@ -97,36 +79,10 @@ export default function CareersHero() {
                 <FileText className="h-5 w-5" />
                 <span>Apply Online</span>
               </a>
-
-              <a
-                href="#why-join-us"
-                onClick={scrollToWhyUs}
-                className="inline-flex items-center gap-3 rounded-[10px] border border-white/60 bg-white/25 px-7 py-4 text-[15px] font-bold text-white shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white hover:bg-white hover:text-[#0A1F44] hover:shadow-[0_10px_25px_rgba(255,255,255,0.2)]"
-              >
-                <Briefcase className="h-5 w-5 text-[#E8871A] group-hover:text-[#0A1F44]" />
-                <span>Why Join Us</span>
-              </a>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Floating Scroll Indicator */}
-        <motion.a
-          href="#careers-form-section"
-          onClick={scrollToForm}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/70 sm:flex"
-        >
-          <span className="text-[10px] font-bold uppercase tracking-[2px]">Scroll Down</span>
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <ArrowDown className="h-4 w-4" />
-          </motion.div>
-        </motion.a>
       </div>
     </section>
   );

@@ -10,19 +10,9 @@ export default function PhdEligibilitySection() {
       <div className="gu-container space-y-10">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-3 flex items-center justify-center gap-3">
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-            <span className="text-[12px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Admission Guidelines
-            </span>
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-          </div>
           <h2 className="font-serif text-[32px] sm:text-[42px] font-black text-[#0A1F44]">
             Eligibility &amp; Selection Criteria
           </h2>
-          <p className="mt-2 text-[16px] text-[#64748B]">
-            Please review the minimum academic qualifications, selection procedure, and test exemption rules.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-8">

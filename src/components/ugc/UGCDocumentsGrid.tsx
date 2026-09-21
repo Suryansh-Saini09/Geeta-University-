@@ -21,15 +21,9 @@ export default function UGCDocumentsGrid() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
-          <span className="inline-block rounded-full bg-[#0A1F44]/5 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#0A1F44]">
-            Inspection & Compliance Performa
-          </span>
           <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-[#0A1F44] sm:text-4xl">
             Official UGC Performa & Inspection Files
           </h2>
-          <p className="mt-3 text-base text-slate-600 sm:text-lg font-sans">
-            Access the complete set of virtual inspection performas, presentations, supporting evidence, and geo-tagged media records submitted to UGC.
-          </p>
         </div>
 
         {/* Grid Cards */}

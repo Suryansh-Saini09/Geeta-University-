@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, PhoneCall, Sparkles } from "lucide-react";
+import { ArrowRight, PhoneCall } from "lucide-react";
 
 export default function TeachingCTA() {
   return (
@@ -13,10 +13,6 @@ export default function TeachingCTA() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md md:flex-row md:p-12">
           <div className="max-w-2xl text-center md:text-left">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8871A]/20 px-3.5 py-1 text-xs font-semibold text-[#E8871A]">
-              <Sparkles className="h-3.5 w-3.5" />
-              <span>Admissions Open</span>
-            </div>
             <h2 className="font-serif text-3xl font-extrabold text-white sm:text-4xl">
               Experience Student-Centric Learning at <span className="text-[#E8871A]">Geeta University</span>
             </h2>

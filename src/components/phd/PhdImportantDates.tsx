@@ -10,19 +10,9 @@ export default function PhdImportantDates() {
       <div className="gu-container">
         {/* Section Header */}
         <div className="mx-auto mb-12 max-w-4xl text-center">
-          <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-            <span className="text-[12px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Admission Schedule
-            </span>
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-          </div>
           <h2 className="font-serif text-[32px] sm:text-[42px] md:text-[48px] font-black text-[#0A1F44] leading-tight">
-            Important Dates (Session <span className="text-[#E8871A]">2026-27</span>)
+            Important Dates
           </h2>
-          <p className="mt-3 text-[16px] text-[#64748B] max-w-2xl mx-auto">
-            Review the tentative timeline and key milestone dates for the upcoming Ph.D. admissions batch.
-          </p>
         </div>
 
         {/* Quick Highlights Banner */}

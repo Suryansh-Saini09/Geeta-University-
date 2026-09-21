@@ -1,5 +1,5 @@
 import React from "react";
-import { Building2, MapPin, Phone } from "lucide-react";
+import { Building2, MapPin } from "lucide-react";
 import { admissionOfficesList } from "@/data/contactUsData";
 
 export default function ContactOfficesGrid() {
@@ -8,15 +8,9 @@ export default function ContactOfficesGrid() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
-          <span className="inline-block rounded-full bg-[#E8871A]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#E8871A]">
-            Regional Touchpoints
-          </span>
           <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-[#0A1F44] sm:text-4xl">
             Our Regional Admission Offices
           </h2>
-          <p className="mt-3 text-base text-slate-600 sm:text-lg font-sans">
-            Visit any of our admission guidance centers across Delhi NCR, Haryana, Uttar Pradesh, and Assam for face-to-face counseling and document verification.
-          </p>
         </div>
 
         {/* Offices Grid */}
@@ -42,23 +36,11 @@ export default function ContactOfficesGrid() {
                   {office.city}
                 </h3>
 
-                <div className="flex items-start gap-2 text-xs text-slate-600 font-sans leading-relaxed mb-4">
+                <div className="flex items-start gap-2 text-xs text-slate-600 font-sans leading-relaxed">
                   <MapPin className="h-4 w-4 text-[#E8871A] shrink-0 mt-0.5" />
                   <span>{office.address}</span>
                 </div>
               </div>
-
-              {office.phone && (
-                <div className="pt-3 border-t border-slate-200/80 flex items-center justify-between">
-                  <a
-                    href={`tel:${office.phone.replace(/[^0-9+]/g, "")}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0A1F44] hover:text-[#E8871A] transition-colors"
-                  >
-                    <Phone className="h-3.5 w-3.5 text-[#E8871A]" />
-                    <span>{office.phone}</span>
-                  </a>
-                </div>
-              )}
             </div>
           ))}
         </div>
