@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 
 import ContactHero from "@/components/contact-us/ContactHero";
 import ContactMainCards from "@/components/contact-us/ContactMainCards";
-import ContactFormSection from "@/components/contact-us/ContactFormSection";
 import ContactOfficesGrid from "@/components/contact-us/ContactOfficesGrid";
 import ContactMapSection from "@/components/contact-us/ContactMapSection";
 import IndustryEcosystemSection from "@/components/industry-integration/IndustryEcosystemSection";
@@ -37,9 +36,6 @@ export default function ContactUsPage() {
 
       {/* Main Info Cards (Location, Phone, Email) */}
       <ContactMainCards />
-
-      {/* Interactive Enquiry / Contact Form */}
-      <ContactFormSection />
 
       {/* Regional Admission Offices Grid */}
       <ContactOfficesGrid />

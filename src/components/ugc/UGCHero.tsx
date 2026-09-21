@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ChevronRight, ShieldCheck, FileCheck2, Award } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { ugcHeroData } from "@/data/ugcData";
 
 export default function UGCHero() {
@@ -42,19 +42,9 @@ export default function UGCHero() {
 
         {/* Hero Title & Subtitle */}
         <div className="max-w-4xl">
-          {/* Badge */}
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#E8871A]/40 bg-[#E8871A]/10 px-3.5 py-1.5 text-xs font-semibold text-[#E8871A] backdrop-blur-sm sm:text-sm">
-            <ShieldCheck className="h-4 w-4" />
-            <span>Official UGC Compliance & Public Disclosure</span>
-          </div>
-
           <h1 className="mb-4 font-serif text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
             UGC-Approved <span className="text-[#E8871A]">University</span>
           </h1>
-
-          <p className="mb-6 text-lg font-medium text-amber-200/90 sm:text-xl font-serif">
-            {ugcHeroData.subtitle}
-          </p>
 
           <p className="mb-8 text-base text-slate-200 sm:text-lg leading-relaxed max-w-3xl font-sans">
             {ugcHeroData.description}
@@ -62,19 +52,9 @@ export default function UGCHero() {
 
           {/* Virtual Inspection Announcement Banner */}
           <div className="relative overflow-hidden rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent p-5 sm:p-6 backdrop-blur-md">
-            <div className="flex items-start gap-4">
-              <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#E8871A] text-white shadow-md">
-                <FileCheck2 className="h-5 w-5" />
-              </div>
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#E8871A]">
-                  Official UGC Notice & Virtual Inspection
-                </span>
-                <p className="mt-1 font-serif text-base font-bold text-white sm:text-lg leading-snug">
-                  "{ugcHeroData.inspectionTitle}"
-                </p>
-              </div>
-            </div>
+            <p className="font-serif text-base font-bold text-white sm:text-lg leading-snug">
+              "{ugcHeroData.inspectionTitle}"
+            </p>
           </div>
         </div>
       </div>

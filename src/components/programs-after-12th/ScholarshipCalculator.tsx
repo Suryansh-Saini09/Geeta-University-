@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Calculator, Award, TrendingDown } from "lucide-react";
+import { Award, TrendingDown } from "lucide-react";
 import {
   programsFeeData,
   scholarshipRulesData,
@@ -140,10 +140,6 @@ export default function ScholarshipCalculator() {
     <div className="overflow-hidden rounded-[24px] border border-[#E2E8F0] bg-white p-6 sm:p-7 shadow-[0_4px_20px_rgba(10,31,68,0.06)]">
       {/* Header */}
       <div className="mb-6 text-center">
-        <div className="mx-auto mb-2 inline-flex items-center gap-1.5 rounded-full bg-[#E8871A]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#E8871A]">
-          <Calculator size={13} />
-          Fee &amp; Scholarship Predictor
-        </div>
         <h3 className="font-serif text-[22px] sm:text-[24px] font-black text-[#0A1F44] leading-tight">
           Know Your Fees &amp; Scholarship
         </h3>

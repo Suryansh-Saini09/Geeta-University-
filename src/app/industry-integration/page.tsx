@@ -2,9 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 
 import IndustryIntegrationHero from "@/components/industry-integration/IndustryIntegrationHero";
-import IndustryImpactStats from "@/components/industry-integration/IndustryImpactStats";
 import IndustryPartnersGrid from "@/components/industry-integration/IndustryPartnersGrid";
-import IndustryPillarsSection from "@/components/industry-integration/IndustryPillarsSection";
 import IndustryEcosystemSection from "@/components/industry-integration/IndustryEcosystemSection";
 import IndustryIntegrationCTA from "@/components/industry-integration/IndustryIntegrationCTA";
 
@@ -37,14 +35,8 @@ export default function IndustryIntegrationPage() {
       {/* Hero Section */}
       <IndustryIntegrationHero />
 
-      {/* Impact Stats Banner */}
-      <IndustryImpactStats />
-
       {/* Main Partners & Programs Grid */}
       <IndustryPartnersGrid />
-
-      {/* Four Pillars of Integration */}
-      <IndustryPillarsSection />
 
       {/* Legacy & Ecosystem Section */}
       <IndustryEcosystemSection />

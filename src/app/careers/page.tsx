@@ -1,9 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import CareersHero from "@/components/careers/CareersHero";
-import CareersWhyUs from "@/components/careers/CareersWhyUs";
 import CareersForm from "@/components/careers/CareersForm";
-import CareersFAQ from "@/components/careers/CareersFAQ";
 import LegacyEcosystem from "@/components/about/LegacyEcosystem";
 
 export const metadata: Metadata = {
@@ -19,9 +17,6 @@ export default function CareersPage() {
       {/* Hero Banner Section */}
       <CareersHero />
 
-      {/* Why Join Us / Benefits Section */}
-      <CareersWhyUs />
-
       {/* Main Career Registration Form Section */}
       <CareersForm />
 
@@ -30,9 +25,6 @@ export default function CareersPage() {
         id="legacy-ecosystem"
         contextText="Faculty and staff benefit from the integrated ecosystem of:"
       />
-
-      {/* Frequently Asked Questions */}
-      <CareersFAQ />
     </div>
   );
 }

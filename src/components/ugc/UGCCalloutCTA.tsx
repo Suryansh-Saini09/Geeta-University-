@@ -1,5 +1,5 @@
 import React from "react";
-import { ShieldCheck, FileSpreadsheet, PhoneCall, ArrowRight } from "lucide-react";
+import { PhoneCall, ArrowRight } from "lucide-react";
 
 export default function UGCCalloutCTA() {
   return (
@@ -11,10 +11,6 @@ export default function UGCCalloutCTA() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md lg:flex-row lg:p-12">
           <div className="max-w-2xl text-center lg:text-left">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8871A]/20 px-3.5 py-1 text-xs font-semibold text-[#E8871A]">
-              <ShieldCheck className="h-4 w-4" />
-              <span>Public Self-Disclosure & Compliance</span>
-            </div>
             <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">
               Have Questions Regarding <span className="text-[#E8871A]">Approvals & Verification?</span>
             </h2>

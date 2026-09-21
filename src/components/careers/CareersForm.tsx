@@ -3,15 +3,9 @@
 import React, { useState, useMemo, ChangeEvent, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  User,
-  Briefcase,
-  GraduationCap,
-  Upload,
   CheckCircle2,
   AlertCircle,
-  FileCheck,
   Loader2,
-  Sparkles,
 } from "lucide-react";
 import {
   DEPARTMENTS,
@@ -44,7 +38,6 @@ interface FormDataState {
   job_application_for: string;
   department: string;
   reference_source: string;
-  upload_cv: File | null;
 }
 
 const initialFormState: FormDataState = {
@@ -70,7 +63,6 @@ const initialFormState: FormDataState = {
   job_application_for: "",
   department: "",
   reference_source: "",
-  upload_cv: null,
 };
 
 export default function CareersForm() {
@@ -105,12 +97,6 @@ export default function CareersForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData((prev) => ({ ...prev, upload_cv: e.target.files![0] }));
-    }
-  };
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
@@ -136,10 +122,6 @@ export default function CareersForm() {
       setErrorMessage("Please specify your Highest Qualification.");
       return;
     }
-    if (!formData.upload_cv) {
-      setErrorMessage("Please upload your updated CV / Resume.");
-      return;
-    }
 
     setIsSubmitting(true);
 
@@ -161,12 +143,6 @@ export default function CareersForm() {
       <div className="gu-container">
         {/* Section Title */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
-          <div className="mb-4 inline-flex items-center justify-center gap-2.5 rounded-full border border-[#E8871A]/30 bg-[#E8871A]/10 px-4 py-1.5">
-            <Sparkles className="h-4 w-4 text-[#E8871A]" />
-            <span className="text-[12px] font-bold uppercase tracking-[2px] text-[#E8871A]">
-              Application Portal
-            </span>
-          </div>
           <h2 className="font-serif text-[36px] font-black text-[#0A1F44] sm:text-[44px]">
             Join the <span className="text-[#E8871A]">Geeta Faculty & Staff</span>
           </h2>
@@ -193,7 +169,7 @@ export default function CareersForm() {
                   Application Submitted Successfully!
                 </h3>
                 <p className="mx-auto mt-4 max-w-xl text-[16px] leading-[1.7] text-[#475569]">
-                  Thank you, <strong className="text-[#0A1F44]">{formData.full_name}</strong>. Your career application has been registered with Geeta University HR Department. Our team will review your CV and reach out to you shortly.
+                  Thank you, <strong className="text-[#0A1F44]">{formData.full_name}</strong>. Your career application has been registered with Geeta University HR Department. Our team will review your application and reach out to you shortly.
                 </p>
                 <div className="mt-8 flex justify-center">
                   <button
@@ -220,9 +196,6 @@ export default function CareersForm() {
                         Please provide accurate information for quick processing.
                       </p>
                     </div>
-                    <div className="hidden sm:block">
-                      <GraduationCap className="h-10 w-10 text-[#E8871A]" />
-                    </div>
                   </div>
                 </div>
 
@@ -238,9 +211,6 @@ export default function CareersForm() {
                   {/* SECTION 1: Personal Information */}
                   <div>
                     <div className="mb-6 flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#E8871A]/10 text-[#E8871A]">
-                        <User className="h-5 w-5" />
-                      </div>
                       <h4 className="font-serif text-[20px] font-bold text-[#0A1F44]">
                         Personal Information
                       </h4>
@@ -436,9 +406,6 @@ export default function CareersForm() {
                   {/* SECTION 2: Employer Details */}
                   <div>
                     <div className="mb-6 flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#E8871A]/10 text-[#E8871A]">
-                        <Briefcase className="h-5 w-5" />
-                      </div>
                       <h4 className="font-serif text-[20px] font-bold text-[#0A1F44]">
                         Employer Details
                       </h4>
@@ -573,12 +540,9 @@ export default function CareersForm() {
                     </div>
                   </div>
 
-                  {/* SECTION 3: Job Application & CV */}
+                  {/* SECTION 3: Job Application & Department Selection */}
                   <div>
                     <div className="mb-6 flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#E8871A]/10 text-[#E8871A]">
-                        <GraduationCap className="h-5 w-5" />
-                      </div>
                       <h4 className="font-serif text-[20px] font-bold text-[#0A1F44]">
                         Job Application &amp; Department Selection
                       </h4>
@@ -645,46 +609,6 @@ export default function CareersForm() {
                           className="w-full rounded-[10px] border border-[#CBD5E1] bg-[#F8FAFC] px-4 py-3 text-[14.5px] text-[#0A1F44] transition-all focus:border-[#E8871A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#E8871A]/20"
                         />
                       </div>
-
-                      {/* CV Upload Box */}
-                      <div className="sm:col-span-2 lg:col-span-3">
-                        <label className="mb-2 block text-[13px] font-bold text-[#0A1F44]">
-                          Upload CV / Resume (PDF / DOC / DOCX) <span className="text-red-500">*</span>
-                        </label>
-                        <div className="relative flex flex-col items-center justify-center rounded-[16px] border-2 border-dashed border-[#CBD5E1] bg-[#F8FAFC] p-6 text-center transition-all hover:border-[#E8871A] hover:bg-[#FFFBF5]">
-                          <input
-                            type="file"
-                            name="upload_cv"
-                            accept=".pdf,.doc,.docx"
-                            onChange={handleFileChange}
-                            required
-                            className="absolute inset-0 cursor-pointer opacity-0"
-                          />
-                          {formData.upload_cv ? (
-                            <div className="flex items-center gap-3 text-emerald-600">
-                              <FileCheck className="h-8 w-8" />
-                              <div className="text-left">
-                                <p className="text-[14.5px] font-bold">
-                                  {formData.upload_cv.name}
-                                </p>
-                                <p className="text-[12px] text-[#64748B]">
-                                  {(formData.upload_cv.size / 1024 / 1024).toFixed(2)} MB - Ready to upload
-                                </p>
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="flex flex-col items-center">
-                              <Upload className="mb-2 h-8 w-8 text-[#E8871A]" />
-                              <p className="text-[14.5px] font-bold text-[#0A1F44]">
-                                Drag &amp; drop your CV here, or <span className="text-[#E8871A] underline">browse file</span>
-                              </p>
-                              <p className="mt-1 text-[12.5px] text-[#64748B]">
-                                Maximum file size: 10MB
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
                     </div>
                   </div>
 
@@ -701,10 +625,7 @@ export default function CareersForm() {
                           <span>Submitting...</span>
                         </>
                       ) : (
-                        <>
-                          <span>Submit Application</span>
-                          <CheckCircle2 className="h-5 w-5 text-[#E8871A] transition-transform group-hover:scale-110" />
-                        </>
+                        <span>Submit Application</span>
                       )}
                     </button>
                   </div>

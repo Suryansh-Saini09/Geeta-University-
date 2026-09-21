@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CheckCircle2, ArrowUpRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { industryPartners } from "@/data/industryIntegration";
 
 export default function IndustryPartnersGrid() {
@@ -10,9 +10,6 @@ export default function IndustryPartnersGrid() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#0A1F44]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#0A1F44]">
-            Strategic Collaborations
-          </div>
           <h2 className="font-serif text-3xl font-extrabold text-[#0A1F44] sm:text-4xl md:text-5xl">
             Industry Integrated <span className="text-[#E8871A]">Programs & Partners</span>
           </h2>
@@ -35,19 +32,6 @@ export default function IndustryPartnersGrid() {
               />
 
               <div>
-                {/* Header Tag / Badge */}
-                <div className="mb-6 flex items-center justify-between">
-                  <span
-                    className="inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-sm"
-                    style={{ backgroundColor: partner.accent }}
-                  >
-                    {partner.badge}
-                  </span>
-                  <span className="text-xs font-semibold text-slate-400">
-                    {partner.category}
-                  </span>
-                </div>
-
                 {/* Logo Area */}
                 <div className="mb-6 flex h-36 w-full items-center justify-center rounded-xl bg-slate-50 p-4 border border-slate-100 transition-colors group-hover:bg-amber-50/30">
                   <img
@@ -88,23 +72,6 @@ export default function IndustryPartnersGrid() {
                     ))}
                   </ul>
                 </div>
-              </div>
-
-              {/* Bottom Action Footer */}
-              <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-xs font-semibold text-slate-500">
-                  GU Integrated Track
-                </span>
-                <a
-                  href="https://admissions.geetauniversity.edu.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-bold transition-all hover:gap-2"
-                  style={{ color: partner.accent }}
-                >
-                  <span>Apply Now</span>
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </a>
               </div>
             </div>
           ))}

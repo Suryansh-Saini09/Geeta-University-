@@ -38,9 +38,6 @@ export default function IndustryEcosystemSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="mb-2 inline-block rounded-full bg-[#0A1F44]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#0A1F44]">
-            Group Heritage & Synergy
-          </span>
           <h2 className="font-serif text-3xl font-extrabold text-[#0A1F44] sm:text-4xl md:text-5xl">
             {legacyEcosystemData.title}
           </h2>
@@ -94,15 +91,6 @@ export default function IndustryEcosystemSection() {
                   alt="Geeta Group Campus"
                   className="h-full w-full object-cover"
                 />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/60 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/90 backdrop-blur-md border border-white/40 shadow-lg">
-                <p className="text-xs font-bold text-[#0A1F44] uppercase tracking-wider">
-                  Geeta University Panipat
-                </p>
-                <p className="text-xs text-slate-600">
-                  Multidisciplinary Smart Campus & Research Facilities
-                </p>
               </div>
             </div>
           </div>

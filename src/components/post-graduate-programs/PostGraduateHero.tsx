@@ -23,13 +23,6 @@ export default function PostGraduateHero() {
       {/* 2. Hero Header & Overview Description */}
       <div className="gu-container py-16 sm:py-20 md:py-24 lg:py-28 border-b border-[#E2E8F0]">
         <div className="max-w-5xl">
-          <div className="mb-5 flex items-center gap-3">
-            <span className="h-[2px] w-10 bg-[#E8871A]" />
-            <span className="text-[13px] sm:text-[14px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Post Graduate Admissions
-            </span>
-          </div>
-
           <h1 className="font-serif text-[38px] sm:text-[48px] md:text-[56px] lg:text-[62px] font-black text-[#0A1F44] leading-[1.12] tracking-[-1.5px]">
             Explore Post Graduate Programs at{" "}
             <span className="text-[#E8871A]">Geeta University</span>

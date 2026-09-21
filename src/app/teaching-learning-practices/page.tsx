@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 
 import TeachingHero from "@/components/teaching-learning-practices/TeachingHero";
 import TeachingOverviewSection from "@/components/teaching-learning-practices/TeachingOverviewSection";
-import TeachingStatsBanner from "@/components/teaching-learning-practices/TeachingStatsBanner";
 import TeachingPedagogyGrid from "@/components/teaching-learning-practices/TeachingPedagogyGrid";
 import IndustryEcosystemSection from "@/components/industry-integration/IndustryEcosystemSection";
 import TeachingCTA from "@/components/teaching-learning-practices/TeachingCTA";
@@ -38,9 +37,6 @@ export default function TeachingLearningPracticesPage() {
 
       {/* Main Teaching Practice Overview */}
       <TeachingOverviewSection />
-
-      {/* Stats Banner */}
-      <TeachingStatsBanner />
 
       {/* Grid of 7 Pedagogical Methods */}
       <TeachingPedagogyGrid />
