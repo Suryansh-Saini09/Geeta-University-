@@ -366,9 +366,9 @@ export const agricultureSchool: ProgramPageData = {
     eyebrow: "ABOUT THE SCHOOL",
     title: "School of Agricultural Sciences",
     paragraphs: [
-      "Geeta University is recognised as one of the top universities for Agricultural Sciences in North India and among the leading agriculture colleges in Haryana, India. The School of Agricultural Sciences promotes educational excellence & innovation among students to develop next-generation agricultural leaders. Our programs are designed to help you learn new-age and sustainable farming practices and master advanced agricultural technology through a practical-focused curriculum. Our hands-on learning approach prepares you to manage and overcome the future challenges within the agricultural sector.",
-      "As one of the top Agricultural Universities in Delhi NCR, we equip you with the right skills and knowledge necessary for building a successful career in the field. This is ensured by integrating the latest research and global trends in the field to keep you updated. Our cutting-edge facilities, the guidance of our expert faculty, and strong industrial partnerships have helped us become one of the best universities for Agricultural Sciences in the region.",
-      "Our primary focus is on providing you with a perfect balance of theoretical and practical learning experience to make you capable of driving advancements in the fields of food security, environmental sustainability, and agricultural innovation. Join us today to make a tangible impact on the future of the agriculture sector in India and open the gateways to professional success!",
+      "Geeta University is recognised as one of the top universities for Agricultural Sciences in North India and among the leading agriculture colleges in Haryana, India. The School of Agricultural Sciences promotes educational excellence & innovation among students to develop next-generation agricultural leaders. Our programs are designed to help you learn new-age and sustainable farming practices and master advanced agricultural technology through a practice-oriented curriculum. Our hands-on learning approach prepares you to manage and overcome the future challenges in the agricultural sector.",
+      "As one of the top Agricultural Universities in Delhi NCR, we equip you with the right skills and knowledge necessary for building a successful career in the field. This is ensured by integrating the latest research and global trends in the field to keep you updated. Our cutting-edge facilities, the guidance of our expert faculty, and strong industry partnerships have helped us become one of the best universities for Agricultural Sciences in the region.",
+      "Our primary focus is on providing you with a strong balance between theoretical and practical learning to equip you to drive advancements in the fields of food security, environmental sustainability, and agricultural innovation. Join us today to make a tangible impact on the future of agriculture and open the door to professional success!",
     ],
     image: "/programs/agriculture/highlight-1.webp",
     badgeText: "ICAR Aligned & Hands-on Farms",
@@ -391,7 +391,7 @@ export const agricultureSchool: ProgramPageData = {
     designation: "Head, School of Agricultural Sciences",
     image: "/programs/agriculture/yuvraj-yadav.png",
     message:
-      "Greetings from the Geeta University School of Agricultural Sciences. We are renowned for nurturing aspiring agriculture professionals passionate about making a real difference in farming and the environment. We teach you both traditional and modern farming techniques and the best ways to use smart technology tools for sustainable food production. We offer the advantage of expert teachers, well-equipped modern labs, and strong industry ties to help you stay ahead. We prepare you to attain success as futuristic agri-professionals capable of providing lasting food security solutions, contributing towards saving the environment, or improving the farming systems. Join us and be a part of shaping the future of agriculture in India.",
+      "Greetings from the Geeta University School of Agricultural Sciences. We are renowned for nurturing aspiring agricultural professionals passionate about making a real difference in farming and the environment. We teach you both traditional and modern farming techniques and the best ways to use smart technology tools for sustainable food production. Students benefit from expert faculty, well-equipped modern labs, and strong industry ties to help you stay ahead. We prepare you to succeed as future-ready agricultural professionals capable of providing lasting food security solutions, contributing to environmental conservation, or improving farming systems. Join us and be part of shaping the future of agriculture in India.",
     schoolName: "School of Agricultural Sciences",
   },
 
@@ -468,15 +468,15 @@ export const agricultureSchool: ProgramPageData = {
           duration: "2 years",
           specialisations: [
             {
-              name: "M.Sc. Agriculture — Agronomy",
+              name: "M.Sc. Agriculture (Agronomy)",
               href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
             },
             {
-              name: "M.Sc. (Horticulture) Vegetable Science",
+              name: "M.Sc. Horticulture (Vegetable Science)",
               href: "/programs/school-of-agricultural-studies",
             },
             {
-              name: "M.Sc. (Horticulture) Fruit Science",
+              name: "M.Sc. Horticulture (Fruit Science)",
               href: "/programs/school-of-agricultural-studies",
             },
             {
@@ -540,39 +540,39 @@ export const agricultureSchool: ProgramPageData = {
     subtitle: "ICAR Aligned, Outcome-Based & Practical Farm Learning",
     items: [
       {
-        title: "Evergreen Farming with RAWE & ELP",
+        title: "Experiential Learning with RAWE & ELP",
         iconName: "Sprout",
         points: [
-          "Students engage in evergreen agriculture and rural village immersion.",
-          "Rural Agricultural Work Experience (RAWE) builds practical farmer connect.",
-          "Experiential Learning Program (ELP) nurtures agri-business entrepreneurship.",
+          "Students engage in agricultural practices and rural village immersion.",
+          "Rural Agricultural Work Experience (RAWE) builds practical connections with farmers.",
+          "Experiential Learning Program (ELP) fosters agri-business entrepreneurship.",
         ],
       },
       {
         title: "ICAR-Aligned Curriculum (6th Dean Committee)",
         iconName: "GraduationCap",
         points: [
-          "Curriculum designed under the ICAR 6th Dean Committee guidelines.",
-          "Implemented in strict accordance with NEP 2020 principles.",
-          "Outcome-based learning focused on modern global food security challenges.",
+          "Curriculum designed in accordance with the ICAR 6th Dean Committee guidelines.",
+          "Aligned with the principles of NEP 2020.",
+          "Outcome-based learning focused on contemporary global challenges related to food security.",
         ],
       },
       {
-        title: "Practical Learning on Faculty-Owned Farms",
+        title: "Practical Learning on University-Managed Farms",
         iconName: "Tractor",
         points: [
-          "Extensive university-managed farmlands for Kharif & Rabi crop experiments.",
-          "Hands-on training in seasonal crop sowing, irrigation, and harvesting.",
+          "Extensive university-managed farmlands for Kharif and Rabi crop experiments.",
+          "Hands-on training in crop sowing, irrigation, and harvesting across seasons.",
           "Organic farming, vermicomposting, polyhouses, and nursery management units.",
         ],
       },
       {
-        title: "Modern Agri-Solutions in Well-Equipped Labs",
+        title: "Modern Agricultural Solutions in Well-Equipped Labs",
         iconName: "FlaskConical",
         points: [
           "Specialized labs for Soil Science, Agronomy, and Plant Pathology.",
           "Hydroponics, greenhouse cultivation, and micro-irrigation systems.",
-          "Precision farming instrumentation and seed quality testing units.",
+          "Precision farming equipment and instrumentation and seed quality testing units.",
         ],
       },
     ],
@@ -755,7 +755,7 @@ export const agricultureSchool: ProgramPageData = {
       { name: "Shipra", logo: "https://geetauniversity.edu.in/uploads/all/2164/shipra.png" },
       { name: "In-Hydra", logo: "https://geetauniversity.edu.in/uploads/all/2163/in-hydra.png" },
     ],
-    rolesTitle: "Notable Career Roles Our Graduates Pursue",
+    rolesTitle: "Agriculture Science students with a recognized degree can find employment in the following sectors:",
     notableRoles: [
       { name: "Agriculture/Dairy", iconName: "Sprout" },
       { name: "Academic Institutions", iconName: "GraduationCap" },

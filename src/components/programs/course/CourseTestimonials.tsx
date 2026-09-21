@@ -154,7 +154,7 @@ export default function CourseTestimonials({
                         “
                       </span>
 
-                      <p className="mt-[-4px] text-[14px] leading-relaxed text-white/80 italic line-clamp-4">
+                      <p className="mt-[-4px] text-[14px] leading-relaxed text-white/80 italic">
                         {quoteText}
                       </p>
                     </div>
