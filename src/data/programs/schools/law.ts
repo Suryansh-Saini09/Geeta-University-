@@ -239,6 +239,30 @@ export const lawSchool: ProgramPageData = {
     ],
   },
 
+  departmentHighlightsTitle: "Where Learning Meets Achievement",
+  departmentHighlights: [
+    {
+      title: "Moot Court Hall & Advocacy Arena",
+      image: "/programs/law/gallery-1.webp",
+    },
+    {
+      title: "Legal Aid Clinic & Community Service",
+      image: "/programs/law/gallery-2.webp",
+    },
+    {
+      title: "National Seminar & Judicial Dialogues",
+      image: "/programs/law/gallery-3.webp",
+    },
+    {
+      title: "Interactive Classroom & Case Study Labs",
+      image: "/programs/law/gallery-4.webp",
+    },
+    {
+      title: "Law Library & Digital Legal Database",
+      image: "/programs/law/gallery-5.webp",
+    },
+  ],
+
   mentorsSection: {
     eyebrow: "EXPERT MENTORSHIP",
     title: "Meet our Mentors",
@@ -335,7 +359,7 @@ export const lawSchool: ProgramPageData = {
     avgPackageNote:
       "Steady growth across corporate law, in-house corporate legal counsel, ADR mediation, and litigation practice.",
     packageBars: [
-      { label: "Upto ₹4.5 LPA", value: 110, width: "100%" },
+      { label: "Up to ₹4.5 LPA", value: 110, width: "100%" },
       { label: "₹4.5 - ₹7.5 LPA", value: 85, width: "77%" },
       { label: "₹7.5 - ₹12 LPA", value: 40, width: "36%" },
       { label: "₹12 - ₹40 LPA", value: 20, width: "18%" },
@@ -361,7 +385,7 @@ export const lawSchool: ProgramPageData = {
         "My journey at Geeta Global Law School helped me develop confidence, discipline, and a broader perspective on legal studies. The university’s research-oriented approach prepared me for future academic and professional opportunities.",
     },
     {
-      name: "Anjali gupta",
+      name: "Anjali Gupta",
       role: "LL.M. Student",
       image: "/programs/law/llm/anajli_testimonial.webp",
       quote:
@@ -379,223 +403,24 @@ export const lawSchool: ProgramPageData = {
       role: "Ph.D. Scholar",
       image: "/programs/law/phd-law/musavir-testimonial.webp",
       quote:
-        "Pursuing my PhD in Law at Geeta Global Law School has strengthened my research abilities, analytical thinking, and legal expertise. The academic environment and guidance from experienced faculty helped me grow professionally and intellectually.",
+        "Pursuing my Ph.D. in Law at Geeta Global Law School has strengthened my research abilities, analytical thinking, and legal expertise. The academic environment and guidance from experienced faculty helped me grow professionally and intellectually.",
     },
   ],
 
-  learningSpaces: {
-    title: "State-of-the-Art Legal Infrastructure & Moot Court Facilities",
-    description:
-      "Students learn, argue, and conduct simulated trials in specialized, modern facilities designed to mirror real judicial and appellate courtrooms:",
-    spaces: [
-      {
-        title: "Full-Fledged Moot Court Hall",
-        desc: "Dedicated mock courtroom with judge dais, witness box, counsel lecterns, and acoustic sound systems for national and intra-university competitions.",
-        icon: "",
-      },
-      {
-        title: "Legal Aid & Community Outreach Clinic",
-        desc: "Active clinical facility where students assist senior advocates in providing pro-bono legal awareness and advice to local communities.",
-        icon: "",
-      },
-      {
-        title: "Digital Legal Research Suite",
-        desc: "High-speed computer lab with direct subscriptions to SCC Online, Manupatra, LexisNexis, AIR, and Westlaw.",
-        icon: "",
-      },
-      {
-        title: "Law & Jurisprudence Library",
-        desc: "Thousands of law reports, bare acts, central acts, international treaties, constitutional commentaries, and indexed law journals.",
-        icon: "",
-      },
-      {
-        title: "ADR & Mediation Simulation Room",
-        desc: "Specialized roundtable setup designed for Alternate Dispute Resolution, commercial arbitration, and client negotiation simulations.",
-        icon: "",
-      },
-      {
-        title: "Forensic Evidence & Cyber Law Lab",
-        desc: "Interdisciplinary training lab for understanding digital evidence examination, cyber crime forensics, and ballistics analysis.",
-        icon: "",
-      },
-    ],
-    gallery: [
-      {
-        src: "/programs/law/gallery-1.webp",
-        title: "National Moot Court Competitions",
-        caption: "Students arguing complex constitutional and corporate cases before sitting judges and senior advocates.",
-      },
-      {
-        src: "/programs/law/gallery-2.webp",
-        title: "Interactive Law Seminars & Workshops",
-        caption: "Masterclasses by prominent legal jurists, former Vice Chancellors, and bar council members.",
-      },
-      {
-        src: "/programs/law/gallery-3.webp",
-        title: "Legal Aid & Outreach Programs",
-        caption: "Providing legal awareness camps and community support across Haryana and Delhi NCR.",
-      },
-      {
-        src: "/programs/law/gallery-4.webp",
-        title: "Modern Moot Court Infrastructure",
-        caption: "Simulated high-court courtroom environment for experiential learning and trial advocacy.",
-      },
-    ],
-    closingNote:
-      "All legal infrastructure is integrated with trial advocacy training, judge interactions, and summer chamber internships.",
-  },
-
   careerPathways: {
-    title: "Career Pathways in Law & Jurisprudence",
+    title: "Career Pathways",
     description:
-      "After completing the law program at Geeta Global Law School, choose from a wide array of career options across litigation, corporate law firms, judiciary, civil services, and corporate consultancies:",
-    pathways: [
-      {
-        area: "Litigation & Trial Advocacy",
-        pathway:
-          "Practicing as an advocate before the Supreme Court of India, High Courts, District Courts, and Specialized Tribunals.",
-        icon: "",
-      },
-      {
-        area: "Corporate Counsel & Law Firms",
-        pathway:
-          "Advising Fortune 500 companies and top law firms on M&A, cross-border joint ventures, contracts, and regulatory compliance.",
-        icon: "",
-      },
-      {
-        area: "Judicial Services & Public Prosecution",
-        pathway:
-          "Serving as Civil Judges, Magistrates, and Public Prosecutors through State Judicial Services Examination.",
-        icon: "",
-      },
-      {
-        area: "Legal Officer in PSUs & Armed Forces (JAG)",
-        pathway:
-          "Joining public sector undertakings (PSUs), nationalized banks, or the Judge Advocate General (JAG) branch of the Indian Army.",
-        icon: "",
-      },
-      {
-        area: "Intellectual Property & Cyber Law",
-        pathway:
-          "Protecting patents, trademarks, copyrights, and managing cyber crime cases, data privacy, and IT Act compliance.",
-        icon: "",
-      },
-      {
-        area: "Alternate Dispute Resolution (ADR)",
-        pathway:
-          "Practicing as international arbitrators, commercial mediators, and conciliation experts in commercial disputes.",
-        icon: "",
-      },
-      {
-        area: "Legal Consultancy & Entrepreneurship",
-        pathway:
-          "Founding specialized legal advisory boutiques, legal tech startups, or consulting for multinational NGOs and think tanks.",
-        icon: "",
-      },
-      {
-        area: "Legal Academia & Research",
-        pathway:
-          "Pursuing LL.M., Ph.D., and prestigious academic fellowships to teach and publish in global law faculties.",
-        icon: "",
-      },
-    ],
+      "After completing a law program, you can choose from a wide array of career options in both public and private sectors. Graduates can pursue roles as advocates, legal advisors, judicial officers, corporate counsels, and legal consultants in law firms, companies, or government departments. Our law programs equip students with essential skills like critical thinking, legal reasoning, communication, and advocacy that pave the way for professional success. Whether you are interested in making a career in litigation, the judiciary, policymaking, human rights, or corporate law, we ensure that you have the right knowledge and training to excel.",
     notableRoles: [
-      { name: "Litigation / Corporate Lawyer" },
-      { name: "Judge / Judicial Services Officer" },
-      { name: "Legal Advisor & Corporate Counsel" },
-      { name: "Law Firm Senior Associate" },
-      { name: "Legal Officer in PSU / Indian Army (JAG)" },
-      { name: "Law Professor & Legal Scholar" },
-      { name: "Arbitrator / Commercial Mediator" },
-      { name: "Cyber Law & IPR Consultant" },
-      { name: "Public Prosecutor / State Advocate" },
-      { name: "Legal Tech Entrepreneur" },
-      { name: "Human Rights & Policy Advocate" },
-      { name: "Compliance & Risk Director" },
-    ],
-  },
-
-  experts: {
-    eyebrow: "Geeta Global Law School",
-    title: "5 Specialized Pillars of Modern Legal Education",
-    intro:
-      "An integrated jurisprudence curriculum combining moot court mastery, constitutional law, commercial regulations, cyber law, and judicial examination coaching.",
-    feature: {
-      kicker: "Legal Leadership",
-      title: "Five Pillars. One Unrivaled Law School.",
-      description:
-        "Learn directly from distinguished Vice Chancellors, High Court advocates, senior corporate partners, and legal scholars.",
-      stats: [
-        { value: "5", label: "Core Practice Pillars" },
-        { value: "100%", label: "Moot Court & Practical Exposure" },
-      ],
-    },
-    categories: [
-      {
-        number: 1,
-        title: "Constitutional & Criminal Litigation",
-        subtitle: "Appellate Advocacy & Fundamental Rights",
-        points: [
-          "Advanced constitutional law interpretation and writ petition drafting",
-          "Criminal trial procedures, cross-examination techniques, and evidence law",
-          "Human rights protection, public interest litigation (PIL), and jurisprudence",
-          "Regular courtroom visits and district court chamber attachments",
-        ],
-        iconName: "Landmark",
-        ribbon: "#0A1F44",
-      },
-      {
-        number: 2,
-        title: "Corporate Law & Mergers (M&A)",
-        subtitle: "Business Regulations & Transactions",
-        points: [
-          "Companies Act compliance, corporate governance, and SEBI regulations",
-          "Commercial contract negotiation, drafting, and cross-border transactions",
-          "Insolvency and Bankruptcy Code (IBC) and debt recovery litigation",
-          "Corporate legal department internships with top firms",
-        ],
-        iconName: "Building2",
-        ribbon: "#0F2A56",
-      },
-      {
-        number: 3,
-        title: "IPR, Cyber Law & Digital Ethics",
-        subtitle: "Technology & Intellectual Property",
-        points: [
-          "Patents, trademarks, industrial designs, and copyright law filings",
-          "Information Technology Act, digital evidence admissibility, and cyber forensics",
-          "Artificial intelligence governance, data privacy (DPDP Act), and fintech laws",
-          "Practical workshops with cyber law specialists and patent attorneys",
-        ],
-        iconName: "ShieldCheck",
-        ribbon: "#1B4B8F",
-      },
-      {
-        number: 4,
-        title: "Alternate Dispute Resolution (ADR)",
-        subtitle: "Mediation, Conciliation & Arbitration",
-        points: [
-          "Domestic and international commercial arbitration principles",
-          "Mediation techniques, dispute negotiation, and conciliation proceedings",
-          "Drafting arbitration clauses, claims, and enforcement of awards",
-          "Simulated international arbitration rounds and ADR center training",
-        ],
-        iconName: "UsersRound",
-        ribbon: "#2E63B8",
-      },
-      {
-        number: 5,
-        title: "Judicial Services & GFS Finishing School",
-        subtitle: "Judiciary Preparation & Professional Grooming",
-        points: [
-          "Dedicated mentorship for State Judicial Services and Civil Services Law optional",
-          "Legal drafting, judgment writing, and case brief formulation skills",
-          "Client counseling ethics, public speaking, and professional legal etiquette",
-          "Mock interview panels headed by retired judicial officers and jurists",
-        ],
-        iconName: "GraduationCap",
-        ribbon: "#5B8FD9",
-      },
+      { name: "Litigation/Corporate Lawyer" },
+      { name: "Judge/Judicial Services" },
+      { name: "Legal Advisor" },
+      { name: "Law Firm Associate" },
+      { name: "Legal Officer in PSU/Indian Army" },
+      { name: "Law Professor" },
+      { name: "Legal Consultant" },
+      { name: "Arbitrator / Mediator" },
+      { name: "Entrepreneur" },
     ],
   },
 
@@ -649,12 +474,12 @@ export const lawSchool: ProgramPageData = {
       level: "Doctoral (Minimum 3 years)",
       duration: "Minimum 3 years",
       eligibility:
-        "Candidate must have passed Master's in Law (LL.M.) with at least 55% marks from a recognized university.",
+        "Master's degree in Law (LL.M.) with a minimum of 55% aggregate marks from a recognized university.",
       programs: [
         {
           name: "Ph.D. in Law",
           duration: "Minimum 3 years",
-          eligibility: "Masters in Law (LL.M.) with minimum 55% marks.",
+          eligibility: "Master's degree in Law (LL.M.) with a minimum of 55% aggregate marks.",
           href: "/programs/geeta-global-law-school/phd-law",
         },
       ],
@@ -662,11 +487,11 @@ export const lawSchool: ProgramPageData = {
   ],
 
   dean: {
-    name: "Prof. (Dr) Sanjeevi Shanthakumar",
-    designation: "Chief Academic Mentor & Advisory Board Member",
-    image: "/programs/law/mentor-1.webp",
+    name: "Dr. Ayaz",
+    designation: "Dean, Geeta Global Law School",
+    image: "/programs/law/ayaz.png",
     message:
-      "At Geeta Global Law School, we are committed to building not just successful legal practitioners, but ethical advocates and jurists who shape society. Our immersive curriculum integrates deep jurisprudential rigor with real-world moot courts, ADR simulations, and international exposure. We empower each student to think critically, argue persuasively, and lead with unwavering integrity.",
+      "I welcome you to the Geeta Global Law School at Geeta University! Students aiming for a strong career in law are bound to thrive at Geeta University. Gain practical knowledge in legal studies, corporate law, litigation, and more through our industry-aligned programs. You not only develop a strong foundation in legal principles but also build essential skills in legal research, advocacy, and critical thinking to become career-ready. Our experienced faculty ensures your overall growth by supporting your learning endeavours. We also offer the benefit of strong industry collaborations, skill development opportunities, internships, and assured placement support. Join us to pave your path to all-around development and career success in the world of law.",
     schoolName: "Geeta Global Law School",
   },
 
@@ -699,56 +524,56 @@ export const lawSchool: ProgramPageData = {
     {
       "q": "What law programs does GGLS offer?",
       "a": "BA LL.B. (Hons.) and BBA LL.B. (Hons.) as 5-year integrated undergraduate programs, LL.M. as a 1-year postgraduate program, and a Ph.D. in Law.",
-      "category": "programs & Eligibility"
+      "category": "Programs & Eligibility"
     },
     {
       "q": "What is the eligibility for BA LL.B./BBA LL.B.?",
-      "a": "Passed the 10+2 in any stream with the minimum percentage prescribed by the university (typically 50%).",
-      "category": "programs & Eligibility"
+      "a": "Passed the 10+2 in any stream with a minimum of 50% aggregate marks (45% for reserved categories).",
+      "category": "Programs & Eligibility"
     },
     {
       "q": "What is the eligibility for LL.M.?",
-      "a": "A Bachelor's degree in Law (LL.B./integrated law degree) with a minimum of 50% marks.",
-      "category": "programs & Eligibility"
+      "a": "A Bachelor's degree in Law (LL.B. or 5-year integrated law degree) with a minimum of 50% marks from a recognized university.",
+      "category": "Programs & Eligibility"
     },
     {
       "q": "What is the eligibility for Ph.D. in Law?",
-      "a": "A Master's degree in Law (LL.M.) with a minimum of 55% marks, plus the university's entrance/interview process.",
-      "category": "programs & Eligibility"
+      "a": "A Master's degree in Law (LL.M.) with a minimum of 55% marks, plus qualifying the university's entrance and interview process.",
+      "category": "Programs & Eligibility"
     },
     {
       "q": "What specialisations are available?",
       "a": "Corporate Law, Criminal Law, Constitutional Law, IPR Law, and Family Law offered as elective tracks in later years.",
-      "category": "programs & Eligibility"
+      "category": "Programs & Eligibility"
     },
     {
       "q": "Is the curriculum based on NEP 2020?",
-      "a": "Yes — a NEP 2020-aligned, choice-based credit system with interdisciplinary electives across Geeta University's other schools.",
-      "category": "programs & Eligibility"
+      "a": "Yes — an NEP 2020-aligned, choice-based credit system with interdisciplinary electives across Geeta University's other schools.",
+      "category": "Programs & Eligibility"
     },
     {
       "q": "How do I apply to GGLS?",
-      "a": "By Clicking on Apply Now, You may apply to GGLS — fill in personal and academic details and choose your program.",
+      "a": "You can apply to GGLS through the official online admission portal by filling in your personal and academic details and selecting your chosen program.",
       "category": "Admissions"
     },
     {
       "q": "Is there an entrance exam for admission?",
-      "a": "Admission is generally through direct visit, through CUET, or merit in the qualifying exam (generally CLAT)— the route depends on the program; check the current admission guidelines.",
+      "a": "Admission is based on merit in national entrance exams such as CLAT, CUET, or GLAT, alongside qualifying examination percentage.",
       "category": "Admissions"
     },
     {
       "q": "What documents are required for admission?",
-      "a": "Academic transcripts and mark sheets for 10th and 12th, transfer/migration certificate, category certificate (if applicable), identity proof, Aadhar Card and 3 Passport Size Photographs. Also, Bachelor’s and Master’s Degree Certificates (for PG and Ph.D. applicants) and Proof of any research work (for Ph.D. applicants).",
+      "a": "Academic transcripts and mark sheets for 10th and 12th, transfer/migration certificate, category certificate (if applicable), identity proof (Aadhaar Card), and 3 passport-size photographs. PG and Ph.D. applicants also require bachelor's and master's degree certificates.",
       "category": "Admissions"
     },
     {
       "q": "What is the fee structure for law programs?",
-      "a": "Fee details vary by program and scholarship eligibility and are on the official fee structure page; you may check total Fee through Fees Structure..",
+      "a": "Fee details vary by program and scholarship eligibility and can be checked on the official fee structure page of Geeta University.",
       "category": "Fees & Scholarships"
     },
     {
       "q": "Are scholarships available for law students?",
-      "a": "Yes — merit-based and need-based scholarships are available; eligibility can be checked by clicking on the Scholarship Predictor.",
+      "a": "Yes — merit-based and need-based scholarships are available and can be calculated using the university's Scholarship Predictor.",
       "category": "Fees & Scholarships"
     },
     {
@@ -809,22 +634,22 @@ export const lawSchool: ProgramPageData = {
     {
       "q": "How long is the B.A. LL.B. (Hons.) program?",
       "a": "It is a 5-year integrated program spread across 10 semesters.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "What is the eligibility for B.A. LL.B. (Hons.)?",
-      "a": "Candidates must have Passed the 10+2 with at least 45% aggregate marks for the General Category and 42.75% for SC/ST, with English as one of the subjects.",
+      "a": "Candidates must have passed the 10+2 with at least 45% aggregate marks (42.75% for SC/ST), with English as one of the subjects.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What is the eligibility for BBA LL.B. (Hons.)?",
-      "a": "Candidates need 10+2 with at least 45% aggregate marks for the General Category and 42.75% for SC/ST, with English as one of the subjects.",
+      "a": "Candidates need the 10+2 with at least 45% aggregate marks (42.75% for SC/ST), with English as one of the subjects.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "How is B.A. LL.B. different from BBA LL.B.?",
       "a": "B.A. LL.B. combines Law with humanities subjects such as Political Science and Sociology, while BBA LL.B. combines Law with business and management subjects.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Who can apply for the 3-year LL.B. program?",
@@ -834,7 +659,7 @@ export const lawSchool: ProgramPageData = {
     {
       "q": "How long is the LL.B. program?",
       "a": "LL.B. is a 3-year program comprising six semesters.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "What is the eligibility for LL.M.?",

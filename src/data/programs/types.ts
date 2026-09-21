@@ -348,8 +348,8 @@ export interface FAQ {
 }
 
 export interface DepartmentHighlightItem {
-  title: string;
-  desc: string;
+  title?: string;
+  desc?: string;
   image: string;
   link?: string;
 }

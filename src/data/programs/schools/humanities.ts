@@ -73,9 +73,9 @@ export const humanitiesSchool: ProgramPageData = {
     eyebrow: "ABOUT THE SCHOOL",
     title: "School of Humanities & Social Sciences",
     paragraphs: [
-      "Welcome to the School of Humanities & Social Sciences at Geeta University, where we shape future leaders and thinkers. Our focus on promoting critical thinking and academic excellence helps you evolve into a world-class professional. We offer a wide range of Undergraduate, Postgraduate and Doctoral programs that match your career aspirations. These include a B.A. in Political Science, Psychology, Economics, and Social Work, as well as an M.A. in Political Science and Psychology. We also offer a Ph.D. in Psychology, with a special focus on promoting advanced research and innovation.",
-      "Our comprehensive curriculum is designed to enhance your social awareness, improve your analytical thinking skills, and instill a deep sense of human values in you. Our dynamic faculty, interdisciplinary approach, and a strong emphasis on experiential learning help you evolve into responsible professionals capable of making meaningful contributions to society, research, education, and public policy.",
-      "If you are passionate about understanding human behaviour, society, and governance, then our programs are the right choice for you. Enrol at our School of Humanities & Social Sciences and unlock a world of academic opportunities paving the way to your personal and professional growth.",
+      "Welcome to the School of Humanities & Social Sciences at Geeta University, where we shape future leaders and thinkers. Our focus on promoting critical thinking and academic excellence helps you evolve into a world-class professional. We offer a wide range of Undergraduate, Postgraduate, and Doctoral programs that match your career aspirations. These include a B.A. in Political Science, Psychology, Economics, and Social Work, as well as an M.A. in Political Science and Psychology. We also offer a Ph.D. in Psychology, with a special focus on promoting advanced research and innovation.",
+      "Our comprehensive curriculum is designed to enhance your social awareness, improve your analytical thinking skills, and instill a deep sense of human values in you. Our dynamic faculty, interdisciplinary approach, and strong emphasis on experiential learning help you evolve into responsible professionals capable of making meaningful contributions to society, research, education, and public policy.",
+      "If you are passionate about understanding human behavior, society, and governance, then our programs are the right choice for you. Enroll at our School of Humanities & Social Sciences and unlock a world of academic opportunities paving the way to your personal and professional growth.",
     ],
     image: "/programs/humanities/gallery-1.webp",
     badgeText: "UGC Aligned & Social Impact Driven",
@@ -90,7 +90,7 @@ export const humanitiesSchool: ProgramPageData = {
       "Academician & Social Science Researcher",
     ],
     closingText:
-      "Our multidisciplinary framework integrates behavioural testing suites, policy analysis incubators, field action projects, and premier global internships.",
+      "Our multidisciplinary framework integrates behavioral testing suites, policy analysis incubators, field action projects, and premier global internships.",
   },
 
   visionMission: {
@@ -179,7 +179,7 @@ export const humanitiesSchool: ProgramPageData = {
           program: "B.A. Hons. (Bachelor of Arts)",
           href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
           duration: "3 / 4 years",
-          eligibility: "Passed the 10+2 examination with minimum 50% aggregate marks from a recognized board.",
+          eligibility: "Passed the 10+2 examination with a minimum of 50% aggregate marks from a recognized board.",
           specialisations: [
             {
               name: "B.A. Hons. (Psychology)",
@@ -204,7 +204,7 @@ export const humanitiesSchool: ProgramPageData = {
           program: "B.Sc. (Hons.) Psychology",
           href: "https://geetauniversity.edu.in/bsc-psychology",
           duration: "3 / 4 years",
-          eligibility: "10+2 with at least 50% marks from a recognized board.",
+          eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
         },
       ],
     },
@@ -239,14 +239,14 @@ export const humanitiesSchool: ProgramPageData = {
       title: "Doctoral Programs (Ph.D.)",
       duration: "Minimum 3 years",
       eligibility:
-        "Master's in a relevant field with a minimum 55% aggregate marks (50% for reserved categories).",
+        "Master's degree in a relevant field with a minimum of 55% aggregate marks (50% for reserved categories).",
       programs: [
         {
           name: "Ph.D. (Doctor of Philosophy)",
           program: "Ph.D. (Doctor of Philosophy)",
           href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
           duration: "Minimum 3 years",
-          eligibility: "Master's in a relevant field with a minimum 55% aggregate marks (50% for reserved categories).",
+          eligibility: "Master's degree in a relevant field with a minimum of 55% aggregate marks (50% for reserved categories).",
           specialisations: [
             {
               name: "Ph.D. (Psychology)",
@@ -281,7 +281,7 @@ export const humanitiesSchool: ProgramPageData = {
   ],
 
   specialisations: {
-    title: "WE DON'T JUST EDUCATE WE TRANSFORM FUTURES !",
+    title: "We Don't Just Educate, We Transform Futures!",
     items: [
       {
         title: "Political Science",
@@ -325,7 +325,7 @@ export const humanitiesSchool: ProgramPageData = {
       name: "Riya",
       pkg: "22 LPA",
       company: "International Media & Policy",
-      role: "Content & behavioural Strategist",
+      role: "Content & Behavioral Strategist",
       quote:
         "My journey at Geeta University was truly impactful. The lively campus and strong industry exposure paved the way to my successful placement, empowering me to thrive in my professional career.",
       image: "/programs/humanities/testimonial-riya.webp",
@@ -470,12 +470,12 @@ export const humanitiesSchool: ProgramPageData = {
     },
     {
       "q": "What is the eligibility for the B.A. programs?",
-      "a": "Candidates need to have Passed the 10+2 examination with a minimum of 50% marks, in any stream.",
+      "a": "Candidates need to have passed the 10+2 examination with a minimum of 50% marks in any stream from a recognized board.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "Can students from different Class 12 streams apply for the B.A. programs?",
-      "a": "Yes. There is no restriction based on Class 12 stream — students from Science, Commerce, Arts/Humanities or any other stream can apply for the B.A. programs, as long as they have Passed the 10+2 with at least 50% marks.",
+      "a": "Yes. Students from Science, Commerce, Arts/Humanities, or any other stream can apply for the B.A. programs, provided they have passed the 10+2 with at least 50% aggregate marks.",
       "category": "Admissions & Eligibility"
     },
     {

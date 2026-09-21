@@ -269,7 +269,7 @@ export const pharmacySchool: ProgramPageData = {
     avgPackage: "₹4.85 LPA",
     avgPackageNote: "High demand across formulation, QA/QC, clinical research, drug safety, and pharmaceutical marketing.",
     packageBars: [
-      { label: "Upto ₹4 LPA", value: 110, width: "100%" },
+      { label: "Up to ₹4 LPA", value: 110, width: "100%" },
       { label: "₹4-6 LPA", value: 72, width: "65%" },
       { label: "₹6-8 LPA", value: 28, width: "25%" },
       { label: "₹8-12 LPA", value: 16, width: "15%" },
@@ -323,7 +323,7 @@ export const pharmacySchool: ProgramPageData = {
       company: "Sun Pharma",
       role: "Medical Representative",
       quote:
-        "We are delighted to announce Dinesh’s successful placement as a Medical Representative with Sun Pharma. His achievement reflects his dedication and commitment to excellence. We wish him a bright and successful future.",
+        "We are delighted to announce Dinesh's successful placement as a Medical Representative with Sun Pharma. His achievement reflects his dedication and commitment to excellence. We wish him a bright and successful future.",
       image: "/programs/pharmacy/Dinesh-testimonial.webp",
     },
   ],
@@ -408,7 +408,7 @@ export const pharmacySchool: ProgramPageData = {
   careerPathways: {
     title: "Career Pathways",
     description:
-      "A large number of opportunities are available for students in both the public and the private sectors. After the completion of the course, the students can work as a Drug Therapist, Drug Inspector, Health Inspector, Pharmacist, Pathological Lab Scientist, Chemical/Drug Technician, Bio-Technology Industries, Hospital Drug Coordinator, Research & Development and Making Prescription to Patients",
+      "A wide range of career opportunities is available for pharmacy graduates in both public and private sectors. After completing the program, graduates can pursue careers as Drug Inspectors, Clinical Research Associates, Pharmacists, Formulation Scientists, Quality Control Analysts, Regulatory Affairs Specialists, or hospital pharmacy managers.",
     rolesTitle: "Notable Career Roles Our Graduates Pursue",
     notableRoles: [
       { name: "Clinical Research" },
@@ -542,26 +542,26 @@ export const pharmacySchool: ProgramPageData = {
     {
       title: "Diploma Program",
       duration: "2 years",
-      eligibility: "A pass in 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
+      eligibility: "A pass in the 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
       programs: [
         {
           name: "D.Pharm. (Diploma in Pharmacy)",
           href: "/programs/geeta-institute-of-pharmacy/d-pharmacy",
           duration: "2 years",
-          eligibility: "A pass in 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
+          eligibility: "A pass in the 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
         },
       ],
     },
     {
       title: "Undergraduate Program",
       duration: "4 years",
-      eligibility: "Passed the 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (PCM) and/or Biology (PCB/PCMB) as optional subjects individually.",
+      eligibility: "Passed the 10+2 examination with a minimum of 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (PCM) and/or Biology (PCB/PCMB) as optional subjects individually.",
       programs: [
         {
           name: "B.Pharm. (Bachelor of Pharmacy)",
           href: "/programs/geeta-institute-of-pharmacy/b-pharmacy",
           duration: "4 years",
-          eligibility: "Passed the 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (PCM) and/or Biology (PCB/PCMB) as optional subjects individually.",
+          eligibility: "Passed the 10+2 examination with a minimum of 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (PCM) and/or Biology (PCB/PCMB) as optional subjects individually.",
         },
       ],
     },
@@ -581,13 +581,13 @@ export const pharmacySchool: ProgramPageData = {
     {
       title: "Doctoral Program",
       duration: "Minimum 3 years",
-      eligibility: "Master's degree in Pharmacy (M.Pharm.) or relevant discipline with minimum 55% marks.",
+      eligibility: "Master's degree in Pharmacy (M.Pharm.) or a relevant discipline with a minimum of 55% marks.",
       programs: [
         {
           name: "Ph.D. in Pharmacy",
           href: "/programs/geeta-institute-of-pharmacy/phd-pharmacy",
           duration: "Min 3 years",
-          eligibility: "Master's degree in Pharmacy (M.Pharm.) or relevant discipline with minimum 55% marks.",
+          eligibility: "Master's degree in Pharmacy (M.Pharm.) or a relevant discipline with a minimum of 55% marks.",
         },
       ],
     },
@@ -609,12 +609,12 @@ export const pharmacySchool: ProgramPageData = {
     },
     {
       "q": "What is the eligibility for D.Pharm.?",
-      "a": "Applicants must have Passed the 10+2 in the Science stream with Physics, Chemistry and Biology or Mathematics, with at least 50% marks.",
+      "a": "Applicants must have passed the 10+2 in the Science stream with Physics, Chemistry and Biology or Mathematics, with at least 50% marks.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What is the eligibility for B.Pharm.?",
-      "a": "Applicants must have Passed the 10+2 with at least 55% marks, with English as one of the subjects and Physics, Chemistry and Mathematics and/or Biology as the specified subjects.",
+      "a": "Applicants must have passed the 10+2 with at least 55% marks, with English as one of the subjects and Physics, Chemistry and Mathematics and/or Biology as the specified subjects.",
       "category": "Admissions & Eligibility"
     },
     {
@@ -640,37 +640,37 @@ export const pharmacySchool: ProgramPageData = {
     {
       "q": "What is the difference between D.Pharm. and B.Pharm.?",
       "a": "D.Pharm. is a two-year diploma providing foundational pharmaceutical knowledge and practical preparation. B.Pharm. is a four-year degree with deeper study of pharmaceutical sciences, drug development, clinical pharmacy, research and industry-oriented subjects.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "What subjects are taught in D.Pharm.?",
       "a": "The program includes Human Anatomy & Physiology, Pharmaceutics, Pharmaceutical Chemistry, Pharmacognosy, Hospital & Clinical Pharmacy, Health Education, Biochemistry & Clinical Pathology, Drug Store Management and practical laboratory training.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "What subjects are covered in B.Pharm.?",
       "a": "The B.Pharm. curriculum includes Pharmaceutical Chemistry, Pharmacology & Toxicology, Pharmaceutics & Drug Delivery, Clinical Pharmacy, Pharmaceutical Microbiology, Pharmacognosy, Biopharmaceutics, Hospital Pharmacy and Pharmaceutical Jurisprudence, along with research projects and internships.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "What is taught in M.Pharm. (Pharmaceutics)?",
       "a": "The postgraduate program focuses on advanced pharmaceutical formulation and related areas, including advanced drug formulation, pharmaceutical engineering and research-oriented study.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Does B.Pharm. include clinical and hospital pharmacy?",
       "a": "Yes. Clinical Pharmacy and Hospital Pharmacy are explicitly included in the published B.Pharm. program structure.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Does B.Pharm. include drug formulation and drug delivery?",
       "a": "Yes. Pharmaceutics and Drug Delivery are core areas of the B.Pharm. curriculum.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Is pharmacy education only about medicines and dispensing?",
       "a": "No. The programs cover drug formulation, pharmaceutical chemistry, pharmacology, clinical and hospital pharmacy, research, regulatory affairs, pharmacovigilance, drug discovery and pharmaceutical marketing.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "How much practical learning do pharmacy students receive?",

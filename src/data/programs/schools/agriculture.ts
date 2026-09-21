@@ -9,7 +9,7 @@ export const agricultureFaqs: CourseFAQItem[] = [
   },
   {
     question: "What is the eligibility for B.Sc. (Hons.) Agriculture?",
-    answer: "Applicants need 10+2 or equivalent with Physics, Chemistry and Biology/Mathematics or Agriculture, with at least 50% marks.",
+    answer: "Applicants need the 10+2 or equivalent with Physics, Chemistry and Biology/Mathematics or Agriculture, with at least 50% marks.",
     category: "Admissions & Eligibility"
   },
   {
@@ -40,42 +40,42 @@ export const agricultureFaqs: CourseFAQItem[] = [
   {
     question: "How long is the B.Sc. (Hons.) Agriculture program?",
     answer: "It is a four-year undergraduate program spread across eight semesters.",
-    category: "programs & Specialisations"
+    category: "Programs & Specialisations"
   },
   {
     question: "What are the M.Sc. specialisations available at the School?",
     answer: "Students can choose M.Sc. Agronomy, M.Sc. (Horticulture) Vegetable Science, M.Sc. (Horticulture) Fruit Science, M.Sc. Genetics & Plant Breeding or M.Sc. Entomology.",
-    category: "programs & Specialisations"
+    category: "Programs & Specialisations"
   },
   {
     question: "What does M.Sc. Agronomy focus on?",
     answer: "It focuses on crop production, agronomic practices, productivity and sustainable management of agricultural systems.",
-    category: "programs & Specialisations"
+    category: "Programs & Specialisations"
   },
   {
     question: "What will I study in M.Sc. Horticulture – Vegetable Science?",
     answer: "The program focuses on scientific vegetable production, crop improvement, cultivation practices and related horticultural management.",
-    category: "programs & Specialisations"
+    category: "Programs & Specialisations"
   },
   {
     question: "What does M.Sc. Horticulture – Fruit Science cover?",
     answer: "It focuses on fruit production, crop management, improvement, post-harvest aspects and scientific fruit cultivation.",
-    category: "programs & Specialisations"
+    category: "Programs & Specialisations"
   },
   {
     question: "What is M.Sc. Genetics & Plant Breeding about?",
     answer: "It deals with plant genetics, breeding methods and crop improvement for developing better-performing plant varieties.",
-    category: "programs & Specialisations"
+    category: "Programs & Specialisations"
   },
   {
     question: "What will I learn in M.Sc. Entomology?",
     answer: "The program focuses on insects affecting agriculture, their identification, management and integrated approaches to pest control.",
-    category: "programs & Specialisations"
+    category: "Programs & Specialisations"
   },
   {
     question: "What areas can be explored through Ph.D. Agriculture?",
     answer: "Research can span areas such as agronomy, soil science, plant breeding, entomology, horticulture, biotechnology and climate-smart agriculture, depending on available research expertise.",
-    category: "programs & Specialisations"
+    category: "Programs & Specialisations"
   },
   {
     question: "Is the agriculture curriculum aligned with ICAR guidelines?",
@@ -300,16 +300,16 @@ export const agricultureSchool: ProgramPageData = {
     keywords: [
       "school of agricultural studies",
       "best Agricultural Sciences university in haryana",
-      "top M.sc. agriculture university in haryana",
+      "top M.Sc. agriculture university in haryana",
       "top agriculture university in haryana",
       "best agriculture university in haryana",
       "Agricultural Sciences university in panipat",
       "gu",
       "geeta university",
-      "Best M.Sc. Science in university in haryana",
-      "Best M.Sc. Science in university in panipat",
-      "Top M.Sc. Science in university in haryana",
-      "Top M.Sc. Science in university in panipat",
+      "Best M.Sc. Agriculture university in haryana",
+      "Best M.Sc. Agriculture university in panipat",
+      "Top M.Sc. Agriculture university in haryana",
+      "Top M.Sc. Agriculture university in panipat",
       "top agriculture colleges",
       "best colleges for bsc agriculture",
       "bsc agriculture course details",
@@ -378,11 +378,11 @@ export const agricultureSchool: ProgramPageData = {
     vision:
       "To be a centre of excellence in agricultural education, research, and innovation, nurturing skilled agricultural professionals, researchers, and entrepreneurs committed to sustainable farming, food security, rural development, and nation-building.",
     mission: [
-      "To provide outcome based, learner-centred agricultural education that includes scientific knowledge, current agricultural practices, modern technologies and practical experience.",
+      "To provide outcome-based, learner-centred agricultural education that includes scientific knowledge, current agricultural practices, modern technologies, and practical experience.",
       "To develop competent, ethical, and future-ready agricultural professionals equipped with the knowledge, skills, and leadership qualities to address evolving challenges in agriculture, agribusiness, and environmental sustainability.",
-      "To promote interdisciplinary research and innovation in agriculture, allied science and new technologies for enhanced production, resource conservation, climate change adaptation and food security.",
-      "To improve cooperation, exchange learning, technology transfer, extension and sustainable agriculture within farmers, agricultural industries, research institutions, government and rural communities.",
-      "To foster entrepreneurship, innovation and community involvement in promoting agri-enterprises, sustainable agriculture and contribute to strengthening the rural economy and the development of the environment and nation building.",
+      "To promote interdisciplinary research and innovation in agriculture, allied sciences, and new technologies for enhanced production, resource conservation, climate change adaptation, and food security.",
+      "To improve cooperation, exchange learning, technology transfer, extension, and sustainable agriculture among farmers, agricultural industries, research institutions, government, and rural communities.",
+      "To foster entrepreneurship, innovation, and community involvement in promoting agri-enterprises, sustainable agriculture, and contribute to strengthening the rural economy, environmental sustainability, and nation-building.",
     ],
   },
 
@@ -444,14 +444,14 @@ export const agricultureSchool: ProgramPageData = {
       title: "Undergraduate Program",
       duration: "4 years",
       eligibility:
-        "10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
+        "Passed the 10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
       programs: [
         {
           name: "B.Sc. Hons. (Agriculture)",
           href: "/programs/school-of-agricultural-studies/bsc-agriculture",
           duration: "4 years",
           eligibility:
-            "10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
+            "Passed the 10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
         },
       ],
     },
@@ -460,7 +460,7 @@ export const agricultureSchool: ProgramPageData = {
       title: "Postgraduate Program",
       duration: "2 years",
       eligibility:
-        "Graduation in a relevant discipline with a minimum 50% marks.",
+        "Graduation in a relevant discipline with a minimum of 50% marks.",
       programs: [
         {
           name: "M.Sc. Agriculture",
@@ -489,7 +489,7 @@ export const agricultureSchool: ProgramPageData = {
             },
           ],
           eligibility:
-            "B.Sc Agriculture with a minimum 50% marks.",
+            "B.Sc. Agriculture with a minimum of 50% marks.",
         },
       ],
     },
@@ -498,14 +498,14 @@ export const agricultureSchool: ProgramPageData = {
       title: "Doctoral Program",
       duration: "Minimum 3 years",
       eligibility:
-        "Masters in a relevant discipline with minimum aggregate score of 55%",
+        "Master's degree in a relevant discipline with a minimum aggregate score of 55%.",
       programs: [
         {
           name: "Ph.D. (Agriculture)",
           href: "/programs/school-of-agricultural-studies/phd-agriculture",
           duration: "Minimum 3 years",
           eligibility:
-            "Masters in a relevant discipline with minimum aggregate score of 55%",
+            "Master's degree in a relevant discipline with a minimum aggregate score of 55%.",
         },
       ],
     },
@@ -733,7 +733,7 @@ export const agricultureSchool: ProgramPageData = {
   },
 
   careerPathways: {
-    title: "Pathway after Agricultural Sciences",
+    title: "Pathway After Agricultural Sciences",
     description:
       "Industries involved in feeding the world, primarily the agriculture sector, will never face a recession or slowdown. In fact, with the advances in technology, research, and innovation, the agriculture sector is one of the fastest-growing sectors today. This has ensured great career prospects for students with comprehensive knowledge of the field.",
     recruitersTitle: "Our Industrial Partners",
