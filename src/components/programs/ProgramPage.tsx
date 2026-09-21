@@ -110,7 +110,6 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
           title={pageData.departmentHighlightsTitle}
           subtitle={pageData.departmentHighlightsSubtitle}
           highlights={pageData.departmentHighlights}
-          imageOnly={pageData.highlightsImageOnly || Boolean(pageData.slug?.includes("science") || pageData.slug?.includes("agri"))}
         />
       )}
 

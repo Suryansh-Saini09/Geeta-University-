@@ -111,20 +111,20 @@ export default function CourseTestimonials({
                   {/* Student identity header */}
                   <div className="flex items-center gap-4">
                     <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border-2 border-white/15 bg-white/5 flex items-center justify-center">
+                      <span className="text-base font-bold text-[#E8871A] select-none">
+                        {initials}
+                      </span>
                       {item.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={item.image}
                           alt={item.name}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                          className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105 pointer-events-none"
                           onError={(e) => {
                             e.currentTarget.style.display = "none";
                           }}
                         />
                       ) : null}
-                      <span className="text-base font-bold text-[#E8871A]">
-                        {initials}
-                      </span>
                     </div>
 
                     <div className="min-w-0">
