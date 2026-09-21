@@ -18,19 +18,9 @@ export default function PhdSyllabusSection() {
       <div className="gu-container">
         {/* Section Header */}
         <div className="mx-auto mb-10 max-w-3xl text-center">
-          <div className="mb-3 flex items-center justify-center gap-3">
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-            <span className="text-[12px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Entrance Exam Preparation
-            </span>
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-          </div>
           <h2 className="font-serif text-[32px] sm:text-[42px] font-black text-[#0A1F44]">
             Ph.D. Entrance Syllabus
           </h2>
-          <p className="mt-2 text-[16px] text-[#64748B]">
-            Download and view subject-specific and research methodology syllabus for the upcoming entrance examination.
-          </p>
         </div>
 
         {/* Category Filter Tabs */}

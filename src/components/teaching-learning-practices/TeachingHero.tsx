@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ChevronRight, GraduationCap, Sparkles } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { teachingHero } from "@/data/teachingLearningPractices";
 
 export default function TeachingHero() {
@@ -44,21 +44,10 @@ export default function TeachingHero() {
 
         {/* Hero Main Content */}
         <div className="max-w-3xl">
-          {/* Badge */}
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#E8871A]/40 bg-[#E8871A]/10 px-3.5 py-1.5 text-xs font-semibold text-[#E8871A] backdrop-blur-sm sm:text-sm">
-            <GraduationCap className="h-4 w-4" />
-            <span>Academic Excellence & Innovation</span>
-          </div>
-
           {/* Heading */}
           <h1 className="mb-4 font-serif text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
             Teaching & <span className="text-[#E8871A]">Learning Practices</span>
           </h1>
-
-          {/* Subtitle */}
-          <p className="mb-6 text-lg font-medium text-amber-200/90 sm:text-xl md:text-2xl font-serif">
-            {teachingHero.subtitle}
-          </p>
 
           {/* Description */}
           <p className="mb-8 text-base text-slate-200 sm:text-lg leading-relaxed max-w-2xl font-sans">
@@ -75,13 +64,6 @@ export default function TeachingHero() {
             >
               <span>Apply Now</span>
               <ChevronRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#pedagogy-grid"
-              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/25 px-6 py-3.5 text-sm font-semibold text-white shadow-sm backdrop-blur-sm transition-all hover:bg-white hover:text-[#0A1F44] active:scale-95"
-            >
-              <Sparkles className="h-4 w-4 text-[#E8871A] group-hover:text-[#0A1F44]" />
-              <span>Explore Methodologies</span>
             </a>
           </div>
         </div>

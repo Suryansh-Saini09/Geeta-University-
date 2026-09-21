@@ -9,8 +9,6 @@ import {
   Search,
   CheckSquare,
   BarChart2,
-  Brain,
-  GraduationCap,
   ExternalLink,
   ArrowRight,
 } from "lucide-react";
@@ -33,7 +31,7 @@ export default function ConfusedContentSections() {
           {/* 3 Reality Check Stat Cards */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             <div className="rounded-[24px] bg-white p-8 shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-[#E2E8F0] text-center">
-              <div className="font-serif text-[42px] sm:text-[48px] font-black text-[#E8871A] leading-none mb-2">
+              <div className="font-sans text-[42px] sm:text-[48px] font-extrabold text-[#E8871A] leading-none mb-2">
                 99%
               </div>
               <div className="font-bold text-[16px] uppercase tracking-wider text-[#0A1F44] mb-2">
@@ -45,7 +43,7 @@ export default function ConfusedContentSections() {
             </div>
 
             <div className="rounded-[24px] bg-white p-8 shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-[#E2E8F0] text-center">
-              <div className="font-serif text-[42px] sm:text-[48px] font-black text-[#0A1F44] leading-none mb-2">
+              <div className="font-sans text-[42px] sm:text-[48px] font-extrabold text-[#0A1F44] leading-none mb-2">
                 600+
               </div>
               <div className="font-bold text-[16px] uppercase tracking-wider text-[#0A1F44] mb-2">
@@ -57,7 +55,7 @@ export default function ConfusedContentSections() {
             </div>
 
             <div className="rounded-[24px] bg-white p-8 shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-[#E2E8F0] text-center">
-              <div className="font-serif text-[42px] sm:text-[48px] font-black text-[#E8871A] leading-none mb-2">
+              <div className="font-sans text-[42px] sm:text-[48px] font-extrabold text-[#E8871A] leading-none mb-2">
                 90%+
               </div>
               <div className="font-bold text-[16px] uppercase tracking-wider text-[#0A1F44] mb-2">
@@ -75,12 +73,6 @@ export default function ConfusedContentSections() {
       <section className="bg-white py-16 sm:py-24 border-b border-[#E2E8F0]">
         <div className="gu-container">
           <div className="mb-12 max-w-3xl">
-            <div className="mb-3 flex items-center gap-3">
-              <span className="h-[2px] w-8 bg-[#E8871A]" />
-              <span className="text-[12.5px] font-extrabold uppercase tracking-[2.5px] text-[#E8871A]">
-                Structured Framework
-              </span>
-            </div>
             <h2 className="font-serif text-[32px] sm:text-[40px] md:text-[46px] font-black leading-tight text-[#0A1F44]">
               What you decide today will affect your FUTURE B&apos;coz it&apos;s a BIG DEAL
             </h2>
@@ -158,13 +150,6 @@ export default function ConfusedContentSections() {
       <section className="bg-[#F3F5F6] py-16 sm:py-24 border-b border-[#E2E8F0]">
         <div className="gu-container">
           <div className="rounded-[32px] bg-white p-8 sm:p-12 md:p-14 shadow-md border border-[#E2E8F0]">
-            <div className="mb-3 flex items-center gap-3">
-              <span className="h-[2px] w-8 bg-[#E8871A]" />
-              <span className="text-[12.5px] font-extrabold uppercase tracking-[2.5px] text-[#E8871A]">
-                Key Milestone #1
-              </span>
-            </div>
-
             <h2 className="font-serif text-[28px] sm:text-[36px] md:text-[42px] font-black text-[#0A1F44] leading-tight mb-8">
               1st Most Important Decision: Choosing the Right Course for Higher Education
             </h2>
@@ -204,9 +189,6 @@ export default function ConfusedContentSections() {
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 {/* Pillar 1: Career Counselling */}
                 <div className="rounded-[24px] bg-[#F7F9FC] p-8 border border-[#E2E8F0]">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0A1F44] text-white shadow-sm" style={{ color: "#ffffff" }}>
-                    <GraduationCap size={24} className="text-white" />
-                  </div>
                   <h4 className="font-serif text-[21px] font-bold text-[#0A1F44] mb-3">
                     1. Career Counselling
                   </h4>
@@ -220,9 +202,6 @@ export default function ConfusedContentSections() {
 
                 {/* Pillar 2: Psychometric Test */}
                 <div className="rounded-[24px] bg-[#F7F9FC] p-8 border border-[#E2E8F0]">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8871A] text-white shadow-sm" style={{ color: "#ffffff" }}>
-                    <Brain size={24} className="text-white" />
-                  </div>
                   <h4 className="font-serif text-[21px] font-bold text-[#0A1F44] mb-3">
                     2. Psychometric Career Test
                   </h4>
@@ -257,13 +236,6 @@ export default function ConfusedContentSections() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Checklist (7 cols) */}
             <div className="lg:col-span-7">
-              <div className="mb-3 flex items-center gap-3">
-                <span className="h-[2px] w-8 bg-[#E8871A]" />
-                <span className="text-[12.5px] font-extrabold uppercase tracking-[2.5px] text-[#E8871A]">
-                  Key Milestone #2
-                </span>
-              </div>
-
               <h2 className="font-serif text-[30px] sm:text-[38px] md:text-[44px] font-black text-[#0A1F44] leading-tight">
                 2nd Most Important Decision: Choosing the Right Institution
               </h2>

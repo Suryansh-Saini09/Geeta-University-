@@ -79,19 +79,9 @@ export default function ProgramsListSection() {
           </div>
         </div>
 
-        {/* Horizontal Achievement Cards (3 across) */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 pt-4">
-          {/* Card 1: 40 LPA */}
-          <div className="rounded-[24px] bg-[#0B2D4C] p-8 text-center text-white shadow-md">
-            <div className="font-serif text-[42px] sm:text-[48px] font-bold text-white leading-none mb-2">
-              40 LPA
-            </div>
-            <div className="text-[16px] sm:text-[17px] uppercase tracking-wider text-white font-medium">
-              Highest Package
-            </div>
-          </div>
-
-          {/* Card 2: 550+ */}
+        {/* Horizontal Achievement Cards (2 across) */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 pt-4">
+          {/* Card 1: 550+ */}
           <div className="rounded-[24px] bg-[#0B2D4C] p-8 text-center text-white shadow-md">
             <div className="font-serif text-[42px] sm:text-[48px] font-bold text-white leading-none mb-2">
               550+
@@ -101,7 +91,7 @@ export default function ProgramsListSection() {
             </div>
           </div>
 
-          {/* Card 3: 3500+ */}
+          {/* Card 2: 3500+ */}
           <div className="rounded-[24px] bg-[#0B2D4C] p-8 text-center text-white shadow-md">
             <div className="font-serif text-[42px] sm:text-[48px] font-bold text-white leading-none mb-2">
               3500+

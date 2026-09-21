@@ -7,9 +7,6 @@ export default function ContactMapSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center mb-10">
-          <span className="inline-block rounded-full bg-[#0A1F44]/5 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#0A1F44]">
-            Interactive Campus Map
-          </span>
           <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-[#0A1F44] sm:text-4xl">
             Find Us on Google Maps
           </h2>

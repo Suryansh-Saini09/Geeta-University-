@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Calendar, FileCheck2, CheckCircle2, Globe2, Award, Sparkles, Phone, Mail, Clock, Check } from "lucide-react";
+import { Calendar, FileCheck2, CheckCircle2, Globe2, Check } from "lucide-react";
 
 export default function PhdCourseworkFramework() {
   return (
@@ -9,13 +9,6 @@ export default function PhdCourseworkFramework() {
       <div className="gu-container space-y-16">
         {/* Top Header & 4 Cards */}
         <div>
-          <div className="mb-4 flex items-center gap-3">
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-            <span className="text-[12px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Academic Regulations
-            </span>
-          </div>
-
           <h2 className="font-serif text-[30px] sm:text-[38px] md:text-[44px] font-black text-[#0A1F44] leading-tight">
             Ph.D. Coursework Framework for Part-Time &amp; International Scholars
           </h2>
@@ -163,61 +156,40 @@ export default function PhdCourseworkFramework() {
 
         {/* Full-Time Scholarship Stipend Banner */}
         <div className="rounded-[24px] bg-[#0A1F44] p-8 sm:p-10 text-white shadow-xl">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E8871A] mb-3">
-                <Award className="h-4 w-4" />
-                <span>Financial Assistance</span>
-              </div>
-              <h3 className="font-serif text-[28px] sm:text-[34px] font-bold text-white">
-                Scholarship &amp; Stipend for Full-Time Ph.D. Scholars
-              </h3>
-              <div className="mt-4 space-y-2.5 text-[15px] sm:text-[16px] text-[#E2E8F0] max-w-3xl">
-                <div className="flex items-start gap-3">
-                  <div className="h-2 w-2 rounded-full bg-[#E8871A] mt-2 shrink-0" />
-                  <p>
-                    <strong className="text-white">₹40,000 stipend per month:</strong> For postgraduate scholars who have completed their Master’s degree from IITs / IIMs / NITs, based on academic merit and selection performance.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="h-2 w-2 rounded-full bg-[#E8871A] mt-2 shrink-0" />
-                  <p>
-                    <strong className="text-white">Up to ₹30,000 stipend per month:</strong> For postgraduate scholars from other recognized institutions, based on academic merit and performance in the selection process.
-                  </p>
-                </div>
-              </div>
+          <h3 className="font-serif text-[28px] sm:text-[34px] font-bold text-white">
+            Scholarship &amp; Stipend for Full-Time Ph.D. Scholars
+          </h3>
+          <div className="mt-4 space-y-2.5 text-[15px] sm:text-[16px] text-[#E2E8F0] max-w-3xl">
+            <div className="flex items-start gap-3">
+              <div className="h-2 w-2 rounded-full bg-[#E8871A] mt-2 shrink-0" />
+              <p>
+                <strong className="text-white">₹40,000 stipend per month:</strong> For postgraduate scholars who have completed their Master’s degree from IITs / IIMs / NITs, based on academic merit and selection performance.
+              </p>
             </div>
-
-            <a
-              href="#enquire"
-              className="inline-flex items-center gap-2 rounded-full bg-[#E8871A] px-7 py-3.5 text-[15px] font-bold text-white shadow-lg transition-all hover:bg-[#D47309] hover:scale-105 shrink-0"
-            >
-              <span>Apply for Stipend</span>
-            </a>
+            <div className="flex items-start gap-3">
+              <div className="h-2 w-2 rounded-full bg-[#E8871A] mt-2 shrink-0" />
+              <p>
+                <strong className="text-white">Up to ₹30,000 stipend per month:</strong> For postgraduate scholars from other recognized institutions, based on academic merit and performance in the selection process.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* 2-Column: Program Duration & Why Choose Geeta University */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="rounded-[20px] bg-white p-6 sm:p-8 border border-[#E2E8F0] shadow-sm">
-            <div className="flex items-center gap-3 mb-4">
-              <Clock className="h-6 w-6 text-[#E8871A]" />
-              <h3 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#0A1F44]">
-                Program Duration
-              </h3>
-            </div>
+            <h3 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#0A1F44] mb-4">
+              Program Duration
+            </h3>
             <p className="text-[15.5px] leading-relaxed text-[#334155]">
               The Ph.D. Program shall be for a minimum duration of <strong>three (3) years</strong>, including coursework, and a maximum duration of <strong>six (6) years</strong> from the date of admission to the doctoral program.
             </p>
           </div>
 
           <div className="rounded-[20px] bg-white p-6 sm:p-8 border border-[#E2E8F0] shadow-sm">
-            <div className="flex items-center gap-3 mb-4">
-              <Sparkles className="h-6 w-6 text-[#E8871A]" />
-              <h3 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#0A1F44]">
-                Why Choose Geeta University for Ph.D.?
-              </h3>
-            </div>
+            <h3 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#0A1F44] mb-4">
+              Why Choose Geeta University for Ph.D.?
+            </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[14.5px] text-[#334155]">
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-[#10B981] shrink-0" />

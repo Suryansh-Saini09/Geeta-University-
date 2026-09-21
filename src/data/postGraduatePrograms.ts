@@ -109,7 +109,23 @@ export const pgSchoolsData: SchoolProgramGroup[] = [
     schoolHref: "/programs/school-of-agricultural-studies",
     programs: [
       {
-        name: "M.Sc. Agriculture (Agronomy)",
+        name: "M.Sc. Agriculture — Agronomy",
+        href: "/programs/school-of-agricultural-studies/msc-agriculture-agronomy",
+      },
+      {
+        name: "M.Sc. (Horticulture) Vegetable Science",
+        href: "/programs/school-of-agricultural-studies",
+      },
+      {
+        name: "M.Sc. (Horticulture) Fruit Science",
+        href: "/programs/school-of-agricultural-studies",
+      },
+      {
+        name: "M.Sc. Genetics & Plant Breeding",
+        href: "/programs/school-of-agricultural-studies",
+      },
+      {
+        name: "M.Sc. Entomology",
         href: "/programs/school-of-agricultural-studies",
       },
     ],
