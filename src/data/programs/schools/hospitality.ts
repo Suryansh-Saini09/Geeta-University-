@@ -235,7 +235,7 @@ export const hospitalitySchool: ProgramPageData = {
     subtitle: "Core Academic Strengths at the School of Hospitality & Hotel Management",
     items: [
       {
-        title: "Outcome Based Education (OBE)",
+        title: "Outcome-Based Education (OBE)",
         desc: "Optimal industry exposure, hands-on kitchen practicals, and experiential hotel simulations designed to meet real employer demands.",
       },
       {
@@ -549,95 +549,95 @@ export const hospitalitySchool: ProgramPageData = {
     ],
     rolesTitle: "Top Industries",
     notableRoles: [
-      { name: "Catering industries" },
-      { name: "Education" },
-      { name: "Airline industry" },
-      { name: "Online food apps" },
-      { name: "Tour and travels" },
-      { name: "Event Management" },
+      { name: "Catering & Banqueting Industries" },
+      { name: "Hospitality Education & Academia" },
+      { name: "Aviation & Airlines" },
+      { name: "Food-Tech & Delivery Platforms" },
+      { name: "Tours & Travel Organizations" },
+      { name: "Event Management & Luxury Services" },
     ],
   },
 
   faqs: [
     {
       "q": "What programs are offered by the School of Hospitality & Hotel Management at Geeta University?",
-      "a": "The School currently lists a Diploma in Hotel Management (Residential Program), B.Sc. Hons. (Hotel Management), M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management). Each program is designed for a different stage of academic and professional progression.",
+      "a": "The School offers a Diploma in Hotel Management (Residential Program), B.Sc. Hons. (Hotel Management), M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management).",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "Who is eligible to apply for the B.Sc. Hotel Management program, and can students from any Class 12 stream apply?",
-      "a": "Students who have Passed the 10+2 from a recognised board with at least 50% marks can apply for the B.Sc. Hotel Management program. The eligibility is open to students from any stream.",
+      "a": "Students who have passed the 10+2 from a recognised board with at least 50% aggregate marks can apply. The eligibility is open to students from Science, Commerce, and Arts streams.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What is the eligibility for the Diploma in Hotel Management (Residential Program)?",
-      "a": "Applicants must have Passed the 10+2 in any stream with a minimum of 50% marks in the qualifying examination.",
+      "a": "Applicants must have passed the 10+2 in any stream with a minimum of 50% marks in the qualifying examination.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What are the eligibility requirements for the M.Sc. Hotel Management program?",
-      "a": "The School lists eligibility as a graduation degree from any stream (including B.E./B.Tech., B.Sc., B.Com., B.A., and BCA.) with a minimum of 50% marks.",
+      "a": "Applicants must hold a bachelor's degree in any stream (such as B.Sc., B.A., B.Com., B.Tech., B.Voc., or BCA) with a minimum of 50% marks from a recognized university.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "Who can pursue a Ph.D. in Hotel & Tourism Management at Geeta University?",
-      "a": "The School lists a minimum eligibility of a relevant master's degree with at least 55% marks. Applicants should also meet the University's applicable doctoral admission requirements for the relevant admission cycle.",
+      "a": "Applicants must hold a relevant master's degree with at least 55% marks (50% for reserved categories) and meet the University's applicable doctoral entrance criteria.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "Is an entrance examination required for admission to the hospitality programs?",
-      "a": "No specific entrance examination is there for the hospitality programs admission. Students can directly contact the admission department. Admission will be considered on the basis of qualifying exam percentage.",
+      "a": "There is no separate entrance examination required for admission to the hospitality programs. Candidates can apply directly, and admissions are merit-based on qualifying examination marks.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What documents are generally required while applying for a hospitality program?",
-      "a": "A list of documents are required while applying for a hospitality program namely Academic transcripts & mark sheets — 10th and 12th, Transfer / Migration certificate, Category certificate (if applicable), Identity proof + Aadhar card, and 3 passport-size photographs.",
+      "a": "The required documents include: 10th and 12th mark sheets and passing certificates, Migration / Transfer Certificate, Category Certificate (if applicable), Aadhaar Card or valid ID proof, and 3 passport-size photographs.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What does a B.Sc. Hotel Management student actually study?",
       "a": "The program covers core hospitality operations including Food Production and Culinary Techniques, Food & Beverage Service, Front Office and Housekeeping Management, along with areas such as hospitality marketing, event planning, hotel accounting, tourism and travel management, customer relationship management, and environmental health and safety.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Is B.Sc. Hotel Management mainly theoretical, or does it involve practical learning?",
       "a": "The program has a strong experiential component. Students develop technical skills through practical learning in food production, food and beverage service, front office and housekeeping, supported by industrial training and live hotel projects.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Will I learn culinary skills as part of the program?",
       "a": "Yes. Food Production and Culinary Techniques form a core part of the B.Sc. Hotel Management curriculum, giving students practical exposure to professional food preparation and kitchen operations.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Does the program cover Front Office and Housekeeping, or only food and restaurant operations?",
       "a": "It covers all major hotel-operation areas. Front Office and Housekeeping Management are explicitly included alongside Food Production and Food & Beverage Service.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Does the curriculum include hotel management software and technology?",
       "a": "Yes. The program's stated learning outcomes include applying hospitality software and service automation tools. It includes practical learning using original open-source and licensed software, tools and techniques.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Will students learn business and management skills in addition to hotel operations?",
       "a": "Yes. The curriculum includes subjects and skill areas such as accounting for hospitality and tourism, human resource management in hospitality, strategic management, marketing for hospitality and tourism, facility planning, business communication and personality development.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Does the curriculum include event management and catering?",
       "a": "Yes. Event Planning and Catering Services are part of the stated B.Sc. program structure. Students therefore gain exposure beyond conventional hotel-room and restaurant operations.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "Does the program cover tourism and travel management?",
       "a": "Yes. Tourism and Travel Management is included in the program structure, helping students understand hospitality within the wider tourism and travel ecosystem.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "What is the difference between the B.Sc. Hotel Management and the Diploma in Hotel Management at Geeta University?",
       "a": "The B.Sc. is a longer undergraduate degree program with broader academic, managerial and operational coverage. The Diploma is a two-year industry-integrated program comprising one year of academic learning on campus followed by one year of hotel industry exposure.",
-      "category": "programs & Curriculum"
+      "category": "Programs & Curriculum"
     },
     {
       "q": "How much industry exposure do hospitality students receive during the program?",
@@ -656,7 +656,7 @@ export const hospitalitySchool: ProgramPageData = {
     },
     {
       "q": "Is there an opportunity to earn while gaining hospitality industry experience?",
-      "a": "Yes, there is an 'Earn While You Learn' opportunity and it states that students can receive up to ₹8,000 per month during internship in India and Rs.60,000 per month during overseas internships, including opportunities in France , Mauritius and other destinations. Applicable terms and availability should be confirmed for the relevant internship.",
+      "a": "Yes, there is an 'Earn While You Learn' opportunity where students can receive up to ₹8,000 per month during internships in India and up to ₹60,000 per month during overseas internships, including opportunities in France, Mauritius, and other destinations.",
       "category": "Industry Exposure & Internships"
     },
     {

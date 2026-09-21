@@ -160,7 +160,7 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
         borderTop: "1px solid rgba(0, 0, 0, 0.05)",
       }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
         {/* Section Header */}
         <div style={{ textAlign: "center", marginBottom: 40 }}>
           <h2
@@ -177,7 +177,7 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
           </h2>
         </div>
 
-        {/* 2-Column Cards Grid */}
+        {/* 4-Column Cards Grid */}
         <div className="spec-discipline-grid">
           {items.map((card, idx) => {
             const accentColor = ACCENT_COLORS[idx % ACCENT_COLORS.length];
@@ -189,7 +189,7 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
                 style={{
                   background: "#FFFFFF",
                   borderRadius: 14,
-                  padding: "28px 30px",
+                  padding: "24px 20px",
                   border: "1px solid #E2E8F0",
                   borderLeft: `5px solid ${accentColor}`,
                   boxShadow: "0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02)",
@@ -200,10 +200,10 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
               >
                 <h3
                   style={{
-                    fontSize: 19,
+                    fontSize: 17,
                     fontWeight: 800,
                     color: "#0A1F44",
-                    margin: "0 0 14px",
+                    margin: "0 0 12px",
                     lineHeight: 1.3,
                   }}
                 >
@@ -213,9 +213,9 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
                 {card.desc && (
                   <p
                     style={{
-                      fontSize: 15,
+                      fontSize: 14,
                       color: "#475569",
-                      lineHeight: 1.65,
+                      lineHeight: 1.6,
                       fontWeight: 450,
                       margin: 0,
                     }}
@@ -229,32 +229,32 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
                     style={{
                       listStyle: "none",
                       padding: 0,
-                      margin: card.desc ? "12px 0 0" : 0,
+                      margin: card.desc ? "10px 0 0" : 0,
                       display: "flex",
                       flexDirection: "column",
-                      gap: 9,
+                      gap: 8,
                     }}
                   >
                     {card.points.map((pt, pIdx) => (
                       <li
                         key={pIdx}
                         style={{
-                          fontSize: 14.5,
+                          fontSize: 13.5,
                           color: "#334155",
-                          lineHeight: 1.55,
+                          lineHeight: 1.5,
                           display: "flex",
                           alignItems: "flex-start",
-                          gap: 10,
+                          gap: 8,
                         }}
                       >
                         <span
                           style={{
-                            width: 6,
-                            height: 6,
+                            width: 5,
+                            height: 5,
                             borderRadius: "50%",
                             background: "#0A1F44",
                             flexShrink: 0,
-                            marginTop: 8,
+                            marginTop: 7,
                             opacity: 0.8,
                           }}
                         />
@@ -272,8 +272,9 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
       <style jsx>{`
         .spec-discipline-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 24px;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+          align-items: stretch;
         }
 
         .spec-discipline-card:hover {
@@ -282,13 +283,20 @@ export default function ProgramSpecialisations({ specialisations }: ProgramSpeci
           border-color: #CBD5E1;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1080px) {
           .spec-discipline-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: repeat(2, 1fr) !important;
             gap: 18px !important;
           }
+        }
+
+        @media (max-width: 640px) {
+          .spec-discipline-grid {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
           .spec-discipline-card {
-            padding: 22px 20px !important;
+            padding: 20px 18px !important;
           }
         }
       `}</style>

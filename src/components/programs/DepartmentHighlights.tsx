@@ -14,7 +14,7 @@ interface DepartmentHighlightsProps {
 
 export default function DepartmentHighlights({
   title = "Where Learning Meets Achievement",
-  subtitle = "An active, achievement-driven school — not just a classroom environment. Here's a glimpse of what students experience:",
+  subtitle,
   highlights,
 }: DepartmentHighlightsProps) {
   const items = highlights || [];

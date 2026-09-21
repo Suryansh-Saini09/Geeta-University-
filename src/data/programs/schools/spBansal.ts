@@ -61,42 +61,42 @@ export const spBansalSchool: ProgramPageData = {
     faqs: [
         {
             "q": "What programs are offered by SP Bansal School of Business (SPBSB)?",
-            "a": "The SPBSB offers MBA with specializations in AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business, along with a Ph.D. program.",
+            "a": "SPBSB offers an MBA with specialisations in AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business, along with a Ph.D. program.",
             "category": "Admissions & Eligibility"
         },
         {
             "q": "What is the eligibility for the MBA at SPBSB?",
-            "a": "Applicants must have completed a bachelor's degree of at least three years' duration with a minimum of 50% marks.",
+            "a": "Applicants must have completed a bachelor's degree of at least three years' duration with a minimum of 50% aggregate marks.",
             "category": "Admissions & Eligibility"
         },
         {
             "q": "Can students from any undergraduate background apply for the MBA?",
-            "a": "The candidate with a bachelor's degree in any background and the required marks can apply.",
+            "a": "Yes. Candidates with a bachelor's degree in any discipline and the required marks can apply.",
             "category": "Admissions & Eligibility"
         },
         {
             "q": "What is the eligibility for the Ph.D. program at SPBSB?",
-            "a": "A master's degree in a relevant field with a minimum of 55% marks.",
+            "a": "Applicants must hold a Master's degree in a relevant discipline with a minimum of 55% aggregate marks.",
             "category": "Admissions & Eligibility"
         },
         {
             "q": "Is work experience mandatory for the MBA?",
-            "a": "No. Fresh graduates can consider the program, subject to the current admission rules.",
+            "a": "No. Fresh graduates can apply for the program, subject to meeting the eligibility criteria.",
             "category": "Admissions & Eligibility"
         },
         {
             "q": "Is there an entrance examination for admission to the MBA?",
-            "a": "No. There is no such entrance exam for admission to the MBA. However, for availing scholarships, certain exams like CUET PG, GUTS etcetera can be opted by students.",
+            "a": "No. An entrance exam is not mandatory for general admission to the MBA. However, to avail scholarships, national and university-level exams such as CUET-PG and GUTS can be taken by students.",
             "category": "Admissions & Eligibility"
         },
         {
             "q": "Can a student choose an MBA specialization according to their career goal?",
-            "a": "Yes. A student can choose his or her preferable specialization from multiple specializations offered, allowing students to align their MBA with areas such as AI, marketing, finance, HR, supply chain, digital marketing or entrepreneurship.",
+            "a": "Yes. Students can choose their preferred specialisation from the multiple options offered, allowing them to align their MBA with areas such as AI, marketing, finance, HR, supply chain, digital marketing, or entrepreneurship.",
             "category": "Admissions & Eligibility"
         },
         {
             "q": "What makes the SPBSB MBA different from a conventional MBA?",
-            "a": "MBA at SPBSB emphasizes AI-enabled learning, frequent curriculum updates, live industry projects, simulations, case-based learning, industry trainers, certifications and continuous industry engagement rather than relying only on classroom theory.",
+            "a": "The MBA at SPBSB emphasizes AI-enabled learning, frequent curriculum updates, live industry projects, simulations, case-based learning, industry trainers, certifications, and continuous industry engagement rather than relying solely on classroom theory.",
             "category": "MBA Structure & Specialisations"
         },
         {
@@ -181,22 +181,22 @@ export const spBansalSchool: ProgramPageData = {
         },
         {
             "q": "What additional certifications can MBA students pursue at SPBSB?",
-            "a": "MBA Students can pursue global and industry certifications associated with organisations such as EC-Council, EY, Deloitte, Paytm, AWS, Cisco and IRM.",
+            "a": "MBA students can pursue global and industry certifications associated with organisations such as EC-Council, EY, Deloitte, Paytm, AWS, Cisco, and IRM.",
             "category": "Certifications, Technology & AI Ecosystem"
         },
         {
             "q": "What technology skills can management students develop?",
-            "a": "Management students can develop skills such as hands-on exposure to AI, machine learning, analytics and cybersecurity-related labs, alongside business applications of technology.",
+            "a": "Management students can develop skills such as hands-on exposure to AI, machine learning, analytics, and cybersecurity-related labs, alongside business applications of technology.",
             "category": "Certifications, Technology & AI Ecosystem"
         },
         {
             "q": "Does SPBSB teach machine learning to MBA students?",
-            "a": "The School entails hands-on labs and an AI-enabled management ecosystem that includes AI, ML and analytics. The depth and modules depend on the student's selected program or specialisation.",
+            "a": "The School provides hands-on labs and an AI-enabled management ecosystem that includes AI, ML, and analytics. The depth and modules depend on the student's selected program or specialisation.",
             "category": "Certifications, Technology & AI Ecosystem"
         },
         {
             "q": "Can MBA students learn cybersecurity?",
-            "a": "MBA students can learn cybersecurity supported through hands-on lab ecosystem and industry certifications.",
+            "a": "MBA students can learn cybersecurity through a hands-on lab ecosystem and industry certifications.",
             "category": "Certifications, Technology & AI Ecosystem"
         },
         {
@@ -386,7 +386,7 @@ export const spBansalSchool: ProgramPageData = {
         },
         {
             "q": "Can I build a career in management without an undergraduate degree in commerce or business?",
-            "a": "Yes. MBA eligibility accepts a bachelor's degree in any background of at least three years with minimum 50% marks rather than limiting admission to commerce or management graduates.",
+            "a": "Yes. MBA eligibility accepts a bachelor's degree in any background of at least three years with a minimum of 50% aggregate marks rather than limiting admission to commerce or management graduates.",
             "category": "General & Decision-Making"
         },
         {

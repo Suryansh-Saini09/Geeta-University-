@@ -14,7 +14,7 @@ export const commerceSchool: ProgramPageData = {
     keywords: [
       "School of Commerce & Business Management",
       "bba college in haryana",
-      "bachelor of business odministrotion",
+      "bachelor of business administration",
       "bachelor of business administration university in haryana",
       "best bba university in haryana",
       "top bba university in haryana",
@@ -37,9 +37,9 @@ export const commerceSchool: ProgramPageData = {
     eyebrow: "ABOUT THE SCHOOL",
     title: "School of Commerce & Business Management",
     paragraphs: [
-      "The School of Commerce & Business Management at Geeta University goes beyond teaching top-notch management skills to students - it helps create industry leaders. As one of the top Universities for Management in Panipat, we offer a comprehensive curriculum that blends academic excellence with real-world exposure to make you job-ready from day one.",
-      "We have emerged as the best University for Management in Delhi NCR thanks to our industry-driven approach and great focus on experiential learning. Our programs are designed to help you adapt a strategic mindset, acquire key leadership skills, and develop innovative thinking necessary for thriving in today's competitive business world.",
-      "Being a top Management University in Panipat and ranked among the best Management Universities in North India, Geeta University offers unparalleled learning experiences through its expert faculty, complimented by global career opportunities. If you’re ready to transform your ambitions into success, enrol now at Geeta University—where future leaders are made!",
+      "The School of Commerce & Business Management at Geeta University goes beyond teaching top-notch management skills to students — it helps create industry leaders. As one of the top universities for management in Panipat, we offer a comprehensive curriculum that blends academic excellence with real-world exposure to make you job-ready from day one.",
+      "We have emerged as the best university for management in Delhi NCR thanks to our industry-driven approach and great focus on experiential learning. Our programs are designed to help you adopt a strategic mindset, acquire key leadership skills, and develop the innovative thinking necessary for thriving in today's competitive business world.",
+      "Being a top management university in Panipat and ranked among the best management universities in North India, Geeta University offers unparalleled learning experiences through its expert faculty, complemented by global career opportunities. If you are ready to transform your ambitions into success, enroll now at Geeta University — where future leaders are made!",
     ],
     image: "/bba photo.jpeg",
     badgeText: "Future Leaders Are Made Here",
@@ -59,13 +59,13 @@ export const commerceSchool: ProgramPageData = {
 
   visionMission: {
     vision:
-      "To emerge as a premier center of business and management education by nurturing ethical business leaders, entrepreneurs, innovators and decision makers who contribute towards sustainable growth of industries, society and the nation.",
+      "To emerge as a premier center of business and management education by nurturing ethical business leaders, entrepreneurs, innovators, and decision-makers who contribute towards sustainable growth of industries, society, and the nation.",
     mission: [
-      "To provide student centric and outcome based management education that enhances business knowledge, analytical skills, leadership capabilities and problem solving aptitude",
-      "To groom socially responsible and professionally competent managers with values, vision and skills for meeting demands of industry and nation",
-      "To promote interdisciplinary research and managerial innovations with potential for sustainable impact on society and economy",
-      "To build academic industry interface through corporate connect, live projects, internships, industry visits and global exposure to enhance employability, skills and competitiveness",
-      "To develop entrepreneurial mindset and leadership to enable students to take up opportunities, start new ventures and contribute towards employment generation, innovation, and growth of business enterprises, society and the nation.",
+      "To provide student-centric and outcome-based management education that enhances business knowledge, analytical skills, leadership capabilities, and problem-solving aptitude.",
+      "To groom socially responsible and professionally competent managers with values, vision, and skills for meeting the demands of industry and the nation.",
+      "To promote interdisciplinary research and managerial innovations with potential for sustainable impact on society and the economy.",
+      "To build an academic-industry interface through corporate connect, live projects, internships, industry visits, and global exposure to enhance employability, skills, and competitiveness.",
+      "To develop an entrepreneurial mindset and leadership to enable students to take up opportunities, start new ventures, and contribute towards employment generation, innovation, and growth of business enterprises, society, and the nation.",
     ],
   },
 
@@ -150,96 +150,37 @@ export const commerceSchool: ProgramPageData = {
     ],
   },
 
-  /*
-  specialisations: {
-    eyebrow: "EXPLORE YOUR SPECIALISATION",
-    title: "Programs Designed for Future Business Leaders",
-    subtitle: "Bachelor of Business Administration (BBA) Specialisations",
-    items: [
-      {
-        title: "FinTech",
-        iconName: "WalletCards",
-        points: [
-          "Navigate digital payment systems and blockchain technologies.",
-          "Analyze financial models using modern technological tools.",
-          "Understand regulatory frameworks in financial technology.",
-        ],
-      },
-      {
-        title: "AI & Data Analytics",
-        iconName: "BrainCircuit",
-        points: [
-          "Leverage data visualization and predictive modeling.",
-          "Apply machine learning concepts to business strategies.",
-          "Make data-driven decisions for enterprise growth.",
-        ],
-      },
-      {
-        title: "Digital Marketing",
-        iconName: "Megaphone",
-        points: [
-          "Design comprehensive online brand and social media campaigns.",
-          "Utilize SEO, SEM, and web analytics for market optimization.",
-          "Drive customer acquisition through targeted digital strategies.",
-        ],
-      },
-      {
-        title: "Import & Export Management",
-        iconName: "Globe2",
-        points: [
-          "Manage international trade operations and global supply chains.",
-          "Navigate cross-border compliance and customs documentation.",
-          "Develop strategies for global market entry and expansion.",
-        ],
-      },
-      {
-        title: "Entrepreneurship & Family Businesses",
-        iconName: "Lightbulb",
-        points: [
-          "Develop sustainable business plans and startup strategies.",
-          "Manage scaling operations and venture funding.",
-          "Navigate succession planning and family enterprise governance.",
-        ],
-      },
-      {
-        title: "International Accounting with ACCA",
-        iconName: "BookOpenCheck",
-        points: [
-          "Master global accounting principles and IFRS standards.",
-          "Develop expertise in corporate reporting and taxation.",
-          "Prepare for strategic professional ACCA certification levels.",
-        ],
-      },
-      {
-        title: "Banking & Finance",
-        iconName: "Landmark",
-        points: [
-          "Analyze financial markets, banking operations, and investment portfolios.",
-          "Assess risk management frameworks and corporate finance.",
-          "Understand modern banking regulations and monetary policies.",
-        ],
-      },
-      {
-        title: "Marketing",
-        iconName: "Target",
-        points: [
-          "Design strategic marketing campaigns and brand positioning.",
-          "Analyze consumer behaviour and market research data.",
-          "Manage retail, sales, and distribution channels effectively.",
-        ],
-      },
-      {
-        title: "Human Resource Management",
-        iconName: "UsersRound",
-        points: [
-          "Implement talent acquisition and workforce planning strategies.",
-          "Manage employee relations, compensation, and benefits.",
-          "Foster organizational behaviour and leadership development.",
-        ],
-      },
-    ],
-  },
-  */
+  departmentHighlightsTitle: "Where learning meets achievement",
+  departmentHighlights: [
+    {
+      title: "Business Conclaves & Executive Sessions",
+      image: "/programs/commerce/highlights/highlight-1.webp",
+    },
+    {
+      title: "Modern Classrooms & Interactive Learning",
+      image: "/programs/commerce/highlights/highlight-2.webp",
+    },
+    {
+      title: "Corporate Seminars & Guest Lectures",
+      image: "/programs/commerce/highlights/highlight-3.webp",
+    },
+    {
+      title: "Student Engagement & Case Studies",
+      image: "/programs/commerce/highlights/highlight-4.webp",
+    },
+    {
+      title: "Academic Excellence & Management Discussions",
+      image: "/programs/commerce/highlights/highlight-5.webp",
+    },
+    {
+      title: "Workshops & Skill Development",
+      image: "/programs/commerce/highlights/highlight-6.webp",
+    },
+    {
+      title: "Industry Connect & Leadership Forums",
+      image: "/programs/commerce/highlights/highlight-7.webp",
+    },
+  ],
 
   featuredPrograms: {
     title1: "Bachelor of Commerce",
@@ -449,7 +390,7 @@ export const commerceSchool: ProgramPageData = {
         designation: "Associate Professor, Ph.D.",
         role: "Associate Professor, Ph.D.",
         description:
-          "Expert in behavioural Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development in management and finance.",
+          "Expert in Behavioral Finance; Coordinator of IEDC Cell at Geeta University; Contributed to research and institutional development in management and finance.",
         image: "/programs/commerce/scbm faculty/Pooja-Gupta.webp",
       },
       {
@@ -514,7 +455,7 @@ export const commerceSchool: ProgramPageData = {
     avgPackage: "₹4.39 LPA",
     avgPackageNote: "The ₹4-6 LPA category reflects balanced growth and wide industry acceptance of Geeta University graduates.",
     packageBars: [
-      { label: "Upto 4 LPA", value: 153, width: "100%" },
+      { label: "Up to 4 LPA", value: 153, width: "100%" },
       { label: "₹4-6 LPA", value: 65, width: "42%" },
       { label: "₹6-8 LPA", value: 31, width: "20%" },
       { label: "₹8-10 LPA", value: 31, width: "20%" },
@@ -564,7 +505,7 @@ export const commerceSchool: ProgramPageData = {
       pkg: "67.5 LPA",
       role: "MBA Student",
       quote:
-        "Geeta University transformed my perspective with strong leadership skills and real-world exposure. The learning here empowered me to secure a 67.5 LPA package-truly a defining milestone in my career journey.",
+        "Geeta University transformed my perspective with strong leadership skills and real-world exposure. The learning here empowered me to secure a 67.5 LPA package — truly a defining milestone in my career journey.",
       image: "/programs/commerce/Manik-testimonial.webp",
     },
     {
@@ -608,64 +549,23 @@ export const commerceSchool: ProgramPageData = {
     ],
   },
 
-  /*
   careerPathways: {
-    title: "Your Management Degree. Endless Corporate Opportunities.",
+    eyebrow: "Careers",
+    title: "Pathway After Commerce & Business Management",
     description:
-      "A commerce & management degree from Geeta University opens doors to leadership, finance, analytics, and entrepreneurial roles globally:",
-    pathways: [
-      {
-        area: "Financial Analysis & FinTech Consulting",
-        pathway: "Corporate valuation, investment banking, digital payments strategy, and algorithmic financial modeling.",
-        icon: "",
-      },
-      {
-        area: "Business Analytics & Enterprise Growth",
-        pathway: "Data-driven business decisions, market intelligence, customer analytics, and enterprise data strategy.",
-        icon: "",
-      },
-      {
-        area: "Brand Strategy & Digital Marketing",
-        pathway: "Omnichannel brand management, digital performance marketing, growth hacking, and market research.",
-        icon: "",
-      },
-      {
-        area: "International Trade & Supply Chain Management",
-        pathway: "Cross-border logistics, import-export compliance, global procurement, and freight operations.",
-        icon: "",
-      },
-      {
-        area: "Corporate Accounting, Audit & Tax (ACCA/CPA)",
-        pathway: "International financial reporting (IFRS), corporate audit, risk assurance, and forensic accounting.",
-        icon: "",
-      },
-      {
-        area: "Strategic Human Resource & Talent Leadership",
-        pathway: "Talent acquisition, organizational development, HR analytics, and executive corporate coaching.",
-        icon: "",
-      },
-      {
-        area: "Entrepreneurship & Family Business Governance",
-        pathway: "Venture founding, scaling operations, angel fundraising, and strategic family business transformation.",
-        icon: "",
-      },
-    ],
-    notableRoles: [
-      { name: "Investment Banker" },
-      { name: "Business Analyst" },
-      { name: "Financial Controller" },
-      { name: "Brand Manager" },
-      { name: "Digital Growth Lead" },
-      { name: "Supply Chain Manager" },
-      { name: "Tax & Audit Consultant" },
-      { name: "HR Business Partner" },
-      { name: "FinTech Product Lead" },
-      { name: "Management Consultant" },
-      { name: "Startup Founder" },
-      { name: "Corporate Strategist" },
+      "The rapid growth of commerce and business management has ensured the availability of diverse career opportunities for graduates in this field. From finance and marketing to human resources and operations, there are numerous career pathways to choose from. You can choose to work as a financial analyst, business consultant, digital marketing specialist, investment banker, and supply chain manager, which are some of the most in-demand career options. Also, the phenomenal increase in the number of startups and entrepreneurial ventures has opened the gateways for commerce and business management graduates to build their own businesses or contribute to innovative projects.",
+    recruitersTitle: "Top Recruiters",
+    recruiters: [
+      { name: "Amazon", logo: "/recruiters/amazon.png" },
+      { name: "ProGrad", logo: "/recruiters/prograd.png" },
+      { name: "Capgemini", logo: "/recruiters/capgemini.png" },
+      { name: "Jaro Education", logo: "/recruiters/jaro_education.png" },
+      { name: "Tech Mahindra", logo: "/recruiters/tech_mahindra.png" },
+      { name: "IBM", logo: "/recruiters/ibm.png" },
+      { name: "HCL", logo: "/recruiters/hcl.png" },
+      { name: "Philips", logo: "/recruiters/philips.png" },
     ],
   },
-  */
 
   brochure: {
     title: "Want to know more?",
@@ -878,7 +778,7 @@ export const commerceSchool: ProgramPageData = {
             { name: "International Accounting with ACCA UK", href: "/programs/school-of-commerce-and-business-management/bcom-international-accounting-acca" },
             { name: "Auditing & Taxation", href: "/programs/school-of-commerce-and-business-management/bcom-auditing-taxation" },
             { name: "Banking & Insurance", href: "/programs/school-of-commerce-and-business-management/bcom-banking-insurance" },
-            { name: "Advance Accounting", href: "/programs/school-of-commerce-and-business-management/bcom-advance-accounting" },
+            { name: "Advanced Accounting", href: "/programs/school-of-commerce-and-business-management/bcom-advance-accounting" },
           ],
         },
       ],
@@ -956,12 +856,12 @@ export const commerceSchool: ProgramPageData = {
     },
     {
       "q": "What is the eligibility for BBA programs?",
-      "a": "The School lists 10+2 with at least 50% marks in the qualifying examination as the eligibility requirement for BBA programs.",
+      "a": "The School lists the 10+2 with at least 50% marks in the qualifying examination as the eligibility requirement for BBA programs.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What is the eligibility for B.Com. programs?",
-      "a": "The School lists 10+2 with at least 50% marks as the eligibility requirement for B.Com. programs.",
+      "a": "The School lists the 10+2 with at least 50% marks as the eligibility requirement for B.Com. programs.",
       "category": "Admissions & Eligibility"
     },
     {
@@ -971,53 +871,53 @@ export const commerceSchool: ProgramPageData = {
     },
     {
       "q": "Can students from any Class 12 stream apply for BBA?",
-      "a": "The general BBA eligibility is 10+2 (in any stream) with at least 50% marks.",
+      "a": "The general BBA eligibility is the 10+2 (in any stream) with at least 50% marks.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "How do I choose between BBA and B.Com. after Class 12?",
       "a": "BBA is more focused on business administration, management and leadership, while B.Com. gives greater emphasis to commerce, accounting, taxation and finance. The right choice depends on the student's interests and intended career direction.",
-      "category": "programs & Specialisations"
+      "category": "Programs & Specialisations"
     },
     {
       "q": "What specialisations are available in BBA?",
       "a": "The School lists BBA specialisations in Business Administration, International Accounting with ACCA UK, Artificial Intelligence & Data Analytics, Human Resource Management, Import & Export Management, Banking & Finance, Marketing, FinTech, Digital Marketing, and Entrepreneurship & Family Business.",
-      "category": "programs & Specialisations"
+      "category": "Programs & Specialisations"
     },
     {
       "q": "What specialisations are available in B.Com.?",
       "a": "The School lists B.Com. pathways in General Commerce, International Accounting with ACCA UK, Auditing & Taxation, Banking & Insurance, and Advanced Accounting.",
-      "category": "programs & Specialisations"
+      "category": "Programs & Specialisations"
     },
     {
       "q": "What is special about B.Com. International Accounting with ACCA UK?",
       "a": "The program combines undergraduate commerce and accounting education with the ACCA pathway, covering areas such as financial reporting, auditing, taxation, financial management and corporate governance.",
-      "category": "programs & Specialisations"
+      "category": "Programs & Specialisations"
     },
     {
       "q": "Is BBA FinTech suitable for a student interested in both finance and technology?",
       "a": "Yes. The program brings together business and financial concepts with areas such as blockchain, AI and data analytics, making it relevant for students interested in technology-driven financial services.",
-      "category": "programs & Specialisations"
+      "category": "Programs & Specialisations"
     },
     {
       "q": "What does BBA in AI & Data Analytics focus on?",
       "a": "The program combines business administration with AI and data analytics, helping students understand how data and technology can support better business decisions.",
-      "category": "programs & Specialisations"
+      "category": "Programs & Specialisations"
     },
     {
       "q": "What does BBA in Digital Marketing cover?",
       "a": "The program covers digital marketing, social media management, market research, consumer psychology, brand development and data analytics.",
-      "category": "programs & Specialisations"
+      "category": "Programs & Specialisations"
     },
     {
       "q": "What does BBA in Entrepreneurship & Family Business prepare students for?",
       "a": "It is designed for students who want to start, manage or grow a business, particularly entrepreneurial and family-owned ventures, while building broader management and leadership skills.",
-      "category": "programs & Specialisations"
+      "category": "Programs & Specialisations"
     },
     {
       "q": "What does BBA in Import & Export Management cover?",
       "a": "The program focuses on international trade, including export-import procedures, documentation, payments, sourcing, customs, global logistics and supply-chain processes.",
-      "category": "programs & Specialisations"
+      "category": "Programs & Specialisations"
     },
     {
       "q": "Is the School's teaching mainly theoretical or practice-oriented?",
