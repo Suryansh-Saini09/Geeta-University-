@@ -471,101 +471,124 @@ export default function CareerPathways({
                   </h3>
                 </div>
 
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                    gap: 20,
-                    maxWidth: 1140,
-                    margin: "0 auto",
-                  }}
-                >
-                  {recruiterItems.map((recruiter, idx) =>
-                    recruiter.logo ? (
-                      <motion.div
-                        key={idx}
-                        whileHover={{ scale: 1.04, y: -4 }}
-                        transition={{ type: "spring", stiffness: 450, damping: 15 }}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          padding: "16px 24px",
-                          background: "#FFFFFF",
-                          border: "1.5px solid rgba(232, 135, 26, 0.18)",
-                          borderRadius: "20px",
-                          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.04)",
-                          height: 110,
-                          minWidth: 200,
-                          maxWidth: 255,
-                          flex: "1 1 210px",
-                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                        }}
-                        className="career-recruiter-card"
-                      >
-                        <img
-                          src={recruiter.logo}
-                          alt={recruiter.name}
+                {/* Logo Cards Grid */}
+                {recruiterItems.filter((r) => r.logo).length > 0 && (
+                  <div
+                    className={
+                      recruiterItems.filter((r) => r.logo).length === 6
+                        ? "career-recruiters-grid grid-6"
+                        : recruiterItems.filter((r) => r.logo).length === 8
+                        ? "career-recruiters-grid grid-8"
+                        : recruiterItems.filter((r) => r.logo).length === 4
+                        ? "career-recruiters-grid grid-4"
+                        : recruiterItems.filter((r) => r.logo).length === 5
+                        ? "career-recruiters-grid grid-5"
+                        : "career-recruiters-grid grid-auto"
+                    }
+                  >
+                    {recruiterItems
+                      .filter((r) => r.logo)
+                      .map((recruiter, idx) => (
+                        <motion.div
+                          key={idx}
+                          whileHover={{ scale: 1.04, y: -4 }}
+                          transition={{ type: "spring", stiffness: 450, damping: 15 }}
                           style={{
-                            maxHeight: 70,
-                            maxWidth: "85%",
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                          loading="lazy"
-                        />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key={idx}
-                        whileHover={{ scale: 1.03, y: -2 }}
-                        transition={{ type: "spring", stiffness: 450, damping: 15 }}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 12,
-                          padding: "18px 24px",
-                          background: "#FFFFFF",
-                          border: "1px solid rgba(232, 135, 26, 0.16)",
-                          borderRadius: "16px",
-                          color: "#0A1F44",
-                          boxShadow: "0 4px 14px rgba(0, 0, 0, 0.03)",
-                          minHeight: 125,
-                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                        }}
-                        className="career-recruiter-name-card"
-                      >
-                        <div
-                          style={{
-                            width: 36,
-                            height: 36,
-                            borderRadius: "10px",
-                            background: "#FFF4E8",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            flexShrink: 0,
+                            padding: "16px 20px",
+                            background: "#FFFFFF",
+                            border: "1.5px solid rgba(232, 135, 26, 0.18)",
+                            borderRadius: "20px",
+                            boxShadow: "0 8px 24px rgba(0, 0, 0, 0.04)",
+                            height: 110,
+                            width: "100%",
+                            boxSizing: "border-box",
+                            transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                           }}
+                          className="career-recruiter-card"
                         >
-                          <Building2 size={18} color="#E8871A" />
-                        </div>
-                        <span
+                          <img
+                            src={recruiter.logo}
+                            alt={recruiter.name}
+                            style={{
+                              maxHeight: 65,
+                              maxWidth: "85%",
+                              width: "auto",
+                              height: "auto",
+                              objectFit: "contain",
+                            }}
+                            loading="lazy"
+                          />
+                        </motion.div>
+                      ))}
+                  </div>
+                )}
+
+                {/* Text Recruiters if any */}
+                {recruiterItems.filter((r) => !r.logo).length > 0 && (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      justifyContent: "center",
+                      gap: 16,
+                      maxWidth: 1140,
+                      margin: recruiterItems.filter((r) => r.logo).length > 0 ? "24px auto 0" : "0 auto",
+                    }}
+                  >
+                    {recruiterItems
+                      .filter((r) => !r.logo)
+                      .map((recruiter, idx) => (
+                        <motion.div
+                          key={idx}
+                          whileHover={{ scale: 1.03, y: -2 }}
+                          transition={{ type: "spring", stiffness: 450, damping: 15 }}
                           style={{
-                            fontSize: "15px",
-                            fontWeight: 700,
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 12,
+                            padding: "16px 22px",
+                            background: "#FFFFFF",
+                            border: "1px solid rgba(232, 135, 26, 0.16)",
+                            borderRadius: "16px",
                             color: "#0A1F44",
-                            letterSpacing: "-0.2px",
-                            lineHeight: 1.3,
+                            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.03)",
+                            minHeight: 70,
+                            transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                           }}
+                          className="career-recruiter-name-card"
                         >
-                          {recruiter.name}
-                        </span>
-                      </motion.div>
-                    )
-                  )}
-                </div>
+                          <div
+                            style={{
+                              width: 36,
+                              height: 36,
+                              borderRadius: "10px",
+                              background: "#FFF4E8",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              flexShrink: 0,
+                            }}
+                          >
+                            <Building2 size={18} color="#E8871A" />
+                          </div>
+                          <span
+                            style={{
+                              fontSize: "15px",
+                              fontWeight: 700,
+                              color: "#0A1F44",
+                              letterSpacing: "-0.2px",
+                              lineHeight: 1.3,
+                            }}
+                          >
+                            {recruiter.name}
+                          </span>
+                        </motion.div>
+                      ))}
+                  </div>
+                )}
               </div>
             )}
 
@@ -651,14 +674,17 @@ export default function CareerPathways({
                 </div>
 
                 <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                    gap: 20,
-                    maxWidth: 1140,
-                    margin: "0 auto",
-                    alignItems: "center",
-                  }}
+                  className={
+                    roleItems.filter((r) => r.logo).length === 6
+                      ? "career-recruiters-grid grid-6"
+                      : roleItems.filter((r) => r.logo).length === 8
+                      ? "career-recruiters-grid grid-8"
+                      : roleItems.filter((r) => r.logo).length === 4
+                      ? "career-recruiters-grid grid-4"
+                      : roleItems.filter((r) => r.logo).length === 5
+                      ? "career-recruiters-grid grid-5"
+                      : "career-recruiters-grid grid-auto"
+                  }
                 >
                   {roleItems
                     .filter((r) => r.logo)
@@ -671,13 +697,14 @@ export default function CareerPathways({
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          padding: "20px 24px",
+                          padding: "16px 20px",
                           background: "#FFFFFF",
                           border: "1.5px solid rgba(232, 135, 26, 0.18)",
                           borderRadius: "20px",
                           boxShadow: "0 8px 24px rgba(0, 0, 0, 0.05)",
-                          height: 125,
-                          minHeight: 125,
+                          height: 110,
+                          width: "100%",
+                          boxSizing: "border-box",
                           transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                         }}
                         className="career-recruiter-card"
@@ -686,8 +713,8 @@ export default function CareerPathways({
                           src={role.logo}
                           alt={role.name}
                           style={{
-                            maxHeight: 80,
-                            maxWidth: "88%",
+                            maxHeight: 65,
+                            maxWidth: "85%",
                             width: "auto",
                             height: "auto",
                             objectFit: "contain",
@@ -799,6 +826,88 @@ export default function CareerPathways({
       </div>
 
       <style>{`
+        .career-recruiters-grid {
+          display: grid;
+          gap: 16px;
+          max-width: 1140px;
+          margin: 0 auto;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+        }
+        .career-recruiters-grid.grid-6 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media (min-width: 640px) {
+          .career-recruiters-grid.grid-6 {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .career-recruiters-grid.grid-6 {
+            grid-template-columns: repeat(6, 1fr);
+            gap: 18px;
+          }
+        }
+        .career-recruiters-grid.grid-8 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media (min-width: 640px) {
+          .career-recruiters-grid.grid-8 {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .career-recruiters-grid.grid-8 {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+          }
+        }
+        .career-recruiters-grid.grid-4 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media (min-width: 768px) {
+          .career-recruiters-grid.grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+          }
+        }
+        .career-recruiters-grid.grid-5 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media (min-width: 640px) {
+          .career-recruiters-grid.grid-5 {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .career-recruiters-grid.grid-5 {
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+          }
+        }
+        .career-recruiters-grid.grid-auto {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 18px;
+          max-width: 1140px;
+          margin: 0 auto;
+        }
+        .career-recruiters-grid.grid-auto .career-recruiter-card {
+          flex: 0 1 calc(25% - 18px);
+          min-width: 170px;
+          max-width: 250px;
+        }
+        @media (max-width: 768px) {
+          .career-recruiters-grid.grid-auto .career-recruiter-card {
+            flex: 0 1 calc(50% - 14px);
+            min-width: 140px;
+          }
+        }
         .career-recruiter-card:hover {
           transform: translateY(-3px) scale(1.03) !important;
           border-color: #E8871A !important;
