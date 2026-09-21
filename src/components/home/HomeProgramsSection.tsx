@@ -482,12 +482,15 @@ const programCategories: ProgramCategory[] = [
     shortTitle: "Nursing*",
     description:
       "Professional healthcare education focused on developing skilled and compassionate nursing professionals.",
+    schoolHref: "/programs/geeta-nursing-college",
     programs: [
       {
         name: "B.Sc. Nursing*",
+        href: "/programs/geeta-nursing-college",
       },
       {
         name: "GNM — General Nursing & Midwifery*",
+        href: "/programs/geeta-nursing-college",
       },
     ],
   },

@@ -49,6 +49,7 @@ export function buildSearchIndex(): SearchDocument[] {
     "school-of-forensic-sciences",
     "school-of-humanities-and-social-science",
     "school-of-hospitality-and-hotel-management",
+    "geeta-nursing-college",
   ];
 
   for (const slug of schoolSlugs) {

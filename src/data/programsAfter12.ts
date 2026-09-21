@@ -226,6 +226,21 @@ export const ugSchoolsData: SchoolProgramGroup[] = [
       },
     ],
   },
+  {
+    schoolName: "Geeta Nursing College",
+    schoolHref: "/programs/geeta-nursing-college",
+    badge: "Proposed",
+    programs: [
+      {
+        name: "General Nursing & Midwifery (GNM)",
+        href: "/programs/geeta-nursing-college",
+      },
+      {
+        name: "B.Sc. Nursing",
+        href: "/programs/geeta-nursing-college",
+      },
+    ],
+  },
 ];
 
 export interface ProgramFeeItem {

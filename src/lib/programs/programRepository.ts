@@ -10,6 +10,7 @@ import { agricultureSchool } from "@/data/programs/schools/agriculture";
 import { humanitiesSchool } from "@/data/programs/schools/humanities";
 import { computerScienceSchool } from "@/data/programs/schools/computerScience";
 import { spBansalSchool } from "@/data/programs/schools/spBansal";
+import { nursingSchool } from "@/data/programs/schools/nursing";
 
 const programs: ProgramPageData[] = [
   commerceSchool,
@@ -22,6 +23,16 @@ const programs: ProgramPageData[] = [
   humanitiesSchool,
   computerScienceSchool,
   spBansalSchool,
+  nursingSchool,
+  // Alias for Geeta Nursing College
+  {
+    ...nursingSchool,
+    slug: "school-of-nursing",
+  },
+  {
+    ...nursingSchool,
+    slug: "nursing",
+  },
   // Alias for humanities and social sciences (plural & short)
   {
     ...humanitiesSchool,
