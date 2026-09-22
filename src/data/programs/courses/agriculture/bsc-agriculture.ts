@@ -30,7 +30,7 @@ export const bscAgriculture: CoursePageData = {
     program: "B.Sc. (Hons.) Agriculture",
     duration: "4 Years",
     eligibility:
-      "10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks.",
+      "Passed the 10+2 examination (or equivalent) with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
   },
 
   overview: {
@@ -75,7 +75,7 @@ export const bscAgriculture: CoursePageData = {
 
   admission: {
     eligibility:
-      "10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks.",
+      "Passed the 10+2 examination (or equivalent) with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
     whyChooseHeading:
       "Reasons To Choose Geeta University for B.Sc (Agriculture)",
     whyChooseParagraphs: [

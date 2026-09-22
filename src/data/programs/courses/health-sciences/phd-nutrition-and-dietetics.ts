@@ -148,14 +148,6 @@ export const phdNutritionAndDietetics: CoursePageData = {
         "Expert in Food Product Development and Evaluation, Hospital & Industry Practices; Authored Books, Research Papers, Patents, and Book Chapters; H-Index: 8; Recipient of Best Teacher Award & Best Performer Award; Recognized contributor to innovation in food and nutrition.",
     },
     {
-      name: "Dr. Nidhi Dangi",
-      designation: "Assistant Professor",
-      qualification: "Ph.D.",
-      image: "/programs/health-sciences/Nidhi.webp",
-      description:
-        "Gold Medalist in M.Sc. Food Technology; Recipient of Faculty Best Thesis Award (Ph.D.); Published 15 Papers, 2 Book Chapters, and 1 Book; H-Index: 8; Recognized for impactful academic research and innovation.",
-    },
-    {
       name: "Dr. Swati Mitharwal",
       designation: "Assistant Professor",
       qualification: "Ph.D. (Food Science and Technology)",

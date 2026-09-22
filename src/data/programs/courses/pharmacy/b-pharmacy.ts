@@ -31,7 +31,7 @@ export const bPharmacy: CoursePageData = {
     program: "B. Pharm. (Bachelor of Pharmacy)",
     duration: "4 Years",
     eligibility:
-      "Passed 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
+      "Passed the 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
   },
 
   overview: {
@@ -80,7 +80,7 @@ export const bPharmacy: CoursePageData = {
 
   admission: {
     eligibility:
-      "Passed 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
+      "Passed the 10+2 examination with minimum 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (P.C.M) and or Biology (P.C.B /P.C.M.B.) as optional subjects individually.",
     whyChooseHeading:
       "Reasons To Choose Geeta University for B. Pharm. (Bachelor of Pharmacy)",
     whyChooseParagraphs: [

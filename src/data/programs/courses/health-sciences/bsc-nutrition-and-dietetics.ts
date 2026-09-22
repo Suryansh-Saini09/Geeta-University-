@@ -29,7 +29,7 @@ export const bscNutritionAndDietetics: CoursePageData = {
     program: "B.Sc. Nutrition & Dietetics",
     duration: "3 Years",
     eligibility:
-      "Passed 10+2 examination with Physics/Chemistry/Biology/ Nutrition/Home Science/ Mathematics/ Commerce/ or any Arts/ or Vocational subject and English as one of subject form a recognized university or board with at least 50% marks in the qualifying examination.",
+      "Passed the 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized university or board with at least 50% marks in the qualifying examination.",
   },
 
   overview: {
@@ -72,7 +72,7 @@ export const bscNutritionAndDietetics: CoursePageData = {
 
   admission: {
     eligibility:
-      "Passed 10+2 examination with Physics/Chemistry/Biology/ Nutrition/Home Science/ Mathematics/ Commerce/ or any Arts/ or Vocational subject and English as one of subject form a recognized university or board with at least 50% marks in the qualifying examination.",
+      "Passed the 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized university or board with at least 50% marks in the qualifying examination.",
     whyChooseHeading:
       "Geeta University B.Sc. Nutrition & Dietetics Admission Process",
     whyChooseParagraphs: [
@@ -203,14 +203,6 @@ export const bscNutritionAndDietetics: CoursePageData = {
       description:
         "Expert in Food Product Development and Evaluation, Hospital & Industry Practices; Authored Books, Research Papers, Patents, and Book Chapters; H-Index: 8; Recipient of Best Teacher Award & Best Performer Award; Recognized contributor to innovation in food and nutrition.",
       image: "/programs/health-sciences/Sonal.webp",
-    },
-    {
-      name: "Dr. Nidhi Dangi",
-      designation: "Assistant Professor",
-      qualification: "Ph.D.",
-      description:
-        "Gold Medalist in M.Sc. Food Technology; Recipient of Faculty Best Thesis Award (Ph.D.); Published 15 Papers, 2 Book Chapters, and 1 Book; H-Index: 8; Recognized for impactful academic research and innovation.",
-      image: "/programs/health-sciences/Nidhi.webp",
     },
     {
       name: "Dr. Swati Mitharwal",
