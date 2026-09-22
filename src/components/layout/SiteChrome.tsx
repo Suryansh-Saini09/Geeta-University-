@@ -7,9 +7,10 @@ import Navbar from "@/components/layout/Navbar";
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isAdminRoute = pathname?.startsWith("/admin");
+  const isStandaloneRoute =
+    pathname?.startsWith("/admin") || pathname?.startsWith("/social-links");
 
-  if (isAdminRoute) {
+  if (isStandaloneRoute) {
     return <>{children}</>;
   }
 
