@@ -164,19 +164,15 @@ export const hospitalitySchool: ProgramPageData = {
           name: "Diploma in Hotel Management (Residential Program)",
           program: "Diploma in Hotel Management (Residential Program)",
           href: "/programs/school-of-hospitality-and-hotel-management/diploma-in-hotel-management",
-          duration: "2 years (1 year at GU Campus + 1 year in Five-Star Hotel)",
-          eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination from any recognized board.",
-          details:
-            "A fast-track residential diploma delivering hands-on hotel operations training during Year 1 on campus, followed by Year 2 paid industry immersion inside top hotel chains.",
+          duration: "2 Years (One Year in GU & One Year in Hotel)",
+          eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
         },
         {
           name: "B.Sc. Hons. (Hotel Management)",
           program: "B.Sc. Hons. (Hotel Management)",
           href: "/programs/school-of-hospitality-and-hotel-management/bsc-hotel-management",
           duration: "3 / 4 years",
-          eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination from any recognized board.",
-          details:
-            "Comprehensive degree program providing full-stack hospitality training, live masterclasses with celebrity chefs, front-office software simulations, and international internships.",
+          eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
         },
       ],
     },
@@ -187,10 +183,8 @@ export const hospitalitySchool: ProgramPageData = {
         {
           name: "M.Sc. (Hotel Management)",
           program: "M.Sc. (Hotel Management)",
-          duration: "2 years",
-          eligibility: "Passed any bachelor's graduation degree from any stream with at least 50% marks (e.g., B.Sc., B.A., B.Com., B.Tech., B.Voc., BCA).",
-          details:
-            "Advanced master's degree focusing on leadership, multi-property management, hospitality analytics, and global service innovation.",
+          duration: "2 Years",
+          eligibility: "Passed any graduation degree from any stream with 50% marks (e.g.: B.E. / B.Tech. / B.Sc. / B.Com. / B.A. / B.Voc. / BCA etc.)",
         },
       ],
     },
@@ -202,9 +196,7 @@ export const hospitalitySchool: ProgramPageData = {
           name: "Ph.D. (Hotel & Tourism Management)",
           program: "Ph.D. (Hotel & Tourism Management)",
           duration: "Minimum 3 years",
-          eligibility: "Master's degree in a relevant field with a minimum of 55% marks from an approved university.",
-          details:
-            "Rigorous research program empowering scholars to conduct high-impact academic and applied studies in tourism policy, hotel tech, and service leadership.",
+          eligibility: "Master's degree in a relevant field with a minimum of 55% marks.",
         },
       ],
     },
@@ -229,26 +221,36 @@ export const hospitalitySchool: ProgramPageData = {
     },
   ],
 
-  specialisations: {
-    eyebrow: "CAREER-READY HIGHLIGHTS",
-    title: "Let Us Help You Pave the Way to Success",
-    subtitle: "Core Academic Strengths at the School of Hospitality & Hotel Management",
-    items: [
+  usps: {
+    title: "LET US HELP YOU PAVE THE WAY TO SUCCESS",
+    cards: [
       {
-        title: "Outcome-Based Education (OBE)",
-        desc: "Optimal industry exposure, hands-on kitchen practicals, and experiential hotel simulations designed to meet real employer demands.",
+        title: "OUTCOME BASED EDUCATION (OBE)",
+        points: [
+          "Optimal Industry Exposure",
+          "Experiential learning",
+        ],
       },
       {
-        title: "Skill Enhancement Certifications",
-        desc: "Globally recognized industry certifications in hospitality software (PMS), food hygiene (HACCP), and beverage management.",
+        title: "SKILL ENHANCEMENT CERTIFICATIONS",
+        points: [
+          "Add prestige to your resume",
+          "Be more competitive in job markets",
+        ],
       },
       {
-        title: "Distinguished Faculty & Star Chefs",
-        desc: "Mentorship by seasoned academicians and visiting workshops by executive chefs from leading 5-star hotel chains.",
+        title: "DISTINGUISHED FACULTY",
+        points: [
+          "Multi-disciplinary industry experts",
+          "Expert workshops through star chefs",
+        ],
       },
       {
-        title: "Earn While You Learn (Global Internships)",
-        desc: "Paid overseas internships with stipends across luxury resorts in Mauritius, Singapore, Dubai, and Malaysia.",
+        title: "EARN WHILE YOU LEARN",
+        points: [
+          "Up to ₹8,000 per month during internships in India.",
+          "Up to ₹60,000 per month during overseas internships in France, Mauritius & other global destinations.",
+        ],
       },
     ],
   },

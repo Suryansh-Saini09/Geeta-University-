@@ -15,7 +15,7 @@ export const humanitiesSchool: ProgramPageData = {
       "best BA Psychology University in Haryana",
       "top BA Psychology university in haryana",
       "top Psychology university in haryana",
-      "best BA Psychology university in haryana",
+      "best BA Political Science university in haryana",
       "university in panipat",
       "geeta university",
       "best humanities colleges",
@@ -242,21 +242,20 @@ export const humanitiesSchool: ProgramPageData = {
         "Master's degree in a relevant field with a minimum of 55% aggregate marks (50% for reserved categories).",
       programs: [
         {
-          name: "Ph.D. (Doctor of Philosophy)",
-          program: "Ph.D. (Doctor of Philosophy)",
-          href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
+          name: "Ph.D. (Psychology)",
+          program: "Ph.D. (Psychology)",
+          href: "https://geetauniversity.edu.in/phd-psychology",
           duration: "Minimum 3 years",
-          eligibility: "Master's degree in a relevant field with a minimum of 55% aggregate marks (50% for reserved categories).",
-          specialisations: [
-            {
-              name: "Ph.D. (Psychology)",
-              href: "https://geetauniversity.edu.in/phd-psychology",
-            },
-            {
-              name: "Ph.D. (Political Science)",
-              href: "https://geetauniversity.edu.in/phd-political-science",
-            },
-          ],
+          eligibility:
+            "Master's degree in Psychology or a relevant field with a minimum of 55% aggregate marks (50% for reserved categories).",
+        },
+        {
+          name: "Ph.D. (Political Science)",
+          program: "Ph.D. (Political Science)",
+          href: "https://geetauniversity.edu.in/phd-political-science",
+          duration: "Minimum 3 years",
+          eligibility:
+            "Master's degree in Political Science or a relevant field with a minimum of 55% aggregate marks (50% for reserved categories).",
         },
       ],
     },
@@ -742,7 +741,7 @@ export const humanitiesSchool: ProgramPageData = {
 
   cta: {
     heading: "Your Journey into Humanities & Social Leadership Starts Here",
-    quote: "“",
+    quote: "“Empowering future leaders, policy thinkers, and changemakers through interdisciplinary inquiry and critical perspectives.”",
     paragraphs: [
       "Join the School of Humanities & Social Sciences at Geeta University to develop critical perspective, social consciousness, and professional excellence.",
       "Experience specialized testing labs, distinguished faculty mentors, interdisciplinary learning, and vibrant campus life in Delhi NCR.",
