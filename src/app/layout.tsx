@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import LenisProvider from "@/components/providers/LenisProvider";
+import SiteChrome from "@/components/layout/SiteChrome";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,13 +17,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LenisProvider>
-          <Navbar />
-
-          <main className="w-full min-w-0 flex-1">
+          <SiteChrome>
             {children}
-          </main>
-
-          <Footer />
+          </SiteChrome>
         </LenisProvider>
       </body>
     </html>

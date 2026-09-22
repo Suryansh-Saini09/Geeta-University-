@@ -1,0 +1,485 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+}
+
+enum AdminUserStatus {
+  ACTIVE
+  INVITED
+  SUSPENDED
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum SubmissionStatus {
+  NEW
+  IN_REVIEW
+  RESOLVED
+  SPAM
+}
+
+enum AuditAction {
+  CREATE
+  UPDATE
+  DELETE
+  PUBLISH
+  UNPUBLISH
+  LOGIN
+  LOGOUT
+}
+
+model AdminUser {
+  id           String          @id @default(cuid())
+  name         String
+  email        String          @unique
+  passwordHash String
+  role         AdminRole       @default(EDITOR)
+  status       AdminUserStatus @default(INVITED)
+  lastLoginAt  DateTime?
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  sessions       AdminSession[]
+  auditLogs      AuditLog[]        @relation("AuditActor")
+  createdPages   Page[]            @relation("PageCreatedBy")
+  updatedPages   Page[]            @relation("PageUpdatedBy")
+  createdMedia   MediaAsset[]      @relation("MediaCreatedBy")
+  updatedContent ContentRevision[] @relation("RevisionCreatedBy")
+}
+
+model AdminSession {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  userAgent String?
+  ipAddress String?
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+
+  user AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model AuditLog {
+  id         String      @id @default(cuid())
+  actorId    String?
+  action     AuditAction
+  entityType String
+  entityId   String?
+  before     Json?
+  after      Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime    @default(now())
+
+  actor AdminUser? @relation("AuditActor", fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([actorId])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+model SeoMetadata {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  keywords    String[]
+  canonical   String?
+  ogTitle     String?
+  ogImage     String?
+  noIndex     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  pages       Page[]
+  departments Department[]
+  programs    Program[]
+  notices     Notice[]
+  news        NewsArticle[]
+  events      Event[]
+}
+
+model MediaAsset {
+  id          String   @id @default(cuid())
+  fileName    String
+  storageKey  String   @unique
+  url         String
+  mimeType    String
+  sizeBytes   Int
+  width       Int?
+  height      Int?
+  altText     String?
+  caption     String?
+  createdById String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  createdBy AdminUser? @relation("MediaCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+
+  departmentsAsHero Department[]    @relation("DepartmentHeroImage")
+  programsAsHero    Program[]       @relation("ProgramHeroImage")
+  facultyPortraits  FacultyMember[]
+  heroBanners       HeroBanner[]
+  galleryImages     GalleryImage[]
+  downloads         Download[]
+
+  @@index([mimeType])
+  @@index([createdAt])
+}
+
+model Page {
+  id          String        @id @default(cuid())
+  slug        String        @unique
+  title       String
+  template    String
+  status      ContentStatus @default(DRAFT)
+  sections    Json
+  seoId       String?
+  createdById String?
+  updatedById String?
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  seo       SeoMetadata?      @relation(fields: [seoId], references: [id], onDelete: SetNull)
+  createdBy AdminUser?        @relation("PageCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  updatedBy AdminUser?        @relation("PageUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+  revisions ContentRevision[]
+
+  @@index([status])
+  @@index([publishedAt])
+}
+
+model ContentRevision {
+  id          String   @id @default(cuid())
+  pageId      String
+  snapshot    Json
+  note        String?
+  createdById String?
+  createdAt   DateTime @default(now())
+
+  page      Page       @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  createdBy AdminUser? @relation("RevisionCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+
+  @@index([pageId])
+  @@index([createdAt])
+}
+
+model Department {
+  id          String        @id @default(cuid())
+  name        String
+  shortName   String?
+  slug        String        @unique
+  summary     String?
+  body        Json?
+  status      ContentStatus @default(DRAFT)
+  sortOrder   Int           @default(0)
+  heroImageId String?
+  seoId       String?
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  heroImage MediaAsset?     @relation("DepartmentHeroImage", fields: [heroImageId], references: [id], onDelete: SetNull)
+  seo       SeoMetadata?    @relation(fields: [seoId], references: [id], onDelete: SetNull)
+  programs  Program[]
+  faculty   FacultyMember[]
+
+  @@index([status, sortOrder])
+}
+
+model Program {
+  id           String        @id @default(cuid())
+  departmentId String
+  name         String
+  slug         String        @unique
+  level        String?
+  duration     String?
+  eligibility  String?
+  overview     Json?
+  feeData      Json?
+  status       ContentStatus @default(DRAFT)
+  sortOrder    Int           @default(0)
+  heroImageId  String?
+  seoId        String?
+  publishedAt  DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  department Department       @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  heroImage  MediaAsset?      @relation("ProgramHeroImage", fields: [heroImageId], references: [id], onDelete: SetNull)
+  seo        SeoMetadata?     @relation(fields: [seoId], references: [id], onDelete: SetNull)
+  aliases    ProgramAlias[]
+  faculty    FacultyProgram[]
+
+  @@index([departmentId])
+  @@index([status, sortOrder])
+}
+
+model ProgramAlias {
+  id        String   @id @default(cuid())
+  programId String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+
+  @@index([programId])
+}
+
+model FacultyMember {
+  id            String        @id @default(cuid())
+  departmentId  String?
+  name          String
+  slug          String        @unique
+  designation   String?
+  qualification String?
+  bio           String?
+  email         String?
+  phone         String?
+  sortOrder     Int           @default(0)
+  status        ContentStatus @default(DRAFT)
+  portraitId    String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  department Department?      @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  portrait   MediaAsset?      @relation(fields: [portraitId], references: [id], onDelete: SetNull)
+  programs   FacultyProgram[]
+
+  @@index([departmentId])
+  @@index([status, sortOrder])
+}
+
+model FacultyProgram {
+  facultyId String
+  programId String
+
+  faculty FacultyMember @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+  program Program       @relation(fields: [programId], references: [id], onDelete: Cascade)
+
+  @@id([facultyId, programId])
+}
+
+model Notice {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  summary     String?
+  body        Json?
+  status      ContentStatus @default(DRAFT)
+  seoId       String?
+  publishedAt DateTime?
+  expiresAt   DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  seo SeoMetadata? @relation(fields: [seoId], references: [id], onDelete: SetNull)
+
+  @@index([status, publishedAt])
+}
+
+model NewsArticle {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  excerpt     String?
+  body        Json?
+  status      ContentStatus @default(DRAFT)
+  seoId       String?
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  seo SeoMetadata? @relation(fields: [seoId], references: [id], onDelete: SetNull)
+
+  @@index([status, publishedAt])
+}
+
+model Event {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  excerpt     String?
+  body        Json?
+  startsAt    DateTime
+  endsAt      DateTime?
+  location    String?
+  status      ContentStatus @default(DRAFT)
+  seoId       String?
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  seo SeoMetadata? @relation(fields: [seoId], references: [id], onDelete: SetNull)
+
+  @@index([status, startsAt])
+}
+
+model AdmissionCycle {
+  id          String        @id @default(cuid())
+  title       String
+  year        String
+  status      ContentStatus @default(DRAFT)
+  content     Json
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@unique([year])
+  @@index([status])
+}
+
+model PlacementRecord {
+  id          String        @id @default(cuid())
+  title       String
+  year        String?
+  status      ContentStatus @default(DRAFT)
+  content     Json
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status, year])
+}
+
+model GalleryAlbum {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  description String?
+  status      ContentStatus @default(DRAFT)
+  sortOrder   Int           @default(0)
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  images GalleryImage[]
+
+  @@index([status, sortOrder])
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  albumId   String
+  mediaId   String
+  title     String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  album GalleryAlbum @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  media MediaAsset   @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+
+  @@index([albumId, sortOrder])
+}
+
+model HeroBanner {
+  id          String        @id @default(cuid())
+  title       String
+  subtitle    String?
+  ctaLabel    String?
+  ctaHref     String?
+  placement   String
+  status      ContentStatus @default(DRAFT)
+  sortOrder   Int           @default(0)
+  mediaId     String?
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  media MediaAsset? @relation(fields: [mediaId], references: [id], onDelete: SetNull)
+
+  @@index([placement, status, sortOrder])
+}
+
+model Download {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  category    String?
+  description String?
+  status      ContentStatus @default(DRAFT)
+  sortOrder   Int           @default(0)
+  mediaId     String?
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  media MediaAsset? @relation(fields: [mediaId], references: [id], onDelete: SetNull)
+
+  @@index([category, status, sortOrder])
+}
+
+model ContactSubmission {
+  id         String           @id @default(cuid())
+  type       String
+  status     SubmissionStatus @default(NEW)
+  name       String?
+  email      String?
+  phone      String?
+  subject    String?
+  message    String?
+  payload    Json
+  sourcePath String?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  @@index([type, status])
+  @@index([createdAt])
+}
+
+model NavigationMenu {
+  id        String           @id @default(cuid())
+  key       String           @unique
+  label     String
+  items     NavigationItem[]
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+}
+
+model NavigationItem {
+  id        String        @id @default(cuid())
+  menuId    String
+  parentId  String?
+  label     String
+  href      String?
+  status    ContentStatus @default(PUBLISHED)
+  sortOrder Int           @default(0)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  menu     NavigationMenu   @relation(fields: [menuId], references: [id], onDelete: Cascade)
+  parent   NavigationItem?  @relation("NavigationTree", fields: [parentId], references: [id], onDelete: Cascade)
+  children NavigationItem[] @relation("NavigationTree")
+
+  @@index([menuId, parentId, sortOrder])
+}
+
+model SiteSetting {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       Json
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
