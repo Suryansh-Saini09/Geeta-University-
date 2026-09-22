@@ -32,31 +32,31 @@ export const phdLaw: CoursePageData = {
   overview: {
     title: "Ph.D. in Law",
     paragraphs: [
-      "Geeta University, Panipat, Haryana, is a premier private university committed to academic excellence and research innovation. The university offers the Phd in Law program, designed to nurture original research, critical thinking, and scholarly leadership. With a strong research-driven ecosystem, Geeta University provides an intellectually stimulating environment for doctoral aspirants. The duration of the Ph.D in Law program is typically three years, with a maximum of six semesters to complete the degree.",
+      "Geeta Global Law School at Geeta University, Panipat, Delhi NCR, offers the Ph.D. in Law program designed to nurture doctoral research, critical jurisprudence, and scholarly leadership. Supported by an advanced research-driven ecosystem, the school provides an intellectually stimulating environment for doctoral scholars. The duration of the Ph.D. in Law program is a minimum of three years, structured into comprehensive coursework, research colloquiums, and dissertation defense.",
     ],
   },
   takeaways: [
-    "A 3-Years Full-Time Degree Program.",
-    "Geeta Institute is affiliated with some of the top law faculties in India.",
-    "Faculty members possess strong academic excellence and industry-relevant experience.",
-    "Builds strong critical thinking, research, and problem-solving skills.",
-    "Opens diverse career paths across academia, industry, government, and entrepreneurship.",
-    "Creates opportunities in consultancy and other professional domains.",
-    "Develops resilience and discipline through rigorous academic training.",
-    "Nurtures a passion for discovery and innovation.",
-    "Phd in Law prepares graduates to overcome challenges.",
-    "Scholarships Based on National Level Entrance Exams (JEE, CUET, NEET, CLAT, and more) and Merit Lists.",
+    "A 3-Year Full-Time Doctoral Program.",
+    "Mentored by eminent Vice Chancellors, senior advocates, and renowned legal scholars.",
+    "Comprehensive doctoral coursework in advanced legal research methodologies and jurisprudence.",
+    "Builds advanced analytical, legal drafting, and policy-formulation capabilities.",
+    "Opens prestigious pathways across legal academia, judicial academies, think tanks, and public policy.",
+    "Opportunities for consultancy, corporate governance advisory, and international research projects.",
+    "Develops scholarly discipline and critical inquiry through doctoral colloquiums.",
+    "Fosters high-impact publications in Scopus and UGC-CARE indexed legal journals.",
+    "Prepares scholars to address contemporary legal, socio-economic, and constitutional challenges.",
+    "Scholarships based on national-level entrance exams, UGC-NET / JRF qualification, and university merit.",
   ],
   subjects: [
-    "Constitutional Law",
-    "Criminal Law",
+    "Constitutional Law & Comparative Public Law",
+    "Criminal Law & Criminology",
     "Corporate & Commercial Law",
-    "Intellectual Property Rights",
-    "Human Rights",
-    "International Law",
-    "Environmental Law",
-    "Cyber Law & Technology Law",
-    "Family & Personal Law",
+    "Intellectual Property Rights & Innovation",
+    "International Law & Human Rights",
+    "Environmental Law & Sustainable Development",
+    "Cyber Law, AI & Digital Evidence",
+    "Alternative Dispute Resolution & Arbitration",
+    "Legal Research Methodology & Publication Ethics",
   ],
   learningOutcomes: [
     "Develop advanced jurisprudential research skills and critical analytical capabilities",
@@ -67,45 +67,45 @@ export const phdLaw: CoursePageData = {
   ],
   admission: {
     eligibility:
-      "For admission in PhD admission in law, applicants must have completed Post Graduation with 55% aggregate from a recognized institution.",
-    whyChooseHeading: "Geeta University Ph.D in Law Process",
+      "Applicants must have completed a Master’s degree in Law (LL.M.) with a minimum of 55% aggregate marks (50% for reserved categories) from a recognized university.",
+    whyChooseHeading: "Geeta University Ph.D. in Law Process",
     whyChooseParagraphs: [
-      "Eligibility Criteria: For admission in PhD admission in law, applicants must have completed Post Graduation with 55% aggregate from a recognized institution.",
-      "Entrance & Selection: Scholars are admitted based on performance in national-level entrance examinations (or GU Entrance Test) followed by a personal research interview and synopsis evaluation.",
+      "Eligibility Criteria: Applicants must have completed a Master's degree in Law (LL.M.) with at least 55% aggregate marks (50% for SC/ST/OBC non-creamy layer/differently-abled) from a recognized university.",
+      "Entrance & Selection: Scholars are admitted based on performance in UGC-NET / JRF / national-level entrance examinations (or GU Entrance Test) followed by a personal research interview and synopsis evaluation.",
       "Comprehensive Research Support: Coursework in research methodology, qualitative & quantitative legal research, and ethics is integrated into the first year.",
     ],
   },
   whyGeeta: {
-    title: "Reasons to choose Geeta University for PhD in Law",
+    title: "Reasons to Choose Geeta University for Ph.D. in Law",
     intro:
-      "Geeta University is considered an ideal destination for pursuing a Phd in Law due to its BAR Council of India curriculum, experienced faculty and structured PhD monitoring system. Here, students will get theoretical knowledge and practical training both through the moot course, internships and case studies.",
+      "Geeta University is an ideal destination for pursuing a Ph.D. in Law due to its Bar Council of India-aligned standards, distinguished faculty, and structured doctoral monitoring system. Scholars benefit from rich theoretical jurisprudence, empirical legal research, and courtroom-level analysis.",
     reasons: [
       {
-        title: "BCI-Approved Curriculum",
+        title: "Rigorous Doctoral Curriculum",
         description:
-          "Geeta University offers a BCI-approved curriculum to its students, enabling them to appear for the All India Bar Examination and become legal practitioners in India. That means Geeta University prepares students with career-oriented knowledge and necessary skills. The curriculum of the doctorate of law at GU is designed to provide students with a perfect balance of classroom learning and real-world practice.",
+          "Geeta Global Law School offers a comprehensive doctoral curriculum preparing scholars for premier academic and research roles. The program provides the ideal balance of advanced research methodology, interdisciplinary legal inquiry, and policy analysis.",
       },
       {
-        title: "Faculty Members",
+        title: "Distinguished Mentors & Faculty",
         description:
-          "The Geeta University has exceptional academic members. They promote student involvement in moot court contests and internships. In addition to academics, the faculty of Geeta University offers opportunities for practical experience via moot courses, internships, and case studies.",
+          "Doctoral scholars are mentored by eminent former Vice Chancellors, leading jurists, and senior professors with extensive research publications and national prominence.",
       },
       {
-        title: "World-Class Infrastructure",
+        title: "World-Class Infrastructure & Digital Databases",
         description:
-          "Geeta University has modern facilities and infrastructure to equip candidates with advanced knowledge and practical skills through modern classes and updated labs. The university has moot court facilities (a real courtroom environment), a legal aid clinic and also its own well-stocked library. It has many other digital resources for legal research.",
+          "Geeta University provides advanced research facilities including high-speed digital legal databases (SCC Online, Manupatra, Westlaw), well-stocked law libraries, and dedicated doctoral research workspaces.",
       },
       {
         title: "Strong Research & Academic Scope",
         description:
-          "Geeta University is a top choice for students seeking quality PhD law degree in Haryana with strong future scope.",
+          "Geeta University is a top choice for scholars seeking a high-impact Ph.D. in Law with extensive publication and academic career opportunities.",
       },
     ],
   },
   career: {
-    title: "Career Options After Ph.D in Law",
+    title: "Career Options After Ph.D. in Law",
     intro:
-      "After completing a PhD in law in India, professionals gain access to a wide range of high-level career opportunities across multiple sectors:",
+      "After completing a Ph.D. in Law, graduates gain access to high-level academic, judicial, and corporate opportunities across multiple sectors:",
     govtRoles: [
       {
         title: "Academic Careers",
@@ -139,54 +139,61 @@ export const phdLaw: CoursePageData = {
   faculty: [
     {
       name: "Prof. (Dr) Sanjeevi Shanthakumar",
-      designation: "Director-Vice Chancellor",
+      designation: "Director - Vice Chancellor",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-1.webp",
+      imagePosition: "center 28%",
       description: "Gujarat National Law University, Gandhinagar.",
     },
     {
       name: "Prof. (Dr) Manjula Batra",
-      designation: "Professor, Dean (Former)",
+      designation: "Professor & Former Dean",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-2.webp",
-      description: "Department of Law, Jamia Milia Islamia University, Delhi",
+      imagePosition: "center 28%",
+      description: "Faculty of Law, Jamia Millia Islamia, Delhi.",
     },
     {
       name: "Prof. (Dr.) Rajpal Sharma",
       designation: "Director",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-3.webp",
-      description: "Institute of Law, Kurukshetra University, Kurukshetra",
+      imagePosition: "center 26%",
+      description: "Institute of Law, Kurukshetra University, Kurukshetra.",
     },
     {
       name: "Prof. (Dr) S.S. Jaswal",
       designation: "Registrar",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-4.webp",
+      imagePosition: "center 28%",
       description: "HP National Law University, Shimla.",
     },
     {
-      name: "prof. (Dr.) Nishtha Jaswal",
-      designation: "Vice Chancellor",
+      name: "Prof. (Dr.) Nishtha Jaswal",
+      designation: "Former Vice Chancellor",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-5.webp",
-      description: "(Former) Himachal Pradesh National law University , Shimla",
+      imagePosition: "center 28%",
+      description: "Former Vice Chancellor, HP National Law University, Shimla.",
     },
     {
       name: "Prof. (Dr.) Kamaljeet Singh",
       designation: "Vice Chancellor",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-6.webp",
-      description: "Madhusudan law University, Odisha",
+      imagePosition: "center 22%",
+      description: "Madhusudan Law University, Odisha.",
     },
     {
-      name: "DR. ANAND PRAKASH MISHRA",
+      name: "Dr. Anand Prakash Mishra",
       designation:
         "Executive Dean - Institutional Outreach & Senior Director of Law Admissions",
       qualification: "LL.B., LL.M. (Delhi University), UGC-NET",
       image: "/programs/law/mentor-7.webp",
+      imagePosition: "center 28%",
       description:
-        "Prof. Anand Prakash Mishra is a Professor of Practice and Vice Dean at Jindal Global Law School of OP Jindal Global University.",
+        "Professor of Practice and Vice Dean at Jindal Global Law School, OP Jindal Global University.",
     },
   ],
   testimonials: [
@@ -200,7 +207,7 @@ export const phdLaw: CoursePageData = {
       name: "Musavir Ahmad Mir",
       role: "Ph.D. Scholar",
       image: "/programs/law/phd-law/musavir-testimonial.webp",
-      text: "Pursuing my PhD in Law at Geeta Global Law School has strengthened my research abilities, analytical thinking, and legal expertise. The academic environment and guidance from experienced faculty helped me grow professionally and intellectually.",
+      text: "Pursuing my Ph.D. in Law at Geeta Global Law School has strengthened my research abilities, analytical thinking, and legal expertise. The academic environment and guidance from experienced faculty helped me grow professionally and intellectually.",
     },
   ],
   learningSpaces: {
