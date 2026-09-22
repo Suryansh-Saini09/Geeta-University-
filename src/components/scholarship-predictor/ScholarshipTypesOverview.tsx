@@ -62,13 +62,6 @@ export default function ScholarshipTypesOverview() {
       <div className="gu-container">
         {/* Section Header */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
-          <div className="mb-4 inline-flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-[#E8871A]" />
-            <span className="text-[12px] font-bold uppercase tracking-[2.5px] text-[#E8871A]">
-              Scholarship Programs
-            </span>
-            <span className="h-px w-8 bg-[#E8871A]" />
-          </div>
           <h2 className="font-serif text-[36px] font-black text-[#0A1F44] sm:text-[42px] md:text-[48px]">
             Comprehensive <span className="text-[#E8871A]">Financial Aid</span>
           </h2>

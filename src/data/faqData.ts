@@ -36,7 +36,6 @@ export const faqCategories: FAQCategory[] = [
 
 export const faqHeroData = {
   title: "Frequently Asked Questions",
-  subtitle: "Everything You Need to Know About Geeta University",
   description:
     "Find detailed answers regarding admissions, fee structures, UGC approvals, scholarships, campus facilities, and placement opportunities.",
   heroImage: "/faq/hero-faq.webp",

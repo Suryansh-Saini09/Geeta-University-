@@ -2,26 +2,17 @@
 
 import React from "react";
 import { cuetTimelineSteps } from "@/data/cuetData";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function CuetAdmissionProcess() {
   return (
-    <section id="cuet-process" className="w-full bg-[#F9F6F2] py-14 sm:py-18 md:py-22 border-b border-[#E8E1D9]">
+    <section id="cuet-process" className="w-full bg-[#F9F6F2] py-14 sm:py-18 md:py-22 border-b border-[#E8E8E9]">
       <div className="gu-container">
+        {/* Section Header */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <div className="mb-3 flex items-center justify-center gap-3">
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-            <span className="text-[12px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Online &amp; Fast-Track
-            </span>
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-          </div>
           <h2 className="font-serif text-[30px] sm:text-[38px] md:text-[44px] font-black text-[#0A1F44] leading-tight">
             CUET Admission Process at Geeta University
           </h2>
-          <p className="mt-2 text-[16px] text-[#64748B]">
-            Simple, transparent, and fully online 6-step admission procedure for CUET UG candidates.
-          </p>
         </div>
 
         {/* Timeline Grid */}
@@ -39,13 +30,6 @@ export default function CuetAdmissionProcess() {
                   }`}
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-full text-[15px] font-black ${
-                        isHighlight ? "bg-[#E8871A] text-white" : "bg-[#0A1F44] text-white"
-                      }`}
-                    >
-                      {step.stepNumber}
-                    </div>
                     <span
                       className={`text-[11px] font-extrabold uppercase tracking-wider ${
                         isHighlight ? "text-[#E8871A]" : "text-[#64748B]"

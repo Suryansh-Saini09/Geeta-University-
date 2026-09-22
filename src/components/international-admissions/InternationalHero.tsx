@@ -34,17 +34,7 @@ export default function InternationalHero() {
         {/* Content */}
         <div className="gu-container relative z-10 py-16 md:py-24">
           <div className="max-w-[800px]">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 rounded-full border border-[#E8871A]/40 bg-[#E8871A]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E8871A] backdrop-blur-sm"
-            >
-              <Globe size={14} className="animate-spin-slow" />
-              International Admissions Open
-            </motion.div>
-
-            <motion.h1
+                        <motion.h1
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
@@ -83,21 +73,6 @@ export default function InternationalHero() {
               >
                 Explore Global Exposure
               </button>
-            </motion.div>
-
-            {/* Stats Bar */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-white/15 pt-8"
-            >
-              {INTERNATIONAL_HERO.stats.map((stat, idx) => (
-                <div key={idx} className="flex flex-col">
-                  <span className="text-2xl md:text-3xl font-black text-[#E8871A]">{stat.value}</span>
-                  <span className="text-xs md:text-sm font-semibold text-white/80 mt-1">{stat.label}</span>
-                </div>
-              ))}
             </motion.div>
           </div>
         </div>

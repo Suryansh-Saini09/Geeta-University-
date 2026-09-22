@@ -37,9 +37,8 @@ export default function ScholarshipPredictorHero() {
         />
 
         {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-[#0A1F44]/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44] via-[#0A1F44]/85 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1F44]/90 via-[#0A1F44]/60 to-[#0A1F44]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/75 via-transparent to-black/20" />
 
         {/* Content Container */}
         <div className="gu-container relative z-10 flex min-h-[460px] items-center py-16 lg:min-h-[540px]">
@@ -53,16 +52,6 @@ export default function ScholarshipPredictorHero() {
             }}
             className="max-w-[800px]"
           >
-            {/* Tag Badge */}
-            <motion.div variants={fadeUp}>
-              <div className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-[#E8871A]/30 bg-[#E8871A]/10 px-4 py-1.5 backdrop-blur-md">
-                <Sparkles className="h-4 w-4 text-[#E8871A]" />
-                <span className="text-[12px] font-bold uppercase tracking-[2.5px] text-[#E8871A]">
-                  Financial Aid Estimator
-                </span>
-              </div>
-            </motion.div>
-
             {/* Title */}
             <motion.h1
               variants={fadeUp}

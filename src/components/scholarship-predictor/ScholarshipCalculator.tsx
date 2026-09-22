@@ -152,12 +152,6 @@ export default function ScholarshipCalculator() {
       <div className="gu-container">
         {/* Section Title */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
-          <div className="mb-4 inline-flex items-center justify-center gap-2.5 rounded-full border border-[#066191]/20 bg-[#066191]/10 px-4 py-1.5">
-            <Calculator className="h-4 w-4 text-[#066191]" />
-            <span className="text-[12px] font-bold uppercase tracking-[2px] text-[#066191]">
-              Interactive Fee Estimator
-            </span>
-          </div>
           <h2 className="font-serif text-[36px] font-black text-[#0A1F44] sm:text-[44px]">
             Scholarship <span className="text-[#066191]">Calculator</span>
           </h2>
@@ -312,7 +306,6 @@ export default function ScholarshipCalculator() {
                     <span className="text-[13px] font-bold uppercase tracking-[1.5px] text-white/80">
                       Calculation Breakdown
                     </span>
-                    <Sparkles className="h-5 w-5 text-[#E8871A]" />
                   </div>
 
                   {/* Fee Per Semester */}

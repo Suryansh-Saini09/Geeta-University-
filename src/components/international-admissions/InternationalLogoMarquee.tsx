@@ -11,11 +11,6 @@ export default function InternationalLogoMarquee() {
 
   return (
     <div className="w-full bg-white py-6 border-b border-[#E2E8F0] overflow-hidden shadow-sm">
-      <div className="gu-container mb-3 text-center">
-        <span className="text-[11px] font-extrabold uppercase tracking-[2.5px] text-[#0A1F44]">
-          GLOBAL PRESENCE & PARTNERSHIPS ACROSS CONTINENTS
-        </span>
-      </div>
 
       {/* Infinite Horizontal Marquee Container */}
       <div className="relative flex w-full overflow-hidden select-none">

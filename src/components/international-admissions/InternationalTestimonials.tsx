@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, useMotionValue } from "framer-motion";
-import { Quote, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { INTERNATIONAL_TESTIMONIALS } from "@/data/internationalAdmissions";
 
 export default function InternationalTestimonials() {
@@ -42,10 +42,7 @@ export default function InternationalTestimonials() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
           <div>
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#E8871A]">
-              Global Student Voices
-            </span>
-            <h2 className="text-3xl md:text-5xl font-black text-white font-serif mt-2">
+            <h2 className="text-3xl md:text-5xl font-black text-white font-serif">
               Stories from Across Nations
             </h2>
           </div>
@@ -80,7 +77,7 @@ export default function InternationalTestimonials() {
             transition={{ type: "spring", stiffness: 220, damping: 26 }}
             className="flex gap-6"
           >
-            {INTERNATIONAL_TESTIMONIALS.map((item, idx) => (
+            {INTERNATIONAL_TESTIMONIALS.map((item) => (
               <div
                 key={item.id}
                 className="w-full md:w-[calc((100%-3rem)/3)] flex-shrink-0 rounded-3xl bg-[#0c2550] border border-white/15 p-6 backdrop-blur-md shadow-xl flex flex-col justify-between hover:border-[#E8871A]/50 transition-all duration-300 group"
@@ -95,10 +92,6 @@ export default function InternationalTestimonials() {
                       sizes="(max-width: 768px) 100vw, 360px"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute top-3 left-3 bg-[#0A1F44]/90 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 flex items-center gap-1.5 text-xs font-extrabold text-[#E8871A]">
-                      <MapPin size={12} />
-                      {item.country}
-                    </div>
                   </div>
 
                   {/* Quote Icon & Text */}
@@ -109,19 +102,10 @@ export default function InternationalTestimonials() {
                 </div>
 
                 {/* Footer Details */}
-                <div className="border-t border-white/15 pt-4 mt-6 flex items-center justify-between">
-                  <div>
-                    <h3 className="font-extrabold text-white text-base sm:text-lg">
-                      {item.name}
-                    </h3>
-                    <span className="text-xs font-semibold text-[#E8871A]">
-                      International Student
-                    </span>
-                  </div>
-
-                  <div className="h-8 w-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[#E8871A] font-bold text-xs">
-                    0{idx + 1}
-                  </div>
+                <div className="border-t border-white/15 pt-4 mt-6">
+                  <h3 className="font-extrabold text-white text-base sm:text-lg">
+                    {item.name}, <span className="text-[#E8871A] font-semibold text-sm sm:text-base">{item.country}</span>
+                  </h3>
                 </div>
               </div>
             ))}
