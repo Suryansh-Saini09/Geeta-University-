@@ -113,95 +113,53 @@ export const lawSchool: ProgramPageData = {
   },
 
   specialisations: {
-    eyebrow: "WHY GEETA GLOBAL LAW SCHOOL",
     title: "Be A Part Of Top Rated University",
-    subtitle: "Craft Your Path with Leading Legal Pedagogy & Practical Insights",
     items: [
       {
         title: "Industry Oriented Curriculum",
-        iconName: "BookOpenCheck",
-        points: [
-          "Specialized legal training integrating traditional legal principles with emerging areas of modern Law.",
-          "Curriculum updated regularly in consultation with Bar Council guidelines and top law firm partners.",
-          "Deep focus on Corporate Law, Cyber Law, IPR, and International Arbitration.",
-        ],
+        desc: "Specialized legal training with curriculum that integrates traditional legal principles with emerging areas of Law",
       },
       {
         title: "Flexible Choice Based Credit System",
-        iconName: "BrainCircuit",
-        points: [
-          "Passion Programs empower lawyers to expand their skill set by learning coding and technology.",
-          "Interdisciplinary electives spanning FinTech regulations, AI ethics, forensic evidence, and media laws.",
-          "Customizable honors minors aligned with student career ambitions.",
-        ],
+        desc: "Passion Programs empower lawyers to expand their skill set by learning coding and exploring opportunities in technology.",
       },
       {
-        title: "Distinguished Faculty & Jurists",
-        iconName: "GraduationCap",
-        points: [
-          "Faculty comprises highly experienced legal professionals, scholars, judges, and active practitioners.",
-          "Direct mentorship from former Vice Chancellors of premier National Law Universities (NLUs).",
-          "Special masterclasses by senior High Court and Supreme Court advocates.",
-        ],
+        title: "Distinguished Faculty",
+        desc: "Faculty comprises highly experienced legal professionals, scholars & practitioners.",
       },
       {
         title: "Digitally Enabled Campus",
-        iconName: "Landmark",
-        points: [
-          "Advanced computer technology in every aspect of campus life enhances student convenience & research.",
-          "Access to international legal research databases including SCC Online, Manupatra, LexisNexis, and HeinOnline.",
-          "Smart digital classrooms and virtual court simulation tools.",
-        ],
+        desc: "The use of Advanced Computer Technology in every aspect of campus life enhances student convenience & comfort.",
       },
       {
         title: "Go Global With GU",
-        iconName: "Globe2",
-        points: [
-          "Internships & Student exchange programs at Top Rated European and international Universities.",
-          "Collaborative research opportunities in comparative constitutional and international law.",
-          "Cross-border legal clinic exposure and global moot court competitions.",
-        ],
+        desc: "Internships & Student exchange programs at Top Rated European Universities",
       },
       {
         title: "Outcome Based Education (OBE)",
-        iconName: "Target",
-        points: [
-          "Rubric-based assessments and regular skill mapping ensure high transparency and industry alignment.",
-          "Continuous feedback loops on legal drafting, argumentation, and client counseling.",
-          "Measurable student learning outcomes benchmarked against premier national law schools.",
-        ],
+        desc: "Rubric-based assessments and regular skill mapping ensure a high level of transparency and alignment with industry needs.",
       },
       {
         title: "Skill Enhancement Certifications",
-        iconName: "Award",
-        points: [
-          "Certified courses on Contract Drafting, Corporate Governance, and Securities Law.",
-          "Specialized credentials in Intellectual Property Rights (IPR), Investment Law, and Cyber Law.",
-          "Practical certification in Alternate Dispute Resolution (ADR) and Commercial Mediation.",
-        ],
+        desc: "On Contract Drafting, Corporate Governance IPR, Investment Law, Cyber Law & many more",
       },
       {
-        title: "Experiential Learning & Moot Courts",
-        iconName: "UsersRound",
-        points: [
-          "Regular conduct of national moot courts, client counseling simulations, and trial advocacy.",
-          "Operational Legal Aid Clinics providing pro-bono community support and practical exposure.",
-          "Expert lectures, judge interactions, and industrial legal department visits.",
-        ],
+        title: "Experiential Learning",
+        desc: "Regular conduct of Moot courts, Legal aid clinics & expert lectures by judges, senior advocates, legal experts",
       },
     ],
   },
 
   featuredPrograms: {
     title1: "Integrated Law (5 years)",
-    tag1: "B.A. LL.B. / B.B.A. LL.B.",
+    tag1: "BA.LL.B. / BBA. LL.B.",
     title2: "Postgraduate & Research",
     tag2: "LL.M. (1 year) & Ph.D.",
     description:
       "Comprehensive, Bar Council of India (BCI) recognized law programs preparing students for litigation, corporate law, judicial services, and academic research.",
     cards: [
       {
-        title: "B.A. LL.B. (Hons.)",
+        title: "BA.LL.B. (Hons.)",
         iconName: "GraduationCap",
         points: [
           "5-Year Integrated Degree with Humanities & Law",
@@ -210,7 +168,7 @@ export const lawSchool: ProgramPageData = {
         ],
       },
       {
-        title: "B.B.A. LL.B. (Hons.)",
+        title: "BBA. LL.B. (Hons.)",
         iconName: "Award",
         points: [
           "5-Year Integrated Degree with Business & Law",
@@ -410,7 +368,7 @@ export const lawSchool: ProgramPageData = {
   careerPathways: {
     title: "Career Pathways",
     description:
-      "After completing a law program, you can choose from a wide array of career options in both public and private sectors. Graduates can pursue roles as advocates, legal advisors, judicial officers, corporate counsels, and legal consultants in law firms, companies, or government departments. Our law programs equip students with essential skills like critical thinking, legal reasoning, communication, and advocacy that pave the way for professional success. Whether you are interested in making a career in litigation, the judiciary, policymaking, human rights, or corporate law, we ensure that you have the right knowledge and training to excel.",
+      "After completing a law program, graduates can pursue diverse career opportunities across the public and private sectors. Career paths include advocacy, legal advisory, judicial services, corporate counsel, and legal consultancy in law firms, companies, and government departments. Our law programs develop essential skills such as critical thinking, legal reasoning, communication, and advocacy. Whether you aspire to a career in litigation, the judiciary, policymaking, human rights, or corporate law, our programs provide the knowledge and practical training you need to build a successful legal career.",
     notableRoles: [
       { name: "Litigation/Corporate Lawyer" },
       { name: "Judge/Judicial Services" },
@@ -441,13 +399,13 @@ export const lawSchool: ProgramPageData = {
         "Passed the 10+2 examination in any stream with at least 50% marks in aggregate (45% for reserved category) from any recognized board.",
       programs: [
         {
-          name: "B.A. LL.B. (Hons.)",
+          name: "BA.LL.B. (Hons.)",
           duration: "5 years Integrated",
           eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
           href: "https://geetauniversity.edu.in/programs/geeta-global-law-school/ba-llb",
         },
         {
-          name: "B.B.A. LL.B. (Hons.)",
+          name: "BBA. LL.B. (Hons.)",
           duration: "5 years Integrated",
           eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
           href: "https://geetauniversity.edu.in/programs/geeta-global-law-school/bba-llb",
