@@ -53,6 +53,7 @@ const primaryNavLinks: NavEntry[] = [
         links: [
           { label: "About Us", href: "/about" },
           { label: "Contact Us", href: "/contact-us" },
+          { label: "Social Links", href: "/social-links" },
           { label: "Careers @ GU", href: "/careers" },
           { label: "UGC Approvals & Compliance", href: "/ugc" },
         ],
@@ -995,6 +996,10 @@ export default function Navbar() {
           </div>
 
           <div className="gu-topbar-right">
+            <Link href="/social-links" className="gu-topbar-ico" style={{ fontWeight: 600 }}>
+              Social Links
+            </Link>
+            <div className="gu-vdivider" />
             <Link href="/contact-us" className="gu-topbar-ico" style={{ fontWeight: 600 }}>
               Contact Us
             </Link>
