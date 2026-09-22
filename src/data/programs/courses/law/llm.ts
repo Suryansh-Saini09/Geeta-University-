@@ -31,20 +31,20 @@ export const llm: CoursePageData = {
       "Passed Bachelor's degree in Law (LL.B. 3 Years or 5 Years Integrated) with minimum 50% marks in aggregate.",
   },
   overview: {
-    title: "Master of Laws (LLM)",
+    title: "Master of Laws (LL.M.)",
     paragraphs: [
-      "Geeta University Master of Laws (LLM) program is made to provide advanced legal education to students who would like to specialize in certain areas of law. Geeta University LLM program is respected for its academic richness, highly-experienced faculty, and intensive research performance. We offer students the chance to gain detailed knowledge of the national and international legal systems.",
-      "An LLM program at Geeta University offers students legal education based on their interests and career plans. Constitutional Law, LLM Criminal Law, International Law, Cyber Law, Intellectual Property Law etc. are some trending LLM courses.",
-      "Geeta LLM University offers facilities like libraries, moot courts, and research centres to foster a motivational learning setting for LLM students. The course is perfect for students who wish to become legal experts and work in the legal profession.",
+      "The Master of Laws (LL.M.) program at Geeta Global Law School, Geeta University, is designed to provide advanced legal education to scholars and professionals aspiring to specialize in critical domains of contemporary jurisprudence. Respected for its academic rigor, distinguished faculty, and intensive research ecosystem, the program offers in-depth mastery of domestic and international legal systems.",
+      "The LL.M. curriculum allows students to align their legal education with specialized career tracks. Constitutional Law, Criminal Law, Corporate & Commercial Law, International Law, Cyber Law, and Intellectual Property Rights are among the key specialization tracks offered.",
+      "Geeta Global Law School provides state-of-the-art facilities including digital law libraries, moot courts, judgment writing labs, and research centers to foster an inspiring environment for postgraduate law scholars.",
     ],
   },
   takeaways: [
-    "Specialization: You can focus on areas of law you're passionate about, boosting your chances of landing your dream job.",
-    "More Opportunities: LLM graduates can access various career options in corporate, public, and international sectors.",
-    "Higher Earnings: Graduating from GU LLM University often leads to better-paying jobs than LLB holders, especially in private firms.",
-    "Ph.D. Path: If a PhD is your goal, an LLM University is usually necessary.",
-    "Teaching Options: You can become a law professor or lecturer at an esteemed university with an LLM.",
-    "Global Recognition: An LLM opens doors to work in different countries and is recognized internationally.",
+    "Specialization: Focus on high-demand legal domains to accelerate your career in corporate law, litigation, or policymaking.",
+    "Diverse Opportunities: Access expansive career pathways across corporate legal cells, high courts, international bodies, and public service.",
+    "Higher Career Trajectory: Gain advanced credentials recognized by top law firms, multinational enterprises, and regulatory authorities.",
+    "Ph.D. Foundation: Build essential research methodology and scholarly publications for doctoral studies in law.",
+    "Academic Careers: Qualify for faculty, lectureship, and academic researcher roles across esteemed law universities.",
+    "Global Recognition: Gain practical perspective and credentials valued across domestic and international legal practice.",
   ],
   subjects: [
     "Legal Research Methodology",
@@ -67,19 +67,19 @@ export const llm: CoursePageData = {
   ],
   admission: {
     eligibility:
-      "For Geeta LLM University, applicants must have completed a Bachelor’s degree in Law (LL.B. or equivalent) with a minimum of 50% marks.",
-    whyChooseHeading: "Why Choose Geeta LLM University?",
+      "Applicants must have completed a Bachelor’s degree in Law (LL.B. 3 years or 5 years integrated) with a minimum of 50% marks in aggregate from a recognized university.",
+    whyChooseHeading: "Why Choose Geeta Global Law School for LL.M.?",
     whyChooseParagraphs: [
-      "Diverse Specializations: Geeta LLM University provides distinct high-demand specialization programs that include Corporate & Commercial Law, Constitutional Law, Criminal Law, and International Trade Law.",
-      "Expert Faculty: Learn from renowned legal scholars, practitioners, and corporate law experts with deep research and courtroom experience.",
-      "Industry Exposure: Learners gain industrial exposure through internships, moot courts, and legal research projects.",
-      "Placement Assistance: Strong industry connections resulting in top placements at law firms, corporate houses, and government agencies.",
+      "Diverse Specializations: Geeta Global Law School provides high-demand specialization tracks including Corporate & Commercial Law, Constitutional Law, Criminal Law, and Cyber Law.",
+      "Expert Faculty: Learn from renowned legal scholars, former Vice Chancellors, practitioners, and corporate law experts with deep courtroom and academic experience.",
+      "Industry & Court Exposure: Scholars gain practical exposure through high court internships, moot courts, and structured research projects.",
+      "Placement Assistance: Strong industry connections facilitating premier placements at law firms, corporate houses, chambers, and think tanks.",
     ],
   },
   whyGeeta: {
-    title: "Why Choose Geeta University for Master of Laws (LLM)?",
+    title: "Why Choose Geeta University for Master of Laws (LL.M.)?",
     intro:
-      "Geeta University provides its students with a remarkable opportunity to pursue a Law Degree LLM which addresses modern legal sector needs.",
+      "Geeta University provides students with an exceptional opportunity to pursue an advanced LL.M. degree addressing the evolving needs of the modern legal profession.",
     reasons: [
       {
         title: "Diverse Specializations",
@@ -106,7 +106,7 @@ export const llm: CoursePageData = {
   career: {
     title: "Career Opportunities",
     intro:
-      "There are various career options available after completing an LLM Course. Graduates can work in advocacy, judicial services, corporate legal teams, and academia. Top career paths and recruiters include:",
+      "There are diverse career options available after completing an LL.M. degree. Graduates can excel in advocacy, judicial services, corporate legal counsel, and academia. Top career paths include:",
     govtRoles: [
       {
         title: "Judicial Services & Public Prosecutor",
@@ -128,7 +128,7 @@ export const llm: CoursePageData = {
       {
         title: "Corporate Lawyer & Legal Consultant",
         description:
-          "Corporate legal counsel in MNCs, ICICI Legal Division, and international law firms.",
+          "Corporate legal counsel in MNCs, corporate legal divisions, and international law firms.",
       },
       {
         title: "Academician & Research Fellow",
@@ -140,54 +140,61 @@ export const llm: CoursePageData = {
   faculty: [
     {
       name: "Prof. (Dr) Sanjeevi Shanthakumar",
-      designation: "Director-Vice Chancellor",
+      designation: "Director - Vice Chancellor",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-1.webp",
+      imagePosition: "center 28%",
       description: "Gujarat National Law University, Gandhinagar.",
     },
     {
       name: "Prof. (Dr) Manjula Batra",
-      designation: "Professor, Dean (Former)",
+      designation: "Professor & Former Dean",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-2.webp",
-      description: "Department of Law, Jamia Milia Islamia University, Delhi",
+      imagePosition: "center 28%",
+      description: "Faculty of Law, Jamia Millia Islamia, Delhi.",
     },
     {
       name: "Prof. (Dr.) Rajpal Sharma",
       designation: "Director",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-3.webp",
-      description: "Institute of Law, Kurukshetra University, Kurukshetra",
+      imagePosition: "center 26%",
+      description: "Institute of Law, Kurukshetra University, Kurukshetra.",
     },
     {
       name: "Prof. (Dr) S.S. Jaswal",
       designation: "Registrar",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-4.webp",
+      imagePosition: "center 28%",
       description: "HP National Law University, Shimla.",
     },
     {
-      name: "prof. (Dr.) Nishtha Jaswal",
-      designation: "Vice Chancellor",
+      name: "Prof. (Dr.) Nishtha Jaswal",
+      designation: "Former Vice Chancellor",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-5.webp",
-      description: "(Former) Himachal Pradesh National law University , Shimla",
+      imagePosition: "center 28%",
+      description: "Former Vice Chancellor, HP National Law University, Shimla.",
     },
     {
       name: "Prof. (Dr.) Kamaljeet Singh",
       designation: "Vice Chancellor",
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-6.webp",
-      description: "Madhusudan law University, Odisha",
+      imagePosition: "center 22%",
+      description: "Madhusudan Law University, Odisha.",
     },
     {
-      name: "DR. ANAND PRAKASH MISHRA",
+      name: "Dr. Anand Prakash Mishra",
       designation:
         "Executive Dean - Institutional Outreach & Senior Director of Law Admissions",
       qualification: "LL.B., LL.M. (Delhi University), UGC-NET",
       image: "/programs/law/mentor-7.webp",
+      imagePosition: "center 28%",
       description:
-        "Prof. Anand Prakash Mishra is a Professor of Practice and Vice Dean at Jindal Global Law School of OP Jindal Global University.",
+        "Professor of Practice and Vice Dean at Jindal Global Law School, OP Jindal Global University.",
     },
   ],
   testimonials: [
@@ -198,7 +205,7 @@ export const llm: CoursePageData = {
       text: "My journey at Geeta Global Law School helped me develop confidence, discipline, and a broader perspective on legal studies. The university’s research-oriented approach prepared me for future academic and professional opportunities.",
     },
     {
-      name: "Anjali gupta",
+      name: "Anjali Gupta",
       role: "LL.M. Student",
       image: "/programs/law/llm/anajli_testimonial.webp",
       text: "Being at Geeta Global Law School allowed me to gain valuable knowledge, research exposure, and professional confidence. The university’s positive academic atmosphere inspired me to continuously learn and grow in the field of law.",

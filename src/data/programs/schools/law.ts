@@ -45,7 +45,7 @@ export const lawSchool: ProgramPageData = {
         studentName: "Priyanshu Verma",
         pkg: "40 LPA",
         company: "Corporate & Legal Advisory",
-        program: "BBA.LL.B. (Hons.)",
+        program: "BBA. LL.B. (Hons.)",
         image: "/programs/law/gallery-1.webp",
         titleThin: "Advocate. Analyze. Lead.",
         titleBoldLine1: "Geeta Global",
@@ -61,7 +61,7 @@ export const lawSchool: ProgramPageData = {
         studentName: "Ananya Sharma",
         pkg: "Judicial Track",
         company: "High Court & Chambers",
-        program: "BA.LL.B. (Hons.)",
+        program: "BA. LL.B. (Hons.)",
         image: "/programs/law/gallery-2.webp",
         titleThin: "Excellence in Jurisprudence",
         titleBoldLine1: "Legal Reasoning",
@@ -117,7 +117,7 @@ export const lawSchool: ProgramPageData = {
     items: [
       {
         title: "Industry Oriented Curriculum",
-        desc: "Specialized legal training with curriculum that integrates traditional legal principles with emerging areas of Law",
+        desc: "Specialized legal training with a curriculum that integrates traditional legal principles with emerging areas of law.",
       },
       {
         title: "Flexible Choice Based Credit System",
@@ -125,15 +125,15 @@ export const lawSchool: ProgramPageData = {
       },
       {
         title: "Distinguished Faculty",
-        desc: "Faculty comprises highly experienced legal professionals, scholars & practitioners.",
+        desc: "Faculty comprises highly experienced legal professionals, scholars, and practitioners.",
       },
       {
         title: "Digitally Enabled Campus",
-        desc: "The use of Advanced Computer Technology in every aspect of campus life enhances student convenience & comfort.",
+        desc: "The use of advanced digital technology across campus enhances student learning, research, and convenience.",
       },
       {
         title: "Go Global With GU",
-        desc: "Internships & Student exchange programs at Top Rated European Universities",
+        desc: "Internships and student exchange programs at top-rated international and European universities.",
       },
       {
         title: "Outcome Based Education (OBE)",
@@ -141,25 +141,25 @@ export const lawSchool: ProgramPageData = {
       },
       {
         title: "Skill Enhancement Certifications",
-        desc: "On Contract Drafting, Corporate Governance IPR, Investment Law, Cyber Law & many more",
+        desc: "Certifications in Contract Drafting, Corporate Governance, IPR, Investment Law, Cyber Law, and more.",
       },
       {
         title: "Experiential Learning",
-        desc: "Regular conduct of Moot courts, Legal aid clinics & expert lectures by judges, senior advocates, legal experts",
+        desc: "Regular moot court competitions, legal aid clinics, and masterclasses by judges, senior advocates, and legal experts.",
       },
     ],
   },
 
   featuredPrograms: {
     title1: "Integrated Law (5 years)",
-    tag1: "BA.LL.B. / BBA. LL.B.",
+    tag1: "BA. LL.B. / BBA. LL.B.",
     title2: "Postgraduate & Research",
     tag2: "LL.M. (1 year) & Ph.D.",
     description:
       "Comprehensive, Bar Council of India (BCI) recognized law programs preparing students for litigation, corporate law, judicial services, and academic research.",
     cards: [
       {
-        title: "BA.LL.B. (Hons.)",
+        title: "BA. LL.B. (Hons.)",
         iconName: "GraduationCap",
         points: [
           "5-Year Integrated Degree with Humanities & Law",
@@ -232,6 +232,7 @@ export const lawSchool: ProgramPageData = {
         description:
           "Director-Vice Chancellor at Gujarat National Law University, Gandhinagar. Eminent legal scholar and education reformer guiding curriculum standards, research initiatives, and global academic affiliations at Geeta Global Law School.",
         image: "/programs/law/mentor-1.webp",
+        imagePosition: "center 28%",
       },
       {
         name: "Prof. (Dr) Manjula Batra",
@@ -240,6 +241,7 @@ export const lawSchool: ProgramPageData = {
         description:
           "Former Dean and Professor at the Department of Law, Jamia Millia Islamia University, Delhi. Specialist in human rights, gender jurisprudence, and criminal law with decades of academic and research leadership.",
         image: "/programs/law/mentor-2.webp",
+        imagePosition: "center 28%",
       },
       {
         name: "Prof. (Dr.) Rajpal Sharma",
@@ -248,6 +250,7 @@ export const lawSchool: ProgramPageData = {
         description:
           "Director at the Institute of Law, Kurukshetra University, Kurukshetra. Eminent scholar in commercial laws, jurisprudence, and procedural law dedicated to fostering practical legal acumen and trial excellence.",
         image: "/programs/law/mentor-3.webp",
+        imagePosition: "center 26%",
       },
       {
         name: "Prof. (Dr) S.S. Jaswal",
@@ -256,6 +259,7 @@ export const lawSchool: ProgramPageData = {
         description:
           "Registrar at HP National Law University, Shimla. Veteran administrator and professor of law bringing vast institutional governance, regulatory expertise, and curricular excellence to Geeta University.",
         image: "/programs/law/mentor-4.webp",
+        imagePosition: "center 28%",
       },
       {
         name: "Prof. (Dr.) Nishtha Jaswal",
@@ -264,6 +268,7 @@ export const lawSchool: ProgramPageData = {
         description:
           "Former Vice Chancellor at Himachal Pradesh National Law University, Shimla. Renowned constitutional and administrative law scholar recognized nationally for contributions to judicial training and legal education reform.",
         image: "/programs/law/mentor-5.webp",
+        imagePosition: "center 28%",
       },
       {
         name: "Prof. (Dr.) Kamaljeet Singh",
@@ -272,6 +277,7 @@ export const lawSchool: ProgramPageData = {
         description:
           "Vice Chancellor at Madhusudan Law University, Odisha. Prominent expert in constitutional law, human rights, and legal pedagogy mentoring students towards top outcomes in judicial and litigation careers.",
         image: "/programs/law/mentor-6.webp",
+        imagePosition: "center 22%",
       },
       {
         name: "Dr. Anand Prakash Mishra",
@@ -280,6 +286,7 @@ export const lawSchool: ProgramPageData = {
         description:
           "Professor of Practice and Vice Dean at Jindal Global Law School of O.P. Jindal Global University. Obtained LL.B. and LL.M. from Campus Law Centre, Faculty of Law, University of Delhi and qualified UGC-NET in Law. Over two decades of legal education leadership, Fellow at IIHEd, and acclaimed teacher in Torts, Labour Law, and Legal Methods.",
         image: "/programs/law/mentor-7.webp",
+        imagePosition: "center 28%",
       },
     ],
   },
@@ -385,7 +392,7 @@ export const lawSchool: ProgramPageData = {
   brochure: {
     title: "Want to know more?",
     description:
-      "Access detailed syllabus guides for B.A. LL.B., B.B.A. LL.B., LL.M., and Ph.D., moot court achievements, mentor profiles, and admission guidelines.",
+      "Access detailed syllabus guides for BA. LL.B. (Hons.), BBA. LL.B. (Hons.), LL.M., and Ph.D., moot court achievements, mentor profiles, and admission guidelines.",
     fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
     fileName: "Geeta_Global_Law_School_Brochure.pdf",
   },
@@ -399,7 +406,7 @@ export const lawSchool: ProgramPageData = {
         "Passed the 10+2 examination in any stream with at least 50% marks in aggregate (45% for reserved category) from any recognized board.",
       programs: [
         {
-          name: "BA.LL.B. (Hons.)",
+          name: "BA. LL.B. (Hons.)",
           duration: "5 years Integrated",
           eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
           href: "https://geetauniversity.edu.in/programs/geeta-global-law-school/ba-llb",
