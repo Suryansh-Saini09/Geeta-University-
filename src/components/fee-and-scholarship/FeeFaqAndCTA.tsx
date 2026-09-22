@@ -54,10 +54,6 @@ export default function FeeFaqAndCTA() {
       <div className="gu-container">
         {/* FAQs Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#0A1F44]/5 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider text-[#0A1F44] mb-3">
-            <HelpCircle className="h-3.5 w-3.5 text-[#E8871A]" />
-            <span>Got Questions?</span>
-          </div>
           <h2 className="font-serif text-[30px] sm:text-[38px] md:text-[44px] font-black text-[#0A1F44]">
             Frequently Asked Questions
           </h2>

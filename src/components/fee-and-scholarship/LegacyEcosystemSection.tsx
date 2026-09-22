@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Sparkles, Building, Rocket, GraduationCap } from "lucide-react";
+import { Building, Rocket, GraduationCap } from "lucide-react";
 
 export default function LegacyEcosystemSection() {
   const ecosystem = [
@@ -14,14 +14,14 @@ export default function LegacyEcosystemSection() {
       icon: <GraduationCap className="h-5 w-5 text-white" />,
     },
     {
-      title: "Geeta Finishing School (GFS)",
-      subtitle: "Communication & Corporate Readiness",
-      bgClass: "bg-[#07589F]",
-      barColor: "bg-[#07589F]",
+      title: "G-EDGE",
+      subtitle: "Corporate Readiness, Army Strength & Life Skills",
+      bgClass: "bg-[#066191]",
+      barColor: "bg-[#066191]",
       icon: <Rocket className="h-5 w-5 text-white" />,
     },
     {
-      title: "Geeta Technical Hub (GTH)",
+      title: "XEDGE",
       subtitle: "Advanced Technology, Certifications, and Industry Skills",
       bgClass: "bg-[#013D55]",
       barColor: "bg-[#013D55]",
@@ -34,10 +34,6 @@ export default function LegacyEcosystemSection() {
       <div className="gu-container">
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#0A1F44]/5 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider text-[#0A1F44] mb-3">
-            <Sparkles className="h-3.5 w-3.5 text-[#E8871A]" />
-            <span>40+ Years of Excellence</span>
-          </div>
           <h2 className="font-serif text-[30px] sm:text-[38px] md:text-[44px] font-black text-[#0A1F44]">
             Legacy &amp; Ecosystem
           </h2>

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { gutsFaqsData } from "@/data/gutsData";
-import { Play, ChevronDown, HelpCircle, Phone } from "lucide-react";
+import { Play, ChevronDown, Phone } from "lucide-react";
 import VideoModal from "@/components/campus-life/VideoModal";
 
 export default function GutsFaqAndVideo() {
@@ -90,9 +90,6 @@ export default function GutsFaqAndVideo() {
                   <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#E8871A] text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
                     <Play className="h-8 w-8 fill-current translate-x-0.5" />
                   </div>
-                  <span className="mt-4 rounded-full bg-black/70 px-5 py-2 text-xs sm:text-sm font-bold text-white backdrop-blur-md">
-                    Click to Watch GUTS Guide Video
-                  </span>
                 </div>
               </div>
 

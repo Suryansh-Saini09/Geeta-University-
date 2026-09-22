@@ -1,12 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { gutsAdmissionSteps } from "@/data/gutsData";
-import { Laptop, ShieldAlert, PhoneCall, ChevronDown, CheckCircle2 } from "lucide-react";
 
 export default function GutsAdmissionProcess() {
-  const [openStep, setOpenStep] = useState<number | null>(1);
-
   return (
     <section id="admission-process" className="w-full bg-[#F8FAFC] py-14 sm:py-18 md:py-22 border-b border-[#E2E8F0]">
       <div className="gu-container space-y-12">
@@ -14,36 +11,24 @@ export default function GutsAdmissionProcess() {
         <div>
           <div className="mb-3 flex items-center gap-3">
             <span className="h-[2px] w-8 bg-[#E8871A]" />
-            <span className="text-[12px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Step-by-Step Process
-            </span>
           </div>
           <h2 className="font-serif text-[30px] sm:text-[38px] md:text-[44px] font-black text-[#0A1F44]">
             GUTS: Exam Details &amp; Admission Process
           </h2>
           <p className="mt-2 text-[16px] text-[#64748B]">
-            Follow the streamlined 6-step flow to take the test and claim your merit scholarship.
+            Step-by-Step Admission Flow
           </p>
         </div>
 
         {/* 6-Step Interactive Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {gutsAdmissionSteps.map((step) => {
-            const isOpen = openStep === step.stepNumber;
             return (
               <div
                 key={step.stepNumber}
                 className="rounded-[20px] bg-white border border-[#E2E8F0] p-6 shadow-sm flex flex-col justify-between transition-all hover:border-[#E8871A]/50"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0E385D] text-xs font-black text-white">
-                      0{step.stepNumber}
-                    </span>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#E8871A]">
-                      Phase {step.stepNumber}
-                    </span>
-                  </div>
                   <h3 className="font-serif text-[18px] sm:text-[19px] font-bold text-[#0A1F44] mb-2 leading-snug">
                     {step.title}
                   </h3>
@@ -60,10 +45,7 @@ export default function GutsAdmissionProcess() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
           {/* Card 1: Mode, Timing & Platform */}
           <div className="rounded-[22px] bg-white p-7 sm:p-9 border border-[#E2E8F0] shadow-sm">
-            <div className="flex items-center gap-3 mb-5 pb-3 border-b border-[#F1F5F9]">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0E395C]/10 text-[#0E395C]">
-                <Laptop className="h-5 w-5" />
-              </div>
+            <div className="mb-5 pb-3 border-b border-[#F1F5F9]">
               <h3 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#0A1F44]">
                 Mode, Timing &amp; Platform
               </h3>
@@ -93,10 +75,7 @@ export default function GutsAdmissionProcess() {
 
           {/* Card 2: Important Exam-Day Instructions */}
           <div className="rounded-[22px] bg-white p-7 sm:p-9 border border-[#E2E8F0] shadow-sm">
-            <div className="flex items-center gap-3 mb-5 pb-3 border-b border-[#F1F5F9]">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF5F19]/10 text-[#FF5F19]">
-                <ShieldAlert className="h-5 w-5" />
-              </div>
+            <div className="mb-5 pb-3 border-b border-[#F1F5F9]">
               <h3 className="font-serif text-[22px] sm:text-[24px] font-bold text-[#0A1F44]">
                 Exam-Day Instructions
               </h3>

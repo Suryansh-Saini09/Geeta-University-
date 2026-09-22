@@ -1,77 +1,124 @@
 "use client";
 
-import React, { useState } from "react";
 import Image from "next/image";
-import { cuetTestimonials } from "@/data/cuetData";
-import { Quote } from "lucide-react";
+import React from "react";
+import { homeFeedback } from "@/data/homeFeedback";
+import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
-export default function CuetTestimonials() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const pageSize = 3;
-  const totalPages = Math.ceil(cuetTestimonials.length / pageSize);
-
-  const displayedItems = cuetTestimonials.slice(
-    currentPage * pageSize,
-    (currentPage + 1) * pageSize
-  );
-
-  const handlePrev = () => {
-    setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : 0));
-  };
+export default function HomeFeedbackSection() {
+  const {
+    containerRef,
+    currentIndex,
+    maxIndex,
+    next,
+    prev,
+    goTo,
+    handleScroll,
+    handleMouseDown,
+    handleMouseLeave,
+    handleMouseEnter,
+    handleMouseUp,
+    handleMouseMove,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useFiniteCarousel({
+    totalItems: homeFeedback.length,
+    autoplayInterval: 3000,
+    enableAutoplay: true,
+  });
 
   return (
-    <section className="w-full bg-[#FFFFFF] py-14 sm:py-18 md:py-22 border-b border-[#E2E8F0]">
-      <div className="gu-container">
+    <section className="relative overflow-hidden bg-[#F5F8FB] pt-8 md:pt-10 pb-16 md:pb-20">
+      {/* Decorative background elements */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#F28C18]/5 blur-3xl"
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[#06355F]/5 blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        {/* Section heading */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <div className="mb-3 flex items-center justify-center gap-3">
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-            <span className="text-[12px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Proven Track Record
-            </span>
-            <span className="h-[2px] w-8 bg-[#E8871A]" />
-          </div>
-          <h2 className="font-serif text-[32px] sm:text-[40px] font-black text-[#0A1F44]">
-            From Campus To Corporate Success
+          <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
+            From Campus to{" "}
+            <span className="text-[#F28C18]">Corporate Success</span>
           </h2>
-          <p className="mt-2 text-[16px] text-[#64748B]">
-            Discover how students achieved career milestones and high-value corporate placements at Geeta University.
-          </p>
+
+          <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
         </div>
 
-        {/* Testimonials Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {displayedItems.map((item, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col justify-between rounded-[22px] border border-[#E2E8F0] bg-white p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#E8871A]/40 hover:shadow-md"
+        {/* Horizontally Scrollable & Draggable Cards Track */}
+        <div
+          ref={containerRef}
+          onScroll={handleScroll}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {homeFeedback.map((student, index) => (
+            <article
+              key={`${student.name}-${index}`}
+              className={`group relative flex w-[300px] sm:w-[350px] md:w-[380px] shrink-0 flex-col overflow-hidden rounded-3xl border bg-white p-7 pb-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+                index % 2 === 1 ? "border-[#F28C18]/40" : "border-[#DCE5ED]"
+              }`}
             >
-              <div>
-                <div className="relative mx-auto mb-5 h-24 w-24 overflow-hidden rounded-full border-4 border-[#E8871A] shadow-md">
+              {/* Top Accent Bar */}
+              <div
+                className={`absolute left-0 top-0 h-1.5 w-full transition-all duration-300 ${
+                  index % 2 === 1 ? "bg-[#F28C18]" : "bg-[#06355F]"
+                }`}
+              />
+
+              {/* Student identity */}
+              <div className="flex items-center gap-4">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border-4 border-[#F5F8FB] bg-[#EAF0F5]">
                   <Image
-                    src={item.image}
-                    alt={item.name}
+                    src={student.image}
+                    alt={student.name}
                     fill
-                    sizes="96px"
-                    className="object-cover object-center"
+                    sizes="80px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
                   />
                 </div>
 
-                <h3 className="font-serif text-[20px] font-bold text-[#0A1F44]">
-                  {item.name}
-                </h3>
-                <div className="font-bold text-[15px] text-[#06355F] mt-1 mb-3">
-                  {item.package}
-                </div>
+                <div className="min-w-0">
+                  <h3 className="font-serif text-xl font-bold text-[#06355F]">
+                    {student.name}
+                  </h3>
 
-                <p className="text-[14.5px] italic leading-relaxed text-[#475569]">
-                  &ldquo;{item.quote}&rdquo;
-                </p>
+                  <div className="mt-2 inline-flex items-center rounded-full bg-[#FFF3E2] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#D97706]">
+                    Package · {student.package}
+                  </div>
+                </div>
               </div>
-            </div>
+
+              {/* Quote */}
+              <div className="mt-7 flex flex-1 flex-col justify-between">
+                <div>
+                  <span
+                    aria-hidden="true"
+                    className="font-serif text-5xl font-bold leading-none text-[#F28C18]/25"
+                  >
+                    “
+                  </span>
+
+                  <p className="mt-[-6px] text-[15px] leading-7 text-[#536B83]">
+                    {student.testimonial}
+                  </p>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </div>

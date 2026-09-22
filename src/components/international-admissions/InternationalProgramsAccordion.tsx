@@ -1,276 +1,549 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import {
+  ArrowRight,
   ChevronDown,
-  Search,
   GraduationCap,
-  ArrowUpRight,
-  Sparkles,
-  Maximize2,
-  Minimize2,
-  BookOpen,
+  Award,
+  Atom,
 } from "lucide-react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { INTERNATIONAL_PROGRAM_CATEGORIES } from "@/data/internationalAdmissions";
 
-// Quick filter categories
-const FILTER_TABS = [
-  { id: "all", label: "All Schools" },
-  { id: "tech", label: "Engineering & IT", categories: ["Computer Science & Engineering", "Computer Applications"] },
-  { id: "management", label: "Management & Commerce", categories: ["Business Management", "Commerce"] },
-  { id: "health", label: "Pharmacy & Health", categories: ["Pharmacy", "Nutrition & Dietetics", "Nursing*"] },
-  { id: "law-humanities", label: "Law & Humanities", categories: ["Law", "Humanities & Social Sciences", "Hospitality & Hotel Management"] },
-  { id: "science", label: "Sciences & Agriculture", categories: ["Agricultural Sciences", "Forensic Science"] },
-];
+type Program = {
+  name: string;
+  href?: string;
+};
 
-export default function InternationalProgramsAccordion() {
-  // All accordions collapsed by default for a clean, uniform grid
-  const [openCategories, setOpenCategories] = useState<number[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [activeTab, setActiveTab] = useState("all");
+type ProgramCategory = {
+  id: string;
+  number: string;
+  title: string;
+  shortTitle: string;
+  description?: string;
+  programs: Program[];
+  schoolHref?: string;
+};
 
-  const toggleCategory = (index: number) => {
-    if (openCategories.includes(index)) {
-      setOpenCategories(openCategories.filter((i) => i !== index));
-    } else {
-      setOpenCategories([...openCategories, index]);
-    }
-  };
+const programCategories: ProgramCategory[] = INTERNATIONAL_PROGRAM_CATEGORIES.map((cat, idx) => ({
+  id: `cat-${idx}`,
+  number: String(idx + 1).padStart(2, "0"),
+  title: cat.categoryName,
+  shortTitle: cat.categoryName,
+  schoolHref: cat.href,
+  programs: cat.programs.map((p) => ({
+    name: p.title,
+    href: p.href,
+  })),
+}));
 
-  const expandAll = () => {
-    setOpenCategories(INTERNATIONAL_PROGRAM_CATEGORIES.map((_, i) => i));
-  };
+const sectionVariants: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      staggerChildren: 0.12,
+    },
+  },
+};
 
-  const collapseAll = () => {
-    setOpenCategories([]);
-  };
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
 
-  // Helper to determine program level badge
-  const getLevelBadge = (title: string) => {
-    if (title.startsWith("Ph.D") || title.includes("Ph.D")) return { label: "Ph.D", bg: "bg-[#0A1F44] text-white" };
-    if (title.startsWith("M.Tech") || title.startsWith("MBA") || title.startsWith("M.Sc") || title.startsWith("M.Com") || title.startsWith("MCA") || title.startsWith("M.Pharm") || title.startsWith("M.A") || title.includes("Master"))
-      return { label: "PG", bg: "bg-blue-100 text-[#0A1F44]" };
-    if (title.startsWith("Diploma") || title.startsWith("D.Pharm") || title.startsWith("GNM"))
-      return { label: "Diploma", bg: "bg-emerald-100 text-emerald-800" };
-    return { label: "UG", bg: "bg-orange-100 text-[#E8871A]" };
-  };
+function getProgramLevel(name: string): "Undergraduate" | "Postgraduate" | "Ph.D." {
+  const lower = name.toLowerCase();
+  if (lower.includes("ph.d.") || lower.includes("phd") || lower.includes("doctoral")) {
+    return "Ph.D.";
+  }
+  if (
+    lower.startsWith("m.") ||
+    lower.startsWith("mba") ||
+    lower.startsWith("mca") ||
+    lower.startsWith("llm") ||
+    lower.startsWith("master") ||
+    lower.startsWith("m.sc") ||
+    lower.startsWith("m.pharm") ||
+    lower.startsWith("m.com") ||
+    lower.startsWith("m.tech") ||
+    lower.startsWith("m.a.")
+  ) {
+    return "Postgraduate";
+  }
+  return "Undergraduate";
+}
 
-  // Filtering logic
-  const filteredCategories = useMemo(() => {
-    return INTERNATIONAL_PROGRAM_CATEGORIES.map((cat, index) => {
-      const originalIndex = index;
-      const matchingPrograms = cat.programs.filter((prog) =>
-        prog.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+const LEVEL_CONFIG = {
+  Undergraduate: {
+    label: "Undergraduate Programs",
+    icon: GraduationCap,
+  },
+  Postgraduate: {
+    label: "Postgraduate Programs",
+    icon: Award,
+  },
+  "Ph.D.": {
+    label: "Ph.D. Programs",
+    icon: Atom,
+  },
+} as const;
 
-      // Check tab filter
-      const currentTabObj = FILTER_TABS.find((t) => t.id === activeTab);
-      const matchesTab =
-        activeTab === "all" ||
-        (currentTabObj?.categories && currentTabObj.categories.includes(cat.categoryName));
+function ProgramCategoryDetails({
+  category,
+  openLevels,
+  toggleLevel,
+}: {
+  category: ProgramCategory;
+  openLevels: Record<string, boolean>;
+  toggleLevel: (level: string) => void;
+}) {
+  const ugPrograms = category.programs.filter(
+    (p) => getProgramLevel(p.name) === "Undergraduate"
+  );
+  const pgPrograms = category.programs.filter(
+    (p) => getProgramLevel(p.name) === "Postgraduate"
+  );
+  const phdPrograms = category.programs.filter(
+    (p) => getProgramLevel(p.name) === "Ph.D."
+  );
 
-      const matchesSearch =
-        searchTerm === "" ||
-        cat.categoryName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        matchingPrograms.length > 0;
-
-      return {
-        ...cat,
-        originalIndex,
-        matchingPrograms: searchTerm ? matchingPrograms : cat.programs,
-        isVisible: matchesTab && matchesSearch,
-      };
-    }).filter((cat) => cat.isVisible);
-  }, [searchTerm, activeTab]);
+  const programSections = [
+    { level: "Undergraduate", label: "Undergraduate Programs", programs: ugPrograms },
+    { level: "Postgraduate", label: "Postgraduate Programs", programs: pgPrograms },
+    { level: "Ph.D.", label: "Ph.D. Programs", programs: phdPrograms },
+  ].filter((section) => section.programs.length > 0);
 
   return (
-    <section className="py-10 md:py-14 bg-[#F7F9FC]" id="programs-offered">
-      <div className="gu-container">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#E8871A] inline-flex items-center gap-1.5 bg-orange-50 border border-orange-200 px-3.5 py-1 rounded-full">
-            <Sparkles size={14} /> Academic Catalog
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black text-[#0A1F44] font-serif mt-3">
-            Programs Offered
-          </h2>
-          <p className="text-[#64748B] text-base mt-2 leading-relaxed">
-            Over 70+ Globally Industry-Aligned Diploma, Undergraduate, Postgraduate, and Doctoral Programs across 12 Specialized Schools.
-          </p>
-
-          {/* Search Box & Controls */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 max-w-2xl mx-auto">
-            <div className="relative flex-1 w-full">
-              <input
-                type="text"
-                placeholder="Search programs (e.g. B.Tech, MBA, Pharmacy, Cybersecurity)..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full rounded-2xl bg-white border border-[#E2E8F0] px-5 py-4 pl-12 text-sm text-[#0A1F44] shadow-sm focus:border-[#E8871A] focus:outline-none focus:ring-2 focus:ring-[#E8871A]/20 transition-all"
-              />
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#94A3B8]" size={18} />
-            </div>
-
-            {/* Expand / Collapse Control Buttons */}
-            <div className="flex gap-2 flex-shrink-0">
-              <button
-                onClick={expandAll}
-                className="inline-flex items-center gap-1.5 rounded-xl border border-[#E2E8F0] bg-white px-4 py-3.5 text-xs font-bold text-[#0A1F44] shadow-xs hover:border-[#E8871A] hover:text-[#E8871A] transition-all"
-                title="Expand All Accordions"
-              >
-                <Maximize2 size={14} /> Expand All
-              </button>
-              <button
-                onClick={collapseAll}
-                className="inline-flex items-center gap-1.5 rounded-xl border border-[#E2E8F0] bg-white px-4 py-3.5 text-xs font-bold text-[#0A1F44] shadow-xs hover:border-[#E8871A] hover:text-[#E8871A] transition-all"
-                title="Collapse All Accordions"
-              >
-                <Minimize2 size={14} /> Collapse All
-              </button>
-            </div>
-          </div>
-
-          {/* Filter Pills */}
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
-            {FILTER_TABS.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all duration-300 cursor-pointer ${
-                  activeTab === tab.id
-                    ? "bg-[#0A1F44] text-[#E8871A] shadow-md scale-105"
-                    : "bg-white text-[#64748B] border border-[#E2E8F0] hover:text-[#0A1F44] hover:bg-slate-100"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+    <div>
+      <div className="flex flex-col justify-between gap-4 sm:gap-6 sm:flex-row sm:items-start">
+        <div>
+          <h3
+            className="mt-1 font-serif text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl"
+            style={{
+              color: "var(--gu-navy, #0A1F44)",
+            }}
+          >
+            {category.title}
+          </h3>
         </div>
+      </div>
 
-        {/* Programs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start max-w-6xl mx-auto">
-          {filteredCategories.map((school) => {
-            const isOpen = openCategories.includes(school.originalIndex) || searchTerm.length > 0;
-            const programsToDisplay = school.matchingPrograms;
+      {/* Programs Categorised by Level with Dropdowns */}
+      <div className="mt-5 sm:mt-8 space-y-3 sm:space-y-4">
+        {programSections.map((section) => {
+          const isOpen = !!openLevels[section.level];
+          const config =
+            LEVEL_CONFIG[
+              section.level as keyof typeof LEVEL_CONFIG
+            ] || LEVEL_CONFIG.Undergraduate;
+          const Icon = config.icon;
 
-            return (
-              <motion.div
-                key={school.originalIndex}
-                layout
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="rounded-2xl bg-white border border-[#E2E8F0] shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#E8871A]/40"
+          return (
+            <div
+              key={section.level}
+              className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
+                isOpen
+                  ? "bg-white shadow-md border-[rgba(232,135,26,0.35)]"
+                  : "bg-white/90 hover:bg-white border-slate-200/90 hover:border-slate-300 hover:shadow-xs"
+              }`}
+            >
+              {/* Dropdown Header Toggle Button */}
+              <button
+                type="button"
+                onClick={() => toggleLevel(section.level)}
+                aria-expanded={isOpen}
+                className="flex w-full items-center justify-between gap-3 p-3 text-left transition-colors duration-200 hover:bg-slate-50/70 sm:p-5 cursor-pointer"
               >
-                {/* School Header Button */}
-                <button
-                  onClick={() => toggleCategory(school.originalIndex)}
-                  className="w-full p-5 flex items-center justify-between text-left bg-white hover:bg-slate-50/80 transition-colors cursor-pointer"
-                >
-                  <div className="flex items-center gap-3.5">
-                    <div className="h-11 w-11 rounded-xl bg-[#0A1F44] text-[#E8871A] flex items-center justify-center font-bold text-sm flex-shrink-0 shadow-sm">
-                      <GraduationCap size={22} />
-                    </div>
-                    <div>
-                      <h3 className="font-black text-[#0A1F44] text-base md:text-lg font-serif">
-                        {school.categoryName}
-                      </h3>
-                      <span className="text-xs text-[#64748B] font-semibold flex items-center gap-1.5 mt-0.5">
-                        <BookOpen size={12} className="text-[#E8871A]" />
-                        {programsToDisplay.length} Programs Available
-                      </span>
-                    </div>
+                <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                  {/* Icon Box */}
+                  <div
+                    className="flex h-9 w-9 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl transition-all duration-300"
+                    style={{
+                      backgroundColor: isOpen
+                        ? "var(--gu-navy, #0A1F44)"
+                        : "rgba(6, 53, 95, 0.06)",
+                      color: isOpen
+                        ? "var(--gu-gold, #E8871A)"
+                        : "var(--gu-navy, #0A1F44)",
+                    }}
+                  >
+                    <Icon className="h-4 w-4 sm:h-6 sm:w-6" />
                   </div>
 
+                  {/* Title */}
+                  <div className="min-w-0">
+                    <h4
+                      className="font-serif text-sm font-bold sm:text-lg"
+                      style={{
+                        color: "var(--gu-navy, #0A1F44)",
+                      }}
+                    >
+                      {config.label}
+                    </h4>
+                  </div>
+                </div>
+
+                {/* Right Chevron */}
+                <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                   <div
-                    className={`h-9 w-9 rounded-full bg-slate-100 flex items-center justify-center text-[#0A1F44] transition-all duration-300 ${
-                      isOpen ? "rotate-180 bg-[#E8871A] text-white" : "group-hover:bg-slate-200"
+                    className={`flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border transition-all duration-300 ${
+                      isOpen
+                        ? "rotate-180 bg-[#0A1F44] text-white border-[#0A1F44] shadow-xs"
+                        : "rotate-0 bg-slate-100 text-slate-600 border-slate-200"
                     }`}
                   >
-                    <ChevronDown size={18} />
+                    <ChevronDown size={15} />
                   </div>
-                </button>
+                </div>
+              </button>
 
-                {/* Programs Dropdown Content */}
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="border-t border-[#E2E8F0] p-5 bg-slate-50/70 space-y-3"
-                    >
-                      <div className="space-y-2">
-                        {programsToDisplay.map((prog, pIdx) => {
-                          const badge = getLevelBadge(prog.title);
+              {/* Dropdown Content */}
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{
+                      duration: 0.28,
+                      ease: "easeInOut",
+                    }}
+                    className="overflow-hidden"
+                  >
+                    <div className="border-t border-slate-100 bg-[#FAFBFD]/60 p-3 sm:p-5 lg:p-6">
+                      <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
+                        {section.programs.map((program) => {
+                          const isLink = !!program.href;
+
+                          const content = (
+                            <>
+                              <span
+                                className="flex h-2 w-2 rounded-full shrink-0 transition-transform duration-200 group-hover:scale-125"
+                                style={{
+                                  backgroundColor: "var(--gu-gold, #E8871A)",
+                                }}
+                              />
+
+                              <span
+                                className={`flex-1 text-xs sm:text-sm font-semibold leading-snug sm:leading-6 transition-colors duration-200 ${
+                                  isLink
+                                    ? "group-hover:text-[#E8871A]"
+                                    : ""
+                                }`}
+                                style={{
+                                  color: "var(--gu-navy, #0A1F44)",
+                                }}
+                              >
+                                {program.name}
+                              </span>
+
+                              {isLink && (
+                                <span
+                                  className="opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 flex items-center shrink-0"
+                                  style={{
+                                    color: "var(--gu-gold, #E8871A)",
+                                  }}
+                                >
+                                  <ArrowRight size={15} />
+                                </span>
+                              )}
+                            </>
+                          );
+
+                          if (isLink) {
+                            return (
+                              <Link
+                                key={program.name}
+                                href={program.href as string}
+                                className="group flex items-center gap-2.5 sm:gap-3 rounded-xl border bg-white p-3 sm:p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[#E8871A]/40"
+                                style={{
+                                  borderColor: "rgba(6, 53, 95, 0.08)",
+                                }}
+                              >
+                                {content}
+                              </Link>
+                            );
+                          }
+
                           return (
                             <div
-                              key={pIdx}
-                              className="flex items-center justify-between gap-3 text-sm font-semibold text-[#1E293B] p-2.5 rounded-xl bg-white border border-slate-200/80 hover:border-[#E8871A]/50 hover:shadow-xs transition-all"
+                              key={program.name}
+                              className="flex items-center gap-2.5 sm:gap-3 rounded-xl border bg-white p-3 sm:p-4"
+                              style={{
+                                borderColor: "rgba(6, 53, 95, 0.06)",
+                              }}
                             >
-                              <div className="flex items-center gap-2.5 min-w-0">
-                                <span className={`text-[10px] font-black px-2 py-0.5 rounded-md flex-shrink-0 uppercase ${badge.bg}`}>
-                                  {badge.label}
-                                </span>
-                                {prog.href ? (
-                                  <Link
-                                    href={prog.href}
-                                    className="text-[#0A1F44] hover:text-[#E8871A] font-semibold truncate transition-colors flex items-center gap-1"
-                                  >
-                                    <span className="truncate">{prog.title}</span>
-                                    <ArrowUpRight size={14} className="text-[#E8871A] flex-shrink-0" />
-                                  </Link>
-                                ) : (
-                                  <span className="truncate text-[#334155]">{prog.title}</span>
-                                )}
-                              </div>
+                              {content}
                             </div>
                           );
                         })}
                       </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
+      </div>
 
-                      <div className="pt-3 border-t border-slate-200 flex justify-between items-center">
-                        <Link
-                          href={school.href}
-                          className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#E8871A] hover:text-[#0A1F44] transition-colors"
-                        >
-                          View School Curriculum
-                          <ArrowUpRight size={14} />
-                        </Link>
-                        <span className="text-[11px] font-bold text-[#94A3B8]">
-                          {programsToDisplay.length} Degrees
-                        </span>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {filteredCategories.length === 0 && (
-          <div className="text-center py-12 bg-white rounded-3xl border border-[#E2E8F0] max-w-xl mx-auto">
-            <GraduationCap size={40} className="mx-auto text-[#94A3B8] mb-3" />
-            <h4 className="text-lg font-bold text-[#0A1F44]">No Matching Programs Found</h4>
-            <p className="text-xs text-[#64748B] mt-1">
-              Try adjusting your search query or switching category filter tabs.
-            </p>
-            <button
-              onClick={() => {
-                setSearchTerm("");
-                setActiveTab("all");
+      {/* School CTA */}
+      {category.schoolHref && (
+        <div className="mt-5 sm:mt-8 flex flex-col gap-3 sm:gap-4 border-t pt-5 sm:pt-7 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p
+              className="text-xs sm:text-sm font-semibold"
+              style={{
+                color: "var(--gu-navy, #0A1F44)",
               }}
-              className="mt-4 text-xs font-bold text-[#E8871A] underline"
             >
-              Reset Filters
-            </button>
+              View the complete school offering.
+            </p>
           </div>
-        )}
+
+          <Link
+            href={category.schoolHref}
+            className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+            style={{
+              backgroundColor: "var(--gu-navy, #0A1F44)",
+              color: "#ffffff",
+            }}
+          >
+            Explore School
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function InternationalProgramsAccordion() {
+  const [activeCategory, setActiveCategory] = useState<string | null>(programCategories[0]?.id || null);
+  const [openLevels, setOpenLevels] = useState<Record<string, boolean>>({
+    Undergraduate: true,
+  });
+
+  const toggleLevel = (level: string) => {
+    setOpenLevels((prev) => ({
+      ...prev,
+      [level]: !prev[level],
+    }));
+  };
+
+  const toggleCategory = (id: string) => {
+    setActiveCategory((current) => (current === id ? null : id));
+  };
+
+  const activeProgramCategory =
+    programCategories.find((category) => category.id === activeCategory) ??
+    programCategories[0];
+
+  return (
+    <section
+      id="programs-offered"
+      aria-labelledby="programs-heading"
+      className="relative overflow-hidden bg-white py-12 md:py-16"
+    >
+      {/* Background accent */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full opacity-10 blur-3xl"
+        style={{
+          backgroundColor: "var(--gu-gold, #E8871A)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.12,
+          }}
+        >
+          {/* Header */}
+          <motion.div
+            variants={itemVariants}
+            className="mx-auto max-w-3xl text-center"
+          >
+            <h2
+              id="programs-heading"
+              className="font-serif text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
+              style={{
+                color: "var(--gu-navy, #0A1F44)",
+              }}
+            >
+              Programs Offered
+            </h2>
+
+            <div
+              className="mx-auto mt-5 h-1 w-16 rounded-full"
+              style={{
+                backgroundColor: "var(--gu-gold, #E8871A)",
+              }}
+            />
+
+            <p
+              className="mx-auto mt-6 max-w-2xl text-base leading-8 sm:text-lg"
+              style={{
+                color: "var(--gu-text-muted, #64748B)",
+              }}
+            >
+              70+ Study Programs at Diploma, UG, PG, and Ph.D. Levels
+            </p>
+          </motion.div>
+
+          {/* Main explorer */}
+          <motion.div
+            variants={itemVariants}
+            className="mt-12 overflow-hidden rounded-3xl border bg-white shadow-sm md:mt-16"
+            style={{
+              borderColor: "rgba(6, 53, 95, 0.10)",
+            }}
+          >
+            <div className="grid lg:grid-cols-[0.85fr_1.5fr]">
+              {/* Category navigation (With Mobile Inline Accordions) */}
+              <div
+                className="border-b lg:border-b-0 lg:border-r"
+                style={{
+                  borderColor: "rgba(6, 53, 95, 0.10)",
+                  backgroundColor: "var(--gu-bg, #F8FAFC)",
+                }}
+              >
+                <div className="p-4 sm:p-6">
+                  <div className="flex flex-col gap-2">
+                    {programCategories.map((category) => {
+                      const isActive = category.id === activeCategory;
+
+                      return (
+                        <div key={category.id} className="flex flex-col">
+                          <button
+                            type="button"
+                            onClick={() => toggleCategory(category.id)}
+                            aria-expanded={isActive}
+                            className="group flex items-center justify-between rounded-xl px-3.5 py-3.5 text-left transition-all duration-200 sm:px-4 cursor-pointer"
+                            style={{
+                              backgroundColor: isActive
+                                ? "var(--gu-navy, #0A1F44)"
+                                : "transparent",
+                              color: isActive
+                                ? "white"
+                                : "var(--gu-navy, #0A1F44)",
+                            }}
+                          >
+                            <div className="flex items-center gap-3">
+                              <span
+                                className="flex h-2 w-2 rounded-full shrink-0 transition-transform duration-200 group-hover:scale-125"
+                                style={{
+                                  backgroundColor: "var(--gu-gold, #E8871A)",
+                                }}
+                              />
+                              <span className="text-sm font-bold sm:text-base tracking-tight">
+                                {category.shortTitle}
+                              </span>
+                            </div>
+
+                            {/* Arrow / Chevron */}
+                            <span
+                              className={`ml-auto flex items-center transition-all duration-200 ${
+                                isActive
+                                  ? "opacity-100 translate-x-0"
+                                  : "opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
+                              }`}
+                              style={{
+                                color: "var(--gu-gold, #E8871A)",
+                              }}
+                            >
+                              <span className="hidden lg:inline-flex">
+                                <ArrowRight size={17} />
+                              </span>
+                              <span className={`lg:hidden transition-transform duration-300 ${isActive ? "rotate-180" : "rotate-0"}`}>
+                                <ChevronDown size={18} />
+                              </span>
+                            </span>
+                          </button>
+
+                          {/* MOBILE INLINE ACCORDION CONTENT */}
+                          <AnimatePresence initial={false}>
+                            {isActive && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{
+                                  duration: 0.28,
+                                  ease: "easeInOut",
+                                }}
+                                className="overflow-hidden lg:hidden"
+                              >
+                                <div className="my-3 rounded-2xl border border-[rgba(6,53,95,0.08)] bg-white p-4 shadow-sm">
+                                  <ProgramCategoryDetails
+                                    category={category}
+                                    openLevels={openLevels}
+                                    toggleLevel={toggleLevel}
+                                  />
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* Program details (DESKTOP VIEW ONLY) */}
+              <div className="hidden p-6 sm:p-8 lg:block lg:p-10">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeProgramCategory.id}
+                    initial={{
+                      opacity: 0,
+                      x: 18,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      x: -18,
+                    }}
+                    transition={{
+                      duration: 0.25,
+                      ease: "easeOut",
+                    }}
+                  >
+                    <ProgramCategoryDetails
+                      category={activeProgramCategory}
+                      openLevels={openLevels}
+                      toggleLevel={toggleLevel}
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

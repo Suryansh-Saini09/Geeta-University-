@@ -20,9 +20,6 @@ export default function GutsSyllabusSection() {
         <div className="mx-auto mb-10 max-w-3xl text-center">
           <div className="mb-3 flex items-center justify-center gap-3">
             <span className="h-[2px] w-8 bg-[#E8871A]" />
-            <span className="text-[12px] font-extrabold uppercase tracking-[3px] text-[#E8871A]">
-              Study Material &amp; Blueprints
-            </span>
             <span className="h-[2px] w-8 bg-[#E8871A]" />
           </div>
           <h2 className="font-serif text-[32px] sm:text-[42px] font-black text-[#0A1F44]">

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { gutsScholarshipSlabs, gutsExamPattern } from "@/data/gutsData";
-import { Award, Clock, FileText, CheckCircle2 } from "lucide-react";
+import { Clock, FileText, CheckCircle2 } from "lucide-react";
 
 export default function GutsScholarshipSlabs() {
   return (
@@ -12,20 +12,10 @@ export default function GutsScholarshipSlabs() {
           {/* Left Column: Scholarship Slabs Based on GUTS Score */}
           <div className="lg:col-span-6 flex flex-col justify-between rounded-[22px] bg-white p-7 sm:p-9 border border-[#E2E8F0] shadow-sm">
             <div>
-              <div className="mb-3 flex items-center gap-3">
-                <span className="h-[2px] w-8 bg-[#E8871A]" />
-                <span className="text-[12px] font-extrabold uppercase tracking-[2.5px] text-[#E8871A]">
-                  Merit Slabs
-                </span>
-              </div>
               <h2 className="font-serif text-[28px] sm:text-[34px] font-black text-[#0A1F44] leading-tight">
                 Scholarship Slabs <br />
                 <span className="text-[#E8871A]">Based on GUTS Score</span>
               </h2>
-
-              <p className="mt-2 text-[15px] text-[#64748B]">
-                Merit-based tuition fee waiver awarded based on the percentage scored in GUTS 2026.
-              </p>
 
               {/* Slabs Grid / Table */}
               <div className="mt-6 overflow-hidden rounded-[16px] border border-[#E2E8F0]">
@@ -52,21 +42,11 @@ export default function GutsScholarshipSlabs() {
                 </div>
               </div>
             </div>
-
-            <div className="mt-6 rounded-[12px] bg-[#EFF6FF] p-3.5 text-[13.5px] text-[#1E40AF] border border-[#BFDBFE]">
-              * Scholarships apply to tuition fees across eligible Undergraduate and Postgraduate programs.
-            </div>
           </div>
 
           {/* Right Column: GUTS Syllabus & Exam Pattern */}
           <div className="lg:col-span-6 flex flex-col justify-between rounded-[22px] bg-white p-7 sm:p-9 border border-[#E2E8F0] shadow-sm">
             <div>
-              <div className="mb-3 flex items-center gap-3">
-                <span className="h-[2px] w-8 bg-[#E8871A]" />
-                <span className="text-[12px] font-extrabold uppercase tracking-[2.5px] text-[#E8871A]">
-                  Test Structure
-                </span>
-              </div>
               <h2 className="font-serif text-[28px] sm:text-[34px] font-black text-[#0A1F44] leading-tight">
                 GUTS Syllabus &amp; Exam Pattern
               </h2>
@@ -110,10 +90,6 @@ export default function GutsScholarshipSlabs() {
                   ))}
                 </div>
               </div>
-            </div>
-
-            <div className="mt-6 rounded-[12px] bg-[#FFF8F2] p-3.5 text-[13.5px] text-[#8C4300] border border-[#FFD9B3]">
-              Postgraduate candidates appear for subject-specific domain and quantitative aptitude components.
             </div>
           </div>
         </div>

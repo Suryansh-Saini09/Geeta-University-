@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronUp, Award, CheckCircle2, Briefcase } from "lucide-react";
+import { ChevronDown, ChevronUp, CheckCircle2 } from "lucide-react";
 import { LEADERSHIP_PROFILE } from "@/data/internationalAdmissions";
 
 export default function LeadershipSpotlightSection() {
@@ -12,14 +12,6 @@ export default function LeadershipSpotlightSection() {
   return (
     <section className="py-10 md:py-14 bg-white border-y border-[#E2E8F0]">
       <div className="gu-container">
-        <div className="text-center mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#E8871A]">
-            Leadership Excellence
-          </span>
-          <h2 className="text-3xl md:text-4xl font-black text-[#0A1F44] font-serif mt-2">
-            Steering International Admissions
-          </h2>
-        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,16 +31,6 @@ export default function LeadershipSpotlightSection() {
                   sizes="(max-width: 768px) 224px, 224px"
                   className="object-cover object-top"
                 />
-              </div>
-              <div className="mt-4 flex gap-2">
-                <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 border border-blue-200 px-3 py-1 text-xs font-bold text-[#0A1F44]">
-                  <Briefcase size={12} className="text-[#E8871A]" />
-                  {LEADERSHIP_PROFILE.experienceYears}+ Yrs Education
-                </span>
-                <span className="inline-flex items-center gap-1 rounded-full bg-orange-50 border border-orange-200 px-3 py-1 text-xs font-bold text-[#E8871A]">
-                  <Award size={12} />
-                  {LEADERSHIP_PROFILE.industryYears}+ Yrs Industry
-                </span>
               </div>
             </div>
 
