@@ -81,40 +81,45 @@ export async function getAdminSession(): Promise<AdminSession | null> {
     return null;
   }
 
-  const session = await prisma.adminSession.findUnique({
-    where: { tokenHash: hashToken(token) },
-    include: {
-      user: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          role: true,
-          status: true,
+  try {
+    const session = await prisma.adminSession.findUnique({
+      where: { tokenHash: hashToken(token) },
+      include: {
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            role: true,
+            status: true,
+          },
         },
       },
-    },
-  });
+    });
 
-  if (
-    !session ||
-    session.revokedAt ||
-    session.expiresAt <= new Date() ||
-    session.user.status !== AdminUserStatus.ACTIVE
-  ) {
+    if (
+      !session ||
+      session.revokedAt ||
+      session.expiresAt <= new Date() ||
+      session.user.status !== AdminUserStatus.ACTIVE
+    ) {
+      return null;
+    }
+
+    return {
+      id: session.id,
+      expiresAt: session.expiresAt,
+      user: {
+        id: session.user.id,
+        name: session.user.name,
+        email: session.user.email,
+        role: session.user.role,
+      },
+    };
+  } catch (error) {
+    console.error("Failed to query admin session from database:", error);
     return null;
   }
-
-  return {
-    id: session.id,
-    expiresAt: session.expiresAt,
-    user: {
-      id: session.user.id,
-      name: session.user.name,
-      email: session.user.email,
-      role: session.user.role,
-    },
-  };
 }
 
 export async function requireAdminSession() {
@@ -135,13 +140,17 @@ export async function revokeCurrentAdminSession() {
     return;
   }
 
-  await prisma.adminSession.updateMany({
-    where: {
-      tokenHash: hashToken(token),
-      revokedAt: null,
-    },
-    data: {
-      revokedAt: new Date(),
-    },
-  });
+  try {
+    await prisma.adminSession.updateMany({
+      where: {
+        tokenHash: hashToken(token),
+        revokedAt: null,
+      },
+      data: {
+        revokedAt: new Date(),
+      },
+    });
+  } catch (error) {
+    console.error("Failed to revoke admin session in database:", error);
+  }
 }

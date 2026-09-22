@@ -23,46 +23,61 @@ export async function loginAction(formData: FormData) {
     redirect("/admin/login?error=invalid-input");
   }
 
-  const user = await prisma.adminUser.findUnique({
-    where: { email: parsed.data.email.toLowerCase() },
-  });
+  let user = null;
+  let passwordMatches = false;
 
-  if (!user || user.status !== AdminUserStatus.ACTIVE) {
+  try {
+    user = await prisma.adminUser.findUnique({
+      where: { email: parsed.data.email.toLowerCase() },
+    });
+
+    if (user && user.status === AdminUserStatus.ACTIVE) {
+      passwordMatches = await verifyPassword(
+        parsed.data.password,
+        user.passwordHash
+      );
+    }
+  } catch (error) {
+    console.error("Database connection error during login:", error);
+    redirect("/admin/login?error=database-error");
+  }
+
+  if (!user || user.status !== AdminUserStatus.ACTIVE || !passwordMatches) {
     redirect("/admin/login?error=invalid-credentials");
   }
 
-  const passwordMatches = await verifyPassword(
-    parsed.data.password,
-    user.passwordHash
-  );
+  try {
+    const session = await createAdminSession(user.id);
 
-  if (!passwordMatches) {
-    redirect("/admin/login?error=invalid-credentials");
+    await prisma.adminUser.update({
+      where: { id: user.id },
+      data: { lastLoginAt: new Date() },
+    });
+
+    await prisma.auditLog.create({
+      data: {
+        actorId: user.id,
+        action: AuditAction.LOGIN,
+        entityType: "AdminUser",
+        entityId: user.id,
+      },
+    });
+
+    await setAdminSessionCookie(session.token, session.expiresAt);
+  } catch (error) {
+    console.error("Session creation error during login:", error);
+    redirect("/admin/login?error=session-error");
   }
-
-  const session = await createAdminSession(user.id);
-
-  await prisma.adminUser.update({
-    where: { id: user.id },
-    data: { lastLoginAt: new Date() },
-  });
-
-  await prisma.auditLog.create({
-    data: {
-      actorId: user.id,
-      action: AuditAction.LOGIN,
-      entityType: "AdminUser",
-      entityId: user.id,
-    },
-  });
-
-  await setAdminSessionCookie(session.token, session.expiresAt);
 
   redirect("/admin");
 }
 
 export async function logoutAction() {
-  await revokeCurrentAdminSession();
-  await clearAdminSessionCookie();
+  try {
+    await revokeCurrentAdminSession();
+    await clearAdminSessionCookie();
+  } catch (error) {
+    console.error("Logout action error:", error);
+  }
   redirect("/admin/login");
 }

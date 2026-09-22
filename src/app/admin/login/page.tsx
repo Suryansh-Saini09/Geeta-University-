@@ -5,6 +5,9 @@ import { loginAction } from "@/features/admin/auth/actions";
 const errorMessages: Record<string, string> = {
   "invalid-input": "Enter a valid email and password.",
   "invalid-credentials": "The email or password is incorrect.",
+  "database-error": "Unable to connect to the database. Please ensure DATABASE_URL is properly configured in your deployment environment variables.",
+  "session-error": "Failed to create an active session. Please try again.",
+  "server-error": "A server error occurred. Please try again.",
 };
 
 interface AdminLoginPageProps {
