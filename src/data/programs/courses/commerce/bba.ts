@@ -30,7 +30,7 @@ export const bba: CoursePageData = {
     program: "Bachelor of Business Administration (BBA)",
     duration: "3/4 Years",
     eligibility:
-      "Passed 10+2 examination with at least 50% marks in the qualifying examination.",
+      "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
   },
   overview: {
     title: "Bachelor of Business Administration (BBA)",

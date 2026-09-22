@@ -28,7 +28,7 @@ export const bcom: CoursePageData = {
   quickInfo: {
     program: "B.Com. (General)",
     duration: "3 Years / 4 Years (Hons / Hons with Research)",
-    eligibility: "Passed 10+2 with at least 50% marks",
+    eligibility: "Passed the 10+2 examination with at least 50% marks in aggregate from any recognized board.",
   },
   overview: {
     title: "B.Com General",
@@ -66,7 +66,7 @@ export const bcom: CoursePageData = {
   ],
   admission: {
     eligibility:
-      "Passed 10+2 examination with at least 50% marks in the qualifying examination.",
+      "Passed the 10+2 examination with at least 50% marks in the qualifying examination from any recognized board.",
     whyChooseHeading: "Why Pursue B.Com Degree at Geeta University?",
     whyChooseParagraphs: [
       "Strong Academic Foundation: Core focus on accounting, finance, corporate law, and taxation to prepare students for corporate roles and professional exams.",

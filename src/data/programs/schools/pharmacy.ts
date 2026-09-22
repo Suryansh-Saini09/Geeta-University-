@@ -292,14 +292,14 @@ export const pharmacySchool: ProgramPageData = {
       company: "Medox Pharmaceuticals",
       role: "Production Trainee",
       quote:
-        "Heartiest congratulations to Mr. Anand Sharma on being placed as a Production Trainee at Medox Pharmaceuticals. We wish him continued success and a bright future in his professional career.",
+        "My journey at Geeta Institute of Pharmacy provided me with hands-on formulation training and extensive laboratory exposure. The continuous guidance from mentors helped me kickstart my professional career as a Production Trainee at Medox Pharmaceuticals.",
       image: "/programs/pharmacy/Anand-testimonial.webp",
     },
     {
       name: "Rohit",
       role: "Pharmacy Student",
       quote:
-        "The practical exposure, supportive faculty, and research opportunities at Geeta Institute of Pharmacy helped me build a strong foundation for my professional journey.",
+        "The practical exposure, modern laboratory facilities, and supportive faculty at Geeta Institute of Pharmacy have helped me build strong core competencies and confidence for my career in healthcare.",
       image: "/programs/pharmacy/Rohit-testimonial.webp",
     },
     {
@@ -307,7 +307,7 @@ export const pharmacySchool: ProgramPageData = {
       company: "Vardhman Neurospin Hospital",
       role: "Resident Medical Trainee",
       quote:
-        "Congratulations to Mr. Naveen Deswal on being placed as a Resident Medical Trainee at Vardhman Neurospin Hospital! We wish him continued success and a bright future in his medical career.",
+        "The clinical exposure and hospital-oriented training at Geeta Institute of Pharmacy gave me the practical skills needed in clinical environments. I am proud to start my journey as a Resident Medical Trainee at Vardhman Neurospin Hospital.",
       image: "/programs/pharmacy/Naveen-testimonial.webp",
     },
     {
@@ -315,7 +315,7 @@ export const pharmacySchool: ProgramPageData = {
       pkg: "₹50-60 LPA",
       role: "Wholesale Pharmaceutical Entrepreneur",
       quote:
-        "Ignite Passion, Impact Lives — Discover, Design, Deliver in Pharmacy, where knowledge becomes care and pharmacy dreams turn into a thriving ₹50-60 LPA wholesale pharmaceutical enterprise.",
+        "The practical business acumen and strong pharmaceutical foundation I gained at Geeta Institute of Pharmacy gave me the confidence to step into entrepreneurship and scale a ₹50-60 LPA wholesale pharmaceutical enterprise.",
       image: "/programs/pharmacy/Bhavish-testimonial.webp",
     },
     {
@@ -323,15 +323,13 @@ export const pharmacySchool: ProgramPageData = {
       company: "Sun Pharma",
       role: "Medical Representative",
       quote:
-        "We are delighted to announce Dinesh's successful placement as a Medical Representative with Sun Pharma. His achievement reflects his dedication and commitment to excellence. We wish him a bright and successful future.",
+        "Geeta Institute of Pharmacy helped me bridge the gap between academic concepts and pharmaceutical market dynamics. The dedicated placement cell and faculty support were instrumental in securing my role as a Medical Representative at Sun Pharma.",
       image: "/programs/pharmacy/Dinesh-testimonial.webp",
     },
   ],
 
   learningSpaces: {
     title: "Highlights of Our Learning Spaces",
-    description:
-      "Students conduct research and practical experiments in PCI-compliant, specialized labs equipped with industrial-grade analytical instruments:",
     spaces: [
       {
         title: "Pharmaceutics & Dosage Form Lab",
@@ -401,32 +399,30 @@ export const pharmacySchool: ProgramPageData = {
         caption: "Synthesis of active pharmaceutical ingredients and purity evaluations.",
       },
     ],
-    closingNote:
-      "All laboratories strictly adhere to PCI, WHO-GMP, and university safety norms, providing students authentic industrial research exposure.",
   },
 
   careerPathways: {
     title: "Career Pathways",
     description:
-      "A wide range of career opportunities is available for pharmacy graduates in both public and private sectors. After completing the program, graduates can pursue careers as Drug Inspectors, Clinical Research Associates, Pharmacists, Formulation Scientists, Quality Control Analysts, Regulatory Affairs Specialists, or hospital pharmacy managers.",
+      "A large number of opportunities are available for students in both the public and the private sectors. After the completion of the course, the students can work as a Drug Therapist, Drug Inspector, Health Inspector, Pharmacist, Pathological Lab Scientist, Chemical/Drug Technician, Bio-Technology Industries, Hospital Drug Coordinator, Research & Development and Making Prescription to Patients",
     rolesTitle: "Notable Career Roles Our Graduates Pursue",
     notableRoles: [
       { name: "Clinical Research" },
       { name: "Pharmacovigilance" },
-      { name: "Regulatory Affairs" },
+      { name: "Regulatory affairs" },
       { name: "Drug Discovery and Research Scientist" },
-      { name: "Pharmaceutical Data Science & AI" },
-      { name: "MBA in Pharmaceutical Management" },
+      { name: "Pharmaceutical data science & AI" },
+      { name: "MBA in pharmaceutical management" },
       { name: "Hospital Pharmacy" },
       { name: "Government Sector" },
     ],
     recruitersTitle: "Top Recruiters",
     recruiters: [
+      { name: "Zentech Pharma", logo: "/programs/pharmacy/recruiters/zantac.png" },
       { name: "Pfizer", logo: "/programs/pharmacy/recruiters/pfizer.png" },
+      { name: "Trueworth Healthcare", logo: "/programs/pharmacy/recruiters/truworth.png" },
+      { name: "Alembic Pharmaceuticals", logo: "/programs/pharmacy/recruiters/alembic.svg" },
       { name: "Sun Pharma", logo: "/programs/pharmacy/recruiters/sun_pharma.png" },
-      { name: "Torrent Pharma", logo: "/programs/pharmacy/recruiters/torrent.png" },
-      { name: "Zantac", logo: "/programs/pharmacy/recruiters/zantac.png" },
-      { name: "Truworth Healthcare", logo: "/programs/pharmacy/recruiters/truworth.png" },
       { name: "Laborate Pharmaceuticals", logo: "/programs/pharmacy/recruiters/laborate.png" },
       { name: "Stenkem Biolife", logo: "/programs/pharmacy/recruiters/stenkem.png" },
     ],
@@ -542,13 +538,13 @@ export const pharmacySchool: ProgramPageData = {
     {
       title: "Diploma Program",
       duration: "2 years",
-      eligibility: "A pass in the 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
+      eligibility: "Passed the 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
       programs: [
         {
           name: "D.Pharm. (Diploma in Pharmacy)",
           href: "/programs/geeta-institute-of-pharmacy/d-pharmacy",
           duration: "2 years",
-          eligibility: "A pass in the 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
+          eligibility: "Passed the 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
         },
       ],
     },

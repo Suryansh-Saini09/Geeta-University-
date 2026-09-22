@@ -406,6 +406,18 @@ export const healthSciencesSchool: ProgramPageData = {
       title: "National Nutrition Celebrations & Outreach",
       image: "/programs/health-sciences/15-full.webp",
     },
+    {
+      title: "Educational Visit to Park Hospital",
+      image: "/programs/health-sciences/park-hospital-visit.webp",
+    },
+    {
+      title: "Community Nutrition & Health Outreach",
+      image: "/programs/health-sciences/community-outreach-school.webp",
+    },
+    {
+      title: "Expert Session on Career Opportunities & Industry Expectations",
+      image: "/programs/health-sciences/expert-session-nutrition.webp",
+    },
   ],
 
   featuredPrograms: {
@@ -467,13 +479,6 @@ export const healthSciencesSchool: ProgramPageData = {
         image: "/programs/health-sciences/Sonal.webp",
       },
       {
-        name: "Dr. Nidhi Dangi",
-        designation: "Assistant Professor, Ph.D.",
-        description:
-          "Gold Medalist in M.Sc. Food Technology; Recipient of Faculty Best Thesis Award (Ph.D.); Published 15 Papers, 2 Book Chapters, and 1 Book; H-Index: 8; Recognized for impactful academic research and innovation.",
-        image: "/programs/health-sciences/Nidhi.webp",
-      },
-      {
         name: "Dr. Swati Mitharwal",
         designation: "Assistant Professor",
         description:
@@ -483,35 +488,35 @@ export const healthSciencesSchool: ProgramPageData = {
     ],
   },
 
-
   usps: {
-    title: "Student Achievements",
+    title: "USPs Of Health & Allied Sciences",
     cards: [
       {
-        title: "Hospital Placements",
-        points: ["Students are placed in Dietofy and MindPlus Hospital"],
-      },
-      {
-        title: "Competitive Exams",
-        points: ["One student cleared UGC-NET examination"],
-      },
-      {
-        title: "Clinical Internships",
-        points: ["Internship Placements in Reputed Hospitals"],
-      },
-      {
-        title: "Community Outreach",
-        points: ["Participation in Nutrition Camps and Health Drives"],
-      },
-      {
-        title: "Sports Competitions",
+        title: "Hands-on Learning",
         points: [
-          "Participated in inter-departmental, inter-university, and National-level sports competitions",
+          "In-house Diet Clinic for hands-on training and community service.",
+          "Modern laboratories for food analysis, microbiology, and clinical nutrition.",
         ],
       },
       {
-        title: "Research & Seminars",
-        points: ["National and International Conferences"],
+        title: "Industry Aligned Curriculum",
+        points: [
+          "Industry collaborations for internships, industrial visits, and expert sessions.",
+        ],
+      },
+      {
+        title: "Gain Real-world Experience",
+        points: [
+          "Strong clinical exposure through hospital internships and case-based learning.",
+          "Research-oriented curriculum with project work and publication support.",
+        ],
+      },
+      {
+        title: "New Age Certifications",
+        points: [
+          "Focus on emerging areas like lifestyle disorders, sports nutrition, and nutraceuticals.",
+          "Skill-based, NEP-aligned curriculum emphasizing employability and entrepreneurship.",
+        ],
       },
     ],
   },
@@ -710,7 +715,7 @@ export const healthSciencesSchool: ProgramPageData = {
   careerPathways: {
     title: "Career Pathways",
     description:
-      "Health & Allied Sciences offer diverse career opportunities through programs like B.Sc./M.Sc. in Nutrition & Dietetics, MPH, Diplomas in Lab Tech, X-Ray, Optometry, and Ph.D. These industry-focused courses equip students with scientific knowledge, practical skills, and exposure to excel in hospitals, research centers, public health organizations, and wellness industries both in India and abroad.",
+      "The School of Health and Allied Sciences offers diverse career opportunities through programs such as B.Sc. and M.Sc. in Nutrition and Dietetics, MPH, diplomas in Laboratory Technology, X-Ray Technology, and Optometry, as well as Ph.D. programs. These industry-focused programs equip students with scientific knowledge, practical skills, and industry exposure to build careers in hospitals, research centres, public health organisations, and wellness industries in India and abroad.",
     rolesTitle: "Notable Sectors & Career Opportunities",
     notableRoles: [
       { name: "Clinical Nutrition" },
@@ -764,11 +769,11 @@ export const healthSciencesSchool: ProgramPageData = {
   ],
 
   dean: {
-    name: "Dr. Reenu Rana",
+    name: "Dr. Nidhi Dangi",
     designation: "Head, School of Nutrition & Dietetics",
-    image: "/programs/health-sciences/Reenu.png",
+    image: "/programs/health-sciences/Nidhi.webp",
     message:
-      "Welcome to Geeta University's School of Health & Allied Sciences. We train you to help people lead healthier lives and acquire technical healthcare skills. We offer hands-on training in the fields of nutrition, public health, and more. Here, you gain an in-depth understanding of the working of the human body. You also learn the science of developing the most effective solutions for illness prevention. We offer the advantage of practical skill development and industry-relevant training to help you stay ahead of the curve. It boosts your competence to build a successful career in this rapidly evolving industry. Join us today to turn your sense of care for others into a strong and meaningful career.",
+      "Welcome to Geeta University's School of Health and Allied Sciences. We prepare students to help people lead healthier lives while developing essential healthcare skills. Our programs offer hands-on training in areas such as nutrition and public health, along with an in-depth understanding of the human body and approaches to preventing illness. With a focus on practical skills and industry-relevant training, we prepare students to meet the evolving demands of healthcare and build successful careers. Join us and turn your passion for caring for others into a meaningful career.",
     schoolName: "School of Health & Allied Sciences",
   },
 

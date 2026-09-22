@@ -25,7 +25,7 @@ export const btechCse: CoursePageData = {
   quickInfo: {
     program: "B.Tech Computer Science and Engineering",
     duration: "4 Years (8 Semesters)",
-    eligibility: "12th grade with min. 55% aggregate marks (with Physics & Maths)",
+    eligibility: "Passed the 10+2 examination with Physics and Mathematics as compulsory subjects with at least 55% marks.",
   },
   overview: {
     title: "B.Tech Computer Science and Engineering",

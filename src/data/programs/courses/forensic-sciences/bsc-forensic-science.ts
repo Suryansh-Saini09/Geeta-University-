@@ -28,7 +28,7 @@ export const bscForensicScience: CoursePageData = {
     program: "B.Sc. Forensic Science",
     duration: "3/4 Years",
     eligibility:
-      "Passed or appeared in 10+2 (or its equivalent) in the Science stream with Physics, Chemistry, and Biology or Mathematics, with at least 55% aggregate marks for General/OBC (NCL)/EWS candidates and 50% for SC/ST/PwD candidates.",
+      "Passed the 10+2 examination (or appeared/equivalent) in the Science stream with Physics, Chemistry, and Biology or Mathematics, with at least 55% aggregate marks (50% for SC/ST/PwD candidates).",
   },
   overview: {
     title: "B.Sc. Forensic Science",
@@ -65,7 +65,7 @@ export const bscForensicScience: CoursePageData = {
   ],
   admission: {
     eligibility:
-      "Candidates must have passed 10+2 with Physics, Chemistry, and Biology / Mathematics / Biotechnology / Computer Science and English with minimum 50% aggregate marks from a recognized educational board.",
+      "Passed the 10+2 examination with Physics, Chemistry, and Biology / Mathematics / Biotechnology / Computer Science and English with minimum 50% aggregate marks from a recognized educational board.",
     whyChooseHeading: "Why Choose Geeta University for B.Sc. Forensic Science?",
     whyChooseParagraphs: [
       "Experienced Faculty: Learn from highly qualified professors and seasoned forensic practitioners bringing years of expertise from forensic labs, medical institutions, and research centers.",

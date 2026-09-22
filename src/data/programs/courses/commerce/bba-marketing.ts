@@ -29,7 +29,7 @@ export const bbaMarketing: CoursePageData = {
     program: "BBA Marketing",
     duration: "3/4 Years",
     eligibility:
-      "Passed 10+2 examination with at least 50% marks in the qualifying examination",
+      "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
   },
   overview: {
     title: "BBA Marketing",

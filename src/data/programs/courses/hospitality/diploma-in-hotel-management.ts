@@ -25,7 +25,7 @@ export const diplomaHotelManagement: CoursePageData = {
   quickInfo: {
     program: "Diploma in Hotel Management (Residential Program)",
     duration: "2 Years (1 Year Academic Learning at campus + 1 Year Industry Exposure in hotel)",
-    eligibility: "Passed 10+2 in any stream Minimum 50% marks in the qualifying exam",
+    eligibility: "Passed the 10+2 examination in any stream with a minimum of 50% marks in the qualifying examination from any recognized board.",
   },
   overview: {
     title: "Diploma in Hotel Management",
@@ -62,7 +62,7 @@ export const diplomaHotelManagement: CoursePageData = {
   ],
   admission: {
     eligibility:
-      "Passed 10+2 in any stream Minimum 50% marks in the qualifying exam from any recognized board.",
+      "Passed the 10+2 examination in any stream with a minimum of 50% marks in the qualifying examination from any recognized board.",
     whyChooseHeading: "Why Choose Geeta University for a Diploma in Hotel Management?",
     whyChooseParagraphs: [
       "Experienced Faculty: Learn from highly qualified professors and seasoned industry professionals who bring years of experience from top hotels and hospitality institutions.",

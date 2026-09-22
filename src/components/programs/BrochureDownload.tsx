@@ -12,7 +12,6 @@ interface BrochureDownloadProps {
 
 export default function BrochureDownload({
   title = "Want to know more?",
-  description = "Download the official brochure for detailed information on programs, specialisations, placements, certifications, and student outcomes.",
   fileUrl = "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
   fileName = "Geeta_University_Brochure.pdf",
   buttonText = "Download Brochure",
@@ -20,111 +19,35 @@ export default function BrochureDownload({
   return (
     <section
       id="Brochure"
-      style={{
-        padding: "48px 0 44px",
-        background: "#0A1F44",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className="relative w-full bg-[#0A1F44] py-7 sm:py-9 overflow-hidden"
     >
-      {/* Background decoration */}
+      {/* Background subtle glow decorations */}
       <div
-        style={{
-          position: "absolute",
-          top: -80,
-          right: -80,
-          width: 320,
-          height: 320,
-          borderRadius: "50%",
-          background: "rgba(232,135,26,0.08)",
-          pointerEvents: "none",
-        }}
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-[#E8871A]/10 blur-3xl"
       />
       <div
-        style={{
-          position: "absolute",
-          bottom: -60,
-          left: -60,
-          width: 240,
-          height: 240,
-          borderRadius: "50%",
-          background: "rgba(232,135,26,0.05)",
-          pointerEvents: "none",
-        }}
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-16 -left-16 h-60 w-60 rounded-full bg-[#E8871A]/5 blur-2xl"
       />
 
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "0 24px",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: 40,
-          }}
-        >
-          {/* Left: Text */}
-          <div style={{ flex: 1, minWidth: 280 }}>
-            <h2
-              style={{
-                fontSize: 40,
-                fontWeight: 800,
-                color: "#FFFFFF",
-                lineHeight: 1.15,
-                letterSpacing: "-0.5px",
-                marginBottom: 0,
-              }}
-            >
-              {title}
-            </h2>
-            {/* Description commented out
-            <p
-              style={{
-                fontSize: 16,
-                color: "rgba(255,255,255,0.72)",
-                lineHeight: 1.75,
-                fontWeight: 400,
-                maxWidth: 560,
-              }}
-            >
-              {description}
-            </p>
-            */}
-          </div>
+      <div className="relative z-10 max-w-5xl mx-auto px-6">
+        <div className="flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-5 sm:gap-8 md:gap-10">
+          {/* Title */}
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight m-0">
+            {title}
+          </h2>
 
-          {/* Right: Download Button */}
-          <div style={{ flexShrink: 0 }}>
+          {/* Download Button */}
+          <div className="shrink-0">
             <a
               href={fileUrl}
               download={fileName}
-              className="brochure-btn"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 12,
-                padding: "18px 36px",
-                background: "#E8871A",
-                color: "#FFFFFF",
-                borderRadius: 12,
-                fontWeight: 800,
-                fontSize: 16,
-                textDecoration: "none",
-                transition: "all 0.25s ease",
-                boxShadow: "0 8px 24px rgba(232,135,26,0.35)",
-                letterSpacing: 0.3,
-              }}
+              className="brochure-btn inline-flex items-center gap-2.5 px-6 py-3 sm:px-8 sm:py-3.5 bg-[#E8871A] hover:bg-[#d4751a] text-white rounded-xl font-bold text-sm sm:text-base no-underline transition-all duration-200 shadow-[0_6px_20px_rgba(232,135,26,0.35)] hover:shadow-[0_10px_28px_rgba(232,135,26,0.45)] hover:-translate-y-0.5"
             >
               <svg
-                width="22"
-                height="22"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -141,13 +64,6 @@ export default function BrochureDownload({
           </div>
         </div>
       </div>
-      <style>{`
-        .brochure-btn:hover {
-          background: #d4751a !important;
-          transform: translateY(-2px);
-          box-shadow: 0 12px 32px rgba(232,135,26,0.45) !important;
-        }
-      `}</style>
     </section>
   );
 }
