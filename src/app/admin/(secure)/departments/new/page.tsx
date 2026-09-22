@@ -10,6 +10,8 @@ interface NewDepartmentPageProps {
   }>;
 }
 
+export const dynamic = "force-dynamic";
+
 export default async function NewDepartmentPage({
   searchParams,
 }: NewDepartmentPageProps) {
