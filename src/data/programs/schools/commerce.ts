@@ -743,42 +743,42 @@ export const commerceSchool: ProgramPageData = {
     {
       title: "Undergraduate Programs",
       level: "Undergraduate",
-      duration: "3/4 years",
+      duration: "3/4 Years",
       eligibility:
-        "Passed the 10+2 examination (in any stream) with at least 50% marks in aggregate from any recognized board.",
+        "Passed 10+2 examination with at least 50% marks in the qualifying examination.",
       programs: [
         {
-          name: "BBA Hons. (Bachelor of Business Administration)",
-          program: "BBA Hons. (Bachelor of Business Administration)",
+          name: "BBA (Bachelor of Business Administration)",
+          program: "BBA (Bachelor of Business Administration)",
           href: "/programs/school-of-commerce-and-business-management/bba",
-          duration: "3/4 years",
+          duration: "3/4 Years",
           eligibility:
-            "Passed the 10+2 examination with at least 50% marks in aggregate from any recognized board.",
+            "Passed 10+2 examination with at least 50% marks in the qualifying examination.",
           specialisations: [
-            { name: "General Business Administration", href: "/programs/school-of-commerce-and-business-management/bba" },
-            { name: "International Accounting with ACCA UK", href: "/programs/school-of-commerce-and-business-management/bba-international-accounting-acca" },
-            { name: "Artificial Intelligence & Data Analytics", href: "/programs/school-of-commerce-and-business-management/bba-ai-data-analytics" },
-            { name: "Human Resource Management", href: "/programs/school-of-commerce-and-business-management/bba-hrm" },
-            { name: "Import & Export Management", href: "/programs/school-of-commerce-and-business-management/bba-import-export" },
-            { name: "Banking & Finance", href: "/programs/school-of-commerce-and-business-management/bba-banking-finance" },
-            { name: "Marketing", href: "/programs/school-of-commerce-and-business-management/bba-marketing" },
-            { name: "FinTech", href: "/programs/school-of-commerce-and-business-management/bba-fintech" },
-            { name: "Digital Marketing", href: "/programs/school-of-commerce-and-business-management/bba-digital-marketing" },
-            { name: "Entrepreneurship & Family Business", href: "/programs/school-of-commerce-and-business-management/bba-entrepreneurship" },
+            { name: "BBA Hons. (Bachelor of Business Administration)", href: "/programs/school-of-commerce-and-business-management/bba" },
+            { name: "BBA Hons. (International Accounting with ACCA UK)", href: "/programs/school-of-commerce-and-business-management/bba-international-accounting-acca" },
+            { name: "BBA Hons. (Artificial Intelligence & Data Analytics)", href: "/programs/school-of-commerce-and-business-management/bba-ai-data-analytics" },
+            { name: "BBA Hons. (Human Resource Management)", href: "/programs/school-of-commerce-and-business-management/bba-hrm" },
+            { name: "BBA Hons. (Import & Export Management)", href: "/programs/school-of-commerce-and-business-management/bba-import-export" },
+            { name: "BBA Hons. (Banking & Finance)", href: "/programs/school-of-commerce-and-business-management/bba-banking-finance" },
+            { name: "BBA Hons. (Marketing)", href: "/programs/school-of-commerce-and-business-management/bba-marketing" },
+            { name: "BBA Hons. (FinTech)", href: "/programs/school-of-commerce-and-business-management/bba-fintech" },
+            { name: "BBA Hons. (Digital Marketing)", href: "/programs/school-of-commerce-and-business-management/bba-digital-marketing" },
+            { name: "BBA Hons. (Entrepreneurship and Family Business)", href: "/programs/school-of-commerce-and-business-management/bba-entrepreneurship" },
           ],
         },
         {
-          name: "B.Com. Hons. (Bachelor of Commerce)",
-          program: "B.Com. Hons. (Bachelor of Commerce)",
+          name: "B.Com. (Bachelor of Commerce)",
+          program: "B.Com. (Bachelor of Commerce)",
           href: "/programs/school-of-commerce-and-business-management/bcom",
-          duration: "3/4 years",
-          eligibility: "Passed the 10+2 examination with at least 50% marks.",
+          duration: "3/4 Years",
+          eligibility: "Passed 10+2 examination with at least 50% marks.",
           specialisations: [
-            { name: "General Commerce & Accountancy", href: "/programs/school-of-commerce-and-business-management/bcom" },
-            { name: "International Accounting with ACCA UK", href: "/programs/school-of-commerce-and-business-management/bcom-international-accounting-acca" },
-            { name: "Auditing & Taxation", href: "/programs/school-of-commerce-and-business-management/bcom-auditing-taxation" },
-            { name: "Banking & Insurance", href: "/programs/school-of-commerce-and-business-management/bcom-banking-insurance" },
-            { name: "Advanced Accounting", href: "/programs/school-of-commerce-and-business-management/bcom-advance-accounting" },
+            { name: "B.Com. Hons. (Bachelor of Commerce)", href: "/programs/school-of-commerce-and-business-management/bcom" },
+            { name: "B.Com. Hons. (International Accounting with ACCA UK)", href: "/programs/school-of-commerce-and-business-management/bcom-international-accounting-acca" },
+            { name: "B.Com. Hons. (Auditing & Taxation)", href: "/programs/school-of-commerce-and-business-management/bcom-auditing-taxation" },
+            { name: "B.Com. Hons. (Banking & Insurance)", href: "/programs/school-of-commerce-and-business-management/bcom-banking-insurance" },
+            { name: "B.Com. Hons. (Advance Accounting)", href: "/programs/school-of-commerce-and-business-management/bcom-advance-accounting" },
           ],
         },
       ],
@@ -786,58 +786,35 @@ export const commerceSchool: ProgramPageData = {
     {
       title: "Postgraduate Programs",
       level: "Postgraduate",
-      duration: "2 years",
+      duration: "2 Years",
       eligibility:
-        "Passed Bachelor's Degree of minimum 3 years duration with at least 50% marks in aggregate.",
+        "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
       programs: [
         {
           name: "MBA (Master of Business Administration)",
           program: "MBA (Master of Business Administration)",
           href: "/programs/school-of-commerce-and-business-management/mba",
-          duration: "2 years",
+          duration: "2 Years",
           eligibility:
-            "Passed Bachelor's Degree of minimum 3 years duration with at least 50% marks in aggregate.",
+            "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
           specialisations: [
-            { name: "Finance", href: "/programs/school-of-commerce-and-business-management/mba-finance" },
-            { name: "Marketing", href: "/programs/school-of-commerce-and-business-management/mba-marketing" },
-            { name: "Human Resource Management", href: "/programs/school-of-commerce-and-business-management/mba-hrm" },
-            { name: "Pharmaceutical Management", href: "/programs/school-of-commerce-and-business-management/mba-pharmaceutical-management" },
-            { name: "Supply Chain Management", href: "/programs/school-of-commerce-and-business-management/mba-supply-chain-management" },
+            { name: "MBA (Finance)", href: "/programs/school-of-commerce-and-business-management/mba-finance" },
+            { name: "MBA (Marketing)", href: "/programs/school-of-commerce-and-business-management/mba-marketing" },
+            { name: "MBA (Human Resource Management)", href: "/programs/school-of-commerce-and-business-management/mba-hrm" },
+            { name: "MBA (Pharmaceutical Management)", href: "/programs/school-of-commerce-and-business-management/mba-pharmaceutical-management" },
+            { name: "MBA (Supply Chain Management)", href: "/programs/school-of-commerce-and-business-management/mba-supply-chain-management" },
           ],
         },
         {
           name: "M.Com. (Master of Commerce)",
           program: "M.Com. (Master of Commerce)",
           href: "/programs/school-of-commerce-and-business-management/mcom",
-          duration: "2 years",
+          duration: "2 Years",
           eligibility:
-            "Passed B.Com. with a minimum of 50% marks in the qualifying examination from a recognized university.",
+            "Passed B.Com. with a minimum of 50% marks in the qualifying exam",
         },
       ],
     },
-    /* {
-      title: "Doctoral Programs",
-      level: "Doctoral (Ph.D.)",
-      duration: "Minimum 3 years",
-      eligibility:
-        "Relevant Master's degree in Management / Commerce or allied discipline with at least 55% marks.",
-      programs: [
-        {
-          name: "Ph.D. in Management & Commerce",
-          program: "Ph.D. in Management & Commerce",
-          href: "/phd-management",
-          duration: "Minimum 3 years",
-          eligibility:
-            "Master's degree in Management / Commerce or allied discipline with a minimum of 55% aggregate marks.",
-          specialisations: [
-            { name: "Strategic Management & Governance", href: "/phd-management" },
-            { name: "Financial Markets & Banking", href: "/phd-management" },
-            { name: "Digital Marketing & Consumer Insights", href: "/phd-management" },
-            { name: "Organizational behaviour & HRM", href: "/phd-management" },
-          ],
-        },
-      ],
-    }, */
   ],
 
   dean: {
