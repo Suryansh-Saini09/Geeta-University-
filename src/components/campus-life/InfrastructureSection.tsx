@@ -2,12 +2,41 @@
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { campusFacilities } from "@/data/campusLife";
 
 interface InfrastructureSectionProps {
   onOpenVirtualTour: () => void;
 }
+
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.65,
+      ease: "easeOut",
+    },
+  },
+};
 
 export default function InfrastructureSection({ onOpenVirtualTour }: InfrastructureSectionProps) {
   const [visibleCards, setVisibleCards] = useState(3);
@@ -77,53 +106,126 @@ export default function InfrastructureSection({ onOpenVirtualTour }: Infrastruct
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="h-px w-9 bg-[#E8871A]" />
-            <span className="text-[10px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-              World Class Infrastructure
-            </span>
             <span className="h-px w-9 bg-[#E8871A]" />
           </div>
 
           <h2 className="font-serif text-[42px] font-black leading-[1.05] tracking-[-1.5px] text-[#0A1F44] sm:text-[50px] md:text-[58px]">
-            Inspiring Spaces.{" "}
-            <span className="text-[#E8871A]">Modern Facilities.</span>
+            World Class{" "}
+            <span className="text-[#E8871A]">Infrastructure</span>
           </h2>
-
-          <p className="mx-auto mt-6 max-w-3xl text-[16px] leading-[1.8] text-[#64748B] md:text-[17px]">
-            Spacious air-conditioned classrooms, fully-equipped laboratories, an expansive
-            knowledge library, and modern residential spaces designed for holistic growth.
-          </p>
         </div>
 
         {/* Virtual Campus Tour Banner */}
-        <div className="relative mb-14 overflow-hidden rounded-[24px] bg-[#0A1F44] shadow-[0_20px_50px_rgba(10,31,68,0.12)]">
-          <div className="relative flex min-h-[300px] w-full flex-col items-center justify-center p-8 text-center sm:min-h-[380px]">
-            <Image
-              src="/campus-life/hero.jpg"
-              alt="Geeta University Virtual Campus Tour"
-              fill
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              className="object-cover opacity-30"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44] via-[#0A1F44]/60 to-transparent" />
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          className="relative mb-14 min-h-[460px] overflow-hidden rounded-[28px] sm:min-h-[540px] lg:min-h-[620px]"
+        >
+          {/* Campus image */}
+          <Image
+            src="/about/campus.webp"
+            alt="Aerial view of Geeta University campus"
+            fill
+            priority={false}
+            sizes="100vw"
+            className="object-cover"
+          />
 
-            <div className="relative z-10 flex flex-col items-center">
-              <button
+          {/* Cinematic overlay */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(3, 29, 53, 0.88) 0%, rgba(3, 29, 53, 0.55) 42%, rgba(3, 29, 53, 0.18) 75%, rgba(3, 29, 53, 0.35) 100%)",
+            }}
+          />
+
+          {/* Bottom gradient */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-1/2"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(3, 29, 53, 0.7), transparent)",
+            }}
+          />
+
+          {/* Gold edge */}
+          <div
+            aria-hidden="true"
+            className="absolute left-0 top-0 h-full w-1"
+            style={{
+              backgroundColor: "var(--gu-gold)",
+            }}
+          />
+
+          {/* Content */}
+          <div className="relative z-10 flex min-h-[460px] items-center px-7 py-14 sm:min-h-[540px] sm:px-12 lg:min-h-[620px] lg:px-20">
+            <div className="max-w-2xl">
+              <motion.h2
+                variants={itemVariants}
+                id="virtual-tour-heading"
+                className="font-serif text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
+              >
+                Experience the
+                <span
+                  className="block"
+                  style={{
+                    color: "var(--gu-gold)",
+                  }}
+                >
+                  Campus.
+                </span>
+              </motion.h2>
+
+              {/* Play button */}
+              <motion.button
+                variants={itemVariants}
                 type="button"
                 onClick={onOpenVirtualTour}
-                className="group flex h-20 w-20 items-center justify-center rounded-full bg-[#E8871A] text-white shadow-[0_10px_30px_rgba(232,135,26,0.5)] transition-all duration-300 hover:scale-110 hover:bg-[#F5A623] sm:h-22 sm:w-22"
-                aria-label="Play Virtual Campus Tour"
+                aria-label="Play Geeta University virtual campus tour"
+                className="group mt-9 flex items-center gap-4 rounded-full border border-white/30 bg-white/10 px-5 py-3 text-left backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white/15"
               >
-                <Play size={28} className="translate-x-0.5 fill-white text-white" />
-              </button>
-              <h3 className="mt-5 font-serif text-[26px] font-black text-white sm:text-[32px]">
-                Virtual Campus Tour
-              </h3>
-              <p className="mt-2 max-w-md text-[14px] text-white/80 sm:text-[15px]">
-                Experience Geeta University's vibrant academic and student life facilities from anywhere.
-              </p>
+                <span className="flex h-12 w-12 items-center justify-center transition-transform duration-300 group-hover:scale-110 sm:h-14 sm:w-14">
+                  {/* Authentic YouTube Icon SVG */}
+                  <svg
+                    width="42"
+                    height="42"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"
+                      fill="#FF0000"
+                    />
+                    <path
+                      d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                      fill="white"
+                    />
+                  </svg>
+                </span>
+
+                <span>
+                  <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+                    Watch the tour
+                  </span>
+
+                  <span className="mt-1 block text-sm font-bold text-white sm:text-base">
+                    Virtual Campus Tour
+                  </span>
+                </span>
+              </motion.button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Carousel Viewport */}
         <div

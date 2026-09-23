@@ -71,20 +71,12 @@ export default function EminentPersonalitiesSection() {
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="h-px w-9 bg-[#E8871A]" />
-            <span className="text-[10px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-              Distinguished Guests &amp; Leadership
-            </span>
             <span className="h-px w-9 bg-[#E8871A]" />
           </div>
 
           <h2 className="font-serif text-[42px] font-black leading-[1.05] tracking-[-1.5px] text-[#0A1F44] sm:text-[50px] md:text-[58px]">
             Eminent Personalities <span className="text-[#E8871A]">at GU.</span>
           </h2>
-
-          <p className="mx-auto mt-6 max-w-3xl text-[16px] leading-[1.8] text-[#64748B] md:text-[17px]">
-            National leaders, industry pioneers, celebrated scientists, and inspirational icons
-            frequently visit Geeta University to engage with students and share valuable mentorship.
-          </p>
         </div>
 
         {/* Carousel Viewport */}

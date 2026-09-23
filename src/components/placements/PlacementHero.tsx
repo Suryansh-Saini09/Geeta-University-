@@ -15,7 +15,7 @@ export default function PlacementHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_25%]"
+          className="object-cover object-[center_40%]"
         />
       </div>
 

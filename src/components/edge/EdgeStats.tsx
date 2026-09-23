@@ -49,7 +49,7 @@ export default function EdgeStats({ section }: EdgeStatsProps) {
               className="group relative rounded-2xl bg-white/5 border border-white/10 p-6 md:p-8 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-[#E8871A]/40"
             >
               <div className="flex items-center justify-between gap-2 mb-4">
-                <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#E8871A] tracking-tight">
+                <span className="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#E8871A] tracking-tight">
                   {stat.value}
                 </span>
                 {stat.iconName && (
