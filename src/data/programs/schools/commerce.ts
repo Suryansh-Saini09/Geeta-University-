@@ -841,10 +841,11 @@ export const commerceSchool: ProgramPageData = {
   ],
 
   dean: {
-    name: "Dr. Indira Bhardwaj",
+    name: "Dr. Bala Saraswathi",
     designation: "Dean, School of Commerce & Business Management",
-    image: "/programs/commerce/indira.png",
-    message: "I am pleased to welcome you to the School of Commerce & Business Management at Geeta University. Here, academic rigor meets hands-on experiential learning to mould future leaders.",
+    image: "/programs/commerce/dean-bala-saraswathi.jpg",
+    message:
+      "I am pleased to welcome you to the School of Commerce & Business Management at Geeta University. Our programs are designed to offer a strong academic foundation along with practical exposure in key areas such as finance, marketing, entrepreneurship, and management, enabling students to meet industry demands with confidence. With the guidance of experienced faculty, strong industry collaborations, and dedicated placement support, we ensure holistic development and career readiness. We look forward to being a part of your journey toward professional excellence.",
     schoolName: "School of Commerce & Business Management",
   },
 
