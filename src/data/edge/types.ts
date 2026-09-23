@@ -92,7 +92,7 @@ export interface EdgeFeatureItem {
   number?: string | number;
   title: string;
   subtitle?: string;
-  description: string;
+  description?: string;
   iconName?: string;
   image?: string;
   badge?: string;

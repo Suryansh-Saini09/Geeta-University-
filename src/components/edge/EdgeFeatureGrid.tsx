@@ -35,7 +35,7 @@ export default function EdgeFeatureGrid({ section }: EdgeFeatureGridProps) {
   return (
     <section id={section.id} className="bg-white py-12 md:py-16 relative overflow-hidden border-t border-slate-200">
       <div className="gu-container">
-        
+
         {/* Header */}
         <div className="mx-auto mb-16 max-w-3xl text-center">
           {section.eyebrow && (
@@ -121,38 +121,43 @@ export default function EdgeFeatureGrid({ section }: EdgeFeatureGridProps) {
           </div>
         )}
 
-        {/* Layout: Cards (Vocational Courses, GTH Offerings) */}
+        {/* Layout: Cards (Vocational Courses, GTH Offerings, DYOD Pillars) */}
         {section.layoutStyle === "cards" && (
-          <div className={`grid ${getColClass(section.columns || 3)} gap-8`}>
+          <div className={`grid ${getColClass(section.columns || 3)} gap-6 md:gap-8`}>
             {section.features.map((feature, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="flex flex-col rounded-2xl bg-slate-50 border border-slate-200 p-8 shadow-sm hover:shadow-md transition-all hover:border-[#E8871A]/40 group"
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="group relative flex flex-col justify-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8 shadow-sm transition-all duration-300 hover:border-[#E8871A]/50 hover:bg-white hover:shadow-md"
               >
+                {/* Top Accent Strip */}
+                <div className="absolute left-0 right-0 top-0 h-1 bg-[#0A1F44] transition-colors duration-300 group-hover:bg-[#E8871A]" />
+
                 {/* Image or Icon */}
-                <div className="flex items-center justify-between gap-4 mb-6">
-                  {feature.image ? (
-                    <div className="h-14 w-14 rounded-xl overflow-hidden bg-white p-2 border border-slate-200 shrink-0">
-                      <img src={feature.image} alt={feature.title} className="w-full h-full object-contain" />
-                    </div>
-                  ) : feature.iconName ? (
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white border border-slate-200 text-[#E8871A]">
-                      {getIcon(feature.iconName)}
-                    </div>
-                  ) : null}
+                {(feature.image || feature.iconName || feature.tag) && (
+                  <div className="mb-5 flex items-center justify-between gap-4">
+                    {feature.image ? (
+                      <div className="h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-slate-200 bg-white p-2">
+                        <img src={feature.image} alt={feature.title} className="h-full w-full object-contain" />
+                      </div>
+                    ) : feature.iconName ? (
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-white text-[#E8871A]">
+                        {getIcon(feature.iconName)}
+                      </div>
+                    ) : null}
 
-                  {feature.tag && (
-                    <span className="rounded-full bg-[#E8871A]/10 border border-[#E8871A]/20 px-3 py-1 text-xs font-bold text-[#E8871A]">
-                      {feature.tag}
-                    </span>
-                  )}
-                </div>
+                    {feature.tag && (
+                      <span className="rounded-full border border-[#E8871A]/20 bg-[#E8871A]/10 px-3 py-1 text-xs font-bold text-[#E8871A]">
+                        {feature.tag}
+                      </span>
+                    )}
+                  </div>
+                )}
 
-                <h3 className="font-serif text-2xl font-bold text-[#0A1F44]">
+                <h3 className="font-serif text-xl font-bold text-[#0A1F44] transition-colors duration-300 group-hover:text-[#E8871A] sm:text-2xl">
                   {feature.title}
                 </h3>
 
@@ -162,15 +167,17 @@ export default function EdgeFeatureGrid({ section }: EdgeFeatureGridProps) {
                   </p>
                 )}
 
-                <p className="mt-4 text-sm leading-relaxed text-slate-600">
-                  {feature.description}
-                </p>
+                {feature.description && (
+                  <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                    {feature.description}
+                  </p>
+                )}
 
                 {feature.bullets && feature.bullets.length > 0 && (
-                  <ul className="mt-6 pt-6 border-t border-slate-200 space-y-2.5 flex-1">
+                  <ul className="mt-6 flex-1 space-y-2.5 border-t border-slate-200 pt-6">
                     {feature.bullets.map((b, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-                        <CheckCircle2 size={15} className="text-[#E8871A] shrink-0 mt-0.5" />
+                        <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#E8871A]" />
                         <span>{b}</span>
                       </li>
                     ))}

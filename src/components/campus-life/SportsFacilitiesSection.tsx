@@ -73,14 +73,11 @@ export default function SportsFacilitiesSection() {
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="h-px w-9 bg-[#E8871A]" />
-            <span className="text-[10px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-              Athletics &amp; Sports Facilities
-            </span>
             <span className="h-px w-9 bg-[#E8871A]" />
           </div>
 
           <h2 className="font-serif text-[42px] font-black leading-[1.05] tracking-[-1.5px] text-[#0A1F44] sm:text-[50px] md:text-[58px]">
-            Sports &amp; <span className="text-[#E8871A]">Fitness Arena.</span>
+            Sports <span className="text-[#E8871A]">Facilities</span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-[16px] leading-[1.8] text-[#64748B] md:text-[17px]">

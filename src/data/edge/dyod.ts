@@ -22,22 +22,17 @@ export const dyodPage: EdgePageData = {
 
   hero: {
     title: "Where Passion Meets Purpose Because — The Future is Here",
-    eyebrow: "GU EDGE — DESIGN YOUR OWN DEGREE",
     description:
       "At Geeta University, you get the freedom to choose your unique career pathway matching your dreams and aspirations. Our flexible and student-driven academic framework is built on the provisions of NEP 2020. It empowers you to choose from a wide selection of core electives, open electives and passion programs. You can now fulfil your ambitions and follow your interests while achieving your evolving career goals. Choose a discipline that interests you, plan a relevant career path, learn at your own pace, and achieve your objective.",
     image: "/edge/dyod/8.png",
     videoUrl: "https://www.youtube.com/embed/9JTPnv7xVhg?autoplay=1",
     videoThumb: "https://img.youtube.com/vi/9JTPnv7xVhg/maxresdefault.jpg",
-    ctaText: "Apply Now",
+    // ctaText: "Apply Now",
     ctaLink: "https://admissions.geetauniversity.edu.in/",
   },
 
   timeline: {
-    eyebrow: "ACADEMIC ARCHITECTURE",
     title: "The Building Blocks of Your Personalized Degree",
-    subtitle: "A 5-Step Student-Driven Framework under NEP 2020",
-    description:
-      "Discover how every component of your degree is engineered to align with your personal passion, industry competencies, and lifelong learning goals.",
     steps: [
       {
         stepNumber: 1,
@@ -105,46 +100,25 @@ export const dyodPage: EdgePageData = {
   features: [
     {
       id: "future-begins-here",
-      eyebrow: "PHILOSOPHY IN ACTION",
       title: "Your Future Begins Here. Literally.",
       description:
         "We don’t believe in one-size-fits-all degrees. At Geeta University, 'Design Your Own Degree' isn’t a tagline — it’s your lived reality.",
+      columns: 4,
       layoutStyle: "cards",
       features: [
         {
           title: "Choose Your Core",
-          description: "Establish an unshakeable academic foundation in your major domain of choice.",
-          iconName: "Compass",
         },
         {
           title: "Build Your Skillset",
-          description: "Acquire high-demand technical, communicative, and problem-solving capabilities.",
-          iconName: "Wrench",
         },
         {
           title: "Follow Your Passion",
-          description: "Turn your sports, creative arts, and personal passions into credited academic pursuits.",
-          iconName: "HeartHandshake",
         },
         {
           title: "Shape Your Future",
-          description: "Graduate with a distinctive profile tailored specifically to your career ambitions.",
-          iconName: "Sparkles",
         },
       ],
     },
   ],
-
-  cta: {
-    heading: "Design Your Degree. Define Your Destiny.",
-    subtitle: "Admissions Open",
-    description:
-      "Take control of your higher education journey with Geeta University's flexible, NEP 2020-aligned curriculum.",
-    buttonText: "Apply Now",
-    buttonLink: "https://admissions.geetauniversity.edu.in/",
-    secondaryButtonText: "Download Brochure",
-    secondaryButtonLink: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
-    helpline: "+91 92787 68000",
-    campusAddress: "NH-71A, Naultha Panipat, Delhi NCR, Haryana (132145), India.",
-  },
 };

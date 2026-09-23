@@ -21,8 +21,6 @@ export const gfsPage: EdgePageData = {
 
   hero: {
     title: "Empowering Students Beyond the Classroom",
-    eyebrow: "GU EDGE — GEETA FINISHING SCHOOL",
-    subtitle: "Communication · Professional Grooming · Corporate Readiness",
     description:
       "Welcome to Geeta Finishing School (GFS) — the professional grooming division of Geeta University. Students of varying personality types are trained in critical soft skills to help them become career-ready. They acquire the key skills essential for achieving professional success. GFS balances academic learning with real-world expectations and instills them with global perspectives and employability tools.",
     image: "/edge/gfs/1.jpg",
@@ -34,37 +32,32 @@ export const gfsPage: EdgePageData = {
 
   stats: {
     title: "Real Impact, Real Success",
-    subtitle: "Measured Career & Employability Transformation",
     stats: [
       {
         value: "60%",
         label: "Rise in Placement Success",
         sublabel: "Driven by comprehensive GFS modules",
-        iconName: "TrendingUp",
       },
       {
         value: "₹4.5 LPA",
         label: "Average Salary Boost",
         sublabel: "For GFS-certified graduates",
-        iconName: "Award",
       },
       {
         value: "₹40 LPA",
         label: "Highest Package Secured",
         sublabel: "Top-tier MNC recruitment",
-        iconName: "Briefcase",
       },
       {
         value: "87%",
         label: "Recruiter Satisfaction",
         sublabel: "Rate graduates as highly workplace-ready",
-        iconName: "CheckCircle2",
       },
     ],
   },
 
   videos: {
-    eyebrow: "VOICES OF TRANSFORMATION",
+    // eyebrow: "VOICES OF TRANSFORMATION",
     title: "Real Impact, Real Success in Action",
     subtitle: "Watch how GFS bridges the gap between college education and executive performance",
     featuredVideo: {
@@ -86,7 +79,6 @@ export const gfsPage: EdgePageData = {
   },
 
   mentors: {
-    eyebrow: "EXPERT MENTORSHIP",
     title: "Meet Our Mentors",
     subtitle: "Guiding Futures with Expertise, Experience & Empathy",
     mentors: [
@@ -194,9 +186,9 @@ export const gfsPage: EdgePageData = {
   },
 
   trainingModel: {
-    eyebrow: "PROGRESSIVE PEDAGOGY",
     title: "GFS 3-Stage Training Model",
-    subtitle: "A Structured Pathway from Campus Novice to Corporate Executive",
+    subtitle:
+      "At Geeta Finishing School (GFS), the 3-Stage Training Model is designed to transform students into industry-ready professionals. It begins with Skill Building, followed by Professional Grooming, and culminates in Placement Preparation — ensuring every student is confident, competent, and career-ready.",
     stages: [
       {
         stageNumber: 1,
@@ -244,9 +236,7 @@ export const gfsPage: EdgePageData = {
   },
 
   testimonials: {
-    eyebrow: "STUDENT TRANSFORMATION",
     title: "Hear It From Our Students",
-    subtitle: "Real stories of confidence, growth, and career breakthroughs with GFS",
     testimonials: [
       {
         name: "Varuni",
@@ -273,7 +263,6 @@ export const gfsPage: EdgePageData = {
   },
 
   gallery: {
-    eyebrow: "EXPERIENTIAL LEARNING",
     title: "GFS in Action",
     subtitle: "Where Learning Meets Living – One Skill at a Time!",
     description:
@@ -285,18 +274,5 @@ export const gfsPage: EdgePageData = {
         caption: "Students participating in corporate simulations and public speaking labs.",
       },
     ],
-  },
-
-  cta: {
-    heading: "Transform Your Presence. Accelerate Your Career.",
-    subtitle: "Geeta Finishing School at Geeta University",
-    description:
-      "Join a university that invests deeply in your communication, leadership, and professional polish from Day One.",
-    buttonText: "Apply Now",
-    buttonLink: "https://admissions.geetauniversity.edu.in/",
-    secondaryButtonText: "Contact GFS Desk",
-    secondaryButtonLink: "https://geetauniversity.edu.in/contact-us",
-    helpline: "+91 92787 68000",
-    campusAddress: "NH-71A, Naultha Panipat, Delhi NCR, Haryana (132145), India.",
   },
 };
