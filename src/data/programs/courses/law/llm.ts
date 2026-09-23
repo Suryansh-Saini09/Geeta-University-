@@ -139,6 +139,14 @@ export const llm: CoursePageData = {
   },
   faculty: [
     {
+      name: "Former Justice Rajesh Bindal",
+      designation: "Honorary Professor",
+      qualification: "Former Judge, Supreme Court of India",
+      image: "/programs/law/mentor-rajesh-bindal.jpg",
+      imagePosition: "center 18%",
+      description: "Former Judge, Supreme Court of India; Former Chief Justice, Allahabad High Court.",
+    },
+    {
       name: "Prof. (Dr) Sanjeevi Shanthakumar",
       designation: "Director - Vice Chancellor",
       qualification: "Ph.D. in Law",

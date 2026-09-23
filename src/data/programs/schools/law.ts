@@ -226,6 +226,15 @@ export const lawSchool: ProgramPageData = {
     title: "Meet our Mentors",
     faculty: [
       {
+        name: "Former Justice Rajesh Bindal",
+        designation: "Honorary Professor",
+        role: "Honorary Professor, GGLS · Former Judge, Supreme Court of India",
+        description:
+          "A distinguished jurist with decades of eminent legal practice, has served as a Judge of the Supreme Court of India as well as Chief Justice of the Allahabad High Court and Acting Chief Justice of the High Courts of Jammu & Kashmir and Calcutta. His profound expertise, judicial wisdom, and mentorship will undoubtedly inspire our faculty and students, elevating the academic excellence and practical legal training at GGLS.",
+        image: "/programs/law/mentor-rajesh-bindal.jpg",
+        imagePosition: "center 18%",
+      },
+      {
         name: "Prof. (Dr) Sanjeevi Shanthakumar",
         designation: "Director - Vice Chancellor",
         role: "Director - Vice Chancellor, Gujarat National Law University (GNLU)",

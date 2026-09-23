@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Quote, X, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -13,6 +13,26 @@ interface DeanNoteCardProps {
 
 export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    if (showModal) {
+      const originalBodyOverflow = document.body.style.overflow;
+      const originalHtmlOverflow = document.documentElement.style.overflow;
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setShowModal(false);
+      };
+      window.addEventListener("keydown", handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = originalBodyOverflow;
+        document.documentElement.style.overflow = originalHtmlOverflow;
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    }
+  }, [showModal]);
 
   if (!dean || !dean.name || !dean.message) return null;
 
@@ -84,13 +104,17 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
       {/* Full Message Modal Popup */}
       <AnimatePresence>
         {showModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div
+            className="fixed inset-0 z-[9999] overflow-y-auto overscroll-contain bg-black/70 backdrop-blur-sm p-4 sm:p-6 md:p-8 flex items-center justify-center"
+            onClick={() => setShowModal(false)}
+          >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.96, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              exit={{ opacity: 0, scale: 0.96, y: 15 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full max-w-2xl overflow-hidden rounded-2xl bg-white p-6 sm:p-8 shadow-2xl border border-slate-200"
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-3xl sm:max-w-4xl my-auto rounded-2xl bg-white p-5 sm:p-7 shadow-2xl border border-slate-200"
             >
               {/* Close Button */}
               <button
@@ -102,21 +126,21 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
                 <X className="h-5 w-5" />
               </button>
 
-              <div className="flex items-start gap-4 sm:gap-6 mb-6">
+              <div className="flex items-start gap-4 sm:gap-6 mb-5 pr-10">
                 {dean.image && (
-                  <div className="relative w-24 h-32 sm:w-28 sm:h-36 shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-[#0A1F44] shadow-md">
+                  <div className="relative w-20 h-26 sm:w-24 sm:h-32 shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-[#0A1F44] shadow-md">
                     <Image
                       src={dean.image}
                       alt={dean.name}
                       fill
-                      sizes="112px"
+                      sizes="100px"
                       className="object-cover object-top"
                       style={{ objectPosition: "top center" }}
                     />
                   </div>
                 )}
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-[#0A1F44]">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0A1F44]">
                     {dean.name}
                   </h3>
                   <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mt-1">
@@ -125,12 +149,12 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
                 </div>
               </div>
 
-              <div className="rounded-xl bg-[#F8FAFC] p-5 sm:p-6 border border-slate-100 text-slate-700 font-sans text-[15px] leading-relaxed italic">
-                <Quote className="h-6 w-6 text-[#E8871A] mb-2" />
+              <div className="rounded-xl bg-[#F8FAFC] p-4 sm:p-5 border border-slate-100 text-slate-700 font-sans text-[14.5px] sm:text-[15px] leading-relaxed italic">
+                <Quote className="h-5 w-5 text-[#E8871A] mb-2" />
                 <p className="whitespace-pre-line">&ldquo;{dean.message}&rdquo;</p>
               </div>
 
-              <div className="mt-6 flex justify-end">
+              <div className="mt-5 flex justify-end">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
