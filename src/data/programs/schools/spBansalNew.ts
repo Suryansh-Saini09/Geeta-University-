@@ -384,11 +384,13 @@ export const spBansalSchoolNew: ProgramPageData = {
           eligibility:
             "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
           specialisations: [
+            { name: "MBA (AI For Business)", href: "/programs/school-of-commerce-and-business-management/mba" },
+            { name: "MBA (Digital Marketing)", href: "/programs/school-of-commerce-and-business-management/mba" },
             { name: "MBA (Finance)", href: "/programs/school-of-commerce-and-business-management/mba-finance" },
             { name: "MBA (Marketing)", href: "/programs/school-of-commerce-and-business-management/mba-marketing" },
             { name: "MBA (Human Resource Management)", href: "/programs/school-of-commerce-and-business-management/mba-hrm" },
-            { name: "MBA (Pharmaceutical Management)", href: "/programs/school-of-commerce-and-business-management/mba-pharmaceutical-management" },
             { name: "MBA (Supply Chain Management)", href: "/programs/school-of-commerce-and-business-management/mba-supply-chain-management" },
+            { name: "MBA (Entrepreneurship and Family Business)", href: "/programs/school-of-commerce-and-business-management/mba" },
           ],
         },
       ],

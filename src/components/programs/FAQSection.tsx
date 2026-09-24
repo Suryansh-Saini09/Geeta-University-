@@ -59,10 +59,6 @@ export default function FAQSection({
   subtitle = "Find answers to common questions about eligibility, courses, placements, and campus facilities.",
   faqs,
 }: FAQSectionProps) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
-
   // Normalize FAQs
   const rawList = faqs && faqs.length > 0 ? faqs : DEFAULT_FAQS;
   const normalizedFaqs = rawList.map((f) => ({
@@ -72,10 +68,23 @@ export default function FAQSection({
   }));
 
   // Extract unique categories
-  const categories = [
-    "All",
-    ...Array.from(new Set(normalizedFaqs.map((f) => f.category).filter(Boolean))),
-  ];
+  const rawCategories = Array.from(
+    new Set(normalizedFaqs.map((f) => f.category).filter(Boolean))
+  );
+  const categories = ["All", ...rawCategories];
+
+  // Default to "Admissions & Eligibility" (or category containing admission/eligibility)
+  const defaultCategory =
+    rawCategories.find((cat) => {
+      const lower = cat.toLowerCase();
+      return lower.includes("admission") || lower.includes("eligibility");
+    }) ||
+    rawCategories[0] ||
+    "All";
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeCategory, setActiveCategory] = useState(defaultCategory);
+  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
 
   const filteredFaqs = normalizedFaqs.filter((faq) => {
     const matchesCategory = activeCategory === "All" || faq.category === activeCategory;
