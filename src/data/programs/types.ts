@@ -123,6 +123,11 @@ export interface ProgramPageData {
   centerOfExcellence?: boolean | { title?: string; bg?: string };
 
   testimonials?: TestimonialItem[];
+  rankingBanner?: {
+    image: string;
+    alt?: string;
+    bgColor?: string;
+  };
 
   learningSpaces?: {
     eyebrow?: string;
@@ -441,6 +446,12 @@ export interface SchoolUspsSection {
   cards: SchoolUspCard[];
 }
 
+export interface ImmersionCardItem {
+  title: string;
+  image: string;
+  points: string[];
+}
+
 export interface TransformativeTrackCard {
   title: string;
   points: string[];
@@ -450,4 +461,5 @@ export interface TransformativeTracksSection {
   title?: string;
   subtitle?: string;
   cards: TransformativeTrackCard[];
+  immersionCards?: ImmersionCardItem[];
 }

@@ -13,6 +13,7 @@ import ProgramFeaturedPrograms from "./ProgramFeaturedPrograms";
 import ProgramMentors from "./ProgramMentors";
 import ProgramCourses from "./ProgramCourses";
 import DepartmentHighlights from "./DepartmentHighlights";
+import SPBLLifeGrid from "./SPBLLifeGrid";
 import BrochureDownload from "./BrochureDownload";
 import ProgramSpecialisations from "./ProgramSpecialisations";
 import TransformativeTracks from "./TransformativeTracks";
@@ -113,34 +114,39 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
         />
       )}
 
-      {/* 6. TRANSFORMATIVE TRACKS ("We Don't Just Educate We Transform Futures !") */}
-      {pageData.transformativeTracks && (
-        <TransformativeTracks tracks={pageData.transformativeTracks} />
+      {/* 5B. LEARNING IMMERSION BENTO GRID (SPBSB) */}
+      {(pageData.slug === "sp-bansal-school-of-business" || pageData.slug === "spbsb") && (
+        <SPBLLifeGrid />
       )}
 
-      {/* 7. SPECIALISATIONS DIRECTORY */}
+      {/* 6. SPECIALISATIONS DIRECTORY */}
       {pageData.specialisations && (
         <ProgramSpecialisations specialisations={pageData.specialisations} />
       )}
 
-      {/* 8. USPS OF THE INSTITUTE */}
+      {/* 7. CORPORATE CONNECT & WORKSHOPS */}
+      {pageData.corporateConnect && (
+        <ProgramCorporateConnect corporateConnect={pageData.corporateConnect} />
+      )}
+
+      {/* 8. TRANSFORMATIVE TRACKS ("Leadership Odyssey Program (LOP)") */}
+      {pageData.transformativeTracks && (
+        <TransformativeTracks tracks={pageData.transformativeTracks} />
+      )}
+
+      {/* 9. USPS OF THE INSTITUTE */}
       {pageData.usps && (
         <ProgramUsps usps={pageData.usps} />
       )}
 
-      {/* 9. EXPERTS & PILLARS OF EXCELLENCE */}
+      {/* 10. EXPERTS & PILLARS OF EXCELLENCE */}
       {(pageData.experts || pageData.gth) && (
         <ProgramExperts experts={pageData.experts} gth={pageData.gth} />
       )}
 
-      {/* 10. INTERNATIONAL & INDUSTRY PARTNERS */}
+      {/* 11. INTERNATIONAL & INDUSTRY PARTNERS */}
       {pageData.partners && pageData.partners.length > 0 && (
         <InternationalPartners partners={pageData.partners} />
-      )}
-
-      {/* 11. CORPORATE CONNECT & WORKSHOPS */}
-      {pageData.corporateConnect && (
-        <ProgramCorporateConnect corporateConnect={pageData.corporateConnect} />
       )}
 
       {/* 12. CENTER OF EXCELLENCE BANNER */}
@@ -157,6 +163,25 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
           // placement={pageData.placement}
           testimonials={pageData.testimonials}
         />
+      )}
+
+      {/* 13B. RANKINGS & ACCREDITATIONS BANNER */}
+      {pageData.rankingBanner && (
+        <section 
+          id="Rankings"
+          className="w-full py-8 sm:py-12 border-y border-amber-900/10 transition-colors"
+          style={{ backgroundColor: pageData.rankingBanner.bgColor || "#F9EBDB" }}
+        >
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex justify-center items-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={pageData.rankingBanner.image}
+              alt={pageData.rankingBanner.alt || "Times Higher Education Impact Rankings 2024"}
+              className="w-full h-auto max-h-[460px] max-w-5xl object-contain block mx-auto drop-shadow-none"
+              loading="lazy"
+            />
+          </div>
+        </section>
       )}
 
       {/* 14. LEARNING SPACES & INFRASTRUCTURE */}

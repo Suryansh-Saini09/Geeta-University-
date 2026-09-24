@@ -87,7 +87,7 @@ export default function DepartmentHighlights({
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex items-center justify-center py-4"
           >
-            <div className="group relative h-[220px] w-[340px] sm:h-[260px] sm:w-[400px] md:h-[280px] md:w-[460px] overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-default">
+            <div className="group relative aspect-[4/3] w-[340px] sm:w-[400px] md:w-[460px] overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-default">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={items[0].image}
@@ -126,7 +126,7 @@ export default function DepartmentHighlights({
               {items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="group relative flex h-[210px] w-[290px] sm:h-[240px] sm:w-[340px] md:h-[250px] md:w-[380px] shrink-0 overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-default"
+                  className="group relative flex aspect-[4/3] w-[280px] sm:w-[330px] md:w-[380px] shrink-0 overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-default"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img

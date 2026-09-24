@@ -10,6 +10,6 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default function SPBansalSchoolOfBusinessPage() {
+export default function SPBSBPage() {
   return <ProgramPage data={spBansalSchool} />;
 }
