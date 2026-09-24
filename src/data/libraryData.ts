@@ -24,9 +24,7 @@ export interface LoanRuleItem {
 
 export const libraryHeroData = {
   title: "Central Library & Knowledge Center",
-  subtitle: "The Intellectual & Research Hub of Geeta University",
-  description:
-    "Connecting students and faculty with 25,000+ physical volumes, 1,00,000+ e-books, and 1,000+ global e-journals in a quiet, modern learning environment.",
+  subtitle: "Your Gateway to Knowledge",
   heroImage: "/library/hero-bg.webp",
   breadcrumbs: [
     { label: "Home", href: "/" },
@@ -39,21 +37,21 @@ export const libraryMetricsData: LibraryMetricCard[] = [
     id: "physical-books",
     title: "Physical Books",
     count: "25,000+",
-    description: "Extensive printed collection covering Engineering, Management, Law, Pharmacy, Agriculture, and Basic Sciences.",
+    description: "Extensive printed collection across Engineering, Management, Law, Pharmacy, and Sciences.",
     image: "/library/physical-books.jpg",
   },
   {
     id: "ebooks",
     title: "E-Books & Digital Reading",
     count: "1,00,000+",
-    description: "24×7 access to digital books, National Digital Library of India (NDLI), and interactive web resources.",
+    description: "24×7 access to digital books, NDLI, and online reading portals.",
     image: "/library/ebooks.jpg",
   },
   {
     id: "ejournals",
     title: "E-Journals & Research Papers",
     count: "1,000+",
-    description: "Subscribed access to IEEE, ASME, ELSEVIER, EBSCO, EMERALD, J-Gate, and SCC Online databases.",
+    description: "Subscribed access to IEEE, ASME, ELSEVIER, EBSCO, and SCC Online.",
     image: "/library/ejournals.jpg",
   },
 ];

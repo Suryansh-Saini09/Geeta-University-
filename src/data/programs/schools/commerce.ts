@@ -417,6 +417,14 @@ export const commerceSchool: ProgramPageData = {
           "Professor specializing in Research Methodologies, Quantitative Techniques, Statistics, and Financial Decision Modeling.",
         image: "/programs/commerce/scbm faculty/rekha.webp",
       },
+      {
+        name: "Dr. Gopesh Kumar Singh",
+        designation: "Assistant Professor",
+        role: "Assistant Professor",
+        description:
+          "Dr. Gopesh Kumar Singh is an Assistant Professor at Geeta University, Panipat, Haryana, with more than 13 years of experience in academia and industry specializing in Logistics, Supply Chain Management, Operations Management, E-commerce, and FMCG. He holds a Doctorate in Supply Chain Management . Prior to joining Geeta University, have served as Program Leader and Assistant Professor at Apex Institute of Management, Chandigarh University , Mohali and as an Adjunct Faculty at Bennett University. His industry experience includes key roles with Safeducate (Safexpress), Google India, Blinkit (formerly Grofers), Kayoma Trading, Adani Wilmar, Red Bull India &amp; NOKIA India. Have trained over 2,000 students and working professionals through industry-academia initiatives. His teaching and research interests include Logistics and Supply Chain Management, operations Management , Supply Chain Analytics, Digital Supply Chains, Sustainable Supply Chain Management, and Industry 4.0. He is dedicated to promoting Outcome-Based Education through research, innovation, experiential learning, and strong industry collaboration.",
+        image: "/programs/commerce/scbm faculty/gopesh.webp",
+      },
     ],
   },
 
@@ -790,21 +798,6 @@ export const commerceSchool: ProgramPageData = {
       eligibility:
         "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
       programs: [
-        {
-          name: "MBA (Master of Business Administration)",
-          program: "MBA (Master of Business Administration)",
-          href: "/programs/school-of-commerce-and-business-management/mba",
-          duration: "2 Years",
-          eligibility:
-            "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
-          specialisations: [
-            { name: "MBA (Finance)", href: "/programs/school-of-commerce-and-business-management/mba-finance" },
-            { name: "MBA (Marketing)", href: "/programs/school-of-commerce-and-business-management/mba-marketing" },
-            { name: "MBA (Human Resource Management)", href: "/programs/school-of-commerce-and-business-management/mba-hrm" },
-            { name: "MBA (Pharmaceutical Management)", href: "/programs/school-of-commerce-and-business-management/mba-pharmaceutical-management" },
-            { name: "MBA (Supply Chain Management)", href: "/programs/school-of-commerce-and-business-management/mba-supply-chain-management" },
-          ],
-        },
         {
           name: "M.Com. (Master of Commerce)",
           program: "M.Com. (Master of Commerce)",

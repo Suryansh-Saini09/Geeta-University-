@@ -297,6 +297,24 @@ export const lawSchool: ProgramPageData = {
         image: "/programs/law/mentor-7.webp",
         imagePosition: "center 28%",
       },
+      {
+        name: "Mr. Vishal Jha",
+        designation: "LL.M., Kurukshetra University | Pursuing Ph. D in Law from KUK",
+        role: "Assistant Professor, Criminal Law",
+        description:
+          "Mr. Vishal Jha is a former judicial services aspirant who reached the interview stage of the Haryana Judicial Services Examination (2022) and Assistant District Attorney Recruitment (2023), he brings strong expertise in legal education, competitive exam mentoring, legal reasoning, and practical application of law.",
+        image: "/programs/law/Vishal-Jha.webp",
+        imagePosition: "center 28%",
+      },
+      {
+        name: "Ms. Rushil Midha",
+        designation: "LL.M., Kurukshetra University | Pursuing Ph. D in Law",
+        role: "Assistant Professor, Criminal Law",
+        description:
+          "Ms. Rushil Midha is an Assistant Professor at Geeta Global Law School, Geeta University, and is currently pursuing her Ph.D. at Geeta University. She holds an LL.M. in Criminal Law and a B.B.A. LL.B. (Hons.) from Kurukshetra University. Her areas of teaching and research interest include Criminal Law, Cyber Law, Artificial Intelligence and Law, and emerging legal issues. She has teaching experience along with exposure to legal practice and is actively engaged in legal research, academic writing, research publications, conferences, seminars, and other scholarly activities.",
+        image: "/programs/law/Rushil-Midha.webp",
+        imagePosition: "center 28%",
+      },
     ],
   },
 
