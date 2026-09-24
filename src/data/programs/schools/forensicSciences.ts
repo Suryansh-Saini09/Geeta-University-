@@ -4,267 +4,267 @@ import type { CourseFAQItem } from "../courses/types";
 export const forensicSciencesFaqs: CourseFAQItem[] = [
   {
     question: "What programs are currently offered in Forensic Science at Geeta University?",
-    answer: "The School currently offers B.Sc. Forensic Science, M.Sc. Forensic Science, and Ph.D. in Forensic Science.",
+    answer: "The School currently offers B.Sc. Forensic Science, M.Sc. Forensic Science and Ph.D. Forensic Science.",
     category: "Admissions & Eligibility"
   },
   {
     question: "What is the eligibility for B.Sc. Forensic Science?",
-    answer: "Candidates must have passed or appeared in 10+2 in the Science stream with Physics, Chemistry, and Biology or Mathematics, with at least 55% marks for General/OBC (NCL)/EWS candidates and 50% marks (or equivalent) for SC/ST and PwD candidates.",
+    answer: "Students should have passed or appeared for 10+2 in the Science stream with Physics, Chemistry and Biology/Mathematics, with at least 55% for General/OBC (NCL)/EWS candidates and 50% or equivalent for SC/ST and PwD candidates.",
     category: "Admissions & Eligibility"
   },
   {
     question: "Can a PCB student apply for B.Sc. Forensic Science?",
-    answer: "Yes. Biology is one of the recognized qualifying subject combinations for admission.",
+    answer: "Yes. Biology is one of the accepted subject combinations for the program.",
     category: "Admissions & Eligibility"
   },
   {
     question: "Can a PCM student apply for B.Sc. Forensic Science?",
-    answer: "Yes. Mathematics is also accepted as part of the qualifying Science stream background.",
+    answer: "Yes. Mathematics is also accepted as part of the qualifying Science-stream background.",
     category: "Admissions & Eligibility"
   },
   {
     question: "What is the eligibility for M.Sc. Forensic Science?",
-    answer: "Applicants require a bachelor's degree in Science, Forensic Science, Medicine, Engineering, Pharmacy, Dentistry, or AYUSH, with a minimum of 55% aggregate marks for General/OBC (NCL)/EWS candidates and 50% (or equivalent) for SC/ST and PwD candidates.",
+    answer: "Applicants need a bachelor's degree in Science, Forensic Science, Medicine, Engineering, Pharmacy, Dentistry or AYUSH, with minimum 55% marks for General/OBC (NCL)/EWS category and 50% or equivalent for SC/ST and PwD Categories.",
     category: "Admissions & Eligibility"
   },
   {
-    question: "Who can apply for Ph.D. in Forensic Science?",
-    answer: "Applicants require a relevant master's degree with at least 55% aggregate marks (50% for reserved categories), subject to the University's doctoral entrance and admission guidelines.",
+    question: "Who can apply for Ph.D. Forensic Science?",
+    answer: "Applicants need a relevant master's degree with at least 55% aggregate, subject to the University's doctoral admission requirements.",
     category: "Admissions & Eligibility"
   },
   {
     question: "What is B.Sc. Forensic Science actually about?",
-    answer: "It applies rigorous scientific principles and analytical laboratory techniques to criminal investigations, physical evidence examination, and legal proceedings.",
+    answer: "It applies scientific methods to crime investigation, evidence examination and the interpretation of forensic findings.",
     category: "Understanding the Program"
   },
   {
-    question: "Is Forensic Science a science degree or a criminal investigation course?",
-    answer: "It is primarily an applied science degree that utilizes laboratory methods, chemical analysis, biology, and digital forensics to evaluate evidence in criminal investigations.",
+    question: "Is Forensic Science a science degree or a criminal-investigation course?",
+    answer: "It is primarily a science-based program that applies laboratory and analytical methods to the examination of evidence and support of criminal investigations.",
     category: "Understanding the Program"
   },
   {
     question: "What subjects are covered in B.Sc. Forensic Science?",
-    answer: "Key subjects include crime scene investigation, forensic biology, serology, forensic chemistry, toxicology, ballistics, fingerprint analysis, cyber forensics, criminal law basics, and extensive laboratory practicals.",
+    answer: "Key areas include crime scene investigation, forensic biology, forensic chemistry, toxicology, ballistics, fingerprint analysis, cyber forensics, basic criminal law and laboratory practicals.",
     category: "Understanding the Program"
   },
   {
     question: "What is taught in M.Sc. Forensic Science?",
-    answer: "The postgraduate curriculum delves deeply into advanced forensic biology, molecular serology, toxicology, DNA profiling, criminalistics, digital and cyber forensics, crime scene reconstruction, and forensic psychology.",
+    answer: "The program goes deep into forensic biology, serology, toxicology, DNA fingerprinting, criminalistics, digital and cyber forensics, crime-scene reconstruction and forensic psychology.",
     category: "Understanding the Program"
   },
   {
     question: "What is the main difference between B.Sc. and M.Sc. Forensic Science?",
-    answer: "The B.Sc. program builds strong foundational scientific and investigative skills, whereas the M.Sc. develops advanced specialist competencies, research methodologies, and analytical mastery.",
+    answer: "B.Sc. builds foundational scientific and forensic skills, while M.Sc. develops more advanced specialist, analytical and research capabilities.",
     category: "Understanding the Program"
   },
   {
-    question: "What does Ph.D. in Forensic Science involve?",
-    answer: "The Ph.D. is a research-intensive doctoral program enabling scholars to investigate specialized forensic challenges, publish in indexed journals, and develop innovative analytical methods under expert academic supervision.",
+    question: "What does Ph.D. Forensic Science involve?",
+    answer: "The Ph.D. is research-focused, with scholars working on specialised forensic research problems under academic supervision and completing research and publication-related requirements.",
     category: "Understanding the Program"
   },
   {
     question: "Will I get hands-on laboratory training in Forensic Science?",
-    answer: "Yes. Practical laboratory training is central to our curriculum, supported by modern instrumentation, mock crime scenes, and analytical experimentation.",
+    answer: "Yes. Practical laboratory work is a central part of the programs, alongside scientific and theoretical learning.",
     category: "Practical Learning & Laboratories"
   },
   {
     question: "Will students actually practise crime-scene investigation?",
-    answer: "Yes. Students regularly participate in mock crime scene simulations, evidence documentation, latent fingerprint lifting, and chain-of-custody protocols.",
+    answer: "Yes. Students work through crime-scene simulations and evidence-analysis activities to develop their investigation skills.",
     category: "Practical Learning & Laboratories"
   },
   {
     question: "What kind of forensic evidence will students learn to examine?",
-    answer: "Training covers biological fluids, chemical residues, fingerprints, questioned documents, ballistics markings, toxicological samples, DNA, and digital evidence.",
+    answer: "Training covers areas such as biological evidence, chemical evidence, fingerprints, toxicological samples, DNA and other types of forensic evidence.",
     category: "Practical Learning & Laboratories"
   },
   {
     question: "Does the program include DNA analysis?",
-    answer: "Yes. DNA extraction, quantification, amplification, and DNA profiling are integral components of our forensic biology curriculum.",
+    answer: "Yes. DNA analysis and DNA profiling are included in the forensic curriculum, particularly at the postgraduate level.",
     category: "Practical Learning & Laboratories"
   },
   {
     question: "Will I learn about fingerprint examination?",
-    answer: "Yes. Latent fingerprint development, ridge pattern classification, and comparison techniques are thoroughly covered in practical lab modules.",
+    answer: "Yes. Fingerprint analysis is included among the B.Sc. Forensic Science subjects and practical learning areas.",
     category: "Practical Learning & Laboratories"
   },
   {
     question: "Is toxicology part of the course?",
-    answer: "Yes. Forensic toxicology and drug screening form a vital component of both undergraduate and postgraduate studies.",
+    answer: "Yes. Forensic toxicology is covered as an important area of forensic analysis.",
     category: "Practical Learning & Laboratories"
   },
   {
     question: "Does the School teach digital and cyber forensics?",
-    answer: "Yes. Digital forensics, disk imaging, mobile device analysis, and cyber threat investigation are key components of the curriculum.",
+    answer: "Yes. Cyber and digital forensics form part of the curriculum, with advanced treatment at the M.Sc. level.",
     category: "Practical Learning & Laboratories"
   },
   {
     question: "Will students learn how to handle and preserve evidence?",
-    answer: "Yes. Proper evidence packaging, preservation, contamination prevention, and chain-of-custody documentation are taught rigorously.",
+    answer: "Yes. Evidence handling is an important practical skill developed through forensic laboratory work and crime-scene activities.",
     category: "Practical Learning & Laboratories"
   },
   {
-    question: "Are case studies included in the teaching methodology?",
-    answer: "Yes. Real-world case studies, mock court trials, investigative seminars, and problem-solving workshops are integrated with classroom lectures.",
+    question: "Are there case studies as part of teaching?",
+    answer: "Yes. Case studies, discussions, seminars and practical exercises are used alongside classroom instruction and laboratory work.",
     category: "Practical Learning & Laboratories"
   },
   {
     question: "Are internships included in Forensic Science programs?",
-    answer: "Yes. Students undergo mandatory internships and practical training at government forensic laboratories, police departments, and private analytical firms.",
+    answer: "Yes. The programs include internships and practical exposure at different stages of study.",
     category: "Internships, Industry & Exposure"
   },
   {
     question: "Can students get exposure to real forensic laboratories?",
-    answer: "Yes. Geeta University facilitates visits and collaborative exposure with Central and State Forensic Science Laboratories (CFSL/SFSL).",
+    answer: "The University already has industry connections with Central and State Forensic Science Laboratories, giving students opportunities for exposure to professional forensic work.",
     category: "Internships, Industry & Exposure"
   },
   {
     question: "Does Geeta University have links with forensic organisations?",
-    answer: "Yes. Industrial linkages with forensic science laboratories, law enforcement agencies, and cyber investigation consultancies provide rich experiential learning opportunities.",
+    answer: "The University has tie-ups with CFSLs and SFSLs and provides practical exposure through forensic agencies.",
     category: "Internships, Industry & Exposure"
   },
   {
     question: "Do students get exposure beyond regular classroom teaching?",
-    answer: "Yes. Students participate in international conferences, expert guest lectures, workshops, crime scene competitions, and research symposiums.",
+    answer: "Yes. Students can participate in workshops, expert lectures, seminars, conferences, practical activities and forensic case-based learning.",
     category: "Internships, Industry & Exposure"
   },
   {
     question: "Are industry experts involved in teaching or interaction?",
-    answer: "Yes. Seasoned forensic scientists, law enforcement professionals, and cyber investigators regularly conduct guest lectures and interactive workshops.",
+    answer: "Yes. From time to time Expert talks and industry interactions are conducted as part of its learning experience.",
     category: "Internships, Industry & Exposure"
   },
   {
     question: "Has the School organised international forensic events?",
-    answer: "Yes. The School organizes international conferences on Forensic Science, providing students direct access to global research breakthroughs and expert perspectives.",
+    answer: "Yes. The School organised an International Conference on Forensic Science, where students gained exposure to developments and expert perspectives in the field.",
     category: "Internships, Industry & Exposure"
   },
   {
     question: "Who teaches Forensic Science at the School?",
-    answer: "Our faculty comprises experienced academicians and researchers with doctorates in forensic science, physics, chemistry, and allied disciplines, with expertise in areas like forensic nanotechnology and analytical toxicology.",
+    answer: "The faculty includes academics with special backgrounds in forensic science, physics and related scientific disciplines, along with research experience in areas such as forensic nanotechnology.",
     category: "Faculty & Learning Experience"
   },
   {
     question: "Is the teaching mainly classroom-based?",
-    answer: "No. The teaching methodology emphasizes experiential learning through laboratory practicals, mock crime scene drills, research projects, and case discussions.",
+    answer: "No. Teaching combines theory with laboratory work, case studies, simulations, discussions, seminars and practical exercises.",
     category: "Faculty & Learning Experience"
   },
   {
     question: "How does the program develop investigative thinking?",
-    answer: "Through simulated investigations, evidence-based reasoning, scientific analysis, and courtroom presentation exercises, students develop sharp analytical and critical-thinking skills.",
+    answer: "Students practise observation, evidence analysis, case interpretation and problem-solving through simulations, laboratory work and forensic case studies.",
     category: "Faculty & Learning Experience"
   },
   {
     question: "Will I learn how forensic findings are presented in legal settings?",
-    answer: "Yes. The curriculum includes training in legal evidence admissibility, expert witness testimony, forensic report drafting, and mock trial presentations.",
+    answer: "The programs include exposure to legal procedures and, at postgraduate level, courtroom-testimony readiness as part of professional preparation.",
     category: "Faculty & Learning Experience"
   },
   {
     question: "Can students develop research skills in Forensic Science?",
-    answer: "Yes. Research orientation starts at the undergraduate level and culminates in rigorous dissertation work in the M.Sc. and original thesis research in the Ph.D.",
+    answer: "Yes. Special emphasis is given to research progressively during the study, with the M.Sc. including dissertation and seminar work and the Ph.D. focusing on independent research.",
     category: "Faculty & Learning Experience"
   },
   {
-    question: "What career options are available after B.Sc. Forensic Science?",
-    answer: "Graduates can pursue careers as crime scene investigators, forensic analysts, laboratory assistants, fraud investigators, and scientific officers across government and private organizations.",
+    question: "What can I do after B.Sc. Forensic Science?",
+    answer: "Graduates can certainly explore roles in forensic laboratories, investigation support, crime-scene work, forensic analysis, law enforcement and related private-sector organisations.",
     category: "Careers & Higher Studies"
   },
   {
-    question: "Which organisations recruit Forensic Science graduates?",
-    answer: "Key employers include Central and State Forensic Science Laboratories (CFSL/SFSL), state police departments, defense research units, corporate risk & fraud investigation consultancies, intelligence bureaus, and quality testing labs.",
+    question: "Which organisations can employ Forensic Science graduates?",
+    answer: "Potential sectors among which Forensic Science graduates can get jobs include Central and State Forensic Science Laboratories, crime branches, police and investigation agencies, defence, courts, narcotics departments, universities and private forensic organisations.",
     category: "Careers & Higher Studies"
   },
   {
     question: "Can I work as a Crime Scene Investigator after B.Sc. Forensic Science?",
-    answer: "Yes. Crime Scene Investigator (CSI) is a prominent career pathway for graduates, subject to specific organizational recruitment norms.",
+    answer: "Crime Scene Investigator is one of the career roles associated with the program, although appointment depends on the employer's conditions and hiring requirements.",
     category: "Careers & Higher Studies"
   },
   {
-    question: "Can Forensic Science graduates work in cybercrime investigation?",
-    answer: "Yes. Specialized training in digital evidence recovery, mobile forensics, and network analysis enables graduates to work with cyber defense teams and risk consultancies.",
+    question: "Can Forensic Science graduates work in cybercrime?",
+    answer: "Yes. Students can develop relevant digital and cyber-forensics skills during their program, which can in turn help them pursue roles related to cybercrime investigation and digital evidence.",
     category: "Careers & Higher Studies"
   },
   {
     question: "Can I work in a forensic laboratory after graduation?",
-    answer: "Yes. Forensic laboratories in government and private sectors offer roles based on candidate qualifications, specialisations, and competitive recruitment processes.",
+    answer: "Yes. Forensic laboratories are a major career pathway, with roles depending on the student's qualification, specialisation and the employer's recruitment requirements and process.",
     category: "Careers & Higher Studies"
   },
   {
-    question: "What career paths can I pursue after M.Sc. Forensic Science?",
-    answer: "M.Sc. graduates can take up advanced roles as senior forensic scientists, forensic toxicologists, DNA analysts, digital forensics consultants, or pursue doctoral research and academia.",
+    question: "What can I do after M.Sc. Forensic Science?",
+    answer: "M.Sc. graduates can pursue specialist forensic, investigation, research, academic and legal-support roles, or continue to doctoral research down the line.",
     category: "Careers & Higher Studies"
   },
   {
     question: "Can I pursue a Ph.D. after M.Sc. Forensic Science?",
-    answer: "Yes. M.Sc. graduates with at least 55% marks are eligible to apply for Ph.D. programs in Forensic Science and allied research areas.",
+    answer: "Yes. M.Sc. graduates with minimum 55% marks can pursue Ph.D. Forensic Science.",
     category: "Careers & Higher Studies"
   },
   {
     question: "Can Forensic Science lead to a teaching or academic career?",
-    answer: "Yes. Higher qualifications like M.Sc. (with UGC-NET) and Ph.D. qualify graduates for faculty and research positions in colleges and universities.",
+    answer: "Yes. Higher qualifications such as an M.Sc. and Ph.D. can support academic and research careers, subject to institutional eligibility requirements.",
     category: "Careers & Higher Studies"
   },
   {
-    question: "Can I work in the private sector with a Forensic Science degree?",
-    answer: "Yes. Opportunities abound in private forensic consultancies, multinational risk & fraud advisory firms (such as Big 4 firms), insurance investigation units, and pharmaceutical analytical labs.",
+    question: "Can I work in the private sector after studying Forensic Science?",
+    answer: "Yes. Private forensic laboratories, investigation organisations, detective agencies and other specialised organisations can offer relevant career opportunities.",
     category: "Careers & Higher Studies"
   },
   {
     question: "Is Forensic Science suitable for someone who enjoys Biology and Chemistry?",
-    answer: "Yes. Forensic Science extensively applies core concepts from biology and chemistry to solve real-world investigative challenges, making it an ideal choice for science enthusiasts.",
+    answer: "The field uses scientific knowledge from areas such as biology and chemistry to examine evidence and address investigative questions.",
     category: "Student Decision-Making"
   },
   {
     question: "Do I need to be interested in police work to study Forensic Science?",
-    answer: "Not necessarily. The discipline spans laboratory analysis, chemical and biological research, digital forensics, legal advisory, and academia in addition to law enforcement support.",
+    answer: "An interest in police work is not required to study Forensic Science.",
     category: "Student Decision-Making"
   },
   {
-    question: "Is Forensic Science like what is shown in crime television shows?",
-    answer: "While television shows dramatize the process, real-world forensic science requires meticulous scientific analysis, standardized protocols, precision documentation, and strict adherence to legal chain of custody.",
+    question: "Is Forensic Science like what I see in crime shows?",
+    answer: "No. Crime shows mostly simplify or dramatise forensic work. The actual field involves careful evidence handling, laboratory procedures, scientific analysis, documentation and methodical investigation.",
     category: "Student Decision-Making"
   },
   {
-    question: "Is Forensic Science a good choice if I prefer hands-on learning?",
-    answer: "Yes. The program is heavily practical, incorporating crime scene simulations, instrumental chemical analysis, microscopic examination, and laboratory experiments.",
+    question: "Is Forensic Science a good choice if I prefer practical learning?",
+    answer: "Yes. The program includes laboratory work, crime-scene simulations, evidence examination and other hands-on activities.",
     category: "Student Decision-Making"
   },
   {
-    question: "What skills are essential to succeed in Forensic Science?",
-    answer: "Strong analytical thinking, keen observation, attention to detail, scientific curiosity, ethical integrity, and methodical problem-solving are essential qualities.",
+    question: "What skills should I have to succeed in Forensic Science?",
+    answer: "Strong observation, analytical thinking, scientific reasoning, attention to detail and careful evidence handling are particularly useful.",
     category: "Student Decision-Making"
   },
   {
     question: "Can I choose Forensic Science if I am interested in both science and law?",
-    answer: "Yes. Forensic Science uniquely intersects scientific evidence analysis with criminal jurisprudence and court proceedings, making it ideal for students passionate about both fields.",
+    answer: "Yes. The program connects scientific evidence with criminal-law procedures and investigative practice, making it suitable for students interested in both science and law.",
     category: "Student Decision-Making"
   },
   {
     question: "What is the duration of B.Sc. Forensic Science?",
-    answer: "The program duration is 3 years for B.Sc. Forensic Science and 4 years for B.Sc. (Hons.) Forensic Science under NEP guidelines.",
+    answer: "The programme duration is 3 years for B.Sc. Forensic Science and 4 years for B.Sc. (Honours) Forensic Science.",
     category: "General"
   },
   {
     question: "What is the duration of M.Sc. Forensic Science?",
-    answer: "M.Sc. Forensic Science is a 2-year full-time postgraduate program.",
+    answer: "M.Sc. Forensic Science is a two-year postgraduate program.",
     category: "General"
   },
   {
-    question: "What is the minimum duration of Ph.D. in Forensic Science?",
-    answer: "The Ph.D. program has a minimum duration of 3 years.",
+    question: "What is the minimum duration of Ph.D. Forensic Science?",
+    answer: "The Ph.D. program has a minimum duration of three years.",
     category: "General"
   },
   {
-    question: "Does the School offer specialized programs rather than generic science degrees?",
-    answer: "Yes. The School of Sciences offers dedicated, specialized academic pathways in Forensic Science across undergraduate, postgraduate, and doctoral levels.",
+    question: "Does the School offer Forensic Science as a specialised field rather than a broad science degree?",
+    answer: "Currently, the School focuses on Forensic Science at undergraduate, postgraduate and doctoral levels.",
     category: "General"
   },
   {
     question: "Does the University provide placement assistance for Forensic Science students?",
-    answer: "Yes. The University provides comprehensive placement training including mock interviews, aptitude preparation, soft-skills development, and campus recruitment drives.",
+    answer: "Yes. The University provides placement assistance to Forensic Science students through mock interviews, aptitude classes, soft-skills training and placement drives.",
     category: "General"
   },
   {
-    question: "What placement milestones has the University achieved?",
-    answer: "Geeta University has achieved prominent milestones including a highest package of ₹40+ LPA (with international offers up to ₹1.4 Cr), 550+ recruiting partners, and 3,500+ total job offers across multidisciplinary programs.",
+    question: "What placement figures are displayed by the University?",
+    answer: "The University reports a highest package of ₹40 LPA, 550+ recruiters and 3,500+ job offers at the University level.",
     category: "General"
   }
 ];
