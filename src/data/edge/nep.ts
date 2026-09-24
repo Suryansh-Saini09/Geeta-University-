@@ -20,13 +20,13 @@ export const nepPage: EdgePageData = {
   },
 
   hero: {
-    title: "Geeta University: Empowering Students Through NEP 2020 Vision",
+    title: "GEETA UNIVERSITY: EMPOWERING STUDENTS THROUGH NEP 2020 VISION",
     eyebrow: "GU EDGE — NATIONAL EDUCATION POLICY 2020",
     subtitle: "Flexibility · Multidisciplinary Learning · Outcome-Based Education",
     description:
       "Geeta University shares a deep understanding of the transformative vision of NEP 2020. We became one of the first universities to adopt its principles in all aspects of our teaching and learning pedagogy. These include our robust academic structure, flexible curriculum, interdisciplinary teaching pedagogy, skill-based training, and global exposure. We prioritise holistic student development in our Choice-Based Credit System, multi-exit options, vocational integration, and emphasis on research and innovation.",
     image: "/edge/nep/1.jpg",
-    videoUrl: "https://www.youtube.com/embed/KYyk8Yr0Ty8?si=q0lBcWbq51__els_",
+    videoUrl: "https://www.youtube.com/embed/9JTPnv7xVhg?si=w9BX6pmS5F-1NvhX",
     videoThumb: "/edge/nep/maxresdefault.jpg",
     ctaText: "Explore NEP Advantage",
     ctaLink: "https://admissions.geetauniversity.edu.in/",

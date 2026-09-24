@@ -63,9 +63,6 @@ export default function XEdgePage() {
 
             <div className="mb-6 flex items-center gap-3">
               <span className="h-0.5 w-10 bg-[#E8871A]" />
-              <span className="text-[11.5px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-                Developing Complete Corporate Citizens
-              </span>
             </div>
 
             <div className="space-y-6 text-[17px] sm:text-[18px] leading-[1.9] text-[#334155] text-justify">
@@ -104,9 +101,6 @@ export default function XEdgePage() {
           <div className="mx-auto max-w-3xl text-center mb-14 sm:mb-18">
             <div className="mb-4 flex items-center justify-center gap-3">
               <span className="h-px w-9 bg-[#E8871A]" />
-              <span className="text-[11.5px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-                Skill Architecture
-              </span>
               <span className="h-px w-9 bg-[#E8871A]" />
             </div>
 
@@ -123,13 +117,7 @@ export default function XEdgePage() {
             >
               <div>
                 <div className="flex items-center gap-3.5 mb-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8871A]/10 text-[#E8871A] border border-[#E8871A]/20 shadow-sm">
-                    <Briefcase size={24} />
-                  </div>
                   <div>
-                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#E8871A]">
-                      Category 1
-                    </span>
                     <h3 className="font-serif text-[26px] sm:text-[30px] font-black text-[#0A1F44]">
                       Career Skills
                     </h3>
@@ -233,13 +221,7 @@ export default function XEdgePage() {
             >
               <div>
                 <div className="flex items-center gap-3.5 mb-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0284C7]/10 text-[#0284C7] border border-[#0284C7]/20 shadow-sm">
-                    <Heart size={24} />
-                  </div>
                   <div>
-                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#0284C7]">
-                      Category 2
-                    </span>
                     <h3 className="font-serif text-[26px] sm:text-[30px] font-black text-[#0A1F44]">
                       Life Skills
                     </h3>
@@ -357,10 +339,6 @@ export default function XEdgePage() {
       <section id="social" className="py-16 sm:py-20 lg:py-24">
         <div className="gu-container max-w-5xl">
           <div className="rounded-[28px] bg-white border border-[#E2E8F0] p-8 sm:p-12 lg:p-14 shadow-sm">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#059669]/10 border border-[#059669]/20 px-3.5 py-1 text-[12px] font-bold text-[#059669] uppercase tracking-wider">
-              <Users size={14} />
-              Category 3 · Interpersonal Mastery
-            </div>
 
             <h3 className="font-serif text-[30px] sm:text-[36px] font-black text-[#0A1F44] mb-6">
               Social Skills

@@ -203,10 +203,6 @@ export default function XEdgeCategories() {
       >
         <div className="gu-container">
           <div className="max-w-4xl mx-auto">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#059669]/10 border border-[#059669]/20 px-3.5 py-1 text-[12px] font-bold text-[#059669] uppercase tracking-wider">
-              <Users2 size={14} />
-              Category 3 · Interpersonal Mastery
-            </div>
 
             <h2 className="font-serif text-[32px] sm:text-[42px] font-black text-[#0A1F44] leading-tight mb-6">
               Social Skills

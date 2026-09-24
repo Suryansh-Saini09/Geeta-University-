@@ -45,7 +45,7 @@ export const lawSchool: ProgramPageData = {
         studentName: "Priyanshu Verma",
         pkg: "40 LPA",
         company: "Corporate & Legal Advisory",
-        program: "BBA. LL.B. (Hons.)",
+        program: "B.B.A. LL.B. (Hons.)",
         image: "/programs/law/gallery-1.webp",
         titleThin: "Advocate. Analyze. Lead.",
         titleBoldLine1: "Geeta Global",
@@ -61,7 +61,7 @@ export const lawSchool: ProgramPageData = {
         studentName: "Ananya Sharma",
         pkg: "Judicial Track",
         company: "High Court & Chambers",
-        program: "BA. LL.B. (Hons.)",
+        program: "B.A. LL.B. (Hons.)",
         image: "/programs/law/gallery-2.webp",
         titleThin: "Excellence in Jurisprudence",
         titleBoldLine1: "Legal Reasoning",
@@ -159,7 +159,7 @@ export const lawSchool: ProgramPageData = {
       "Comprehensive, Bar Council of India (BCI) recognized law programs preparing students for litigation, corporate law, judicial services, and academic research.",
     cards: [
       {
-        title: "BA. LL.B. (Hons.)",
+        title: "B.A. LL.B. (Hons.)",
         iconName: "GraduationCap",
         points: [
           "5-Year Integrated Degree with Humanities & Law",
@@ -168,7 +168,7 @@ export const lawSchool: ProgramPageData = {
         ],
       },
       {
-        title: "BBA. LL.B. (Hons.)",
+        title: "Β.Β.Α. LL.B. (Hons.)",
         iconName: "Award",
         points: [
           "5-Year Integrated Degree with Business & Law",
@@ -419,7 +419,7 @@ export const lawSchool: ProgramPageData = {
   brochure: {
     title: "Want to know more?",
     description:
-      "Access detailed syllabus guides for BA. LL.B. (Hons.), BBA. LL.B. (Hons.), LL.M., and Ph.D., moot court achievements, mentor profiles, and admission guidelines.",
+      "Access detailed syllabus guides for B.A. LL.B. (Hons.), Β.Β.Α. LL.B. (Hons.), LL.M., and Ph.D., moot court achievements, mentor profiles, and admission guidelines.",
     fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
     fileName: "Geeta_Global_Law_School_Brochure.pdf",
   },
@@ -433,13 +433,13 @@ export const lawSchool: ProgramPageData = {
         "Passed the 10+2 examination in any stream with at least 50% marks in aggregate (45% for reserved category) from any recognized board.",
       programs: [
         {
-          name: "BA. LL.B. (Hons.)",
+          name: "B.A. LL.B. (Hons.)",
           duration: "5 years Integrated",
           eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
           href: "https://geetauniversity.edu.in/programs/geeta-global-law-school/ba-llb",
         },
         {
-          name: "BBA. LL.B. (Hons.)",
+          name: "Β.Β.Α. LL.B. (Hons.)",
           duration: "5 years Integrated",
           eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
           href: "https://geetauniversity.edu.in/programs/geeta-global-law-school/bba-llb",
@@ -490,12 +490,12 @@ export const lawSchool: ProgramPageData = {
   faqs: [
     {
       "q": "What is Geeta Global Law School (GGLS)?",
-      "a": "GGLS is a constituent law school of Geeta University, Panipat, established in 2022–23, offering integrated undergraduate, postgraduate, and doctoral law programs with a practice-first, moot-court-driven pedagogy.",
+      "a": "GGLS is a constituent law school of Geeta University, Panipat, established in 2022–23, offering integrated undergraduate, postgraduate, and doctoral law programs with a practice-oriented, moot-court-driven pedagogy.",
       "category": "About the School"
     },
     {
       "q": "Is GGLS a separate institution from Geeta University?",
-      "a": "No. GGLS operates as a constituent school under Geeta University, giving students access to the university's full multidisciplinary ecosystem, infrastructure, and approvals.",
+      "a": "No. GGLS operates as a constituent school under Geeta University, giving students access to the university's full multidisciplinary ecosystem, infrastructure.",
       "category": "About the School"
     },
     {
@@ -510,62 +510,62 @@ export const lawSchool: ProgramPageData = {
     },
     {
       "q": "Is GGLS recognized by the Bar Council of India (BCI)?",
-      "a": "GGLS structures its curriculum in line with Bar Council of India norms.",
+      "a": "Yes. GGLS is recognised by BCI, and it structures its curriculum in line with Bar Council of India norms.",
       "category": "About the School"
     },
     {
       "q": "What law programs does GGLS offer?",
-      "a": "BA LL.B. (Hons.) and BBA LL.B. (Hons.) as 5-year integrated undergraduate programs, LL.M. as a 1-year postgraduate program, and a Ph.D. in Law.",
+      "a": "GGLS offers B.A. LL.B. (Hons.) and B.B.A. LL.B. (Hons.) as 5-year integrated undergraduate programs, LL.M. as a 1-year postgraduate program, and a Ph.D. in Law.",
       "category": "Programs & Eligibility"
     },
     {
       "q": "What is the eligibility for BA LL.B./BBA LL.B.?",
-      "a": "Passed the 10+2 in any stream with a minimum of 50% aggregate marks (45% for reserved categories).",
+      "a": "Candidates must have passed 10+2 in any stream with the minimum percentage prescribed by the university (typically 50%).",
       "category": "Programs & Eligibility"
     },
     {
       "q": "What is the eligibility for LL.M.?",
-      "a": "A Bachelor's degree in Law (LL.B. or 5-year integrated law degree) with a minimum of 50% marks from a recognized university.",
+      "a": "A bachelor's degree in Law (LL.B./integrated law degree) with a minimum of 50% marks.",
       "category": "Programs & Eligibility"
     },
     {
       "q": "What is the eligibility for Ph.D. in Law?",
-      "a": "A Master's degree in Law (LL.M.) with a minimum of 55% marks, plus qualifying the university's entrance and interview process.",
+      "a": "A master's degree in Law (LL.M.) with a minimum of 55% marks, plus the university's entrance/interview process.",
       "category": "Programs & Eligibility"
     },
     {
-      "q": "What specialisations are available?",
-      "a": "Corporate Law, Criminal Law, Constitutional Law, IPR Law, and Family Law offered as elective tracks in later years.",
+      "q": "What specializations are available?",
+      "a": "Elective tracks offered in later years include Corporate Law, Criminal Law, Constitutional Law, IPR, and Family Law.",
       "category": "Programs & Eligibility"
     },
     {
       "q": "Is the curriculum based on NEP 2020?",
-      "a": "Yes — an NEP 2020-aligned, choice-based credit system with interdisciplinary electives across Geeta University's other schools.",
+      "a": "Yes — the curriculum follows a NEP 2020-aligned, choice-based credit system.",
       "category": "Programs & Eligibility"
     },
     {
       "q": "How do I apply to GGLS?",
-      "a": "You can apply to GGLS through the official online admission portal by filling in your personal and academic details and selecting your chosen program.",
+      "a": "Click on [Apply Now](https://admissions.geetauniversity.edu.in/) to apply to GGLS. Fill in your personal and academic details and select your program.",
       "category": "Admissions"
     },
     {
       "q": "Is there an entrance exam for admission?",
-      "a": "Admission is based on merit in national entrance exams such as CLAT, CUET, or GLAT, alongside qualifying examination percentage.",
+      "a": "Admission is generally based on a direct visit, CUET, or merit in the qualifying examination (generally CLAT); the route depends on the program.",
       "category": "Admissions"
     },
     {
       "q": "What documents are required for admission?",
-      "a": "Academic transcripts and mark sheets for 10th and 12th, transfer/migration certificate, category certificate (if applicable), identity proof (Aadhaar Card), and 3 passport-size photographs. PG and Ph.D. applicants also require bachelor's and master's degree certificates.",
+      "a": "Academic transcripts and mark sheets for Classes 10 and 12; transfer/migration certificate; category certificate, if applicable; identity proof; Aadhaar Card; and three passport-size photographs. PG and Ph.D. applicants must also provide their bachelor's and master's degree certificates, as applicable, along with proof of research work, where required.",
       "category": "Admissions"
     },
     {
       "q": "What is the fee structure for law programs?",
-      "a": "Fee details vary by program and scholarship eligibility and can be checked on the official fee structure page of Geeta University.",
+      "a": "Fee details vary by program and scholarship eligibility and are available on the official fee structure page. You may check the total fee through the [Fees Structure.](https://geetauniversity.edu.in/scholarship-predictor)",
       "category": "Fees & Scholarships"
     },
     {
       "q": "Are scholarships available for law students?",
-      "a": "Yes — merit-based and need-based scholarships are available and can be calculated using the university's Scholarship Predictor.",
+      "a": "Yes — merit-based and need-based scholarships are available; eligibility can be checked by clicking on the [Scholarship Predictor](https://geetauniversity.edu.in/scholarship-predictor).",
       "category": "Fees & Scholarships"
     },
     {
@@ -585,7 +585,7 @@ export const lawSchool: ProgramPageData = {
     },
     {
       "q": "Are there opportunities for internships?",
-      "a": "Yes — structured internships with law firms, corporate legal departments, chambers, and legal aid organizations as part of the curriculum.",
+      "a": "Yes — structured internships with law firms, corporate legal departments, chambers, and legal aid organizations are offered as part of the curriculum.",
       "category": "Academics & Campus Life"
     },
     {
@@ -600,12 +600,12 @@ export const lawSchool: ProgramPageData = {
     },
     {
       "q": "Does GGLS have hostel and residential facilities?",
-      "a": "Yes — residential hostel facilities are part of Geeta University's shared campus infrastructure, along with sports, cafeteria, and Wi-Fi-enabled campus access.",
+      "a": "Yes — residential hostel facilities are part of Geeta University's shared campus infrastructure, along with sports facilities, a cafeteria, and Wi-Fi-enabled campus access",
       "category": "Academics & Campus Life"
     },
     {
       "q": "What career options are available after a law degree from GGLS?",
-      "a": "Litigation, judicial services, corporate legal roles, law firm associateships, legal advisory positions, legal officer roles in PSUs/government, academia, arbitration/mediation, or entrepreneurship.",
+      "a": "Career options include litigation, judicial services, corporate legal roles, law firm associateships, legal advisory positions, legal officer roles in PSUs/government organisations, academia, arbitration/mediation, and entrepreneurship.",
       "category": "Placements & Career"
     },
     {
@@ -615,95 +615,11 @@ export const lawSchool: ProgramPageData = {
     },
     {
       "q": "Can I pursue judiciary exam preparation alongside my degree?",
-      "a": "Many students use their law degree as a foundation for judicial services exam prep; check with the school for dedicated judiciary-prep support or mentorship.",
+      "a": "A law degree can provide a foundation for judicial services examination preparation. Students should check with the school for information about any dedicated judiciary-preparation support or mentorship available.",
       "category": "Placements & Career"
-    },
-    {
-      "q": "What law programs are offered at Geeta Institute of Law?",
-      "a": "GIL offers B.A. LL.B. (Hons.), BBA LL.B. (Hons.), LL.B. and LL.M. programs.",
-      "category": "Admissions & Eligibility"
-    },
-    {
-      "q": "How long is the B.A. LL.B. (Hons.) program?",
-      "a": "It is a 5-year integrated program spread across 10 semesters.",
-      "category": "Programs & Curriculum"
-    },
-    {
-      "q": "What is the eligibility for B.A. LL.B. (Hons.)?",
-      "a": "Candidates must have passed the 10+2 with at least 45% aggregate marks (42.75% for SC/ST), with English as one of the subjects.",
-      "category": "Admissions & Eligibility"
-    },
-    {
-      "q": "What is the eligibility for BBA LL.B. (Hons.)?",
-      "a": "Candidates need the 10+2 with at least 45% aggregate marks (42.75% for SC/ST), with English as one of the subjects.",
-      "category": "Admissions & Eligibility"
-    },
-    {
-      "q": "How is B.A. LL.B. different from BBA LL.B.?",
-      "a": "B.A. LL.B. combines Law with humanities subjects such as Political Science and Sociology, while BBA LL.B. combines Law with business and management subjects.",
-      "category": "Programs & Curriculum"
-    },
-    {
-      "q": "Who can apply for the 3-year LL.B. program?",
-      "a": "Graduates from any stream can apply, provided they have at least 45% aggregate marks for the General Category and 42.75% for SC/ST.",
-      "category": "Admissions & Eligibility"
-    },
-    {
-      "q": "How long is the LL.B. program?",
-      "a": "LL.B. is a 3-year program comprising six semesters.",
-      "category": "Programs & Curriculum"
-    },
-    {
-      "q": "What is the eligibility for LL.M.?",
-      "a": "Candidates need an LL.B. or a 5-year integrated law degree with 55% aggregate marks for the General Category; SC/ST candidates need the minimum passing marks.",
-      "category": "Admissions & Eligibility"
-    },
-    {
-      "q": "What is GLAT?",
-      "a": "GLAT is the Geeta Law Admission Test conducted by GIL for admission to its 5-year B.A. LL.B. (Hons.) and BBA LL.B. (Hons.) programs.",
-      "category": "Admission Process & GLAT"
-    },
-    {
-      "q": "Is GLAT compulsory for admission to the 5-year law programs?",
-      "a": "GIL uses GLAT along with qualifying-examination merit and the admission interaction process for selecting candidates. Scores from national exams such as CLAT, AILET or LSAT India may also be accepted in lieu of GLAT.",
-      "category": "Admission Process & GLAT"
-    },
-    {
-      "q": "What subjects are tested in GLAT?",
-      "a": "GLAT assesses General Knowledge & Current Affairs, English, Reasoning, and Legal Aptitude & Awareness.",
-      "category": "Admission Process & GLAT"
-    },
-    {
-      "q": "What is the GLAT exam pattern?",
-      "a": "The published GLAT information states that the test is typically 90 minutes long and contains 100 objective questions.",
-      "category": "Admission Process & GLAT"
-    },
-    {
-      "q": "Can CLAT or another national-level law entrance score be used?",
-      "a": "Yes. GIL states that scores from CLAT, AILET or LSAT India may be accepted in lieu of GLAT for admission.",
-      "category": "Admission Process & GLAT"
-    },
-    {
-      "q": "Does Geeta Institute of Law have moot court training?",
-      "a": "Yes. Moot court training is an important part of the institute's practical legal education, and GIL regularly participates in and organises moot court competitions.",
-      "category": "Moot Courts, Practical Training & Court Exposure"
-    },
-    {
-      "q": "Do students get actual court exposure?",
-      "a": "Yes. Practical training includes court visits and exposure to District Courts, High Courts and the Supreme Court of India.",
-      "category": "Moot Courts, Practical Training & Court Exposure"
-    },
-    {
-      "q": "Are internships part of legal education at GIL?",
-      "a": "Yes. Internship and practical training are integral to the institute's professional-development approach. GIL organises its internship fair under the name 'PRASHIKSHAN'.",
-      "category": "Internships & Industry Exposure"
-    },
-    {
-      "q": "Does GIL offer scholarships?",
-      "a": "Yes. GLAT performance can make students eligible for merit-based scholarships, including scholarships of up to 100% for the five-year programs.",
-      "category": "Scholarships & Student Support"
     }
   ],
+
 
   cta: {
     heading: "Shape the Future of Law & Justice with Geeta University",
