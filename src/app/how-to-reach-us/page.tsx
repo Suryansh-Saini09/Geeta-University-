@@ -1,9 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 
-import ReachHero from "@/components/how-to-reach-us/ReachHero";
 import ReachInfographicSection from "@/components/how-to-reach-us/ReachInfographicSection";
-import ReachTransportCards from "@/components/how-to-reach-us/ReachTransportCards";
 import ContactMapSection from "@/components/contact-us/ContactMapSection";
 import IndustryEcosystemSection from "@/components/industry-integration/IndustryEcosystemSection";
 
@@ -34,14 +32,9 @@ export const metadata: Metadata = {
 export default function HowToReachUsPage() {
   return (
     <main className="min-h-screen bg-[#F7F9FC] text-[#0A1F44]">
-      {/* Hero Header */}
-      <ReachHero />
 
       {/* Official Route Diagram & Distance Timeline */}
       <ReachInfographicSection />
-
-      {/* Detailed Travel Modes Grid (Air, Train, Bus, Car) */}
-      <ReachTransportCards />
 
       {/* Google Maps Location Embed */}
       <ContactMapSection />
