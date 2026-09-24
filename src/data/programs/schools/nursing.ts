@@ -65,9 +65,10 @@ export const nursingSchool: ProgramPageData = {
   about: {
     eyebrow: "ABOUT THE COLLEGE",
     title: "Geeta Nursing College",
+    subtitle: "Geeta University – Proposed Nursing Programmes\nWelcome to the Future of Nursing Education",
     paragraphs: [
       "At Geeta University, we are committed to nurturing compassionate, skilled healthcare professionals who make a difference in communities. In response to the growing demand for quality nursing care and skilled practitioners in the healthcare sector, we are planning to introduce comprehensive nursing programmes under Geeta Nursing College — designed with academic excellence, practical exposure, and career readiness at the core.",
-      'Programmes are proposed and subject to statutory approvals and inspections as per regulatory requirements. Affiliation and approval status will be updated on this page once received.',
+      '<strong>"Programmes are proposed and subject to statutory approvals and inspections as per regulatory requirements. Affiliation and approval status will be updated on this page once received."</strong>',
     ],
     image: "https://geetauniversity.edu.in/uploads/all/253/conversions/f-block-(1)-full.webp",
     badgeText: "Excellence in Nursing Education",

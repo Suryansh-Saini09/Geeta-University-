@@ -425,6 +425,14 @@ export const commerceSchool: ProgramPageData = {
           "Dr. Gopesh Kumar Singh is an Assistant Professor at Geeta University, Panipat, Haryana, with more than 13 years of experience in academia and industry specializing in Logistics, Supply Chain Management, Operations Management, E-commerce, and FMCG. He holds a Doctorate in Supply Chain Management . Prior to joining Geeta University, have served as Program Leader and Assistant Professor at Apex Institute of Management, Chandigarh University , Mohali and as an Adjunct Faculty at Bennett University. His industry experience includes key roles with Safeducate (Safexpress), Google India, Blinkit (formerly Grofers), Kayoma Trading, Adani Wilmar, Red Bull India &amp; NOKIA India. Have trained over 2,000 students and working professionals through industry-academia initiatives. His teaching and research interests include Logistics and Supply Chain Management, operations Management , Supply Chain Analytics, Digital Supply Chains, Sustainable Supply Chain Management, and Industry 4.0. He is dedicated to promoting Outcome-Based Education through research, innovation, experiential learning, and strong industry collaboration.",
         image: "/programs/commerce/scbm faculty/gopesh.webp",
       },
+      {
+        name: "Ms. Poonam Rani",
+        designation: "Assistant Professor",
+        role: "Assistant Professor",
+        description:
+          "Assistant Professor in Accounting & Finance | UGC-NET Qualified | M.Com. | B.Com. (Hons.) | 5+ Years Academic Experience | Researcher | Published Papers | Patent Filed | Accounting & Financial Management",
+        image: "/programs/commerce/scbm faculty/poonam.jpeg",
+      },
     ],
   },
 

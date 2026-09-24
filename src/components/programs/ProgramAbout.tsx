@@ -45,11 +45,30 @@ export default function ProgramAbout({ about, intro, visionMission, dean, school
               color: "#0A1F44",
               lineHeight: 1.15,
               letterSpacing: "-1px",
-              marginBottom: 24,
+              marginBottom: data.subtitle ? 12 : 24,
             }}
           >
             {data.title}
           </h2>
+          {data.subtitle && (
+            <div style={{ marginBottom: 24 }}>
+              {data.subtitle.split("\n").map((line, i) => (
+                <h3
+                  key={i}
+                  style={{
+                    fontSize: i === 0 ? 22 : 19,
+                    fontWeight: 700,
+                    color: "#1E293B",
+                    lineHeight: 1.35,
+                    marginTop: i > 0 ? 6 : 0,
+                    fontFamily: "var(--font-serif), serif",
+                  }}
+                >
+                  {line}
+                </h3>
+              ))}
+            </div>
+          )}
           {data.paragraphs.map((p, idx) => (
             <p
               key={idx}
@@ -60,9 +79,8 @@ export default function ProgramAbout({ about, intro, visionMission, dean, school
                 fontWeight: 450,
                 marginBottom: idx < data.paragraphs.length - 1 ? 16 : 0,
               }}
-            >
-              {p}
-            </p>
+              dangerouslySetInnerHTML={{ __html: p }}
+            />
           ))}
 
           {data.links && data.links.length > 0 && (

@@ -27,6 +27,7 @@ import LearningSpaces from "./LearningSpaces";
 import CareerPathways from "./CareerPathways";
 import FAQSection from "./FAQSection";
 import ProgramFinalCTA from "./ProgramFinalCTA";
+import LegacyEcosystem from "@/components/about/LegacyEcosystem";
 
 interface ProgramPageProps {
   data?: ProgramPageData;
@@ -225,6 +226,10 @@ export default function ProgramPage({ data, program }: ProgramPageProps) {
       {pageData.faqs && pageData.faqs.length > 0 && (
         <FAQSection faqs={pageData.faqs} />
       )}
+
+      {/* 16. Legacy & Ecosystem Section (Placed above Footer/CTA) */}
+      <LegacyEcosystem contextText="Students benefit from the integrated ecosystem of:" />
+
 
       {/* 18. FINAL CTA & APPLICATION FOOTER */}
       <ProgramFinalCTA cta={pageData.cta} schoolName={schoolTitle} />

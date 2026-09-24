@@ -336,7 +336,13 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
 
 export const healthSciencesSchool: ProgramPageData = {
   slug: "school-of-health-and-allied-sciences",
+  name: "School of Health & Allied Sciences",
+  shortName: "School of Health & Allied Sciences",
   type: "school",
+
+  cta: {
+    heading: "Ready to Join and Become the Healthcare Professional the Future Needs at Geeta University?",
+  },
 
   seo: {
     title: "Best Nutrition & Dietetics Programs | Health & Allied Sciences Courses",

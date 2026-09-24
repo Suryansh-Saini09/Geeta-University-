@@ -32,6 +32,7 @@ export interface ProgramPageData {
   about?: {
     eyebrow?: string;
     title: string;
+    subtitle?: string;
     paragraphs: string[];
     links?: Array<{ text: string; href: string; target?: string; rel?: string }>;
     image?: string;
