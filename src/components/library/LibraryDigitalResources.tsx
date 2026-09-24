@@ -12,15 +12,9 @@ export default function LibraryDigitalResources() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
-          <span className="inline-block rounded-full bg-[#E8871A]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#E8871A]">
-            Digital Resources & Repositories
-          </span>
           <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-[#0A1F44] sm:text-4xl">
-            Explore Library E-Portals
+            Library Resources
           </h2>
-          <p className="mt-3 text-base text-slate-600 sm:text-lg font-sans">
-            Access thousands of e-journals, research papers, video lectures, and national digital repositories directly from campus or home.
-          </p>
         </div>
 
         {/* Portals Grid */}
@@ -38,11 +32,6 @@ export default function LibraryDigitalResources() {
                     alt={portal.title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90"
                   />
-                  <div className="absolute top-3 right-3">
-                    <span className="rounded-full bg-[#0A1F44]/90 px-3 py-1 text-[11px] font-bold text-[#E8871A] backdrop-blur-sm shadow-sm">
-                      {portal.badgeText}
-                    </span>
-                  </div>
                 </div>
 
                 <h3 className="font-serif text-xl font-bold text-[#0A1F44] mb-2">

@@ -309,7 +309,7 @@ export function buildSearchIndex(): SearchDocument[] {
   addDoc({
     id: "library",
     title: libraryHeroData.title || "Central Library & Knowledge Resource Center",
-    description: libraryHeroData.description || "State-of-the-art central library with 25,000+ books, IEEE e-journals, DELNET access, quiet study zones, and digital archives.",
+    description: (libraryHeroData as { description?: string }).description || "State-of-the-art central library with 25,000+ books, IEEE e-journals, DELNET access, quiet study zones, and digital archives.",
     content: "Central library digital library e-books IEEE e-journals DELNET research papers reading hall reference books e-resources study space.",
     href: "/library",
     category: "Campus Life",
