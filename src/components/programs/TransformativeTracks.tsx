@@ -2,6 +2,12 @@
 
 import React from "react";
 
+export interface ImmersionCardItem {
+  title: string;
+  image: string;
+  points: string[];
+}
+
 export interface TransformativeTrackCard {
   title: string;
   points: string[];
@@ -11,6 +17,7 @@ export interface TransformativeTracksSection {
   title?: string;
   subtitle?: string;
   cards: TransformativeTrackCard[];
+  immersionCards?: ImmersionCardItem[];
 }
 
 interface TransformativeTracksProps {
@@ -137,6 +144,48 @@ export default function TransformativeTracks({ tracks }: TransformativeTracksPro
             </div>
           ))}
         </div>
+
+        {/* Optional Immersion & Global Certification Cards (in continuous flow) */}
+        {tracks.immersionCards && tracks.immersionCards.length > 0 && (
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {tracks.immersionCards.map((card, idx) => (
+              <div
+                key={idx}
+                className="overflow-hidden rounded-2xl border border-[#0A1F44]/15 bg-[#0E395C] shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl flex flex-col"
+              >
+                {/* Top Image */}
+                <div className="relative w-full h-[210px] sm:h-[240px] overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+
+                {/* Dark Blue Content Container */}
+                <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 bg-[#0E395C]">
+                  <h3 className="text-xl sm:text-[22px] font-bold text-white mb-3 tracking-tight font-serif">
+                    {card.title}
+                  </h3>
+                  <ul className="space-y-2.5 p-0 m-0 list-none">
+                    {card.points.map((pt, pIdx) => (
+                      <li
+                        key={pIdx}
+                        className="flex items-start gap-2.5 text-sm sm:text-[15px] text-white/90 leading-relaxed font-medium"
+                      >
+                        <span className="text-[#FF5F19] font-bold text-base leading-none select-none mt-0.5">
+                          ✓
+                        </span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <style jsx>{`
