@@ -35,7 +35,7 @@ export default function LibraryOverview() {
               <div className="pt-2">
                 <Link
                   href="/knowledge-resource-centre-library"
-                  className="inline-flex items-center justify-center rounded-xl bg-[#0A1F44] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-sm transition-all hover:bg-[#E8871A]"
+                  className="inline-flex items-center justify-center rounded-xl bg-[#E8871A] px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold text-[#0A1F44] shadow-sm transition-all duration-200 hover:bg-[#0A1F44] hover:text-white"
                 >
                   Knowledge Resource Centre (Library) &rarr;
                 </Link>

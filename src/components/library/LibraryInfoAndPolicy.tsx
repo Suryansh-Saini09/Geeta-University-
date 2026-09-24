@@ -1,5 +1,5 @@
 import React from "react";
-import { Clock, Info, Mail, BookOpen, ShieldCheck } from "lucide-react";
+import { Mail } from "lucide-react";
 import {
   libraryHoursAndPolicyData,
   libraryLoanTableData,
@@ -8,18 +8,12 @@ import {
 export default function LibraryInfoAndPolicy() {
   return (
     <section className="w-full bg-white py-12 md:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-block rounded-full bg-[#0A1F44]/5 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#0A1F44]">
-            Timings & Rules
-          </span>
-          <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-[#0A1F44] sm:text-4xl">
-            Library Operating Hours & Borrowing Policy
+          <h2 className="font-serif text-3xl font-bold tracking-tight text-[#0A1F44] sm:text-4xl">
+            Library Resource Center
           </h2>
-          <p className="mt-3 text-base text-slate-600 font-sans">
-            Guaranteed 360-day operational commitment for Geeta University students, scholars, and faculty.
-          </p>
         </div>
 
         {/* 3 Information Cards Grid */}
@@ -27,21 +21,13 @@ export default function LibraryInfoAndPolicy() {
           {/* Card 1: Hours */}
           <div className="rounded-3xl border border-slate-200 bg-[#F7F9FC] p-6 sm:p-8 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0A1F44] text-[#E8871A]">
-                  <Clock className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-serif text-lg font-bold text-[#0A1F44]">
-                    Library Hours
-                  </h3>
-                  <span className="text-xs font-bold text-[#E8871A]">
-                    {libraryHoursAndPolicyData.workingDaysPerYear} Operational
-                  </span>
-                </div>
+              <div className="mb-4 pb-3 border-b border-slate-200">
+                <h3 className="font-serif text-xl font-bold text-[#0A1F44]">
+                  Library Hours
+                </h3>
               </div>
 
-              <div className="space-y-3 text-sm font-sans pt-2 border-t border-slate-200/80">
+              <div className="space-y-3 text-sm font-sans">
                 <div className="flex justify-between items-center py-1">
                   <span className="text-slate-500 font-semibold">Operating Days:</span>
                   <span className="font-bold text-[#0A1F44]">{libraryHoursAndPolicyData.operatingDays}</span>
@@ -61,21 +47,13 @@ export default function LibraryInfoAndPolicy() {
           {/* Card 2: Important Info */}
           <div className="rounded-3xl border border-slate-200 bg-[#F7F9FC] p-6 sm:p-8 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0A1F44] text-[#E8871A]">
-                  <Info className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-serif text-lg font-bold text-[#0A1F44]">
-                    Important Information
-                  </h3>
-                  <span className="text-xs font-bold text-[#E8871A]">
-                    Guidelines
-                  </span>
-                </div>
+              <div className="mb-4 pb-3 border-b border-slate-200">
+                <h3 className="font-serif text-xl font-bold text-[#0A1F44]">
+                  Important Information
+                </h3>
               </div>
 
-              <ul className="space-y-2.5 text-xs text-slate-700 font-sans pt-2 border-t border-slate-200/80">
+              <ul className="space-y-2.5 text-xs text-slate-700 font-sans">
                 {libraryHoursAndPolicyData.importantInfo.map((info, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <span className="text-[#E8871A] font-bold">•</span>
@@ -89,22 +67,14 @@ export default function LibraryInfoAndPolicy() {
           {/* Card 3: Support */}
           <div className="rounded-3xl border border-slate-200 bg-[#F7F9FC] p-6 sm:p-8 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0A1F44] text-[#E8871A]">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-serif text-lg font-bold text-[#0A1F44]">
-                    Library Contact Support
-                  </h3>
-                  <span className="text-xs font-bold text-[#E8871A]">
-                    Helpdesk
-                  </span>
-                </div>
+              <div className="mb-4 pb-3 border-b border-slate-200">
+                <h3 className="font-serif text-xl font-bold text-[#0A1F44]">
+                  Library Contact Support
+                </h3>
               </div>
 
-              <p className="text-xs text-slate-600 font-sans mb-4 pt-2 border-t border-slate-200/80">
-                For book requests, e-database login support, or research assistance, write directly to:
+              <p className="text-xs text-slate-600 font-sans mb-4">
+                For any queries please mail at:
               </p>
 
               <a
@@ -123,17 +93,10 @@ export default function LibraryInfoAndPolicy() {
         <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-lg">
           <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-[#E8871A] mb-2">
-                <BookOpen className="h-3.5 w-3.5" />
-                <span>Borrowing Rules</span>
-              </div>
               <h3 className="font-serif text-2xl font-bold text-[#0A1F44]">
-                Library Loan & Circulation Details
+                Library Loan Details
               </h3>
             </div>
-            <p className="text-xs text-slate-500 font-sans max-w-md">
-              The table below outlines the maximum borrowing limits and loan duration based on member categories.
-            </p>
           </div>
 
           <div className="overflow-x-auto rounded-2xl border border-slate-200">

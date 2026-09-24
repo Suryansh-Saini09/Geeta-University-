@@ -59,8 +59,14 @@ export default function LibraryDigitalResources() {
 
       {/* Modal Dialog */}
       {activePortal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm animate-fadeIn">
-          <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-white p-6 sm:p-8 shadow-2xl">
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm animate-fadeIn"
+          onClick={() => setActivePortal(null)}
+        >
+          <div
+            className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-white p-6 sm:p-8 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Close Button */}
             <button
               onClick={() => setActivePortal(null)}
@@ -72,10 +78,6 @@ export default function LibraryDigitalResources() {
 
             {/* Modal Content */}
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-[#E8871A]">
-                <Sparkles className="h-3.5 w-3.5" />
-                <span>{activePortal.badgeText}</span>
-              </div>
 
               <h3 className="font-serif text-2xl font-bold text-[#0A1F44]">
                 {activePortal.title}

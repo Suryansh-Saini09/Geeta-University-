@@ -46,10 +46,6 @@ export default function XEdgeHero() {
               X<span className="text-[#E8871A]">EDGE</span>
             </h1>
 
-            <p className="text-[20px] sm:text-[22px] md:text-[24px] font-bold text-[#1E293B] leading-snug">
-              Developing Complete Corporate Citizens
-            </p>
-
             <p className="text-[16px] sm:text-[17.5px] leading-[1.8] text-[#475569] max-w-xl text-justify">
               A transformative initiative by Geeta University empowering students with high-demand{" "}
               <strong className="text-[#0A1F44] font-bold">Career Skills</strong>,{" "}

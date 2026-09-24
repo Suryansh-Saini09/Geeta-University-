@@ -13,9 +13,6 @@ export default function LibraryContactLibrarian() {
             </div>
 
             <div className="space-y-2 flex-grow">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#E8871A]">
-                Head of Library Services
-              </span>
               <h3 className="font-serif text-2xl font-bold text-[#0A1F44]">
                 {librarianContactData.name}
               </h3>

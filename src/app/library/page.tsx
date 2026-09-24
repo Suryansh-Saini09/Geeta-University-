@@ -7,7 +7,6 @@ import LibraryOverview from "@/components/library/LibraryOverview";
 import LibraryDigitalResources from "@/components/library/LibraryDigitalResources";
 import LibraryInfoAndPolicy from "@/components/library/LibraryInfoAndPolicy";
 import LibraryContactLibrarian from "@/components/library/LibraryContactLibrarian";
-import LibraryFaqAccordion from "@/components/library/LibraryFaqAccordion";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://geetauniversity.edu.in"),
@@ -50,9 +49,6 @@ export default function LibraryPage() {
 
       {/* Librarian Contact Details */}
       <LibraryContactLibrarian />
-
-      {/* FAQs */}
-      <LibraryFaqAccordion />
     </main>
   );
 }

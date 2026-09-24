@@ -80,9 +80,24 @@ const batchThresholds = [
 ];
 
 const chancellorsWeightage = [
-  { category: "Academics", weightage: "60%", desc: "Cumulative academic scores, grade point average, and consistent first-class performance throughout program tenure." },
-  { category: "Co-curricular Activities", weightage: "20%", desc: "Research publications, symposium presentations, design hackathons, technical paper contests, and academic club leadership." },
-  { category: "Extracurricular Activities", weightage: "20%", desc: "Sports tournaments, cultural festivals, debate/oratory competitions, NSS/NCC community service, and university ambassador initiatives." },
+  {
+    category: "Academics",
+    weightage: "60%",
+    percent: 60,
+    icon: BookOpen,
+  },
+  {
+    category: "Co-curricular Activities",
+    weightage: "20%",
+    percent: 20,
+    icon: Layers,
+  },
+  {
+    category: "Extracurricular Activities",
+    weightage: "20%",
+    percent: 20,
+    icon: GraduationCap,
+  },
 ];
 
 export default function MedalPolicyPage() {
@@ -99,59 +114,16 @@ export default function MedalPolicyPage() {
             className="object-cover opacity-20"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A1F44]/90 via-[#0A1F44]/85 to-[#0A1F44]" />
+          <div className="absolute inset-0" />
         </div>
-
-        {/* Decorative Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#E8871A]/15 blur-3xl pointer-events-none" />
 
         <div className="gu-container relative z-10">
           <div className="mx-auto max-w-3xl text-center">
-            {/* Breadcrumb */}
-            <nav className="mb-6 inline-flex items-center gap-2 text-xs font-semibold text-slate-300">
-              <Link href="/" className="hover:text-[#E8871A] transition-colors">
-                Home
-              </Link>
-              <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
-              <span className="text-[#E8871A]">Medal Policy</span>
-            </nav>
-
-            {/* Pill Tag */}
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 backdrop-blur-md">
-              <Sparkles className="h-4 w-4 text-[#E8871A]" />
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
-                Annual Convocation Honors &amp; Regulations
-              </span>
-            </div>
 
             {/* Title */}
             <h1 className="font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[52px] leading-tight">
               Geeta University <span className="text-[#E8871A]">Medal Policy</span>
             </h1>
-
-            {/* Subtitle */}
-            <p className="mt-5 text-base text-slate-200 md:text-lg leading-relaxed">
-              Institutional framework and transparent evaluation criteria for the conferment of Academic Gold, Silver, Bronze Medals, and the prestigious Chancellor’s Medal at the Annual Convocation.
-            </p>
-
-            {/* Highlights Bar */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-white/10 text-left max-w-xl mx-auto">
-              <div className="flex items-center gap-3 rounded-xl bg-white/5 p-3.5 border border-white/10">
-                <Medal className="h-5 w-5 text-[#E8871A] shrink-0" />
-                <div>
-                  <p className="text-xs font-bold text-white">Academic Medals</p>
-                  <p className="text-[11px] text-slate-300">Gold, Silver &amp; Bronze by Batch Rank</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl bg-white/5 p-3.5 border border-white/10">
-                <Trophy className="h-5 w-5 text-[#E8871A] shrink-0" />
-                <div>
-                  <p className="text-xs font-bold text-white">Chancellor’s Medal</p>
-                  <p className="text-[11px] text-slate-300">Premier Best All-Rounder Award</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -296,28 +268,39 @@ export default function MedalPolicyPage() {
             </div>
 
             {/* Table 2: Category Weightages */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {chancellorsWeightage.map((item) => (
-                <div
-                  key={item.category}
-                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-[#0A1F44]/30"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                      Category
-                    </span>
-                    <span className="rounded-xl bg-[#0A1F44] px-3 py-1 text-base font-bold text-[#E8871A]">
-                      {item.weightage}
-                    </span>
-                  </div>
-                  <h4 className="font-serif text-lg font-bold text-[#0A1F44]">
-                    {item.category}
-                  </h4>
-                  <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
+            <div className="space-y-4 pt-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 className="font-serif text-xl font-bold text-[#0A1F44]">
+                  Evaluation Weightage Breakdown
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {chancellorsWeightage.map((item) => {
+                  const IconComp = item.icon;
+                  return (
+                    <div
+                      key={item.category}
+                      className="group relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#E8871A]/40 hover:shadow-lg"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between gap-3 mb-4">
+                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0A1F44]/5 text-[#0A1F44] group-hover:bg-[#0A1F44] group-hover:text-[#E8871A] transition-colors">
+                            <IconComp className="h-6 w-6" />
+                          </div>
+                          <span className="rounded-full bg-[#0A1F44] px-3.5 py-1 text-sm font-extrabold text-[#E8871A] border border-[#E8871A]/20 shadow-sm">
+                            {item.weightage} Weight
+                          </span>
+                        </div>
+
+                        <h4 className="font-serif text-lg font-bold text-[#0A1F44] group-hover:text-[#E8871A] transition-colors">
+                          {item.category}
+                        </h4>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -329,10 +312,6 @@ export default function MedalPolicyPage() {
           <div className="max-w-4xl mx-auto rounded-3xl bg-gradient-to-r from-[#0A1F44] via-[#0D2857] to-[#0A1F44] p-8 sm:p-10 text-white shadow-xl shadow-slate-900/20">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="space-y-2 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-bold text-amber-300">
-                  <FileText className="h-3.5 w-3.5" />
-                  Official Convocation Notification
-                </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                   Check List of Rankers for Award of Medals
                 </h3>
@@ -349,7 +328,6 @@ export default function MedalPolicyPage() {
               >
                 <Download className="h-4 w-4" />
                 <span>View Medal List PDF</span>
-                <ExternalLink className="h-3.5 w-3.5 opacity-70" />
               </a>
             </div>
           </div>

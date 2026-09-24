@@ -12,7 +12,6 @@ export interface LibraryPortal {
   description: string;
   fullContent: string;
   image: string;
-  badgeText: string;
 }
 
 export interface LoanRuleItem {
@@ -76,7 +75,6 @@ export const libraryPortalsData: LibraryPortal[] = [
   {
     id: "elibrary",
     title: "E-Library & Global Databases",
-    badgeText: "24×7 Digital Access",
     description: "Direct campus and remote access to premier IEEE, ASME, ELSEVIER, EBSCO, EMERALD, and SCC Online databases.",
     fullContent:
       "To conduct research and advanced reading, GU libraries provide access to leading global e-journals and databases including ASME, IEEE, EMERALD, EBSCO, ASCE, ASTM, McGraw Hill, J-Gate, ELSEVIER, SCC ONLINE, and WESTLAW INTERNATIONAL. The library also hosts web-based video courses prepared by scholars from premier national institutes, eliminating geographical barriers for our students.",
@@ -85,7 +83,6 @@ export const libraryPortalsData: LibraryPortal[] = [
   {
     id: "resource",
     title: "National Digital Library (NDLI)",
-    badgeText: "Ministry of Education Partner",
     description: "Integrated single-window search facility offering millions of multi-disciplinary digital educational assets.",
     fullContent:
       "The National Digital Library of India (NDLI) integration provides a versatile and accessible platform offering a broad spectrum of e-resources across all academic disciplines. Key features include full-text searchability, downloadable articles, and 24/7 availability for students and faculty.",
@@ -94,7 +91,6 @@ export const libraryPortalsData: LibraryPortal[] = [
   {
     id: "repository",
     title: "GU Institutional E-Repository",
-    badgeText: "Campus Intellectual Assets",
     description: "Centralized digital repository housing faculty research, Ph.D. theses, lab manuals, and conference papers.",
     fullContent:
       "The Geeta University E-Repository serves as the institutional digital archive preserving dissertations, Ph.D. theses, peer-reviewed conference publications, lecture notes, and rare institutional records accessible over the university high-speed intranet network.",
@@ -108,9 +104,9 @@ export const libraryHoursAndPolicyData = {
   workingDaysPerYear: "360 Days",
   supportEmail: "library.support@geetauniversity.edu.in",
   importantInfo: [
-    "The Knowledge Resource Center (LRC) remains closed on official University holidays listed in the Academic Calendar.",
-    "All online databases, e-books, and digital repositories remain accessible 24×7 via off-campus proxy.",
-    "Any revisions to daily library operating hours during university examination periods will be notified in advance.",
+    "LRC will remain closed on Holidays listed in the Academic Calendar of the Geeta University.",
+    "All online resources can be accessed 24×7.",
+    "Any change in the KRC timings will be notified in advance.",
   ],
 };
 
@@ -126,35 +122,8 @@ export const libraryLoanTableData: LoanRuleItem[] = [
 
 export const librarianContactData = {
   name: "Dr. Anil Kapoor",
-  designation: "Librarian & Head of Knowledge Resource Center",
-  address: "Geeta University Main Campus, Naultha, Panipat, Haryana 132145",
+  designation: "Librarian",
+  address: "Geeta University, Naultha, Panipat, Haryana 132145",
   email: "library.support@geetauniversity.edu.in",
   phone: "+91 92787 68000",
 };
-
-export const libraryFaqsData = [
-  {
-    question: "Who is eligible for borrowing books from the Central Library?",
-    answer: "All enrolled students (UG, PG, Ph.D.), faculty members, researchers, and university staff are eligible for library membership and book borrowing privileges.",
-  },
-  {
-    question: "What are the daily operating hours of the Central Library?",
-    answer: "The library operates from 9:00 AM to 10:00 PM, Monday to Sunday, functioning 360 days a year.",
-  },
-  {
-    question: "How can I access online e-journals and databases like IEEE or ELSEVIER?",
-    answer: "E-journals and databases are accessible on-campus via university Wi-Fi/LAN, as well as remotely using your student/faculty G-Portal credentials.",
-  },
-  {
-    question: "Can Reference Section books be issued for home reading?",
-    answer: "No. The Reference Section houses 5,829 rare and high-demand reference volumes intended exclusively for reading and research within the library reading hall.",
-  },
-  {
-    question: "What is the penalty for late return of borrowed books?",
-    answer: "Books must be renewed or returned on or before the due date. Overdue charges of ₹2 per day per book apply after the expiration of the loan period.",
-  },
-  {
-    question: "How do I request a new book or journal subscription?",
-    answer: "Students and faculty can submit book requisition forms at the Librarian desk or email library.support@geetauniversity.edu.in.",
-  },
-];
