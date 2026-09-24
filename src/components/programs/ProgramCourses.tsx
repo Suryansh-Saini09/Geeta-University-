@@ -381,8 +381,8 @@ export default function ProgramCourses({
                       )}
                     </div>
 
-                    {/* Action Buttons */}
-                    {prog.href && (
+                    {/* Action Buttons - only shown if no specialisations are listed */}
+                    {prog.href && (!prog.specialisations || prog.specialisations.length === 0) && (
                       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                         <a
                           href={prog.href}
