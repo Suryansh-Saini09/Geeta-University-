@@ -24,7 +24,7 @@ import {
 import SearchOverlay from "@/components/search/SearchOverlay";
 
 interface MegaCol {
-  heading: string;
+  heading?: string;
   links: { label: string; href: string }[];
 }
 
@@ -45,41 +45,15 @@ interface NavEntry {
 /* ── NAV DATA ────────────────────────────────────────────────── */
 const primaryNavLinks: NavEntry[] = [
   {
-    label: "ABOUT",
+    label: "About Us",
+    href: "/about",
     key: "about",
-    cols: [
-      {
-        heading: "ABOUT GEETA UNIVERSITY",
-        links: [
-          { label: "About Us", href: "/about" },
-          { label: "Contact Us", href: "/contact-us" },
-          { label: "Social Links", href: "/social-links" },
-          { label: "Careers @ GU", href: "/careers" },
-          { label: "UGC Approvals & Compliance", href: "/ugc" },
-        ],
-      },
-      {
-        heading: "ACADEMIC EXCELLENCE",
-        links: [
-          { label: "Industry Integration", href: "/industry-integration" },
-          { label: "Teaching & Learning Practices", href: "/teaching-learning-practices" },
-        ],
-      },
-    ],
-    banner: {
-      text: "Work & Study With Us",
-      items: [
-        { icon: <Briefcase size={15} />, label: "Careers", href: "/careers" },
-        { icon: <Globe size={15} />, label: "International", href: "/international-admissions" },
-      ],
-    },
   },
   {
     label: "PROGRAMS",
     key: "programs",
     cols: [
       {
-        heading: "ENGINEERING & TECH",
         links: [
           { label: "School of CSE", href: "/programs/school-of-computer-science-and-engineering" },
           { label: "School of Sciences", href: "/programs/school-of-forensic-sciences" },
@@ -87,7 +61,6 @@ const primaryNavLinks: NavEntry[] = [
         ],
       },
       {
-        heading: "MANAGEMENT & LAW",
         links: [
           { label: "School of Commerce & Business Management", href: "/programs/school-of-management-and-business-studies" },
           { label: "SP Bansal School of Business", href: "/programs/sp-bansal-school-of-business" },
@@ -95,7 +68,6 @@ const primaryNavLinks: NavEntry[] = [
         ],
       },
       {
-        heading: "HEALTH & HUMANITIES",
         links: [
           { label: "Geeta Institute of Pharmacy", href: "/programs/geeta-institute-of-pharmacy" },
           { label: "School of Health & Allied Sciences", href: "/programs/school-of-health-and-allied-sciences" },
@@ -1125,9 +1097,9 @@ export default function Navbar() {
                     >
                       {/* Columns */}
                       <div className="gu-mega-body">
-                        {link.cols?.map((col) => (
-                          <div key={col.heading} className="gu-mega-col">
-                            <div className="gu-mega-col-heading">{col.heading}</div>
+                        {link.cols?.map((col, idx) => (
+                          <div key={col.heading || idx} className="gu-mega-col">
+                            {col.heading && <div className="gu-mega-col-heading">{col.heading}</div>}
                             {col.links.map((item) => (
                               <Link
                                 key={item.label}

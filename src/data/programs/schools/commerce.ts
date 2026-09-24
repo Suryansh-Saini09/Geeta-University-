@@ -501,7 +501,7 @@ export const commerceSchool: ProgramPageData = {
       image: "/programs/commerce/arvind-testimonial.webp",
     },
     {
-      name: "Mr. Vaibhav Arora",
+      name: "Vaibhav Arora",
       pkg: "1.4 Cr PA",
       role: "Alumni Entrepreneur",
       quote:

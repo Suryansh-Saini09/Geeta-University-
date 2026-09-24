@@ -479,7 +479,7 @@ export const lawSchool: ProgramPageData = {
   ],
 
   dean: {
-    name: "Dr. Ayaz",
+    name: "Dr. Ayaz Ahmad",
     designation: "Dean, Geeta Global Law School",
     image: "/programs/law/ayaz.png",
     message:

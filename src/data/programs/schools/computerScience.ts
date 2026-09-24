@@ -115,14 +115,6 @@ export const computerScienceSchool: ProgramPageData = {
 
   faculty: [
     {
-      name: "Dr. Meenu Gupta",
-      role: "Professor & Head",
-      desc: "Head of the School of Computer Science & Engineering. Expert in computer applications, software engineering, intelligent computing systems, and academic leadership.",
-      image: "https://geetauniversity.edu.in/uploads/all/2818/Codex-Image-Sep-11,-2026,-09_18_39-AM.png",
-      imagePosition: "center 0%",
-      imageScale: 0.94,
-    },
-    {
       name: "Dr. Kapil Saini",
       role: "Associate Professor",
       desc: "Published 25+ Scopus/WoS Papers; Contributed 6 Book Chapters (Springer, Elsevier, Taylor & Francis, IGI Global); Holds 3 Patents (IoT-based Health Monitoring); Recognized with Best Teacher Award (2022); Expertise in AI, ML, Cloud Computing, and Recommender Systems.",
@@ -130,22 +122,22 @@ export const computerScienceSchool: ProgramPageData = {
       imagePosition: "center 0%",
       imageScale: 0.98,
     },
-    {
-      name: "Mr. Jayant",
-      role: "Assistant Professor",
-      desc: "Assistant Professor in Computer Science & Engineering, dedicated to core computing foundations, programming, algorithms, and student mentorship.",
-      image: "/dummy.webp",
-      imagePosition: "center center",
-      imageScale: 1.0,
-    },
-    {
-      name: "Ms. Isha Dhingra",
-      role: "Assistant Professor",
-      desc: "Assistant Professor in Computer Science & Engineering, specializing in modern computer applications, programming paradigms, and software development.",
-      image: "/dummy.webp",
-      imagePosition: "center center",
-      imageScale: 1.0,
-    },
+    // {
+    //   name: "Mr. Jayant",
+    //   role: "Assistant Professor",
+    //   desc: "Assistant Professor in Computer Science & Engineering, dedicated to core computing foundations, programming, algorithms, and student mentorship.",
+    //   image: "/dummy.webp",
+    //   imagePosition: "center center",
+    //   imageScale: 1.0,
+    // },
+    // {
+    //   name: "Ms. Isha Dhingra",
+    //   role: "Assistant Professor",
+    //   desc: "Assistant Professor in Computer Science & Engineering, specializing in modern computer applications, programming paradigms, and software development.",
+    //   image: "/dummy.webp",
+    //   imagePosition: "center center",
+    //   imageScale: 1.0,
+    // },
     {
       name: "Ms. Jyoti",
       role: "Assistant Professor",
