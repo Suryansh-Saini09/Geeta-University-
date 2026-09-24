@@ -10,15 +10,25 @@ interface CourseFAQProps {
 
 export default function CourseFAQ({ faqs }: CourseFAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
-
-  if (!faqs || faqs.length === 0) return null;
 
   // Extract unique categories
-  const categories = [
-    "All",
-    ...Array.from(new Set(faqs.map((f) => f.category).filter(Boolean))),
-  ] as string[];
+  const rawCategories = Array.from(
+    new Set((faqs || []).map((f) => f.category).filter(Boolean))
+  ) as string[];
+  const categories = ["All", ...rawCategories] as string[];
+
+  // Default to Admissions & Eligibility if present
+  const defaultCategory =
+    rawCategories.find((cat) => {
+      const lower = cat.toLowerCase();
+      return lower.includes("admission") || lower.includes("eligibility");
+    }) ||
+    rawCategories[0] ||
+    "All";
+
+  const [selectedCategory, setSelectedCategory] = useState<string>(defaultCategory);
+
+  if (!faqs || faqs.length === 0) return null;
 
   const filteredFaqs =
     selectedCategory === "All"
