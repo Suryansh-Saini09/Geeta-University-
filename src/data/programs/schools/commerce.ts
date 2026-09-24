@@ -570,9 +570,9 @@ export const commerceSchool: ProgramPageData = {
   brochure: {
     title: "Want to know more?",
     description:
-      "Explore comprehensive curriculum guides for BBA, B.Com, MBA, ACCA certifications, faculty profiles, and placement track records.",
+      "Explore comprehensive curriculum guides for BBA, B.Com, M.Com, ACCA certifications, faculty profiles, and placement track records.",
     fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
-    fileName: "School_of_Management_Brochure.pdf",
+    fileName: "School_of_Commerce_Brochure.pdf",
   },
 
   /*
@@ -788,23 +788,8 @@ export const commerceSchool: ProgramPageData = {
       level: "Postgraduate",
       duration: "2 Years",
       eligibility:
-        "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
+        "Passed B.Com. with a minimum of 50% marks in the qualifying exam.",
       programs: [
-        {
-          name: "MBA (Master of Business Administration)",
-          program: "MBA (Master of Business Administration)",
-          href: "/programs/school-of-commerce-and-business-management/mba",
-          duration: "2 Years",
-          eligibility:
-            "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
-          specialisations: [
-            { name: "MBA (Finance)", href: "/programs/school-of-commerce-and-business-management/mba-finance" },
-            { name: "MBA (Marketing)", href: "/programs/school-of-commerce-and-business-management/mba-marketing" },
-            { name: "MBA (Human Resource Management)", href: "/programs/school-of-commerce-and-business-management/mba-hrm" },
-            { name: "MBA (Pharmaceutical Management)", href: "/programs/school-of-commerce-and-business-management/mba-pharmaceutical-management" },
-            { name: "MBA (Supply Chain Management)", href: "/programs/school-of-commerce-and-business-management/mba-supply-chain-management" },
-          ],
-        },
         {
           name: "M.Com. (Master of Commerce)",
           program: "M.Com. (Master of Commerce)",
