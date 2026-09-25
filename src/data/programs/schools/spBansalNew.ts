@@ -25,7 +25,7 @@ export const spBansalSchoolNew: ProgramPageData = {
   },
 
   hero: {
-    bannerOnly: false,
+    bannerOnly: true,
     image: "https://geetauniversity.edu.in/uploads/all/2169/spbsb.webp",
     title: "SP Bansal School of Business",
     eyebrow: "Geeta University",
@@ -37,9 +37,9 @@ export const spBansalSchoolNew: ProgramPageData = {
     eyebrow: "ABOUT THE SCHOOL",
     title: "SP Bansal School of Business",
     paragraphs: [
-      "SP Bansal School of Business (SPBSB), established under Geeta University in Panipat, Haryana, stands as a leadership bastion nurturing seeds of greatness and upholding ethical, human-centric values in future business leaders. The B-School is forged in the illustrious 40-year legacy of the Geeta Group of Institutions—Insight, Articulate, Innovate: Triangulating Holistic Excellence—thriving within a premier AI-empowered university ecosystem in North India.",
-      "SPBSB distinguishes itself as Panipat's top management school through agile, AI-integrated education within Geeta University's future-ready university setup. Unlike traditional programs, it revises curriculum semiannually with corporate stakeholder inputs, ensuring modern management theories and cutting-edge industry relevance.",
-      "The MBA program at SPBSB delivers global industry certifications (EC-Council, EY, Deloitte, Paytm, AWS, Cisco, IRM, etc.) and hands-on labs in AI, Machine Learning, Analytics, and Cybersecurity. Industry practitioners simulate real-world business challenges in every class to refine students' strategic decision-making abilities.",
+      "SP Bansal School of Business (SPBSB), launched under Geeta University in Panipat, Haryana, stands as a leadership bastion nurturing seeds of greatness upholding human values and ethics in future business leaders. The B School is forged in the Illustrious Legacy of Geeta group of Institutions—Insight. Articulate. Innovate - Triangulating Holistic Excellence, triangulate to holistic excellence thriving within a top AI empowered university of Northern India.",
+      "SPBSB distinguishes itself as Panipat's top management school through agile, AI-powered education in Geeta University's world-first AI university setup. Unlike traditional programs, it revises curriculum semiannually with stakeholder inputs, ensuring latest theories and industry relevance.",
+      "Unique Value addition: The MBA program at SPBSB also delivers Global certifications (EC-Council, EY, Deloitte, Paytm, AWS, Cisco, IRM etc); and hands- on labs for AI, ML, Analytics, cybersecurity etc. Industry trainers simulate real world problems in every class every day refining the decision-making ability in students. This repeated problem solving also builds critical, creative, lateral and out of the box thinking in students thereby developing their ability to solve difficult problems through a rigorous and analytical process.",
     ],
     image: "https://geetauniversity.edu.in/uploads/all/2080/campus.webp",
     badgeText: "Top AI-Empowered Business School",
@@ -90,7 +90,7 @@ export const spBansalSchoolNew: ProgramPageData = {
           "Data driven decision making",
           "Blockchain & Cryptocurrencies",
           "Digital payments and Lending",
-          "AI & ML in FinTech",
+          "AI& ML in FinTech",
           "Regulatory Tech (RegTech)",
         ],
       },
@@ -102,7 +102,8 @@ export const spBansalSchoolNew: ProgramPageData = {
           "Email and Mobile Marketing",
           "Influencer & Affiliate Marketing",
           "Data-Driven Campaigns",
-          "Advanced UI and UX & Quick Commerce",
+          "Advanced UI and UX",
+          "AI and Quick Commerce",
         ],
       },
       {
@@ -112,6 +113,7 @@ export const spBansalSchoolNew: ProgramPageData = {
           "Diversity & Inclusion Strategies",
           "Employee Experience and Engagement",
           "HR Tech & People Analytics",
+          "Performance Management Systems",
           "Leadership Development & Personal Growth Labs",
         ],
       },
@@ -122,7 +124,8 @@ export const spBansalSchoolNew: ProgramPageData = {
           "Brand Strategy & Equity",
           "International Marketing",
           "Marketing in the Quick Commerce Era",
-          "Marketing Automation Tools & Sales Promotion",
+          "Marketing Automation Tools",
+          "Sales Promotion and Advertising",
         ],
       },
       {
@@ -132,7 +135,8 @@ export const spBansalSchoolNew: ProgramPageData = {
           "Investment Banking Essentials",
           "Risk Management & Derivatives",
           "Corporate Valuation Models",
-          "Financial Modelling with AI & Sustainable Finance",
+          "Sustainable Finance",
+          "Financial Modelling with AI",
         ],
       },
       {
@@ -152,7 +156,8 @@ export const spBansalSchoolNew: ProgramPageData = {
           "Family Business Governance",
           "Venture Scaling Techniques",
           "Innovation & Pivot Management",
-          "Succession Planning & Social Entrepreneurship",
+          "Succession Planning",
+          "Social Entrepreneurship",
         ],
       },
     ],
@@ -185,12 +190,12 @@ export const spBansalSchoolNew: ProgramPageData = {
 
   transformativeTracks: {
     title: "Leadership Odyssey Program (LOP)",
-    subtitle: "Individual Development Program (IDP) – Customized Career Plan for every business student.",
+    subtitle: "Individual Development Program (IDP) – Customized Career Plan",
     cards: [
       {
-        title: "Phase 01: Profiling & Assessment",
+        title: "Phase 01: Profiling",
         points: [
-          "Aptitude & reasoning tests",
+          "Aptitude and reasoning tests",
           "Psychometrics & personality assessment",
           "ATS-optimized resume audit",
           "Interest mapping & SWOT analysis",
@@ -202,7 +207,6 @@ export const spBansalSchoolNew: ProgramPageData = {
           "Customized skill modules",
           "Industry certifications (AWS, Cisco, EC-Council)",
           "Quarterly progress tracking",
-          "Hands-on technology labs",
         ],
       },
       {
@@ -218,7 +222,7 @@ export const spBansalSchoolNew: ProgramPageData = {
         title: "Phase 04: Career Acceleration (WTO)",
         points: [
           "Workplace Thrive Quotient",
-          "Role-specific interview preparation",
+          "Role-specific preparation",
           "Company culture & performance analysis",
           "Final placement readiness mapping",
         ],
@@ -229,16 +233,16 @@ export const spBansalSchoolNew: ProgramPageData = {
         title: "Global Certifications",
         image: "/programs/spbsb/global-immersion.webp",
         points: [
-          "Learn from international industry and academia experts.",
-          "Participate in a 10-day global learning immersion in Dubai, Malaysia, or Europe.",
+          "Learn from industry and academia experts.",
+          "Participate in a ten-day learning experience in Dubai, Malaysia, or Europe.",
         ],
       },
       {
         title: "Immersion at IIM Kozhikode",
         image: "/programs/spbsb/iim-kozhikode.webp",
         points: [
-          "Learn from experienced faculty and eminent industry experts.",
-          "Participate in a 7-day residential business immersion at IIM Kozhikode.",
+          "Learn from experienced faculty and industry experts",
+          "Participate in a 7-days residential business experience at SPBSB",
         ],
       },
     ],
@@ -386,6 +390,7 @@ export const spBansalSchoolNew: ProgramPageData = {
           specialisations: [
             { name: "MBA (AI For Business)", href: "/programs/school-of-commerce-and-business-management/mba" },
             { name: "MBA (Digital Marketing)", href: "/programs/school-of-commerce-and-business-management/mba" },
+            { name: "MBA (FinTech)", href: "/programs/school-of-commerce-and-business-management/mba" },
             { name: "MBA (Finance)", href: "/programs/school-of-commerce-and-business-management/mba-finance" },
             { name: "MBA (Marketing)", href: "/programs/school-of-commerce-and-business-management/mba-marketing" },
             { name: "MBA (Human Resource Management)", href: "/programs/school-of-commerce-and-business-management/mba-hrm" },
@@ -422,7 +427,7 @@ export const spBansalSchoolNew: ProgramPageData = {
   faqs: [
     {
       q: "What programs are offered by SP Bansal School of Business (SPBSB)?",
-      a: "SPBSB offers an MBA with specialisations in AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business, along with a Ph.D. program in Commerce and Management.",
+      a: "SPBSB offers an MBA with specialisations in AI for Business, Digital Marketing, FinTech, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business, along with a Ph.D. program in Commerce and Management.",
       category: "Admissions & Eligibility",
     },
     {
@@ -452,7 +457,7 @@ export const spBansalSchoolNew: ProgramPageData = {
     },
     {
       q: "Can a student choose an MBA specialization according to their career goal?",
-      a: "Yes. Students can choose their preferred specialisation from the multiple options offered, allowing them to align their MBA with areas such as AI, marketing, finance, HR, supply chain, digital marketing, or entrepreneurship.",
+      a: "Yes. Students can choose their preferred specialisation from the multiple options offered, allowing them to align their MBA with areas such as AI, marketing, finance, FinTech, HR, supply chain, digital marketing, or entrepreneurship.",
       category: "Admissions & Eligibility",
     },
     {
@@ -462,7 +467,7 @@ export const spBansalSchoolNew: ProgramPageData = {
     },
     {
       q: "How many MBA specialisations are available?",
-      a: "There are 7 specializations offered: AI for Business, Digital Marketing, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business.",
+      a: "There are 8 specializations offered: AI for Business, Digital Marketing, FinTech, Finance, Marketing, Human Resource Management, Supply Chain Management, and Entrepreneurship & Family Business.",
       category: "MBA Structure & Specialisations",
     },
     {
@@ -473,6 +478,11 @@ export const spBansalSchoolNew: ProgramPageData = {
     {
       q: "What is covered in MBA Digital Marketing?",
       a: "MBA Digital Marketing specialization includes SEO and SEM, social media analytics, email and mobile marketing, influencer and affiliate marketing, data-driven campaigns, UI/UX, AI and quick commerce.",
+      category: "MBA Structure & Specialisations",
+    },
+    {
+      q: "What is covered in MBA FinTech?",
+      a: "The MBA FinTech specialization covers data-driven decision making, blockchain & cryptocurrencies, digital payments and lending, AI & ML in FinTech, and regulatory technology (RegTech).",
       category: "MBA Structure & Specialisations",
     },
     {

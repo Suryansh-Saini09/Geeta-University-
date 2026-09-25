@@ -27,7 +27,7 @@ export const spBansalSchoolPrevious: ProgramPageData = {
     },
 
     hero: {
-        bannerOnly: false,
+        bannerOnly: true,
         image: "/programs/spbsb/hero.jpg",
         title: "SP Bansal School of Business",
         eyebrow: "Geeta University",
