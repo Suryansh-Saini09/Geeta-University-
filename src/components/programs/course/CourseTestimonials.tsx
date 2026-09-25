@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { CourseTestimonial } from "@/data/programs/courses/types";
-import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
 interface CourseTestimonialsProps {
   testimonials: CourseTestimonial[];
@@ -11,165 +11,129 @@ interface CourseTestimonialsProps {
 export default function CourseTestimonials({
   testimonials,
 }: CourseTestimonialsProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const testimonialItems = testimonials && testimonials.length > 0 ? testimonials : [];
-
-  const {
-    containerRef,
-    currentIndex,
-    maxIndex,
-    next,
-    prev,
-    goTo,
-    handleScroll,
-    handleMouseDown,
-    handleMouseLeave,
-    handleMouseEnter,
-    handleMouseUp,
-    handleMouseMove,
-    handleTouchStart,
-    handleTouchMove,
-    handleTouchEnd,
-  } = useFiniteCarousel({
-    totalItems: testimonialItems.length,
-    autoplayInterval: 3000,
-    enableAutoplay: true,
-  });
 
   if (testimonialItems.length === 0) return null;
 
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -380, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 380, behavior: "smooth" });
+    }
+  };
+
   return (
     <section
-      id="CourseTestimonials"
-      className="relative overflow-hidden bg-[#0A1F44] py-16 md:py-24 border-t border-white/5"
+      id="StudentTestimonials"
+      className="w-full bg-[#FFFFFF] py-14 sm:py-16 border-t border-slate-200/80 overflow-hidden"
     >
-      {/* Decorative Blur Spheres */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-20 -left-20 h-96 w-96 rounded-full bg-[#E8871A]/10 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-[#E8871A]/8 blur-3xl"
-      />
-
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        {/* Section Header */}
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <h2 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-            Student Testimonials
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Heading */}
+        <div className="text-center mb-10 sm:mb-12">
+          <h2
+            style={{
+              fontFamily: "var(--font-serif), Georgia, serif",
+              fontSize: "clamp(28px, 3.2vw, 38px)",
+              fontWeight: 800,
+              color: "#0A1F44",
+              lineHeight: 1.2,
+              letterSpacing: "-0.5px",
+            }}
+          >
+            Student Testimonial
           </h2>
-          <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-[#E8871A]" />
-          <p className="mt-4 text-[15px] leading-relaxed text-white/70 sm:text-base">
-            Read first-hand accounts from our students and alumni about their career transformations, academic mentorship, and experiential journey.
-          </p>
         </div>
 
-        {/* Scrollable & Draggable Testimonials Track */}
-        <div className="relative">
-          <div
-            ref={containerRef}
-            onScroll={handleScroll}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseEnter={handleMouseEnter}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        {/* Carousel Container with Left/Right Arrows */}
+        <div className="relative flex items-center">
+          {/* Left Arrow Button */}
+          <button
+            onClick={scrollLeft}
+            aria-label="Previous Testimonials"
+            className="hidden sm:flex absolute -left-3 lg:-left-6 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-[#0A1F44] hover:bg-[#F8FAFC] hover:border-[#E8871A] transition-all"
           >
-            {testimonialItems.map((item, index) => {
-              const initials = item.name
-                .split(" ")
-                .map((n) => n[0])
-                .join("");
-              const pkg = (item as { pkg?: string }).pkg;
-              const quoteText = item.quote || item.text;
-              const displayDetails = [
-                item.role && !item.role.includes("Alumni") ? item.role : null,
-                item.company,
-                pkg,
-              ]
-                .filter(Boolean)
-                .join(" • ");
+            <ChevronLeft size={22} />
+          </button>
 
-              return (
-                <article
-                  key={`${item.name}-${index}`}
-                  className={`group relative flex w-[300px] sm:w-[350px] md:w-[380px] shrink-0 flex-col overflow-hidden rounded-3xl border bg-white/[0.04] backdrop-blur-md p-7 pb-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:bg-white/[0.07] ${
-                    index % 2 === 1 ? "border-[#E8871A]/40" : "border-white/10"
-                  }`}
-                >
-                  {/* Top Accent Bar */}
-                  <div
-                    className={`absolute left-0 top-0 h-1.5 w-full transition-all duration-300 ${
-                      index % 2 === 1 ? "bg-[#E8871A]" : "bg-white/20"
-                    }`}
+          {/* Cards Track */}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto pb-4 pt-2 w-full scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-1"
+            style={{
+              scrollSnapType: "x mandatory",
+            }}
+          >
+            {testimonialItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[290px] sm:w-[340px] md:w-[360px] bg-[#F8FAFC] rounded-2xl p-7 sm:p-8 border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.02)] flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:border-amber-300"
+                style={{
+                  scrollSnapAlign: "start",
+                }}
+              >
+                {/* Circular Student Avatar with Orange Border */}
+                <div className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border-2 border-[#E8871A] shadow-sm mb-4 bg-slate-100 shrink-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
                   />
+                </div>
 
-                  {/* Student identity header */}
-                  <div className="flex items-center gap-4">
-                    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border-2 border-white/15 bg-white/5 flex items-center justify-center">
-                      <span className="text-base font-bold text-[#E8871A] select-none">
-                        {initials}
-                      </span>
-                      {item.image ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105 pointer-events-none"
-                          onError={(e) => {
-                            e.currentTarget.style.display = "none";
-                          }}
-                        />
-                      ) : null}
-                    </div>
+                {/* Student Name */}
+                <h3
+                  style={{
+                    fontSize: "17px",
+                    fontWeight: 700,
+                    color: "#0A1F44",
+                    marginBottom: "12px",
+                  }}
+                >
+                  {item.name}
+                </h3>
 
-                    <div className="min-w-0">
-                      <h3 className="font-serif text-lg font-bold text-white truncate">
-                        {item.name}
-                      </h3>
-
-                      {pkg ? (
-                        <div className="mt-1.5 inline-flex items-center rounded-full bg-[#E8871A]/15 border border-[#E8871A]/30 px-2.5 py-0.5 text-xs font-bold text-[#E8871A]">
-                          Package · {pkg}
-                        </div>
-                      ) : (
-                        <p className="text-xs text-white/60 truncate mt-1">
-                          {displayDetails}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Quote Body */}
-                  <div className="mt-6 flex flex-1 flex-col justify-between">
-                    <div>
-                      <span
-                        aria-hidden="true"
-                        className="font-serif text-4xl font-bold leading-none text-[#E8871A]/30"
-                      >
-                        “
-                      </span>
-
-                      <p className="mt-[-4px] text-[14px] leading-relaxed text-white/80 italic">
-                        {quoteText}
-                      </p>
-                    </div>
-
-                    {/* Footer details if package is rendered above */}
-                    {pkg && displayDetails && (
-                      <div className="mt-5 border-t border-white/10 pt-3 text-xs text-white/50 truncate">
-                        {displayDetails}
-                      </div>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
+                {/* Testimonial Quote */}
+                <p className="text-[#4A5568] text-[14px] sm:text-[14.5px] leading-relaxed italic font-normal text-center">
+                  {item.text || item.quote}
+                </p>
+              </div>
+            ))}
           </div>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={scrollRight}
+            aria-label="Next Testimonials"
+            className="hidden sm:flex absolute -right-3 lg:-right-6 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-[#0A1F44] hover:bg-[#F8FAFC] hover:border-[#E8871A] transition-all"
+          >
+            <ChevronRight size={22} />
+          </button>
+        </div>
+
+        {/* Mobile controls */}
+        <div className="flex sm:hidden justify-center gap-3 mt-5">
+          <button
+            onClick={scrollLeft}
+            aria-label="Previous Testimonials"
+            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-[#0A1F44]"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={scrollRight}
+            aria-label="Next Testimonials"
+            className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-[#0A1F44]"
+          >
+            <ChevronRight size={18} />
+          </button>
         </div>
       </div>
     </section>

@@ -6,21 +6,18 @@ import type { ProgramPageData } from "@/data/programs/types";
 
 import CourseHero from "./CourseHero";
 import CourseQuickInfo from "./CourseQuickInfo";
-import CourseOverview from "./CourseOverview";
-import CourseTakeaways from "./CourseTakeaways";
-import CourseSubjects from "./CourseSubjects";
-import CourseLearningOutcomes from "./CourseLearningOutcomes";
-import CourseAdmission from "./CourseAdmission";
-import CourseCareer from "./CourseCareer";
-import CourseWhyGeeta from "./CourseWhyGeeta";
-import CourseTestimonials from "./CourseTestimonials";
-import CourseLearningSpaces from "./CourseLearningSpaces";
+import CourseMainSection from "./CourseMainSection";
 import CourseVirtualCampus from "./CourseVirtualCampus";
 import CourseScholarships from "./CourseScholarships";
-import CourseFaculty from "./CourseFaculty";
-import CourseFAQ from "./CourseFAQ";
+import CourseTestimonials from "./CourseTestimonials";
+import CourseCareerSection from "./CourseCareerSection";
+
+// Directly reuse existing premium components from the main school page
+import ProgramMentors from "../ProgramMentors";
+import LearningSpaces from "../LearningSpaces";
+import FAQSection from "../FAQSection";
 import LegacyEcosystem from "@/components/about/LegacyEcosystem";
-import CourseCTA from "./CourseCTA";
+import ProgramFinalCTA from "../ProgramFinalCTA";
 
 interface CoursePageProps {
   course: CoursePageData;
@@ -28,83 +25,91 @@ interface CoursePageProps {
 }
 
 export default function CoursePage({ course, school }: CoursePageProps) {
-  const schoolName = school?.name || school?.shortName || "Geeta University School";
+  const schoolName =
+    school?.name || school?.shortName || "Geeta University";
 
   return (
-    <main className="bg-white min-h-screen overflow-x-hidden">
-      {/* 1. Hero Section (Image Only Banner) */}
+    <main
+      style={{
+        fontFamily: "'Segoe UI', system-ui, sans-serif",
+        color: "#1A1A2E",
+        background: "#F7F9FC",
+        minHeight: "100vh",
+        overflowX: "hidden",
+      }}
+    >
+      {/* 1. Hero Section (Banner Image) */}
       <CourseHero
         hero={course.hero}
         schoolName={schoolName}
         schoolSlug={course.schoolSlug}
       />
 
-      {/* 2. Quick Info Strip */}
+      {/* 2. Quick Info Strip (Program, Duration, Eligibility) */}
       {course.quickInfo && <CourseQuickInfo quickInfo={course.quickInfo} />}
 
-      {/* 3. Course Overview */}
-      {course.overview && <CourseOverview overview={course.overview} />}
+      {/* 3. Main 2-Column Course Details & Sticky Admission Form */}
+      <CourseMainSection
+        overview={course.overview}
+        takeaways={course.takeaways}
+        subjects={course.subjects}
+        learningOutcomes={course.learningOutcomes}
+        admission={course.admission}
+        programName={course.hero?.title || course.quickInfo?.program}
+      />
 
-      {/* 4. Important Takeaways */}
-      {course.takeaways && course.takeaways.length > 0 && (
-        <CourseTakeaways takeaways={course.takeaways} />
-      )}
-
-      {/* 5. Subjects Section */}
-      {course.subjects && course.subjects.length > 0 && (
-        <CourseSubjects
-          subjects={course.subjects}
-          courseTitle={course.hero?.title || course.overview?.title || course.quickInfo?.program}
+      {/* 4. Meet Our Mentors (Reusing main school ProgramMentors component) */}
+      {course.faculty && course.faculty.length > 0 && (
+        <ProgramMentors
+          title="Meet Our Mentors"
+          faculty={course.faculty}
         />
       )}
 
-      {/* 6. Learning Outcomes */}
-      {course.learningOutcomes && course.learningOutcomes.length > 0 && (
-        <CourseLearningOutcomes learningOutcomes={course.learningOutcomes} />
-      )}
-
-      {/* 7. Admission & Why Choose Program */}
-      {course.admission && <CourseAdmission admission={course.admission} />}
-
-      {/* 8. Career Opportunities */}
-      {course.career && <CourseCareer career={course.career} />}
-
-      {/* 9. Why Geeta University */}
-      {course.whyGeeta && <CourseWhyGeeta whyGeeta={course.whyGeeta} />}
-
-      {/* 10. Student Testimonials (Placed before Highlights of Our Learning Spaces) */}
-      {course.testimonials && course.testimonials.length > 0 && (
-        <CourseTestimonials testimonials={course.testimonials} />
-      )}
-
-      {/* 11. Highlights of Our Learning Spaces (Redesigned in Carousel format) */}
-      {course.learningSpaces && (
-        <CourseLearningSpaces learningSpaces={course.learningSpaces} />
-      )}
-
-      {/* 12. Virtual Campus Tour (Placed before Scholarships & GUTS) */}
+      {/* 5. Virtual Campus Tour */}
       <CourseVirtualCampus />
 
-      {/* 13. Scholarships & GUTS */}
+      {/* 6. Scholarships & GUTS */}
       {course.scholarships && (
         <CourseScholarships scholarships={course.scholarships} />
       )}
 
-      {/* 14. Faculty Mentors */}
-      {course.faculty && course.faculty.length > 0 && (
-        <CourseFaculty faculty={course.faculty} />
+      {/* 7. Student Testimonials */}
+      {course.testimonials && course.testimonials.length > 0 && (
+        <CourseTestimonials testimonials={course.testimonials} />
       )}
 
-      {/* 15. Frequently Asked Questions */}
+      {/* 8. Highlights of Our Learning Spaces (Reusing main school LearningSpaces carousel) */}
+      {course.learningSpaces && course.learningSpaces.spaces?.length > 0 && (
+        <LearningSpaces
+          title={course.learningSpaces.title || "Highlights of Our Learning Spaces"}
+          spaces={course.learningSpaces.spaces}
+        />
+      )}
+
+      {/* 9. Career Opportunities & Why Choose GU + Achievement Cards */}
+      {(course.career || course.whyGeeta) && (
+        <CourseCareerSection
+          career={course.career}
+          whyGeeta={course.whyGeeta}
+        />
+      )}
+
+      {/* 10. Frequently Asked Questions (Reusing main school FAQSection) */}
       {course.faqs && course.faqs.length > 0 && (
-        <CourseFAQ faqs={course.faqs} />
+        <FAQSection
+          title="Frequently Asked Questions"
+          faqs={course.faqs}
+        />
       )}
 
-      {/* 16. Legacy & Ecosystem Section (Placed above Footer/CTA) */}
+      {/* 11. Legacy & Ecosystem */}
       <LegacyEcosystem contextText="Students benefit from the integrated ecosystem of:" />
 
-      {/* 17. Course CTA */}
-      {course.cta && <CourseCTA cta={course.cta} />}
+      {/* 12. Final CTA & Application Footer */}
+      {course.cta && (
+        <ProgramFinalCTA cta={course.cta} schoolName={schoolName} />
+      )}
     </main>
   );
 }
