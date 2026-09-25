@@ -22,10 +22,10 @@ export default function SPBLLifeGrid() {
             {/* 2. Light experiential learning card */}
             <div className="flex flex-col justify-center bg-white p-7 sm:p-8 h-[260px]">
               <h3 className="text-[#0e395c] font-bold text-[1.08rem] leading-[1.35] mb-2.5">
-                Experiential Learning through simulations and role-plays
+                Experiential Learning through simulations and role-plays:
               </h3>
               <p className="text-[#475569] text-[0.92rem] leading-[1.55] m-0">
-                Interactive simulations and role playing activities help students understand
+                Interactive simulations and role-playing activities help students understand
                 real-life scenarios, improve decision-making, and build confidence in professional
                 environments.
               </p>
@@ -67,10 +67,10 @@ export default function SPBLLifeGrid() {
               </div>
               <div className="h-[180px] bg-[#f5e6d3] p-6 sm:p-7 flex flex-col justify-center">
                 <h3 className="text-[#0e395c] font-bold text-[1.08rem] leading-[1.35] mb-2">
-                  Case-Based Learning using Harvard, IIM, and Global case repositories
+                  Case-Based Learning using Harvard, IIM, and Global case repositories:
                 </h3>
                 <p className="text-[#374151] text-[0.92rem] leading-[1.55] m-0">
-                  Exposure to globally recognized case studies enables students to analyze complex
+                  Exposure to globally recognized case studies enables students to analyse complex
                   business situations, think critically, and apply theoretical concepts effectively.
                 </p>
               </div>
@@ -96,7 +96,7 @@ export default function SPBLLifeGrid() {
               />
               <div className="absolute bottom-0 left-0 right-0 p-7 sm:p-8 z-10">
                 <h3 className="text-white font-bold text-[1.08rem] leading-[1.35] mb-2.5">
-                  Internship-driven immersion and continuous industry engagement
+                  Internship-driven immersion and continuous industry engagement:
                 </h3>
                 <p className="text-white/90 text-[0.92rem] leading-[1.55] m-0">
                   Regular internships and industry interactions ensure students gain practical

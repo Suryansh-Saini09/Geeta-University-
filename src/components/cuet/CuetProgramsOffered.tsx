@@ -171,6 +171,10 @@ const programCategories: ProgramCategory[] = [
         href: "/programs/school-of-commerce-and-business-management/mba-digital-marketing",
       },
       {
+        name: "MBA — FinTech",
+        href: "/programs/school-of-commerce-and-business-management/mba",
+      },
+      {
         name: "MBA — Finance",
         href: "/programs/school-of-commerce-and-business-management/mba-finance",
       },

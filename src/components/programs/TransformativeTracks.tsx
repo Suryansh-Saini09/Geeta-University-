@@ -54,42 +54,81 @@ export default function TransformativeTracks({ tracks }: TransformativeTracksPro
           >
             {title}
           </h2>
+          {tracks.subtitle && (
+            <p
+              style={{
+                fontSize: "clamp(15px, 1.2vw, 17px)",
+                color: "#475569",
+                margin: "12px auto 0",
+                maxWidth: 780,
+                lineHeight: 1.6,
+                fontWeight: 500,
+              }}
+            >
+              {tracks.subtitle}
+            </p>
+          )}
         </div>
 
         {/* 4-Column Grid */}
         <div className="transform-tracks-grid">
-          {tracks.cards.map((card, idx) => (
-            <div
-              key={idx}
-              className="transform-track-card"
-              style={{
-                background: "#FFFFFF",
-                borderRadius: 16,
-                padding: "32px 24px 28px",
-                border: "1px solid #E2E8F0",
-                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02)",
-                display: "flex",
-                flexDirection: "column",
-                transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
-              }}
-            >
-              {/* Card Title */}
-              <h3
+          {tracks.cards.map((card, idx) => {
+            const match = card.title.match(/^(Phase\s*\d+)\s*:\s*(.+)$/i);
+            const phaseBadge = match ? match[1] : null;
+            const displayTitle = match ? match[2] : card.title;
+
+            return (
+              <div
+                key={idx}
+                className="transform-track-card"
                 style={{
-                  fontSize: 18,
-                  fontWeight: 800,
-                  color: "#0A1F44",
-                  textAlign: "center",
-                  margin: "0 0 14px",
-                  lineHeight: 1.35,
-                  minHeight: 48,
+                  background: "#FFFFFF",
+                  borderRadius: 16,
+                  padding: "32px 24px 28px",
+                  border: "1px solid #E2E8F0",
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02)",
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  flexDirection: "column",
+                  transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
                 }}
               >
-                {card.title}
-              </h3>
+                {/* Card Title */}
+                <div style={{ textAlign: "center", marginBottom: 14 }}>
+                  {phaseBadge && (
+                    <div
+                      style={{
+                        display: "inline-block",
+                        padding: "3px 12px",
+                        borderRadius: 9999,
+                        background: "#0E395C",
+                        color: "#FFFFFF",
+                        fontSize: 12,
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.5px",
+                        marginBottom: 10,
+                      }}
+                    >
+                      {phaseBadge}
+                    </div>
+                  )}
+                  <h3
+                    style={{
+                      fontSize: 18,
+                      fontWeight: 800,
+                      color: "#0A1F44",
+                      textAlign: "center",
+                      margin: 0,
+                      lineHeight: 1.35,
+                      minHeight: 44,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {displayTitle}
+                  </h3>
+                </div>
 
               {/* Title Divider */}
               <div
@@ -142,7 +181,8 @@ export default function TransformativeTracks({ tracks }: TransformativeTracksPro
                 ))}
               </ul>
             </div>
-          ))}
+          );
+        })}
         </div>
 
         {/* Optional Immersion & Global Certification Cards (in continuous flow) */}
