@@ -63,9 +63,18 @@ export interface CareerRole {
 export interface CourseCareerPathways {
   title: string;
   intro: string;
-  govtRoles: CareerRole[];
-  privateRoles: CareerRole[];
+  rolesTitle?: string;
+  roles?: string[];
+  pathways?: {
+    area: string;
+    pathway: string;
+    points?: string[];
+  }[];
+  govtRoles?: CareerRole[];
+  privateRoles?: CareerRole[];
   notes?: string;
+  recruitersTitle?: string;
+  recruiters?: { name: string; logo?: string }[];
 }
 
 export interface WhyGeetaReason {
@@ -76,7 +85,8 @@ export interface WhyGeetaReason {
 export interface CourseWhyGeeta {
   title: string;
   intro?: string;
-  reasons: WhyGeetaReason[];
+  paragraphs?: string[];
+  reasons?: WhyGeetaReason[];
 }
 
 export interface LearningSpaceItem {
