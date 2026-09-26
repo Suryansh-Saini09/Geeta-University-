@@ -36,16 +36,16 @@ export default function VisionMissionSection({
   };
 
   return (
-    <section id="vision-mission" className="w-full py-6 md:py-8 bg-slate-50/50">
-      <div id="VisionMission" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="vision-mission" className="w-full pt-4 pb-2">
+      <div id="VisionMission" className="w-full">
         {/* Stacked Dropdown (Accordion) Container */}
-        <div className="flex flex-col gap-4 sm:gap-5">
+        <div className="flex flex-col gap-3.5 sm:gap-4">
           {/* ==================== OUR VISION ACCORDION ITEM ==================== */}
           <div
-            className={`rounded-3xl border transition-all duration-300 overflow-hidden shadow-lg ${
+            className={`rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm ${
               openSection === "vision"
-                ? "bg-[#0B1B3D] border-[#0B1B3D] text-white shadow-xl shadow-[#0B1B3D]/10"
-                : "bg-white border-slate-200 text-[#0B1B3D] hover:border-amber-300 shadow-slate-200/50"
+                ? "bg-[#0B1B3D] border-[#0B1B3D] text-white shadow-lg shadow-[#0B1B3D]/10"
+                : "bg-white border-slate-200 text-[#0B1B3D] hover:border-[#E8871A]/50 shadow-slate-200/40"
             }`}
           >
             {/* Header Trigger */}
@@ -171,6 +171,6 @@ export default function VisionMissionSection({
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

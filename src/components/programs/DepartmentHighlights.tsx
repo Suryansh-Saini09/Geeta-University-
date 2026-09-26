@@ -65,14 +65,14 @@ export default function DepartmentHighlights({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="mx-auto mb-12 max-w-3xl text-center"
+          className="mx-auto mb-12 max-w-5xl text-center px-2"
         >
-          <h2 className="font-serif text-3xl font-bold leading-tight text-[#0A1F44] sm:text-4xl md:text-5xl">
+          <h2 className="font-serif text-[clamp(1.15rem,2.8vw,2.75rem)] font-bold leading-tight text-[#0A1F44] whitespace-nowrap tracking-tight">
             {title}
           </h2>
           <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-[#E8871A]" />
           {subtitle && (
-            <p className="mt-4 text-[15px] leading-relaxed text-[#4A5568] sm:text-base">
+            <p className="mt-4 text-[15px] leading-relaxed text-[#4A5568] sm:text-base max-w-3xl mx-auto">
               {subtitle}
             </p>
           )}

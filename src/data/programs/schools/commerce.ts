@@ -150,7 +150,7 @@ export const commerceSchool: ProgramPageData = {
     ],
   },
 
-  departmentHighlightsTitle: "Where learning meets achievement",
+  departmentHighlightsTitle: "Where Learning Meets Achievement",
   departmentHighlights: [
     {
       title: "Business Conclaves & Executive Sessions",
