@@ -167,7 +167,7 @@ export const phdLaw: CoursePageData = {
       qualification: "Ph.D. in Law",
       image: "/programs/law/mentor-3.webp",
       imagePosition: "center 26%",
-      description: "Institute of Law, Kurukshetra University, Kurukshetra.",
+      description: "Institute of Law, Kurukshetra University.",
     },
     {
       name: "Prof. (Dr) S.S. Jaswal",

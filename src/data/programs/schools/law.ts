@@ -116,12 +116,12 @@ export const lawSchool: ProgramPageData = {
     title: "Be A Part Of Top Rated University",
     items: [
       {
-        title: "Industry Oriented Curriculum",
+        title: "Industry-Oriented Curriculum",
         desc: "Specialized legal training with a curriculum that integrates traditional legal principles with emerging areas of law.",
       },
       {
-        title: "Flexible Choice Based Credit System",
-        desc: "Passion Programs empower lawyers to expand their skill set by learning coding and exploring opportunities in technology.",
+        title: "Flexible Choice-Based Credit System",
+        desc: "Passion Programmes empower lawyers to expand their skill set.",
       },
       {
         title: "Distinguished Faculty",
@@ -133,10 +133,10 @@ export const lawSchool: ProgramPageData = {
       },
       {
         title: "Go Global With GU",
-        desc: "Internships and student exchange programs at top-rated international and European universities.",
+        desc: "Internships and student exchange programs at top-rated international universities.",
       },
       {
-        title: "Outcome Based Education (OBE)",
+        title: "Outcome-Based Education (OBE)",
         desc: "Rubric-based assessments and regular skill mapping ensure a high level of transparency and alignment with industry needs.",
       },
       {
@@ -255,9 +255,9 @@ export const lawSchool: ProgramPageData = {
       {
         name: "Prof. (Dr.) Rajpal Sharma",
         designation: "Director",
-        role: "Director, Institute of Law, Kurukshetra University, Kurukshetra",
+        role: "Director, Institute of Law, Kurukshetra University",
         description:
-          "Director at the Institute of Law, Kurukshetra University, Kurukshetra. Eminent scholar in commercial laws, jurisprudence, and procedural law dedicated to fostering practical legal acumen and trial excellence.",
+          "Director at the Institute of Law, Kurukshetra University. Eminent scholar in commercial laws, jurisprudence, and procedural law dedicated to fostering practical legal acumen and trial excellence.",
         image: "/programs/law/mentor-3.webp",
         imagePosition: "center 26%",
       },
