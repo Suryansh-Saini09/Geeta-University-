@@ -81,7 +81,7 @@ export const bcomInternationalAccounting: CoursePageData = {
   whyGeeta: {
     title: "Why Choose Geeta University For B Com ACCA Course?",
     intro:
-      "Geeta University is among the best colleges in Delhi for commerce. It offers a range of undergraduate programs, including BCom Hons with ACCA. The faculty is dedicated to providing learners with a high-quality educational experience, focusing on industry-oriented learning, research projects, and internships.",
+      "Geeta University is among the best colleges in Delhi for commerce. It offers a range of undergraduate programs, including B.Com. (Hons.) with ACCA. The faculty is dedicated to providing learners with a high-quality educational experience, focusing on industry-oriented learning, research projects, and internships.",
     reasons: [
       {
         title: "Globally Integrated ACCA Curriculum",

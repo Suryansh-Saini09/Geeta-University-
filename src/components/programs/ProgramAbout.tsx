@@ -124,7 +124,7 @@ export default function ProgramAbout({ about, intro, visionMission, dean, school
 
           {/* Right Column: Sticky Enquire Now Admission Form */}
           <div className="lg:col-span-5 xl:col-span-5 lg:sticky lg:top-28">
-            <AdmissionFormWrapper />
+            <AdmissionFormWrapper initialDiscipline={schoolTitle} />
           </div>
 
         </div>

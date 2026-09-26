@@ -6,7 +6,7 @@ import Image from "next/image";
 const PROGRAM_FEES_DB: Record<string, { programs: string[]; defaultFee: number; tuitionFee: number }> = {
   "Computer Science & Engineering": {
     programs: [
-      "B.Tech Hons. CSE",
+      "B.Tech. (Hons.) CSE",
       "B.Tech CSE (AI & Machine Learning)",
       "B.Tech CSE (Cybersecurity)",
       "B.Tech CSE (Data Science & Analytics)",
@@ -17,7 +17,7 @@ const PROGRAM_FEES_DB: Record<string, { programs: string[]; defaultFee: number; 
   },
   "Computer Applications": {
     programs: [
-      "BCA Hons. (Computer Applications)",
+      "BCA (Hons.) Computer Applications",
       "BCA (AI & Machine Learning)",
       "BCA (Cybersecurity)",
       "BCA (Data Science & Analytics)",
@@ -27,10 +27,10 @@ const PROGRAM_FEES_DB: Record<string, { programs: string[]; defaultFee: number; 
   },
   "Commerce & Business Management": {
     programs: [
-      "BBA Hons. (Business Administration)",
+      "BBA (Hons.) Business Administration",
       "BBA (FinTech)",
       "BBA (Digital Marketing)",
-      "B.Com Hons. (Bachelor of Commerce)",
+      "B.Com. (Hons.) Bachelor of Commerce",
       "B.Com (Auditing & Taxation)",
     ],
     defaultFee: 60000,
@@ -47,7 +47,7 @@ const PROGRAM_FEES_DB: Record<string, { programs: string[]; defaultFee: number; 
     tuitionFee: 60000,
   },
   "Agricultural Sciences": {
-    programs: ["B.Sc Hons. (Agriculture)"],
+    programs: ["B.Sc. (Hons.) Agriculture"],
     defaultFee: 65000,
     tuitionFee: 55000,
   },
@@ -57,22 +57,22 @@ const PROGRAM_FEES_DB: Record<string, { programs: string[]; defaultFee: number; 
     tuitionFee: 65000,
   },
   "Hospitality & Hotel Management": {
-    programs: ["B.Sc Hons. (Hotel Management)", "Diploma in Hotel Management"],
+    programs: ["B.Sc. (Hons.) Hotel Management", "Diploma in Hotel Management"],
     defaultFee: 55000,
     tuitionFee: 45000,
   },
   "Allied Health Sciences": {
-    programs: ["B.Sc Hons. (Nutrition & Dietetics)", "B.Sc Medical Lab Technology"],
+    programs: ["B.Sc. (Hons.) Nutrition & Dietetics", "B.Sc Medical Lab Technology"],
     defaultFee: 55000,
     tuitionFee: 45000,
   },
   "Humanities & Social Sciences": {
-    programs: ["B.Sc Hons. (Psychology)", "BA Hons. (Political Science)", "BA Hons. (Economics)"],
+    programs: ["B.Sc. (Hons.) Psychology", "B.A. (Hons.) Political Science", "B.A. (Hons.) Economics"],
     defaultFee: 45000,
     tuitionFee: 38000,
   },
   "Forensic Sciences": {
-    programs: ["B.Sc Hons. (Forensic Sciences)"],
+    programs: ["B.Sc. (Hons.) Forensic Sciences"],
     defaultFee: 60000,
     tuitionFee: 50000,
   },
@@ -94,7 +94,7 @@ const CUET_SLABS = [
 export default function CuetHeroAndCalculator() {
   // Calculator States
   const [selectedArea, setSelectedArea] = useState<string>("Computer Science & Engineering");
-  const [selectedProgram, setSelectedProgram] = useState<string>("B.Tech Hons. CSE");
+  const [selectedProgram, setSelectedProgram] = useState<string>("B.Tech. (Hons.) CSE");
   const [selectedSlabIdx, setSelectedSlabIdx] = useState<number>(0);
 
   const handleAreaChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

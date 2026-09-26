@@ -126,7 +126,7 @@ export const pharmacySchool: ProgramPageData = {
     faculty: [
       {
         name: "Dr. Seema Rohilla",
-        designation: "Professor, M.Pharm (Pharmaceutics), Ph.D.",
+        designation: "Professor, M.Pharm. (Pharmaceutics), Ph.D.",
         description: "Expertise in Pharmaceutics and formulation design. Primary research interests include Quality by Design (QbD) and oncology therapeutics. Recipient of the Extraordinary Researcher Award.",
         image: "/programs/pharmacy/Seema.webp"
       },
@@ -144,19 +144,19 @@ export const pharmacySchool: ProgramPageData = {
       },
       {
         name: "Mr. Rakesh Redhu",
-        designation: "Associate Professor, M.Pharmacy (Pharmaceutics)",
+        designation: "Associate Professor, M.Pharm. (Pharmaceutics)",
         description: "Specialized in solubility enhancement, nanocarriers, and formulation development; skilled in Design of Experiment (DoE) methodology.",
         image: "/programs/pharmacy/Rakesh.webp"
       },
       {
         name: "Mr. Ajay",
-        designation: "Assistant Professor, M.Pharmacy",
+        designation: "Assistant Professor, M.Pharm.",
         description: "Pharmaceutical educator and researcher with 5+ years of experience specializing in pharmaceutics, pharmacology, medicinal chemistry, advanced formulation design, and patent filings.",
         image: "/programs/pharmacy/Ajay.webp"
       },
       {
         name: "Ms. Manita",
-        designation: "Assistant Professor, M.Pharmacy, Ph.D. (Pursuing)",
+        designation: "Assistant Professor, M.Pharm., Ph.D. (Pursuing)",
         description: "Assistant Professor at Geeta Institute of Pharmacy with 3.9+ years of academic experience in Pharmaceutical Sciences. Published 1 research article and 6 review articles in Q1 Scopus and PubMed-indexed journals. Co-inventor of 3 patents in nanoformulations, dermatology, and advanced drug delivery systems.",
         image: "/programs/pharmacy/Manita.webp"
       },
@@ -180,7 +180,7 @@ export const pharmacySchool: ProgramPageData = {
       },
       {
         name: "Mr. Rahul Dhounchak",
-        designation: "Assistant Professor, M.Pharmacy",
+        designation: "Assistant Professor, M.Pharm.",
         description: "Focused on solubility enhancement, drug discovery, and formulation development; active contributor to pharmaceutical academic research.",
         image: "/programs/pharmacy/Rahul.webp"
       },
@@ -192,13 +192,13 @@ export const pharmacySchool: ProgramPageData = {
       },
       {
         name: "Mr. Karan Jangra",
-        designation: "Assistant Professor, M.Pharmacy (Pharmaceutics)",
+        designation: "Assistant Professor, M.Pharm. (Pharmaceutics)",
         description: "Published researcher and expert in Pharmacovigilance with hands-on experience in product development and regulatory compliance.",
         image: "/programs/pharmacy/Karan.webp"
       },
       {
         name: "Ms. Nikita Sharma",
-        designation: "Assistant Professor, M.Pharmacy (Pharmaceutical Chemistry)",
+        designation: "Assistant Professor, M.Pharm. (Pharmaceutical Chemistry)",
         description: "Specializes in heterocyclic compound synthesis, molecular docking, and synthetic medicinal chemistry.",
         image: "/programs/pharmacy/Nikita.webp"
       },
@@ -312,7 +312,6 @@ export const pharmacySchool: ProgramPageData = {
     },
     {
       name: "Mr. Bhavish",
-      pkg: "₹50-60 LPA",
       role: "Wholesale Pharmaceutical Entrepreneur",
       quote:
         "The practical business acumen and strong pharmaceutical foundation I gained at Geeta Institute of Pharmacy gave me the confidence to step into entrepreneurship and scale a ₹50-60 LPA wholesale pharmaceutical enterprise.",
@@ -404,15 +403,15 @@ export const pharmacySchool: ProgramPageData = {
   careerPathways: {
     title: "Career Pathways",
     description:
-      "A large number of opportunities are available for students in both the public and the private sectors. After the completion of the course, the students can work as a Drug Therapist, Drug Inspector, Health Inspector, Pharmacist, Pathological Lab Scientist, Chemical/Drug Technician, Bio-Technology Industries, Hospital Drug Coordinator, Research & Development and Making Prescription to Patients",
+      "A large number of opportunities are available for students in both the public and the private sectors. After completing the course, students can pursue careers as Drug Inspectors, Health Inspectors, Pharmacists, Chemical/Drug Technicians, Hospital Drug Coordinators, and professionals in pharmaceutical research and development, biotechnology, and related fields.",
     rolesTitle: "Notable Career Roles Our Graduates Pursue",
     notableRoles: [
       { name: "Clinical Research" },
       { name: "Pharmacovigilance" },
-      { name: "Regulatory affairs" },
-      { name: "Drug Discovery and Research Scientist" },
-      { name: "Pharmaceutical data science & AI" },
-      { name: "MBA in pharmaceutical management" },
+      { name: "Regulatory Affairs" },
+      { name: "Drug Discovery and Research" },
+      { name: "Pharmaceutical Data Science & AI" },
+      { name: "MBA in Pharmaceutical Management" },
       { name: "Hospital Pharmacy" },
       { name: "Government Sector" },
     ],
@@ -477,7 +476,7 @@ export const pharmacySchool: ProgramPageData = {
       {
         title: "Academic Excellence & Expert Faculty",
         points: [
-          "Consistently high academic standards delivering proven merit and high-impact healthcare careers.",
+          "Consistently high academic standards, delivering academic excellence and supporting careers in healthcare.",
           "Distinguished faculty with Ph.D. credentials, national research awards, and extensive pharmaceutical industry experience.",
         ],
       },
@@ -497,7 +496,7 @@ export const pharmacySchool: ProgramPageData = {
           "Strategic MoUs with premier pharmaceutical companies for live projects, internships, and collaborative research.",
           "Regular industrial visits and manufacturing plant tours.",
           "Interactive guest lectures and masterclasses by pharma leaders.",
-          "Annual international conferences and pharmaceutical research symposiums.",
+          "Annual international conferences and pharmaceutical research symposia.",
           "First institution in Haryana to host the prestigious PCI Pharma Anveshan.",
         ],
       },
@@ -538,13 +537,13 @@ export const pharmacySchool: ProgramPageData = {
     {
       title: "Diploma Program",
       duration: "2 years",
-      eligibility: "Passed the 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
+      eligibility: "Passed 10+2 (Science stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
       programs: [
         {
           name: "D.Pharm. (Diploma in Pharmacy)",
           href: "/programs/geeta-institute-of-pharmacy/d-pharmacy",
           duration: "2 years",
-          eligibility: "Passed the 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
+          eligibility: "Passed 10+2 (Science stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
         },
       ],
     },

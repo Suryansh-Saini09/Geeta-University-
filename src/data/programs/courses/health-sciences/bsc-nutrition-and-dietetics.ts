@@ -35,7 +35,7 @@ export const bscNutritionAndDietetics: CoursePageData = {
   overview: {
     title: "B.Sc. Nutrition & Dietetics",
     paragraphs: [
-      "The BSc hons in Nutrition and Dietetics course at Geeta University follows a semester system with hands-on practical sessions through internships in hospitals, healthcare centers, and the food industry with industry trends, research opportunities, and real-world applications of nutrition science.",
+      "The B.Sc. (Hons.) Nutrition and Dietetics course at Geeta University follows a semester system with hands-on practical sessions through internships in hospitals, healthcare centers, and the food industry with industry trends, research opportunities, and real-world applications of nutrition science.",
       "Additionally, scholarships are available for meritorious, reserved categories, ensuring financial support for students for a Bachelor of Science honours. In B.Sc. Nutrition & Dietetics course, Mandatory internships in hospitals, healthcare centers, food industries, NGOs, and wellness organizations and connections with the latest trends in nutrition and dietetics.",
     ],
   },

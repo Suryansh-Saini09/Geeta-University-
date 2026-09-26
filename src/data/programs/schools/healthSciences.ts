@@ -505,20 +505,20 @@ export const healthSciencesSchool: ProgramPageData = {
         ],
       },
       {
-        title: "Industry Aligned Curriculum",
+        title: "Industry-Aligned Curriculum",
         points: [
           "Industry collaborations for internships, industrial visits, and expert sessions.",
         ],
       },
       {
-        title: "Gain Real-world Experience",
+        title: "Gain Real-World Experience",
         points: [
           "Strong clinical exposure through hospital internships and case-based learning.",
           "Research-oriented curriculum with project work and publication support.",
         ],
       },
       {
-        title: "New Age Certifications",
+        title: "New-Age Certifications",
         points: [
           "Focus on emerging areas like lifestyle disorders, sports nutrition, and nutraceuticals.",
           "Skill-based, NEP-aligned curriculum emphasizing employability and entrepreneurship.",
