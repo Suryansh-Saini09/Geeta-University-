@@ -447,7 +447,7 @@ export const agricultureSchool: ProgramPageData = {
         "Passed the 10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
       programs: [
         {
-          name: "B.Sc. Hons. (Agriculture)",
+          name: "B.Sc. (Hons.) Agriculture",
           href: "/programs/school-of-agricultural-studies/bsc-agriculture",
           duration: "4 years",
           eligibility:

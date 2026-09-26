@@ -427,7 +427,7 @@ export const forensicSciencesSchool: ProgramPageData = {
       "UGC-recognized and industry-aligned forensic science curricula combining classroom theory, advanced laboratory practicals, mock crime scenes, and professional internship training.",
     cards: [
       {
-        title: "B.Sc. Forensic Science (Hons.)",
+        title: "B.Sc. (Hons.) Forensic Science",
         iconName: "BookOpen",
         points: [
           "Crime Scene Investigation & Evidence Handling",

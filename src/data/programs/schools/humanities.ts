@@ -73,7 +73,7 @@ export const humanitiesSchool: ProgramPageData = {
     eyebrow: "ABOUT THE SCHOOL",
     title: "School of Humanities & Social Sciences",
     paragraphs: [
-      "Welcome to the School of Humanities & Social Sciences at Geeta University, where we shape future leaders and thinkers. Our focus on promoting critical thinking and academic excellence helps you evolve into a world-class professional. We offer a wide range of Undergraduate, Postgraduate, and Doctoral programs that match your career aspirations. These include a B.A. in Political Science, Psychology, Economics, and Social Work, as well as an M.A. in Political Science and Psychology. We also offer a Ph.D. in Psychology, with a special focus on promoting advanced research and innovation.",
+      "Welcome to the School of Humanities & Social Sciences at Geeta University, where we shape future leaders and thinkers. Our focus on promoting critical thinking and academic excellence helps you evolve into a world-class professional. We offer a wide range of Undergraduate, Postgraduate, and Doctoral programs that match your career aspirations. These include a B.A. in Political Science, Psychology, Economics, and English, as well as an M.A. in Political Science and Psychology. We also offer a Ph.D. in Psychology, with a special focus on promoting advanced research and innovation.",
       "Our comprehensive curriculum is designed to enhance your social awareness, improve your analytical thinking skills, and instill a deep sense of human values in you. Our dynamic faculty, interdisciplinary approach, and strong emphasis on experiential learning help you evolve into responsible professionals capable of making meaningful contributions to society, research, education, and public policy.",
       "If you are passionate about understanding human behavior, society, and governance, then our programs are the right choice for you. Enroll at our School of Humanities & Social Sciences and unlock a world of academic opportunities paving the way to your personal and professional growth.",
     ],
@@ -175,26 +175,26 @@ export const humanitiesSchool: ProgramPageData = {
         "Passed the 10+2 examination with at least 50% marks in the qualifying examination from a recognized board.",
       programs: [
         {
-          name: "B.A. Hons. (Bachelor of Arts)",
-          program: "B.A. Hons. (Bachelor of Arts)",
+          name: "B.A. (Hons.) Bachelor of Arts",
+          program: "B.A. (Hons.) Bachelor of Arts",
           href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
           duration: "3 / 4 years",
           eligibility: "Passed the 10+2 examination with a minimum of 50% aggregate marks from a recognized board.",
           specialisations: [
             {
-              name: "B.A. Hons. (Psychology)",
+              name: "B.A. (Hons.) Psychology",
               href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-psychology",
             },
             {
-              name: "B.A. Hons. (Political Science)",
+              name: "B.A. (Hons.) Political Science",
               href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-political-science",
             },
             {
-              name: "B.A. Hons. (Economics)",
+              name: "B.A. (Hons.) Economics",
               href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-economics",
             },
             {
-              name: "B.A. Hons. (English)",
+              name: "B.A. (Hons.) English",
               href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
             },
           ],
@@ -295,8 +295,8 @@ export const humanitiesSchool: ProgramPageData = {
         desc: "Understand economic theories, market trends, and policy-making to solve real-world financial and developmental challenges.",
       },
       {
-        title: "Social Work",
-        desc: "Develop skills to empower communities, support vulnerable populations, and advocate for social justice and change.",
+        title: "English",
+        desc: "Master literary analysis, linguistics, and creative communication to open dynamic career pathways in publishing, media, academia, and global corporate communications.",
       },
     ],
   },
@@ -464,7 +464,7 @@ export const humanitiesSchool: ProgramPageData = {
   faqs: [
 {
 "q": "What programs are currently offered by the School of Humanities & Social Sciences?",
-"a": "The School currently offers B.A. programs in Political Science, Psychology, Economics, Social Work and English; M.A. programs in Political Science and Psychology; and Ph.D. programs in Psychology and Political Science.",
+"a": "The School currently offers B.A. programs in Political Science, Psychology, Economics, and English; M.A. programs in Political Science and Psychology; and Ph.D. programs in Psychology and Political Science.",
 "category": "Admissions & Eligibility"
 },
 {
@@ -488,8 +488,8 @@ export const humanitiesSchool: ProgramPageData = {
 "category": "Admissions & Eligibility"
 },
 {
-"q": "How do I choose between B.A. (Hons.) Psychology, Political Science, Economics and Social Work?",
-"a": "Psychology focuses on human behaviour, Political Science on governance, Economics on markets and quantitative analysis, and Social Work on community welfare and social intervention.",
+"q": "How do I choose between B.A. (Hons.) Psychology, Political Science, Economics and English?",
+"a": "Psychology focuses on human behaviour, Political Science on governance, Economics on markets and quantitative analysis, and English on literature, language and critical communication.",
 "category": "Choosing the Right program"
 },
 {
@@ -508,8 +508,8 @@ export const humanitiesSchool: ProgramPageData = {
 "category": "Choosing the Right program"
 },
 {
-"q": "What is the focus of B.A. Social Work?",
-"a": "The program centres on social issues, welfare, community engagement and professional social-work practice.",
+"q": "What is the focus of B.A. English?",
+"a": "The program centres on world literature, literary criticism, linguistics, and advanced communication, fostering analytical thinking and impactful expression.",
 "category": "Choosing the Right program"
 },
 {
@@ -554,7 +554,7 @@ export const humanitiesSchool: ProgramPageData = {
 },
 {
 "q": "Can students connect their subject with current affairs and public policy?",
-"a": "Yes. This is especially relevant to Political Science, Economics, Psychology and Social Work.",
+"a": "Yes. This is especially relevant to Political Science, Economics, Psychology and English.",
 "category": "Learning, Research & Exposure"
 },
 {
@@ -633,24 +633,24 @@ export const humanitiesSchool: ProgramPageData = {
 "category": "Career Opportunities — Economics"
 },
 {
-"q": "What career options are available after B.A. Social Work?",
-"a": "NGOs, community development, CSR, public and development programmes, rehabilitation services, and welfare organisations.",
-"category": "Career Opportunities — Social Work"
+"q": "What career options are available after B.A. English?",
+"a": "Publishing, content creation, media, journalism, corporate communications, public relations, digital copywriting, civil services, and academia.",
+"category": "Career Opportunities — English"
 },
 {
-"q": "Will Social Work students work with communities?",
-"a": "Yes. B.A. Social Work is practice-oriented — students engage directly with communities through fieldwork placements, internships and outreach projects as part of the program's professional social-work practice component.",
-"category": "Career Opportunities — Social Work"
+"q": "Will English students get exposure to professional writing and media?",
+"a": "Yes. B.A. English emphasizes practical communications, digital content creation, editorial workshops, and research writing alongside classical literature.",
+"category": "Career Opportunities — English"
 },
 {
-"q": "Can Social Work graduates work in CSR?",
-"a": "Yes. Community engagement, program implementation and social-impact skills are relevant to CSR roles.",
-"category": "Career Opportunities — Social Work"
+"q": "Can English graduates work in the corporate sector?",
+"a": "Yes. Corporate communications, brand storytelling, marketing strategy, editing, and public relations strongly value English graduates for their critical thinking and expression.",
+"category": "Career Opportunities — English"
 },
 {
-"q": "Can Social Work graduates work with development organisations?",
-"a": "Yes. NGOs and development organisations are important career areas for graduates with strong community, research and program-management skills.",
-"category": "Career Opportunities — Social Work"
+"q": "Can English graduates pursue higher studies and global degrees?",
+"a": "Yes. Graduates can pursue M.A. in English, Comparative Literature, Linguistics, Journalism, Mass Communication, MBA, or international graduate programs.",
+"category": "Career Opportunities — English"
 },
 {
 "q": "What kind of faculty teach at the School?",
@@ -674,7 +674,7 @@ export const humanitiesSchool: ProgramPageData = {
 },
 {
 "q": "Does the School encourage interdisciplinary learning?",
-"a": "Yes. Students are encouraged to connect Psychology, Political Science, Economics, Social Work and wider social-science perspectives.",
+"a": "Yes. Students are encouraged to connect Psychology, Political Science, Economics, English and wider social-science perspectives.",
 "category": "Faculty & Student Development"
 },
 {
@@ -699,7 +699,7 @@ export const humanitiesSchool: ProgramPageData = {
 },
 {
 "q": "What should I consider before choosing among these B.A. subjects?",
-"a": "Think about the questions you enjoy most: behaviour for Psychology, governance for Political Science, markets and data for Economics, or social welfare and community work for Social Work.",
+"a": "Think about the questions you enjoy most: behaviour for Psychology, governance for Political Science, markets and data for Economics, or literature, language, and communication for English.",
 "category": "Parents & Student Decision-Making"
 },
 {
@@ -729,7 +729,7 @@ export const humanitiesSchool: ProgramPageData = {
 },
 {
 "q": "What career sectors can graduates enter?",
-"a": "Possible sectors include education, policy, social work, HR and CSR, media, development, finance, consulting, research, advocacy and higher education.",
+"a": "Possible sectors include education, policy, publishing, media, HR and CSR, development, finance, consulting, research, advocacy and higher education.",
 "category": "Higher Studies, Research & General"
 },
 {

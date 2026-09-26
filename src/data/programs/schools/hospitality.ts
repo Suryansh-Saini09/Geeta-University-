@@ -72,8 +72,8 @@ export const hospitalitySchool: ProgramPageData = {
     title: "School of Hospitality & Hotel Management",
     paragraphs: [
       "The School of Hospitality & Hotel Management at Geeta University is home to best-in-class professionals, hospitality leaders, and entrepreneurs of the future who are groomed in accordance with the latest trends in the hospitality sector by highly specialized learning facilitators and state-of-the-art facilities.",
-      "Our immersive, hands-on hospitality programs will transform you, inspire you, and prepare you to lead. You will learn and practice through paid work experience the skills that employers seek: exceptional guest service, industry-standard software applications, cultural diversity, and modern management capabilities.",
-      "We, at Geeta University, are committed to helping you develop the necessary skills to satisfy your hunger for advancement and explore a variety of career options in this dynamic field. Whether you aspire to excel in hospitality management, culinary arts, or hotel administration, discover your passion and pursue it with us at the best college for hotel management in Delhi NCR.",
+      "Our immersive, hands-on hospitality programs will transform you, inspire you, and prepare you to lead. You will learn and practice through paid work experience, the skills that employers seek: exceptional guest service, industry-standard software applications, cultural diversity, and modern management capabilities.",
+      "We, at Geeta University, are committed to helping you develop the necessary skills to satisfy your hunger for advancement and explore a variety of career options in this dynamic field. Whether you aspire to excel in hospitality management, culinary arts, or hotel administration, discover your passion and pursue it with us at Geeta University.",
     ],
     image: "/programs/hotel-management/hero.jpg",
     badgeText: "Future Hospitality Leaders",
@@ -105,7 +105,7 @@ export const hospitalitySchool: ProgramPageData = {
 
   dean: {
     name: "Prof. Dr. Sushil Mishra",
-    designation: "Principal, School of Hospitality and Hotel Management",
+    designation: "Principal, School of Hospitality & Hotel Management",
     image: "/programs/hotel-management/sushil.jpg",
     message:
       "Welcome to Geeta University's School of Hospitality & Hotel Management. Do you love hosting people, cooking great food, or managing events? At Geeta University, we help turn that passion into a successful career. We train you with the latest tools and trends used in top hotels and restaurants. You’ll learn by doing — from planning diets to using hotel software, understanding guest service, and getting real-world experience through paid internships. We help you develop the right skills, personality, and attitude to prepare you for exciting jobs in the hotel & hospitality industry. If you're ready to work hard, learn fast, and shine bright in the world of hospitality — we’re ready to welcome you.",
@@ -127,7 +127,7 @@ export const hospitalitySchool: ProgramPageData = {
       },
       {
         name: "Ms. Dimpy Khera",
-        role: "Assistant Professor (IHM Pusa Alumna)",
+        role: "Assistant Professor, IHM Pusa Alumna",
         designation: "Assistant Professor, Master’s (IHM PUSA)",
         desc: "M.Sc. in Hospitality and Hotel Administration from IHM Pusa, New Delhi. Specialisation in Front Office and Hospitality Operations.",
         description:
@@ -164,12 +164,12 @@ export const hospitalitySchool: ProgramPageData = {
           name: "Diploma in Hotel Management (Residential Program)",
           program: "Diploma in Hotel Management (Residential Program)",
           href: "/programs/school-of-hospitality-and-hotel-management/diploma-in-hotel-management",
-          duration: "2 Years (One Year in GU & One Year in Hotel)",
+          duration: "2 years (One Year at GU & One Year at a Hotel)",
           eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
         },
         {
-          name: "B.Sc. Hons. (Hotel Management)",
-          program: "B.Sc. Hons. (Hotel Management)",
+          name: "B.Sc. (Hons.) Hotel Management",
+          program: "B.Sc. (Hons.) Hotel Management",
           href: "/programs/school-of-hospitality-and-hotel-management/bsc-hotel-management",
           duration: "3 / 4 years",
           eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
@@ -183,7 +183,7 @@ export const hospitalitySchool: ProgramPageData = {
         {
           name: "M.Sc. (Hotel Management)",
           program: "M.Sc. (Hotel Management)",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility: "Passed any graduation degree from any stream with 50% marks (e.g.: B.E. / B.Tech. / B.Sc. / B.Com. / B.A. / B.Voc. / BCA etc.)",
         },
       ],
@@ -234,8 +234,8 @@ export const hospitalitySchool: ProgramPageData = {
       {
         title: "SKILL ENHANCEMENT CERTIFICATIONS",
         points: [
-          "Add prestige to your resume",
-          "Be more competitive in job markets",
+          "Strengthen your resume",
+          "Become more competitive in the job market",
         ],
       },
       {
@@ -563,7 +563,7 @@ export const hospitalitySchool: ProgramPageData = {
   faqs: [
     {
       "q": "What programs are offered by the School of Hospitality & Hotel Management at Geeta University?",
-      "a": "The School offers a Diploma in Hotel Management (Residential Program), B.Sc. Hons. (Hotel Management), M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management).",
+      "a": "The School offers a Diploma in Hotel Management (Residential Program), B.Sc. (Hons.) Hotel Management, M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management).",
       "category": "Admissions & Eligibility"
     },
     {
