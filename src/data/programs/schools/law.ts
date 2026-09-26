@@ -81,7 +81,7 @@ export const lawSchool: ProgramPageData = {
     title: "Geeta Global Law School",
     paragraphs: [
       "The Geeta Global Law School at Geeta University is home to aspiring legal professionals, future advocates, judicial experts, and leaders who are groomed in accordance with the evolving dynamics of the legal world by highly experienced academicians and state-of-the-art learning facilities.",
-      "Our immersive, practice-oriented law programs will transform you, inspire you, and prepare you to lead. You will learn and practice through moot courts, legal research, internships, case studies, and real-world legal exposure, the skills that the legal industry and society demand. These include exceptional analytical abilities, advocacy skills, legal drafting, ethical values, constitutional understanding, and leadership qualities.",
+      "Our immersive, practice-oriented law programs will transform you, inspire you, and prepare you to lead. You will learn and practise the skills that the legal industry and society demand through moot courts, legal research, internships, case studies, and real-world legal exposure. These include exceptional analytical abilities, advocacy skills, legal drafting, ethical values, constitutional understanding, and leadership qualities.",
       "We, at Geeta University, are committed to helping you develop the necessary skills to satisfy your ambition for success and explore a variety of career opportunities in the legal domain. Whether you aspire to excel as an advocate, legal advisor, corporate consultant, judicial officer, or legal researcher, discover your passion and pursue it with us at the best law school in Delhi NCR.",
     ],
     image: "/programs/law/gallery-1.webp",
@@ -116,12 +116,12 @@ export const lawSchool: ProgramPageData = {
     title: "Be A Part Of Top Rated University",
     items: [
       {
-        title: "Industry Oriented Curriculum",
+        title: "Industry-Oriented Curriculum",
         desc: "Specialized legal training with a curriculum that integrates traditional legal principles with emerging areas of law.",
       },
       {
-        title: "Flexible Choice Based Credit System",
-        desc: "Passion Programs empower lawyers to expand their skill set by learning coding and exploring opportunities in technology.",
+        title: "Flexible Choice-Based Credit System",
+        desc: "Passion Programmes empower lawyers to expand their skill set.",
       },
       {
         title: "Distinguished Faculty",
@@ -133,10 +133,10 @@ export const lawSchool: ProgramPageData = {
       },
       {
         title: "Go Global With GU",
-        desc: "Internships and student exchange programs at top-rated international and European universities.",
+        desc: "Internships and student exchange programs at top-rated international universities.",
       },
       {
-        title: "Outcome Based Education (OBE)",
+        title: "Outcome-Based Education (OBE)",
         desc: "Rubric-based assessments and regular skill mapping ensure a high level of transparency and alignment with industry needs.",
       },
       {
@@ -255,9 +255,9 @@ export const lawSchool: ProgramPageData = {
       {
         name: "Prof. (Dr.) Rajpal Sharma",
         designation: "Director",
-        role: "Director, Institute of Law, Kurukshetra University, Kurukshetra",
+        role: "Director, Institute of Law, Kurukshetra University",
         description:
-          "Director at the Institute of Law, Kurukshetra University, Kurukshetra. Eminent scholar in commercial laws, jurisprudence, and procedural law dedicated to fostering practical legal acumen and trial excellence.",
+          "Director at the Institute of Law, Kurukshetra University. Eminent scholar in commercial laws, jurisprudence, and procedural law dedicated to fostering practical legal acumen and trial excellence.",
         image: "/programs/law/mentor-3.webp",
         imagePosition: "center 26%",
       },
