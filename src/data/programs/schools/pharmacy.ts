@@ -404,7 +404,7 @@ export const pharmacySchool: ProgramPageData = {
   careerPathways: {
     title: "Career Pathways",
     description:
-      "A large number of opportunities are available for students in both the public and the private sectors. After the completion of the course, the students can work as a Drug Therapist, Drug Inspector, Health Inspector, Pharmacist, Pathological Lab Scientist, Chemical/Drug Technician, Bio-Technology Industries, Hospital Drug Coordinator, Research & Development and Making Prescription to Patients",
+      "A large number of opportunities are available for students in both the public and the private sectors. After completing the course, students can pursue careers as Drug Inspectors, Health Inspectors, Pharmacists, Chemical/Drug Technicians, Hospital Drug Coordinators, and professionals in pharmaceutical research and development, biotechnology, and related fields.",
     rolesTitle: "Notable Career Roles Our Graduates Pursue",
     notableRoles: [
       { name: "Clinical Research" },
