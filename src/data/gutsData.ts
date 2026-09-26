@@ -246,31 +246,31 @@ export const gutsApplicablePrograms: GutsProgramSchool[] = [
     schoolName: "Business Management",
     id: "bm",
     programs: [
-      { name: "BBA Hons. (Bachelor of Business Administration)", href: "/programs/school-of-commerce-and-business-management/bba" },
-      { name: "BBA Hons. (International Accounting with ACCA UK)", href: "/programs/school-of-commerce-and-business-management/bba-international-accounting" },
-      { name: "BBA Hons. (Human Resource Management)", href: "/programs/school-of-commerce-and-business-management/bba-human-resource-management" },
-      { name: "BBA Hons. (Import & Export Management)", href: "/programs/school-of-commerce-and-business-management/bba-export-and-import-management" },
-      { name: "BBA Hons. (Banking & Finance)", href: "/programs/school-of-commerce-and-business-management/bba-banking-and-finance" },
-      { name: "BBA Hons. (Marketing)", href: "/programs/school-of-commerce-and-business-management/bba-marketing" },
-      { name: "BBA Hons. (FinTech)", href: "/programs/school-of-commerce-and-business-management/bba-fintech" },
-      { name: "BBA Hons. (Artificial Intelligence & Data Analytics)", href: "/programs/school-of-commerce-and-business-management/bba-artificial-intelligence-and-data-analytics" },
+      { name: "BBA (Hons.) Bachelor of Business Administration", href: "/programs/school-of-commerce-and-business-management/bba" },
+      { name: "BBA (Hons.) International Accounting with ACCA UK", href: "/programs/school-of-commerce-and-business-management/bba-international-accounting" },
+      { name: "BBA (Hons.) Human Resource Management", href: "/programs/school-of-commerce-and-business-management/bba-human-resource-management" },
+      { name: "BBA (Hons.) Import & Export Management", href: "/programs/school-of-commerce-and-business-management/bba-export-and-import-management" },
+      { name: "BBA (Hons.) Banking & Finance", href: "/programs/school-of-commerce-and-business-management/bba-banking-and-finance" },
+      { name: "BBA (Hons.) Marketing", href: "/programs/school-of-commerce-and-business-management/bba-marketing" },
+      { name: "BBA (Hons.) FinTech", href: "/programs/school-of-commerce-and-business-management/bba-fintech" },
+      { name: "BBA (Hons.) Artificial Intelligence & Data Analytics", href: "/programs/school-of-commerce-and-business-management/bba-artificial-intelligence-and-data-analytics" },
     ],
   },
   {
     schoolName: "Commerce",
     id: "com",
     programs: [
-      { name: "B.Com. Hons. (Bachelor of Commerce)", href: "/programs/school-of-commerce-and-business-management/bcom" },
-      { name: "B.Com. Hons. (Auditing & Taxation)", href: "/programs/school-of-commerce-and-business-management/bcom-auditing-and-taxation" },
-      { name: "B.Com. Hons. (Banking & Insurance)", href: "/programs/school-of-commerce-and-business-management/bcom-banking-and-insurance" },
-      { name: "B.Com. Hons. (International Accounting with ACCA UK)", href: "/programs/school-of-commerce-and-business-management/bcom-international-accounting" },
+      { name: "B.Com. (Hons.) Bachelor of Commerce", href: "/programs/school-of-commerce-and-business-management/bcom" },
+      { name: "B.Com. (Hons.) Auditing & Taxation", href: "/programs/school-of-commerce-and-business-management/bcom-auditing-and-taxation" },
+      { name: "B.Com. (Hons.) Banking & Insurance", href: "/programs/school-of-commerce-and-business-management/bcom-banking-and-insurance" },
+      { name: "B.Com. (Hons.) International Accounting with ACCA UK", href: "/programs/school-of-commerce-and-business-management/bcom-international-accounting" },
     ],
   },
   {
     schoolName: "Agricultural Studies",
     id: "agri",
     programs: [
-      { name: "B.Sc. Hons. (Agriculture)", href: "/programs/school-of-agricultural-studies/bsc-agriculture" },
+      { name: "B.Sc. (Hons.) Agriculture", href: "/programs/school-of-agricultural-studies/bsc-agriculture" },
     ],
   },
   {
@@ -293,7 +293,7 @@ export const gutsApplicablePrograms: GutsProgramSchool[] = [
     schoolName: "Nutrition & Dietetics",
     id: "nutrition",
     programs: [
-      { name: "B.Sc. Hons. (Nutrition & Dietetics)", href: "/programs/school-of-health-and-allied-sciences/bsc-nutrition-and-dietetics" },
+      { name: "B.Sc. (Hons.) Nutrition & Dietetics", href: "/programs/school-of-health-and-allied-sciences/bsc-nutrition-and-dietetics" },
     ],
   },
   {
@@ -312,7 +312,7 @@ export const gutsApplicablePrograms: GutsProgramSchool[] = [
     schoolName: "Forensic Science",
     id: "forensic",
     programs: [
-      { name: "B.Sc. Hons. (Forensic Sciences)", href: "/programs/school-of-forensic-sciences" },
+      { name: "B.Sc. (Hons.) Forensic Sciences", href: "/programs/school-of-forensic-sciences" },
     ],
   },
 ];

@@ -4,11 +4,11 @@ import type { CourseFAQItem } from "../courses/types";
 export const healthSciencesFaqs: CourseFAQItem[] = [
   {
     question: "What programs are offered by the School of Health & Allied Sciences at Geeta University?",
-    answer: "The School offers B.Sc. Hons. (Nutrition & Dietetics), M.Sc. (Nutrition & Dietetics), and Ph.D. (Nutrition & Dietetics).",
+    answer: "The School offers B.Sc. (Hons.) Nutrition & Dietetics, M.Sc. (Nutrition & Dietetics), and Ph.D. (Nutrition & Dietetics).",
     category: "Admissions & Eligibility"
   },
   {
-    question: "What is the eligibility for B.Sc. Hons. Nutrition & Dietetics?",
+    question: "What is the eligibility for B.Sc. (Hons.) Nutrition & Dietetics?",
     answer: "Applicants should have passed the 10+2 with Physics, Chemistry, Biology, Nutrition, Home Science, Mathematics, Commerce, Arts, or any vocational subject, with English as a compulsory subject and at least 50% marks in aggregate.",
     category: "Admissions & Eligibility"
   },
@@ -43,8 +43,8 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
     category: "Admissions & Eligibility"
   },
   {
-    question: "How long is the B.Sc. Hons. Nutrition & Dietetics program?",
-    answer: "The B.Sc. Hons. program is a four-year undergraduate degree.",
+    question: "How long is the B.Sc. (Hons.) Nutrition & Dietetics program?",
+    answer: "The B.Sc. (Hons.) program is a four-year undergraduate degree.",
     category: "Program & Curriculum"
   },
   {
@@ -435,7 +435,7 @@ export const healthSciencesSchool: ProgramPageData = {
       "Industry-aligned degree programs in Nutrition & Dietetics integrating clinical practice, modern laboratories, and research-led education.",
     cards: [
       {
-        title: "B.Sc. Hons. (Nutrition & Dietetics)",
+        title: "B.Sc. (Hons.) Nutrition & Dietetics",
         iconName: "GraduationCap",
         points: [
           "Diet Planning & Clinical Nutrition",
@@ -743,7 +743,7 @@ export const healthSciencesSchool: ProgramPageData = {
         "Passed the 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized board or university, with at least 50% marks in the qualifying examination.",
       programs: [
         {
-          name: "B.Sc. Hons. (Nutrition & Dietetics)",
+          name: "B.Sc. (Hons.) Nutrition & Dietetics",
           href: "/programs/school-of-health-and-allied-sciences/bsc-nutrition-and-dietetics",
         },
       ],

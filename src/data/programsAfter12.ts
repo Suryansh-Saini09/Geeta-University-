@@ -18,47 +18,47 @@ export const ugSchoolsData: SchoolProgramGroup[] = [
     badge: "Most Popular",
     programs: [
       {
-        name: "B.Tech. Hons. CSE (Computer Science & Engineering)",
+        name: "B.Tech. (Hons.) CSE Computer Science & Engineering",
         href: "/programs/school-of-computer-science-and-engineering",
       },
       {
-        name: "B.Tech. Hons. CSE (Artificial Intelligence & Machine Learning)",
+        name: "B.Tech. (Hons.) CSE Artificial Intelligence & Machine Learning",
         href: "/programs/school-of-computer-science-and-engineering",
       },
       {
-        name: "B.Tech. Hons. CSE (Cybersecurity)",
+        name: "B.Tech. (Hons.) CSE Cybersecurity",
         href: "/programs/school-of-computer-science-and-engineering",
       },
       {
-        name: "B.Tech. Hons. CSE (Data Science & Business Analytics)",
+        name: "B.Tech. (Hons.) CSE Data Science & Business Analytics",
         href: "/programs/school-of-computer-science-and-engineering",
       },
       {
-        name: "B.Tech. Hons. CSE (Full Stack Web Development)",
+        name: "B.Tech. (Hons.) CSE Full Stack Web Development",
         href: "/programs/school-of-computer-science-and-engineering",
       },
       {
-        name: "B.Tech. Hons. CSE (NIAT Upskilling)",
+        name: "B.Tech. (Hons.) CSE NIAT Upskilling",
         href: "/programs/school-of-computer-science-and-engineering",
       },
       {
-        name: "B.Tech. Hons. CSE (Quantum Computing)",
+        name: "B.Tech. (Hons.) CSE Quantum Computing",
         href: "/programs/school-of-computer-science-and-engineering",
       },
       {
-        name: "BCA Hons. (Computer Applications)",
+        name: "BCA (Hons.) Computer Applications",
         href: "/programs/school-of-computer-science-and-engineering",
       },
       {
-        name: "BCA Hons. (Cybersecurity)",
+        name: "BCA (Hons.) Cybersecurity",
         href: "/programs/school-of-computer-science-and-engineering",
       },
       {
-        name: "BCA Hons. (Data Science & Business Analytics)",
+        name: "BCA (Hons.) Data Science & Business Analytics",
         href: "/programs/school-of-computer-science-and-engineering",
       },
       {
-        name: "BCA Hons. (Artificial Intelligence & Machine Learning)",
+        name: "BCA (Hons.) Artificial Intelligence & Machine Learning",
         href: "/programs/school-of-computer-science-and-engineering",
       },
     ],
@@ -98,7 +98,7 @@ export const ugSchoolsData: SchoolProgramGroup[] = [
     schoolHref: "/programs/school-of-health-and-allied-sciences",
     programs: [
       {
-        name: "B.Sc. Hons. (Nutrition & Dietetics)",
+        name: "B.Sc. (Hons.) Nutrition & Dietetics",
         href: "/programs/school-of-health-and-allied-sciences",
       },
     ],
@@ -108,7 +108,7 @@ export const ugSchoolsData: SchoolProgramGroup[] = [
     schoolHref: "/programs/school-of-forensic-sciences",
     programs: [
       {
-        name: "B.Sc. Hons. (Forensic Sciences)",
+        name: "B.Sc. (Hons.) Forensic Sciences",
         href: "/programs/school-of-forensic-sciences",
       },
     ],
@@ -119,63 +119,63 @@ export const ugSchoolsData: SchoolProgramGroup[] = [
     badge: "Industry Linked",
     programs: [
       {
-        name: "BBA Hons. (Bachelor of Business Administration)",
+        name: "BBA (Hons.) Bachelor of Business Administration",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "BBA Hons. (International Accounting with ACCA UK)",
+        name: "BBA (Hons.) International Accounting with ACCA UK",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "BBA Hons. (Artificial Intelligence & Data Analytics)",
+        name: "BBA (Hons.) Artificial Intelligence & Data Analytics",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "BBA Hons. (Human Resource Management)",
+        name: "BBA (Hons.) Human Resource Management",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "BBA Hons. (Import & Export Management)",
+        name: "BBA (Hons.) Import & Export Management",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "BBA Hons. (Banking & Finance)",
+        name: "BBA (Hons.) Banking & Finance",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "BBA Hons. (Marketing)",
+        name: "BBA (Hons.) Marketing",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "BBA Hons. (FinTech)",
+        name: "BBA (Hons.) FinTech",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "BBA Hons. (Digital Marketing)",
+        name: "BBA (Hons.) Digital Marketing",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "BBA Hons. (Entrepreneurship and Family Business)",
+        name: "BBA (Hons.) Entrepreneurship and Family Business",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "B.Com. Hons. (Bachelor of Commerce)",
+        name: "B.Com. (Hons.) Bachelor of Commerce",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "B.Com. Hons. (International Accounting with ACCA UK)",
+        name: "B.Com. (Hons.) International Accounting with ACCA UK",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "B.Com. Hons. (Auditing & Taxation)",
+        name: "B.Com. (Hons.) Auditing & Taxation",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "B.Com. Hons. (Banking & Insurance)",
+        name: "B.Com. (Hons.) Banking & Insurance",
         href: "/programs/school-of-management-and-business-studies",
       },
       {
-        name: "B.Com. Hons. (Advanced Accounting)",
+        name: "B.Com. (Hons.) Advanced Accounting",
         href: "/programs/school-of-management-and-business-studies",
       },
     ],
@@ -185,7 +185,7 @@ export const ugSchoolsData: SchoolProgramGroup[] = [
     schoolHref: "/programs/school-of-humanities-and-social-science",
     programs: [
       {
-        name: "B.Sc. Hons. (Psychology)",
+        name: "B.Sc. (Hons.) Psychology",
         href: "/programs/school-of-humanities-and-social-science",
       },
       {
@@ -207,7 +207,7 @@ export const ugSchoolsData: SchoolProgramGroup[] = [
     schoolHref: "/programs/school-of-agricultural-studies",
     programs: [
       {
-        name: "B.Sc. Hons. (Agriculture)",
+        name: "B.Sc. (Hons.) Agriculture",
         href: "/programs/school-of-agricultural-studies",
       },
     ],

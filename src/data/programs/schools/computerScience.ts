@@ -191,31 +191,31 @@ export const computerScienceSchool: ProgramPageData = {
           href: "/programs/school-of-computer-science-and-engineering/btech-cse",
           specialisations: [
             {
-              name: "B.Tech. Hons. CSE (Computer Science & Engineering)",
+              name: "B.Tech. (Hons.) CSE Computer Science & Engineering",
               href: "/programs/school-of-computer-science-and-engineering/btech-cse",
             },
             {
-              name: "B.Tech. Hons. CSE (Artificial Intelligence & Machine Learning)",
+              name: "B.Tech. (Hons.) CSE Artificial Intelligence & Machine Learning",
               href: "/programs/school-of-computer-science-and-engineering/btech-artificial-intelligence-and-machine-learning",
             },
             {
-              name: "B.Tech. Hons. CSE (Cybersecurity)",
+              name: "B.Tech. (Hons.) CSE Cybersecurity",
               href: "/programs/school-of-computer-science-and-engineering/btech-cyber-security",
             },
             {
-              name: "B.Tech. Hons. CSE (Data Science & Business Analytics with HCL)",
+              name: "B.Tech. (Hons.) CSE Data Science & Business Analytics with HCL",
               href: "/programs/school-of-computer-science-and-engineering/btech-data-science-and-business-analytics",
             },
             {
-              name: "B.Tech. Hons. CSE (Full Stack Web Development)",
+              name: "B.Tech. (Hons.) CSE Full Stack Web Development",
               href: "/programs/school-of-computer-science-and-engineering/btech-full-stack-web-development",
             },
             {
-              name: "B.Tech. Hons. CSE (Quantum Computing)",
+              name: "B.Tech. (Hons.) CSE Quantum Computing",
               href: "/programs/school-of-computer-science-and-engineering/btech-quantum-computing",
             },
             {
-              name: "B.Tech. Hons. CSE (NIAT Upskilling)",
+              name: "B.Tech. (Hons.) CSE NIAT Upskilling",
               href: "/programs/school-of-computer-science-and-engineering/niat-upskilling",
             },
           ],
@@ -228,19 +228,19 @@ export const computerScienceSchool: ProgramPageData = {
           href: "/programs/school-of-computer-science-and-engineering/bca",
           specialisations: [
             {
-              name: "BCA Hons. (Computer Applications)",
+              name: "BCA (Hons.) Computer Applications",
               href: "/programs/school-of-computer-science-and-engineering/bca",
             },
             {
-              name: "BCA Hons. (Artificial Intelligence & Machine Learning)",
+              name: "BCA (Hons.) Artificial Intelligence & Machine Learning",
               href: "/programs/school-of-computer-science-and-engineering/bca-artificial-intelligence-and-machine-learning",
             },
             {
-              name: "BCA Hons. (Cybersecurity)",
+              name: "BCA (Hons.) Cybersecurity",
               href: "/programs/school-of-computer-science-and-engineering/bca-cyber-security",
             },
             {
-              name: "BCA Hons. (Data Science & Business Analytics)",
+              name: "BCA (Hons.) Data Science & Business Analytics",
               href: "/programs/school-of-computer-science-and-engineering/bca-data-science-and-business-analytics",
             },
           ],
@@ -597,7 +597,7 @@ export const computerScienceSchool: ProgramPageData = {
   faqs: [
     {
       q: "What programs are offered by the School of Computer Science & Engineering at Geeta University?",
-      a: "The School currently lists B.Tech. Hons. CSE with specialisations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cybersecurity, and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programs in Computer Applications and CSE.",
+      a: "The School currently lists B.Tech. (Hons.) CSE with specialisations including Computer Science & Engineering, Artificial Intelligence & Machine Learning, Cybersecurity, Data Science & Business Analytics with HCL, Full Stack Web Development, Quantum Computing, and NIAT Upskilling; BCA pathways including Computer Applications, AI & ML, Cybersecurity, and Data Science & Business Analytics; M.Tech. CSE; MCA; and Ph.D. programs in Computer Applications and CSE.",
       category: "Admissions & Eligibility",
     },
     {
