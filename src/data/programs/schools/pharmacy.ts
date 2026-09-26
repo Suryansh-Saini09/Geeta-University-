@@ -312,7 +312,7 @@ export const pharmacySchool: ProgramPageData = {
     },
     {
       name: "Mr. Bhavish",
-      pkg: "Wholesale Pharmaceutical Entrepreneur",
+      role: "Wholesale Pharmaceutical Entrepreneur",
       quote:
         "The practical business acumen and strong pharmaceutical foundation I gained at Geeta Institute of Pharmacy gave me the confidence to step into entrepreneurship and scale a ₹50-60 LPA wholesale pharmaceutical enterprise.",
       image: "/programs/pharmacy/Bhavish-testimonial.webp",
