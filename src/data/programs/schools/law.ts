@@ -81,7 +81,7 @@ export const lawSchool: ProgramPageData = {
     title: "Geeta Global Law School",
     paragraphs: [
       "The Geeta Global Law School at Geeta University is home to aspiring legal professionals, future advocates, judicial experts, and leaders who are groomed in accordance with the evolving dynamics of the legal world by highly experienced academicians and state-of-the-art learning facilities.",
-      "Our immersive, practice-oriented law programs will transform you, inspire you, and prepare you to lead. You will learn and practice through moot courts, legal research, internships, case studies, and real-world legal exposure, the skills that the legal industry and society demand. These include exceptional analytical abilities, advocacy skills, legal drafting, ethical values, constitutional understanding, and leadership qualities.",
+      "Our immersive, practice-oriented law programs will transform you, inspire you, and prepare you to lead. You will learn and practise the skills that the legal industry and society demand through moot courts, legal research, internships, case studies, and real-world legal exposure. These include exceptional analytical abilities, advocacy skills, legal drafting, ethical values, constitutional understanding, and leadership qualities.",
       "We, at Geeta University, are committed to helping you develop the necessary skills to satisfy your ambition for success and explore a variety of career opportunities in the legal domain. Whether you aspire to excel as an advocate, legal advisor, corporate consultant, judicial officer, or legal researcher, discover your passion and pursue it with us at the best law school in Delhi NCR.",
     ],
     image: "/programs/law/gallery-1.webp",
