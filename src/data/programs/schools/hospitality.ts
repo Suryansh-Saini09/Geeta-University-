@@ -105,7 +105,7 @@ export const hospitalitySchool: ProgramPageData = {
 
   dean: {
     name: "Prof. Dr. Sushil Mishra",
-    designation: "Principal, School of Hospitality and Hotel Management",
+    designation: "Principal, School of Hospitality & Hotel Management",
     image: "/programs/hotel-management/sushil.jpg",
     message:
       "Welcome to Geeta University's School of Hospitality & Hotel Management. Do you love hosting people, cooking great food, or managing events? At Geeta University, we help turn that passion into a successful career. We train you with the latest tools and trends used in top hotels and restaurants. You’ll learn by doing — from planning diets to using hotel software, understanding guest service, and getting real-world experience through paid internships. We help you develop the right skills, personality, and attitude to prepare you for exciting jobs in the hotel & hospitality industry. If you're ready to work hard, learn fast, and shine bright in the world of hospitality — we’re ready to welcome you.",
