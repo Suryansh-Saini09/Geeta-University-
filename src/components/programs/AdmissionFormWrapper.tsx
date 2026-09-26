@@ -44,23 +44,19 @@ export default function AdmissionFormWrapper() {
 
   return (
     <div
-      className="rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] overflow-hidden w-full transition-all duration-300 border border-white/20"
+      className="relative overflow-hidden w-full transition-all duration-300 border border-slate-200/90 shadow-[0_10px_35px_rgba(10,31,68,0.08)] bg-[#F4F7FB]"
       style={{
-        background: "#F4F7FB",
-        borderRadius: "18px",
+        borderRadius: "20px",
+        borderTop: "5px solid #F37021",
         padding: "16px 14px 12px",
         minHeight: "520px",
         width: "100%",
       }}
     >
       {/* Header inside form */}
-      <div className="text-center pb-2 mb-2 border-b border-gray-200/80">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#E8871A]/10 text-[#E8871A] text-[10.5px] font-extrabold uppercase tracking-wider mb-1">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#E8871A] animate-pulse" />
-          Admissions Open
-        </div>
-        <h3 className="text-[#0A1F44] font-extrabold text-[15px] leading-tight">
-          Apply Online / Enquire Now
+      <div className="text-center pb-2.5 mb-2 border-b border-gray-200/90">
+        <h3 className="text-[#0A1F44] font-extrabold text-[20px] sm:text-[22px] tracking-tight leading-tight">
+          Enquire Now
         </h3>
       </div>
 
