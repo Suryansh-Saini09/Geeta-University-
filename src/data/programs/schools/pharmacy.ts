@@ -476,7 +476,7 @@ export const pharmacySchool: ProgramPageData = {
       {
         title: "Academic Excellence & Expert Faculty",
         points: [
-          "Consistently high academic standards delivering proven merit and high-impact healthcare careers.",
+          "Consistently high academic standards, delivering academic excellence and supporting careers in healthcare.",
           "Distinguished faculty with Ph.D. credentials, national research awards, and extensive pharmaceutical industry experience.",
         ],
       },
