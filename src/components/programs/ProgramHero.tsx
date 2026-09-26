@@ -102,9 +102,16 @@ export default function ProgramHero({ hero }: ProgramHeroProps) {
                   {/* CTA Buttons */}
                   <div className="flex flex-wrap items-center gap-3 pt-1">
                     <a
-                      href={activeSlide.ctaLink || "https://admissions.geetauniversity.edu.in/"}
-                      target="_blank"
-                      rel="noreferrer"
+                      href={activeSlide.cta === "Explore Programs" ? "#Programs" : (activeSlide.ctaLink || "https://admissions.geetauniversity.edu.in/")}
+                      target={activeSlide.cta === "Explore Programs" ? undefined : "_blank"}
+                      rel={activeSlide.cta === "Explore Programs" ? undefined : "noreferrer"}
+                      onClick={activeSlide.cta === "Explore Programs" ? (e) => {
+                        e.preventDefault();
+                        const el = document.getElementById("Programs") || document.getElementById("Courses");
+                        if (el) {
+                          el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      } : undefined}
                       className="bg-[#ff0000] hover:bg-[#d90000] text-white font-extrabold text-[11px] sm:text-xs md:text-sm px-5 sm:px-7 py-2.5 sm:py-3 rounded-lg flex items-center space-x-2 transition-all tracking-wider uppercase shadow-lg shadow-[#ff0000]/25 hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <span>{activeSlide.cta || "Apply Online"}</span>
@@ -112,8 +119,15 @@ export default function ProgramHero({ hero }: ProgramHeroProps) {
                     </a>
 
                     <a
-                      href="#Courses"
-                      className="bg-white/15 hover:bg-white/25 border border-white/40 text-white font-bold text-[11px] sm:text-xs md:text-sm px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all tracking-wide backdrop-blur-md"
+                      href="#Programs"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const el = document.getElementById("Programs") || document.getElementById("Courses");
+                        if (el) {
+                          el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }}
+                      className="bg-white/15 hover:bg-white/25 border border-white/40 text-white font-bold text-[11px] sm:text-xs md:text-sm px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all tracking-wide backdrop-blur-md cursor-pointer"
                     >
                       Explore Programs
                     </a>
@@ -146,8 +160,15 @@ export default function ProgramHero({ hero }: ProgramHeroProps) {
                   </a>
 
                   <a
-                    href="#Courses"
-                    className="bg-white/15 hover:bg-white/25 border border-white/40 text-white font-bold text-[11px] sm:text-xs md:text-sm px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all tracking-wide backdrop-blur-md"
+                    href="#Programs"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById("Programs") || document.getElementById("Courses");
+                      if (el) {
+                        el.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
+                    }}
+                    className="bg-white/15 hover:bg-white/25 border border-white/40 text-white font-bold text-[11px] sm:text-xs md:text-sm px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all tracking-wide backdrop-blur-md cursor-pointer"
                   >
                     Explore Programs
                   </a>

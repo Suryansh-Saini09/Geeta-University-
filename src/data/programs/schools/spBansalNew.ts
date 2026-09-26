@@ -90,7 +90,7 @@ export const spBansalSchoolNew: ProgramPageData = {
           "Data driven decision making",
           "Blockchain & Cryptocurrencies",
           "Digital payments and Lending",
-          "AI& ML in FinTech",
+          "AI & ML in FinTech",
           "Regulatory Tech (RegTech)",
         ],
       },
