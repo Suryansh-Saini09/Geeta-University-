@@ -27,58 +27,62 @@ export default function CourseCareer({ career }: CourseCareerProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {/* Government Sector Roles */}
-          <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
-            <h3 className="text-xl font-serif font-bold text-[#0A1F44] border-b border-amber-500/30 pb-3 mb-6 flex items-center justify-between">
-              <span>Government Sector Roles</span>
-              <span className="text-xs uppercase bg-amber-100 text-amber-900 font-sans font-semibold px-2.5 py-1 rounded">
-                Public Domain
-              </span>
-            </h3>
-            <ul className="space-y-4">
-              {career.govtRoles.map((role, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="text-amber-600 font-bold">•</span>
-                  <div>
-                    <h4 className="font-semibold text-slate-900 text-base">
-                      {role.title}
-                    </h4>
-                    {role.description && (
-                      <p className="text-slate-600 text-sm mt-0.5">
-                        {role.description}
-                      </p>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {career.govtRoles && career.govtRoles.length > 0 && (
+            <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-serif font-bold text-[#0A1F44] border-b border-amber-500/30 pb-3 mb-6 flex items-center justify-between">
+                <span>Government Sector Roles</span>
+                <span className="text-xs uppercase bg-amber-100 text-amber-900 font-sans font-semibold px-2.5 py-1 rounded">
+                  Public Domain
+                </span>
+              </h3>
+              <ul className="space-y-4">
+                {career.govtRoles.map((role, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="text-amber-600 font-bold">•</span>
+                    <div>
+                      <h4 className="font-semibold text-slate-900 text-base">
+                        {role.title}
+                      </h4>
+                      {role.description && (
+                        <p className="text-slate-600 text-sm mt-0.5">
+                          {role.description}
+                        </p>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Private Sector Roles */}
-          <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
-            <h3 className="text-xl font-serif font-bold text-[#0A1F44] border-b border-amber-500/30 pb-3 mb-6 flex items-center justify-between">
-              <span>Private Sector Roles</span>
-              <span className="text-xs uppercase bg-blue-100 text-blue-900 font-sans font-semibold px-2.5 py-1 rounded">
-                Agribusiness & Tech
-              </span>
-            </h3>
-            <ul className="space-y-4">
-              {career.privateRoles.map((role, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="text-[#1E4E8C] font-bold">•</span>
-                  <div>
-                    <h4 className="font-semibold text-slate-900 text-base">
-                      {role.title}
-                    </h4>
-                    {role.description && (
-                      <p className="text-slate-600 text-sm mt-0.5">
-                        {role.description}
-                      </p>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {career.privateRoles && career.privateRoles.length > 0 && (
+            <div className="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-serif font-bold text-[#0A1F44] border-b border-amber-500/30 pb-3 mb-6 flex items-center justify-between">
+                <span>Private Sector Roles</span>
+                <span className="text-xs uppercase bg-blue-100 text-blue-900 font-sans font-semibold px-2.5 py-1 rounded">
+                  Agribusiness & Tech
+                </span>
+              </h3>
+              <ul className="space-y-4">
+                {career.privateRoles.map((role, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="text-[#1E4E8C] font-bold">•</span>
+                    <div>
+                      <h4 className="font-semibold text-slate-900 text-base">
+                        {role.title}
+                      </h4>
+                      {role.description && (
+                        <p className="text-slate-600 text-sm mt-0.5">
+                          {role.description}
+                        </p>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         {career.notes && (

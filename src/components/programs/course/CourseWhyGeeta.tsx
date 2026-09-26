@@ -25,21 +25,23 @@ export default function CourseWhyGeeta({ whyGeeta }: CourseWhyGeetaProps) {
           )}
         </div>
 
-        <div className="space-y-6">
-          {whyGeeta.reasons.map((reason, idx) => (
-            <div
-              key={idx}
-              className="p-6 rounded-lg bg-slate-50 border border-slate-200 hover:border-slate-300 transition-colors"
-            >
-              <h3 className="text-lg font-serif font-bold text-[#0A1F44] mb-2">
-                {reason.title}
-              </h3>
-              <p className="text-slate-700 text-sm md:text-base leading-relaxed">
-                {reason.description}
-              </p>
-            </div>
-          ))}
-        </div>
+        {whyGeeta.reasons && whyGeeta.reasons.length > 0 && (
+          <div className="space-y-6">
+            {whyGeeta.reasons.map((reason, idx) => (
+              <div
+                key={idx}
+                className="p-6 rounded-lg bg-slate-50 border border-slate-200 hover:border-slate-300 transition-colors"
+              >
+                <h3 className="text-lg font-serif font-bold text-[#0A1F44] mb-2">
+                  {reason.title}
+                </h3>
+                <p className="text-slate-700 text-sm md:text-base leading-relaxed">
+                  {reason.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
