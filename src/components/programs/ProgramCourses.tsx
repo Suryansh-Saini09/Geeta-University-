@@ -157,12 +157,14 @@ export default function ProgramCourses({
   return (
     <section
       id="Programs"
+      className="scroll-mt-20 relative"
       style={{
         padding: "52px 0 48px",
         background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)",
         position: "relative",
       }}
     >
+      <div id="Courses" className="absolute -top-24 pointer-events-none" />
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
         
         {/* Section Header */}
