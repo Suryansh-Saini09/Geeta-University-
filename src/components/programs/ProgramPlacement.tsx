@@ -162,7 +162,7 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
 
                           {pkg ? (
                             <div className="mt-1.5 inline-flex items-center rounded-full bg-[#E8871A]/15 border border-[#E8871A]/30 px-2.5 py-0.5 text-xs font-bold text-[#E8871A]">
-                              Package · {pkg}
+                              {pkg}
                             </div>
                           ) : (
                             <p className="text-xs text-white/60 truncate mt-1">
