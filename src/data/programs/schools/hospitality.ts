@@ -73,7 +73,7 @@ export const hospitalitySchool: ProgramPageData = {
     paragraphs: [
       "The School of Hospitality & Hotel Management at Geeta University is home to best-in-class professionals, hospitality leaders, and entrepreneurs of the future who are groomed in accordance with the latest trends in the hospitality sector by highly specialized learning facilitators and state-of-the-art facilities.",
       "Our immersive, hands-on hospitality programs will transform you, inspire you, and prepare you to lead. You will learn and practice through paid work experience, the skills that employers seek: exceptional guest service, industry-standard software applications, cultural diversity, and modern management capabilities.",
-      "We, at Geeta University, are committed to helping you develop the necessary skills to satisfy your hunger for advancement and explore a variety of career options in this dynamic field. Whether you aspire to excel in hospitality management, culinary arts, or hotel administration, discover your passion and pursue it with us at the best college for hotel management in Delhi NCR.",
+      "We, at Geeta University, are committed to helping you develop the necessary skills to satisfy your hunger for advancement and explore a variety of career options in this dynamic field. Whether you aspire to excel in hospitality management, culinary arts, or hotel administration, discover your passion and pursue it with us at Geeta University.",
     ],
     image: "/programs/hotel-management/hero.jpg",
     badgeText: "Future Hospitality Leaders",
