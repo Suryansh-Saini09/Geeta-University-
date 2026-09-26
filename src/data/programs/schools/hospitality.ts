@@ -127,7 +127,7 @@ export const hospitalitySchool: ProgramPageData = {
       },
       {
         name: "Ms. Dimpy Khera",
-        role: "Assistant Professor (IHM Pusa Alumna)",
+        role: "Assistant Professor, IHM Pusa Alumna",
         designation: "Assistant Professor, Master’s (IHM PUSA)",
         desc: "M.Sc. in Hospitality and Hotel Administration from IHM Pusa, New Delhi. Specialisation in Front Office and Hospitality Operations.",
         description:
