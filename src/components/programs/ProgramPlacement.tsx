@@ -119,7 +119,6 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
                   const detailsParts = [];
                   if (role) detailsParts.push(role);
                   if (company && !role.includes(company)) detailsParts.push(company);
-                  if (pkg && !role.includes(pkg) && !company.includes(pkg)) detailsParts.push(pkg);
                   const displayDetails = detailsParts.join(" • ") || company || role;
 
                   return (
