@@ -175,26 +175,26 @@ export const humanitiesSchool: ProgramPageData = {
         "Passed the 10+2 examination with at least 50% marks in the qualifying examination from a recognized board.",
       programs: [
         {
-          name: "B.A. Hons. (Bachelor of Arts)",
-          program: "B.A. Hons. (Bachelor of Arts)",
+          name: "B.A. (Hons.) Bachelor of Arts",
+          program: "B.A. (Hons.) Bachelor of Arts",
           href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
           duration: "3 / 4 years",
           eligibility: "Passed the 10+2 examination with a minimum of 50% aggregate marks from a recognized board.",
           specialisations: [
             {
-              name: "B.A. Hons. (Psychology)",
+              name: "B.A. (Hons.) Psychology",
               href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-psychology",
             },
             {
-              name: "B.A. Hons. (Political Science)",
+              name: "B.A. (Hons.) Political Science",
               href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-political-science",
             },
             {
-              name: "B.A. Hons. (Economics)",
+              name: "B.A. (Hons.) Economics",
               href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science/ba-economics",
             },
             {
-              name: "B.A. Hons. (English)",
+              name: "B.A. (Hons.) English",
               href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
             },
           ],

@@ -189,15 +189,15 @@ export const ugSchoolsData: SchoolProgramGroup[] = [
         href: "/programs/school-of-humanities-and-social-science",
       },
       {
-        name: "B.A. Hons. (Political Science)",
+        name: "B.A. (Hons.) Political Science",
         href: "/programs/school-of-humanities-and-social-science",
       },
       {
-        name: "B.A. Hons. (Psychology)",
+        name: "B.A. (Hons.) Psychology",
         href: "/programs/school-of-humanities-and-social-science",
       },
       {
-        name: "B.A. Hons. (Economics)",
+        name: "B.A. (Hons.) Economics",
         href: "/programs/school-of-humanities-and-social-science",
       },
     ],
