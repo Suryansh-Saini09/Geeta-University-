@@ -496,7 +496,7 @@ export const pharmacySchool: ProgramPageData = {
           "Strategic MoUs with premier pharmaceutical companies for live projects, internships, and collaborative research.",
           "Regular industrial visits and manufacturing plant tours.",
           "Interactive guest lectures and masterclasses by pharma leaders.",
-          "Annual international conferences and pharmaceutical research symposiums.",
+          "Annual international conferences and pharmaceutical research symposia.",
           "First institution in Haryana to host the prestigious PCI Pharma Anveshan.",
         ],
       },
