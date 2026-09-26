@@ -505,7 +505,7 @@ export const healthSciencesSchool: ProgramPageData = {
         ],
       },
       {
-        title: "Industry Aligned Curriculum",
+        title: "Industry-Aligned Curriculum",
         points: [
           "Industry collaborations for internships, industrial visits, and expert sessions.",
         ],

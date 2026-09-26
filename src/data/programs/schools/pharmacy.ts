@@ -126,7 +126,7 @@ export const pharmacySchool: ProgramPageData = {
     faculty: [
       {
         name: "Dr. Seema Rohilla",
-        designation: "Professor, M.Pharm (Pharmaceutics), Ph.D.",
+        designation: "Professor, M.Pharm. (Pharmaceutics), Ph.D.",
         description: "Expertise in Pharmaceutics and formulation design. Primary research interests include Quality by Design (QbD) and oncology therapeutics. Recipient of the Extraordinary Researcher Award.",
         image: "/programs/pharmacy/Seema.webp"
       },
@@ -144,19 +144,19 @@ export const pharmacySchool: ProgramPageData = {
       },
       {
         name: "Mr. Rakesh Redhu",
-        designation: "Associate Professor, M.Pharmacy (Pharmaceutics)",
+        designation: "Associate Professor, M.Pharm. (Pharmaceutics)",
         description: "Specialized in solubility enhancement, nanocarriers, and formulation development; skilled in Design of Experiment (DoE) methodology.",
         image: "/programs/pharmacy/Rakesh.webp"
       },
       {
         name: "Mr. Ajay",
-        designation: "Assistant Professor, M.Pharmacy",
+        designation: "Assistant Professor, M.Pharm.",
         description: "Pharmaceutical educator and researcher with 5+ years of experience specializing in pharmaceutics, pharmacology, medicinal chemistry, advanced formulation design, and patent filings.",
         image: "/programs/pharmacy/Ajay.webp"
       },
       {
         name: "Ms. Manita",
-        designation: "Assistant Professor, M.Pharmacy, Ph.D. (Pursuing)",
+        designation: "Assistant Professor, M.Pharm., Ph.D. (Pursuing)",
         description: "Assistant Professor at Geeta Institute of Pharmacy with 3.9+ years of academic experience in Pharmaceutical Sciences. Published 1 research article and 6 review articles in Q1 Scopus and PubMed-indexed journals. Co-inventor of 3 patents in nanoformulations, dermatology, and advanced drug delivery systems.",
         image: "/programs/pharmacy/Manita.webp"
       },
@@ -180,7 +180,7 @@ export const pharmacySchool: ProgramPageData = {
       },
       {
         name: "Mr. Rahul Dhounchak",
-        designation: "Assistant Professor, M.Pharmacy",
+        designation: "Assistant Professor, M.Pharm.",
         description: "Focused on solubility enhancement, drug discovery, and formulation development; active contributor to pharmaceutical academic research.",
         image: "/programs/pharmacy/Rahul.webp"
       },
@@ -192,13 +192,13 @@ export const pharmacySchool: ProgramPageData = {
       },
       {
         name: "Mr. Karan Jangra",
-        designation: "Assistant Professor, M.Pharmacy (Pharmaceutics)",
+        designation: "Assistant Professor, M.Pharm. (Pharmaceutics)",
         description: "Published researcher and expert in Pharmacovigilance with hands-on experience in product development and regulatory compliance.",
         image: "/programs/pharmacy/Karan.webp"
       },
       {
         name: "Ms. Nikita Sharma",
-        designation: "Assistant Professor, M.Pharmacy (Pharmaceutical Chemistry)",
+        designation: "Assistant Professor, M.Pharm. (Pharmaceutical Chemistry)",
         description: "Specializes in heterocyclic compound synthesis, molecular docking, and synthetic medicinal chemistry.",
         image: "/programs/pharmacy/Nikita.webp"
       },
