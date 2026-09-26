@@ -286,7 +286,7 @@ export const gutsApplicablePrograms: GutsProgramSchool[] = [
     id: "hotel",
     programs: [
       { name: "Diploma in Hotel Management (Residential Program)", href: "/programs/school-of-hospitality-and-hotel-management" },
-      { name: "B.Sc. Hons. (Hotel Management)", href: "/programs/school-of-hospitality-and-hotel-management/bsc-hotel-management" },
+      { name: "B.Sc. (Hons.) Hotel Management", href: "/programs/school-of-hospitality-and-hotel-management/bsc-hotel-management" },
     ],
   },
   {

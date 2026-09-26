@@ -221,7 +221,7 @@ export const ugSchoolsData: SchoolProgramGroup[] = [
         href: "/programs/school-of-hospitality-and-hotel-management",
       },
       {
-        name: "B.Sc. Hons. (Hotel Management)",
+        name: "B.Sc. (Hons.) Hotel Management",
         href: "/programs/school-of-hospitality-and-hotel-management",
       },
     ],

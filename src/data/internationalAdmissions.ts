@@ -282,7 +282,7 @@ export const INTERNATIONAL_PROGRAM_CATEGORIES: ProgramSchoolCategory[] = [
     href: "/programs/school-of-hospitality-and-hotel-management",
     programs: [
       { title: "Diploma in Hotel Management (Residential Program)" },
-      { title: "B.Sc. Hons. (Hotel Management)", href: "/programs/school-of-hospitality-and-hotel-management/bsc-hotel-management" },
+      { title: "B.Sc. (Hons.) Hotel Management", href: "/programs/school-of-hospitality-and-hotel-management/bsc-hotel-management" },
     ],
   },
   {

@@ -168,8 +168,8 @@ export const hospitalitySchool: ProgramPageData = {
           eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
         },
         {
-          name: "B.Sc. Hons. (Hotel Management)",
-          program: "B.Sc. Hons. (Hotel Management)",
+          name: "B.Sc. (Hons.) Hotel Management",
+          program: "B.Sc. (Hons.) Hotel Management",
           href: "/programs/school-of-hospitality-and-hotel-management/bsc-hotel-management",
           duration: "3 / 4 years",
           eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
@@ -563,7 +563,7 @@ export const hospitalitySchool: ProgramPageData = {
   faqs: [
     {
       "q": "What programs are offered by the School of Hospitality & Hotel Management at Geeta University?",
-      "a": "The School offers a Diploma in Hotel Management (Residential Program), B.Sc. Hons. (Hotel Management), M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management).",
+      "a": "The School offers a Diploma in Hotel Management (Residential Program), B.Sc. (Hons.) Hotel Management, M.Sc. (Hotel Management), and Ph.D. (Hotel & Tourism Management).",
       "category": "Admissions & Eligibility"
     },
     {
