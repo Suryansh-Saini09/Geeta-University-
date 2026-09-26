@@ -234,8 +234,8 @@ export const hospitalitySchool: ProgramPageData = {
       {
         title: "SKILL ENHANCEMENT CERTIFICATIONS",
         points: [
-          "Add prestige to your resume",
-          "Be more competitive in job markets",
+          "Strengthen your resume",
+          "Become more competitive in the job market",
         ],
       },
       {
