@@ -376,7 +376,7 @@ export const spBansalSchoolNew: ProgramPageData = {
     {
       title: "Postgraduate Programs",
       level: "Postgraduate",
-      duration: "2 Years",
+      duration: "2 years",
       eligibility:
         "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
       programs: [
@@ -384,7 +384,7 @@ export const spBansalSchoolNew: ProgramPageData = {
           name: "MBA (Master of Business Administration)",
           program: "MBA (Master of Business Administration)",
           href: "/programs/school-of-commerce-and-business-management/mba",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility:
             "Passed Bachelor's Degree of minimum 03 years duration with at least 50% marks in aggregate.",
           specialisations: [
@@ -403,21 +403,21 @@ export const spBansalSchoolNew: ProgramPageData = {
     {
       title: "Doctoral Programs",
       level: "Doctoral",
-      duration: "3 Years",
+      duration: "3 years",
       eligibility: "Master’s degree in relevant field with minimum 55% marks.",
       programs: [
         {
           name: "Ph.D. in Commerce",
           program: "Ph.D. in Commerce",
           href: "/phd-commerce",
-          duration: "3 Years",
+          duration: "3 years",
           eligibility: "Master’s degree in relevant field with minimum 55% marks.",
         },
         {
           name: "Ph.D. in Management",
           program: "Ph.D. in Management",
           href: "/phd-management",
-          duration: "3 Years",
+          duration: "3 years",
           eligibility: "Master’s degree in relevant field with minimum 55% marks.",
         },
       ],

@@ -151,7 +151,7 @@ export default function CourseRelated({ relatedCourses }: CourseRelatedProps) {
                       marginBottom: 6,
                     }}
                   >
-                    <Clock size={14} style={{ color: "#E8871A" }} /> Duration: {item.duration}
+                    <Clock size={14} style={{ color: "#E8871A" }} /> Duration: {item.duration?.replace(/\bYears\b/g, "years")}
                   </div>
                 )}
                 {item.eligibility && (

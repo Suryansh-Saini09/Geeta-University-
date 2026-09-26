@@ -183,7 +183,7 @@ export const hospitalitySchool: ProgramPageData = {
         {
           name: "M.Sc. (Hotel Management)",
           program: "M.Sc. (Hotel Management)",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility: "Passed any graduation degree from any stream with 50% marks (e.g.: B.E. / B.Tech. / B.Sc. / B.Com. / B.A. / B.Voc. / BCA etc.)",
         },
       ],

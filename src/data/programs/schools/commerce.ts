@@ -759,7 +759,7 @@ export const commerceSchool: ProgramPageData = {
     {
       title: "Undergraduate Programs",
       level: "Undergraduate",
-      duration: "3/4 Years",
+      duration: "3/4 years",
       eligibility:
         "Passed 10+2 examination with at least 50% marks in the qualifying examination.",
       programs: [
@@ -767,7 +767,7 @@ export const commerceSchool: ProgramPageData = {
           name: "BBA (Bachelor of Business Administration)",
           program: "BBA (Bachelor of Business Administration)",
           href: "/programs/school-of-commerce-and-business-management/bba",
-          duration: "3/4 Years",
+          duration: "3/4 years",
           eligibility:
             "Passed 10+2 examination with at least 50% marks in the qualifying examination.",
           specialisations: [
@@ -787,7 +787,7 @@ export const commerceSchool: ProgramPageData = {
           name: "B.Com. (Bachelor of Commerce)",
           program: "B.Com. (Bachelor of Commerce)",
           href: "/programs/school-of-commerce-and-business-management/bcom",
-          duration: "3/4 Years",
+          duration: "3/4 years",
           eligibility: "Passed 10+2 examination with at least 50% marks.",
           specialisations: [
             { name: "B.Com. Hons. (Bachelor of Commerce)", href: "/programs/school-of-commerce-and-business-management/bcom" },
@@ -802,7 +802,7 @@ export const commerceSchool: ProgramPageData = {
     {
       title: "Postgraduate Programs",
       level: "Postgraduate",
-      duration: "2 Years",
+      duration: "2 years",
       eligibility:
         "Passed B.Com. with a minimum of 50% marks in the qualifying exam.",
       programs: [
@@ -810,7 +810,7 @@ export const commerceSchool: ProgramPageData = {
           name: "M.Com. (Master of Commerce)",
           program: "M.Com. (Master of Commerce)",
           href: "/programs/school-of-commerce-and-business-management/mcom",
-          duration: "2 Years",
+          duration: "2 years",
           eligibility:
             "Passed B.Com. with a minimum of 50% marks in the qualifying exam",
         },

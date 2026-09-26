@@ -130,7 +130,7 @@ export default function ProgramCourses({
       const rawItems = cat.programs || cat.items || [];
       const items: NormalizedProgramItem[] = (rawItems.length > 0 ? rawItems : [cat]).map((prog: any) => ({
         program: prog.name || prog.program || cat.title,
-        duration: prog.duration || cat.duration || "Full Time",
+        duration: (prog.duration || cat.duration || "Full Time").replace(/\bYears\b/g, "years"),
         href: prog.href,
         specialisations: prog.specialisations || prog.specialisations || prog.specialisation || prog.specialisation,
         eligibility: prog.eligibility || cat.eligibility,
@@ -378,7 +378,7 @@ export default function ProgramCourses({
                             border: "1px solid #FDE68A",
                           }}
                         >
-                          Duration: {prog.duration}
+                          Duration: {prog.duration?.replace(/\bYears\b/g, "years")}
                         </div>
                       )}
                     </div>
