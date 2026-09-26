@@ -30,7 +30,7 @@ export const dPharmacy: CoursePageData = {
     program: "D. Pharm. (Diploma in Pharmacy)",
     duration: "2 Years",
     eligibility:
-      "Passed the 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
+      "Passed 10+2 (Science stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
   },
 
   overview: {
@@ -74,7 +74,7 @@ export const dPharmacy: CoursePageData = {
 
   admission: {
     eligibility:
-      "Passed the 10+2 examination (Science academic stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
+      "Passed 10+2 (Science stream) with Physics, Chemistry and Biology or Mathematics with at least 50% marks in the qualifying examination.",
     whyChooseHeading: "Why Choose D Pharma at Geeta University?",
     whyChooseParagraphs: [
       "Taking a D Pharmacy Admission is an excellent choice for students looking to build a career in the pharmaceutical and healthcare fields. It gives a perfect mix of intellectual information, practical skills, and professional ideals needed to succeed as a healthcare worker.",
