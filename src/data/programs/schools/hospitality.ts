@@ -164,7 +164,7 @@ export const hospitalitySchool: ProgramPageData = {
           name: "Diploma in Hotel Management (Residential Program)",
           program: "Diploma in Hotel Management (Residential Program)",
           href: "/programs/school-of-hospitality-and-hotel-management/diploma-in-hotel-management",
-          duration: "2 Years (One Year in GU & One Year in Hotel)",
+          duration: "2 years (One Year at GU & One Year at a Hotel)",
           eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
         },
         {
