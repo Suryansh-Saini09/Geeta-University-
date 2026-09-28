@@ -271,8 +271,8 @@ export const INTERNATIONAL_PROGRAM_CATEGORIES: ProgramSchoolCategory[] = [
     categoryName: "Law",
     href: "/programs/geeta-global-law-school",
     programs: [
-      { title: "BA. LL.B.*" },
-      { title: "BBA LL.B.*" },
+      { title: "B.A. LL.B. (Hons.)" },
+      { title: "B.B.A. LL.B. (Hons.)" },
       { title: "Master of Law (LLM)", href: "/programs/geeta-global-law-school/llm" },
       { title: "Ph.D. (Law)", href: "/phd-law" },
     ],

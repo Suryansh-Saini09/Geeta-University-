@@ -84,11 +84,11 @@ export const ugSchoolsData: SchoolProgramGroup[] = [
     badge: "BCI Approved",
     programs: [
       {
-        name: "BA LL.B. (Hons.) - 5 Years Integrated",
+        name: "B.A. LL.B. (Hons.) - 5 Years Integrated",
         href: "/programs/geeta-global-law-school",
       },
       {
-        name: "BBA LL.B. (Hons.) - 5 Years Integrated",
+        name: "B.B.A. LL.B. (Hons.) - 5 Years Integrated",
         href: "/programs/geeta-global-law-school",
       },
     ],

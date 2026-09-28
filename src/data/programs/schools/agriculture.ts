@@ -9,7 +9,7 @@ export const agricultureFaqs: CourseFAQItem[] = [
   },
   {
     question: "What is the eligibility for B.Sc. (Hons.) Agriculture?",
-    answer: "Applicants need the 10+2 or equivalent with Physics, Chemistry and Biology/Mathematics or Agriculture, with at least 50% marks.",
+    answer: "Applicants need 10+2 or equivalent with Physics, Chemistry and Biology/Mathematics or Agriculture, with at least 50% marks.",
     category: "Admissions & Eligibility"
   },
   {
@@ -444,14 +444,14 @@ export const agricultureSchool: ProgramPageData = {
       title: "Undergraduate Program",
       duration: "4 years",
       eligibility:
-        "Passed the 10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
+        "Passed 10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
       programs: [
         {
           name: "B.Sc. (Hons.) Agriculture",
           href: "/programs/school-of-agricultural-studies/bsc-agriculture",
           duration: "4 years",
           eligibility:
-            "Passed the 10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
+            "Passed 10+2 or equivalent with Physics, Chemistry, Biology/Mathematics or Agriculture with at least 50% marks in the qualifying examination.",
         },
       ],
     },

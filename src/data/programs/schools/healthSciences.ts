@@ -9,7 +9,7 @@ export const healthSciencesFaqs: CourseFAQItem[] = [
   },
   {
     question: "What is the eligibility for B.Sc. (Hons.) Nutrition & Dietetics?",
-    answer: "Applicants should have passed the 10+2 with Physics, Chemistry, Biology, Nutrition, Home Science, Mathematics, Commerce, Arts, or any vocational subject, with English as a compulsory subject and at least 50% marks in aggregate.",
+    answer: "Applicants should have passed 10+2 with Physics, Chemistry, Biology, Nutrition, Home Science, Mathematics, Commerce, Arts, or any vocational subject, with English as a compulsory subject and at least 50% marks in aggregate.",
     category: "Admissions & Eligibility"
   },
   {
@@ -740,7 +740,7 @@ export const healthSciencesSchool: ProgramPageData = {
       title: "Undergraduate Program",
       duration: "4 years",
       eligibility:
-        "Passed the 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized board or university, with at least 50% marks in the qualifying examination.",
+        "Passed 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized board or university, with at least 50% marks in the qualifying examination.",
       programs: [
         {
           name: "B.Sc. (Hons.) Nutrition & Dietetics",

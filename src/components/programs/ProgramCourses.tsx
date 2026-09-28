@@ -43,7 +43,7 @@ export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
           "NIAT Upskilling",
         ],
         eligibility:
-          "Passed the 10+2 with Physics and Mathematics as compulsory subjects plus one technical or science subject with a minimum of 55% marks.",
+          "Passed 10+2 with Physics and Mathematics as compulsory subjects plus one technical or science subject with a minimum of 55% marks.",
       },
       {
         program: "BCA — Bachelor of Computer Applications",
@@ -54,7 +54,7 @@ export const DEFAULT_PROGRAMS_DATA: NormalizedCategory[] = [
           "Cybersecurity",
           "Data Science & Business Analytics",
         ],
-        eligibility: "Passed the 10+2 with a minimum of 50% marks from any recognized board.",
+        eligibility: "Passed 10+2 with a minimum of 50% marks from any recognized board.",
       },
     ],
   },

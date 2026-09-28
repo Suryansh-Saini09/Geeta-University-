@@ -277,7 +277,7 @@ const DISCIPLINE_COURSES: Record<string, string[]> = {
   ],
   Law: [
     "B.A. LL.B. (Hons.) - 5 Years Integrated",
-    "BBA LL.B. (Hons.) - 5 Years Integrated",
+    "B.B.A. LL.B. (Hons.) - 5 Years Integrated",
     "LL.B. (Hons.) - 3 Years",
     "LL.M. (Master of Laws) - 1 Year",
     "Ph.D. in Law",

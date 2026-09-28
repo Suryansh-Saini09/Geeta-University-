@@ -322,11 +322,11 @@ const programCategories: ProgramCategory[] = [
       "/programs/geeta-global-law-school",
     programs: [
       {
-        name: "BA. LL.B.*",
+        name: "B.A. LL.B. (Hons.)",
         href: "/programs/geeta-global-law-school",
       },
       {
-        name: "BBA LL.B.*",
+        name: "B.B.A. LL.B. (Hons.)",
         href: "/programs/geeta-global-law-school",
       },
       {
@@ -695,14 +695,14 @@ function ProgramCategoryDetails({
                           const content = (
                             <>
                               <span
-                                className="flex h-2 w-2 rounded-full shrink-0 transition-transform duration-200 group-hover:scale-125"
+                                className="h-2 w-2 rounded-full shrink-0 transition-transform duration-200 group-hover:scale-125 mt-[6px]"
                                 style={{
                                   backgroundColor: "var(--gu-gold)",
                                 }}
                               />
 
                               <span
-                                className={`flex-1 text-xs sm:text-sm font-semibold leading-snug sm:leading-6 transition-colors duration-200 ${
+                                className={`flex-1 text-xs sm:text-sm font-semibold leading-5 transition-colors duration-200 ${
                                   isLink
                                     ? "group-hover:text-[var(--gu-gold)]"
                                     : ""
@@ -716,7 +716,7 @@ function ProgramCategoryDetails({
 
                               {isLink && (
                                 <span
-                                  className="opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 flex items-center shrink-0"
+                                  className="opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 flex items-center shrink-0 mt-0.5"
                                   style={{
                                     color: "var(--gu-gold)",
                                   }}
@@ -732,7 +732,7 @@ function ProgramCategoryDetails({
                               <Link
                                 key={program.name}
                                 href={program.href as string}
-                                className="group flex items-center gap-2.5 sm:gap-3 rounded-xl border bg-white p-3 sm:p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[#E8871A]/40"
+                                className="group flex h-full min-h-[58px] sm:min-h-[66px] items-start gap-2.5 sm:gap-3 rounded-xl border bg-white p-3 sm:p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[#E8871A]/40"
                                 style={{
                                   borderColor: "rgba(6, 53, 95, 0.08)",
                                 }}
@@ -745,7 +745,7 @@ function ProgramCategoryDetails({
                           return (
                             <div
                               key={program.name}
-                              className="flex items-center gap-2.5 sm:gap-3 rounded-xl border bg-white p-3 sm:p-4"
+                              className="flex h-full min-h-[58px] sm:min-h-[66px] items-start gap-2.5 sm:gap-3 rounded-xl border bg-white p-3 sm:p-4"
                               style={{
                                 borderColor: "rgba(6, 53, 95, 0.06)",
                               }}

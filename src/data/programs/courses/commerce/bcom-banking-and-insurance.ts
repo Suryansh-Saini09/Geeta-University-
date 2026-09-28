@@ -30,7 +30,7 @@ export const bcomBankingAndInsurance: CoursePageData = {
   quickInfo: {
     program: "B.Com. Banking & Insurance",
     duration: "3 Years / 4 Years (Hons / Hons with Research)",
-    eligibility: "Passed the 10+2 examination with at least 50% marks in aggregate from any recognized board.",
+    eligibility: "Passed 10+2 examination with at least 50% marks in aggregate from any recognized board.",
   },
   overview: {
     title: "B.Com in Banking and Insurance",
@@ -69,7 +69,7 @@ export const bcomBankingAndInsurance: CoursePageData = {
   ],
   admission: {
     eligibility:
-      "Passed the 10+2 examination (or equivalent) with at least 50% marks in aggregate from any recognized board.",
+      "Passed 10+2 examination (or equivalent) with at least 50% marks in aggregate from any recognized board.",
     whyChooseHeading:
       "Why Prefer Geeta University For a B.Com in Banking and Insurance Degree Program?",
     whyChooseParagraphs: [

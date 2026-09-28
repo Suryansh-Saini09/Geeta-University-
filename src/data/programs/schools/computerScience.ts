@@ -220,7 +220,7 @@ export const computerScienceSchool: ProgramPageData = {
             },
           ],
           eligibility:
-            "Passed the 10+2 examination with Physics and Mathematics as compulsory subjects along with one of Chemistry / Computer Science / Electronics / Information Technology / Biology / Informatics Practices / Biotechnology / Technical Vocational Subject / Agriculture / Engineering Graphics / Business Studies / Entrepreneurship with a minimum of 55% marks, or passed the D.Voc. stream with a minimum of 55% marks in the same or allied sector.",
+            "Passed 10+2 examination with Physics and Mathematics as compulsory subjects along with one of Chemistry / Computer Science / Electronics / Information Technology / Biology / Informatics Practices / Biotechnology / Technical Vocational Subject / Agriculture / Engineering Graphics / Business Studies / Entrepreneurship with a minimum of 55% marks, or passed the D.Voc. stream with a minimum of 55% marks in the same or allied sector.",
         },
         {
           program: "BCA — Bachelor of Computer Applications",
@@ -245,7 +245,7 @@ export const computerScienceSchool: ProgramPageData = {
             },
           ],
           eligibility:
-            "Passed the 10+2 examination with at least 50% marks, or passed Diploma in Commercial Practice or equivalent with at least 50% marks.",
+            "Passed 10+2 examination with at least 50% marks, or passed Diploma in Commercial Practice or equivalent with at least 50% marks.",
         },
       ],
     },
@@ -602,12 +602,12 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "What is the eligibility for B.Tech. CSE at Geeta University?",
-      a: "Applicants must have Passed the 10+2 examination with Physics and Mathematics as compulsory subjects, along with one of the specified subjects such as Chemistry, Computer Science, Electronics, Information Technology, Biology, Informatics Practices, Biotechnology, Technical Vocational Subject, Agriculture, Engineering Graphics, Business Studies, or Entrepreneurship, with at least 55% marks. Students from the D.Voc. stream may also be eligible with 55% marks in the same or allied sector.",
+      a: "Applicants must have Passed 10+2 examination with Physics and Mathematics as compulsory subjects, along with one of the specified subjects such as Chemistry, Computer Science, Electronics, Information Technology, Biology, Informatics Practices, Biotechnology, Technical Vocational Subject, Agriculture, Engineering Graphics, Business Studies, or Entrepreneurship, with at least 55% marks. Students from the D.Voc. stream may also be eligible with 55% marks in the same or allied sector.",
       category: "Admissions & Eligibility",
     },
     {
       q: "Is Mathematics compulsory for B.Tech. CSE admission?",
-      a: "Yes. Eligibility specifically requires Physics and Mathematics at the 10+2 level.",
+      a: "Yes. Eligibility specifically requires Physics and Mathematics at 10+2 level.",
       category: "Admissions & Eligibility",
     },
     {
@@ -617,7 +617,7 @@ export const computerScienceSchool: ProgramPageData = {
     },
     {
       q: "What is the eligibility for BCA at Geeta University?",
-      a: "Passed the 10+2 or equivalent examination with at least 50% marks, or passed Diploma in Commercial Practice or equivalent with at least 50% marks.",
+      a: "Passed 10+2 or equivalent examination with at least 50% marks, or passed Diploma in Commercial Practice or equivalent with at least 50% marks.",
       category: "Admissions & Eligibility",
     },
     {
