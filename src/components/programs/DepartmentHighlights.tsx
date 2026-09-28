@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { DepartmentHighlightItem } from "@/data/programs/types";
 import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
@@ -22,6 +23,10 @@ export default function DepartmentHighlights({
 
   const {
     containerRef,
+    currentIndex,
+    maxIndex,
+    next,
+    prev,
     handleScroll,
     handleMouseDown,
     handleMouseLeave,
@@ -109,7 +114,30 @@ export default function DepartmentHighlights({
           </motion.div>
         ) : (
           /* Multiple Items: Interactive Carousel Track */
-          <div className="relative">
+          <div className="group relative">
+            {/* Left navigation arrow */}
+            {maxIndex > 0 && (
+              <button
+                type="button"
+                onClick={prev}
+                aria-label="Scroll left"
+                className="absolute -left-3 sm:-left-4 top-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+              >
+                <ChevronLeft size={19} strokeWidth={2.5} />
+              </button>
+            )}
+
+            {/* Right navigation arrow */}
+            {maxIndex > 0 && (
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Scroll right"
+                className="absolute -right-3 sm:-right-4 top-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+              >
+                <ChevronRight size={19} strokeWidth={2.5} />
+              </button>
+            )}
             <div
               ref={containerRef}
               onScroll={handleScroll}

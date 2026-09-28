@@ -97,9 +97,9 @@ export default function RecruiterVoicesSection() {
             type="button"
             onClick={prevSlide}
             aria-label="Previous testimonial"
-            className="absolute -left-5 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-[0_8px_25px_rgba(10,31,68,0.10)] transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] md:flex"
+            className="absolute -left-2 sm:-left-5 top-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-[0_8px_25px_rgba(10,31,68,0.10)] transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
           >
-            <ChevronLeft size={21} strokeWidth={1.8} />
+            <ChevronLeft size={21} strokeWidth={2} />
           </button>
 
           {/* Navigation Arrow Right */}
@@ -107,9 +107,9 @@ export default function RecruiterVoicesSection() {
             type="button"
             onClick={nextSlide}
             aria-label="Next testimonial"
-            className="absolute -right-5 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-[0_8px_25px_rgba(10,31,68,0.10)] transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] md:flex"
+            className="absolute -right-2 sm:-right-5 top-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-[0_8px_25px_rgba(10,31,68,0.10)] transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
           >
-            <ChevronRight size={21} strokeWidth={1.8} />
+            <ChevronRight size={21} strokeWidth={2} />
           </button>
 
           {/* Cards Track */}

@@ -7,6 +7,8 @@ import {
   BriefcaseBusiness,
   ChartNoAxesColumnIncreasing,
   PieChart,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import type { ProgramPageData, TestimonialItem } from "@/data/programs/types";
 import { getProgramIcon } from "./iconHelper";
@@ -92,7 +94,31 @@ export default function ProgramPlacement({ placement, testimonials }: ProgramPla
             </div>
 
             {/* Scrollable & Draggable Testimonials Track */}
-            <div className="relative">
+            <div className="group relative">
+              {/* Left navigation arrow */}
+              {maxIndex > 0 && (
+                <button
+                  type="button"
+                  onClick={prev}
+                  aria-label="Previous testimonial"
+                  className="absolute -left-3 sm:-left-4 top-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0A1F44]/90 backdrop-blur-md text-white shadow-lg transition-all duration-300 hover:border-[#E8871A] hover:bg-[#E8871A] hover:text-[#0A1F44] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+                >
+                  <ChevronLeft size={19} strokeWidth={2.5} />
+                </button>
+              )}
+
+              {/* Right navigation arrow */}
+              {maxIndex > 0 && (
+                <button
+                  type="button"
+                  onClick={next}
+                  aria-label="Next testimonial"
+                  className="absolute -right-3 sm:-right-4 top-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0A1F44]/90 backdrop-blur-md text-white shadow-lg transition-all duration-300 hover:border-[#E8871A] hover:bg-[#E8871A] hover:text-[#0A1F44] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+                >
+                  <ChevronRight size={19} strokeWidth={2.5} />
+                </button>
+              )}
+
               <div
                 ref={containerRef}
                 onScroll={handleScroll}
