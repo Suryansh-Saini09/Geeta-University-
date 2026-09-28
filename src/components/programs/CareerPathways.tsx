@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Code2,
@@ -22,6 +22,8 @@ import {
   Tractor,
   Leaf,
   Users,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import type { PathwayCardItem, NotableRoleItem } from "@/data/programs/types";
 
@@ -136,6 +138,304 @@ interface CareerPathwaysProps {
   pathways?: PathwayCardItem[];
   notableRoles?: NotableRoleItem[];
   recruiters?: (NotableRoleItem | string)[];
+}
+
+function RecruiterGrid({
+  items,
+  title,
+}: {
+  items: NotableRoleItem[];
+  title?: string;
+}) {
+  const colClass =
+    items.length === 6
+      ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"
+      : items.length === 4
+      ? "grid-cols-2 sm:grid-cols-4"
+      : items.length === 5
+      ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
+      : "grid-cols-2 sm:grid-cols-3 md:grid-cols-4";
+
+  return (
+    <div style={{ marginTop: 36 }}>
+      <div style={{ textAlign: "center", marginBottom: 26 }}>
+        <h3
+          style={{
+            fontSize: "clamp(22px, 3vw, 26px)",
+            fontWeight: 900,
+            color: "#0A1F44",
+            letterSpacing: "-0.5px",
+            margin: "0",
+          }}
+        >
+          {title || "Top Recruiters"}
+        </h3>
+      </div>
+
+      <div className={`grid ${colClass} gap-4 max-w-6xl mx-auto`}>
+        {items.map((recruiter, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ scale: 1.04, y: -4 }}
+            transition={{ type: "spring", stiffness: 450, damping: 15 }}
+            style={{
+              borderColor: "rgba(232, 135, 26, 0.20)",
+              boxShadow: "0 6px 20px rgba(0, 0, 0, 0.04)",
+            }}
+            className="career-recruiter-card flex h-[110px] w-full items-center justify-center rounded-2xl border bg-white p-3 transition-all duration-300 select-none box-border"
+          >
+            {recruiter.logo ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={recruiter.logo}
+                alt={recruiter.name}
+                style={{
+                  maxHeight: 65,
+                  maxWidth: "85%",
+                  width: "auto",
+                  height: "auto",
+                  objectFit: "contain",
+                }}
+                className="pointer-events-none"
+                loading="lazy"
+              />
+            ) : (
+              <div style={{ display: "flex", alignItems: "center", gap: 8, textAlign: "center" }}>
+                <div
+                  style={{
+                    width: 30,
+                    height: 30,
+                    borderRadius: "8px",
+                    background: "#FFF4E8",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <Building2 size={16} color="#E8871A" />
+                </div>
+                <span
+                  style={{
+                    fontSize: "13.5px",
+                    fontWeight: 700,
+                    color: "#0A1F44",
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {recruiter.name}
+                </span>
+              </div>
+            )}
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function RecruiterCarousel({
+  items,
+  title,
+}: {
+  items: NotableRoleItem[];
+  title?: string;
+}) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+
+  const handlePrev = () => {
+    if (!scrollContainerRef.current) return;
+    const el = scrollContainerRef.current;
+    if (el.scrollLeft <= 10) {
+      el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
+    } else {
+      el.scrollBy({ left: -el.clientWidth, behavior: "smooth" });
+    }
+  };
+
+  const handleNext = () => {
+    if (!scrollContainerRef.current) return;
+    const el = scrollContainerRef.current;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    if (el.scrollLeft >= maxScroll - 10) {
+      el.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    if (isHovered || items.length <= 6) return;
+    const timer = setInterval(() => {
+      handleNext();
+    }, 3200);
+    return () => clearInterval(timer);
+  }, [isHovered, items.length]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.pageX - scrollContainerRef.current.offsetLeft;
+    scrollLeftRef.current = scrollContainerRef.current.scrollLeft;
+  };
+
+  const handleMouseLeave = () => {
+    isDraggingRef.current = false;
+    setIsHovered(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingRef.current || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    scrollContainerRef.current.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!scrollContainerRef.current) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
+    scrollLeftRef.current = scrollContainerRef.current.scrollLeft;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDraggingRef.current || !scrollContainerRef.current) return;
+    const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    scrollContainerRef.current.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleTouchEnd = () => {
+    isDraggingRef.current = false;
+  };
+
+  return (
+    <div style={{ marginTop: 36 }}>
+      <div style={{ textAlign: "center", marginBottom: 26 }}>
+        <h3
+          style={{
+            fontSize: "clamp(22px, 3vw, 26px)",
+            fontWeight: 900,
+            color: "#0A1F44",
+            letterSpacing: "-0.5px",
+            margin: "0",
+          }}
+        >
+          {title || "Top Recruiters"}
+        </h3>
+      </div>
+
+      <div
+        className="group relative px-3 sm:px-6"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Left Movement Arrow */}
+        <button
+          type="button"
+          onClick={handlePrev}
+          aria-label="Previous recruiters"
+          className="absolute -left-1 sm:-left-3 top-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+        >
+          <ChevronLeft size={21} strokeWidth={2.5} />
+        </button>
+
+        {/* Right Movement Arrow */}
+        <button
+          type="button"
+          onClick={handleNext}
+          aria-label="Next recruiters"
+          className="absolute -right-1 sm:-right-3 top-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+        >
+          <ChevronRight size={21} strokeWidth={2.5} />
+        </button>
+
+        {/* Carousel Track */}
+        <div
+          ref={scrollContainerRef}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="flex w-full gap-4 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          style={{ scrollSnapType: "x mandatory" }}
+        >
+          {items.map((recruiter, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.04, y: -4 }}
+              transition={{ type: "spring", stiffness: 450, damping: 15 }}
+              style={{
+                scrollSnapAlign: "start",
+                borderColor: "rgba(232, 135, 26, 0.20)",
+                boxShadow: "0 6px 20px rgba(0, 0, 0, 0.04)",
+              }}
+              className="career-recruiter-card flex h-[110px] w-[calc((100%-16px)/2)] sm:w-[calc((100%-32px)/3)] md:w-[calc((100%-48px)/4)] lg:w-[calc((100%-80px)/6)] shrink-0 items-center justify-center rounded-2xl border bg-white p-3 transition-all duration-300 select-none box-border"
+            >
+              {recruiter.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={recruiter.logo}
+                  alt={recruiter.name}
+                  style={{
+                    maxHeight: 65,
+                    maxWidth: "85%",
+                    width: "auto",
+                    height: "auto",
+                    objectFit: "contain",
+                  }}
+                  className="pointer-events-none"
+                  loading="lazy"
+                />
+              ) : (
+                <div style={{ display: "flex", alignItems: "center", gap: 8, textAlign: "center" }}>
+                  <div
+                    style={{
+                      width: 30,
+                      height: 30,
+                      borderRadius: "8px",
+                      background: "#FFF4E8",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Building2 size={16} color="#E8871A" />
+                  </div>
+                  <span
+                    style={{
+                      fontSize: "13.5px",
+                      fontWeight: 700,
+                      color: "#0A1F44",
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {recruiter.name}
+                  </span>
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default function CareerPathways({
@@ -534,198 +834,16 @@ export default function CareerPathways({
               </div>
             )}
 
-            {/* Dedicated Top Recruiters Grid if recruiterItems is supplied */}
-            {recruiterItems.length > 0 && (
-              <div>
-                <div style={{ textAlign: "center", marginBottom: 28 }}>
-                  <h3 style={{ fontSize: 24, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.5px", margin: "0" }}>
-                    {recruitersTitle || "Top Recruiters"}
-                  </h3>
-                </div>
-
-                {/* Logo Cards Grid */}
-                {recruiterItems.filter((r) => r.logo).length > 0 && (
-                  <div
-                    className={
-                      recruiterItems.filter((r) => r.logo).length === 6
-                        ? "career-recruiters-grid grid-6"
-                        : recruiterItems.filter((r) => r.logo).length === 8
-                        ? "career-recruiters-grid grid-8"
-                        : recruiterItems.filter((r) => r.logo).length === 4
-                        ? "career-recruiters-grid grid-4"
-                        : recruiterItems.filter((r) => r.logo).length === 5
-                        ? "career-recruiters-grid grid-5"
-                        : "career-recruiters-grid grid-auto"
-                    }
-                  >
-                    {recruiterItems
-                      .filter((r) => r.logo)
-                      .map((recruiter, idx) => (
-                        <motion.div
-                          key={idx}
-                          whileHover={{ scale: 1.04, y: -4 }}
-                          transition={{ type: "spring", stiffness: 450, damping: 15 }}
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            padding: "16px 20px",
-                            background: "#FFFFFF",
-                            border: "1.5px solid rgba(232, 135, 26, 0.18)",
-                            borderRadius: "20px",
-                            boxShadow: "0 8px 24px rgba(0, 0, 0, 0.04)",
-                            height: 110,
-                            width: "100%",
-                            boxSizing: "border-box",
-                            transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                          }}
-                          className="career-recruiter-card"
-                        >
-                          <img
-                            src={recruiter.logo}
-                            alt={recruiter.name}
-                            style={{
-                              maxHeight: 65,
-                              maxWidth: "85%",
-                              width: "auto",
-                              height: "auto",
-                              objectFit: "contain",
-                            }}
-                            loading="lazy"
-                          />
-                        </motion.div>
-                      ))}
-                  </div>
-                )}
-
-                {/* Text Recruiters if any */}
-                {recruiterItems.filter((r) => !r.logo).length > 0 && (
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      justifyContent: "center",
-                      gap: 16,
-                      maxWidth: 1140,
-                      margin: recruiterItems.filter((r) => r.logo).length > 0 ? "24px auto 0" : "0 auto",
-                    }}
-                  >
-                    {recruiterItems
-                      .filter((r) => !r.logo)
-                      .map((recruiter, idx) => (
-                        <motion.div
-                          key={idx}
-                          whileHover={{ scale: 1.03, y: -2 }}
-                          transition={{ type: "spring", stiffness: 450, damping: 15 }}
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 12,
-                            padding: "16px 22px",
-                            background: "#FFFFFF",
-                            border: "1px solid rgba(232, 135, 26, 0.16)",
-                            borderRadius: "16px",
-                            color: "#0A1F44",
-                            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.03)",
-                            minHeight: 70,
-                            transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                          }}
-                          className="career-recruiter-name-card"
-                        >
-                          <div
-                            style={{
-                              width: 36,
-                              height: 36,
-                              borderRadius: "10px",
-                              background: "#FFF4E8",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              flexShrink: 0,
-                            }}
-                          >
-                            <Building2 size={18} color="#E8871A" />
-                          </div>
-                          <span
-                            style={{
-                              fontSize: "15px",
-                              fontWeight: 700,
-                              color: "#0A1F44",
-                              letterSpacing: "-0.2px",
-                              lineHeight: 1.3,
-                            }}
-                          >
-                            {recruiter.name}
-                          </span>
-                        </motion.div>
-                      ))}
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Fallback Legacy Recruiter Logos Grid if only roleItems had logos and recruiterItems is empty */}
-            {recruiterItems.length === 0 && roleItems.filter((r) => r.logo).length > 0 && (
-              <div>
-                <div style={{ textAlign: "center", marginBottom: 32 }}>
-                  <h3 style={{ fontSize: 26, fontWeight: 900, color: "#0A1F44", letterSpacing: "-0.6px", margin: "0" }}>
-                    {rolesTitle || "Top Recruiters"}
-                  </h3>
-                </div>
-
-                <div
-                  className={
-                    roleItems.filter((r) => r.logo).length === 6
-                      ? "career-recruiters-grid grid-6"
-                      : roleItems.filter((r) => r.logo).length === 8
-                      ? "career-recruiters-grid grid-8"
-                      : roleItems.filter((r) => r.logo).length === 4
-                      ? "career-recruiters-grid grid-4"
-                      : roleItems.filter((r) => r.logo).length === 5
-                      ? "career-recruiters-grid grid-5"
-                      : "career-recruiters-grid grid-auto"
-                  }
-                >
-                  {roleItems
-                    .filter((r) => r.logo)
-                    .map((role, idx) => (
-                      <motion.div
-                        key={idx}
-                        whileHover={{ scale: 1.05, y: -4 }}
-                        transition={{ type: "spring", stiffness: 450, damping: 15 }}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          padding: "16px 20px",
-                          background: "#FFFFFF",
-                          border: "1.5px solid rgba(232, 135, 26, 0.18)",
-                          borderRadius: "20px",
-                          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.05)",
-                          height: 110,
-                          width: "100%",
-                          boxSizing: "border-box",
-                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                        }}
-                        className="career-recruiter-card"
-                      >
-                        <img
-                          src={role.logo}
-                          alt={role.name}
-                          style={{
-                            maxHeight: 65,
-                            maxWidth: "85%",
-                            width: "auto",
-                            height: "auto",
-                            objectFit: "contain",
-                          }}
-                          loading="lazy"
-                        />
-                      </motion.div>
-                    ))}
-                </div>
-              </div>
-            )}
+            {/* Dedicated Top Recruiters / Industrial Partners Display */}
+            {recruiterItems.length > 6 ? (
+              <RecruiterCarousel items={recruiterItems} title={recruitersTitle || "Top Recruiters"} />
+            ) : recruiterItems.length > 0 ? (
+              <RecruiterGrid items={recruiterItems} title={recruitersTitle || "Top Recruiters"} />
+            ) : roleItems.filter((r) => r.logo).length > 6 ? (
+              <RecruiterCarousel items={roleItems.filter((r) => r.logo)} title={rolesTitle || "Top Recruiters"} />
+            ) : roleItems.filter((r) => r.logo).length > 0 ? (
+              <RecruiterGrid items={roleItems.filter((r) => r.logo)} title={rolesTitle || "Top Recruiters"} />
+            ) : null}
           </div>
         )}
 
