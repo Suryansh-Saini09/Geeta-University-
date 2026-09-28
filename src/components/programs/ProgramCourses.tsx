@@ -430,74 +430,85 @@ export default function ProgramCourses({
                       </div>
                     )}
 
-                    {prog.specialisations && prog.specialisations.length > 0 && (
-                      <div>
-                        <strong
-                          style={{
-                            fontSize: 14.5,
-                            color: "#0A1F44",
-                            fontWeight: 700,
-                            display: "block",
-                            marginBottom: 8,
-                          }}
-                        >
-                          Specialisations available:
-                        </strong>
-                        <ul
-                          style={{
-                            margin: 0,
-                            padding: 0,
-                            listStyle: "none",
-                            display: "grid",
-                            gridTemplateColumns:
-                              prog.specialisations.length > 3 ? "repeat(auto-fit, minmax(260px, 1fr))" : "1fr",
-                            gap: "8px 20px",
-                          }}
-                        >
-                          {prog.specialisations.map((specItem, sIdx) => {
-                            const isObj = typeof specItem === "object" && specItem !== null;
-                            const name = isObj ? specItem.name : specItem;
-                            const href = (isObj && specItem.href) ? specItem.href : prog.href || "#";
+                    {prog.specialisations && prog.specialisations.length > 0 && (() => {
+                      const hasMultiLine = prog.specialisations.some((s) => {
+                        const name = typeof s === "object" && s !== null ? s.name : s;
+                        return (name || "").length > 30;
+                      });
 
-                            return (
-                              <li
-                                key={sIdx}
-                                style={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: 8,
-                                  fontSize: 14.5,
-                                  color: "#475569",
-                                }}
-                              >
-                                <span
+                      return (
+                        <div>
+                          <strong
+                            style={{
+                              fontSize: 14.5,
+                              color: "#0A1F44",
+                              fontWeight: 700,
+                              display: "block",
+                              marginBottom: 10,
+                            }}
+                          >
+                            Specialisations available:
+                          </strong>
+                          <ul
+                            style={{
+                              margin: 0,
+                              padding: 0,
+                              listStyle: "none",
+                              display: "grid",
+                              gridTemplateColumns:
+                                prog.specialisations.length > 3 ? "repeat(auto-fit, minmax(270px, 1fr))" : "1fr",
+                              gap: "10px 24px",
+                            }}
+                          >
+                            {prog.specialisations.map((specItem, sIdx) => {
+                              const isObj = typeof specItem === "object" && specItem !== null;
+                              const name = isObj ? specItem.name : specItem;
+                              const href = (isObj && specItem.href) ? specItem.href : prog.href || "#";
+
+                              return (
+                                <li
+                                  key={sIdx}
                                   style={{
-                                    width: 6,
-                                    height: 6,
-                                    borderRadius: "50%",
-                                    background: "#E8871A",
-                                    flexShrink: 0,
-                                  }}
-                                />
-                                <a
-                                  href={href}
-                                  className="spec-link"
-                                  style={{
-                                    color: "#0A1F44",
-                                    textDecoration: "none",
-                                    fontWeight: 600,
-                                    display: "inline-block",
-                                    transition: "all 0.2s ease",
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: 8,
+                                    fontSize: 14.5,
+                                    lineHeight: 1.45,
+                                    color: "#475569",
+                                    minHeight: hasMultiLine ? 44 : "auto",
                                   }}
                                 >
-                                  <span>{name}</span>
-                                </a>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    )}
+                                  <span
+                                    style={{
+                                      width: 6,
+                                      height: 6,
+                                      borderRadius: "50%",
+                                      background: "#E8871A",
+                                      flexShrink: 0,
+                                      marginTop: 7,
+                                    }}
+                                  />
+                                  <a
+                                    href={href}
+                                    className="spec-link"
+                                    style={{
+                                      color: "#0A1F44",
+                                      textDecoration: "none",
+                                      fontWeight: 600,
+                                      lineHeight: 1.45,
+                                      display: "inline-block",
+                                      transition: "all 0.2s ease",
+                                    }}
+                                  >
+                                    <span>{name}</span>
+                                  </a>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      );
+                    })()}
 
                     {prog.eligibility && (
                       <div style={{ fontSize: 14.5, lineHeight: 1.7, color: "#475569" }}>

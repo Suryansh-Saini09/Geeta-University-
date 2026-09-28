@@ -113,7 +113,7 @@ export const lawSchool: ProgramPageData = {
   },
 
   specialisations: {
-    title: "Be A Part Of Top Rated University",
+    title: "Be A Part Of Top-Rated University",
     items: [
       {
         title: "Industry-Oriented Curriculum",

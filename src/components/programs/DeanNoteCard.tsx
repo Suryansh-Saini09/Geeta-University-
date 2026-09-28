@@ -36,7 +36,7 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
 
   if (!dean || !dean.name || !dean.message) return null;
 
-  const previewLength = 175;
+  const previewLength = 280;
   const isLongMessage = dean.message.length > previewLength;
   const previewText = isLongMessage
     ? `${dean.message.slice(0, previewLength).trim()}...`
@@ -44,8 +44,8 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
 
   return (
     <>
-      <div className="mt-10 mb-8 overflow-hidden rounded-2xl border border-slate-200/90 bg-[#F8FAFC] p-5 sm:p-6 shadow-[0_4px_20px_rgba(10,31,68,0.04)] transition-all duration-300 hover:border-[#E8871A]/50 hover:shadow-[0_12px_32px_rgba(10,31,68,0.08)]">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-6">
+      <div className="mt-8 sm:mt-10 overflow-hidden rounded-2xl border border-slate-200/90 bg-[#F8FAFC] p-5 sm:p-6 lg:p-7 shadow-[0_4px_20px_rgba(10,31,68,0.04)] transition-all duration-300 hover:border-[#E8871A]/50 hover:shadow-[0_12px_32px_rgba(10,31,68,0.08)]">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-6 lg:gap-8">
           {/* Dean Photo */}
           {dean.image && (
             <div className="relative w-28 h-36 sm:w-36 sm:h-48 md:w-40 md:h-52 shrink-0 overflow-hidden rounded-2xl border-2 border-white bg-[#0A1F44] shadow-md">
@@ -64,24 +64,24 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <h4 className="font-serif text-[21px] font-bold text-[#0A1F44] leading-snug">
+                <h4 className="font-serif text-[21px] sm:text-[23px] font-bold text-[#0A1F44] leading-snug">
                   {dean.name}
                 </h4>
                 <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-0.5">
                   {dean.designation}
                 </p>
               </div>
-              <Quote className="h-5 w-5 text-[#E8871A]/40 shrink-0" />
+              <Quote className="h-6 w-6 text-[#E8871A]/40 shrink-0" />
             </div>
 
             {/* Message preview */}
-            <p className="mt-2.5 font-sans text-[14px] leading-relaxed text-slate-600 line-clamp-2 italic">
+            <p className="mt-3 font-sans text-[14.5px] sm:text-[15px] leading-relaxed text-slate-600 line-clamp-3 sm:line-clamp-2 italic">
               &ldquo;{previewText}&rdquo;
             </p>
 
             {/* Action Bar */}
             <div className="mt-4 pt-3.5 border-t border-slate-200/60 flex flex-wrap items-center justify-between gap-3">
-              <span className="text-[12px] font-medium text-slate-400">
+              <span className="text-[12px] sm:text-[13px] font-medium text-slate-400">
                 {dean.schoolName || "Academic Leadership Statement"}
               </span>
 

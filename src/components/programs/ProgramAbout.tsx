@@ -117,9 +117,6 @@ export default function ProgramAbout({ about, intro, visionMission, dean, school
 
             {/* Vision & Mission Section */}
             <VisionMissionSection data={visionMission} />
-
-            {/* Leadership Note Card */}
-            {dean && <DeanNoteCard dean={dean} schoolName={schoolTitle} />}
           </div>
 
           {/* Right Column: Sticky Enquire Now Admission Form */}
@@ -128,6 +125,9 @@ export default function ProgramAbout({ about, intro, visionMission, dean, school
           </div>
 
         </div>
+
+        {/* Leadership Note Card - Full Width */}
+        {dean && <DeanNoteCard dean={dean} schoolName={schoolTitle} />}
       </div>
     </section>
   );

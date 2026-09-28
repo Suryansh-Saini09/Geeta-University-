@@ -4,7 +4,6 @@ import { motion, type Variants } from "framer-motion";
 
 type CampusFeature = {
   id: string;
-  number: string;
   title: string;
   detail: string;
 };
@@ -12,42 +11,36 @@ type CampusFeature = {
 const features: CampusFeature[] = [
   {
     id: "attendance",
-    number: "01",
     title: "Digital Attendance System",
     detail:
       "Experience an exciting new way to handle classrooms. Automated attendance syncs immediately with student data and provides the transparency of all.",
   },
   {
     id: "library",
-    number: "02",
     title: "Smart Library Services",
     detail:
       "Advanced digital search technology helps you find books, journals and other research materials without the exact title. Academic suggestions that are personalized for you.",
   },
   {
     id: "learning",
-    number: "03",
     title: "Advanced E-Learning Platform",
     detail:
       "Track attendance, notes and quizzes, as well as receive real time system-generated information about progress, reminders and dashboards.",
   },
   {
     id: "governance",
-    number: "04",
     title: "Integrated e-Governance",
     detail:
       "Raise tickets for hostels, IT, academics, IT and more. Smart system prioritizes issues and provides quick and trackable solutions.",
   },
   {
     id: "scholarship",
-    number: "05",
     title: "Unified Fee & Scholarship Portal",
     detail:
       "Smart-driven transparent management of the receipts, payments, scholarship eligibility and reminders. No confusion.",
   },
   {
     id: "connected",
-    number: "06",
     title: "Connected Campus Experience",
     detail:
       "Technology-enabled security and navigation, ID verification, automated helpdesks and a fully connected student experience.",
@@ -181,21 +174,8 @@ export default function SmartCampusSection() {
                 "
               >
                 <div>
-                  <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
-                    <span
-                      className="text-[11px] font-bold uppercase tracking-[2px]"
-                      style={{ color: "var(--gu-gold)" }}
-                    >
-                      {feature.number}
-                    </span>
-                    <span
-                      className="h-1.5 w-1.5 rounded-full"
-                      style={{ backgroundColor: "var(--gu-gold)" }}
-                    />
-                  </div>
-
                   <h3
-                    className="mt-4 font-serif text-lg font-bold leading-snug transition-colors duration-300 group-hover:text-[var(--gu-gold)]"
+                    className="font-serif text-lg font-bold leading-snug transition-colors duration-300 group-hover:text-[var(--gu-gold)]"
                     style={{ color: "var(--gu-navy)" }}
                   >
                     {feature.title}
