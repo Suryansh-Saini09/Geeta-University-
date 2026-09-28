@@ -56,9 +56,9 @@ export default function CourseTestimonials({
           <button
             onClick={scrollLeft}
             aria-label="Previous Testimonials"
-            className="hidden sm:flex absolute -left-3 lg:-left-6 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-[#0A1F44] hover:bg-[#F8FAFC] hover:border-[#E8871A] transition-all"
+            className="absolute -left-2 sm:-left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
           >
-            <ChevronLeft size={22} />
+            <ChevronLeft size={19} strokeWidth={2.5} />
           </button>
 
           {/* Cards Track */}
@@ -112,9 +112,9 @@ export default function CourseTestimonials({
           <button
             onClick={scrollRight}
             aria-label="Next Testimonials"
-            className="hidden sm:flex absolute -right-3 lg:-right-6 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-[#0A1F44] hover:bg-[#F8FAFC] hover:border-[#E8871A] transition-all"
+            className="absolute -right-2 sm:-right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
           >
-            <ChevronRight size={22} />
+            <ChevronRight size={19} strokeWidth={2.5} />
           </button>
         </div>
 

@@ -101,9 +101,9 @@ export default function StarPerformancesSection() {
               type="button"
               onClick={prev}
               aria-label="Scroll left"
-              className="absolute left-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-lg transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-12 sm:w-12 cursor-pointer"
+              className="absolute left-2 sm:left-4 top-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-lg transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
             >
-              <ChevronLeft className="h-6 w-6" />
+              <ChevronLeft size={20} strokeWidth={2.5} />
             </button>
           )}
 
@@ -113,9 +113,9 @@ export default function StarPerformancesSection() {
               type="button"
               onClick={next}
               aria-label="Scroll right"
-              className="absolute right-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-[#06355F] shadow-lg transition-all duration-200 hover:scale-110 hover:border-[#06355F] hover:bg-[#06355F] hover:text-white active:scale-95 opacity-0 group-hover:opacity-100 sm:h-12 sm:w-12 cursor-pointer"
+              className="absolute right-2 sm:right-4 top-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-lg transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
             >
-              <ChevronRight className="h-6 w-6" />
+              <ChevronRight size={20} strokeWidth={2.5} />
             </button>
           )}
 

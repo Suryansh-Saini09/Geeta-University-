@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { homeFeedback } from "@/data/homeFeedback";
 import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
@@ -53,19 +54,44 @@ export default function HomeFeedbackSection() {
         </div>
 
         {/* Horizontally Scrollable & Draggable Cards Track */}
-        <div
-          ref={containerRef}
-          onScroll={handleScroll}
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseEnter={handleMouseEnter}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
+        <div className="group relative">
+          {/* Left Arrow */}
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Previous testimonial"
+              className="absolute -left-3 sm:-left-4 top-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+            >
+              <ChevronLeft size={19} strokeWidth={2.5} />
+            </button>
+          )}
+
+          {/* Right Arrow */}
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Next testimonial"
+              className="absolute -right-3 sm:-right-4 top-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+            >
+              <ChevronRight size={19} strokeWidth={2.5} />
+            </button>
+          )}
+
+          <div
+            ref={containerRef}
+            onScroll={handleScroll}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
           {homeFeedback.map((student, index) => (
             <article
               key={`${student.name}-${index}`}
@@ -120,6 +146,7 @@ export default function HomeFeedbackSection() {
               </div>
             </article>
           ))}
+          </div>
         </div>
       </div>
     </section>
