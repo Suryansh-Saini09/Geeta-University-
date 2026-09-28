@@ -14,7 +14,7 @@ interface VisionMissionSectionProps {
 export default function VisionMissionSection({
   data,
 }: VisionMissionSectionProps = {}) {
-  const [openSection, setOpenSection] = useState<"vision" | "mission">("vision");
+  const [openSection, setOpenSection] = useState<"vision" | "mission" | null>(null);
 
   const rawVision = data?.vision || defaultVision;
   const cleanVision = rawVision ? rawVision.trim().replace(/^["“]+|["”]+$/g, "").trim() : "";
@@ -30,9 +30,7 @@ export default function VisionMissionSection({
   }
 
   const toggleSection = (section: "vision" | "mission") => {
-    setOpenSection((prev) =>
-      prev === section ? (section === "vision" ? "mission" : "vision") : section
-    );
+    setOpenSection((prev) => (prev === section ? null : section));
   };
 
   return (
@@ -106,10 +104,10 @@ export default function VisionMissionSection({
 
           {/* ==================== OUR MISSION ACCORDION ITEM ==================== */}
           <div
-            className={`rounded-3xl border transition-all duration-300 overflow-hidden shadow-lg ${
+            className={`rounded-2xl border transition-all duration-300 overflow-hidden shadow-sm ${
               openSection === "mission"
-                ? "bg-[#0B1B3D] border-[#0B1B3D] text-white shadow-xl shadow-[#0B1B3D]/10"
-                : "bg-white border-slate-200 text-[#0B1B3D] hover:border-amber-300 shadow-slate-200/50"
+                ? "bg-[#0B1B3D] border-[#0B1B3D] text-white shadow-lg shadow-[#0B1B3D]/10"
+                : "bg-white border-slate-200 text-[#0B1B3D] hover:border-[#E8871A]/50 shadow-slate-200/40"
             }`}
           >
             {/* Header Trigger */}
