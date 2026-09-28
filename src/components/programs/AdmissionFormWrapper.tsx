@@ -12,7 +12,6 @@ import {
   CheckCircle2,
   Loader2,
   Send,
-  Sparkles,
   RotateCcw,
 } from "lucide-react";
 
@@ -558,16 +557,9 @@ export default function AdmissionFormWrapper({
     >
       {/* ── CARD HEADER ── */}
       <div className="text-center pb-3 mb-4 border-b border-slate-100">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F37021]/10 text-[#F37021] text-[11px] font-bold uppercase tracking-wider mb-1.5">
-          <Sparkles size={12} />
-          Admissions Open 2026-27
-        </div>
         <h3 className="text-[#0A1F44] font-extrabold text-[22px] sm:text-[24px] tracking-tight leading-tight">
           Enquire Now
         </h3>
-        <p className="text-xs text-slate-500 mt-0.5">
-          Get program brochures, eligibility & scholarship guidance
-        </p>
       </div>
 
       {/* ── SUCCESS STATE ── */}
