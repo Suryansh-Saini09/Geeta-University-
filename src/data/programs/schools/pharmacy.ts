@@ -550,13 +550,13 @@ export const pharmacySchool: ProgramPageData = {
     {
       title: "Undergraduate Program",
       duration: "4 years",
-      eligibility: "Passed the 10+2 examination with a minimum of 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (PCM) and/or Biology (PCB/PCMB) as optional subjects individually.",
+      eligibility: "Passed 10+2 examination with a minimum of 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (PCM) and/or Biology (PCB/PCMB) as optional subjects individually.",
       programs: [
         {
           name: "B.Pharm. (Bachelor of Pharmacy)",
           href: "/programs/geeta-institute-of-pharmacy/b-pharmacy",
           duration: "4 years",
-          eligibility: "Passed the 10+2 examination with a minimum of 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (PCM) and/or Biology (PCB/PCMB) as optional subjects individually.",
+          eligibility: "Passed 10+2 examination with a minimum of 55% marks with English as one of the subjects and Physics, Chemistry, Mathematics (PCM) and/or Biology (PCB/PCMB) as optional subjects individually.",
         },
       ],
     },

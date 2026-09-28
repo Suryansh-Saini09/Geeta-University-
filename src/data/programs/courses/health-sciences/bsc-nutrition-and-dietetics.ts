@@ -29,7 +29,7 @@ export const bscNutritionAndDietetics: CoursePageData = {
     program: "B.Sc. Nutrition & Dietetics",
     duration: "3 Years",
     eligibility:
-      "Passed the 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized university or board with at least 50% marks in the qualifying examination.",
+      "Passed 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized university or board with at least 50% marks in the qualifying examination.",
   },
 
   overview: {
@@ -72,7 +72,7 @@ export const bscNutritionAndDietetics: CoursePageData = {
 
   admission: {
     eligibility:
-      "Passed the 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized university or board with at least 50% marks in the qualifying examination.",
+      "Passed 10+2 examination with Physics/Chemistry/Biology/Nutrition/Home Science/Mathematics/Commerce/Arts or any vocational subject, with English as one of the subjects from a recognized university or board with at least 50% marks in the qualifying examination.",
     whyChooseHeading:
       "Geeta University B.Sc. Nutrition & Dietetics Admission Process",
     whyChooseParagraphs: [

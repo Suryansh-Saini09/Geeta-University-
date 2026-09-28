@@ -172,14 +172,14 @@ export const humanitiesSchool: ProgramPageData = {
       title: "Undergraduate Programs",
       duration: "3 / 4 years",
       eligibility:
-        "Passed the 10+2 examination with at least 50% marks in the qualifying examination from a recognized board.",
+        "Passed 10+2 examination with at least 50% marks in the qualifying examination from a recognized board.",
       programs: [
         {
           name: "B.A. (Hons.) Bachelor of Arts",
           program: "B.A. (Hons.) Bachelor of Arts",
           href: "https://geetauniversity.edu.in/programs/school-of-humanities-and-social-science",
           duration: "3 / 4 years",
-          eligibility: "Passed the 10+2 examination with a minimum of 50% aggregate marks from a recognized board.",
+          eligibility: "Passed 10+2 examination with a minimum of 50% aggregate marks from a recognized board.",
           specialisations: [
             {
               name: "B.A. (Hons.) Psychology",
@@ -204,7 +204,7 @@ export const humanitiesSchool: ProgramPageData = {
           program: "B.Sc. (Hons.) Psychology",
           href: "https://geetauniversity.edu.in/bsc-psychology",
           duration: "3 / 4 years",
-          eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
+          eligibility: "Passed 10+2 examination with at least 50% marks from a recognized board.",
         },
       ],
     },
@@ -469,7 +469,7 @@ export const humanitiesSchool: ProgramPageData = {
 },
 {
 "q": "What is the eligibility for the B.A. programs?",
-"a": "Candidates need to have passed the 10+2 examination with a minimum of 50% marks in any stream.",
+"a": "Candidates need to have passed 10+2 examination with a minimum of 50% marks in any stream.",
 "category": "Admissions & Eligibility"
 },
 {

@@ -30,7 +30,7 @@ export const bcomInternationalAccounting: CoursePageData = {
   quickInfo: {
     program: "B.Com. International Accounting (Powered by ACCA)",
     duration: "3 Years / 4 Years (Hons / Hons with Research)",
-    eligibility: "Passed the 10+2 examination with at least 50% marks in aggregate from any recognized board.",
+    eligibility: "Passed 10+2 examination with at least 50% marks in aggregate from any recognized board.",
   },
   overview: {
     title: "B.Com International Accounting",

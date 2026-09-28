@@ -29,7 +29,7 @@ export const globalEdgePage: EdgePageData = {
       "Grooming future advocates, corporate counsels, judicial officers, and global policy thinkers with practice-oriented legal training, international conferences, and state-of-the-art moot courts.",
     badges: [
       "5 Years Integrated B.A. LL.B. Program",
-      "5 Years Integrated BBA LL.B. (Hons.) Program",
+      "5 Years Integrated B.B.A. LL.B. (Hons.) Program",
       "3 Years LL.B. (Hons.) Program",
     ],
     graphicType: "tech-circle",
@@ -156,7 +156,7 @@ export const globalEdgePage: EdgePageData = {
         },
         {
           id: "bba-llb",
-          title: "BBA LL.B. (Hons.) (5 Years Integrated)",
+          title: "B.B.A. LL.B. (Hons.) (5 Years Integrated)",
           subtitle: "Management & Corporate Law Integration",
           duration: "5 Years",
           eligibility:

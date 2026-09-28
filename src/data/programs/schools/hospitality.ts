@@ -165,14 +165,14 @@ export const hospitalitySchool: ProgramPageData = {
           program: "Diploma in Hotel Management (Residential Program)",
           href: "/programs/school-of-hospitality-and-hotel-management/diploma-in-hotel-management",
           duration: "2 years (One Year at GU & One Year at a Hotel)",
-          eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
+          eligibility: "Passed 10+2 examination with at least 50% marks in the qualifying examination.",
         },
         {
           name: "B.Sc. (Hons.) Hotel Management",
           program: "B.Sc. (Hons.) Hotel Management",
           href: "/programs/school-of-hospitality-and-hotel-management/bsc-hotel-management",
           duration: "3 / 4 years",
-          eligibility: "Passed the 10+2 examination with at least 50% marks in the qualifying examination.",
+          eligibility: "Passed 10+2 examination with at least 50% marks in the qualifying examination.",
         },
       ],
     },
@@ -568,12 +568,12 @@ export const hospitalitySchool: ProgramPageData = {
     },
     {
       "q": "Who is eligible to apply for the B.Sc. Hotel Management program, and can students from any Class 12 stream apply?",
-      "a": "Students who have passed the 10+2 from a recognised board with at least 50% aggregate marks can apply. The eligibility is open to students from Science, Commerce, and Arts streams.",
+      "a": "Students who have passed 10+2 from a recognised board with at least 50% aggregate marks can apply. The eligibility is open to students from Science, Commerce, and Arts streams.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What is the eligibility for the Diploma in Hotel Management (Residential Program)?",
-      "a": "Applicants must have passed the 10+2 in any stream with a minimum of 50% marks in the qualifying examination.",
+      "a": "Applicants must have passed 10+2 in any stream with a minimum of 50% marks in the qualifying examination.",
       "category": "Admissions & Eligibility"
     },
     {

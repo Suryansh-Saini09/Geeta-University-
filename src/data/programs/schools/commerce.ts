@@ -835,12 +835,12 @@ export const commerceSchool: ProgramPageData = {
     },
     {
       "q": "What is the eligibility for BBA programs?",
-      "a": "The School lists the 10+2 with at least 50% marks in the qualifying examination as the eligibility requirement for BBA programs.",
+      "a": "The School lists 10+2 with at least 50% marks in the qualifying examination as the eligibility requirement for BBA programs.",
       "category": "Admissions & Eligibility"
     },
     {
       "q": "What is the eligibility for B.Com. programs?",
-      "a": "The School lists the 10+2 with at least 50% marks as the eligibility requirement for B.Com. programs.",
+      "a": "The School lists 10+2 with at least 50% marks as the eligibility requirement for B.Com. programs.",
       "category": "Admissions & Eligibility"
     },
     {
@@ -850,7 +850,7 @@ export const commerceSchool: ProgramPageData = {
     },
     {
       "q": "Can students from any Class 12 stream apply for BBA?",
-      "a": "The general BBA eligibility is the 10+2 (in any stream) with at least 50% marks.",
+      "a": "The general BBA eligibility is 10+2 (in any stream) with at least 50% marks.",
       "category": "Admissions & Eligibility"
     },
     {

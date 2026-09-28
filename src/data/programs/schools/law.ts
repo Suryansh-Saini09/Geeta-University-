@@ -152,7 +152,7 @@ export const lawSchool: ProgramPageData = {
 
   featuredPrograms: {
     title1: "Integrated Law (5 years)",
-    tag1: "BA. LL.B. / BBA. LL.B.",
+    tag1: "B.A. LL.B. (Hons.) / B.B.A. LL.B. (Hons.)",
     title2: "Postgraduate & Research",
     tag2: "LL.M. (1 year) & Ph.D.",
     description:
@@ -168,7 +168,7 @@ export const lawSchool: ProgramPageData = {
         ],
       },
       {
-        title: "Β.Β.Α. LL.B. (Hons.)",
+        title: "B.B.A. LL.B. (Hons.)",
         iconName: "Award",
         points: [
           "5-Year Integrated Degree with Business & Law",
@@ -419,7 +419,7 @@ export const lawSchool: ProgramPageData = {
   brochure: {
     title: "Want to know more?",
     description:
-      "Access detailed syllabus guides for B.A. LL.B. (Hons.), Β.Β.Α. LL.B. (Hons.), LL.M., and Ph.D., moot court achievements, mentor profiles, and admission guidelines.",
+      "Access detailed syllabus guides for B.A. LL.B. (Hons.), B.B.A. LL.B. (Hons.), LL.M., and Ph.D., moot court achievements, mentor profiles, and admission guidelines.",
     fileUrl: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
     fileName: "Geeta_Global_Law_School_Brochure.pdf",
   },
@@ -430,18 +430,18 @@ export const lawSchool: ProgramPageData = {
       level: "Undergraduate (5 years Integrated)",
       duration: "5 years",
       eligibility:
-        "Passed the 10+2 examination in any stream with at least 50% marks in aggregate (45% for reserved category) from any recognized board.",
+        "Passed 10+2 examination in any stream with at least 50% marks in aggregate (45% for reserved category) from any recognized board.",
       programs: [
         {
           name: "B.A. LL.B. (Hons.)",
           duration: "5 years Integrated",
-          eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
+          eligibility: "Passed 10+2 examination with at least 50% marks from a recognized board.",
           href: "https://geetauniversity.edu.in/programs/geeta-global-law-school/ba-llb",
         },
         {
-          name: "Β.Β.Α. LL.B. (Hons.)",
+          name: "B.B.A. LL.B. (Hons.)",
           duration: "5 years Integrated",
-          eligibility: "Passed the 10+2 examination with at least 50% marks from a recognized board.",
+          eligibility: "Passed 10+2 examination with at least 50% marks from a recognized board.",
           href: "https://geetauniversity.edu.in/programs/geeta-global-law-school/bba-llb",
         },
       ],
@@ -519,7 +519,7 @@ export const lawSchool: ProgramPageData = {
       "category": "Programs & Eligibility"
     },
     {
-      "q": "What is the eligibility for BA LL.B./BBA LL.B.?",
+      "q": "What is the eligibility for B.A. LL.B. (Hons.) / B.B.A. LL.B. (Hons.)?",
       "a": "Candidates must have passed 10+2 in any stream with the minimum percentage prescribed by the university (typically 50%).",
       "category": "Programs & Eligibility"
     },

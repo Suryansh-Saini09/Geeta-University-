@@ -278,7 +278,7 @@ export const gutsApplicablePrograms: GutsProgramSchool[] = [
     id: "law",
     programs: [
       { name: "B.A. LL.B. (Hons.)", href: "/programs/geeta-global-law-school" },
-      { name: "BBA LL.B. (Hons.)", href: "/programs/geeta-global-law-school" },
+      { name: "B.B.A. LL.B. (Hons.)", href: "/programs/geeta-global-law-school" },
     ],
   },
   {
