@@ -1,157 +1,154 @@
 "use client";
 
-import React, { useRef } from "react";
 import Image from "next/image";
+import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { placementStories } from "@/data/placements";
+import { homeFeedback } from "@/data/homeFeedback";
+import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
-export default function StudentSuccessStories() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -380, behavior: "smooth" });
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 380, behavior: "smooth" });
-    }
-  };
+export default function HomeFeedbackSection() {
+  const {
+    containerRef,
+    currentIndex,
+    maxIndex,
+    next,
+    prev,
+    goTo,
+    handleScroll,
+    handleMouseDown,
+    handleMouseLeave,
+    handleMouseEnter,
+    handleMouseUp,
+    handleMouseMove,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useFiniteCarousel({
+    totalItems: homeFeedback.length,
+    autoplayInterval: 3000,
+    enableAutoplay: true,
+  });
 
   return (
-    <section id="stories" className="scroll-mt-[190px] bg-[#F7F9FC] py-12 md:py-16 border-t border-[#E2E8F0] overflow-hidden">
-      <div className="gu-container">
-        {/* Section Header */}
-        <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">
-          <div className="mb-5 flex items-center justify-center gap-3">
-            <span className="h-px w-9 bg-[#E8871A]" />
-            <span className="text-[10px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-              Alumni Milestones
-            </span>
-            <span className="h-px w-9 bg-[#E8871A]" />
-          </div>
+    <section className="relative overflow-hidden bg-[#F5F8FB] pt-8 md:pt-10 pb-16 md:pb-20">
+      {/* Decorative background elements */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#F28C18]/5 blur-3xl"
+      />
 
-          <h2 className="font-serif text-[38px] font-black leading-[1.08] tracking-[-1.5px] text-[#0A1F44] sm:text-[46px] md:text-[52px]">
-            From Campus to <span className="text-[#E8871A]">Corporate Success</span>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[#06355F]/5 blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        {/* Section heading */}
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
+            From Campus to{" "}
+            <span className="text-[#F28C18]">Corporate Success</span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-[16px] leading-[1.8] text-[#64748B] md:text-[17px]">
-            Real stories of ambition, dedicated mentorship, and outstanding placements at India&apos;s and the world&apos;s leading organizations.
-          </p>
+          <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
         </div>
 
-        {/* Scrollable & Auto-Moving Container */}
-        <div className="relative">
-          {/* Navigation Arrow Left */}
-          <button
-            type="button"
-            onClick={scrollLeft}
-            aria-label="Previous stories"
-            className="absolute -left-2 sm:-left-5 top-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-[0_8px_25px_rgba(10,31,68,0.10)] transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
-          >
-            <ChevronLeft size={21} strokeWidth={2} />
-          </button>
+        {/* Horizontally Scrollable & Draggable Cards Track */}
+        <div className="group relative">
+          {/* Left Arrow */}
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Previous testimonial"
+              className="absolute -left-3 sm:-left-4 top-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+            >
+              <ChevronLeft size={19} strokeWidth={2.5} />
+            </button>
+          )}
 
-          {/* Navigation Arrow Right */}
-          <button
-            type="button"
-            onClick={scrollRight}
-            aria-label="Next stories"
-            className="absolute -right-2 sm:-right-5 top-1/2 z-30 flex h-10 w-10 sm:h-12 sm:w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#DCE2EB] bg-white text-[#0A1F44] shadow-[0_8px_25px_rgba(10,31,68,0.10)] transition-all duration-300 hover:border-[#0A1F44] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
-          >
-            <ChevronRight size={21} strokeWidth={2} />
-          </button>
+          {/* Right Arrow */}
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Next testimonial"
+              className="absolute -right-3 sm:-right-4 top-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+            >
+              <ChevronRight size={19} strokeWidth={2.5} />
+            </button>
+          )}
 
-          {/* Cards Track with Smooth Marquee & Scroll */}
           <div
-            ref={scrollContainerRef}
-            className="alumni-stories-container flex overflow-x-auto overflow-y-hidden py-4 gap-6 cursor-grab select-none scrollbar-none"
-            style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-              WebkitOverflowScrolling: "touch",
-            }}
+            ref={containerRef}
+            onScroll={handleScroll}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {[0, 1, 2].map((setIndex) => (
+          {homeFeedback.map((student, index) => (
+            <article
+              key={`${student.name}-${index}`}
+              className={`group relative flex w-[300px] sm:w-[350px] md:w-[380px] shrink-0 flex-col overflow-hidden rounded-3xl border bg-white p-7 pb-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+                index % 2 === 1 ? "border-[#F28C18]/40" : "border-[#DCE5ED]"
+              }`}
+            >
+              {/* Top Accent Bar */}
               <div
-                key={setIndex}
-                className="alumni-stories-track flex gap-6 shrink-0"
-              >
-                {placementStories.map((story) => (
-                  <div
-                    key={`${setIndex}-${story.id}`}
-                    className="w-[340px] sm:w-[380px] shrink-0"
-                  >
-                    <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[24px] border border-[#E2E8F0] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#E8871A]/40 hover:shadow-xl">
-                      {/* Top Accent Strip */}
-                      <div className="absolute left-0 top-0 h-1.5 w-full bg-[#0A1F44] group-hover:bg-[#E8871A] transition-colors" />
+                className={`absolute left-0 top-0 h-1.5 w-full transition-all duration-300 ${
+                  index % 2 === 1 ? "bg-[#F28C18]" : "bg-[#06355F]"
+                }`}
+              />
 
-                      <div>
-                        <div className="flex items-center gap-4">
-                          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[16px] border-2 border-[#E8871A] bg-slate-100 shadow-sm">
-                            <Image
-                              src={story.image}
-                              alt={story.name}
-                              fill
-                              sizes="80px"
-                              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                            />
-                          </div>
+              {/* Student identity */}
+              <div className="flex items-center gap-4">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border-4 border-[#F5F8FB] bg-[#EAF0F5]">
+                  <Image
+                    src={student.image}
+                    alt={student.name}
+                    fill
+                    sizes="80px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
+                  />
+                </div>
 
-                          <div className="min-w-0">
-                            <h3 className="font-serif text-[20px] font-bold text-[#0A1F44]">
-                              {story.name}
-                            </h3>
-                            <div className="mt-1.5 inline-flex items-center rounded-full bg-[#FFF3E2] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wide text-[#D97706]">
-                              Package · {story.package}
-                            </div>
-                          </div>
-                        </div>
+                <div className="min-w-0">
+                  <h3 className="font-serif text-xl font-bold text-[#06355F]">
+                    {student.name}
+                  </h3>
 
-                        <div className="mt-6 flex flex-col">
-                          <span className="font-serif text-[48px] font-bold leading-none text-[#E8871A]/20">
-                            “
-                          </span>
-                          <p className="mt-[-8px] text-[14.5px] leading-[1.7] text-[#536B83]">
-                            {story.quote}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="mt-6 border-t border-slate-100 pt-4 flex items-center justify-between text-[12px] text-[#64748B]">
-                        <span className="font-semibold text-[#07589F]">Geeta University</span>
-                        <span className="text-[#E8871A] font-bold">Verified Placement ★</span>
-                      </div>
-                    </article>
+                  <div className="mt-2 inline-flex items-center rounded-full bg-[#FFF3E2] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#D97706]">
+                    Package · {student.package}
                   </div>
-                ))}
+                </div>
               </div>
-            ))}
+
+              {/* Quote */}
+              <div className="mt-7 flex flex-1 flex-col justify-between">
+                <div>
+                  <span
+                    aria-hidden="true"
+                    className="font-serif text-5xl font-bold leading-none text-[#F28C18]/25"
+                  >
+                    “
+                  </span>
+
+                  <p className="mt-[-6px] text-[15px] leading-7 text-[#536B83]">
+                    {student.testimonial}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .alumni-stories-container::-webkit-scrollbar {
-          display: none;
-        }
-        @keyframes storiesMarquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-100% - 24px));
-          }
-        }
-        .alumni-stories-track {
-          animation: storiesMarquee 34s linear infinite;
-        }
-        .alumni-stories-container:hover .alumni-stories-track {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }
