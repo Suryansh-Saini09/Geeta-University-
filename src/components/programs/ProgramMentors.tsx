@@ -168,7 +168,7 @@ export default function ProgramMentors({
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            objectPosition: m.imagePosition || "center 0%",
+            objectPosition: m.imagePosition || "center 25%",
             transform: m.imageScale ? `scale(${m.imageScale})` : undefined,
             transformOrigin: "center center",
             transition: "transform 0.3s ease",
