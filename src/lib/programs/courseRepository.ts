@@ -35,6 +35,11 @@ import { phdPharmacy } from "@/data/programs/courses/pharmacy/phd-pharmacy";
 import { diplomaHotelManagement } from "@/data/programs/courses/hospitality/diploma-in-hotel-management";
 import { bscHotelManagement } from "@/data/programs/courses/hospitality/bsc-hotel-management";
 import { btechCse } from "@/data/programs/courses/computer-science-and-engineering/btech-cse";
+import { btechArtificialIntelligenceAndMachineLearning } from "@/data/programs/courses/computer-science-and-engineering/btech-artificial-intelligence-and-machine-learning";
+import { btechCyberSecurity } from "@/data/programs/courses/computer-science-and-engineering/btech-cyber-security";
+import { btechDataScienceAndBusinessAnalytics } from "@/data/programs/courses/computer-science-and-engineering/btech-data-science-and-business-analytics";
+import { btechFullStackWebDevelopment } from "@/data/programs/courses/computer-science-and-engineering/btech-full-stack-web-development";
+import { btechQuantumComputing } from "@/data/programs/courses/computer-science-and-engineering/btech-quantum-computing";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -73,6 +78,11 @@ const courses: CoursePageData[] = [
   diplomaHotelManagement,
   bscHotelManagement,
   btechCse,
+  btechArtificialIntelligenceAndMachineLearning,
+  btechCyberSecurity,
+  btechDataScienceAndBusinessAnalytics,
+  btechFullStackWebDevelopment,
+  btechQuantumComputing,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -111,6 +121,41 @@ function normalizeCourseSlug(slug: string): string {
     s === "mba-logistics"
   )
     return "mba-supply-chain-management-and-logistics";
+  if (
+    s === "btech-aiml" ||
+    s === "btech-ai-and-ml" ||
+    s === "btech-ai-ml" ||
+    s === "btech-cse-ai-ml"
+  )
+    return "btech-artificial-intelligence-and-machine-learning";
+  if (
+    s === "btech-cybersecurity" ||
+    s === "btech-cse-cyber-security" ||
+    s === "btech-cse-cybersecurity"
+  )
+    return "btech-cyber-security";
+  if (
+    s === "btech-data-science" ||
+    s === "btech-data-science-and-business-analytics-with-hcl" ||
+    s === "btech-cse-data-science" ||
+    s === "btech-data-science-business-analytics"
+  )
+    return "btech-data-science-and-business-analytics";
+  if (
+    s === "btech-full-stack" ||
+    s === "btech-full-stack-development" ||
+    s === "btech-cse-full-stack" ||
+    s === "btech-cse-full-stack-web-development" ||
+    s === "full-stack-web-development"
+  )
+    return "btech-full-stack-web-development";
+  if (
+    s === "btech-quantum" ||
+    s === "btech-quantum-computing" ||
+    s === "btech-cse-quantum-computing" ||
+    s === "quantum-computing"
+  )
+    return "btech-quantum-computing";
   return s;
 }
 
@@ -223,6 +268,49 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
       params.push({
         schoolSlug: c.schoolSlug,
         courseSlug: "phd-pharmaceutical-sciences",
+      });
+    }
+
+    if (c.slug === "btech-artificial-intelligence-and-machine-learning") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-aiml",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-ai-and-ml",
+      });
+    }
+
+    if (c.slug === "btech-cyber-security") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-cybersecurity",
+      });
+    }
+
+    if (c.slug === "btech-data-science-and-business-analytics") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-data-science",
+      });
+    }
+
+    if (c.slug === "btech-full-stack-web-development") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-full-stack",
+      });
+    }
+
+    if (c.slug === "btech-quantum-computing") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-quantum",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "quantum-computing",
       });
     }
   });

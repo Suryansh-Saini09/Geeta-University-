@@ -238,6 +238,8 @@ export interface CoursePageData {
   overview: CourseOverview;
   takeaways: string[];
   subjects: string[];
+  subjectsTitle?: string;
+  subjectsParagraphs?: string[];
   learningOutcomes: string[];
   admission?: CourseAdmissionProcess;
   career?: CourseCareerPathways;

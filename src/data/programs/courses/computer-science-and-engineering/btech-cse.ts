@@ -38,23 +38,23 @@ export const btechCse: CoursePageData = {
     program: "Bachelor of Technology in Computer Science & Engineering",
     duration: "4 Years (8 Semesters)",
     eligibility:
-      "Passed 10+2 examination with Physics and Math as compulsory subjects with one of the following subject./Chemistry/ Computer Science/ Electronics/ Information Technology/ Biology/ Informatics Practices/Biotechnology/ Technical Vocational subject/ Agriculture/Engineering Graphics/ Business Studies/ Entrepreneurship with a minimum 55% marks. OR Passed D.Voc. Stream with a minimum 55% marks in the same or allied sector.",
+      "Passed 10+2 examination with Physics and Mathematics as compulsory subjects along with one of the following: Chemistry, Computer Science, Electronics, Information Technology, Biology, Informatics Practices, Biotechnology, Technical Vocational subject, Agriculture, Engineering Graphics, Business Studies, or Entrepreneurship with a minimum of 55% marks. OR Passed D.Voc. Stream with a minimum of 55% marks in the same or allied sector.",
   },
   overview: {
     title: "B.Tech Computer Science and Engineering",
     paragraphs: [
-      "Geeta University B.Tech Computer Science and Engineering is a course with lots of job opportunities. It is designed to offer an industry-oriented program designed for theoretical and practical knowledge, along with industry exposure through internships, projects, and collaborations with leading tech companies.",
-      "Geeta University focuses on knowledge such as complex programming languages, problem-solving, programming, critical thinking, etc. This course can be beneficial for a successful career in top tech firms. The university has a placement cell that supports and organizes campus placement drives for the learners.",
+      "The B.Tech Computer Science and Engineering program at Geeta University offers wide-ranging career opportunities. It delivers an industry-oriented curriculum balancing strong theoretical foundations with intensive practical application, enriched through internships, live capstone projects, and collaborations with leading technology companies.",
+      "The curriculum emphasizes core technical competencies including modern programming languages, algorithmic problem-solving, systems engineering, and critical thinking. Geeta University's dedicated placement cell actively organizes campus recruitment drives to connect graduates with top global tech enterprises.",
     ],
   },
   takeaways: [
-    "B.Tech Computer Science and Engineering at Geeta University is a 4-year (8-semester) duration program",
-    "NEP-based curriculum with industry-aligned subjects",
-    "Modern labs including AI, IoT, Cloud Computing, and Cyber Security",
-    "Strong placement record with top recruiters",
-    "Project-based learning and live industrial training",
-    "Experienced faculty from IITs and NITs",
-    "Scholarships based on National Level Exams",
+    "4-year (8-semester) comprehensive undergraduate engineering program",
+    "NEP-aligned curriculum designed in collaboration with industry experts",
+    "Advanced labs for AI, IoT, Cloud Computing, and Cyber Security",
+    "Proven track record of campus placements with top global recruiters",
+    "Project-based learning approach with live industrial exposure",
+    "Distinguished faculty from premier institutes including IITs and NITs",
+    "Merit-based scholarships and support for national entrance test qualifiers",
   ],
   subjects: [
     "Programming Languages (C/C++, Java, Python)",
@@ -62,28 +62,28 @@ export const btechCse: CoursePageData = {
     "Operating Systems & Shell Scripting",
     "Database Management Systems",
     "Computer Networks & Cloud Fundamentals",
-    "Software Engineering & Project Management",
+    "Software Engineering & Agile Methodologies",
     "Internet of Things (IoT) Essentials",
-    "Linux Admin & Cyber Law Basics",
-    "Web & Mobile App Development",
+    "Linux Administration & Cyber Law Basics",
+    "Web & Mobile Application Development",
     "Industry Internship / Capstone Project",
   ],
   learningOutcomes: [
-    "Apply algorithms and logic to build real-world software",
-    "Develop and deploy interactive web and mobile applications",
-    "Administer databases and manage computer networks",
-    "Understand cloud architecture and cybersecurity essentials",
-    "Collaborate in software projects using agile frameworks",
+    "Apply algorithms and logical design to engineer real-world software solutions",
+    "Develop and deploy modern, responsive web and mobile applications",
+    "Administer enterprise databases and manage complex computer networks",
+    "Architect secure cloud environments and understand cybersecurity fundamentals",
+    "Collaborate effectively in cross-functional software teams using agile practices",
   ],
   admission: {
     eligibility:
-      "Candidates must have passed 12th grade with min. 55% aggregate marks (10% relaxation for SC/ST/EWS) to be eligible for admission — check this before applying.",
+      "Candidates must have passed 10+2 examination with minimum 55% aggregate marks (relaxation applicable for reserved categories as per government/university norms).",
     whyChooseHeading:
       "Geeta University BTech Computer Science and Engineering Admission Process",
     whyChooseParagraphs: [
-      "Step 1 – Apply: Fill the B.Tech Computer Science & Engineering application form online at admissions.geetauniversity.edu.in or offline at the Geeta University campus, Panipat",
-      "Step 2 – Submit Documents: Complete the rest of the B.Tech CSE admission process offline — submit 10+2 marksheet (with Physics & Maths), ID proof & other required documents at the campus",
-      "Step 3 – Confirm Admission: Pay the admission fee offline and confirm your seat in B.Tech CSE at Geeta University, Haryana",
+      "Step 1 – Apply: Fill the B.Tech Computer Science & Engineering application form online at admissions.geetauniversity.edu.in or offline at the Geeta University campus, Panipat.",
+      "Step 2 – Submit Documents: Complete the admission verification process — submit 10+2 marksheet (with Physics & Mathematics), ID proof, and other required certificates at the campus.",
+      "Step 3 – Confirm Admission: Deposit the admission fee to confirm your seat in B.Tech CSE at Geeta University, Haryana.",
     ],
   },
   career: {
@@ -103,7 +103,7 @@ export const btechCse: CoursePageData = {
       "Cloud Architect",
       "System Engineer",
     ],
-    recruitersTitle: "Top Recruiters includes:",
+    recruitersTitle: "Top Recruiters include:",
     recruiters: [
       { name: "Infosys" },
       { name: "Wipro" },
@@ -117,10 +117,10 @@ export const btechCse: CoursePageData = {
   },
   whyGeeta: {
     title:
-      "Reasons to choose Geeta University for B Tech Computer Science and Engineering Program",
+      "Reasons to choose Geeta University for B.Tech Computer Science and Engineering",
     paragraphs: [
-      "The B Tech Computer Science and Engineering at Geeta University, one of the best universities in North India, provides both theoretical and practical knowledge. This course offers training on the latest technologies, coding languages, software development, and systems engineering.",
-      "Learners can gain from internships, projects, and industry collaborations at the university. A computer science and engineering program at Geeta University helps develop skills like problem-solving and analytical thinking in the tech industry. A computer science and engineering degree helps students make a career in the field of computer science and engineering. The university also has tie-ups with top companies, ensuring placements for students.",
+      "The B.Tech Computer Science & Engineering program at Geeta University, one of the premier universities in North India, provides a well-rounded balance of theoretical knowledge and experiential learning. Students receive thorough training in modern technologies, coding paradigms, software development life cycles, and systems engineering.",
+      "Through hands-on internships, live industry projects, and hackathons, students develop analytical rigor and practical problem-solving skills tailored for the tech industry. Strong institutional partnerships ensure robust campus placement opportunities with industry leaders nationwide.",
     ],
   },
   scholarships: {
@@ -146,56 +146,6 @@ export const btechCse: CoursePageData = {
       linkUrl: "https://geetauniversity.edu.in/guts",
     },
   },
-  faculty: [
-    {
-      name: "Dr. Kapil Saini",
-      designation: "Head of Department, Ph.D.",
-      image:
-        "https://geetauniversity.edu.in/uploads/all/1513/conversions/kapil-Saini-full.webp",
-      description:
-        "Published 25+ Scopus/WoS Papers; Contributed 6 Book Chapters (Springer, Elsevier, Taylor & Francis, IGI Global); Holds 3 Patents (IoT-based Health Monitoring); Recognized with Best Teacher Award (2022); Expertise in AI, ML, Cloud Computing, Recommender Systems.",
-    },
-    {
-      name: "Ms. Rakhi Chauhan",
-      designation: "Assistant Professor, M.Tech., Ph.D. (Pursuing)",
-      image:
-        "https://geetauniversity.edu.in/uploads/all/2666/conversions/WhatsApp-Image-2026-06-18-at-12.55.21-full.webp",
-      description:
-        "Ms. Rakhi Chauhan is an Assistant Professor and PhD researcher specializing in Deep Learning, CNN Benchmarking, Fake Face Detection. She has authored 10+ research papers and 20+ book chapters published in reputed journals, conferences, and edited volumes.",
-    },
-    {
-      name: "Ms. Richa Jain",
-      designation: "Assistant Professor, M.Tech.",
-      image:
-        "https://geetauniversity.edu.in/uploads/all/1471/conversions/Richa-Jain-(Custom)-full.webp",
-      description:
-        "Published Research Papers in Computer Science; Focused on innovative teaching and academic excellence.",
-    },
-    {
-      name: "Ms. Jyoti",
-      designation: "Assistant Professor",
-      image:
-        "https://geetauniversity.edu.in/uploads/all/1877/conversions/Jyoti-full.webp",
-      description:
-        "Cybersecurity professional combining industry, teaching, and research experience, with 3 publications and strong technical expertise.",
-    },
-    {
-      name: "Radha Gautam",
-      designation: "Assistant Professor",
-      image:
-        "https://geetauniversity.edu.in/uploads/all/2662/conversions/WhatsApp-Image-2026-06-18-at-12.55.20-(1)-full.webp",
-      description:
-        "Ms. Radha Gautam is an Assistant Professor with expertise in Computer Science and Engineering. She is dedicated to teaching, research, and academic excellence, with interests in emerging technologies, artificial intelligence, and software development. She has contributed to scholarly research through publications and actively participates in academic and professional development activities. Her commitment to student learning and innovation makes her a valuable contributor to higher education.",
-    },
-    {
-      name: "Ronak Duggar",
-      designation: "Trainer",
-      image:
-        "https://geetauniversity.edu.in/uploads/all/2682/conversions/RED06399-full.webp",
-      description:
-        "Full Stack Developer, AI/ML Researcher, Technical Trainer, Innovator, and Emerging Scholar with 11 Publications, 7 Patents, and H-Index 6.",
-    },
-  ],
   testimonials: [
     {
       name: "Nitish",
@@ -223,7 +173,7 @@ export const btechCse: CoursePageData = {
       role: "B.Tech CSE Student",
       image:
         "https://geetauniversity.edu.in/uploads/all/2292/conversions/CSE1-full.webp",
-      text: "“Learning B.Tech CSE at Geeta University has been a valuable experience so far. The focus on real-world applications and continuous support from faculty helped me build clarity in concepts and improve my confidence in coding.",
+      text: "Learning B.Tech CSE at Geeta University has been a valuable experience so far. The focus on real-world applications and continuous support from faculty helped me build clarity in concepts and improve my confidence in coding.",
     },
     {
       name: "Aman Pandey",
