@@ -1,23 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import {
-  CheckCircle2,
-  Send,
-  Loader2,
-  GraduationCap,
-  Sparkles,
-  RotateCcw,
-  ChevronRight,
-  ArrowRight,
-  ArrowLeft,
-  User,
-  Briefcase,
-  Award,
-  BookOpenCheck,
-  Building,
-} from "lucide-react";
+import { CheckCircle2, Loader2, RotateCcw } from "lucide-react";
 import LegacyEcosystem from "@/components/about/LegacyEcosystem";
 
 interface AlumniFormData {
@@ -28,7 +12,7 @@ interface AlumniFormData {
   organisation: string;
   current_role: string;
   year_of_passout: string;
-  program_level: string;
+  programme_level: string;
   school: string;
   q1_career_development: string;
   q2_entrepreneur_support: string;
@@ -45,7 +29,7 @@ const initialFormData: AlumniFormData = {
   organisation: "",
   current_role: "",
   year_of_passout: "",
-  program_level: "",
+  programme_level: "",
   school: "",
   q1_career_development: "",
   q2_entrepreneur_support: "",
@@ -75,34 +59,6 @@ const ratingOptions = [
   "Strongly agree",
 ];
 
-const ratingQuestions = [
-  {
-    id: "q1_career_development",
-    label: "The program provides knowledge essential for career development.",
-    description: "Evaluates the professional relevance, technical skills, and career readiness gained during your studies.",
-  },
-  {
-    id: "q2_entrepreneur_support",
-    label: "The program supports students in pursuing business or entrepreneurial ventures.",
-    description: "Evaluates incubation support, entrepreneurial mindset, business exposure, and innovation mentoring.",
-  },
-  {
-    id: "q3_real_world",
-    label: "Seminars, workshops, and guest lectures help link course knowledge to real-world applications.",
-    description: "Assesses industry expert sessions, practical workshops, guest masterclasses, and applied learning.",
-  },
-  {
-    id: "q4_ethics",
-    label: "Courses on ethics, sustainability, and CSR contribute to professional growth.",
-    description: "Evaluates exposure to business ethics, environmental consciousness, and corporate social responsibility.",
-  },
-  {
-    id: "q5_teamwork",
-    label: "Group assignments and collaborative projects foster teamwork skills.",
-    description: "Evaluates collaborative learning, leadership development, interpersonal communication, and team dynamics.",
-  },
-];
-
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbzgxcb-eVzIMdGNsCYADGyPMIzBIkdhryGD6rIvIQPF1Bjq-KpIzJ4IpXuOYtbZXSY3/exec";
 
@@ -128,49 +84,21 @@ export default function AlumniFeedbackPage() {
     }
   };
 
-  const handleRatingSelect = (field: keyof AlumniFormData, value: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
-
-  const validateStep1 = () => {
-    if (
-      !formData.alumni_name.trim() ||
-      !formData.contact_no.trim() ||
-      !formData.email.trim() ||
-      !formData.employment_type ||
-      !formData.organisation.trim() ||
-      !formData.current_role.trim() ||
-      !formData.year_of_passout ||
-      !formData.program_level ||
-      !formData.school
-    ) {
-      return false;
-    }
-
-    const cleanMobile = formData.contact_no.trim();
-    if (!/^[6-9][0-9]{9}$/.test(cleanMobile)) {
-      setContactError("Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9.");
-      return false;
-    }
-
-    setContactError(null);
-    return true;
-  };
-
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateStep1()) {
-      setStep(2);
-      window.scrollTo({ top: 250, behavior: "smooth" });
+    const cleanMobile = formData.contact_no.trim();
+    if (!/^[6-9][0-9]{9}$/.test(cleanMobile)) {
+      setContactError("Mobile number must start with 6, 7, 8, or 9 and be 10 digits.");
+      return;
     }
+    setContactError(null);
+    setStep(2);
+    window.scrollTo({ top: 150, behavior: "smooth" });
   };
 
   const handleBack = () => {
     setStep(1);
-    window.scrollTo({ top: 250, behavior: "smooth" });
+    window.scrollTo({ top: 150, behavior: "smooth" });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -187,7 +115,7 @@ export default function AlumniFeedbackPage() {
         organisation: formData.organisation.trim(),
         current_role: formData.current_role.trim(),
         year_of_passout: formData.year_of_passout,
-        program_level: formData.program_level,
+        programme_level: formData.programme_level,
         school: formData.school,
         q1_career_development: formData.q1_career_development,
         q2_entrepreneur_support: formData.q2_entrepreneur_support,
@@ -210,7 +138,7 @@ export default function AlumniFeedbackPage() {
       setStep(1);
     } catch (err) {
       console.error("Submission error:", err);
-      setErrorMsg("Failed to submit feedback. Please check your internet connection and try again.");
+      setErrorMsg("Failed to submit feedback. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -225,157 +153,49 @@ export default function AlumniFeedbackPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
-      {/* ── Page Hero Header ── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#0A1F44] via-[#0D2857] to-[#0A1F44] pt-32 pb-20 text-white">
-        {/* Decorative Grid & Glow */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#E8871A]/15 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
+    <div className="min-h-screen bg-slate-50 pt-28 pb-16">
+      <div className="gu-container">
+        {/* Simple Form Card */}
+        <div className="mx-auto max-w-3xl rounded-2xl bg-white p-6 sm:p-10 shadow-lg border border-slate-200/80 my-8">
+          <h1 className="text-center font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-6">
+            Alumni Feedback on Curriculum
+          </h1>
 
-        <div className="gu-container relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            {/* Breadcrumb */}
-            <nav className="mb-6 inline-flex items-center gap-2 text-xs font-semibold text-slate-300">
-              <Link href="/" className="hover:text-[#E8871A] transition-colors">
-                Home
-              </Link>
-              <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
-              <span className="text-[#E8871A]">Alumni Feedback</span>
-            </nav>
-
-            {/* Pill Tag */}
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 backdrop-blur-md">
-              <Sparkles className="h-4 w-4 text-[#E8871A]" />
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
-                Alumni Network &amp; Curriculum Evolution
-              </span>
+          {isSubmitted ? (
+            <div className="text-center py-8">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                <CheckCircle2 className="h-8 w-8" />
+              </div>
+              <h2 className="text-xl font-bold text-slate-900">
+                Thank you! Your response has been successfully submitted.
+              </h2>
+              <button
+                onClick={resetForm}
+                className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#d6001c] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#b00018]"
+              >
+                <RotateCcw className="h-4 w-4" />
+                Submit Another Response
+              </button>
             </div>
-
-            {/* Title */}
-            <h1 className="font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[52px] leading-tight">
-              Alumni Feedback on <span className="text-[#E8871A]">Curriculum</span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="mt-5 text-base text-slate-200 md:text-lg leading-relaxed">
-              As distinguished graduates of Geeta University, your professional journey and real-world career experiences provide invaluable guidance for shaping future syllabi, skills training, and academic standards.
-            </p>
-
-            {/* Highlights Bar */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-white/10 text-left">
-              <div className="flex items-center gap-3 rounded-xl bg-white/5 p-3.5 border border-white/10">
-                <GraduationCap className="h-5 w-5 text-[#E8871A] shrink-0" />
-                <span className="text-xs font-medium text-slate-200">Global Alumni Network</span>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl bg-white/5 p-3.5 border border-white/10">
-                <Briefcase className="h-5 w-5 text-[#E8871A] shrink-0" />
-                <span className="text-xs font-medium text-slate-200">Industry-Driven Pedagogy</span>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl bg-white/5 p-3.5 border border-white/10">
-                <Award className="h-5 w-5 text-[#E8871A] shrink-0" />
-                <span className="text-xs font-medium text-slate-200">Continuous Curriculum Reform</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Main Form Section ── */}
-      <section className="py-10 md:py-14">
-        <div className="gu-container">
-          <div className="mx-auto max-w-3xl">
-            {isSubmitted ? (
-              /* Success State Card */
-              <div className="rounded-3xl border border-emerald-100 bg-white p-8 sm:p-12 shadow-xl shadow-slate-200/60 text-center animate-in fade-in duration-300">
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/50">
-                  <CheckCircle2 className="h-10 w-10" />
+          ) : (
+            <div>
+              {errorMsg && (
+                <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm font-medium text-red-700 mb-6">
+                  {errorMsg}
                 </div>
-                <h2 className="font-serif text-3xl font-bold text-[#0A1F44]">
-                  Thank You, Valued Alumnus!
-                </h2>
-                <p className="mt-4 text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
-                  Your feedback has been recorded successfully. Your suggestions and insights will directly enrich our academic curriculum, ensuring future generations of Geeta University students are industry-ready.
-                </p>
+              )}
 
-                <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <button
-                    onClick={resetForm}
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#0A1F44] px-6 py-3.5 text-sm font-bold text-white transition-all hover:bg-[#1A3A6B] active:scale-95 shadow-md"
-                  >
-                    <RotateCcw className="h-4 w-4" />
-                    Submit Another Response
-                  </button>
-                  <Link
-                    href="/"
-                    className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-6 py-3.5 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-100"
-                  >
-                    Return to Homepage
-                  </Link>
-                </div>
-              </div>
-            ) : (
-              /* The Feedback Form Card */
-              <div className="rounded-3xl border border-slate-200/80 bg-white shadow-xl shadow-slate-200/50 overflow-hidden">
-                {/* Form Top Banner with Progress Steps */}
-                <div className="border-b border-slate-100 bg-gradient-to-r from-[#0A1F44] to-[#1A3A6B] p-6 sm:p-8 text-white">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                      <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                        Alumni Curriculum Appraisal
-                      </h2>
-                      <p className="text-xs sm:text-sm text-slate-300">
-                        Fields marked with <span className="text-[#E8871A] font-bold">*</span> are required.
-                      </p>
+              {/* STEP 1: Personal Information */}
+              {step === 1 && (
+                <form onSubmit={handleNext} className="space-y-6">
+                  <div>
+                    <div className="border-l-4 border-[#d6001c] pl-3 text-base sm:text-lg font-bold text-slate-900 mb-4">
+                      Personal Information
                     </div>
 
-                    {/* Step Badges */}
-                    <div className="flex items-center gap-2">
-                      <div
-                        className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${step === 1
-                            ? "bg-[#E8871A] text-white shadow-md shadow-amber-500/30"
-                            : "bg-white/10 text-slate-300"
-                          }`}
-                      >
-                        <span>1</span>
-                        <span className="hidden sm:inline">Profile</span>
-                      </div>
-                      <ChevronRight className="h-3 w-3 text-white/40" />
-                      <div
-                        className={`flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${step === 2
-                            ? "bg-[#E8871A] text-white shadow-md shadow-amber-500/30"
-                            : "bg-white/10 text-slate-300"
-                          }`}
-                      >
-                        <span>2</span>
-                        <span className="hidden sm:inline">Feedback</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {errorMsg && (
-                  <div className="m-6 rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-700">
-                    {errorMsg}
-                  </div>
-                )}
-
-                {/* ──────────────── STEP 1: Personal & Professional Profile ──────────────── */}
-                {step === 1 && (
-                  <form onSubmit={handleNext} className="p-6 sm:p-10 space-y-8 animate-in fade-in duration-200">
-                    <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#0A1F44] text-xs font-bold text-[#E8871A]">
-                        1
-                      </span>
-                      <h3 className="font-serif text-lg font-bold text-[#0A1F44]">
-                        Personal &amp; Professional Information
-                      </h3>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                      {/* Name */}
-                      <div className="sm:col-span-2 space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
                           Name of the Alumni <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -384,14 +204,12 @@ export default function AlumniFeedbackPage() {
                           required
                           value={formData.alumni_name}
                           onChange={handleChange}
-                          placeholder="e.g. Rahul Sharma"
-                          className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 transition-colors focus:border-[#0A1F44] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0A1F44]/20"
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
                         />
                       </div>
 
-                      {/* Contact Number */}
-                      <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
                           Contact Number <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -400,22 +218,20 @@ export default function AlumniFeedbackPage() {
                           required
                           maxLength={10}
                           inputMode="numeric"
+                          placeholder="Enter 10 digit mobile number"
                           value={formData.contact_no}
                           onChange={handleChange}
-                          placeholder="10-digit mobile number"
-                          className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 transition-colors focus:outline-none focus:ring-2 ${contactError
-                              ? "border-red-500 bg-red-50/30 focus:ring-red-500/20"
-                              : "border-slate-300 bg-slate-50/50 focus:border-[#0A1F44] focus:bg-white focus:ring-[#0A1F44]/20"
-                            }`}
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
                         />
                         {contactError && (
-                          <p className="text-xs text-red-600 font-medium">{contactError}</p>
+                          <small className="text-red-600 mt-1 block">
+                            {contactError}
+                          </small>
                         )}
                       </div>
 
-                      {/* Email */}
-                      <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
                           Email Address <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -424,14 +240,12 @@ export default function AlumniFeedbackPage() {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="e.g. rahul.sharma@example.com"
-                          className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 transition-colors focus:border-[#0A1F44] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0A1F44]/20"
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
                         />
                       </div>
 
-                      {/* Employment Type */}
-                      <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
                           Employment Type <span className="text-red-500">*</span>
                         </label>
                         <select
@@ -439,19 +253,18 @@ export default function AlumniFeedbackPage() {
                           required
                           value={formData.employment_type}
                           onChange={handleChange}
-                          className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 transition-colors focus:border-[#0A1F44] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0A1F44]/20"
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
                         >
                           <option value="" disabled>
-                            Select Employment Type
+                            Select
                           </option>
                           <option value="working_professional">Working Professional</option>
                           <option value="self_employed">Self-employed / Entrepreneur</option>
                         </select>
                       </div>
 
-                      {/* Organisation */}
-                      <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
                           Organisation / Company Name <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -460,14 +273,12 @@ export default function AlumniFeedbackPage() {
                           required
                           value={formData.organisation}
                           onChange={handleChange}
-                          placeholder="e.g. Tata Consultancy Services / Own Venture"
-                          className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 transition-colors focus:border-[#0A1F44] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0A1F44]/20"
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
                         />
                       </div>
 
-                      {/* Current Role */}
-                      <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
                           Current Role / Designation <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -476,14 +287,12 @@ export default function AlumniFeedbackPage() {
                           required
                           value={formData.current_role}
                           onChange={handleChange}
-                          placeholder="e.g. Senior Software Engineer / Founder"
-                          className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 transition-colors focus:border-[#0A1F44] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0A1F44]/20"
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
                         />
                       </div>
 
-                      {/* Year of Pass Out */}
-                      <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
                           Year of Pass Out <span className="text-red-500">*</span>
                         </label>
                         <select
@@ -491,41 +300,39 @@ export default function AlumniFeedbackPage() {
                           required
                           value={formData.year_of_passout}
                           onChange={handleChange}
-                          className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 transition-colors focus:border-[#0A1F44] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0A1F44]/20"
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
                         >
                           <option value="" disabled>
-                            Select Pass Out Year
+                            Select Year
                           </option>
-                          <option value="2024">2024</option>
-                          <option value="2023">2023</option>
                           <option value="2022">2022</option>
+                          <option value="2023">2023</option>
+                          <option value="2024">2024</option>
                           <option value="before_2022">Before 2022</option>
                         </select>
                       </div>
 
-                      {/* Program Level */}
-                      <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">
-                          Program Level <span className="text-red-500">*</span>
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
+                          Programme Level <span className="text-red-500">*</span>
                         </label>
                         <select
-                          name="program_level"
+                          name="programme_level"
                           required
-                          value={formData.program_level}
+                          value={formData.programme_level}
                           onChange={handleChange}
-                          className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 transition-colors focus:border-[#0A1F44] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0A1F44]/20"
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
                         >
                           <option value="" disabled>
-                            Select Program Level
+                            Select Level
                           </option>
                           <option value="UG">Undergraduate (UG)</option>
                           <option value="PG">Postgraduate (PG)</option>
                         </select>
                       </div>
 
-                      {/* School for which feedback is given */}
-                      <div className="sm:col-span-2 space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
                           School for which feedback is given <span className="text-red-500">*</span>
                         </label>
                         <select
@@ -533,156 +340,184 @@ export default function AlumniFeedbackPage() {
                           required
                           value={formData.school}
                           onChange={handleChange}
-                          className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 transition-colors focus:border-[#0A1F44] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0A1F44]/20"
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
                         >
                           <option value="" disabled>
                             Select your School
                           </option>
-                          {schoolOptions.map((s) => (
-                            <option key={s} value={s}>
-                              {s}
+                          {schoolOptions.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
                             </option>
                           ))}
                         </select>
                       </div>
                     </div>
+                  </div>
 
-                    {/* Next Button */}
-                    <div className="pt-4 border-t border-slate-100">
-                      <button
-                        type="submit"
-                        className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-[#E8871A] py-4 px-8 text-base font-bold text-white shadow-lg shadow-amber-500/25 transition-all hover:bg-[#F5A623] hover:shadow-amber-500/40 active:scale-[0.99]"
-                      >
-                        <span>Proceed to Curriculum Feedback</span>
-                        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                      </button>
+                  <button
+                    type="submit"
+                    className="w-full rounded-lg bg-[#d6001c] py-3 px-6 text-white font-bold text-base transition-all hover:bg-[#b00018]"
+                  >
+                    Next &rarr;
+                  </button>
+                </form>
+              )}
+
+              {/* STEP 2: Curriculum Feedback */}
+              {step === 2 && (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <div className="border-l-4 border-[#d6001c] pl-3 text-base sm:text-lg font-bold text-slate-900 mb-4">
+                      Curriculum Feedback
                     </div>
-                  </form>
-                )}
 
-                {/* ──────────────── STEP 2: Curriculum Feedback (5 Questions) ──────────────── */}
-                {step === 2 && (
-                  <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-8 animate-in fade-in duration-200">
-                    <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#0A1F44] text-xs font-bold text-[#E8871A]">
-                        2
-                      </span>
+                    <div className="space-y-4">
                       <div>
-                        <h3 className="font-serif text-lg font-bold text-[#0A1F44]">
-                          Curriculum Feedback &amp; Career Impact
-                        </h3>
-                        <p className="text-xs text-slate-500">
-                          Rate each parameter on a 5-point scale from Strongly Disagree to Strongly Agree.
-                        </p>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
+                          The program provides knowledge essential for career development. <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="q1_career_development"
+                          required
+                          value={formData.q1_career_development}
+                          onChange={handleChange}
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
+                        >
+                          <option value="" disabled>
+                            Select
+                          </option>
+                          {ratingOptions.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
+                          The program supports students in pursuing business or entrepreneurial ventures. <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="q2_entrepreneur_support"
+                          required
+                          value={formData.q2_entrepreneur_support}
+                          onChange={handleChange}
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
+                        >
+                          <option value="" disabled>
+                            Select
+                          </option>
+                          {ratingOptions.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
+                          Seminars, workshops, and guest lectures help link course knowledge to real-world applications. <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="q3_real_world"
+                          required
+                          value={formData.q3_real_world}
+                          onChange={handleChange}
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
+                        >
+                          <option value="" disabled>
+                            Select
+                          </option>
+                          {ratingOptions.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
+                          Courses on ethics, sustainability, and CSR contribute to professional growth. <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="q4_ethics"
+                          required
+                          value={formData.q4_ethics}
+                          onChange={handleChange}
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
+                        >
+                          <option value="" disabled>
+                            Select
+                          </option>
+                          {ratingOptions.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1">
+                          Group assignments and collaborative projects foster teamwork skills. <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="q5_teamwork"
+                          required
+                          value={formData.q5_teamwork}
+                          onChange={handleChange}
+                          className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-[#d6001c] focus:outline-none focus:ring-1 focus:ring-[#d6001c]"
+                        >
+                          <option value="" disabled>
+                            Select
+                          </option>
+                          {ratingOptions.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                     </div>
+                  </div>
 
-                    <div className="space-y-6">
-                      {ratingQuestions.map((q, index) => {
-                        const fieldKey = q.id as keyof AlumniFormData;
-                        const currentValue = formData[fieldKey];
+                  <div className="flex gap-3">
+                    <button
+                      type="button"
+                      onClick={handleBack}
+                      className="w-1/2 rounded-lg border border-slate-300 bg-slate-100 py-3 px-6 text-slate-700 font-bold text-base transition-all hover:bg-slate-200"
+                    >
+                      &larr; Back
+                    </button>
 
-                        return (
-                          <div
-                            key={q.id}
-                            className="rounded-2xl border border-slate-200 bg-slate-50/60 p-5 transition-all hover:border-slate-300 hover:bg-white"
-                          >
-                            <div className="mb-3">
-                              <span className="text-xs font-bold uppercase tracking-wider text-[#E8871A]">
-                                Parameter {index + 1} of 5
-                              </span>
-                              <h4 className="mt-0.5 text-base font-bold text-[#0A1F44]">
-                                {q.label} <span className="text-red-500">*</span>
-                              </h4>
-                              <p className="text-xs text-slate-500 mt-1">{q.description}</p>
-                            </div>
-
-                            {/* Responsive Rating Selector: Interactive Pill Options */}
-                            <div className="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-2">
-                              {ratingOptions.map((opt) => {
-                                const isSelected = currentValue === opt;
-                                return (
-                                  <button
-                                    key={opt}
-                                    type="button"
-                                    onClick={() => handleRatingSelect(fieldKey, opt)}
-                                    className={`flex flex-col items-center justify-center rounded-xl p-2.5 text-center text-xs font-semibold transition-all ${isSelected
-                                        ? "border-[#0A1F44] bg-[#0A1F44] text-white shadow-md shadow-blue-950/20 scale-[1.02]"
-                                        : "border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-100"
-                                      }`}
-                                  >
-                                    <span className="leading-tight">{opt}</span>
-                                  </button>
-                                );
-                              })}
-                            </div>
-
-                            {/* Hidden required select for native HTML validation fallback */}
-                            <select
-                              name={q.id}
-                              required
-                              value={currentValue}
-                              onChange={handleChange}
-                              className="sr-only"
-                              tabIndex={-1}
-                              aria-hidden="true"
-                            >
-                              <option value="" disabled>
-                                Select
-                              </option>
-                              {ratingOptions.map((opt) => (
-                                <option key={opt} value={opt}>
-                                  {opt}
-                                </option>
-                              ))}
-                            </select>
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    {/* Step 2 Action Buttons */}
-                    <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-3">
-                      <button
-                        type="button"
-                        onClick={handleBack}
-                        className="inline-flex w-full sm:w-1/3 items-center justify-center gap-2 rounded-2xl border border-slate-300 bg-slate-100 py-3.5 px-6 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-200 active:scale-95"
-                      >
-                        <ArrowLeft className="h-4 w-4" />
-                        <span>Back to Profile</span>
-                      </button>
-
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="group relative flex w-full sm:w-2/3 items-center justify-center gap-2 rounded-2xl bg-[#E8871A] py-3.5 px-6 text-sm font-bold text-white shadow-lg shadow-amber-500/25 transition-all hover:bg-[#F5A623] hover:shadow-amber-500/40 active:scale-[0.99] disabled:opacity-75 disabled:cursor-not-allowed"
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <Loader2 className="h-4 w-4 animate-spin" />
-                            <span>Submitting Alumni Feedback...</span>
-                          </>
-                        ) : (
-                          <>
-                            <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                            <span>Submit Alumni Feedback</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  </form>
-                )}
-              </div>
-            )}
-          </div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-1/2 rounded-lg bg-[#d6001c] py-3 px-6 text-white font-bold text-base transition-all hover:bg-[#b00018] disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="h-5 w-5 animate-spin" />
+                          <span>Submitting...</span>
+                        </>
+                      ) : (
+                        <span>Submit Feedback</span>
+                      )}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          )}
         </div>
-      </section>
+      </div>
 
-      {/* ── Legacy & Ecosystem Section ── */}
-      <LegacyEcosystem
-        id="legacy-ecosystem"
-        contextText="Alumni and current students benefit from the integrated ecosystem of:"
-      />
+      {/* Legacy & Ecosystem Section */}
+      <LegacyEcosystem id="legacy-ecosystem" />
     </div>
   );
 }
