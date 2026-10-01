@@ -97,7 +97,7 @@ export default function Footer() {
       { label: "GU Civil Society, NGOs Feedback Form", href: "/ngos-civil-society-feedback", isInternal: true },
       { label: "GU Alumni Feedback Form", href: "/alumni-feedback-form", isInternal: true },
       { label: "GU Employer Feedback Form", href: "/employer-feedback-form", isInternal: true },
-      { label: "Sitemap", href: "https://geetauniversity.edu.in/sitemap" },
+      { label: "Sitemap", href: "/sitemap", isInternal: true },
       { label: "Fee Refund Policy", href: "https://geetauniversity.edu.in/uploads/all/2547/Notification-fee-refund-policy.pdf" },
       { label: "IDP", href: "https://geetauniversity.edu.in/uploads/all/1278/Geeta_University_INSTITUTIONAL_DEVELOPMENT_PLAN.pdf" },
     ],
