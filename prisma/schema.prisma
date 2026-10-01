@@ -3,9 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 enum AdminRole {
@@ -101,7 +100,7 @@ model SeoMetadata {
   id          String   @id @default(cuid())
   title       String
   description String
-  keywords    String[]
+  keywords    Json?
   canonical   String?
   ogTitle     String?
   ogImage     String?

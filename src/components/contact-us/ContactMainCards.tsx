@@ -1,8 +1,8 @@
 import React from "react";
 import { MapPin, Phone, Mail, Clock, ExternalLink } from "lucide-react";
-import { contactMainInfo } from "@/data/contactUsData";
+import type { ContactMainInfo } from "@/data/contactUsData";
 
-export default function ContactMainCards() {
+export default function ContactMainCards({ contact }: { contact: ContactMainInfo }) {
   return (
     <section className="w-full bg-[#F7F9FC] py-10 md:py-14 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -20,10 +20,10 @@ export default function ContactMainCards() {
                 Campus Location
               </h3>
               <p className="mt-2 text-sm text-slate-700 font-semibold leading-relaxed font-sans">
-                {contactMainInfo.location}
+                {contact.location}
               </p>
               <p className="mt-1 text-xs text-slate-500 font-sans">
-                {contactMainInfo.locationDetails}
+                {contact.locationDetails}
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-100">
@@ -50,15 +50,15 @@ export default function ContactMainCards() {
                 Contact Numbers
               </h3>
               <p className="mt-2 text-base font-bold text-[#0A1F44] font-sans">
-                {contactMainInfo.phonePrimary}
+                {contact.phonePrimary}
               </p>
               <p className="mt-0.5 text-sm text-slate-600 font-sans">
-                Alternative: {contactMainInfo.phoneSecondary}
+                Alternative: {contact.phoneSecondary}
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-100 flex gap-4">
               <a
-                href="tel:09278768000"
+                href={`tel:${contact.phonePrimary.replace(/[^+\d]/g, "")}`}
                 style={{ color: "#ffffff" }}
                 className="inline-flex items-center gap-1.5 rounded-lg bg-[#0A1F44] px-4.5 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#E8871A]"
               >
@@ -81,16 +81,16 @@ export default function ContactMainCards() {
                 Email & Working Hours
               </h3>
               <p className="mt-2 text-sm font-semibold text-[#0A1F44] font-sans">
-                {contactMainInfo.emailPrimary}
+                {contact.emailPrimary}
               </p>
               <div className="mt-3 flex items-center gap-2 text-xs text-slate-500 font-sans">
                 <Clock className="h-4 w-4 text-[#E8871A] shrink-0" />
-                <span>{contactMainInfo.workingHours}</span>
+                <span>{contact.workingHours}</span>
               </div>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-100">
               <a
-                href={`mailto:${contactMainInfo.emailPrimary}`}
+                href={`mailto:${contact.emailPrimary}`}
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0A1F44] hover:text-[#E8871A] transition-colors"
               >
                 <Mail className="h-3.5 w-3.5" />

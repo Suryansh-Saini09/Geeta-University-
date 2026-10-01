@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: geeta-university-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: geeta_university
+      MYSQL_USER: geeta_cms
+      MYSQL_PASSWORD: geeta_cms_password
+      MYSQL_ROOT_PASSWORD: geeta_root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - geeta_university_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  geeta_university_mysql_data:

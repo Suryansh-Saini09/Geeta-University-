@@ -18,10 +18,10 @@ export async function getAdminDepartments(filters: AdminDepartmentFilters = {}) 
 
   if (query) {
     where.OR = [
-      { name: { contains: query, mode: "insensitive" } },
-      { shortName: { contains: query, mode: "insensitive" } },
-      { slug: { contains: query, mode: "insensitive" } },
-      { summary: { contains: query, mode: "insensitive" } },
+      { name: { contains: query } },
+      { shortName: { contains: query } },
+      { slug: { contains: query } },
+      { summary: { contains: query } },
     ];
   }
 

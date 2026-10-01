@@ -11,11 +11,14 @@ import {
   Megaphone,
   Newspaper,
   Settings,
+  ScrollText,
   Shield,
   Users,
+  UserCog,
 } from "lucide-react";
 
 import type { AdminSessionUser } from "@/server/auth/session";
+import { hasPermission } from "@/server/auth/permissions";
 import { logoutAction } from "@/features/admin/auth/actions";
 
 const navigation = [
@@ -29,6 +32,8 @@ const navigation = [
   { label: "Events", href: "/admin/events", icon: CalendarDays },
   { label: "Gallery", href: "/admin/gallery", icon: GalleryHorizontalEnd },
   { label: "Media", href: "/admin/media", icon: Image },
+  { label: "Users", href: "/admin/users", icon: UserCog },
+  { label: "Activity", href: "/admin/activity", icon: ScrollText },
   { label: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
@@ -56,7 +61,7 @@ export default function AdminShell({
           </div>
 
           <nav className="space-y-1 p-4">
-            {navigation.map((item) => {
+            {navigation.filter((item) => !["/admin/users", "/admin/activity"].includes(item.href) || hasPermission(user.role, "manageUsers")).map((item) => {
               const Icon = item.icon;
 
               return (
