@@ -47,14 +47,16 @@ export default function PlacementNav() {
     setActiveSection(id);
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const yOffset = -175;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
   return (
     <nav
       id="placement-subnav"
-      className="sticky top-[96px] z-[1001] w-full border-b border-[#E2E8F0] bg-white shadow-sm backdrop-blur-xl md:top-[138px]"
+      className="sticky top-[64px] z-[990] w-full border-b border-[#E2E8F0] bg-white shadow-sm backdrop-blur-xl md:top-[118px]"
     >
       <div className="gu-container overflow-x-auto [scrollbar-width:none]">
         <div className="flex min-w-max items-center gap-1 py-2.5 md:justify-center md:gap-3">

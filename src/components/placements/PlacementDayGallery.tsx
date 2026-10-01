@@ -1,28 +1,67 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { X } from "lucide-react";
-import { placementDayCollage } from "@/data/placements";
+
+interface CollagePhoto {
+  id: string;
+  src: string;
+  alt: string;
+}
+
+const COLLAGE_PHOTOS: CollagePhoto[] = [
+  {
+    id: "top",
+    src: "https://geetauniversity.edu.in/uploads/all/2248/6.webp",
+    alt: "Placement Day Celebration - Top Group",
+  },
+  {
+    id: "circle",
+    src: "https://geetauniversity.edu.in/uploads/all/2247/5.webp",
+    alt: "Placement Day Dignitary Speech",
+  },
+  {
+    id: "mid",
+    src: "https://geetauniversity.edu.in/uploads/all/2249/7.webp",
+    alt: "Placement Day Panel Discussion",
+  },
+  {
+    id: "right",
+    src: "https://geetauniversity.edu.in/uploads/all/2246/4.webp",
+    alt: "Placement Day Award Ceremony",
+  },
+  {
+    id: "bottom-left",
+    src: "https://geetauniversity.edu.in/uploads/all/2245/3.webp",
+    alt: "Placement Day Auditorium Audience",
+  },
+  {
+    id: "bottom-right",
+    src: "https://geetauniversity.edu.in/uploads/all/2251/9.webp",
+    alt: "Placement Day Star Stage Setup",
+  },
+  {
+    id: "star",
+    src: "https://geetauniversity.edu.in/uploads/all/2250/8.webp",
+    alt: "Placement Day Student Performance",
+  },
+];
 
 export default function PlacementDayGallery() {
-  const [selectedPhoto, setSelectedPhoto] = useState<(typeof placementDayCollage)[0] | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<CollagePhoto | null>(null);
 
   return (
-    <section id="gallery" className="scroll-mt-[190px] bg-white py-12 md:py-16 border-t border-[#E2E8F0]">
+    <section id="gallery" className="scroll-mt-[190px] bg-[#F7F9FC] py-12 md:py-16 border-t border-[#E2E8F0] overflow-hidden">
       <div className="gu-container">
         {/* Section Header */}
-        <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">
+        <div className="mx-auto mb-12 max-w-4xl text-center md:mb-16">
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="h-px w-9 bg-[#E8871A]" />
-            <span className="text-[10px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-              Campus Celebrations
-            </span>
             <span className="h-px w-9 bg-[#E8871A]" />
           </div>
 
           <h2 className="font-serif text-[38px] font-black leading-[1.08] tracking-[-1.5px] text-[#0A1F44] sm:text-[46px] md:text-[52px]">
-            Placement Day <span className="text-[#E8871A]">2025–26</span>
+            Placement Day <span className="font-sans text-[#E8871A]">2025–26</span>
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-[16px] leading-[1.8] text-[#64748B] md:text-[17px]">
@@ -30,103 +69,125 @@ export default function PlacementDayGallery() {
           </p>
         </div>
 
-        {/* Modern Responsive Bento Gallery Grid */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-12">
-          {/* Main Large Feature Card */}
+        {/* Desktop Smooth Collage Layout (md & lg) */}
+        <div className="hidden md:block relative w-full max-w-6xl mx-auto min-h-[580px] lg:min-h-[660px] select-none py-4">
+          
+          {/* TOP IMAGE (Main Group Picture) */}
           <div
-            onClick={() => setSelectedPhoto(placementDayCollage[0])}
-            className="group relative cursor-pointer overflow-hidden rounded-[24px] border border-[#E2E8F0] shadow-sm transition-all duration-300 hover:shadow-xl sm:col-span-2 lg:col-span-8 lg:row-span-2 min-h-[320px] lg:min-h-[440px]"
+            onClick={() => setSelectedPhoto(COLLAGE_PHOTOS[0])}
+            className="group absolute top-0 left-[20%] z-10 w-[58%] max-w-[620px] cursor-pointer rounded-[22px] border-[5px] border-white bg-white p-1 shadow-lg transform-gpu transition-all duration-300 ease-out hover:z-50 hover:scale-[1.03] hover:shadow-2xl"
           >
-            <Image
-              src={placementDayCollage[0].src}
-              alt={placementDayCollage[0].title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 66vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/90 via-[#0A1F44]/20 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-95" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 text-white">
-              <span className="inline-flex rounded-full bg-[#E8871A] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
-                {placementDayCollage[0].tag}
-              </span>
-              <h3 className="mt-2 font-serif text-[24px] font-bold sm:text-[30px] text-white">
-                {placementDayCollage[0].title}
-              </h3>
-              <p className="mt-1 text-[13px] text-slate-200 sm:text-[14px]">
-                {placementDayCollage[0].caption}
-              </p>
-            </div>
-          </div>
-
-          {/* Right Top Card */}
-          <div
-            onClick={() => setSelectedPhoto(placementDayCollage[1])}
-            className="group relative cursor-pointer overflow-hidden rounded-[24px] border border-[#E2E8F0] shadow-sm transition-all duration-300 hover:shadow-xl lg:col-span-4 min-h-[220px]"
-          >
-            <Image
-              src={placementDayCollage[1].src}
-              alt={placementDayCollage[1].title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/85 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-              <span className="text-[10px] font-bold text-[#E8871A] uppercase tracking-wider">
-                {placementDayCollage[1].tag}
-              </span>
-              <h4 className="font-serif text-[16px] font-bold text-white">
-                {placementDayCollage[1].title}
-              </h4>
-            </div>
-          </div>
-
-          {/* Right Bottom Card */}
-          <div
-            onClick={() => setSelectedPhoto(placementDayCollage[2])}
-            className="group relative cursor-pointer overflow-hidden rounded-[24px] border border-[#E2E8F0] shadow-sm transition-all duration-300 hover:shadow-xl lg:col-span-4 min-h-[220px]"
-          >
-            <Image
-              src={placementDayCollage[2].src}
-              alt={placementDayCollage[2].title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/85 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-              <span className="text-[10px] font-bold text-[#E8871A] uppercase tracking-wider">
-                {placementDayCollage[2].tag}
-              </span>
-              <h4 className="font-serif text-[16px] font-bold text-white">
-                {placementDayCollage[2].title}
-              </h4>
-            </div>
-          </div>
-
-          {/* Row of 4 Cards */}
-          {placementDayCollage.slice(3, 7).map((item, idx) => (
-            <div
-              key={idx}
-              onClick={() => setSelectedPhoto(item)}
-              className="group relative cursor-pointer overflow-hidden rounded-[24px] border border-[#E2E8F0] shadow-sm transition-all duration-300 hover:shadow-xl sm:col-span-1 lg:col-span-3 min-h-[220px]"
-            >
-              <Image
-                src={item.src}
-                alt={item.title}
-                fill
-                sizes="(max-width: 1024px) 50vw, 25vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[16px]">
+              <img
+                src={COLLAGE_PHOTOS[0].src}
+                alt={COLLAGE_PHOTOS[0].alt}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F44]/85 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <span className="text-[10px] font-bold text-[#E8871A] uppercase tracking-wider">
-                  {item.tag}
-                </span>
-                <h4 className="font-serif text-[15px] font-bold text-white truncate">
-                  {item.title}
-                </h4>
-              </div>
+            </div>
+            {/* Decorative Tape Right */}
+            <span className="absolute -top-3.5 right-8 z-20 h-7 w-16 rotate-12 rounded-xs bg-[#E8871A] shadow-md opacity-95 pointer-events-none" />
+          </div>
+
+          {/* CIRCLE IMAGE (Left Dignitary Speech) */}
+          <div
+            onClick={() => setSelectedPhoto(COLLAGE_PHOTOS[1])}
+            className="group absolute left-0 top-[18%] z-30 h-44 w-44 lg:h-52 lg:w-52 cursor-pointer rounded-full border-[6px] border-white bg-white shadow-xl transform-gpu transition-all duration-300 ease-out hover:z-50 hover:scale-110 hover:shadow-2xl"
+          >
+            <div className="h-full w-full overflow-hidden rounded-full">
+              <img
+                src={COLLAGE_PHOTOS[1].src}
+                alt={COLLAGE_PHOTOS[1].alt}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
+
+          {/* MID IMAGE (Panel Discussion) */}
+          <div
+            onClick={() => setSelectedPhoto(COLLAGE_PHOTOS[2])}
+            className="group absolute left-[23%] top-[28%] z-15 w-[34%] max-w-[360px] cursor-pointer rounded-[20px] border-[5px] border-white bg-white p-1 shadow-lg transform-gpu transition-all duration-300 ease-out hover:z-50 hover:scale-[1.04] hover:shadow-2xl"
+          >
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[14px]">
+              <img
+                src={COLLAGE_PHOTOS[2].src}
+                alt={COLLAGE_PHOTOS[2].alt}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
+
+          {/* RIGHT IMAGE (Award Presentation) */}
+          <div
+            onClick={() => setSelectedPhoto(COLLAGE_PHOTOS[3])}
+            className="group absolute right-0 top-[14%] z-20 w-[30%] max-w-[320px] rotate-[3deg] cursor-pointer rounded-[20px] border-[5px] border-white bg-white p-1 shadow-xl transform-gpu transition-all duration-300 ease-out hover:z-50 hover:rotate-0 hover:scale-[1.04] hover:shadow-2xl"
+          >
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[14px]">
+              <img
+                src={COLLAGE_PHOTOS[3].src}
+                alt={COLLAGE_PHOTOS[3].alt}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
+
+          {/* GROUP IMAGE (Bottom Left - Auditorium Audience) */}
+          <div
+            onClick={() => setSelectedPhoto(COLLAGE_PHOTOS[4])}
+            className="group absolute left-0 bottom-[0%] z-25 w-[42%] max-w-[450px] -rotate-[2deg] cursor-pointer rounded-[22px] border-[5px] border-white bg-white p-1 shadow-lg transform-gpu transition-all duration-300 ease-out hover:z-50 hover:rotate-0 hover:scale-[1.04] hover:shadow-2xl"
+          >
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[16px]">
+              <img
+                src={COLLAGE_PHOTOS[4].src}
+                alt={COLLAGE_PHOTOS[4].alt}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
+
+          {/* PANEL IMAGE (Bottom Center - Star Stage Setup) */}
+          <div
+            onClick={() => setSelectedPhoto(COLLAGE_PHOTOS[5])}
+            className="group absolute left-[40%] bottom-[2%] z-20 w-[36%] max-w-[390px] rotate-[1deg] cursor-pointer rounded-[22px] border-[5px] border-white bg-white p-1 shadow-lg transform-gpu transition-all duration-300 ease-out hover:z-50 hover:rotate-0 hover:scale-[1.04] hover:shadow-2xl"
+          >
+            <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[16px]">
+              <img
+                src={COLLAGE_PHOTOS[5].src}
+                alt={COLLAGE_PHOTOS[5].alt}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
+
+          {/* STAR IMAGE (Bottom Right - Student Performance) */}
+          <div
+            onClick={() => setSelectedPhoto(COLLAGE_PHOTOS[6])}
+            className="group absolute right-0 bottom-[0%] z-30 w-[23%] max-w-[240px] rotate-[4deg] cursor-pointer rounded-[18px] border-[5px] border-white bg-white p-1 shadow-xl transform-gpu transition-all duration-300 ease-out hover:z-50 hover:rotate-0 hover:scale-108 hover:shadow-2xl"
+          >
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[12px]">
+              <img
+                src={COLLAGE_PHOTOS[6].src}
+                alt={COLLAGE_PHOTOS[6].alt}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Gallery Layout (< md) */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:hidden">
+          {COLLAGE_PHOTOS.map((photo, idx) => (
+            <div
+              key={photo.id}
+              onClick={() => setSelectedPhoto(photo)}
+              className={`group relative cursor-pointer overflow-hidden rounded-[20px] border-4 border-white bg-white p-1 shadow-md transition-all duration-300 hover:scale-102 hover:shadow-xl ${
+                idx === 0 ? "sm:col-span-2 aspect-[16/9]" : "aspect-[4/3]"
+              }`}
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
           ))}
         </div>
@@ -134,43 +195,30 @@ export default function PlacementDayGallery() {
         {/* Modal Lightbox */}
         {selectedPhoto && (
           <div
-            className="fixed inset-0 z-[1002] flex items-center justify-center bg-black/80 p-4 backdrop-blur-md"
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
             onClick={() => setSelectedPhoto(null)}
             role="dialog"
             aria-modal="true"
           >
             <div
-              className="relative max-w-4xl w-full overflow-hidden rounded-[24px] bg-white shadow-2xl"
+              className="relative max-w-5xl w-full overflow-hidden rounded-[24px] bg-black shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
+                type="button"
                 onClick={() => setSelectedPhoto(null)}
-                className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black transition-colors"
+                className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white hover:bg-black transition-colors"
                 aria-label="Close photo preview"
               >
                 <X size={20} />
               </button>
 
               <div className="relative aspect-[16/10] w-full bg-black">
-                <Image
+                <img
                   src={selectedPhoto.src}
-                  alt={selectedPhoto.title}
-                  fill
-                  sizes="100vw"
-                  className="object-contain"
+                  alt={selectedPhoto.alt}
+                  className="h-full w-full object-contain"
                 />
-              </div>
-
-              <div className="p-6 bg-white">
-                <span className="inline-flex rounded-full bg-[#FFF3E2] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#E8871A]">
-                  {selectedPhoto.tag}
-                </span>
-                <h3 className="mt-2 font-serif text-[24px] font-bold text-[#0A1F44]">
-                  {selectedPhoto.title}
-                </h3>
-                <p className="mt-1 text-[14px] text-[#64748B]">
-                  {selectedPhoto.caption}
-                </p>
               </div>
             </div>
           </div>

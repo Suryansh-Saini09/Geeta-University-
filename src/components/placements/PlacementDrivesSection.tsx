@@ -62,19 +62,12 @@ export default function PlacementDrivesSection({ onOpenVideoModal }: PlacementDr
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="h-px w-9 bg-[#E8871A]" />
-            <span className="text-[10px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-              Recruitment Drives
-            </span>
             <span className="h-px w-9 bg-[#E8871A]" />
           </div>
 
           <h2 className="font-serif text-[38px] font-black leading-[1.08] tracking-[-1.5px] text-[#0A1F44] sm:text-[46px] md:text-[52px]">
             Placement Drives &amp; <span className="text-[#E8871A]">Snapshots</span>
           </h2>
-
-          <p className="mx-auto mt-5 max-w-3xl text-[16px] leading-[1.8] text-[#64748B] md:text-[17px]">
-            Witness active corporate recruitment events, technical interview panels, and mega placement drives hosted on the Geeta University campus.
-          </p>
         </div>
 
         {/* 2-Column Showcase */}
@@ -139,17 +132,6 @@ export default function PlacementDrivesSection({ onOpenVideoModal }: PlacementDr
                     Click to Watch Campus Drive
                   </span>
                 </div>
-              </div>
-
-              {/* Bottom Glass Bar */}
-              <div className="absolute bottom-3 left-3 right-3 rounded-[14px] bg-white/15 px-4 py-2.5 backdrop-blur-md flex items-center justify-between text-xs text-white border border-white/20">
-                <span className="font-semibold flex items-center gap-1.5">
-                  <Sparkles size={14} className="text-[#E8871A]" />
-                  Recruitment Season 2025–26
-                </span>
-                <span className="text-[#E8871A] font-bold uppercase tracking-wider">
-                  Watch on YouTube ↗
-                </span>
               </div>
             </div>
           </div>

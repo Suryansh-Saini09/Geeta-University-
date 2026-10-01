@@ -104,8 +104,9 @@ export default function PlacementSnapshotSection() {
       const riseY = Math.sin(midAngle) * riseDistance;
 
       // Inner percentage text location
-      const xPercent = cx + (radius * 0.65) * Math.cos(midAngle);
-      const yPercent = cy + (radius * 0.65) * Math.sin(midAngle);
+      const textRadiusMultiplier = sector.percentage < 4 ? 0.76 : 0.65;
+      const xPercent = cx + (radius * textRadiusMultiplier) * Math.cos(midAngle);
+      const yPercent = cy + (radius * textRadiusMultiplier) * Math.sin(midAngle);
 
       const largeArc = angleSpan > Math.PI ? 1 : 0;
       const pathData = `M ${cx} ${cy} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z`;
@@ -142,19 +143,15 @@ export default function PlacementSnapshotSection() {
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="h-px w-9 bg-[#E8871A]" />
-            <span className="text-[10px] font-bold uppercase tracking-[3px] text-[#E8871A]">
-              Placement Statistics
-            </span>
             <span className="h-px w-9 bg-[#E8871A]" />
           </div>
 
           <h2 className="font-serif text-[38px] font-black leading-[1.08] tracking-[-1.5px] text-[#0A1F44] sm:text-[46px] md:text-[52px]">
-            Placement Snapshot <span className="text-[#E8871A]">2025–26</span>
+            Placement Snapshot<span className="font-sans text-[#E8871A]"> 2025–26</span>
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-[16px] leading-[1.8] text-[#64748B] md:text-[17px]">
-            Demonstrating robust industry engagement with over <strong className="font-bold text-[#0A1F44]">150+ active recruiters</strong> participating in the current placement cycle across diverse technical, management, healthcare, and corporate verticals.
-          </p>
+Our institution continues to demonstrate strong industry engagement, with 150+ recruiters participating in the 2025–26 placement cycle, offering opportunities across diverse sectors.          </p>
         </div>
 
         {/* 2-Column Section: Left (Auto-Scrolling 3-Column Company Grid) | Right (Interactive Hover/Click Rising Pie Chart) */}
@@ -171,11 +168,6 @@ export default function PlacementSnapshotSection() {
                     Continuous corporate network across 10+ industry sectors
                   </p>
                 </div>
-
-                <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-amber-200 bg-[#FFF3E2] px-3.5 py-1 text-[12px] font-bold text-[#D97706]">
-                  <span className="h-2 w-2 rounded-full bg-[#D97706] animate-pulse" />
-                  {allRecruiterCompanies.length} Active Partners
-                </span>
               </div>
 
               {/* Search Box */}
@@ -266,235 +258,195 @@ export default function PlacementSnapshotSection() {
             </div>
           </div>
 
-          {/* Right Column: Clean Interactive Hover & Click Rising Pie Chart */}
+          {/* Right Column: Frameless Interactive Rising Pie Chart */}
           <div className="lg:col-span-5">
-            <div className="sticky top-28 rounded-[24px] border border-[#E2E8F0] bg-[#F7F9FC] p-6 shadow-sm sm:p-7">
-              <div className="text-center sm:text-left mb-4">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex rounded-full bg-[#FFF3E2] px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#E8871A]">
-                    Sector Diversity
-                  </span>
-                  <span className="text-[11px] font-semibold text-slate-400">
-                    Hover or click slice to rise
-                  </span>
-                </div>
-                <h3 className="mt-1 font-serif text-[22px] font-bold text-[#0A1F44]">
-                  Industry Sector Distribution
-                </h3>
-              </div>
+            <div className="sticky top-28 w-full select-none flex items-center justify-center">
+              <svg
+                viewBox="0 0 440 400"
+                className="w-full h-auto overflow-visible"
+              >
+                {/* Subtle 3D Shadow Base */}
+                <g opacity="0.10" transform="translate(6, 10)">
+                  {pieSlices.map((slice) => (
+                    <path
+                      key={`shadow-${slice.id}`}
+                      d={slice.pathData}
+                      fill="#000000"
+                    />
+                  ))}
+                </g>
 
-              {/* SVG Pie Chart with Clean Labels and Hover/Click Rise */}
-              <div className="relative aspect-square w-full select-none overflow-visible rounded-[20px] border border-slate-200 bg-white p-2 shadow-md flex items-center justify-center">
-                <svg
-                  viewBox="0 0 440 400"
-                  className="h-full w-full overflow-visible"
-                >
-                  {/* Subtle 3D Shadow Base */}
-                  <g opacity="0.10" transform="translate(6, 10)">
-                    {pieSlices.map((slice) => (
+                {/* Slices Group with Click & Hover Rise */}
+                {pieSlices.map((slice) => {
+                  const isActive = activeSectorId === slice.id;
+
+                  return (
+                    <g
+                      key={slice.id}
+                      onClick={() => setActiveSectorId(slice.id)}
+                      onMouseEnter={() => setActiveSectorId(slice.id)}
+                      className="cursor-pointer transition-all duration-300 ease-out"
+                      style={{
+                        transform: isActive
+                          ? `translate(${slice.riseX}px, ${slice.riseY}px) scale(1.05)`
+                          : "translate(0px, 0px) scale(1)",
+                        transformOrigin: "220px 200px",
+                      }}
+                    >
                       <path
-                        key={`shadow-${slice.id}`}
                         d={slice.pathData}
-                        fill="#000000"
-                      />
-                    ))}
-                  </g>
-
-                  {/* Slices Group with Click & Hover Rise */}
-                  {pieSlices.map((slice) => {
-                    const isActive = activeSectorId === slice.id;
-
-                    return (
-                      <g
-                        key={slice.id}
-                        onClick={() => setActiveSectorId(slice.id)}
-                        onMouseEnter={() => setActiveSectorId(slice.id)}
-                        className="cursor-pointer transition-all duration-300 ease-out"
+                        fill={slice.color}
+                        stroke="#FFFFFF"
+                        strokeWidth={isActive ? "3.5" : "2"}
                         style={{
-                          transform: isActive
-                            ? `translate(${slice.riseX}px, ${slice.riseY}px) scale(1.05)`
-                            : "translate(0px, 0px) scale(1)",
-                          transformOrigin: "220px 200px",
+                          filter: isActive
+                            ? "drop-shadow(0 6px 14px rgba(0,0,0,0.22))"
+                            : "none",
+                          transition: "all 0.3s ease",
                         }}
+                      />
+
+                      {/* Percentage on Slice (For All Slices) */}
+                      <text
+                        x={slice.xPercent}
+                        y={slice.yPercent}
+                        textAnchor="middle"
+                        dominantBaseline="central"
+                        fill="#1E293B"
+                        fontSize={slice.percentage < 4 ? "9.5" : isActive ? "13" : "11.5"}
+                        fontWeight="800"
+                        style={{ pointerEvents: "none" }}
                       >
-                        <path
-                          d={slice.pathData}
-                          fill={slice.color}
-                          stroke="#FFFFFF"
-                          strokeWidth={isActive ? "3.5" : "2"}
-                          style={{
-                            filter: isActive
-                              ? "drop-shadow(0 6px 14px rgba(0,0,0,0.22))"
-                              : "none",
-                            transition: "all 0.3s ease",
-                          }}
-                        />
+                        {slice.percentage}%
+                      </text>
+                    </g>
+                  );
+                })}
 
-                        {/* Percentage on Slice */}
-                        {slice.percentage >= 8 && (
-                          <text
-                            x={slice.xPercent}
-                            y={slice.yPercent}
-                            textAnchor="middle"
-                            dominantBaseline="central"
-                            fill="#1E293B"
-                            fontSize={isActive ? "13.5" : "12"}
-                            fontWeight="800"
-                            style={{ pointerEvents: "none" }}
-                          >
-                            {slice.percentage}%
-                          </text>
-                        )}
-                      </g>
-                    );
-                  })}
+                {/* Clean Callout Text Labels Around the Perimeter with Hover Links */}
+                {/* Sales & Marketing */}
+                <text
+                  x="85"
+                  y="310"
+                  textAnchor="middle"
+                  fill={activeSectorId === "sales-marketing" ? "#E8871A" : "#334155"}
+                  fontSize="12"
+                  fontWeight="700"
+                  className="cursor-pointer transition-colors"
+                  onClick={() => setActiveSectorId("sales-marketing")}
+                  onMouseEnter={() => setActiveSectorId("sales-marketing")}
+                >
+                  Sales &amp; Marketing
+                </text>
 
-                  {/* Clean Callout Text Labels Around the Perimeter with Hover Links */}
-                  {/* Sales & Marketing */}
+                {/* HR & Operations */}
+                <text
+                  x="355"
+                  y="315"
+                  textAnchor="middle"
+                  fill={activeSectorId === "hr-ops" ? "#E8871A" : "#334155"}
+                  fontSize="12"
+                  fontWeight="700"
+                  className="cursor-pointer transition-colors"
+                  onClick={() => setActiveSectorId("hr-ops")}
+                  onMouseEnter={() => setActiveSectorId("hr-ops")}
+                >
+                  HR &amp; Operations
+                </text>
+
+                {/* IT & Software */}
+                <text
+                  x="395"
+                  y="195"
+                  textAnchor="start"
+                  fill={activeSectorId === "it-software" ? "#E8871A" : "#334155"}
+                  fontSize="12"
+                  fontWeight="700"
+                  className="cursor-pointer transition-colors"
+                  onClick={() => setActiveSectorId("it-software")}
+                  onMouseEnter={() => setActiveSectorId("it-software")}
+                >
+                  IT &amp; Software
+                </text>
+
+                {/* Core Engineering */}
+                <text
+                  x="365"
+                  y="80"
+                  textAnchor="start"
+                  fill={activeSectorId === "core-engineering" ? "#E8871A" : "#334155"}
+                  fontSize="12"
+                  fontWeight="700"
+                  className="cursor-pointer transition-colors"
+                  onClick={() => setActiveSectorId("core-engineering")}
+                  onMouseEnter={() => setActiveSectorId("core-engineering")}
+                >
+                  Core Engineering
+                </text>
+
+                {/* Finance & Accounting */}
+                <text
+                  x="220"
+                  y="32"
+                  textAnchor="middle"
+                  fill={activeSectorId === "finance-accounting" ? "#E8871A" : "#334155"}
+                  fontSize="12"
+                  fontWeight="700"
+                  className="cursor-pointer transition-colors"
+                  onClick={() => setActiveSectorId("finance-accounting")}
+                  onMouseEnter={() => setActiveSectorId("finance-accounting")}
+                >
+                  Finance &amp; Accounting
+                </text>
+
+                {/* Small Slices Stack at Top Left */}
+                <g transform="translate(10, 48)">
                   <text
-                    x="85"
-                    y="310"
-                    textAnchor="middle"
-                    fill={activeSectorId === "sales-marketing" ? "#E8871A" : "#334155"}
-                    fontSize="12"
-                    fontWeight="700"
+                    fill={activeSectorId === "others" ? "#E8871A" : "#475569"}
+                    fontSize="11"
+                    fontWeight="600"
+                    y="0"
                     className="cursor-pointer transition-colors"
-                    onClick={() => setActiveSectorId("sales-marketing")}
-                    onMouseEnter={() => setActiveSectorId("sales-marketing")}
+                    onClick={() => setActiveSectorId("others")}
+                    onMouseEnter={() => setActiveSectorId("others")}
                   >
-                    Sales &amp; Marketing
+                    Others (3.2%)
                   </text>
-
-                  {/* HR & Operations */}
                   <text
-                    x="355"
-                    y="315"
-                    textAnchor="middle"
-                    fill={activeSectorId === "hr-ops" ? "#E8871A" : "#334155"}
-                    fontSize="12"
-                    fontWeight="700"
+                    fill={activeSectorId === "digital-marketing" ? "#E8871A" : "#475569"}
+                    fontSize="11"
+                    fontWeight="600"
+                    y="16"
                     className="cursor-pointer transition-colors"
-                    onClick={() => setActiveSectorId("hr-ops")}
-                    onMouseEnter={() => setActiveSectorId("hr-ops")}
+                    onClick={() => setActiveSectorId("digital-marketing")}
+                    onMouseEnter={() => setActiveSectorId("digital-marketing")}
                   >
-                    HR &amp; Operations
+                    Digital Marketing (2.8%)
                   </text>
-
-                  {/* IT & Software */}
                   <text
-                    x="395"
-                    y="195"
-                    textAnchor="start"
-                    fill={activeSectorId === "it-software" ? "#E8871A" : "#334155"}
-                    fontSize="12"
-                    fontWeight="700"
-                    className="cursor-pointer transition-colors"
-                    onClick={() => setActiveSectorId("it-software")}
-                    onMouseEnter={() => setActiveSectorId("it-software")}
-                  >
-                    IT &amp; Software
-                  </text>
-
-                  {/* Core Engineering */}
-                  <text
-                    x="365"
-                    y="80"
-                    textAnchor="start"
-                    fill={activeSectorId === "core-engineering" ? "#E8871A" : "#334155"}
-                    fontSize="12"
-                    fontWeight="700"
-                    className="cursor-pointer transition-colors"
-                    onClick={() => setActiveSectorId("core-engineering")}
-                    onMouseEnter={() => setActiveSectorId("core-engineering")}
-                  >
-                    Core Engineering
-                  </text>
-
-                  {/* Finance & Accounting */}
-                  <text
-                    x="220"
+                    fill={activeSectorId === "healthcare" ? "#E8871A" : "#475569"}
+                    fontSize="11"
+                    fontWeight="600"
                     y="32"
-                    textAnchor="middle"
-                    fill={activeSectorId === "finance-accounting" ? "#E8871A" : "#334155"}
-                    fontSize="12"
-                    fontWeight="700"
                     className="cursor-pointer transition-colors"
-                    onClick={() => setActiveSectorId("finance-accounting")}
-                    onMouseEnter={() => setActiveSectorId("finance-accounting")}
+                    onClick={() => setActiveSectorId("healthcare")}
+                    onMouseEnter={() => setActiveSectorId("healthcare")}
                   >
-                    Finance &amp; Accounting
+                    Healthcare (2.1%)
                   </text>
-
-                  {/* Small Slices Stack at Top Left */}
-                  <g transform="translate(10, 48)">
-                    <text
-                      fill={activeSectorId === "others" ? "#E8871A" : "#475569"}
-                      fontSize="11"
-                      fontWeight="600"
-                      y="0"
-                      className="cursor-pointer transition-colors"
-                      onClick={() => setActiveSectorId("others")}
-                      onMouseEnter={() => setActiveSectorId("others")}
-                    >
-                      Others (3.2%)
-                    </text>
-                    <text
-                      fill={activeSectorId === "digital-marketing" ? "#E8871A" : "#475569"}
-                      fontSize="11"
-                      fontWeight="600"
-                      y="16"
-                      className="cursor-pointer transition-colors"
-                      onClick={() => setActiveSectorId("digital-marketing")}
-                      onMouseEnter={() => setActiveSectorId("digital-marketing")}
-                    >
-                      Digital Marketing (2.8%)
-                    </text>
-                    <text
-                      fill={activeSectorId === "healthcare" ? "#E8871A" : "#475569"}
-                      fontSize="11"
-                      fontWeight="600"
-                      y="32"
-                      className="cursor-pointer transition-colors"
-                      onClick={() => setActiveSectorId("healthcare")}
-                      onMouseEnter={() => setActiveSectorId("healthcare")}
-                    >
-                      Healthcare (2.1%)
-                    </text>
-                    <text
-                      fill={activeSectorId === "consulting" ? "#E8871A" : "#475569"}
-                      fontSize="11"
-                      fontWeight="600"
-                      y="48"
-                      className="cursor-pointer transition-colors"
-                      onClick={() => setActiveSectorId("consulting")}
-                      onMouseEnter={() => setActiveSectorId("consulting")}
-                    >
-                      Consulting (1.1%)
-                    </text>
-                  </g>
-                </svg>
-              </div>
-
-              {/* Clean Summary Metric Cards */}
-              <div className="mt-5 grid grid-cols-2 gap-3 text-center">
-                <div className="rounded-[14px] border border-slate-200 bg-white p-3">
-                  <div className="font-serif text-[22px] font-bold text-[#0A1F44]">
-                    10+
-                  </div>
-                  <div className="text-[12px] font-semibold text-[#64748B]">
-                    Industry Verticals
-                  </div>
-                </div>
-
-                <div className="rounded-[14px] border border-slate-200 bg-white p-3">
-                  <div className="font-serif text-[22px] font-bold text-[#E8871A]">
-                    ₹4.39 LPA
-                  </div>
-                  <div className="text-[12px] font-semibold text-[#64748B]">
-                    Average Package
-                  </div>
-                </div>
-              </div>
+                  <text
+                    fill={activeSectorId === "consulting" ? "#E8871A" : "#475569"}
+                    fontSize="11"
+                    fontWeight="600"
+                    y="48"
+                    className="cursor-pointer transition-colors"
+                    onClick={() => setActiveSectorId("consulting")}
+                    onMouseEnter={() => setActiveSectorId("consulting")}
+                  >
+                    Consulting (1.1%)
+                  </text>
+                </g>
+              </svg>
             </div>
           </div>
         </div>
