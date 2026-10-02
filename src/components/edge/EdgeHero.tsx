@@ -72,7 +72,6 @@ export default function EdgeHero({ hero }: EdgeHeroProps) {
                       : "border-[#E8871A]/30 bg-[#E8871A]/10 text-[#E8871A]"
                   }`}
                 >
-                  <Sparkles size={14} className={isDark ? "text-[#00d4ff]" : "text-[#E8871A]"} />
                   <span className="text-xs font-bold uppercase tracking-[2px]">
                     {hero.eyebrow}
                   </span>
@@ -166,7 +165,7 @@ export default function EdgeHero({ hero }: EdgeHeroProps) {
                   </Link>
                 )}
 
-                {hero.videoUrl && (
+                {/* {hero.videoUrl && (
                   <button
                     type="button"
                     onClick={() => setIsVideoOpen(true)}
@@ -179,7 +178,7 @@ export default function EdgeHero({ hero }: EdgeHeroProps) {
                     <Play size={16} className="text-[#E8871A] fill-[#E8871A]" />
                     <span>Watch Video</span>
                   </button>
-                )}
+                )} */}
               </motion.div>
             </div>
 
@@ -200,20 +199,24 @@ export default function EdgeHero({ hero }: EdgeHeroProps) {
                 transition={{ delay: 0.2 }}
                 className="lg:col-span-6 xl:col-span-5 flex justify-center"
               >
-                <div className="relative group w-full max-w-lg aspect-video rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-900 ring-1 ring-slate-200">
+                <div className="relative group w-full max-w-lg aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 ring-1 ring-slate-200">
                   <img
-                    src={hero.videoThumb || "/edge/nep/maxresdefault.jpg"}
+                    src={
+                      hero.videoUrl && hero.videoUrl.includes("youtube")
+                        ? `https://img.youtube.com/vi/${hero.videoUrl.match(/(?:embed\/|v\/|watch\?v=|youtu\.be\/|\?v=)([^#&?]*)/)?.[1] || ""}/hqdefault.jpg`
+                        : (hero.videoThumb || "/edge/nep/maxresdefault.jpg")
+                    }
                     alt={hero.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                   />
-                  <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-black/10 to-transparent group-hover:from-slate-950/40 transition-all duration-300" />
                   
                   {/* Play Button Trigger */}
                   <button
                     type="button"
                     onClick={() => setIsVideoOpen(true)}
                     aria-label="Play video"
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-18 md:w-18 rounded-full bg-white text-[#06355F] flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-[#E8871A] group-hover:text-white"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16 md:h-18 md:w-18 rounded-full bg-[#E8871A] text-white flex items-center justify-center shadow-2xl shadow-[#E8871A]/40 ring-4 ring-white/30 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#ff951e] group-hover:ring-white/60"
                   >
                     <Play size={26} className="fill-current ml-1" />
                   </button>
@@ -227,7 +230,7 @@ export default function EdgeHero({ hero }: EdgeHeroProps) {
         {/* Video Modal */}
         <AnimatePresence>
           {isVideoOpen && hero.videoUrl && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
+            <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 md:p-10">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

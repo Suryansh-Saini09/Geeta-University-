@@ -37,29 +37,33 @@ export default function EdgeFeatureGrid({ section }: EdgeFeatureGridProps) {
       <div className="gu-container">
 
         {/* Header */}
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          {section.eyebrow && (
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8871A]/10 px-4 py-1 border border-[#E8871A]/20">
-              <Sparkles size={14} className="text-[#E8871A]" />
-              <span className="text-xs font-bold uppercase tracking-[2px] text-[#E8871A]">
-                {section.eyebrow}
-              </span>
-            </div>
-          )}
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0A1F44]">
-            {section.title}
-          </h2>
-          {section.subtitle && (
-            <p className="mt-3 text-base md:text-lg text-slate-600 font-medium">
-              {section.subtitle}
-            </p>
-          )}
-          {section.description && (
-            <p className="mt-3 text-sm md:text-base text-slate-500 max-w-2xl mx-auto">
-              {section.description}
-            </p>
-          )}
-        </div>
+        {(section.eyebrow || section.title || section.subtitle || section.description) && (
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            {section.eyebrow && (
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8871A]/10 px-4 py-1 border border-[#E8871A]/20">
+                <Sparkles size={14} className="text-[#E8871A]" />
+                <span className="text-xs font-bold uppercase tracking-[2px] text-[#E8871A]">
+                  {section.eyebrow}
+                </span>
+              </div>
+            )}
+            {section.title && (
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0A1F44]">
+                {section.title}
+              </h2>
+            )}
+            {section.subtitle && (
+              <p className="mt-3 text-base md:text-lg text-slate-600 font-medium">
+                {section.subtitle}
+              </p>
+            )}
+            {section.description && (
+              <p className="mt-3 text-sm md:text-base text-slate-500 max-w-2xl mx-auto">
+                {section.description}
+              </p>
+            )}
+          </div>
+        )}
 
         {/* Layout: Numbered (NEP 10 Advantages) */}
         {section.layoutStyle === "numbered" && (
@@ -176,7 +180,7 @@ export default function EdgeFeatureGrid({ section }: EdgeFeatureGridProps) {
                 {feature.bullets && feature.bullets.length > 0 && (
                   <ul className="mt-6 flex-1 space-y-2.5 border-t border-slate-200 pt-6">
                     {feature.bullets.map((b, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
+                      <li key={bIdx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700">
                         <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#E8871A]" />
                         <span>{b}</span>
                       </li>
@@ -190,7 +194,7 @@ export default function EdgeFeatureGrid({ section }: EdgeFeatureGridProps) {
 
         {/* Layout: Split (Side by side two columns) */}
         {section.layoutStyle === "split" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
             {section.features.map((feature, idx) => (
               <motion.div
                 key={idx}
@@ -198,28 +202,49 @@ export default function EdgeFeatureGrid({ section }: EdgeFeatureGridProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="flex flex-col rounded-2xl bg-slate-50 border border-slate-200 p-8 md:p-10 shadow-sm"
+                className="flex flex-col"
               >
+                {/* Heading ALWAYS on top */}
                 <div className="flex items-center gap-3 mb-4">
                   {feature.iconName && (
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-[#E8871A] shadow-sm">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-[#E8871A]">
                       {getIcon(feature.iconName)}
                     </div>
                   )}
-                  <h3 className="font-serif text-2xl font-bold text-[#0A1F44]">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#0A1F44]">
                     {feature.title}
                   </h3>
                 </div>
 
-                <p className="text-sm md:text-base leading-relaxed text-slate-600 mb-6">
-                  {feature.description}
-                </p>
+                {feature.subtitle && (
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#06355F] mb-3">
+                    {feature.subtitle}
+                  </p>
+                )}
 
+                {feature.description && (
+                  <p className="text-sm md:text-base leading-relaxed text-slate-600 mb-4">
+                    {feature.description}
+                  </p>
+                )}
+
+                {/* Image placed BELOW the heading */}
+                {feature.image && (
+                  <div className="my-2 overflow-hidden rounded-xl">
+                    <img
+                      src={feature.image}
+                      alt={feature.title}
+                      className="w-full h-auto object-contain max-h-[420px] block"
+                    />
+                  </div>
+                )}
+
+                {/* Bullets */}
                 {feature.bullets && feature.bullets.length > 0 && (
-                  <ul className="space-y-3 pt-6 border-t border-slate-200 flex-1">
+                  <ul className="space-y-3 pt-2 flex-1">
                     {feature.bullets.map((b, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-3 text-sm text-slate-700">
-                        <CheckCircle2 size={16} className="text-[#E8871A] shrink-0 mt-0.5" />
+                      <li key={bIdx} className="flex items-start gap-3 text-sm sm:text-base text-slate-700">
+                        <CheckCircle2 size={18} className="text-[#E8871A] shrink-0 mt-0.5" />
                         <span>{b}</span>
                       </li>
                     ))}

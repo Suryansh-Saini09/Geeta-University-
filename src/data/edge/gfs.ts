@@ -26,7 +26,6 @@ export const gfsPage: EdgePageData = {
     image: "/edge/gfs/1.jpg",
     videoUrl: "https://www.youtube.com/embed/KYyk8Yr0Ty8?si=q0lBcWbq51__els_",
     videoThumb: "/edge/gfs/14.jpg",
-    ctaText: "Explore GFS Programs",
     ctaLink: "https://admissions.geetauniversity.edu.in/",
   },
 
@@ -57,9 +56,6 @@ export const gfsPage: EdgePageData = {
   },
 
   videos: {
-    // eyebrow: "VOICES OF TRANSFORMATION",
-    title: "Real Impact, Real Success in Action",
-    subtitle: "Watch how GFS bridges the gap between college education and executive performance",
     featuredVideo: {
       title: "Empowering Students Beyond the Classroom",
       description: "How GFS grooms leaders with confidence, poise, and global communication standards.",
@@ -69,11 +65,8 @@ export const gfsPage: EdgePageData = {
     },
     playlist: [
       {
-        title: "Real Success & Corporate Grooming",
-        description: "Student transformations from campus novices into confident professionals.",
         thumbnail: "/edge/gfs/13.jpg",
         videoUrl: "https://www.youtube.com/embed/fFJZ6Hk6N80?si=fFPdPKVscFdE7Nq1",
-        tag: "Success Stories",
       },
     ],
   },
@@ -270,8 +263,6 @@ export const gfsPage: EdgePageData = {
     items: [
       {
         src: "/edge/gfs/12.jpg",
-        title: "Interactive Grooming Sessions",
-        caption: "Students participating in corporate simulations and public speaking labs.",
       },
     ],
   },

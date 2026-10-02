@@ -74,6 +74,8 @@ export interface EdgeMentorItem {
   description: string;
   fullBio?: string;
   image: string;
+  imagePosition?: string;
+  imageScale?: number;
   linkedin?: string;
   tags?: string[];
 }
@@ -103,7 +105,7 @@ export interface EdgeFeatureItem {
 export interface EdgeFeatureGridSection {
   id?: string;
   eyebrow?: string;
-  title: string;
+  title?: string;
   subtitle?: string;
   description?: string;
   columns?: 2 | 3 | 4 | 5;
@@ -149,7 +151,7 @@ export interface EdgeTestimonialsSection {
 }
 
 export interface EdgeVideoItem {
-  title: string;
+  title?: string;
   description?: string;
   thumbnail: string;
   videoUrl: string;
@@ -159,7 +161,7 @@ export interface EdgeVideoItem {
 
 export interface EdgeVideoSection {
   eyebrow?: string;
-  title: string;
+  title?: string;
   subtitle?: string;
   description?: string;
   featuredVideo?: EdgeVideoItem;
@@ -190,7 +192,7 @@ export interface EdgeAccordionSection {
 
 export interface EdgeGalleryItem {
   src: string;
-  title: string;
+  title?: string;
   caption?: string;
   category?: string;
 }

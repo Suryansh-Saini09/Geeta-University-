@@ -21,36 +21,17 @@ export const vocationalSkillsPage: EdgePageData = {
 
   hero: {
     title: "Because The Industry Hires Skills Not Just Degrees",
-    eyebrow: "GU EDGE — VOCATIONAL SKILLS BUCKET",
-    subtitle: "Practical Competencies · Industry-Delivered · Portfolio-Building",
     description:
-      "At Geeta University, we believe that a degree should come with something more — skills that get you hired. That’s why we offer every student — across all programs and disciplines — access to our mandatory Vocational Skills Bucket, delivered directly by domain practitioners with real-world corporate experience.",
+      "At Geeta University, we believe that a degree should come with something more — skills that get you hired. That’s why we offer every student — across all programs and disciplines — access to our mandatory Vocational Skills Bucket, Courses rendered by expert professionals. They’re delivered by industry professionals, domain experts, certified trainers, and practitioners who bring real-world experience into every classroom.",
     image: "/edge/vocational-skills/1.jpg",
     videoUrl: "https://www.youtube.com/embed/QCYAZbd5m7Q?autoplay=1",
     videoThumb: "https://img.youtube.com/vi/QCYAZbd5m7Q/maxresdefault.jpg",
-    ctaText: "Explore Vocational Tracks",
-    ctaLink: "https://admissions.geetauniversity.edu.in/",
-  },
-
-  videos: {
-    eyebrow: "EXPERT PERSPECTIVES",
-    title: "Entrepreneurship Simplified",
-    subtitle: "Insights from Vocational Skill Experts at Geeta University",
-    featuredVideo: {
-      title: "Entrepreneurship Simplified: Insights from Vocation Skill Expert",
-      description: "How practical market skills turn theoretical knowledge into tangible career momentum.",
-      thumbnail: "https://img.youtube.com/vi/QCYAZbd5m7Q/maxresdefault.jpg",
-      videoUrl: "https://www.youtube.com/embed/QCYAZbd5m7Q?autoplay=1",
-      tag: "Masterclass",
-    },
   },
 
   features: [
     {
       id: "vocational-courses",
-      eyebrow: "INDUSTRY-LED MODULES",
       title: "Vocational Courses Offered by Industry Experts",
-      subtitle: "Hands-on, portfolio-driven learning tracks across high-growth domains",
       layoutStyle: "cards",
       columns: 2,
       features: [
@@ -64,7 +45,7 @@ export const vocationalSkillsPage: EdgePageData = {
             "Interactive Power BI executive dashboards & visual storytelling",
             "Business intelligence fundamentals and real-world KPI tracking",
           ],
-          tag: "Ideal for BBA, MBA, B.Tech, B.Sc., B.Com",
+          tag: "Ideal for BBA, MBA, B.Tech, B.Sc., B.Com students aiming to impress recruiters with analytical mindset.",
         },
         {
           title: "Digital Marketing",
@@ -76,7 +57,7 @@ export const vocationalSkillsPage: EdgePageData = {
             "Creative asset design fundamentals and Photoshop basics",
             "Web strategy, funnel analytics & conversion-focused UX",
           ],
-          tag: "Ideal for Marketing, Media, BBA, MBA & Entrepreneurs",
+          tag: "Ideal for Marketing, Media, BBA, MBA & students with entrepreneurial vision.",
         },
         {
           title: "Entrepreneurship & Family Business",
@@ -88,7 +69,7 @@ export const vocationalSkillsPage: EdgePageData = {
             "Family enterprise leadership, governance & modern innovation",
             "Brand positioning, strategic decision-making, and venture scaling",
           ],
-          tag: "Ideal for aspiring founders from all academic backgrounds",
+          tag: "Ideal for Aspiring business leaders from all backgrounds especially commerce, management, and family-run setups.",
         },
         {
           title: "Data Analytics with Python (New)",
@@ -100,21 +81,18 @@ export const vocationalSkillsPage: EdgePageData = {
             "Core analytical libraries: Pandas, NumPy, Matplotlib, Seaborn",
             "Hands-on analytics capstone projects using real-world enterprise datasets",
           ],
-          tag: "Ideal for B.Tech, BCA, B.Sc., Economics & tech enthusiasts",
+          tag: "Ideal for B.Tech, BCA, B.Sc., Economics & anyone eyeing a career in tech and analytics.",
         },
       ],
     },
     {
       id: "program-features-and-impact",
-      eyebrow: "THE GU ADVANTAGE",
       title: "Key Features & Real Career Impact",
-      subtitle: "Why Geeta University's Vocational System Drives Higher Placement Rates",
       layoutStyle: "split",
       columns: 2,
       features: [
         {
           title: "Key Features of the Program",
-          description: "Structured around experiential, zero-fluff learning:",
           bullets: [
             "Free & Mandatory for all enrolled Geeta University students",
             "Delivered exclusively by verified industry professionals",
@@ -123,33 +101,17 @@ export const vocationalSkillsPage: EdgePageData = {
             "Mapped continuously to latest corporate hiring tools",
             "Fully aligned with NEP 2020's skill-first higher education mandate",
           ],
-          iconName: "CheckCircle",
         },
         {
           title: "The Real Impact on Your Career",
-          description: "Tangible professional outcomes from semester one:",
           bullets: [
             "Boosts Employability: Stand out immediately in crowded job markets with tangible tool mastery",
             "Builds Executive Confidence: Learn directly from leaders actively doing the job in top MNCs",
             "Future-Proof Learning: Stay relevant as automation reshapes traditional career roles",
             "Career Exploration: Discover high-paying cross-disciplinary niches beyond your major",
           ],
-          iconName: "TrendingUp",
         },
       ],
     },
   ],
-
-  cta: {
-    heading: "Acquire the Skills That Get You Hired",
-    subtitle: "Vocational Skills Bucket at Geeta University",
-    description:
-      "Graduate with an accredited degree and verified industry certifications that give you an unfair advantage in corporate hiring.",
-    buttonText: "Apply Now",
-    buttonLink: "https://admissions.geetauniversity.edu.in/",
-    secondaryButtonText: "Download Brochure",
-    secondaryButtonLink: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
-    helpline: "+91 92787 68000",
-    campusAddress: "NH-71A, Naultha Panipat, Delhi NCR, Haryana (132145), India.",
-  },
 };
