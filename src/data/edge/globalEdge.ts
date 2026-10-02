@@ -24,9 +24,6 @@ export const globalEdgePage: EdgePageData = {
   hero: {
     title: "Empowering the Next Generation of Legal Innovators",
     eyebrow: "WELCOME TO GEETA UNIVERSITY, PANIPAT",
-    subtitle: "Geeta Global Law School · Bar Council of India Approved",
-    description:
-      "Grooming future advocates, corporate counsels, judicial officers, and global policy thinkers with practice-oriented legal training, international conferences, and state-of-the-art moot courts.",
     badges: [
       "5 Years Integrated B.A. LL.B. Program",
       "5 Years Integrated B.B.A. LL.B. (Hons.) Program",
@@ -34,8 +31,6 @@ export const globalEdgePage: EdgePageData = {
     ],
     graphicType: "tech-circle",
     theme: "dark",
-    ctaText: "Apply for Law Admissions",
-    ctaLink: "https://admissions.geetauniversity.edu.in/",
   },
 
   stats: {
@@ -46,25 +41,25 @@ export const globalEdgePage: EdgePageData = {
         value: "4th",
         label: "Ranked by CSR",
         sublabel: "Among Top Law Schools",
-        iconName: "Award",
+        // iconName: "Award",
       },
       {
         value: "1st",
         label: "Ranked in Haryana",
         sublabel: "Statewide Legal Excellence",
-        iconName: "Trophy",
+        // iconName: "Trophy",
       },
       {
         value: "25th",
         label: "Ranked by Outlook",
         sublabel: "All India Ranking",
-        iconName: "Star",
+        // iconName: "Star",
       },
       {
         value: "36th",
         label: "Ranked by India Today",
         sublabel: "National Benchmark",
-        iconName: "TrendingUp",
+        // iconName: "TrendingUp",
       },
     ],
   },
@@ -72,9 +67,7 @@ export const globalEdgePage: EdgePageData = {
   features: [
     {
       id: "key-highlights",
-      eyebrow: "WHY GEETA GLOBAL LAW SCHOOL",
       title: "Key Highlights",
-      subtitle: "Unmatched Legal Pedagogy & Global Industry Integration",
       layoutStyle: "cards",
       columns: 5,
       features: [
@@ -85,22 +78,22 @@ export const globalEdgePage: EdgePageData = {
         },
         {
           title: "Industry-Ready Curriculum",
-          description: "Stay aligned with the rapidly evolving constitutional, corporate, and technological legal landscape.",
+          description: "Stay aligned with the evolving legal landscape.",
           iconName: "Briefcase",
         },
         {
           title: "Moot Courts & Legal Clinics",
-          description: "Experience authentic court procedures, advocacy drafting, and free community legal aid clinics.",
+          description: "Experience practical legal training.",
           iconName: "Scale",
         },
         {
           title: "Global Exposure",
-          description: "Collaborations with 50+ international partner institutions including Kathmandu School of Law.",
+          description: "50+ international partners to broaden your legal perspective.",
           iconName: "Globe",
         },
         {
           title: "Recruiter Network",
-          description: "Leverage a network of 1,000+ top law firms, corporate houses, and judicial consultancies.",
+          description: "Leverage a network of 1,000+ recruiters to explore diverse career opportunities.",
           iconName: "Building2",
         },
       ],
@@ -235,16 +228,4 @@ export const globalEdgePage: EdgePageData = {
     ],
   },
 
-  cta: {
-    heading: "Shape the Future of Law & Justice",
-    subtitle: "Admissions Open",
-    description:
-      "Join Geeta Global Law School to learn from eminent jurists, practice in world-class moot courts, and launch a distinguished legal career.",
-    buttonText: "Apply for Law",
-    buttonLink: "https://admissions.geetauniversity.edu.in/",
-    secondaryButtonText: "Download Law Brochure",
-    secondaryButtonLink: "https://geetauniversity.edu.in/uploads/all/1892/GU-Brochure-2026-27.pdf",
-    helpline: "+91 92787 68000",
-    campusAddress: "NH-71A, Naultha Panipat, Delhi NCR, Haryana (132145), India.",
-  },
 };
