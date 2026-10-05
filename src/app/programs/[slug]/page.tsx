@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 import ProgramPage from "@/components/programs/ProgramPage";
+import CmsProgramPage from "@/components/programs/CmsProgramPage";
+import { getPublishedProgram } from "@/server/services/publicAcademic";
 import {
   getProgramBySlug,
   getAllProgramSlugs,
@@ -12,6 +14,8 @@ interface PageProps {
     slug: string;
   }>;
 }
+
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   const slugs = getAllProgramSlugs();
@@ -27,6 +31,11 @@ export async function generateMetadata({
   const { slug } = await params;
 
   const program = getProgramBySlug(slug);
+
+  if (!program) {
+    const cmsProgram = await getPublishedProgram(slug);
+    return cmsProgram ? { title: cmsProgram.seo?.title ?? cmsProgram.name, description: cmsProgram.seo?.description ?? undefined, robots: cmsProgram.seo?.noIndex ? { index: false } : undefined } : {};
+  }
 
   if (!program) {
     return {};
@@ -49,7 +58,9 @@ export default async function ProgramRoute({
   const program = getProgramBySlug(slug);
 
   if (!program) {
-    notFound();
+    const cmsProgram = await getPublishedProgram(slug);
+    if (!cmsProgram) notFound();
+    return <CmsProgramPage program={cmsProgram} />;
   }
 
   return <ProgramPage data={program} />;

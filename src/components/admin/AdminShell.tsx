@@ -11,6 +11,7 @@ import {
   Megaphone,
   Newspaper,
   Settings,
+  Inbox,
   ScrollText,
   Shield,
   Users,
@@ -32,6 +33,7 @@ const navigation = [
   { label: "Events", href: "/admin/events", icon: CalendarDays },
   { label: "Gallery", href: "/admin/gallery", icon: GalleryHorizontalEnd },
   { label: "Media", href: "/admin/media", icon: Image },
+  { label: "Submissions", href: "/admin/submissions", icon: Inbox },
   { label: "Users", href: "/admin/users", icon: UserCog },
   { label: "Activity", href: "/admin/activity", icon: ScrollText },
   { label: "Settings", href: "/admin/settings", icon: Settings },
@@ -61,7 +63,13 @@ export default function AdminShell({
           </div>
 
           <nav className="space-y-1 p-4">
-            {navigation.filter((item) => !["/admin/users", "/admin/activity"].includes(item.href) || hasPermission(user.role, "manageUsers")).map((item) => {
+            {navigation.filter((item) => {
+              if (item.href === "/admin/users") return hasPermission(user.role, "manageUsers");
+              if (item.href === "/admin/activity") return hasPermission(user.role, "viewAuditLogs");
+              if (item.href === "/admin/submissions") return hasPermission(user.role, "viewSubmissions");
+              if (item.href === "/admin/settings") return hasPermission(user.role, "manageSettings");
+              return true;
+            }).map((item) => {
               const Icon = item.icon;
 
               return (

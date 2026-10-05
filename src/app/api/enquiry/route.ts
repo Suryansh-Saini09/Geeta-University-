@@ -1,73 +1,52 @@
 import { NextResponse } from "next/server";
+import { prisma } from "@/server/db/client";
+import { admissionEnquirySchema } from "@/validations/admissionEnquiry";
 
 export async function POST(request: Request) {
+  if (!request.headers.get("content-type")?.includes("application/json")) {
+    return NextResponse.json({ success: false, message: "Expected JSON form data." }, { status: 415 });
+  }
+  const contentLength = Number(request.headers.get("content-length"));
+  if (contentLength > 10_000) {
+    return NextResponse.json({ success: false, message: "Enquiry is too large." }, { status: 413 });
+  }
+
+  let body: unknown;
   try {
-    const body = await request.json();
-    const { name, email, mobile, state, city, discipline, course, agree } = body;
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ success: false, message: "Invalid JSON form data." }, { status: 400 });
+  }
+  const parsed = admissionEnquirySchema.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json({ success: false, message: "Please check all required enquiry fields." }, { status: 400 });
+  }
 
-    // Validate essential fields
-    if (!name || !email || !mobile) {
-      return NextResponse.json(
-        { success: false, message: "Please fill in all required fields (Name, Email, Mobile)." },
-        { status: 400 }
-      );
-    }
+  const { page_url, ...fields } = parsed.data;
+  let sourcePath: string | null = null;
+  if (page_url) {
+    const url = new URL(page_url);
+    if (url.origin === new URL(request.url).origin) sourcePath = url.pathname;
+  }
 
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { success: false, message: "Please provide a valid email address." },
-        { status: 400 }
-      );
-    }
-
-    // Basic mobile validation (at least 10 digits)
-    const cleanedMobile = mobile.replace(/\D/g, "");
-    if (cleanedMobile.length < 10) {
-      return NextResponse.json(
-        { success: false, message: "Please enter a valid 10-digit mobile number." },
-        { status: 400 }
-      );
-    }
-
-    const timestamp = new Date().toISOString();
-    const enquiryLead = {
-      id: `GU-${Date.now()}`,
-      name: name.trim(),
-      email: email.trim().toLowerCase(),
-      mobile: cleanedMobile,
-      state: state || "",
-      city: city || "",
-      discipline: discipline || "",
-      course: course || "",
-      agree: Boolean(agree),
-      timestamp,
-      source: "website_enquiry_form",
-    };
-
-    // Log the lead for server telemetry
-    console.log("[Admission Enquiry Received]", JSON.stringify(enquiryLead, null, 2));
-
-    // Optional: forward to NoPaperForms webhook/API server-side if NPF endpoints are configured
-    try {
-      // In server environment, requests to NPF or CRM can be dispatched without browser domain blocking
-    } catch {
-      // Graceful fallback - never fail the user submission
-    }
-
-    return NextResponse.json(
-      {
-        success: true,
-        leadId: enquiryLead.id,
-        message: "Thank you for your enquiry! Our admissions counselor will get in touch with you shortly.",
+  try {
+    const submission = await prisma.contactSubmission.create({
+      data: {
+        type: "ADMISSION_ENQUIRY",
+        name: fields.name,
+        email: fields.email,
+        phone: fields.mobile,
+        subject: fields.course,
+        payload: { state: fields.state, city: fields.city, discipline: fields.discipline, course: fields.course, consent: fields.agree },
+        sourcePath,
       },
-      { status: 200 }
-    );
+      select: { id: true },
+    });
+    return NextResponse.json({ success: true, leadId: submission.id, message: "Your enquiry has been received." }, { status: 201 });
   } catch (error) {
-    console.error("[Enquiry Submission Error]", error);
+    console.error("Failed to save admission enquiry:", error);
     return NextResponse.json(
-      { success: false, message: "Something went wrong while submitting your enquiry. Please try again." },
+      { success: false, message: "We could not submit your enquiry. Please try again." },
       { status: 500 }
     );
   }

@@ -500,7 +500,7 @@ export default function AdmissionFormWrapper({
       const data = await response.json();
 
       if (response.ok && data.success) {
-        setLeadId(data.leadId || `GU-${Date.now()}`);
+        setLeadId(data.leadId);
         setSubmitted(true);
       } else {
         setErrorMessage(
@@ -508,21 +508,7 @@ export default function AdmissionFormWrapper({
         );
       }
     } catch {
-      // Offline fallback: save locally and show success
-      try {
-        const fallbackId = `GU-${Date.now()}`;
-        if (typeof window !== "undefined" && window.localStorage) {
-          const prev = JSON.parse(
-            localStorage.getItem("gu_enquiries") || "[]"
-          );
-          prev.push({ ...formData, leadId: fallbackId, date: new Date().toISOString() });
-          localStorage.setItem("gu_enquiries", JSON.stringify(prev));
-        }
-        setLeadId(fallbackId);
-        setSubmitted(true);
-      } catch {
-        setErrorMessage("Network issue. Please check your connection and try again.");
-      }
+      setErrorMessage("Network issue. Please check your connection and try again.");
     } finally {
       setLoading(false);
     }
@@ -574,7 +560,7 @@ export default function AdmissionFormWrapper({
               Thank You, {formData.name.split(" ")[0]}!
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed max-w-[280px] mx-auto">
-              Your enquiry has been received successfully. Our admissions counselor will contact you shortly.
+              Your enquiry has been received and is available to our admissions team.
             </p>
           </div>
 
