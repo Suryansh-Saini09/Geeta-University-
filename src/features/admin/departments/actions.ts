@@ -7,7 +7,7 @@ import { prisma } from "@/server/db/client";
 import { AuditAction, ContentStatus } from "@prisma/client";
 import { assertPermission } from "@/server/auth/permissions";
 import { requireAdminSession } from "@/server/auth/session";
-import { getAliasesForSlug } from "@/lib/programs/programRepository";
+import { getAliasesForSlug } from "@/lib/programs/staticPrograms";
 import {
   departmentCreateSchema,
   departmentUpdateSchema,

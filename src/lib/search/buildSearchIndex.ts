@@ -1,5 +1,5 @@
 import type { SearchDocument } from "./types";
-import { getProgramBySlugSync } from "@/lib/programs/programRepository";
+import { getProgramBySlugSync } from "@/lib/programs/staticPrograms";
 import { getAllCourseParams, getCourseBySlug } from "@/lib/programs/courseRepository";
 import { getAllEdgePages } from "@/lib/edge/edgeRepository";
 
