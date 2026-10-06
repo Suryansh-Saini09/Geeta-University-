@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
+  eventUpdates as defaultEventUpdates,
   placementUpdates,
   type HomeUpdate,
 } from "@/data/homeUpdates";
@@ -279,12 +280,6 @@ function UpdateItem({
     </article>
   );
 }
-
-import {
-  eventUpdates as defaultEventUpdates,
-  placementUpdates,
-  type HomeUpdate,
-} from "@/data/homeUpdates";
 
 interface HomeUpdatesSectionProps {
   eventUpdates?: HomeUpdate[];

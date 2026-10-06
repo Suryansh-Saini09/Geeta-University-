@@ -5,6 +5,8 @@ export interface HomeUpdate {
 }
 
 
+export const eventUpdates: HomeUpdate[] = [];
+
 export const placementUpdates: HomeUpdate[] = [
   {
     title: "Placement Drive of Grandeur Enterprises",
