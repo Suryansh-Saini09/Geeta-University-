@@ -18,7 +18,7 @@ import IndustryIntegrationSection from "@/components/home/IndustryIntegrationSec
 import StarPerformancesSection from "@/components/home/StarPerformancesSection";
 import { getHomepageEvents } from "@/server/services/events";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 const dateFormatter = new Intl.DateTimeFormat("en-IN", {
   day: "numeric",

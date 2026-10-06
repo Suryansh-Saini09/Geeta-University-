@@ -3,6 +3,8 @@ import { getLocale } from "@/lib/i18n/getLocale";
 import AboutPageClient from "@/components/about/AboutPageClient";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const aboutData = await getPublishedAboutPage(locale);
