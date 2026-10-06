@@ -22,6 +22,19 @@ import {
 } from "lucide-react";
 
 import SearchOverlay from "@/components/search/SearchOverlay";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { getLocaleFromPath, buildLocalizedPath } from "@/lib/i18n/navigation";
+import type {
+  AdmissionCtaSettings,
+  AnnouncementSettings,
+  ContactSettings,
+} from "@/validations/siteSettings";
+
+interface NavbarProps {
+  contactSettings?: ContactSettings;
+  announcementSettings?: AnnouncementSettings;
+  admissionCtaSettings?: AdmissionCtaSettings;
+}
 
 interface MegaCol {
   heading?: string;
@@ -192,7 +205,11 @@ function isNavEntryActive(entry: NavEntry, pathname: string): boolean {
   return false;
 }
 
-export default function Navbar() {
+export default function Navbar({
+  contactSettings,
+  announcementSettings,
+  admissionCtaSettings,
+}: NavbarProps = {}) {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
@@ -206,13 +223,16 @@ export default function Navbar() {
   const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
+  const currentLocale = getLocaleFromPath(pathname);
 
-  const announcements = [
-    "Admissions Open — Apply Now for UG, PG & PhD Programs",
-    "Geeta University Ranked Among Top Universities in Haryana — NIRF 2024",
-    "Joint Campus Placement Drive — 500+ Companies Visiting This Season",
-    "International Student Exchange Program Now Open for Applications",
-  ];
+  const announcements = announcementSettings?.enabled && announcementSettings?.text
+    ? [announcementSettings.text]
+    : [
+        "Admissions Open — Apply Now for UG, PG & PhD Programs",
+        "Geeta University Ranked Among Top Universities in Haryana — NIRF 2024",
+        "Joint Campus Placement Drive — 500+ Companies Visiting This Season",
+        "International Student Exchange Program Now Open for Applications",
+      ];
 
   /* ── Announcement Ticker Interval ── */
   useEffect(() => {
@@ -380,7 +400,7 @@ export default function Navbar() {
           font-size: 12px;
           border-bottom: 1px solid #DFD9CB;
           position: relative;
-          z-index: 1001;
+          z-index: 1010;
         }
         .gu-topbar-left {
           display: flex;
@@ -957,51 +977,58 @@ export default function Navbar() {
               </button>
             </div>
             <span className="gu-ticker">{announcements[announcementIndex]}</span>
-            <Link
-              href="https://admissions.geetauniversity.edu.in/"
-              target="_blank"
-              rel="noreferrer"
-              className="gu-apply-pill"
-            >
-              APPLY NOW
-            </Link>
+            {admissionCtaSettings?.enabled !== false ? (
+              <Link
+                href={admissionCtaSettings?.href || "https://admissions.geetauniversity.edu.in/"}
+                target={admissionCtaSettings?.target || "_blank"}
+                rel="noreferrer"
+                className="gu-apply-pill"
+              >
+                {admissionCtaSettings?.label || "APPLY NOW"}
+              </Link>
+            ) : null}
           </div>
 
           <div className="gu-topbar-right">
-            <Link href="/social-links" className="gu-topbar-ico" style={{ fontWeight: 600 }}>
+            <LanguageSwitcher />
+            <div className="gu-vdivider" />
+            <Link href={buildLocalizedPath(currentLocale, "/social-links")} className="gu-topbar-ico" style={{ fontWeight: 600 }}>
               Social Links
             </Link>
             <div className="gu-vdivider" />
-            <Link href="/contact-us" className="gu-topbar-ico" style={{ fontWeight: 600 }}>
+            <Link href={buildLocalizedPath(currentLocale, "/contact-us")} className="gu-topbar-ico" style={{ fontWeight: 600 }}>
               Contact Us
             </Link>
             <div className="gu-vdivider" />
-            <Link href="/careers" className="gu-topbar-ico" style={{ fontWeight: 600 }}>
+            <Link href={buildLocalizedPath(currentLocale, "/careers")} className="gu-topbar-ico" style={{ fontWeight: 600 }}>
               Careers
             </Link>
             <div className="gu-vdivider" />
-            <Link href="/scholarship-predictor" className="gu-topbar-ico" style={{ fontWeight: 700, color: "#e8871a" }}>
+            <Link href={buildLocalizedPath(currentLocale, "/scholarship-predictor")} className="gu-topbar-ico" style={{ fontWeight: 700, color: "#e8871a" }}>
               <Trophy size={13} style={{ color: "#e8871a" }} />
               Scholarship Predictor
             </Link>
             <div className="gu-vdivider" />
-            <Link href="/international-admissions" className="gu-topbar-ico" style={{ fontWeight: 600 }}>
+            <Link href={buildLocalizedPath(currentLocale, "/international-admissions")} className="gu-topbar-ico" style={{ fontWeight: 600 }}>
               <Globe size={13} />
               International Admissions
             </Link>
             <div className="gu-vdivider" />
-            <Link href="https://wa.me/919812345678" target="_blank" rel="noreferrer" className="gu-topbar-ico">
+            <Link href="https://api.whatsapp.com/send?phone=919996303799" target="_blank" rel="noreferrer" className="gu-topbar-ico">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
               WhatsApp
             </Link>
             <div className="gu-vdivider" />
-            <Link href="tel:01742639100" className="gu-topbar-ico">
+            <Link
+              href={`tel:${(contactSettings?.phonePrimary || "+919278768000").replace(/\s+/g, "")}`}
+              className="gu-topbar-ico"
+            >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.06 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
               </svg>
-              Call Us
+              {contactSettings?.phonePrimary || "+91 9278768000"}
             </Link>
             <div className="gu-vdivider" />
             <div className="gu-socials">
@@ -1027,7 +1054,7 @@ export default function Navbar() {
         {/* ── MAIN HEADER ROW (LOGO + NAV SHARED) ── */}
         <div className="gu-mainbar">
           {/* Logo */}
-          <Link href="/" className="gu-logo" aria-label="Geeta University Homepage">
+          <Link href={buildLocalizedPath(currentLocale, "/")} className="gu-logo" aria-label="Geeta University Homepage">
             <div className="gu-logo-img">
               <Image
                 src="/GU-Logo.webp"
@@ -1049,11 +1076,12 @@ export default function Navbar() {
                 return (
                   <div key={link.key} className="gu-nav-item">
                     <Link
-                      href={link.href}
+                      href={buildLocalizedPath(currentLocale, link.href)}
                       className={`gu-nav-link${isActive ? " active" : ""}`}
                       onClick={(e) => {
                         setActiveDropdown(null);
-                        if (typeof window !== "undefined" && window.location.pathname === link.href) {
+                        const targetPath = buildLocalizedPath(currentLocale, link.href!);
+                        if (typeof window !== "undefined" && window.location.pathname === targetPath) {
                           e.preventDefault();
                           window.scrollTo({ top: 0, behavior: "smooth" });
                         }
@@ -1103,8 +1131,8 @@ export default function Navbar() {
                             {col.links.map((item) => (
                               <Link
                                 key={item.label}
-                                href={item.href}
-                                className={`gu-mega-link${pathname === item.href ? " active" : ""}`}
+                                href={buildLocalizedPath(currentLocale, item.href)}
+                                className={`gu-mega-link${pathname === buildLocalizedPath(currentLocale, item.href) ? " active" : ""}`}
                                 role="menuitem"
                                 onClick={() => setActiveDropdown(null)}
                               >
@@ -1123,7 +1151,7 @@ export default function Navbar() {
                             {link.banner.items.map((bi) => (
                               <Link
                                 key={bi.label}
-                                href={bi.href}
+                                href={buildLocalizedPath(currentLocale, bi.href)}
                                 className="gu-mega-banner-item"
                                 onClick={() => setActiveDropdown(null)}
                               >
@@ -1244,6 +1272,10 @@ export default function Navbar() {
             >
               Apply Now
             </Link>
+
+            <div className="mt-4 pt-4 border-t border-slate-200">
+              <LanguageSwitcher variant="mobile" />
+            </div>
           </div>
         )}
       </header>

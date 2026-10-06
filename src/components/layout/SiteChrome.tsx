@@ -1,26 +1,33 @@
-"use client";
+import {
+  getAdmissionCtaSettings,
+  getAnnouncementSettings,
+  getContactSettings,
+  getSiteMetadataSettings,
+  getSocialLinksSettings,
+} from "@/server/services/siteSettings";
+import { getLocale } from "@/lib/i18n/getLocale";
+import SiteChromeClient from "@/components/layout/SiteChromeClient";
 
-import { usePathname } from "next/navigation";
-
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
-import FloatingSocialBar from "@/components/layout/FloatingSocialBar";
-
-export default function SiteChrome({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isStandaloneRoute =
-    pathname?.startsWith("/admin") || pathname?.startsWith("/social-links");
-
-  if (isStandaloneRoute) {
-    return <>{children}</>;
-  }
+export default async function SiteChrome({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale();
+  const [contactSettings, announcementSettings, admissionCtaSettings, socialLinksSettings, siteMetadata] =
+    await Promise.all([
+      getContactSettings(locale),
+      getAnnouncementSettings(locale),
+      getAdmissionCtaSettings(locale),
+      getSocialLinksSettings(),
+      getSiteMetadataSettings(locale),
+    ]);
 
   return (
-    <>
-      <Navbar />
-      <FloatingSocialBar />
-      <main className="w-full min-w-0 flex-1">{children}</main>
-      <Footer />
-    </>
+    <SiteChromeClient
+      contactSettings={contactSettings}
+      announcementSettings={announcementSettings}
+      admissionCtaSettings={admissionCtaSettings}
+      socialLinks={socialLinksSettings.links}
+      siteMetadata={siteMetadata}
+    >
+      {children}
+    </SiteChromeClient>
   );
 }

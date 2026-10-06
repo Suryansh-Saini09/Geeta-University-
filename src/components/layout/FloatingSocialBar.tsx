@@ -1,15 +1,24 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import { GraduationCap } from "lucide-react";
+import type { SocialLinkItem } from "@/validations/siteSettings";
 
-export default function FloatingSocialBar() {
+interface FloatingSocialBarProps {
+  socialLinks?: SocialLinkItem[];
+}
+
+export default function FloatingSocialBar({ socialLinks }: FloatingSocialBarProps = {}) {
+  const findLinkUrl = (type: string, fallback: string) => {
+    const found = socialLinks?.find(
+      (l) => l.enabled && (l.type.toLowerCase() === type || l.name.toLowerCase().includes(type))
+    );
+    return found?.url || fallback;
+  };
   const items = [
     {
       id: "facebook",
       label: "Facebook",
-      href: "https://www.facebook.com/geetauniversity",
+      href: findLinkUrl("facebook", "https://www.facebook.com/geetauniversity"),
       isExternal: true,
       icon: (
         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -27,7 +36,7 @@ export default function FloatingSocialBar() {
     {
       id: "instagram",
       label: "Instagram",
-      href: "https://www.instagram.com/geetauniversitypanipat/",
+      href: findLinkUrl("instagram", "https://www.instagram.com/geetauniversitypanipat/"),
       isExternal: true,
       icon: (
         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -38,7 +47,7 @@ export default function FloatingSocialBar() {
     {
       id: "whatsapp",
       label: "WhatsApp",
-      href: "https://api.whatsapp.com/send?phone=919996303799",
+      href: findLinkUrl("whatsapp", "https://api.whatsapp.com/send?phone=919996303799"),
       isExternal: true,
       icon: (
         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">

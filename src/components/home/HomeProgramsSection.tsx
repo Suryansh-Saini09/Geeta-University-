@@ -786,8 +786,20 @@ function ProgramCategoryDetails({
   );
 }
 
-export default function HomeProgramsSection() {
-  const [activeCategory, setActiveCategory] = useState<string | null>("cse");
+interface HomeProgramsSectionProps {
+  data?: {
+    heading?: string;
+    description?: string;
+    categories?: ProgramCategory[];
+  };
+}
+
+export default function HomeProgramsSection({ data }: HomeProgramsSectionProps) {
+  const categoriesList = data?.categories && data.categories.length > 0 ? data.categories : programCategories;
+  const headingText = data?.heading || "Programs Offered";
+  const descriptionText = data?.description || "70+ Study Programs at Diploma, UG, PG, and Ph.D. Levels";
+
+  const [activeCategory, setActiveCategory] = useState<string | null>(categoriesList[0]?.id || "cse");
   const [openLevels, setOpenLevels] = useState<Record<string, boolean>>({
     Undergraduate: true,
   });
@@ -804,8 +816,8 @@ export default function HomeProgramsSection() {
   };
 
   const activeProgramCategory =
-    programCategories.find((category) => category.id === activeCategory) ??
-    programCategories[0];
+    categoriesList.find((category) => category.id === activeCategory) ??
+    categoriesList[0];
 
   return (
     <section
@@ -843,7 +855,7 @@ export default function HomeProgramsSection() {
                 color: "var(--gu-navy)",
               }}
             >
-              Programs Offered
+              {headingText}
             </h2>
 
             <div
@@ -859,7 +871,7 @@ export default function HomeProgramsSection() {
                 color: "var(--gu-text-muted)",
               }}
             >
-              70+ Study Programs at Diploma, UG, PG, and Ph.D. Levels
+              {descriptionText}
             </p>
           </motion.div>
 
@@ -882,7 +894,7 @@ export default function HomeProgramsSection() {
               >
                 <div className="p-4 sm:p-6">
                   <div className="flex flex-col gap-2">
-                    {programCategories.map((category) => {
+                    {categoriesList.map((category) => {
                       const isActive = category.id === activeCategory;
 
                       return (

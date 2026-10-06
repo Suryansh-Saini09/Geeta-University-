@@ -99,12 +99,13 @@ model AuditLog {
 model SeoMetadata {
   id          String   @id @default(cuid())
   title       String
-  description String
+  description String   @db.Text
   keywords    Json?
   canonical   String?
   ogTitle     String?
   ogImage     String?
   noIndex     Boolean  @default(false)
+  translations Json?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -187,12 +188,13 @@ model Department {
   name        String
   shortName   String?
   slug        String        @unique
-  summary     String?
+  summary     String?       @db.Text
   body        Json?
   status      ContentStatus @default(DRAFT)
   sortOrder   Int           @default(0)
   heroImageId String?
   seoId       String?
+  translations Json?
   publishedAt DateTime?
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
@@ -212,13 +214,14 @@ model Program {
   slug         String        @unique
   level        String?
   duration     String?
-  eligibility  String?
+  eligibility  String?       @db.Text
   overview     Json?
   feeData      Json?
   status       ContentStatus @default(DRAFT)
   sortOrder    Int           @default(0)
   heroImageId  String?
   seoId        String?
+  translations Json?
   publishedAt  DateTime?
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
@@ -251,7 +254,7 @@ model FacultyMember {
   slug          String        @unique
   designation   String?
   qualification String?
-  bio           String?
+  bio           String?       @db.Text
   email         String?
   phone         String?
   sortOrder     Int           @default(0)
@@ -464,6 +467,7 @@ model NavigationItem {
   href      String?
   status    ContentStatus @default(PUBLISHED)
   sortOrder Int           @default(0)
+  translations Json?
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
 
@@ -479,6 +483,142 @@ model SiteSetting {
   key         String   @unique
   value       Json
   description String?
+  translations Json?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model PageSection {
+  id         String        @id @default(cuid())
+  pageSlug   String
+  sectionKey String
+  title      String?
+  body       Json?
+  status     ContentStatus @default(PUBLISHED)
+  sortOrder  Int           @default(0)
+  translations Json?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  @@unique([pageSlug, sectionKey])
+  @@index([pageSlug, status, sortOrder])
+}
+
+model Recruiter {
+  id        String        @id @default(cuid())
+  name      String
+  logo      String
+  status    ContentStatus @default(PUBLISHED)
+  sortOrder Int           @default(0)
+  translations Json?
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model AwardRanking {
+  id          String        @id @default(cuid())
+  title       String
+  presentedBy String?
+  designation String?
+  presenters  Json?
+  image       String
+  category    String?       @default("award")
+  status      ContentStatus @default(PUBLISHED)
+  sortOrder   Int           @default(0)
+  translations Json?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model Testimonial {
+  id          String        @id @default(cuid())
+  name        String
+  package     String?
+  testimonial String        @db.Text
+  image       String
+  status      ContentStatus @default(PUBLISHED)
+  sortOrder   Int           @default(0)
+  translations Json?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model LeadershipMember {
+  id        String        @id @default(cuid())
+  name      String
+  role      String
+  image     String
+  message   String        @db.Text
+  quote     String?       @db.Text
+  featured  Boolean       @default(false)
+  status    ContentStatus @default(PUBLISHED)
+  sortOrder Int           @default(0)
+  translations Json?
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model IndustryPartner {
+  id        String        @id @default(cuid())
+  name      String
+  image     String
+  status    ContentStatus @default(PUBLISHED)
+  sortOrder Int           @default(0)
+  translations Json?
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model StarPerformance {
+  id        String        @id @default(cuid())
+  name      String
+  image     String
+  status    ContentStatus @default(PUBLISHED)
+  sortOrder Int           @default(0)
+  translations Json?
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model Recognition {
+  id         String        @id @default(cuid())
+  name       String
+  fullName   String?
+  image      String
+  isFeatured Boolean       @default(false)
+  status     ContentStatus @default(PUBLISHED)
+  sortOrder  Int           @default(0)
+  translations Json?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model GovernanceDocument {
+  id          String        @id @default(cuid())
+  title       String
+  description String?       @db.Text
+  documentUrl String
+  category    String        @default("governance")
+  status      ContentStatus @default(PUBLISHED)
+  sortOrder   Int           @default(0)
+  translations Json?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([category, status, sortOrder])
+}
+

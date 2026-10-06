@@ -1,6 +1,5 @@
-import { ContentStatus, type Prisma } from "@prisma/client";
-
-import { prisma } from "@/server/db/client";
+import { prisma, ContentStatus, type Prisma } from "@/server/db/client";
+import { getLocalizedBody, getLocalizedField, DEFAULT_LOCALE } from "@/lib/i18n/localization";
 
 export interface AdminDepartmentFilters {
   query?: string;
@@ -56,14 +55,39 @@ export async function getAdminDepartments(filters: AdminDepartmentFilters = {}) 
   };
 }
 
-export async function getDepartmentBySlug(slug: string) {
-  return prisma.department.findUnique({
+
+export async function getDepartmentBySlug(slug: string, locale: string = DEFAULT_LOCALE) {
+  const dept = await prisma.department.findUnique({
     where: { slug },
+    include: {
+      heroImage: true,
+      seo: true,
+    },
   });
+
+  if (!dept) return null;
+
+  return {
+    ...dept,
+    name: getLocalizedField(dept, "name", locale),
+    summary: getLocalizedField(dept, "summary", locale),
+    body: getLocalizedBody(dept.body, (dept as any).translations, locale),
+    seo: dept.seo
+      ? {
+          ...dept.seo,
+          title: getLocalizedField(dept.seo, "title", locale),
+          description: getLocalizedField(dept.seo, "description", locale),
+        }
+      : null,
+  };
 }
 
 export async function getAdminDepartmentById(id: string) {
   return prisma.department.findUnique({
     where: { id },
+    include: {
+      heroImage: true,
+      seo: true,
+    },
   });
 }

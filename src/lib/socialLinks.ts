@@ -174,6 +174,18 @@ export async function fetchSocialData(): Promise<SocialApiResponse> {
 }
 
 export async function getSocialLinks(): Promise<SocialLink[]> {
+  try {
+    const { getSocialLinksSettings } = await import("@/server/services/siteSettings");
+    const settings = await getSocialLinksSettings();
+    if (settings.links && settings.links.length > 0) {
+      return settings.links
+        .filter((link) => link.enabled)
+        .sort((a, b) => a.sortOrder - b.sortOrder) as SocialLink[];
+    }
+  } catch {
+    // Fall back to local array if running client-side or during static phase
+  }
+
   const json = await fetchSocialData();
   if (json.success && Array.isArray(json.data?.links)) {
     return json.data.links

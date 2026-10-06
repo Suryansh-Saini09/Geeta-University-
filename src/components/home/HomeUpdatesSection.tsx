@@ -279,7 +279,19 @@ function UpdateItem({
   );
 }
 
-export default function HomeUpdatesSection() {
+interface HomeUpdatesSectionProps {
+  data?: {
+    heading?: string;
+    eventUpdates?: HomeUpdate[];
+    placementUpdates?: HomeUpdate[];
+  } | null;
+}
+
+export default function HomeUpdatesSection({ data }: HomeUpdatesSectionProps) {
+  const headingText = data?.heading || "What's Happening at GU?";
+  const events = data?.eventUpdates && data.eventUpdates.length > 0 ? data.eventUpdates : eventUpdates;
+  const placements = data?.placementUpdates && data.placementUpdates.length > 0 ? data.placementUpdates : placementUpdates;
+
   return (
     <section className="relative overflow-hidden bg-white py-12 md:py-16">
       {/* Top orange line */}
@@ -300,8 +312,7 @@ export default function HomeUpdatesSection() {
         {/* Heading */}
         <div className="mb-12 max-w-3xl">
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
-            What&apos;s Happening at{" "}
-            <span className="text-[#F28C18]">GU?</span>
+            {headingText}
           </h2>
 
           <div className="mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
@@ -312,13 +323,13 @@ export default function HomeUpdatesSection() {
           <UpdateColumn
             title="Event Updates"
             accent="orange"
-            updates={eventUpdates}
+            updates={events}
           />
 
           <UpdateColumn
             title="Placement Updates"
             accent="blue"
-            updates={placementUpdates}
+            updates={placements}
           />
         </div>
       </div>

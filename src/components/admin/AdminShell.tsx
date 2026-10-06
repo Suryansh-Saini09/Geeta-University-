@@ -21,8 +21,12 @@ import type { AdminSessionUser } from "@/server/auth/session";
 import { hasPermission } from "@/server/auth/permissions";
 import { logoutAction } from "@/features/admin/auth/actions";
 
+import { Home, Info } from "lucide-react";
+
 const navigation = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
+  { label: "Home CMS", href: "/admin/home", icon: Home },
+  { label: "About CMS", href: "/admin/about", icon: Info },
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "Departments", href: "/admin/departments", icon: GraduationCap },
   { label: "Programs", href: "/admin/programs", icon: BookOpen },

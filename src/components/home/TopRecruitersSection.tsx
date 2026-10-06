@@ -4,8 +4,11 @@ import React from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { recruiters } from "@/data/recruiters";
 import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
+
+interface TopRecruitersSectionProps {
+  data?: Array<{ id: string | number; name: string; logo: string }> | null;
+}
 
 const sectionVariants: Variants = {
   hidden: {
@@ -34,8 +37,9 @@ const itemVariants: Variants = {
     },
   },
 };
+export default function TopRecruitersSection({ data }: TopRecruitersSectionProps) {
+  const recruiterList = data && data.length > 0 ? data : [];
 
-export default function TopRecruitersSection() {
   const {
     containerRef,
     maxIndex,
@@ -51,7 +55,7 @@ export default function TopRecruitersSection() {
     handleTouchMove,
     handleTouchEnd,
   } = useFiniteCarousel({
-    totalItems: recruiters.length,
+    totalItems: recruiterList.length,
     autoplayInterval: 2500,
     enableAutoplay: true,
   });
@@ -162,7 +166,7 @@ export default function TopRecruitersSection() {
               className="flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               <div className="flex w-max items-center py-2">
-                {recruiters.map((recruiter) => (
+                {recruiterList.map((recruiter) => (
                   <div
                     key={recruiter.id}
                     className="group/card mx-3 flex h-24 w-52 shrink-0 items-center justify-center rounded-2xl border bg-white px-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:mx-4 sm:h-28 sm:w-60 md:h-32 md:w-64 pointer-events-auto"

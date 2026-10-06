@@ -3,7 +3,15 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { getLocaleFromPath, buildLocalizedPath } from "@/lib/i18n/navigation";
+
+import type {
+  ContactSettings,
+  SiteMetadataSettings,
+  SocialLinkItem,
+} from "@/validations/siteSettings";
 
 interface FooterLinkItem {
   label: string;
@@ -16,7 +24,20 @@ interface FooterColumnData {
   links: FooterLinkItem[];
 }
 
-export default function Footer() {
+interface FooterProps {
+  contactSettings?: ContactSettings;
+  socialLinks?: SocialLinkItem[];
+  siteMetadata?: SiteMetadataSettings;
+}
+
+export default function Footer({
+  contactSettings,
+  socialLinks,
+  siteMetadata,
+}: FooterProps = {}) {
+  const pathname = usePathname();
+  const currentLocale = getLocaleFromPath(pathname);
+
   // Column 1: Apply Here
   const applyHereData: FooterColumnData = {
     title: "Apply Here",
@@ -119,7 +140,7 @@ export default function Footer() {
     if (item.isInternal) {
       return (
         <Link
-          href={item.href}
+          href={buildLocalizedPath(currentLocale, item.href)}
           className={`transition-colors text-xs leading-snug block ${
             item.label === "XEdge"
               ? "text-[#E8871A] font-bold hover:text-amber-300"
@@ -207,7 +228,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo & About Column */}
           <div className="lg:col-span-1 space-y-4">
-            <Link href="/" className="inline-block">
+            <Link href={buildLocalizedPath(currentLocale, "/")} className="inline-block">
               <Image
                 src="/GU-Logo.webp"
                 alt="Geeta University official logo"
@@ -291,7 +312,7 @@ export default function Footer() {
 
         {/* Bottom Bar: Copyright & Legal */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-400">
-          <p>© 2026 <strong className="text-white">Geeta University</strong>. All rights reserved.</p>
+          <p>{siteMetadata?.copyrightText || "© Geeta University. All Rights Reserved."}</p>
 
           <div className="flex items-center gap-4">
             <a

@@ -1,15 +1,35 @@
 "use server";
 
-import { AuditAction, ContentStatus } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-import { prisma } from "@/server/db/client";
+import { prisma, AuditAction, ContentStatus } from "@/server/db/client";
 import { assertPermission } from "@/server/auth/permissions";
 import { requireAdminSession } from "@/server/auth/session";
+import { getAliasesForSlug } from "@/lib/programs/programRepository";
 import {
   departmentCreateSchema,
   departmentUpdateSchema,
+  departmentHeroSectionSchema,
+  departmentAboutSectionSchema,
+  departmentVisionMissionSectionSchema,
+  departmentDeanSectionSchema,
+  departmentCoursesSectionSchema,
+  departmentSpecialisationsSectionSchema,
+  departmentFacultySectionSchema,
+  departmentTransformativeTracksSectionSchema,
+  departmentCareerPathwaysSectionSchema,
+  departmentLearningSpacesSectionSchema,
+  departmentCorporateConnectSectionSchema,
+  departmentCenterOfExcellenceSectionSchema,
+  departmentHighlightsSectionSchema,
+  departmentTestimonialsSectionSchema,
+  departmentBrochureSectionSchema,
+  departmentPlacementSectionSchema,
+  departmentUspsSectionSchema,
+  departmentFaqSectionSchema,
+  departmentSeoSectionSchema,
+  departmentCtaSectionSchema,
 } from "@/validations/department";
 
 export async function createDepartmentAction(formData: FormData) {
@@ -110,6 +130,14 @@ export async function updateDepartmentAction(formData: FormData) {
     );
   }
 
+  let updatedBody: Record<string, unknown> = (existing.body && typeof existing.body === "object")
+    ? (existing.body as Record<string, unknown>)
+    : {};
+
+  updatedBody.name = parsed.data.name;
+  if (parsed.data.shortName) updatedBody.shortName = parsed.data.shortName;
+  updatedBody.slug = parsed.data.slug;
+
   const department = await prisma.department.update({
     where: { id: parsed.data.id },
     data: {
@@ -117,6 +145,7 @@ export async function updateDepartmentAction(formData: FormData) {
       shortName: parsed.data.shortName || null,
       slug: parsed.data.slug,
       summary: parsed.data.summary || null,
+      body: JSON.parse(JSON.stringify(updatedBody)),
       status: parsed.data.status,
       sortOrder: parsed.data.sortOrder,
       publishedAt:
@@ -137,10 +166,403 @@ export async function updateDepartmentAction(formData: FormData) {
     },
   });
 
+  const affectedSlugs = getAliasesForSlug(department.slug);
+  if (existing.slug !== department.slug) {
+    affectedSlugs.push(...getAliasesForSlug(existing.slug));
+  }
+
   revalidatePath("/admin");
   revalidatePath("/admin/departments");
   revalidatePath(`/admin/departments/${department.id}/edit`);
-  redirect("/admin/departments?updated=1");
+  revalidatePath("/programs");
+  for (const slugToRevalidate of Array.from(new Set(affectedSlugs))) {
+    revalidatePath(`/programs/${slugToRevalidate}`);
+  }
+
+  const section = formData.get("section") ? String(formData.get("section")) : "";
+  const sectionQuery = section ? `&section=${encodeURIComponent(section)}` : "";
+  redirect(`/admin/departments/${department.id}/edit?updated=1${sectionQuery}`);
+}
+
+export async function updateDepartmentSectionAction(formData: FormData) {
+  const session = await requireAdminSession();
+  assertPermission(session.user.role, "manageContent");
+
+  const id = String(formData.get("id") ?? "");
+  const section = String(formData.get("section") ?? "");
+  const payloadJson = String(formData.get("payloadJson") ?? "{}");
+
+  if (!id || !section) {
+    redirect("/admin/departments?error=invalid-request");
+  }
+
+  const existing = await prisma.department.findUnique({
+    where: { id },
+  });
+
+  if (!existing) {
+    redirect("/admin/departments?error=not-found");
+  }
+
+  let sectionPayload: any = {};
+  try {
+    sectionPayload = JSON.parse(payloadJson);
+  } catch (err) {
+    redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent("Invalid JSON input")}`);
+  }
+
+  let updatedBody: Record<string, unknown> = (existing.body && typeof existing.body === "object")
+    ? JSON.parse(JSON.stringify(existing.body))
+    : {};
+
+  let heroImageIdToUpdate: string | null | undefined = undefined;
+
+  switch (section) {
+    case "hero": {
+      const parsed = departmentHeroSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid hero settings";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const existingHero = (updatedBody.hero && typeof updatedBody.hero === "object") ? (updatedBody.hero as Record<string, any>) : {};
+      updatedBody.hero = {
+        ...existingHero,
+        ...parsed.data,
+      };
+
+      if (parsed.data.image) {
+        const existingMedia = await prisma.mediaAsset.findFirst({
+          where: { url: parsed.data.image },
+        });
+        if (existingMedia) {
+          heroImageIdToUpdate = existingMedia.id;
+        } else {
+          const newMedia = await prisma.mediaAsset.create({
+            data: {
+              fileName: `${existing.slug}-hero.webp`,
+              storageKey: `hero-${existing.slug}-${Date.now()}.webp`,
+              url: parsed.data.image,
+              mimeType: "image/webp",
+              sizeBytes: 1024,
+              altText: parsed.data.imageAlt || existing.name,
+            },
+          });
+          heroImageIdToUpdate = newMedia.id;
+        }
+      }
+      break;
+    }
+
+    case "about": {
+      const parsed = departmentAboutSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid about content";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const existingAbout = (updatedBody.about && typeof updatedBody.about === "object") ? (updatedBody.about as Record<string, any>) : {};
+      updatedBody.about = {
+        ...existingAbout,
+        ...parsed.data,
+      };
+      break;
+    }
+
+    case "visionMission": {
+      const parsed = departmentVisionMissionSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid vision & mission content";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      updatedBody.visionMission = parsed.data;
+      break;
+    }
+
+    case "dean": {
+      const parsed = departmentDeanSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid dean details";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const existingDean = (updatedBody.dean && typeof updatedBody.dean === "object") ? (updatedBody.dean as Record<string, any>) : {};
+      updatedBody.dean = {
+        ...existingDean,
+        ...parsed.data,
+      };
+      break;
+    }
+
+    case "courses": {
+      const parsed = departmentCoursesSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid programs offered data";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      updatedBody.courses = parsed.data.courses || [];
+      break;
+    }
+
+    case "specialisations": {
+      const parsed = departmentSpecialisationsSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid specialisations";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const existingSpecs = (updatedBody.specialisations && typeof updatedBody.specialisations === "object") ? (updatedBody.specialisations as Record<string, any>) : {};
+      updatedBody.specialisations = {
+        ...existingSpecs,
+        ...parsed.data,
+      };
+      break;
+    }
+
+    case "faculty": {
+      const parsed = departmentFacultySectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid faculty information";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const formattedFaculty = (parsed.data.faculty || []).map((f) => ({
+        name: f.name,
+        role: f.role || f.designation || "",
+        designation: f.designation || f.role || "",
+        desc: f.desc || f.description || "",
+        description: f.description || f.desc || "",
+        image: f.image || "",
+        imagePosition: f.imagePosition || "center 50%",
+        qualification: f.qualification || "",
+        department: f.department || "",
+      }));
+
+      updatedBody.faculty = formattedFaculty;
+      if (parsed.data.title || parsed.data.eyebrow) {
+        const existingMentorsSection = (updatedBody.mentorsSection && typeof updatedBody.mentorsSection === "object") ? (updatedBody.mentorsSection as Record<string, any>) : {};
+        updatedBody.mentorsSection = {
+          ...existingMentorsSection,
+          title: parsed.data.title,
+          eyebrow: parsed.data.eyebrow,
+          faculty: formattedFaculty,
+        };
+      }
+      break;
+    }
+
+    case "transformativeTracks": {
+      const parsed = departmentTransformativeTracksSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid transformative tracks";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      updatedBody.transformativeTracks = parsed.data;
+      break;
+    }
+
+    case "careerPathways": {
+      const parsed = departmentCareerPathwaysSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid career pathways";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const existingPathways = (updatedBody.careerPathways && typeof updatedBody.careerPathways === "object") ? (updatedBody.careerPathways as Record<string, any>) : {};
+      updatedBody.careerPathways = {
+        ...existingPathways,
+        ...parsed.data,
+      };
+      break;
+    }
+
+    case "learningSpaces": {
+      const parsed = departmentLearningSpacesSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid learning spaces";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const existingSpaces = (updatedBody.learningSpaces && typeof updatedBody.learningSpaces === "object") ? (updatedBody.learningSpaces as Record<string, any>) : {};
+      updatedBody.learningSpaces = {
+        ...existingSpaces,
+        ...parsed.data,
+      };
+      break;
+    }
+
+    case "corporateConnect": {
+      const parsed = departmentCorporateConnectSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid corporate connect data";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      updatedBody.corporateConnect = parsed.data;
+      break;
+    }
+
+    case "centerOfExcellence": {
+      const parsed = departmentCenterOfExcellenceSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid center of excellence";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      updatedBody.centerOfExcellence = parsed.data;
+      break;
+    }
+
+    case "departmentHighlights": {
+      const parsed = departmentHighlightsSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid department highlights";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      updatedBody.departmentHighlights = parsed.data.items || [];
+      if (parsed.data.title) updatedBody.departmentHighlightsTitle = parsed.data.title;
+      if (parsed.data.subtitle) updatedBody.departmentHighlightsSubtitle = parsed.data.subtitle;
+      break;
+    }
+
+    case "testimonials": {
+      const parsed = departmentTestimonialsSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid testimonials";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const formattedTestimonials = (parsed.data.testimonials || []).map((t) => ({
+        name: t.name,
+        role: t.role || "",
+        company: t.company || "",
+        pkg: t.pkg || t.package || "",
+        package: t.package || t.pkg || "",
+        quote: t.quote || t.testimonial || "",
+        testimonial: t.testimonial || t.quote || "",
+        image: t.image || "",
+      }));
+      updatedBody.testimonials = formattedTestimonials;
+      break;
+    }
+
+    case "brochure": {
+      const parsed = departmentBrochureSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid brochure data";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      updatedBody.brochure = parsed.data;
+      break;
+    }
+
+    case "placement": {
+      const parsed = departmentPlacementSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid placement data";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const existingPlacement = (updatedBody.placement && typeof updatedBody.placement === "object") ? (updatedBody.placement as Record<string, any>) : {};
+      updatedBody.placement = {
+        ...existingPlacement,
+        ...parsed.data,
+      };
+      break;
+    }
+
+    case "usps": {
+      const parsed = departmentUspsSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid USPs content";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const existingUsps = (updatedBody.usps && typeof updatedBody.usps === "object") ? (updatedBody.usps as Record<string, any>) : {};
+      updatedBody.usps = {
+        ...existingUsps,
+        ...parsed.data,
+      };
+      break;
+    }
+
+    case "faqs": {
+      const parsed = departmentFaqSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid FAQs list";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const formattedFaqs = parsed.data.faqs.map((item) => ({
+        question: item.question,
+        q: item.question,
+        answer: item.answer,
+        a: item.answer,
+        category: item.category || "General",
+      }));
+      updatedBody.faqs = formattedFaqs;
+      break;
+    }
+
+    case "seo": {
+      const parsed = departmentSeoSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid SEO settings";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const keywordsArray = parsed.data.keywords
+        ? parsed.data.keywords.split(",").map((k) => k.trim()).filter(Boolean)
+        : [];
+      updatedBody.seo = {
+        title: parsed.data.title || existing.name,
+        description: parsed.data.description || existing.summary || "",
+        keywords: keywordsArray,
+      };
+      break;
+    }
+
+    case "cta": {
+      const parsed = departmentCtaSectionSchema.safeParse(sectionPayload);
+      if (!parsed.success) {
+        const msg = parsed.error.issues[0]?.message ?? "Invalid CTA section";
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent(msg)}`);
+      }
+      const existingCta = (updatedBody.cta && typeof updatedBody.cta === "object") ? (updatedBody.cta as Record<string, any>) : {};
+      updatedBody.cta = {
+        ...existingCta,
+        ...parsed.data,
+      };
+      break;
+    }
+
+    case "advancedJson": {
+      if (session.user.role !== "SUPER_ADMIN" && session.user.role !== "ADMIN") {
+        redirect(`/admin/departments/${id}/edit?section=${section}&error=${encodeURIComponent("Only Super Admins can save raw JSON.")}`);
+      }
+      updatedBody = sectionPayload;
+      break;
+    }
+
+    default:
+      redirect(`/admin/departments/${id}/edit?error=${encodeURIComponent("Unknown section: " + section)}`);
+  }
+
+  const updatedDepartment = await prisma.department.update({
+    where: { id },
+    data: {
+      body: JSON.parse(JSON.stringify(updatedBody)),
+      heroImageId: heroImageIdToUpdate !== undefined ? heroImageIdToUpdate : existing.heroImageId,
+    },
+  });
+
+  await prisma.auditLog.create({
+    data: {
+      actorId: session.user.id,
+      action: AuditAction.UPDATE,
+      entityType: "DepartmentSection",
+      entityId: `${id}:${section}`,
+      before: existing.body ? JSON.parse(JSON.stringify(existing.body)) : undefined,
+      after: updatedDepartment.body ? JSON.parse(JSON.stringify(updatedDepartment.body)) : undefined,
+    },
+  });
+
+  const affectedSlugs = getAliasesForSlug(existing.slug);
+  revalidatePath("/admin");
+  revalidatePath("/admin/departments");
+  revalidatePath(`/admin/departments/${id}/edit`);
+  revalidatePath("/programs");
+  for (const slugToRevalidate of Array.from(new Set(affectedSlugs))) {
+    revalidatePath(`/programs/${slugToRevalidate}`);
+  }
+
+  redirect(`/admin/departments/${id}/edit?section=${section}&saved=1`);
 }
 
 export async function archiveDepartmentAction(formData: FormData) {

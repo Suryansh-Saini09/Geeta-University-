@@ -33,7 +33,7 @@ const programs: ProgramPageData[] = [
     ...nursingSchool,
     slug: "nursing",
   },
-  // Alias for humanities and social sciences (plural & short)
+  // Alias for humanities and social sciences
   {
     ...humanitiesSchool,
     slug: "school-of-humanities-and-social-sciences",
@@ -103,12 +103,139 @@ const programs: ProgramPageData[] = [
   },
 ];
 
-export function getProgramBySlug(
+export const ALIAS_TO_CANONICAL: Record<string, string> = {
+  // SCBM
+  "school-of-management-and-business-studies": "school-of-commerce-and-business-management",
+  "school-of-commerce": "school-of-commerce-and-business-management",
+  "school-of-management": "school-of-commerce-and-business-management",
+
+  // SCSE
+  "school-of-computer-science": "school-of-computer-science-and-engineering",
+  "computer-science": "school-of-computer-science-and-engineering",
+  "cse": "school-of-computer-science-and-engineering",
+
+  // Nursing
+  "school-of-nursing": "geeta-nursing-college",
+  "nursing": "geeta-nursing-college",
+
+  // Humanities
+  "school-of-humanities-and-social-sciences": "school-of-humanities-and-social-science",
+  "school-of-humanities": "school-of-humanities-and-social-science",
+
+  // Agriculture
+  "school-of-agricultural-sciences": "school-of-agricultural-studies",
+  "school-of-agriculture": "school-of-agricultural-studies",
+
+  // Forensic & Sciences
+  "school-of-sciences": "school-of-forensic-sciences",
+  "school-of-forensic-science": "school-of-forensic-sciences",
+
+  // Law
+  "school-of-law-and-legal-studies": "geeta-global-law-school",
+  "school-of-law": "geeta-global-law-school",
+  "geeta-institute-of-law": "geeta-global-law-school",
+
+  // Pharmacy
+  "school-of-pharmacy": "geeta-institute-of-pharmacy",
+
+  // Hospitality & Hotel Management
+  "school-of-hotel-management": "school-of-hospitality-and-hotel-management",
+  "school-of-hospitality": "school-of-hospitality-and-hotel-management",
+
+  // Health & Allied Sciences
+  "school-of-health-sciences": "school-of-health-and-allied-sciences",
+  "health-sciences": "school-of-health-and-allied-sciences",
+
+  // SPBSB
+  "spbsb": "sp-bansal-school-of-business",
+};
+
+export function getAliasesForSlug(slug: string): string[] {
+  const norm = slug.toLowerCase();
+  const canonical = ALIAS_TO_CANONICAL[norm] || norm;
+  const aliases = [canonical];
+  for (const [alias, target] of Object.entries(ALIAS_TO_CANONICAL)) {
+    if (target === canonical && alias !== canonical) {
+      aliases.push(alias);
+    }
+  }
+  return Array.from(new Set(aliases));
+}
+
+export function getProgramBySlugSync(
   slug: string
 ): ProgramPageData | undefined {
   return programs.find(
     (program) => program.slug.toLowerCase() === slug.toLowerCase()
   );
+}
+
+export async function getProgramBySlug(
+  slug: string,
+  locale: string = "en"
+): Promise<ProgramPageData | undefined> {
+  const normalizedSlug = slug.toLowerCase();
+  const canonicalSlug = ALIAS_TO_CANONICAL[normalizedSlug] || normalizedSlug;
+  const staticFallback = getProgramBySlugSync(normalizedSlug);
+
+  try {
+    const { prisma } = await import("@/server/db/client");
+    const { getLocalizedBody, getLocalizedField } = await import("@/lib/i18n/localization");
+    const dept = await prisma.department.findFirst({
+      where: {
+        OR: [
+          { slug: normalizedSlug },
+          { slug: canonicalSlug },
+        ],
+        status: "PUBLISHED",
+      },
+      include: {
+        heroImage: true,
+        seo: true,
+      },
+    });
+
+    if (dept && dept.body && typeof dept.body === "object") {
+      const resolvedBody = getLocalizedBody(dept.body, (dept as any).translations, locale);
+      const data = JSON.parse(JSON.stringify(resolvedBody)) as ProgramPageData;
+
+      // Preserve requested slug so links on the page remain consistent
+      data.slug = normalizedSlug;
+
+      const deptName = getLocalizedField(dept, "name", locale);
+      if (deptName) {
+        data.name = deptName;
+        if (data.hero) {
+          data.hero.title = data.hero.title || deptName;
+        }
+      }
+
+      // Dynamically inject updated MediaAsset hero image if present
+      if (dept.heroImage?.url && data.hero) {
+        data.hero = {
+          ...data.hero,
+          image: dept.heroImage.url,
+        };
+      }
+
+      // Dynamically inject updated SEO metadata if present
+      if (dept.seo) {
+        data.seo = {
+          title: getLocalizedField(dept.seo, "title", locale),
+          description: getLocalizedField(dept.seo, "description", locale),
+          keywords: dept.seo.keywords ? JSON.parse(String(dept.seo.keywords)) : data.seo?.keywords,
+        };
+      }
+
+      return data;
+    }
+    
+    console.warn(`[CMS FALLBACK WARNING] Department for slug '${slug}' not resolved from MySQL. Using static TS fallback.`);
+  } catch (err) {
+    console.error(`[CMS ERROR] DB query failed for school slug '${slug}', using static fallback:`, err);
+  }
+
+  return staticFallback;
 }
 
 export function getAllProgramSlugs(): string[] {

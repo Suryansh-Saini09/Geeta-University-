@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import ProgramPage from "@/components/programs/ProgramPage";
-import { nursingSchool } from "@/data/programs/schools/nursing";
-
-export const metadata: Metadata = {
-  title: nursingSchool.seo.title,
-  description: nursingSchool.seo.description,
-  keywords: nursingSchool.seo.keywords,
-};
+import { getProgramBySlug } from "@/lib/programs/programRepository";
 
 export const dynamic = "force-dynamic";
 
-export default function DirectGeetaNursingCollegePage() {
-  return <ProgramPage data={nursingSchool} />;
+export async function generateMetadata(): Promise<Metadata> {
+  const program = await getProgramBySlug("geeta-nursing-college");
+  if (!program) return {};
+  return {
+    title: program.seo?.title || "Geeta Nursing College",
+    description: program.seo?.description || "",
+    keywords: program.seo?.keywords,
+  };
+}
+
+export default async function GeetaNursingShortcutPage() {
+  const program = await getProgramBySlug("geeta-nursing-college");
+  if (!program) notFound();
+  return <ProgramPage data={program} />;
 }

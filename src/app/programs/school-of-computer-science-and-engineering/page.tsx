@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import ProgramPage from "@/components/programs/ProgramPage";
-import { computerScienceSchool } from "@/data/programs/schools/computerScience";
-
-export const metadata: Metadata = {
-  title: computerScienceSchool.seo.title,
-  description: computerScienceSchool.seo.description,
-  keywords: computerScienceSchool.seo.keywords,
-};
+import { getProgramBySlug } from "@/lib/programs/programRepository";
 
 export const dynamic = "force-dynamic";
 
-export default function SchoolOfComputerSciencePage() {
-  return <ProgramPage data={computerScienceSchool} />;
+export async function generateMetadata(): Promise<Metadata> {
+  const program = await getProgramBySlug("school-of-computer-science-and-engineering");
+  if (!program) return {};
+  return {
+    title: program.seo?.title || "School of Computer Science & Engineering",
+    description: program.seo?.description || "",
+    keywords: program.seo?.keywords,
+  };
+}
+
+export default async function SchoolOfComputerSciencePage() {
+  const program = await getProgramBySlug("school-of-computer-science-and-engineering");
+  if (!program) notFound();
+  return <ProgramPage data={program} />;
 }

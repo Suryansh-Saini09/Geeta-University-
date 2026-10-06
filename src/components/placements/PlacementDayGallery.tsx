@@ -195,7 +195,7 @@ export default function PlacementDayGallery() {
         {/* Modal Lightbox */}
         {selectedPhoto && (
           <div
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
+            className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
             onClick={() => setSelectedPhoto(null)}
             role="dialog"
             aria-modal="true"

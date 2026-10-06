@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import ProgramPage from "@/components/programs/ProgramPage";
-import { spBansalSchool } from "@/data/programs/schools/spBansal";
-
-export const metadata: Metadata = {
-  title: spBansalSchool.seo.title,
-  description: spBansalSchool.seo.description,
-  keywords: spBansalSchool.seo.keywords,
-};
+import { getProgramBySlug } from "@/lib/programs/programRepository";
 
 export const dynamic = "force-dynamic";
 
-export default function SPBansalSchoolOfBusinessPage() {
-  return <ProgramPage data={spBansalSchool} />;
+export async function generateMetadata(): Promise<Metadata> {
+  const program = await getProgramBySlug("sp-bansal-school-of-business");
+  if (!program) return {};
+  return {
+    title: program.seo?.title || "SP Bansal School of Business",
+    description: program.seo?.description || "",
+    keywords: program.seo?.keywords,
+  };
+}
+
+export default async function SPBansalSchoolOfBusinessPage() {
+  const program = await getProgramBySlug("sp-bansal-school-of-business");
+  if (!program) notFound();
+  return <ProgramPage data={program} />;
 }

@@ -105,7 +105,7 @@ export default function DeanNoteCard({ dean, schoolName }: DeanNoteCardProps) {
       <AnimatePresence>
         {showModal && (
           <div
-            className="fixed inset-0 z-[9999] overflow-y-auto overscroll-contain bg-black/70 backdrop-blur-sm p-4 sm:p-6 md:p-8 flex items-center justify-center"
+            className="fixed inset-0 z-[99999] overflow-y-auto overscroll-contain bg-black/70 backdrop-blur-sm p-4 sm:p-6 md:p-8 flex items-center justify-center"
             onClick={() => setShowModal(false)}
           >
             <motion.div

@@ -1,8 +1,38 @@
 "use client";
 
-import { scholarshipData, gutsData } from "@/data/scholarships";
+interface ScholarshipsSectionProps {
+  data?: {
+    title?: string;
+    description?: string;
+    criteria?: Array<{ title: string }>;
+    buttonText?: string;
+    buttonHref?: string;
+    gutsLabel?: string;
+    gutsTitle?: string;
+    gutsDescription?: string;
+    gutsButtonText?: string;
+    gutsButtonHref?: string;
+  } | null;
+}
 
-export default function ScholarshipsSection() {
+export default function ScholarshipsSection({ data }: ScholarshipsSectionProps) {
+  const schTitle = data?.title || "Up to 100% Scholarships Available";
+  const schDesc = data?.description || "Geeta University offers generous merit-based and need-based scholarship schemes to empower talented students across all academic disciplines.";
+  const schCriteria = data?.criteria && data.criteria.length > 0 ? data.criteria : [
+    { title: "Merit / Percentage in Qualifying Exams" },
+    { title: "National Level Entrance Exams" },
+    { title: "Social Responsibility & Single Child" },
+    { title: "Sports & Cultural Performance" },
+  ];
+  const schBtnText = data?.buttonText || "Apply for Scholarship";
+  const schBtnHref = data?.buttonHref || "https://admissions.geetauniversity.edu.in/";
+
+  const gutsLbl = data?.gutsLabel || "GUTS 2026";
+  const gutsTtl = data?.gutsTitle || "Geeta University Talent Search";
+  const gutsDesc = data?.gutsDescription || "Take the GUTS test to unlock up to 100% tuition fee waivers and academic rewards.";
+  const gutsBtnTxt = data?.gutsButtonText || "Register for GUTS";
+  const gutsBtnHref = data?.gutsButtonHref || "https://admissions.geetauniversity.edu.in/";
+
   return (
     <section className="relative overflow-hidden bg-[#F5F8FA] py-12 md:py-16">
       {/* Decorative background */}
@@ -34,16 +64,16 @@ export default function ScholarshipsSection() {
 
             <div className="relative z-10">
               <h3 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
-                {scholarshipData.title}
+                {schTitle}
               </h3>
 
               <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 sm:text-base">
-                {scholarshipData.description}
+                {schDesc}
               </p>
 
               {/* Scholarship criteria */}
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                {scholarshipData.criteria.map((criterion) => (
+                {schCriteria.map((criterion) => (
                   <div
                     key={criterion.title}
                     className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.06] p-4 transition-all duration-300 hover:border-[#F28C18]/50 hover:bg-white/10"
@@ -72,12 +102,12 @@ export default function ScholarshipsSection() {
               {/* CTA */}
               <div className="mt-8">
                 <a
-                  href={scholarshipData.buttonHref}
+                  href={schBtnHref}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 rounded-full bg-[#F28C18] px-6 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#e47f0d] hover:shadow-xl"
                 >
-                  {scholarshipData.buttonText}
+                  {schBtnText}
 
                   <svg
                     viewBox="0 0 20 20"
@@ -109,27 +139,27 @@ export default function ScholarshipsSection() {
               {/* GUTS badge (Aligned to the left) */}
               <div className="flex items-center justify-start">
                 <span className="inline-flex items-center justify-center rounded-full bg-[#06355F] px-6 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base font-black tracking-[0.25em] text-white shadow-lg transition-transform duration-300 group-hover:scale-105 border border-white/10">
-                  {gutsData.label}
+                  {gutsLbl}
                 </span>
               </div>
 
               <h3 className="mt-4 font-serif text-2xl font-bold leading-tight text-[#06355F] sm:text-3xl">
-                {gutsData.title}
+                {gutsTtl}
               </h3>
 
               <p className="mt-5 text-sm leading-7 text-[#607284] sm:text-base">
-                {gutsData.description}
+                {gutsDesc}
               </p>
 
               {/* CTA */}
               <div className="mt-7">
                 <a
-                  href={gutsData.buttonHref}
+                  href={gutsBtnHref}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 rounded-full border-2 border-[#06355F] px-6 py-3 text-sm font-bold text-[#06355F] transition-all duration-300 hover:-translate-y-1 hover:bg-[#06355F] hover:text-white"
                 >
-                  {gutsData.buttonText}
+                  {gutsBtnTxt}
 
                   <svg
                     viewBox="0 0 20 20"
