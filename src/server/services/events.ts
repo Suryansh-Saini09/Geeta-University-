@@ -34,19 +34,24 @@ export function getPublishedEventBySlug(slug: string) {
   return prisma.event.findFirst({ where: { slug, status: ContentStatus.PUBLISHED, publishedAt: { not: null, lte: new Date() } }, include: { seo: true } });
 }
 
-export function getHomepageEvents() {
-  const now = new Date();
-  return prisma.event.findMany({
-    where: {
-      status: ContentStatus.PUBLISHED,
-      publishedAt: { not: null, lte: now },
-      OR: [
-        { startsAt: { gte: now } },
-        { endsAt: { gte: now } },
-      ],
-    },
-    orderBy: [{ startsAt: "asc" }, { id: "asc" }],
-    take: 10,
-    select: { title: true, slug: true, startsAt: true, endsAt: true },
-  });
+export async function getHomepageEvents() {
+  try {
+    const now = new Date();
+    return await prisma.event.findMany({
+      where: {
+        status: ContentStatus.PUBLISHED,
+        publishedAt: { not: null, lte: now },
+        OR: [
+          { startsAt: { gte: now } },
+          { endsAt: { gte: now } },
+        ],
+      },
+      orderBy: [{ startsAt: "asc" }, { id: "asc" }],
+      take: 10,
+      select: { title: true, slug: true, startsAt: true, endsAt: true },
+    });
+  } catch (err) {
+    console.warn("[CMS WARNING] Failed to query homepage events:", err);
+    return [];
+  }
 }
