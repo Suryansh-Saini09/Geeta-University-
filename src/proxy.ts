@@ -63,13 +63,11 @@ export function proxy(request: NextRequest) {
     path: "/",
     maxAge: 60 * 60 * 24 * 365, // 1 year
     sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
   });
 
   return response;
 }
-
-export const middleware = proxy;
-export default proxy;
 
 export const config = {
   matcher: [
