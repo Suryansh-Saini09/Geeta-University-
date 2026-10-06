@@ -1,4 +1,5 @@
-import { prisma, ContentStatus, type Prisma } from "@/server/db/client";
+import { prisma } from "@/server/db/client";
+import { ContentStatus, type Prisma } from "@prisma/client";
 import { getLocalizedBody, getLocalizedField, DEFAULT_LOCALE } from "@/lib/i18n/localization";
 
 export interface AdminDepartmentFilters {

@@ -5,7 +5,8 @@ import { redirect } from "next/navigation";
 
 import { assertPermission } from "@/server/auth/permissions";
 import { requireAdminSession } from "@/server/auth/session";
-import { prisma, AuditAction, type Prisma } from "@/server/db/client";
+import { prisma } from "@/server/db/client";
+import { AuditAction, type Prisma } from "@prisma/client";
 import {
   ADMISSION_CTA_SETTINGS_KEY,
   ANNOUNCEMENT_SETTINGS_KEY,

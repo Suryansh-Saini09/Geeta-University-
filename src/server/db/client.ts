@@ -2,9 +2,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 import { PrismaMariaDb } from "@prisma/adapter-mariadb";
-import { PrismaClient, ContentStatus, AuditAction, type Prisma } from "@prisma/client";
-
-export { PrismaClient, ContentStatus, AuditAction, type Prisma };
+import { PrismaClient } from "@prisma/client";
 
 const globalForPrisma = globalThis as unknown as {
   prisma?: PrismaClient;

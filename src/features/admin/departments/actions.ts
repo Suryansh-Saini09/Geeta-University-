@@ -3,7 +3,8 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-import { prisma, AuditAction, ContentStatus } from "@/server/db/client";
+import { prisma } from "@/server/db/client";
+import { AuditAction, ContentStatus } from "@prisma/client";
 import { assertPermission } from "@/server/auth/permissions";
 import { requireAdminSession } from "@/server/auth/session";
 import { getAliasesForSlug } from "@/lib/programs/programRepository";
