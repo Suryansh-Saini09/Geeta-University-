@@ -35,20 +35,6 @@ export function proxy(request: NextRequest) {
     locale = firstSegment;
     targetPath = "/" + pathSegments.slice(1).join("/");
     if (targetPath === "") targetPath = "/";
-  } else {
-    // If no locale in URL, check stored cookie preference
-    const cookieLocale = request.cookies.get("gu-locale")?.value;
-    if (cookieLocale && isValidLocale(cookieLocale) && cookieLocale !== DEFAULT_LOCALE) {
-      // Redirect to localized URL so browser URL and active locale never disagree
-      const redirectUrl = new URL(`/${cookieLocale}${pathname === "/" ? "" : pathname}` + request.nextUrl.search, request.url);
-      const redirectResponse = NextResponse.redirect(redirectUrl);
-      redirectResponse.cookies.set("gu-locale", cookieLocale, {
-        path: "/",
-        maxAge: 60 * 60 * 24 * 365,
-        sameSite: "lax",
-      });
-      return redirectResponse;
-    }
   }
 
   const responseHeaders = new Headers(request.headers);
