@@ -45,8 +45,7 @@ function LanguageSwitcherInner({
     const queryStr = searchParams.toString();
     const fullUrl = queryStr ? `${newPath}?${queryStr}` : newPath;
 
-    router.push(fullUrl);
-    router.refresh();
+    window.location.href = fullUrl;
   };
 
   if (variant === "mobile") {

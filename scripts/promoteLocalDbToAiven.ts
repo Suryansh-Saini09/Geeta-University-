@@ -9,6 +9,12 @@ const isDryRun = process.argv.includes("--dry-run");
 const isApply = process.argv.includes("--apply");
 const isAudit = process.argv.includes("--audit") || (!isDryRun && !isApply);
 
+if (isApply && process.env.CONFIRM_AIVEN_PRODUCTION !== "YES") {
+  console.error("ERROR: Modifying or promoting data to Aiven Production database requires explicit environment variable:");
+  console.error("  CONFIRM_AIVEN_PRODUCTION=YES npx tsx scripts/promoteLocalDbToAiven.ts --apply\n");
+  process.exit(1);
+}
+
 function getLocalDatabaseUrl(): string {
   if (process.env.LOCAL_DATABASE_URL) return process.env.LOCAL_DATABASE_URL;
   const envLocal = readFileSync(".env.local", "utf8");
