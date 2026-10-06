@@ -15,31 +15,31 @@ export async function getPublishedHomePage(locale: string = DEFAULT_LOCALE) {
       prisma.pageSection.findMany({
         where: { pageSlug: "home", status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] home pageSections:", err); return []; }),
       prisma.recruiter.findMany({
         where: { status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] home recruiters:", err); return []; }),
       prisma.awardRanking.findMany({
         where: { status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] home awards:", err); return []; }),
       prisma.testimonial.findMany({
         where: { status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] home testimonials:", err); return []; }),
       prisma.industryPartner.findMany({
         where: { status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] home industryPartners:", err); return []; }),
       prisma.starPerformance.findMany({
         where: { status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] home starPerformances:", err); return []; }),
       prisma.page.findUnique({
         where: { slug: "home" },
         include: { seo: true },
-      }).catch(() => null),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] home seo page record:", err); return null; }),
     ]);
 
     const sectionMap: Record<string, any> = {};
@@ -141,27 +141,27 @@ export async function getPublishedAboutPage(locale: string = DEFAULT_LOCALE) {
       prisma.pageSection.findMany({
         where: { pageSlug: "about", status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] about pageSections:", err); return []; }),
       prisma.recognition.findMany({
         where: { status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] about recognitions:", err); return []; }),
       prisma.awardRanking.findMany({
         where: { status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] about awards:", err); return []; }),
       prisma.leadershipMember.findMany({
         where: { status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] about leadership:", err); return []; }),
       prisma.governanceDocument.findMany({
         where: { status: "PUBLISHED" },
         orderBy: { sortOrder: "asc" },
-      }).catch(() => []),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] about governanceDocs:", err); return []; }),
       prisma.page.findUnique({
         where: { slug: "about" },
         include: { seo: true },
-      }).catch(() => null),
+      }).catch((err) => { console.error("[CMS DB QUERY ERROR] about seo page record:", err); return null; }),
     ]);
 
     const sectionMap: Record<string, any> = {};

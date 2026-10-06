@@ -59,12 +59,22 @@ export function proxy(request: NextRequest) {
   }
 
   // Set gu-locale cookie to match the active route locale
-  response.cookies.set("gu-locale", locale, {
-    path: "/",
-    maxAge: 60 * 60 * 24 * 365, // 1 year
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
-  });
+  if (firstSegment && isValidLocale(firstSegment)) {
+    response.cookies.set("gu-locale", locale, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    });
+  } else if (!request.cookies.has("gu-locale")) {
+    response.cookies.set("gu-locale", DEFAULT_LOCALE, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    });
+  }
+
 
   return response;
 }
