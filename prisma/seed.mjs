@@ -1,8 +1,29 @@
 import "dotenv/config";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
+import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 import bcrypt from "bcryptjs";
 import { AdminRole, AdminUserStatus, PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+const databaseUrl = new URL(process.env.DATABASE_URL);
+const certificate = databaseUrl.searchParams.get("sslcert");
+const prisma = new PrismaClient({
+  adapter: new PrismaMariaDb({
+    host: databaseUrl.hostname,
+    port: Number(databaseUrl.port || 3306),
+    user: decodeURIComponent(databaseUrl.username),
+    password: decodeURIComponent(databaseUrl.password),
+    database: databaseUrl.pathname.slice(1),
+    connectTimeout: 10000,
+    ...(certificate && {
+      ssl: {
+        ca: readFileSync(resolve(process.cwd(), "prisma", certificate)),
+        rejectUnauthorized: true,
+      },
+    }),
+  }),
+});
 
 const email = process.env.SEED_ADMIN_EMAIL;
 const password = process.env.SEED_ADMIN_PASSWORD;

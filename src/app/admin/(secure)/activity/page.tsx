@@ -8,7 +8,7 @@ import { getAuditLogs } from "@/server/services/auditLogs";
 
 export const dynamic = "force-dynamic";
 
-const entityTypes = ["AdminUser", "Page", "Department", "Program", "FacultyMember", "Notice", "NewsArticle", "Event", "GalleryAlbum", "MediaAsset"];
+const entityTypes = ["AdminUser", "Page", "Department", "Program", "FacultyMember", "Notice", "NewsArticle", "Event", "GalleryAlbum", "MediaAsset", "SiteSetting", "ContactSubmission"];
 
 export default async function ActivityPage({ searchParams }: { searchParams: Promise<{ action?: string; entityType?: string; page?: string }> }) {
   const [params, session] = await Promise.all([searchParams, requireAdminSession()]);

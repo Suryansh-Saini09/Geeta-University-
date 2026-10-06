@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getPublishedHomePage } from "@/server/services/pages";
 import { getLocale } from "@/lib/i18n/getLocale";
 import HomeHeroSection from "@/components/home/HomeHeroSection";
@@ -15,10 +16,16 @@ import WhyJoinGeetaSection from "@/components/home/WhyJoinGeetaSection";
 import ScholarshipsSection from "@/components/home/ScholarshipsSection";
 import IndustryIntegrationSection from "@/components/home/IndustryIntegrationSection";
 import StarPerformancesSection from "@/components/home/StarPerformancesSection";
-
-import type { Metadata } from "next";
+import { getHomepageEvents } from "@/server/services/events";
 
 export const revalidate = 60;
+
+const dateFormatter = new Intl.DateTimeFormat("en-IN", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+  timeZone: "Asia/Kolkata",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -57,6 +64,14 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const locale = await getLocale();
   const homeData = await getPublishedHomePage(locale);
+  const events = await getHomepageEvents();
+  const eventUpdates = events.map((event) => ({
+    title: event.title,
+    description: event.endsAt && dateFormatter.format(event.endsAt) !== dateFormatter.format(event.startsAt)
+      ? `${dateFormatter.format(event.startsAt)} – ${dateFormatter.format(event.endsAt)}`
+      : dateFormatter.format(event.startsAt),
+    href: `/events/${event.slug}`,
+  }));
 
   return (
     <main className="bg-white">
@@ -78,7 +93,7 @@ export default async function Home() {
 
       <HomeUniverseSection data={homeData.universe} />
 
-      <HomeUpdatesSection data={homeData.updates} />
+      <HomeUpdatesSection data={homeData.updates} eventUpdates={eventUpdates} />
 
       <WhyJoinGeetaSection data={homeData.whyJoinGeeta} />
 
