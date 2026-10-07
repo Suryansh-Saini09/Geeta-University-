@@ -45,6 +45,7 @@ import { bcaAIML } from "@/data/programs/courses/computer-science-and-engineerin
 import { bcaCyberSecurity } from "@/data/programs/courses/computer-science-and-engineering/bca-cyber-security";
 import { bcaDataScienceAndBusinessAnalytics } from "@/data/programs/courses/computer-science-and-engineering/bca-data-science-and-business-analytics";
 import { mtechCse } from "@/data/programs/courses/computer-science-and-engineering/mtech-cse";
+import { mca } from "@/data/programs/courses/computer-science-and-engineering/mca";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -93,6 +94,7 @@ const courses: CoursePageData[] = [
   bcaCyberSecurity,
   bcaDataScienceAndBusinessAnalytics,
   mtechCse,
+  mca,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -182,6 +184,12 @@ function normalizeCourseSlug(slug: string): string {
     s === "m-tech-in-computer-science-and-engineering"
   )
     return "mtech-cse";
+  if (
+    s === "master-of-computer-applications" ||
+    s === "mca-program" ||
+    s === "mca-general"
+  )
+    return "mca";
   return s;
 }
 
@@ -355,6 +363,13 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
       params.push({
         schoolSlug: c.schoolSlug,
         courseSlug: "mtech-computer-science",
+      });
+    }
+
+    if (c.slug === "mca") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "master-of-computer-applications",
       });
     }
   });
