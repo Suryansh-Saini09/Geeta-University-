@@ -23,6 +23,10 @@ const envSchema = z.object({
     emptyStringToUndefined,
     z.string().optional()
   ),
+  MEDIA_STORAGE_DIR: z.preprocess(
+    emptyStringToUndefined,
+    z.string().optional()
+  ),
 });
 
 export const env = envSchema.parse({
@@ -31,6 +35,7 @@ export const env = envSchema.parse({
   ADMIN_SESSION_DAYS: process.env.ADMIN_SESSION_DAYS,
   GEETA_LEAD_API_URL: process.env.GEETA_LEAD_API_URL,
   GEETA_LEAD_API_KEY: process.env.GEETA_LEAD_API_KEY,
+  MEDIA_STORAGE_DIR: process.env.MEDIA_STORAGE_DIR,
 });
 
 export function requireDatabaseUrl(): string {

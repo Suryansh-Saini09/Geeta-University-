@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-import EdgePage from "@/components/edge/EdgePage";
+import GlobalEdgeContent from "@/components/edge/GlobalEdgeContent";
 import { getEdgePageBySlug } from "@/lib/edge/edgeRepository";
 
 export const metadata: Metadata = {
@@ -26,5 +26,5 @@ export default function GuGlobalEdgePage() {
     notFound();
   }
 
-  return <EdgePage data={pageData} />;
+  return <GlobalEdgeContent data={pageData} />;
 }

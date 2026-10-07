@@ -100,11 +100,11 @@ export const hrVoices: RecruiterVoice[] = [
   {
     id: "hr-1",
     name: "Mr. Vinin",
-    designation: "Chief Executive Officer",
-    company: "Profunnel Technologies Pvt. Ltd.",
+    designation: "CEO",
+    company: "Profrunnel Technologies Pvt. Ltd.",
     image: "/placements/hr-vinin.jpg",
     quote:
-      "Technical and communication skills of students exceeded expectations. The rigorous training and grooming at Geeta University are clearly aligned with modern industry needs.",
+      "Technical and communication skills of students exceeded expectations. The training and grooming at Geeta University are clearly aligned with industry needs.",
   },
   {
     id: "hr-2",
@@ -113,7 +113,7 @@ export const hrVoices: RecruiterVoice[] = [
     company: "Policy Bazaar",
     image: "/placements/hr-aman.jpg",
     quote:
-      "Geeta University students are confident, well-prepared, and have strong communication skills. Their readiness for dynamic corporate roles makes them a reliable talent pool for growing organizations.",
+      "Geeta University students are confident, well-prepared, and have strong communication skills. Their readiness for dynamic roles makes them a reliable talent pool for growing organizations.",
   },
   {
     id: "hr-3",
@@ -122,7 +122,7 @@ export const hrVoices: RecruiterVoice[] = [
     company: "Anixz Solution Pvt. Ltd.",
     image: "/placements/hr-nidhi.jpg",
     quote:
-      "Excellent subject knowledge, quick learners, and exceptional clarity of concepts — Geeta University students fit perfectly in academic and tech-based profiles. A truly seamless hiring experience!",
+      "Excellent subject knowledge, quick learners, and clarity of concepts — Geeta University students fit perfectly in academic and content-based profiles. A great hiring experience!",
   },
   {
     id: "hr-4",
@@ -131,7 +131,7 @@ export const hrVoices: RecruiterVoice[] = [
     company: "The Times of India",
     image: "/placements/hr-arun.jpg",
     quote:
-      "Students from Geeta University arrive with strong aptitude and sharp business sense. Their performance during group discussions and technical interviews was highly commendable.",
+      "Students from Geeta University come with a strong aptitude and sharp business sense. Their performance during group discussions and interviews was highly commendable.",
   },
 ];
 

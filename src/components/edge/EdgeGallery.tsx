@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ChevronLeft, ChevronRight, X, Maximize2 } from "lucide-react";
 import type { EdgeGallerySection, EdgeGalleryItem } from "@/data/edge/types";
+import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
 interface EdgeGalleryProps {
   section: EdgeGallerySection;
@@ -11,22 +12,46 @@ interface EdgeGalleryProps {
 
 export default function EdgeGallery({ section }: EdgeGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<EdgeGalleryItem | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? section.items.length - 1 : prev - 1));
-  };
+  const {
+    containerRef,
+    maxIndex,
+    next,
+    prev,
+    handleScroll,
+    handleMouseDown,
+    handleMouseLeave,
+    handleMouseEnter,
+    handleMouseUp,
+    handleMouseMove,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useFiniteCarousel({
+    totalItems: section.items?.length || 0,
+    autoplayInterval: 3500,
+    enableAutoplay: true,
+  });
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === section.items.length - 1 ? 0 : prev + 1));
-  };
+  if (!section.items || section.items.length === 0) {
+    return null;
+  }
 
   return (
     <section className="bg-white py-12 md:py-16 relative overflow-hidden border-t border-slate-200">
-      <div className="gu-container">
-        
+      {/* Background ambient accents */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#E8871A]/5 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-[#0A1F44]/5 blur-3xl"
+      />
+
+      <div className="gu-container relative">
         {/* Section Header */}
-        <div className="mx-auto mb-14 max-w-3xl text-center">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
           {section.eyebrow && (
             <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8871A]/10 px-4 py-1 border border-[#E8871A]/20">
               <Sparkles size={14} className="text-[#E8871A]" />
@@ -43,112 +68,90 @@ export default function EdgeGallery({ section }: EdgeGalleryProps) {
               {section.subtitle}
             </p>
           )}
-        </div>
-
-        {/* Featured Gallery Viewer (Whole Image Visible, No Cropping/Cutoff) */}
-        <div className="relative max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-950 group flex flex-col">
-          
-          {/* Main Visual Display Area */}
-          <div className="relative w-full h-[320px] sm:h-[420px] md:h-[480px] lg:h-[520px] bg-slate-950 overflow-hidden flex items-center justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="relative w-full h-full flex items-center justify-center p-3 sm:p-5"
-              >
-                {/* Blurred ambient backdrop so wide or tall images fill seamlessly */}
-                <img
-                  src={section.items[currentIndex].src}
-                  alt=""
-                  aria-hidden="true"
-                  className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-110 pointer-events-none"
-                />
-
-                {/* Foreground whole uncropped image */}
-                <img
-                  src={section.items[currentIndex].src}
-                  alt={section.items[currentIndex].title || `Gallery image ${currentIndex + 1}`}
-                  className="relative z-10 max-w-full max-h-full object-contain rounded-xl shadow-lg"
-                />
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation Arrows */}
-            <button
-              type="button"
-              onClick={prevSlide}
-              aria-label="Previous image"
-              className="absolute left-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md transition-all hover:bg-[#E8871A] hover:scale-110 shadow-lg z-20"
-            >
-              <ChevronLeft size={22} />
-            </button>
-            <button
-              type="button"
-              onClick={nextSlide}
-              aria-label="Next image"
-              className="absolute right-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md transition-all hover:bg-[#E8871A] hover:scale-110 shadow-lg z-20"
-            >
-              <ChevronRight size={22} />
-            </button>
-
-            {/* Expand Lightbox Button */}
-            <button
-              type="button"
-              onClick={() => setSelectedImage(section.items[currentIndex])}
-              aria-label="Open fullscreen"
-              className="absolute top-4 right-4 h-9 w-9 rounded-full bg-black/60 text-white flex items-center justify-center backdrop-blur-md transition hover:bg-black/90 hover:scale-105 z-20"
-            >
-              <Maximize2 size={16} />
-            </button>
-          </div>
-
-          {/* Dedicated Bottom Caption Bar (Does not overlap/obscure image content) */}
-          {(section.items[currentIndex].title || section.items[currentIndex].caption) && (
-            <div className="relative z-20 bg-slate-900 px-6 py-4 text-center text-white border-t border-white/10">
-              {section.items[currentIndex].title && (
-                <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
-                  {section.items[currentIndex].title}
-                </h3>
-              )}
-              {section.items[currentIndex].caption && (
-                <p className="mt-1 text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                  {section.items[currentIndex].caption}
-                </p>
-              )}
-            </div>
+          {section.description && (
+            <p className="mt-3 text-sm md:text-base text-slate-500 max-w-2xl mx-auto">
+              {section.description}
+            </p>
           )}
         </div>
 
-        {/* Thumbnail Strip */}
-        <div className="flex justify-center gap-3 mt-6 overflow-x-auto pb-2 px-4">
-          {section.items.map((item, idx) => (
+        {/* Multi-Item Carousel Track */}
+        <div className="group relative px-2 sm:px-4">
+          {/* Left navigation arrow */}
+          {maxIndex > 0 && (
             <button
-              key={idx}
               type="button"
-              onClick={() => setCurrentIndex(idx)}
-              className={`relative h-16 sm:h-20 w-24 sm:w-28 rounded-xl overflow-hidden border-2 transition-all shrink-0 bg-slate-900 ${
-                currentIndex === idx
-                  ? "border-[#E8871A] scale-105 shadow-md ring-2 ring-[#E8871A]/30"
-                  : "border-transparent opacity-60 hover:opacity-100"
-              }`}
+              onClick={prev}
+              aria-label="Scroll left"
+              className="absolute -left-2 sm:-left-4 top-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
             >
-              <img
-                src={item.src}
-                alt="thumbnail"
-                className="w-full h-full object-cover"
-              />
+              <ChevronLeft size={20} strokeWidth={2.5} />
             </button>
-          ))}
+          )}
+
+          {/* Right navigation arrow */}
+          {maxIndex > 0 && (
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Scroll right"
+              className="absolute -right-2 sm:-right-4 top-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/95 backdrop-blur-md text-[#0A1F44] shadow-md transition-all duration-300 hover:border-[#E8871A] hover:bg-[#0A1F44] hover:text-[#E8871A] hover:scale-110 active:scale-95 pointer-events-auto cursor-pointer"
+            >
+              <ChevronRight size={20} strokeWidth={2.5} />
+            </button>
+          )}
+
+          <div
+            ref={containerRef}
+            onScroll={handleScroll}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className="flex w-full gap-6 overflow-x-auto pb-6 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {section.items.map((item, idx) => (
+              <div
+                key={idx}
+                onClick={() => setSelectedImage(item)}
+                className="group/card relative flex aspect-[4/3] w-[280px] sm:w-[330px] md:w-[380px] shrink-0 overflow-hidden rounded-3xl border border-[#0A1F44]/10 bg-[#0A1F44] shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer"
+              >
+                {/* Background Image */}
+                <img
+                  src={item.src}
+                  alt={item.title || `Gallery image ${idx + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105 pointer-events-none"
+                />
+
+                {/* Dark Gradient Overlay for Text */}
+                {(item.title || item.caption) && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex flex-col justify-end p-5 text-white z-10">
+                    {item.title && (
+                      <h3 className="font-serif text-lg sm:text-xl font-bold leading-snug text-white group-hover/card:text-[#E8871A] transition-colors">
+                        {item.title}
+                      </h3>
+                    )}
+                    {item.caption && (
+                      <p className="mt-1 text-xs sm:text-sm text-slate-300 line-clamp-2 leading-relaxed">
+                        {item.caption}
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Lightbox Modal */}
       <AnimatePresence>
         {selectedImage && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
+          <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 md:p-10">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

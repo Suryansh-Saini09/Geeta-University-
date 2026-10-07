@@ -1,0 +1,9 @@
+"use client";
+
+import { LogOut } from "lucide-react";
+
+import { revokeAdminUserSessionsAction } from "@/features/admin/users/actions";
+
+export default function RevokeUserSessionsButton({ id, name }: { id: string; name: string }) {
+  return <form action={revokeAdminUserSessionsAction} onSubmit={(event) => { if (!window.confirm(`Sign out ${name} from all sessions?`)) event.preventDefault(); }}><input type="hidden" name="id" value={id} /><button type="submit" className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-50"><LogOut className="h-3.5 w-3.5" /> Sign out</button></form>;
+}

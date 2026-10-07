@@ -41,7 +41,7 @@ export default function VideoModal({
     <AnimatePresence>
       {isOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-md sm:p-6"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md sm:p-6 md:p-8"
           onClick={onClose}
           role="dialog"
           aria-modal="true"

@@ -11,15 +11,21 @@ import {
   Megaphone,
   Newspaper,
   Settings,
+  Inbox,
+  ScrollText,
   Shield,
   Users,
+  UserCog,
 } from "lucide-react";
 
 import type { AdminSessionUser } from "@/server/auth/session";
+import { hasPermission } from "@/server/auth/permissions";
 import { logoutAction } from "@/features/admin/auth/actions";
 
 const navigation = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
+  { label: "Home CMS", href: "/admin/home", icon: FileText },
+  { label: "About CMS", href: "/admin/about", icon: FileText },
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "Departments", href: "/admin/departments", icon: GraduationCap },
   { label: "Programs", href: "/admin/programs", icon: BookOpen },
@@ -29,6 +35,9 @@ const navigation = [
   { label: "Events", href: "/admin/events", icon: CalendarDays },
   { label: "Gallery", href: "/admin/gallery", icon: GalleryHorizontalEnd },
   { label: "Media", href: "/admin/media", icon: Image },
+  { label: "Submissions", href: "/admin/submissions", icon: Inbox },
+  { label: "Users", href: "/admin/users", icon: UserCog },
+  { label: "Activity", href: "/admin/activity", icon: ScrollText },
   { label: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
@@ -56,7 +65,13 @@ export default function AdminShell({
           </div>
 
           <nav className="space-y-1 p-4">
-            {navigation.map((item) => {
+            {navigation.filter((item) => {
+              if (item.href === "/admin/users") return hasPermission(user.role, "manageUsers");
+              if (item.href === "/admin/activity") return hasPermission(user.role, "viewAuditLogs");
+              if (item.href === "/admin/submissions") return hasPermission(user.role, "viewSubmissions");
+              if (item.href === "/admin/settings") return hasPermission(user.role, "manageSettings");
+              return true;
+            }).map((item) => {
               const Icon = item.icon;
 
               return (

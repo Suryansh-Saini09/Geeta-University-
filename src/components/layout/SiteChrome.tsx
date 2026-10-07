@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import FloatingSocialBar from "@/components/layout/FloatingSocialBar";
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -17,6 +18,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   return (
     <>
       <Navbar />
+      <FloatingSocialBar />
       <main className="w-full min-w-0 flex-1">{children}</main>
       <Footer />
     </>

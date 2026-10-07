@@ -38,7 +38,11 @@ export async function loginAction(formData: FormData) {
       );
     }
   } catch (error) {
-    console.error("Database connection error during login:", error);
+    console.error("Database connection error during login:", {
+      message: error instanceof Error ? error.message : String(error),
+      code: (error as any)?.code,
+      hasDbUrl: Boolean(process.env.DATABASE_URL),
+    });
     redirect("/admin/login?error=database-error");
   }
 

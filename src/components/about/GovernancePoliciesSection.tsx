@@ -3,8 +3,10 @@
 import { motion, Variants } from "framer-motion";
 import { FileText } from "lucide-react";
 
-import { governanceDocuments } from "@/data/governance";
-import { policyDocuments } from "@/data/policies";
+interface GovernancePoliciesSectionProps {
+  governanceData?: Array<{ id: string | number; title: string; description?: string | null; documentUrl: string }> | null;
+  policiesData?: Array<{ id: string | number; title: string; description?: string | null; documentUrl: string }> | null;
+}
 
 const fadeUp: Variants = {
   hidden: {
@@ -21,7 +23,9 @@ const fadeUp: Variants = {
   },
 };
 
-export default function GovernancePoliciesSection() {
+export default function GovernancePoliciesSection({ governanceData, policiesData }: GovernancePoliciesSectionProps) {
+  const govDocs = governanceData && governanceData.length > 0 ? governanceData : [];
+  const policyDocs = policiesData && policiesData.length > 0 ? policiesData : [];
   return (
     <section
       className="
@@ -80,7 +84,7 @@ export default function GovernancePoliciesSection() {
 
           {/* Governance Cards Grid */}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {governanceDocuments.map((document, index) => (
+            {govDocs.map((document, index) => (
               <DocumentCard
                 key={document.id}
                 index={index}
@@ -117,7 +121,7 @@ export default function GovernancePoliciesSection() {
 
           {/* Policy Cards Grid */}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {policyDocuments.map((document, index) => (
+            {policyDocs.map((document, index) => (
               <DocumentCard
                 key={document.id}
                 index={index}

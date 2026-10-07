@@ -23,84 +23,83 @@ export default function EdgeVideoSection({ section }: EdgeVideoSectionProps) {
       <div className="gu-container relative z-10">
         
         {/* Section Header */}
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          {section.eyebrow && (
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8871A]/15 px-4 py-1 border border-[#E8871A]/30">
-              <Sparkles size={14} className="text-[#E8871A]" />
-              <span className="text-xs font-bold uppercase tracking-[2px] text-[#E8871A]">
-                {section.eyebrow}
-              </span>
-            </div>
-          )}
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
-            {section.title}
-          </h2>
-          {section.subtitle && (
-            <p className="mt-3 text-base md:text-lg text-slate-300 font-medium">
-              {section.subtitle}
-            </p>
-          )}
-        </div>
+        {(section.eyebrow || section.title || section.subtitle) && (
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            {section.eyebrow && (
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8871A]/15 px-4 py-1 border border-[#E8871A]/30">
+                <Sparkles size={14} className="text-[#E8871A]" />
+                <span className="text-xs font-bold uppercase tracking-[2px] text-[#E8871A]">
+                  {section.eyebrow}
+                </span>
+              </div>
+            )}
+            {section.title && (
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
+                {section.title}
+              </h2>
+            )}
+            {section.subtitle && (
+              <p className="mt-3 text-base md:text-lg text-slate-300 font-medium">
+                {section.subtitle}
+              </p>
+            )}
+          </div>
+        )}
 
         {/* Video Cards Grid */}
         <div className={`grid grid-cols-1 ${videos.length > 1 ? (videos.length === 2 ? "md:grid-cols-2 max-w-4xl mx-auto" : "md:grid-cols-3") : "max-w-3xl mx-auto"} gap-8`}>
           {videos.map((vid, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
               className="group flex flex-col rounded-2xl bg-white/5 border border-white/10 overflow-hidden shadow-lg hover:border-[#E8871A]/50 transition-all hover:bg-white/10"
-            >
-              {/* Thumbnail with Play Button */}
+              >
+                {/* Thumbnail with Play Button */}
               <div className="relative aspect-video w-full overflow-hidden bg-slate-800">
-                <img
+                  <img
                   src={vid.thumbnail}
-                  alt={vid.title}
+                    alt={vid.title || "Video thumbnail"}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                  />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
 
-                {vid.tag && (
+                  {vid.tag && (
                   <span className="absolute top-3 left-3 rounded-full bg-[#E8871A] px-3 py-1 text-xs font-bold text-white shadow-md">
-                    {vid.tag}
-                  </span>
-                )}
-
-                <button
-                  type="button"
-                  onClick={() => setActiveVideoUrl(vid.videoUrl)}
-                  aria-label={`Play ${vid.title}`}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-14 w-14 rounded-full bg-white text-[#0A1F44] flex items-center justify-center shadow-xl transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#E8871A] group-hover:text-white"
-                >
-                  <Play size={22} className="fill-current ml-0.5" />
-                </button>
-              </div>
-
-              {/* Video Info */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-serif text-xl font-bold text-white leading-snug">
-                    {vid.title}
-                  </h3>
-                  {vid.description && (
-                    <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      {vid.description}
-                    </p>
+                      {vid.tag}
+                    </span>
                   )}
+
+                  <button
+                    type="button"
+                    onClick={() => setActiveVideoUrl(vid.videoUrl)}
+                    aria-label={`Play ${vid.title || "video"}`}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-14 w-14 rounded-full bg-white text-[#0A1F44] flex items-center justify-center shadow-xl transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#E8871A] group-hover:text-white"
+                  >
+                  <Play size={22} className="fill-current ml-0.5" />
+                  </button>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => setActiveVideoUrl(vid.videoUrl)}
-                  className="mt-4 self-start text-xs font-bold text-[#E8871A] hover:underline flex items-center gap-1"
-                >
-                  <span>Watch Video</span>
-                  <Play size={12} className="fill-[#E8871A]" />
-                </button>
-              </div>
-            </motion.div>
+              {/* Video Info */}
+              {(vid.title || vid.description) && (
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    {vid.title && (
+                      <h3 className="font-serif text-xl font-bold text-white leading-snug">
+                        {vid.title}
+                      </h3>
+                    )}
+                    {vid.description && (
+                      <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        {vid.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
+              </motion.div>
           ))}
         </div>
       </div>
@@ -108,7 +107,7 @@ export default function EdgeVideoSection({ section }: EdgeVideoSectionProps) {
       {/* Video Modal */}
       <AnimatePresence>
         {activeVideoUrl && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
+          <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 md:p-10">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

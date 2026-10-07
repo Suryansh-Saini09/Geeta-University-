@@ -354,7 +354,6 @@ interface TopRecruitersProps {
 
 export default function TopRecruiters({
   title = "100+ Companies. Endless Possibilities.",
-  badgeText = "100+ Corporate Recruiters",
   recruiters,
   row1,
   row2,
@@ -525,37 +524,6 @@ export default function TopRecruiters({
             <RecruiterCard key={`r2-${item.name}-${i}`} name={item.name} customLogo={item.logo} />
           ))}
         </div>
-      </div>
-
-      {/* Badge */}
-      <div
-        style={{
-          textAlign: "center",
-          marginTop: 48,
-          position: "relative",
-          zIndex: 1,
-          animation: "recFadeUp 0.8s 0.1s ease both",
-        }}
-      >
-        <span
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 10,
-            background: "rgba(255,255,255,0.18)",
-            border: "1px solid rgba(255,255,255,0.35)",
-            backdropFilter: "blur(8px)",
-            borderRadius: 32,
-            padding: "10px 28px",
-            color: "#FFFFFF",
-            fontWeight: 700,
-            fontSize: 13,
-            letterSpacing: 0.4,
-            textShadow: "0 1px 4px rgba(0,0,0,0.15)",
-          }}
-        >
-          {badgeText}
-        </span>
       </div>
     </section>
   );

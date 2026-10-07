@@ -12,7 +12,6 @@ import RecruiterVoicesSection from "@/components/placements/RecruiterVoicesSecti
 import PlacementDayGallery from "@/components/placements/PlacementDayGallery";
 import LegacyEcosystem from "@/components/about/LegacyEcosystem";
 import FAQSection from "@/components/programs/FAQSection";
-import PlacementCTA from "@/components/placements/PlacementCTA";
 import VideoModal from "@/components/campus-life/VideoModal";
 import { placementFaqs } from "@/data/placements";
 
@@ -48,9 +47,7 @@ export default function PlacementsPage() {
       {/* 3. Top Recruiters Marquee */}
       <div id="recruiters" className="scroll-mt-[190px]">
         <TopRecruiters
-          title="Where Talent Meets Global Industry Leaders"
-          badgeText="🏆 445+ Recruiting Partners Across 10+ Sectors"
-        />
+          title="Top Recruiters"       />
       </div>
 
       {/* 4. Career Development Cell (CDC) */}
@@ -85,9 +82,6 @@ export default function PlacementsPage() {
           faqs={placementFaqs}
         />
       </section>
-
-      {/* 12. Final Placement & Admissions CTA */}
-      <PlacementCTA />
 
       {/* Video Modal Player */}
       <VideoModal

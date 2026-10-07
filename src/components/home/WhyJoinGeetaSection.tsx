@@ -2,10 +2,19 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { whyJoinItems } from "@/data/whyJoinGeeta";
 
-export default function WhyJoinGeetaSection() {
+interface WhyJoinGeetaSectionProps {
+  data?: {
+    heading?: string;
+    items?: Array<{ id: number; title: string; description: string }>;
+    image?: string;
+  } | null;
+}
+export default function WhyJoinGeetaSection({ data }: WhyJoinGeetaSectionProps) {
   const [activeItem, setActiveItem] = useState<number>(0);
+  const headingText = data?.heading || "Why Join Geeta University?";
+  const itemList = data?.items && data.items.length > 0 ? data.items : [];
+  const imageSrc = data?.image || "/home/Picture122244-(1).png";
 
   const handleToggle = (id: number) => {
     setActiveItem((current) => (current === id ? 0 : id));
@@ -28,8 +37,7 @@ export default function WhyJoinGeetaSection() {
         {/* Section heading */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
-            Why Join{" "}
-            <span className="text-[#F28C18]">Geeta University?</span>
+            {headingText}
           </h2>
 
           <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
@@ -40,7 +48,7 @@ export default function WhyJoinGeetaSection() {
           {/* Accordion */}
           <div className="order-2 lg:order-1">
             <div className="space-y-3">
-              {whyJoinItems.map((item) => {
+              {itemList.map((item) => {
                 const isActive = activeItem === item.id;
 
                 return (
@@ -149,7 +157,7 @@ export default function WhyJoinGeetaSection() {
               {/* Image container */}
               <div className="relative aspect-square overflow-hidden rounded-full border-8 border-white bg-[#F1F5F8] shadow-2xl">
                 <Image
-                  src="/home/Picture122244-(1).png"
+                  src={imageSrc}
                   alt="Student representing the Geeta University experience"
                   fill
                   sizes="(max-width: 1024px) 80vw, 500px"

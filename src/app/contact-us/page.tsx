@@ -6,6 +6,9 @@ import ContactMainCards from "@/components/contact-us/ContactMainCards";
 import ContactOfficesGrid from "@/components/contact-us/ContactOfficesGrid";
 import ContactMapSection from "@/components/contact-us/ContactMapSection";
 import IndustryEcosystemSection from "@/components/industry-integration/IndustryEcosystemSection";
+import { getContactSettings } from "@/server/services/siteSettings";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://geetauniversity.edu.in"),
@@ -28,14 +31,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactUsPage() {
+export default async function ContactUsPage() {
+  const contact = await getContactSettings();
   return (
     <main className="min-h-screen bg-[#F7F9FC] text-[#0A1F44]">
       {/* Hero Section */}
       <ContactHero />
 
       {/* Main Info Cards (Location, Phone, Email) */}
-      <ContactMainCards />
+      <ContactMainCards contact={contact} />
 
       {/* Regional Admission Offices Grid */}
       <ContactOfficesGrid />

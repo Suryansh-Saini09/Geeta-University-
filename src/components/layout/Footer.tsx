@@ -41,6 +41,10 @@ export default function Footer() {
   const quickLinksData: FooterColumnData = {
     title: "Quick Links",
     links: [
+      { label: "Departments", href: "/departments", isInternal: true },
+      { label: "Programs", href: "/programs", isInternal: true },
+      { label: "Faculty", href: "/faculty", isInternal: true },
+      { label: "Notices", href: "/notices", isInternal: true },
       { label: "Blog", href: "https://geetauniversity.edu.in/blog/" },
       { label: "Telephone Directory", href: "https://geetauniversity.edu.in/uploads/all/1179/Telephone_Directory.pdf" },
       { label: "Student Grievances Portal", href: "https://geetauniversity.com/" },
@@ -97,7 +101,7 @@ export default function Footer() {
       { label: "GU Civil Society, NGOs Feedback Form", href: "/ngos-civil-society-feedback", isInternal: true },
       { label: "GU Alumni Feedback Form", href: "/alumni-feedback-form", isInternal: true },
       { label: "GU Employer Feedback Form", href: "/employer-feedback-form", isInternal: true },
-      { label: "Sitemap", href: "https://geetauniversity.edu.in/sitemap" },
+      { label: "Sitemap", href: "/sitemap", isInternal: true },
       { label: "Fee Refund Policy", href: "https://geetauniversity.edu.in/uploads/all/2547/Notification-fee-refund-policy.pdf" },
       { label: "IDP", href: "https://geetauniversity.edu.in/uploads/all/1278/Geeta_University_INSTITUTIONAL_DEVELOPMENT_PLAN.pdf" },
     ],
