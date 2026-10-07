@@ -44,6 +44,10 @@ import { bca } from "@/data/programs/courses/computer-science-and-engineering/bc
 import { bcaAIML } from "@/data/programs/courses/computer-science-and-engineering/bca-artificial-intelligence-and-machine-learning";
 import { bcaCyberSecurity } from "@/data/programs/courses/computer-science-and-engineering/bca-cyber-security";
 import { bcaDataScienceAndBusinessAnalytics } from "@/data/programs/courses/computer-science-and-engineering/bca-data-science-and-business-analytics";
+import { mtechCse } from "@/data/programs/courses/computer-science-and-engineering/mtech-cse";
+import { mca } from "@/data/programs/courses/computer-science-and-engineering/mca";
+import { phdComputerApplication } from "@/data/programs/courses/computer-science-and-engineering/phd-computer-application";
+import { phdComputerScience } from "@/data/programs/courses/computer-science-and-engineering/phd-computer-science";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -91,6 +95,10 @@ const courses: CoursePageData[] = [
   bcaAIML,
   bcaCyberSecurity,
   bcaDataScienceAndBusinessAnalytics,
+  mtechCse,
+  mca,
+  phdComputerApplication,
+  phdComputerScience,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -173,6 +181,36 @@ function normalizeCourseSlug(slug: string): string {
     s === "quantum-computing"
   )
     return "btech-quantum-computing";
+  if (
+    s === "m-tech-cse" ||
+    s === "mtech-computer-science" ||
+    s === "mtech-computer-science-and-engineering" ||
+    s === "m-tech-in-computer-science-and-engineering"
+  )
+    return "mtech-cse";
+  if (
+    s === "master-of-computer-applications" ||
+    s === "mca-program" ||
+    s === "mca-general"
+  )
+    return "mca";
+  if (
+    s === "phd-computer-application" ||
+    s === "phd-computer-applications" ||
+    s === "phd-in-computer-application" ||
+    s === "phd-in-computer-applications" ||
+    s === "phd-computer-application-and-computer-science" ||
+    s === "phd-in-computer-application-and-computer-science"
+  )
+    return "phd-computer-application";
+  if (
+    s === "phd-cse" ||
+    s === "phd-computer-science" ||
+    s === "phd-in-computer-science" ||
+    s === "phd-computer-science-and-engineering" ||
+    s === "phd-in-computer-science-and-engineering"
+  )
+    return "phd-cse";
   return s;
 }
 
@@ -187,6 +225,18 @@ export function getCourseBySlug(
     (c) =>
       normalizeSchoolSlug(c.schoolSlug) === normSchool &&
       normalizeCourseSlug(c.slug) === normCourse
+  );
+}
+
+export function getCourseByDirectSlug(
+  courseSlug: string
+): CoursePageData | undefined {
+  const normCourse = normalizeCourseSlug(courseSlug);
+  return courses.find(
+    (c) =>
+      normalizeCourseSlug(c.slug) === normCourse ||
+      c.slug.toLowerCase() === courseSlug.toLowerCase() ||
+      c.id.toLowerCase() === courseSlug.toLowerCase()
   );
 }
 
@@ -335,6 +385,46 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
       params.push({
         schoolSlug: c.schoolSlug,
         courseSlug: "bca-data-science",
+      });
+    }
+
+    if (c.slug === "mtech-cse") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "m-tech-cse",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "mtech-computer-science",
+      });
+    }
+
+    if (c.slug === "mca") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "master-of-computer-applications",
+      });
+    }
+
+    if (c.slug === "phd-computer-application") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-applications",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-application-and-computer-science",
+      });
+    }
+
+    if (c.slug === "phd-cse") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-science",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-science-and-engineering",
       });
     }
   });
