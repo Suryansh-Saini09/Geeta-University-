@@ -47,6 +47,7 @@ import { bcaDataScienceAndBusinessAnalytics } from "@/data/programs/courses/comp
 import { mtechCse } from "@/data/programs/courses/computer-science-and-engineering/mtech-cse";
 import { mca } from "@/data/programs/courses/computer-science-and-engineering/mca";
 import { phdComputerApplication } from "@/data/programs/courses/computer-science-and-engineering/phd-computer-application";
+import { phdComputerScience } from "@/data/programs/courses/computer-science-and-engineering/phd-computer-science";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -97,6 +98,7 @@ const courses: CoursePageData[] = [
   mtechCse,
   mca,
   phdComputerApplication,
+  phdComputerScience,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -198,11 +200,17 @@ function normalizeCourseSlug(slug: string): string {
     s === "phd-in-computer-application" ||
     s === "phd-in-computer-applications" ||
     s === "phd-computer-application-and-computer-science" ||
-    s === "phd-in-computer-application-and-computer-science" ||
-    s === "phd-computer-science" ||
-    s === "phd-cse"
+    s === "phd-in-computer-application-and-computer-science"
   )
     return "phd-computer-application";
+  if (
+    s === "phd-cse" ||
+    s === "phd-computer-science" ||
+    s === "phd-in-computer-science" ||
+    s === "phd-computer-science-and-engineering" ||
+    s === "phd-in-computer-science-and-engineering"
+  )
+    return "phd-cse";
   return s;
 }
 
@@ -395,9 +403,16 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
         schoolSlug: c.schoolSlug,
         courseSlug: "phd-computer-application-and-computer-science",
       });
+    }
+
+    if (c.slug === "phd-cse") {
       params.push({
         schoolSlug: c.schoolSlug,
         courseSlug: "phd-computer-science",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-science-and-engineering",
       });
     }
   });
