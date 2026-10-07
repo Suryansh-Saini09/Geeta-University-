@@ -29,7 +29,6 @@ const navigation = [
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "Departments", href: "/admin/departments", icon: GraduationCap },
   { label: "Programs", href: "/admin/programs", icon: BookOpen },
-  { label: "Faculty", href: "/admin/faculty", icon: Users },
   { label: "Notices", href: "/admin/notices", icon: Megaphone },
   { label: "News", href: "/admin/news", icon: Newspaper },
   { label: "Events", href: "/admin/events", icon: CalendarDays },
