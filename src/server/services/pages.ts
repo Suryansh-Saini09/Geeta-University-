@@ -2,44 +2,59 @@ import { prisma } from "@/server/db/client";
 import { getLocalizedBody, getLocalizedField, DEFAULT_LOCALE } from "@/lib/i18n/localization";
 
 export async function getPublishedHomePage(locale: string = DEFAULT_LOCALE) {
-  const [
-    sections,
-    recruiters,
-    awards,
-    testimonials,
-    industryPartners,
-    starPerformances,
-    homePageRecord,
-  ] = await Promise.all([
-    prisma.pageSection.findMany({
-      where: { pageSlug: "home", status: "PUBLISHED" },
-      orderBy: { sortOrder: "asc" },
-    }),
-    prisma.recruiter.findMany({
-      where: { status: "PUBLISHED" },
-      orderBy: { sortOrder: "asc" },
-    }),
-    prisma.awardRanking.findMany({
-      where: { status: "PUBLISHED" },
-      orderBy: { sortOrder: "asc" },
-    }),
-    prisma.testimonial.findMany({
-      where: { status: "PUBLISHED" },
-      orderBy: { sortOrder: "asc" },
-    }),
-    prisma.industryPartner.findMany({
-      where: { status: "PUBLISHED" },
-      orderBy: { sortOrder: "asc" },
-    }),
-    prisma.starPerformance.findMany({
-      where: { status: "PUBLISHED" },
-      orderBy: { sortOrder: "asc" },
-    }),
-    prisma.page.findUnique({
-      where: { slug: "home" },
-      include: { seo: true },
-    }),
-  ]);
+  let sections: any[] = [];
+  let recruiters: any[] = [];
+  let awards: any[] = [];
+  let testimonials: any[] = [];
+  let industryPartners: any[] = [];
+  let starPerformances: any[] = [];
+  let homePageRecord: any = null;
+
+  try {
+    [
+      sections,
+      recruiters,
+      awards,
+      testimonials,
+      industryPartners,
+      starPerformances,
+      homePageRecord,
+    ] = await Promise.all([
+      prisma.pageSection.findMany({
+        where: { pageSlug: "home", status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.recruiter.findMany({
+        where: { status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.awardRanking.findMany({
+        where: { status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.testimonial.findMany({
+        where: { status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.industryPartner.findMany({
+        where: { status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.starPerformance.findMany({
+        where: { status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.page.findUnique({
+        where: { slug: "home" },
+        include: { seo: true },
+      }),
+    ]);
+  } catch (err: any) {
+    console.error("[CMS DB ERROR] getPublishedHomePage failed:", {
+      message: err?.message ? String(err.message).replace(/:[^:@]+@/, ":****@") : String(err),
+      code: err?.code,
+    });
+  }
 
   const sectionMap: Record<string, any> = {};
   sections.forEach((sec: any) => {
