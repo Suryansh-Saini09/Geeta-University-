@@ -46,6 +46,7 @@ import { bcaCyberSecurity } from "@/data/programs/courses/computer-science-and-e
 import { bcaDataScienceAndBusinessAnalytics } from "@/data/programs/courses/computer-science-and-engineering/bca-data-science-and-business-analytics";
 import { mtechCse } from "@/data/programs/courses/computer-science-and-engineering/mtech-cse";
 import { mca } from "@/data/programs/courses/computer-science-and-engineering/mca";
+import { phdComputerApplication } from "@/data/programs/courses/computer-science-and-engineering/phd-computer-application";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -95,6 +96,7 @@ const courses: CoursePageData[] = [
   bcaDataScienceAndBusinessAnalytics,
   mtechCse,
   mca,
+  phdComputerApplication,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -190,6 +192,17 @@ function normalizeCourseSlug(slug: string): string {
     s === "mca-general"
   )
     return "mca";
+  if (
+    s === "phd-computer-application" ||
+    s === "phd-computer-applications" ||
+    s === "phd-in-computer-application" ||
+    s === "phd-in-computer-applications" ||
+    s === "phd-computer-application-and-computer-science" ||
+    s === "phd-in-computer-application-and-computer-science" ||
+    s === "phd-computer-science" ||
+    s === "phd-cse"
+  )
+    return "phd-computer-application";
   return s;
 }
 
@@ -370,6 +383,21 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
       params.push({
         schoolSlug: c.schoolSlug,
         courseSlug: "master-of-computer-applications",
+      });
+    }
+
+    if (c.slug === "phd-computer-application") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-applications",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-application-and-computer-science",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-science",
       });
     }
   });
