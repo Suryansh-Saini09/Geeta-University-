@@ -56,7 +56,7 @@ export default function FacultyForm({ options, faculty, action }: { options: Opt
           </select>
         </div>
         <Field label="Sort order" name="sortOrder" type="number" defaultValue={faculty?.sortOrder ?? 0} min={0} />
-        <CmsSubmitButton label={faculty ? "Save Changes" : "Create Faculty Member"} loadingLabel="Saving..." icon={Save} className="w-full py-2.5" />
+        <CmsSubmitButton label={faculty ? "Save Changes" : "Create Faculty Member"} loadingLabel="Saving..." iconType="save" className="w-full py-2.5" />
       </section>
     </form>
   );

@@ -266,7 +266,7 @@ function ProgramPublishingPanel({
           <CmsSubmitButton
             label={buttonLabel}
             loadingLabel="Saving..."
-            icon={Save}
+            iconType="save"
             className="w-full py-3"
           />
         </div>

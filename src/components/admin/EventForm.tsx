@@ -36,7 +36,7 @@ export default function EventForm({ event, canPublish, canArchive, action }: {
     </div>
     <section className="h-fit space-y-5 rounded-lg border border-slate-200 bg-white p-5">
       <div><label htmlFor="status" className="mb-2 block text-sm font-semibold">Status</label><select id="status" name="status" defaultValue={event?.status ?? ContentStatus.DRAFT} className={inputClass}><option value={ContentStatus.DRAFT}>Draft</option>{canPublish || event?.status === ContentStatus.PUBLISHED ? <option value={ContentStatus.PUBLISHED}>Published</option> : null}{canArchive || event?.status === ContentStatus.ARCHIVED ? <option value={ContentStatus.ARCHIVED}>Archived</option> : null}</select></div>
-      <CmsSubmitButton label={event ? "Save Changes" : "Create Event"} loadingLabel="Saving..." icon={Save} className="w-full py-2.5" />
+      <CmsSubmitButton label={event ? "Save Changes" : "Create Event"} loadingLabel="Saving..." iconType="save" className="w-full py-2.5" />
     </section>
   </form>;
 }

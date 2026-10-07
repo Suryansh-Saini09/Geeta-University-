@@ -44,7 +44,7 @@ export default function NoticeForm({ notice, canPublish, canArchive, action }: {
         <label htmlFor="expiresAt" className="mb-2 block text-sm font-semibold text-[#0A1F44]">Expiry date</label>
         <input id="expiresAt" name="expiresAt" type="date" defaultValue={notice?.expiresAt?.toISOString().slice(0, 10) ?? ""} className={inputClass} />
       </div>
-      <CmsSubmitButton label={notice ? "Save Changes" : "Create Notice"} loadingLabel="Saving..." icon={Save} className="w-full py-2.5" />
+      <CmsSubmitButton label={notice ? "Save Changes" : "Create Notice"} loadingLabel="Saving..." iconType="save" className="w-full py-2.5" />
     </section>
   </form>;
 }

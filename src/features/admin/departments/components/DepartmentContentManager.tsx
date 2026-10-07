@@ -398,7 +398,7 @@ export function DepartmentContentManager({
             <CmsSubmitButton
               label="Update Status"
               loadingLabel="Updating..."
-              icon={Save}
+              iconType="save"
               className="px-3 py-1.5 text-xs"
               variant="secondary"
             />

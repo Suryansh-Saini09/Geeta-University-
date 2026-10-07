@@ -1,14 +1,15 @@
 "use client";
 
 import React, { useTransition } from "react";
-import { Loader2 } from "lucide-react";
+import { Loader2, Save, Plus, Trash2, Pencil, Check } from "lucide-react";
+import type { CmsIconType } from "./CmsSubmitButton";
 
 interface CmsActionButtonProps {
   label: string;
   loadingLabel?: string;
   onClick: () => Promise<void> | void;
   className?: string;
-  icon?: React.ComponentType<{ className?: string }>;
+  iconType?: CmsIconType;
   variant?: "primary" | "secondary" | "danger";
   disabled?: boolean;
 }
@@ -18,7 +19,7 @@ export function CmsActionButton({
   loadingLabel,
   onClick,
   className,
-  icon: Icon,
+  iconType = "none",
   variant = "primary",
   disabled = false,
 }: CmsActionButtonProps) {
@@ -37,6 +38,23 @@ export function CmsActionButton({
     });
   };
 
+  const renderIcon = () => {
+    switch (iconType) {
+      case "save":
+        return <Save className="h-4 w-4" />;
+      case "plus":
+        return <Plus className="h-4 w-4" />;
+      case "trash":
+        return <Trash2 className="h-4 w-4" />;
+      case "pencil":
+        return <Pencil className="h-4 w-4" />;
+      case "check":
+        return <Check className="h-4 w-4" />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <button
       type="button"
@@ -51,7 +69,7 @@ export function CmsActionButton({
         </>
       ) : (
         <>
-          {Icon && <Icon className="h-4 w-4" />}
+          {renderIcon()}
           <span>{label}</span>
         </>
       )}

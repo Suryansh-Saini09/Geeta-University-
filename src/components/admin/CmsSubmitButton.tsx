@@ -2,13 +2,15 @@
 
 import React from "react";
 import { useFormStatus } from "react-dom";
-import { Loader2 } from "lucide-react";
+import { Loader2, Save, Plus, Trash2, Pencil, Check } from "lucide-react";
+
+export type CmsIconType = "save" | "plus" | "trash" | "pencil" | "check" | "none";
 
 interface CmsSubmitButtonProps {
   label: string;
   loadingLabel?: string;
   className?: string;
-  icon?: React.ComponentType<{ className?: string }>;
+  iconType?: CmsIconType;
   variant?: "primary" | "secondary" | "danger";
   disabled?: boolean;
 }
@@ -17,7 +19,7 @@ export function CmsSubmitButton({
   label,
   loadingLabel,
   className,
-  icon: Icon,
+  iconType = "save",
   variant = "primary",
   disabled = false,
 }: CmsSubmitButtonProps) {
@@ -32,6 +34,23 @@ export function CmsSubmitButton({
 
   const isPending = pending || disabled;
 
+  const renderIcon = () => {
+    switch (iconType) {
+      case "save":
+        return <Save className="h-4 w-4" />;
+      case "plus":
+        return <Plus className="h-4 w-4" />;
+      case "trash":
+        return <Trash2 className="h-4 w-4" />;
+      case "pencil":
+        return <Pencil className="h-4 w-4" />;
+      case "check":
+        return <Check className="h-4 w-4" />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <button
       type="submit"
@@ -45,7 +64,7 @@ export function CmsSubmitButton({
         </>
       ) : (
         <>
-          {Icon && <Icon className="h-4 w-4" />}
+          {renderIcon()}
           <span>{label}</span>
         </>
       )}

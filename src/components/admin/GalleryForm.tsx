@@ -46,7 +46,7 @@ export default function GalleryForm({ album, media, canPublish, canArchive, acti
     <section className="h-fit space-y-5 rounded-lg border border-slate-200 bg-white p-5">
       <div><label htmlFor="status" className="mb-2 block text-sm font-semibold">Status</label><select id="status" name="status" defaultValue={album?.status ?? ContentStatus.DRAFT} className={inputClass}><option value={ContentStatus.DRAFT}>Draft</option>{canPublish || album?.status === ContentStatus.PUBLISHED ? <option value={ContentStatus.PUBLISHED}>Published</option> : null}{canArchive || album?.status === ContentStatus.ARCHIVED ? <option value={ContentStatus.ARCHIVED}>Archived</option> : null}</select></div>
       <div><label htmlFor="sortOrder" className="mb-2 block text-sm font-semibold">Sort order</label><input id="sortOrder" name="sortOrder" type="number" min={0} defaultValue={album?.sortOrder ?? 0} className={inputClass} /></div>
-      <CmsSubmitButton label={album ? "Save Changes" : "Create Album"} loadingLabel="Saving..." icon={Save} className="w-full py-2.5" />
+      <CmsSubmitButton label={album ? "Save Changes" : "Create Album"} loadingLabel="Saving..." iconType="save" className="w-full py-2.5" />
     </section>
   </form>;
 }

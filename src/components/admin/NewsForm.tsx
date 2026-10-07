@@ -30,7 +30,7 @@ export default function NewsForm({ article, canPublish, canArchive, action }: {
     <section className="h-fit space-y-5 rounded-lg border border-slate-200 bg-white p-5">
       <div><label htmlFor="status" className="mb-2 block text-sm font-semibold text-[#0A1F44]">Status</label><select id="status" name="status" defaultValue={article?.status ?? ContentStatus.DRAFT} className={inputClass}><option value={ContentStatus.DRAFT}>Draft</option>{canPublish || article?.status === ContentStatus.PUBLISHED ? <option value={ContentStatus.PUBLISHED}>Published</option> : null}{canArchive || article?.status === ContentStatus.ARCHIVED ? <option value={ContentStatus.ARCHIVED}>Archived</option> : null}</select></div>
       {article?.publishedAt ? <p className="text-xs text-slate-500">First published {article.publishedAt.toLocaleDateString("en-IN")}</p> : null}
-      <CmsSubmitButton label={article ? "Save Changes" : "Create Article"} loadingLabel="Saving..." icon={Save} className="w-full py-2.5" />
+      <CmsSubmitButton label={article ? "Save Changes" : "Create Article"} loadingLabel="Saving..." iconType="save" className="w-full py-2.5" />
     </section>
   </form>;
 }
