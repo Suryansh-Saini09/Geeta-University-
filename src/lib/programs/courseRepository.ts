@@ -228,6 +228,18 @@ export function getCourseBySlug(
   );
 }
 
+export function getCourseByDirectSlug(
+  courseSlug: string
+): CoursePageData | undefined {
+  const normCourse = normalizeCourseSlug(courseSlug);
+  return courses.find(
+    (c) =>
+      normalizeCourseSlug(c.slug) === normCourse ||
+      c.slug.toLowerCase() === courseSlug.toLowerCase() ||
+      c.id.toLowerCase() === courseSlug.toLowerCase()
+  );
+}
+
 export function getCoursesBySchool(schoolSlug: string): CoursePageData[] {
   const normSchool = normalizeSchoolSlug(schoolSlug);
   return courses.filter((c) => normalizeSchoolSlug(c.schoolSlug) === normSchool);
