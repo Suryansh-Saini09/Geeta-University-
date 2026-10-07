@@ -2,10 +2,22 @@
 
 import React from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { starPerformances } from "@/data/starPerformances";
 import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
-export default function StarPerformancesSection() {
+interface StarPerformancesSectionProps {
+  data?: Array<{ id: string | number; name: string; image: string }> | null;
+  ctaData?: {
+    heading?: string;
+    youtubeUrl?: string;
+    ctaText?: string;
+  } | null;
+}
+export default function StarPerformancesSection({ data, ctaData }: StarPerformancesSectionProps) {
+  const starList = data && data.length > 0 ? data : [];
+  const headingText = ctaData?.heading || "Star Performances @GU";
+  const youtubeUrl = ctaData?.youtubeUrl || "https://www.youtube.com/embed/D-TW0dcqMDA";
+  const ctaBtnText = ctaData?.ctaText || "Click Here to Watch Video";
+
   const {
     containerRef,
     maxIndex,
@@ -21,13 +33,10 @@ export default function StarPerformancesSection() {
     handleTouchMove,
     handleTouchEnd,
   } = useFiniteCarousel({
-    totalItems: starPerformances.length,
+    totalItems: starList.length,
     autoplayInterval: 2500,
     enableAutoplay: true,
   });
-
-  // YouTube video URL.
-  const youtubeUrl = "https://www.youtube.com/embed/D-TW0dcqMDA";
 
   return (
     <section className="relative overflow-hidden bg-[#F7F9FC] py-12 md:py-16">
@@ -46,8 +55,7 @@ export default function StarPerformancesSection() {
         {/* Heading */}
         <div className="px-5 text-center sm:px-8">
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl md:text-6xl">
-            Star Performances
-            <span className="text-[#F28C18]">@GU</span>
+            {headingText}
           </h2>
 
           {/* Accent line */}
@@ -85,7 +93,7 @@ export default function StarPerformancesSection() {
               />
             </svg>
 
-            <span>Click Here to Watch Video</span>
+            <span>{ctaBtnText}</span>
 
             <span className="transition-transform duration-300 group-hover:translate-x-1 flex items-center">
               <ArrowRight size={16} />
@@ -147,7 +155,7 @@ export default function StarPerformancesSection() {
               className="flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               <div className="flex w-max items-center">
-                {starPerformances.map((star, index) => (
+                {starList.map((star, index) => (
                   <div
                     key={`${star.image}-${index}`}
                     className="star-card group/item relative mx-2 aspect-[3/4.8] w-[190px] shrink-0 overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:mx-3 sm:w-[235px] md:w-[275px]"

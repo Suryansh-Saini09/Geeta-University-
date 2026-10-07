@@ -24,6 +24,8 @@ import { logoutAction } from "@/features/admin/auth/actions";
 
 const navigation = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
+  { label: "Home CMS", href: "/admin/home", icon: FileText },
+  { label: "About CMS", href: "/admin/about", icon: FileText },
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "Departments", href: "/admin/departments", icon: GraduationCap },
   { label: "Programs", href: "/admin/programs", icon: BookOpen },

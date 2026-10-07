@@ -1,7 +1,18 @@
 import Image from "next/image";
-import { recognitions } from "@/data/about";
 
-export default function RecognitionSection() {
+interface RecognitionItem {
+  name: string;
+  image: string;
+  alt?: string;
+}
+
+interface RecognitionSectionProps {
+  data?: RecognitionItem[];
+}
+
+export default function RecognitionSection({ data }: RecognitionSectionProps) {
+  const recognitionList = data && data.length > 0 ? data : [];
+
   return (
     <section
       id="recognitions"
@@ -19,7 +30,7 @@ export default function RecognitionSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
-          {recognitions.map((recognition) => (
+          {recognitionList.map((recognition) => (
             <div
               key={recognition.name}
               className="flex min-h-48 flex-col items-center justify-center rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
@@ -27,7 +38,7 @@ export default function RecognitionSection() {
               <div className="mb-4 flex h-20 w-20 items-center justify-center">
                 <Image
                   src={recognition.image}
-                  alt={recognition.alt}
+                  alt={recognition.alt || recognition.name}
                   width={80}
                   height={80}
                   className="h-20 w-20 object-contain"

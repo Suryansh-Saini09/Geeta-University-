@@ -44,11 +44,41 @@ const itemVariants: Variants = {
   },
 };
 
-export default function HomeHeroSection() {
+interface HomeHeroSectionProps {
+  data?: {
+    headline?: string;
+    highlightedHeadline?: string;
+    description?: string;
+    applyPillBadge?: string;
+    applyPillText?: string;
+    applyPillUrl?: string;
+    primaryCtaLabel?: string;
+    primaryCtaUrl?: string;
+    secondaryCtaLabel?: string;
+    secondaryCtaUrl?: string;
+    posterImage?: string;
+    heroDroneShots?: string[];
+  } | null;
+}
+
+export default function HomeHeroSection({ data }: HomeHeroSectionProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [nextVideoPreload, setNextVideoPreload] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  const droneShots = data?.heroDroneShots?.length ? data.heroDroneShots : HERO_DRONE_SHOTS;
+  const poster = data?.posterImage || "/about/campus.webp";
+  const headline = data?.headline || "Empowering Minds.";
+  const highlightedHeadline = data?.highlightedHeadline || "Transforming Futures.";
+  const description = data?.description || "Join a premier academic ecosystem designed to ignite innovation, foster global leadership, and drive impactful careers. Your legacy begins at Geeta University.";
+  const applyBadge = data?.applyPillBadge || "Apply Now";
+  const applyText = data?.applyPillText || "Admissions Open";
+  const applyUrl = data?.applyPillUrl || "https://admissions.geetauniversity.edu.in/";
+  const primaryLabel = data?.primaryCtaLabel || "About University";
+  const primaryUrl = data?.primaryCtaUrl || "/about";
+  const secondaryLabel = data?.secondaryCtaLabel || "Campus Tour";
+  const secondaryUrl = data?.secondaryCtaUrl || "https://www.youtube.com/embed/arnFS6rf454";
 
   // Autoplay active video safely
   useEffect(() => {
@@ -111,7 +141,7 @@ export default function HomeHeroSection() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Poster Fallback Image */}
         <Image
-          src="/about/campus.webp"
+          src={poster}
           alt="Geeta University Campus Aerial View"
           fill
           priority
@@ -120,7 +150,7 @@ export default function HomeHeroSection() {
         />
 
         {/* Dual Seamless Crossfading Drone Videos */}
-        {HERO_DRONE_SHOTS.map((src, index) => (
+        {droneShots.map((src, index) => (
           <video
             key={src}
             ref={(el) => {
@@ -130,7 +160,7 @@ export default function HomeHeroSection() {
             muted
             playsInline
             preload={index === 0 || nextVideoPreload ? "auto" : "metadata"}
-            poster="/about/campus.webp"
+            poster={poster}
             onTimeUpdate={() => handleTimeUpdate(index)}
             onEnded={() => handleVideoEnded(index)}
             className={`absolute inset-0 h-full w-full object-cover object-[70%_center] md:object-center scale-[1.02] transition-opacity duration-1000 ease-in-out ${index === activeVideoIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
@@ -172,7 +202,7 @@ export default function HomeHeroSection() {
           {/* 1. ADMISSIONS PILL STATUS */}
           <motion.div variants={itemVariants} className="mb-6">
             <a
-              href="https://admissions.geetauniversity.edu.in/"
+              href={applyUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 p-1 pr-4 sm:pr-5 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-[#E8871A] hover:bg-white/20 active:translate-y-0"
@@ -183,12 +213,12 @@ export default function HomeHeroSection() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-80" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
                 </span>
-                <span>Apply Now</span>
+                <span>{applyBadge}</span>
               </span>
 
               {/* Status Text */}
               <span className="text-xs sm:text-sm font-semibold tracking-wider text-white transition-colors group-hover:text-amber-100">
-                Admissions Open
+                {applyText}
               </span>
 
               {/* Arrow Indicator */}
@@ -203,8 +233,8 @@ export default function HomeHeroSection() {
             variants={itemVariants}
             className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-bold leading-[1.08] tracking-tight drop-shadow-[0_4px_16px_rgba(10,31,68,0.7)]"
           >
-            <span className="text-white block">Empowering Minds.</span>
-            <span className="text-[#E8871A] block mt-1">Transforming Futures.</span>
+            <span className="text-white block">{headline}</span>
+            <span className="text-[#E8871A] block mt-1">{highlightedHeadline}</span>
           </motion.h1>
 
           {/* 3. SUPPORTING DESCRIPTION */}
@@ -212,7 +242,7 @@ export default function HomeHeroSection() {
             variants={itemVariants}
             className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-200 font-sans drop-shadow-[0_2px_8px_rgba(10,31,68,0.6)]"
           >
-            Join a premier academic ecosystem designed to ignite innovation, foster global leadership, and drive impactful careers. Your legacy begins at Geeta University.
+            {description}
           </motion.p>
 
           {/* 4. PRIMARY + SECONDARY CTA BUTTONS */}
@@ -221,10 +251,10 @@ export default function HomeHeroSection() {
             className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
           >
             <Link
-              href="/about"
+              href={primaryUrl}
               className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#E8871A] px-8 py-4 text-xs font-bold uppercase tracking-[1.5px] text-[#0A1F44] shadow-lg shadow-[#E8871A]/25 transition-all duration-300 hover:bg-amber-500 hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>About University</span>
+              <span>{primaryLabel}</span>
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
 
@@ -236,7 +266,7 @@ export default function HomeHeroSection() {
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[#0A1F44] transition-colors group-hover:bg-[#E8871A] group-hover:text-white">
                 <Play className="h-2.5 w-2.5 ml-0.5 fill-current" />
               </span>
-              <span>Campus Tour</span>
+              <span>{secondaryLabel}</span>
             </button>
           </motion.div>
         </motion.div>
@@ -248,7 +278,7 @@ export default function HomeHeroSection() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm sm:p-8"
+            className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm sm:p-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -294,7 +324,7 @@ export default function HomeHeroSection() {
               <div className="aspect-video w-full">
                 <iframe
                   title="Geeta University Virtual Campus Tour"
-                  src="https://www.youtube.com/embed/arnFS6rf454?autoplay=1"
+                  src={secondaryUrl.includes("youtube") ? secondaryUrl : "https://www.youtube.com/embed/arnFS6rf454?autoplay=1"}
                   className="h-full w-full border-0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen

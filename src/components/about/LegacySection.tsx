@@ -1,11 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { legacyIntro, legacyMilestones } from "@/data/legacy";
 
-export default function LegacySection() {
-  const legacyItems = legacyMilestones.map((milestone, index) => {
-    const title = milestone.institutions.map(inst => {
+interface LegacySectionProps {
+  data?: {
+    eyebrow?: string;
+    title?: string;
+    highlightedTitle?: string;
+    description?: string;
+    milestones?: any[];
+  } | null;
+}
+export default function LegacySection({ data }: LegacySectionProps) {
+  const introEyebrow = data?.eyebrow ?? "A LEGACY OF EXCELLENCE";
+  const introTitle = data?.title || "A Legacy Built on Vision,";
+  const introHighlight = data?.highlightedTitle ?? "Values, and Excellence.";
+  const introDesc = data?.description || "Rooted in decades of educational leadership, the Geeta Group of Institutions has continuously expanded its horizons to nurture future-ready professionals.";
+  const milestonesList = data?.milestones && data.milestones.length > 0 ? data.milestones : [];
+
+  const legacyItems = milestonesList.map((milestone: any, index: number) => {
+    const title = milestone.institutions.map((inst: any) => {
       let text = inst.name;
       if (inst.location) text += `, ${inst.location}`;
       if (inst.note) text += `\n(${inst.note})`;
@@ -280,22 +294,22 @@ export default function LegacySection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          {legacyIntro.eyebrow ? (
-            <div className="spbsb-legacy-eyebrow">{legacyIntro.eyebrow}</div>
+          {introEyebrow ? (
+            <div className="spbsb-legacy-eyebrow">{introEyebrow}</div>
           ) : null}
           <h2 className="spbsb-legacy-title">
-            {legacyIntro.title}
-            {legacyIntro.highlightedTitle ? (
+            {introTitle}
+            {introHighlight ? (
               <>
                 {" "}
                 <span style={{ color: "#D99A24" }}>
-                  {legacyIntro.highlightedTitle}
+                  {introHighlight}
                 </span>
               </>
             ) : null}
           </h2>
           <p className="spbsb-legacy-copy">
-            {legacyIntro.description}
+            {introDesc}
           </p>
         </motion.div>
 

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import {
+  eventUpdates,
   placementUpdates,
   type HomeUpdate,
 } from "@/data/homeUpdates";
@@ -26,7 +26,6 @@ function UpdateColumn({
   const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
-    if (updates.length === 0) return;
     const el = scrollRef.current;
     if (!el) return;
 
@@ -68,7 +67,7 @@ function UpdateColumn({
       clearTimeout(timer);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [updates.length]);
+  }, []);
 
   // Global mousemove and mouseup listeners for smooth dragging anywhere
   useEffect(() => {
@@ -169,7 +168,7 @@ function UpdateColumn({
       </div>
 
       {/* Scrolling viewport */}
-      {updates.length === 0 ? <div className="flex h-[500px] items-center justify-center px-6 text-center text-sm text-[#64748B]">No upcoming events have been published yet.</div> : <div className="relative h-[500px] overflow-hidden bg-white">
+      <div className="relative h-[500px] overflow-hidden bg-white">
         {/* Top fade */}
         <div className="pointer-events-none absolute left-0 right-0 top-0 z-20 h-16 bg-gradient-to-b from-white via-white/80 to-transparent" />
 
@@ -231,7 +230,7 @@ function UpdateColumn({
             </div>
           </div>
         </div>
-      </div>}
+      </div>
     </div>
   );
 }
@@ -268,7 +267,7 @@ function UpdateItem({
         {/* Content */}
         <div className="min-w-0 flex-1">
           <h4 className="text-sm font-bold leading-6 text-[#06355F] transition-colors duration-200 group-hover:text-[#F28C18] sm:text-base">
-            {update.href ? <Link href={update.href}>{update.title}</Link> : update.title}
+            {update.title}
           </h4>
 
           <p className="mt-1.5 text-xs leading-5 text-[#64748B] sm:text-sm">
@@ -280,7 +279,19 @@ function UpdateItem({
   );
 }
 
-export default function HomeUpdatesSection({ eventUpdates }: { eventUpdates: HomeUpdate[] }) {
+interface HomeUpdatesSectionProps {
+  data?: {
+    heading?: string;
+    eventUpdates?: HomeUpdate[];
+    placementUpdates?: HomeUpdate[];
+  } | null;
+}
+
+export default function HomeUpdatesSection({ data }: HomeUpdatesSectionProps) {
+  const headingText = data?.heading || "What's Happening at GU?";
+  const events = data?.eventUpdates && data.eventUpdates.length > 0 ? data.eventUpdates : eventUpdates;
+  const placements = data?.placementUpdates && data.placementUpdates.length > 0 ? data.placementUpdates : placementUpdates;
+
   return (
     <section className="relative overflow-hidden bg-white py-12 md:py-16">
       {/* Top orange line */}
@@ -301,8 +312,7 @@ export default function HomeUpdatesSection({ eventUpdates }: { eventUpdates: Hom
         {/* Heading */}
         <div className="mb-12 max-w-3xl">
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
-            What&apos;s Happening at{" "}
-            <span className="text-[#F28C18]">GU?</span>
+            {headingText}
           </h2>
 
           <div className="mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
@@ -313,13 +323,13 @@ export default function HomeUpdatesSection({ eventUpdates }: { eventUpdates: Hom
           <UpdateColumn
             title="Event Updates"
             accent="orange"
-            updates={eventUpdates}
+            updates={events}
           />
 
           <UpdateColumn
             title="Placement Updates"
             accent="blue"
-            updates={placementUpdates}
+            updates={placements}
           />
         </div>
       </div>

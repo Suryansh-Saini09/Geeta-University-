@@ -14,3 +14,24 @@ export async function getAuditLogs(filters: { action?: AuditAction | "ALL"; enti
   ]);
   return { logs, totalCount, page, totalPages: Math.max(1, Math.ceil(totalCount / pageSize)) };
 }
+
+export async function recordAuditLog(data: {
+  actorId: string;
+  action: AuditAction | string;
+  entityType: string;
+  entityId: string;
+  before?: any;
+  after?: any;
+}) {
+  return prisma.auditLog.create({
+    data: {
+      actorId: data.actorId,
+      action: data.action as AuditAction,
+      entityType: data.entityType,
+      entityId: data.entityId,
+      before: data.before ?? undefined,
+      after: data.after ?? undefined,
+    },
+  });
+}
+

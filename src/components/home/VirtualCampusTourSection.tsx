@@ -32,8 +32,23 @@ const itemVariants: Variants = {
   },
 };
 
-export default function VirtualCampusTourSection() {
+interface VirtualCampusTourSectionProps {
+  data?: {
+    heading?: string;
+    buttonLabel?: string;
+    buttonSublabel?: string;
+    videoUrl?: string;
+    posterImage?: string;
+  } | null;
+}
+
+export default function VirtualCampusTourSection({ data }: VirtualCampusTourSectionProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const headingText = data?.heading || "Experience the Campus.";
+  const btnLabel = data?.buttonLabel || "Virtual Campus Tour";
+  const btnSublabel = data?.buttonSublabel || "Watch the tour";
+  const videoSrc = data?.videoUrl || "https://www.youtube.com/embed/arnFS6rf454";
+  const poster = data?.posterImage || "/about/campus.webp";
 
   return (
     <>
@@ -54,7 +69,7 @@ export default function VirtualCampusTourSection() {
           >
             {/* Campus image */}
             <Image
-              src="/about/campus.webp"
+              src={poster}
               alt="Aerial view of Geeta University campus"
               fill
               priority={false}
@@ -99,15 +114,7 @@ export default function VirtualCampusTourSection() {
                   id="virtual-tour-heading"
                   className="font-serif text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-7xl"
                 >
-                  Experience the
-                  <span
-                    className="block"
-                    style={{
-                      color: "var(--gu-gold)",
-                    }}
-                  >
-                    Campus.
-                  </span>
+                  {headingText}
                 </motion.h2>
 
                 {/* Play button */}
@@ -143,11 +150,11 @@ export default function VirtualCampusTourSection() {
 
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
-                      Watch the tour
+                      {btnSublabel}
                     </span>
 
                     <span className="mt-1 block text-sm font-bold text-white sm:text-base">
-                      Virtual Campus Tour
+                      {btnLabel}
                     </span>
                   </span>
                 </motion.button>
@@ -161,7 +168,7 @@ export default function VirtualCampusTourSection() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm sm:p-8"
+            className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm sm:p-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -207,7 +214,7 @@ export default function VirtualCampusTourSection() {
               <div className="aspect-video w-full">
                 <iframe
                   title="Geeta University Virtual Campus Tour"
-                  src="https://www.youtube.com/embed/arnFS6rf454?autoplay=1"
+                  src={videoSrc.includes("autoplay") ? videoSrc : `${videoSrc}?autoplay=1`}
                   className="h-full w-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen

@@ -1,5 +1,5 @@
 import type { SearchDocument } from "./types";
-import { getProgramBySlug } from "@/lib/programs/programRepository";
+import { getProgramBySlugSync } from "@/lib/programs/programRepository";
 import { getAllCourseParams, getCourseBySlug } from "@/lib/programs/courseRepository";
 import { getAllEdgePages } from "@/lib/edge/edgeRepository";
 
@@ -53,7 +53,7 @@ export function buildSearchIndex(): SearchDocument[] {
   ];
 
   for (const slug of schoolSlugs) {
-    const p = getProgramBySlug(slug);
+    const p = getProgramBySlugSync(slug);
     if (p) {
       const href = `/programs/${p.slug}`;
       const title = p.name || p.hero.title || p.seo.title;

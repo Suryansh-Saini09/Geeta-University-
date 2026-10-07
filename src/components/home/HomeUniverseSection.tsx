@@ -40,7 +40,27 @@ const internships = [
   "France",
 ];
 
-export default function HomeUniverseSection() {
+interface HomeUniverseSectionProps {
+  data?: {
+    heading?: string;
+    countriesCount?: number;
+    statesCount?: number;
+    communityDescription?: string;
+    globalUniversities?: string[];
+    internships?: string[];
+    flagItems?: Array<{ name: string; image: string }>;
+  } | null;
+}
+
+export default function HomeUniverseSection({ data }: HomeUniverseSectionProps) {
+  const headingText = data?.heading || "Universe of GU";
+  const countries = data?.countriesCount ?? 31;
+  const states = data?.statesCount ?? 22;
+  const commDesc = data?.communityDescription || "Students and staff from across India and the world contribute to a diverse and globally connected campus community.";
+  const univList = data?.globalUniversities && data.globalUniversities.length > 0 ? data.globalUniversities : globalUniversities;
+  const internList = data?.internships && data.internships.length > 0 ? data.internships : internships;
+  const flags = data?.flagItems && data.flagItems.length > 0 ? data.flagItems : flagItems;
+
   const {
     containerRef,
     maxIndex,
@@ -56,7 +76,7 @@ export default function HomeUniverseSection() {
     handleTouchMove,
     handleTouchEnd,
   } = useFiniteCarousel({
-    totalItems: flagItems.length,
+    totalItems: flags.length,
     autoplayInterval: 2500,
     enableAutoplay: true,
   });
@@ -78,7 +98,7 @@ export default function HomeUniverseSection() {
         {/* Section heading */}
         <div className="mb-12">
           <h2 className="font-serif text-4xl font-bold leading-tight text-[#06355F] sm:text-5xl">
-            Universe of <span className="text-[#F28C18]">GU</span>
+            {headingText}
           </h2>
 
           <div className="mt-5 h-1 w-16 rounded-full bg-[#F28C18]" />
@@ -89,16 +109,15 @@ export default function HomeUniverseSection() {
           {/* Global community */}
           <div className="group rounded-2xl border border-[#DCE5ED] bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F28C18]/50 hover:shadow-lg">
             <h3 className="font-sans text-2xl font-bold text-[#06355F]">
-              31 Countries
+              {countries} Countries
             </h3>
 
             <p className="mt-1 font-semibold text-[#536B83]">
-              22 States
+              {states} States
             </p>
 
             <p className="mt-4 text-sm leading-6 text-[#64778A]">
-              Students and staff from across India and the world contribute
-              to a diverse and globally connected campus community.
+              {commDesc}
             </p>
           </div>
 
@@ -109,7 +128,7 @@ export default function HomeUniverseSection() {
             </h3>
 
             <div className="mt-5 space-y-3">
-              {globalUniversities.map((university) => (
+              {univList.map((university) => (
                 <div
                   key={university}
                   className="flex items-start gap-3 text-sm leading-5 text-[#536B83]"
@@ -134,7 +153,7 @@ export default function HomeUniverseSection() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
-              {internships.map((location) => (
+              {internList.map((location) => (
                 <span
                   key={location}
                   className="rounded-full border border-[#DCE5ED] bg-[#F5F8FB] px-4 py-2 text-xs font-semibold text-[#06355F]"
@@ -194,7 +213,7 @@ export default function HomeUniverseSection() {
               className="flex w-full gap-6 overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               <div className="flex w-max items-center gap-6">
-                {flagItems.map((item, index) => (
+                {flags.map((item, index) => (
                   <div
                     key={`flag-${item.name}-${index}`}
                     className="group/flag flex h-20 w-36 sm:h-24 sm:w-44 shrink-0 items-center justify-center rounded-xl border border-[#E4EAF0] bg-white p-3 shadow-2xs transition-all duration-300 hover:-translate-y-0.5 hover:border-[#F28C18]/40 hover:shadow-md"

@@ -15,4 +15,6 @@ export const prisma =
 
 globalForPrisma.prisma = prisma;
 
+export * from "@prisma/client";
+
 

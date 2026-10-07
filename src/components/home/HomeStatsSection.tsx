@@ -98,7 +98,17 @@ function AnimatedNumber({
   );
 }
 
-export default function HomeStatsSection() {
+interface HomeStatsSectionProps {
+  data?: {
+    heading?: string;
+    stats?: Stat[];
+  } | null;
+}
+
+export default function HomeStatsSection({ data }: HomeStatsSectionProps) {
+  const headingText = data?.heading || "Placement Speaks for Itself";
+  const statList = data?.stats && data.stats.length > 0 ? data.stats : stats;
+
   const sectionRef = useRef<HTMLElement | null>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
 
@@ -172,7 +182,7 @@ export default function HomeStatsSection() {
                 color: "var(--gu-navy)",
               }}
             >
-              Placement Speaks for Itself
+              {headingText}
             </h2>
 
             <div
@@ -188,7 +198,7 @@ export default function HomeStatsSection() {
             variants={itemVariants}
             className="relative flex flex-wrap justify-center gap-6 sm:gap-8"
           >
-            {stats.map((stat, index) => (
+            {statList.map((stat, index) => (
               <motion.article
                 key={stat.label}
                 variants={itemVariants}

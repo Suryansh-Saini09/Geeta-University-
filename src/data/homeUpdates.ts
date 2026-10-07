@@ -1,9 +1,135 @@
 export interface HomeUpdate {
   title: string;
   description: string;
-  href?: string;
 }
 
+export const eventUpdates: HomeUpdate[] = [
+  {
+    title: "Deeksharambh 2K26 (Orientation Program)",
+    description: "4-08-2026 to 8-08-2026",
+  },
+  {
+    title: "Van Mahotsav 2026",
+    description: "30 July 2026",
+  },
+  {
+    title: "1st Graduation Ceremony for International Students",
+    description: "17 July 2026",
+  },
+  {
+    title: "Medhavi Chattra Samman Samaroh: 2026",
+    description: "29 May 2026",
+  },
+  {
+    title: "Medhavi Chattra Samman Samaroh: 2026",
+    description: "25 May 2026",
+  },
+  {
+    title: "Placement Day 2026",
+    description: "9 May 2026",
+  },
+  {
+    title: "Inter-Department Volleyball Tournament",
+    description: "5 - 6 May 2026",
+  },
+  {
+    title: "ForensiXplore - Forensic Fest 2026",
+    description: "4 - 5 May 2026",
+  },
+  {
+    title:
+      "3rd International Conference on New Frontiers of Pharmaceutical Research (ICNFPR-2026)",
+    description: "1 - 2 May 2026",
+  },
+  {
+    title: "Bizz Fiesta 2K26 – Season 9",
+    description: "30 April 2026",
+  },
+  {
+    title: "International Students Football Tournament",
+    description: "27 April 2026",
+  },
+  {
+    title: "Vyakhyan 2k26 – The Annual Literary Fest",
+    description: "23 April 2026",
+  },
+  {
+    title: "National Sustainability Conclave & Awards 2026",
+    description: "18 April 2026",
+  },
+  {
+    title: "Concorrenza 2026",
+    description: "16 April 2026",
+  },
+  {
+    title: "HackForge 2.0 - Hackathon",
+    description: "14 April 2026",
+  },
+  {
+    title: "Alumni Talk",
+    description: "10 April 2026",
+  },
+  {
+    title: "Inter-Department Badminton Tournament 2026",
+    description: "8 April 2026",
+  },
+  {
+    title: "Mega Job Fair",
+    description: "20 Mar 2026",
+  },
+  {
+    title: "Sangrila 2K26 - Star Night - Asees Kaur Live Concert",
+    description: "14 Mar 2026",
+  },
+  {
+    title: "Sangrila 2K26",
+    description: "13 Mar 2026",
+  },
+  {
+    title: "Roadies (Karam ya kaand) - Round 1",
+    description: "07 March 2026",
+  },
+  {
+    title: "Rashtriya Dairy Mela and Agri Expo-2026",
+    description: "07 March 2026",
+  },
+  {
+    title: "International Women's Day",
+    description: "07 March 2026",
+  },
+  {
+    title:
+      "FinTech Conclave 2026 Intelligent Finance: AI, Innovation & Future of FinTech Panel Discussion",
+    description: "07 March 2026",
+  },
+  {
+    title:
+      "Expert Talk - Emerging Research Issues on Digitalisation, Data and Social Development",
+    description: "07 March 2026",
+  },
+  {
+    title: "Viksit Bharat Youth Connect & Parliament 2026",
+    description: "07 March 2026",
+  },
+  {
+    title: "POSH Awareness & Legal Rights Session",
+    description: "05 March 2026",
+  },
+  {
+    title: "YouTube Influencer Mr. Honey Thakur - Campus Shoot",
+    description: "28 Feb 2026",
+  },
+  {
+    title:
+      "National Science Day 2026 in association with Haryana State Council for Science, Innovation & Technology",
+    description: "28 Feb 2026",
+  },
+  {
+    title:
+      "FDP on The Art of Scientific Writing: From Manuscript to High-Impact Publication",
+    description: "09 Feb 2026",
+  },
+];
 
 export const placementUpdates: HomeUpdate[] = [
   {
