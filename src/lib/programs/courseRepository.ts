@@ -40,6 +40,10 @@ import { btechCyberSecurity } from "@/data/programs/courses/computer-science-and
 import { btechDataScienceAndBusinessAnalytics } from "@/data/programs/courses/computer-science-and-engineering/btech-data-science-and-business-analytics";
 import { btechFullStackWebDevelopment } from "@/data/programs/courses/computer-science-and-engineering/btech-full-stack-web-development";
 import { btechQuantumComputing } from "@/data/programs/courses/computer-science-and-engineering/btech-quantum-computing";
+import { bca } from "@/data/programs/courses/computer-science-and-engineering/bca";
+import { bcaAIML } from "@/data/programs/courses/computer-science-and-engineering/bca-artificial-intelligence-and-machine-learning";
+import { bcaCyberSecurity } from "@/data/programs/courses/computer-science-and-engineering/bca-cyber-security";
+import { bcaDataScienceAndBusinessAnalytics } from "@/data/programs/courses/computer-science-and-engineering/bca-data-science-and-business-analytics";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -83,6 +87,10 @@ const courses: CoursePageData[] = [
   btechDataScienceAndBusinessAnalytics,
   btechFullStackWebDevelopment,
   btechQuantumComputing,
+  bca,
+  bcaAIML,
+  bcaCyberSecurity,
+  bcaDataScienceAndBusinessAnalytics,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -134,6 +142,8 @@ function normalizeCourseSlug(slug: string): string {
     s === "btech-cse-cybersecurity"
   )
     return "btech-cyber-security";
+  if (s === "bca-cybersecurity" || s === "bca-cyber")
+    return "bca-cyber-security";
   if (
     s === "btech-data-science" ||
     s === "btech-data-science-and-business-analytics-with-hcl" ||
@@ -141,6 +151,13 @@ function normalizeCourseSlug(slug: string): string {
     s === "btech-data-science-business-analytics"
   )
     return "btech-data-science-and-business-analytics";
+  if (
+    s === "bca-data-science" ||
+    s === "bca-data-science-business-analytics" ||
+    s === "bca-data-science-and-business-analytic" ||
+    s === "bca-ds"
+  )
+    return "bca-data-science-and-business-analytics";
   if (
     s === "btech-full-stack" ||
     s === "btech-full-stack-development" ||
@@ -311,6 +328,13 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
       params.push({
         schoolSlug: c.schoolSlug,
         courseSlug: "quantum-computing",
+      });
+    }
+
+    if (c.slug === "bca-data-science-and-business-analytics") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "bca-data-science",
       });
     }
   });
