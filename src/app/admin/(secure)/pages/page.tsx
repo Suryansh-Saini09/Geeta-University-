@@ -126,6 +126,19 @@ export default async function PagesPage({
                 {result.pages.map((page) => {
                   const isHome = page.slug === "home" || page.slug === "";
                   const isAbout = page.slug === "about";
+                  const admissionsSlugs = [
+                    "programs-after-12th",
+                    "post-graduate-programs",
+                    "phd",
+                    "confused-about-courses",
+                    "fee-and-scholarship",
+                    "scholarship-predictor",
+                    "international-admissions",
+                    "guts",
+                    "cuet",
+                    "faq",
+                  ];
+                  const isAdmissions = admissionsSlugs.includes(page.slug);
 
                   return (
                     <tr key={page.id}>
@@ -161,6 +174,13 @@ export default async function PagesPage({
                           >
                             About CMS <ArrowRight className="h-3 w-3" />
                           </Link>
+                        ) : isAdmissions ? (
+                          <Link
+                            href={`/admin/admissions?page=${page.slug}`}
+                            className="inline-flex items-center gap-1 font-bold text-[#E8871A] hover:underline"
+                          >
+                            Admissions CMS <ArrowRight className="h-3 w-3" />
+                          </Link>
                         ) : (
                           <span className="font-semibold text-slate-600">Generic Pages CMS</span>
                         )}
@@ -183,6 +203,13 @@ export default async function PagesPage({
                               className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 hover:bg-amber-100"
                             >
                               Open About CMS
+                            </Link>
+                          ) : isAdmissions ? (
+                            <Link
+                              href={`/admin/admissions?page=${page.slug}`}
+                              className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 hover:bg-amber-100"
+                            >
+                              Open Admissions CMS
                             </Link>
                           ) : (
                             <Link

@@ -274,3 +274,48 @@ export async function getPublishedPageBySlug(slug: string) {
   });
 }
 
+export async function getPublishedAdmissionsPage(pageSlug: string, locale: string = DEFAULT_LOCALE) {
+  try {
+    const [sections, pageRecord] = await Promise.all([
+      prisma.pageSection.findMany({
+        where: { pageSlug, status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.page.findUnique({
+        where: { slug: pageSlug },
+        include: { seo: true },
+      }),
+    ]);
+
+    const sectionMap: Record<string, any> = {};
+    sections.forEach((sec: any) => {
+      sectionMap[sec.sectionKey] = getLocalizedBody(sec.body, sec.translations, locale);
+    });
+
+    const localizedSeo = pageRecord?.seo
+      ? {
+          ...pageRecord.seo,
+          title: getLocalizedField(pageRecord.seo, "title", locale),
+          description: getLocalizedField(pageRecord.seo, "description", locale),
+          ogTitle: getLocalizedField(pageRecord.seo, "ogTitle", locale),
+        }
+      : null;
+
+    return {
+      page: pageRecord,
+      sections: sectionMap,
+      seo: localizedSeo,
+    };
+  } catch (err: any) {
+    console.error(`[CMS DB ERROR] getPublishedAdmissionsPage("${pageSlug}") failed:`, {
+      message: err?.message ? String(err.message).replace(/:[^:@]+@/, ":****@") : String(err),
+    });
+    return {
+      page: null,
+      sections: {},
+      seo: null,
+    };
+  }
+}
+
+

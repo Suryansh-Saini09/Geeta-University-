@@ -26,6 +26,7 @@ const navigation = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { label: "Home CMS", href: "/admin/home", icon: FileText },
   { label: "About CMS", href: "/admin/about", icon: FileText },
+  { label: "Admissions CMS", href: "/admin/admissions", icon: GraduationCap },
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "Departments", href: "/admin/departments", icon: GraduationCap },
   { label: "Programs", href: "/admin/programs", icon: BookOpen },
