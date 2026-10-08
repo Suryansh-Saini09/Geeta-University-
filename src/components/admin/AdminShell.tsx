@@ -27,6 +27,7 @@ const navigation = [
   { label: "Home CMS", href: "/admin/home", icon: FileText },
   { label: "About CMS", href: "/admin/about", icon: FileText },
   { label: "Admissions CMS", href: "/admin/admissions", icon: GraduationCap },
+  { label: "GU Edge CMS", href: "/admin/gu-edge", icon: BookOpen },
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "Departments", href: "/admin/departments", icon: GraduationCap },
   { label: "Programs", href: "/admin/programs", icon: BookOpen },
