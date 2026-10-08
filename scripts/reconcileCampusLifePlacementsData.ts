@@ -177,8 +177,31 @@ async function reconcile() {
         title: "Career Development Cell (CDC)",
         subtitle: "Structured 360-Degree Skill Building & Industry Alignment",
         description:
-          "The Career Development Cell at Geeta University equips students with technical mastery, aptitude, resume building, and mock interview simulations.",
-        image: "/placements/cdc.jpg",
+          "We support students in their quest for an exciting and rewarding professional career after graduation by providing a strong foundation of skills, guidance, and opportunities. The Career Development Cell (CDC) plays a pivotal role in ensuring the holistic development of students by offering structured placement training programs that focus on aptitude building, technical proficiency, communication skills, and personality development. Regular workshops, mock interviews, group discussions, and industry interaction sessions are conducted to prepare students to confidently face recruitment processes.",
+        pillars: [
+          {
+            title: "Skill Development",
+            description: "Aptitude, coding & soft skills",
+          },
+          {
+            title: "Corporate Connect",
+            description: "Industry interaction & drives",
+          },
+          {
+            title: "Higher Studies",
+            description: "Counseling & exam mentorship",
+          },
+        ],
+        expandedText:
+          "In addition to placement support, CDC also guides students who aspire to pursue higher education by offering counseling, entrance exam preparation support, and mentorship to help them choose the right academic path. This dual focus ensures that every student is well-prepared for both professional and academic growth after graduation.\n\nGeeta Group of Institutions (GGI) has consistently maintained an inspiring and commendable placement record over the years, reflecting its commitment to excellence. Students have been successfully placed across a wide range of industrial verticals, including IT, management, healthcare, hospitality, engineering, and emerging technologies. The institute has built strong relationships with leading organizations and top multinational companies (MNCs), enabling students to secure promising career opportunities.",
+        director: {
+          name: "Amit Kumar Verma",
+          designation: "Sr. Director — Training & Placement",
+          email: "sr.director.tp@geetauniversity.edu.in",
+          phone: "+91 8684489100 / 9911613975",
+          image: "/placements/amit-kumar-verma.webp",
+        },
+        image: "/placements/cdc-overview.webp",
         features: [
           { title: "Technical Upskilling", description: "Hands-on coding, AI tools, and full-stack lab modules.", icon: "code" },
           { title: "Personality Grooming", description: "Soft skills, high-impact public speaking & corporate etiquette via GFS.", icon: "user-check" },

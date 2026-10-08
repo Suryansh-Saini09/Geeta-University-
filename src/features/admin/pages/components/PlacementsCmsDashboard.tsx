@@ -439,15 +439,17 @@ function RecruitersEditor({ state, onChange }: { state: any; onChange: (val: any
 }
 
 function CdcEditor({ state, onChange }: { state: any; onChange: (val: any) => void }) {
+  const pillars = state.pillars || [];
   const features = state.features || [];
+  const director = state.director || {};
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       <h3 className="text-lg font-bold text-[#0A1F44]">Career Development Cell (CDC)</h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Section Title</label>
+          <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Section Heading</label>
           <input
             type="text"
             value={state.title || "Career Development Cell (CDC)"}
@@ -467,23 +469,145 @@ function CdcEditor({ state, onChange }: { state: any; onChange: (val: any) => vo
       </div>
 
       <CmsAutoTextarea
-        label="CDC Overview Description"
+        label="CDC Main Overview Description"
         value={state.description || ""}
         onChange={(val) => onChange({ ...state, description: val })}
         rows={4}
       />
 
+      {/* 3 Core Pillars Cards Repeater */}
+      <div className="space-y-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+        <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+          <label className="block text-xs font-bold uppercase text-[#0A1F44]">
+            CDC Core Pillars Cards ({pillars.length})
+          </label>
+          <button
+            type="button"
+            onClick={() => {
+              const newPillar = { title: "New Pillar", description: "Pillar subtitle..." };
+              onChange({ ...state, pillars: [...pillars, newPillar] });
+            }}
+            className="inline-flex items-center gap-1.5 rounded-lg bg-[#E8871A] px-3 py-1.5 text-xs font-bold text-white shadow-xs"
+          >
+            <Plus className="h-3.5 w-3.5" />
+            <span>Add Pillar Card</span>
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {pillars.map((pil: any, idx: number) => (
+            <div key={idx} className="rounded-lg border border-slate-200 bg-white p-3 space-y-2">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-1">
+                <span className="text-xs font-bold text-slate-800">Pillar #{idx + 1}</span>
+                <button
+                  type="button"
+                  onClick={() => onChange({ ...state, pillars: pillars.filter((_: any, i: number) => i !== idx) })}
+                  className="text-xs font-bold text-rose-600 hover:text-rose-800"
+                >
+                  Remove
+                </button>
+              </div>
+
+              <div>
+                <label className="block font-bold text-slate-600 mb-0.5 text-[10px] uppercase">Title</label>
+                <input
+                  type="text"
+                  value={pil.title || ""}
+                  onChange={(e) => {
+                    const copy = [...pillars];
+                    copy[idx] = { ...copy[idx], title: e.target.value };
+                    onChange({ ...state, pillars: copy });
+                  }}
+                  className="w-full rounded border border-slate-300 px-2 py-1 text-xs font-semibold"
+                />
+              </div>
+
+              <div>
+                <label className="block font-bold text-slate-600 mb-0.5 text-[10px] uppercase">Subtitle / Description</label>
+                <input
+                  type="text"
+                  value={pil.description || pil.subtitle || ""}
+                  onChange={(e) => {
+                    const copy = [...pillars];
+                    copy[idx] = { ...copy[idx], description: e.target.value };
+                    onChange({ ...state, pillars: copy });
+                  }}
+                  className="w-full rounded border border-slate-300 px-2 py-1 text-xs"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <CmsAutoTextarea
+        label="CDC Expandable Read-More Details Paragraphs"
+        value={state.expandedText || ""}
+        onChange={(val) => onChange({ ...state, expandedText: val })}
+        rows={4}
+        helpText="This text appears when visitors click 'Read More Details' on the CDC section."
+      />
+
+      {/* Director Profile Card Controls */}
+      <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-4">
+        <h4 className="font-bold text-xs uppercase text-[#0A1F44]">Training &amp; Placement Director Profile Card</h4>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div>
+            <label className="block font-bold text-slate-600 mb-0.5">Director Full Name</label>
+            <input
+              type="text"
+              value={director.name || ""}
+              onChange={(e) => onChange({ ...state, director: { ...director, name: e.target.value } })}
+              className="w-full rounded border border-slate-300 px-2.5 py-1.5 text-xs font-semibold"
+            />
+          </div>
+          <div>
+            <label className="block font-bold text-slate-600 mb-0.5">Designation / Title</label>
+            <input
+              type="text"
+              value={director.designation || ""}
+              onChange={(e) => onChange({ ...state, director: { ...director, designation: e.target.value } })}
+              className="w-full rounded border border-slate-300 px-2.5 py-1.5 text-xs"
+            />
+          </div>
+          <div>
+            <label className="block font-bold text-slate-600 mb-0.5">Email Address</label>
+            <input
+              type="text"
+              value={director.email || ""}
+              onChange={(e) => onChange({ ...state, director: { ...director, email: e.target.value } })}
+              className="w-full rounded border border-slate-300 px-2.5 py-1.5 text-xs"
+            />
+          </div>
+          <div>
+            <label className="block font-bold text-slate-600 mb-0.5">Phone / Helpline</label>
+            <input
+              type="text"
+              value={director.phone || ""}
+              onChange={(e) => onChange({ ...state, director: { ...director, phone: e.target.value } })}
+              className="w-full rounded border border-slate-300 px-2.5 py-1.5 text-xs"
+            />
+          </div>
+        </div>
+
+        <CmsImagePreviewInput
+          label="Director Photo URL"
+          value={director.image || ""}
+          onChange={(val) => onChange({ ...state, director: { ...director, image: val } })}
+        />
+      </div>
+
       <CmsImagePreviewInput
-        label="CDC Image / Banner URL"
+        label="CDC Hierarchy / Overview Diagram Image URL"
         value={state.image || ""}
         onChange={(val) => onChange({ ...state, image: val })}
       />
 
-      {/* Features Repeater */}
+      {/* Features / Training Modules Repeater */}
       <div className="space-y-3 pt-2">
         <div className="flex items-center justify-between border-b border-slate-200 pb-2">
           <label className="block text-xs font-bold uppercase text-[#0A1F44]">
-            CDC Key Initiatives &amp; Features ({features.length})
+            CDC Key Training Modules &amp; Initiatives ({features.length})
           </label>
           <button
             type="button"
