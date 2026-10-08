@@ -46,6 +46,14 @@ export async function getEdgePageDataAsync(slug: string): Promise<EdgePageData |
     const sections = dbData.sections;
     const merged: EdgePageData = { ...fallback };
 
+    const getCleanSection = (raw: any) => {
+      if (!raw) return null;
+      if (typeof raw === "object" && raw.body && typeof raw.body === "object" && !Array.isArray(raw.body)) {
+        return raw.body;
+      }
+      return raw;
+    };
+
     if (dbData.seo) {
       merged.seo = {
         title: dbData.seo.title || fallback.seo.title,
@@ -61,16 +69,35 @@ export async function getEdgePageDataAsync(slug: string): Promise<EdgePageData |
       };
     }
 
-    if (sections.hero) merged.hero = { ...fallback.hero, ...sections.hero };
-    if (sections.stats) merged.stats = { ...fallback.stats, ...sections.stats };
-    if (sections.timeline) merged.timeline = { ...fallback.timeline, ...sections.timeline };
-    if (sections.trainingModel) merged.trainingModel = { ...fallback.trainingModel, ...sections.trainingModel };
-    if (sections.mentors) merged.mentors = { ...fallback.mentors, ...sections.mentors };
-    if (sections.testimonials) merged.testimonials = { ...fallback.testimonials, ...sections.testimonials };
-    if (sections.videos) merged.videos = { ...fallback.videos, ...sections.videos };
-    if (sections.gallery) merged.gallery = { ...fallback.gallery, ...sections.gallery };
-    if (sections.cta) merged.cta = { ...fallback.cta, ...sections.cta };
-    if (sections.customSections) merged.customSections = sections.customSections;
+    const cleanHero = getCleanSection(sections.hero);
+    if (cleanHero) merged.hero = { ...fallback.hero, ...cleanHero };
+
+    const cleanStats = getCleanSection(sections.stats);
+    if (cleanStats) merged.stats = { ...fallback.stats, ...cleanStats };
+
+    const cleanTimeline = getCleanSection(sections.timeline);
+    if (cleanTimeline) merged.timeline = { ...fallback.timeline, ...cleanTimeline };
+
+    const cleanTrainingModel = getCleanSection(sections.trainingModel);
+    if (cleanTrainingModel) merged.trainingModel = { ...fallback.trainingModel, ...cleanTrainingModel };
+
+    const cleanMentors = getCleanSection(sections.mentors);
+    if (cleanMentors) merged.mentors = { ...fallback.mentors, ...cleanMentors };
+
+    const cleanTestimonials = getCleanSection(sections.testimonials);
+    if (cleanTestimonials) merged.testimonials = { ...fallback.testimonials, ...cleanTestimonials };
+
+    const cleanVideos = getCleanSection(sections.videos);
+    if (cleanVideos) merged.videos = { ...fallback.videos, ...cleanVideos };
+
+    const cleanGallery = getCleanSection(sections.gallery);
+    if (cleanGallery) merged.gallery = { ...fallback.gallery, ...cleanGallery };
+
+    const cleanCta = getCleanSection(sections.cta);
+    if (cleanCta) merged.cta = { ...fallback.cta, ...cleanCta };
+
+    const cleanCustomSections = getCleanSection(sections.customSections);
+    if (cleanCustomSections) merged.customSections = cleanCustomSections;
 
     // Handle features grids array or featureGrid_... keys
     const featureGridKeys = Object.keys(sections).filter((k) => k.startsWith("featureGrid_") || k === "features");

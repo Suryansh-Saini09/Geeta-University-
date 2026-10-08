@@ -67,7 +67,11 @@ export function GuEdgeCmsDashboard({
 
   // Dynamic Section Body State
   const getSectionBody = (key: string) => {
-    return sections[key]?.body || {};
+    const raw = sections[key]?.body;
+    if (raw && typeof raw === "object" && raw.body && typeof raw.body === "object" && !Array.isArray(raw.body)) {
+      return raw.body;
+    }
+    return raw || {};
   };
 
   const [activeBodyState, setActiveBodyState] = useState<any>(
@@ -81,7 +85,11 @@ export function GuEdgeCmsDashboard({
     const firstSecKey = targetOpt.sectionsList[0]?.key || "hero";
     setActiveSectionKey(firstSecKey);
     const targetData = adminDataBySlug[slug] || { sections: {}, seo: null };
-    setActiveBodyState(targetData.sections?.[firstSecKey]?.body || {});
+    const rawFirst = targetData.sections?.[firstSecKey]?.body;
+    const cleanFirst = (rawFirst && typeof rawFirst === "object" && rawFirst.body && typeof rawFirst.body === "object" && !Array.isArray(rawFirst.body))
+      ? rawFirst.body
+      : (rawFirst || {});
+    setActiveBodyState(cleanFirst);
     setSeoState({
       title: targetData.seo?.title || "",
       description: targetData.seo?.description || "",
@@ -111,10 +119,7 @@ export function GuEdgeCmsDashboard({
       setIsSaving(true);
       setFeedback(null);
 
-      const res = await updatePageSectionAction(selectedPageSlug, activeSectionKey, {
-        body: activeBodyState,
-        status: "PUBLISHED",
-      });
+      const res = await updatePageSectionAction(selectedPageSlug, activeSectionKey, activeBodyState);
 
       if (res.success) {
         setFeedback({
