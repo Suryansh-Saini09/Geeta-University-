@@ -930,7 +930,7 @@ function TimelineSectionEditor({ state, onChange }: { state: any; onChange: (val
         <button
           type="button"
           onClick={() => {
-            const newStep = { stepNumber: steps.length + 1, title: "New Step Title", category: "Core", description: "" };
+            const newStep = { stepNumber: steps.length + 1, title: "New Step Title", category: "Core", description: "", points: [], expandedDetails: "" };
             onChange({ ...state, steps: [...steps, newStep] });
           }}
           className="inline-flex items-center gap-1.5 rounded-lg bg-[#E8871A] px-3 py-1.5 text-xs font-bold text-white shadow-xs"
@@ -1007,6 +1007,27 @@ function TimelineSectionEditor({ state, onChange }: { state: any; onChange: (val
               onChange={(val) => {
                 const copy = [...steps];
                 copy[idx] = { ...copy[idx], description: val };
+                onChange({ ...state, steps: copy });
+              }}
+              rows={2}
+            />
+
+            <CmsStringRepeater
+              title="Bullet Points / Highlights"
+              items={Array.isArray(step.points) ? step.points : []}
+              onChange={(newPoints) => {
+                const copy = [...steps];
+                copy[idx] = { ...copy[idx], points: newPoints };
+                onChange({ ...state, steps: copy });
+              }}
+            />
+
+            <CmsAutoTextarea
+              label="Expanded Details / Takeaways"
+              value={Array.isArray(step.expandedDetails) ? step.expandedDetails.join("\n") : (step.expandedDetails || "")}
+              onChange={(val) => {
+                const copy = [...steps];
+                copy[idx] = { ...copy[idx], expandedDetails: val };
                 onChange({ ...state, steps: copy });
               }}
               rows={2}
