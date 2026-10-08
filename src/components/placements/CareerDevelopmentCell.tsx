@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 
-export default function CareerDevelopmentCell() {
+export default function CareerDevelopmentCell({ data }: { data?: any }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const title = data?.title || "Career Development Cell (CDC)";
+  const description = data?.description || "We support students in their quest for an exciting and rewarding professional career after graduation by providing a strong foundation of skills, guidance, and opportunities. The Career Development Cell (CDC) plays a pivotal role in ensuring the holistic development of students by offering structured placement training programs that focus on aptitude building, technical proficiency, communication skills, and personality development.";
 
   return (
     <section id="cdc" className="scroll-mt-[190px] bg-[#F7F9FC] py-12 md:py-16 border-t border-[#E2E8F0]">

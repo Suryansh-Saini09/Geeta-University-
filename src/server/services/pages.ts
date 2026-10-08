@@ -318,4 +318,79 @@ export async function getPublishedAdmissionsPage(pageSlug: string, locale: strin
   }
 }
 
+export async function getPublishedCampusLifePage(locale: string = DEFAULT_LOCALE) {
+  try {
+    const [sections, pageRecord] = await Promise.all([
+      prisma.pageSection.findMany({
+        where: { pageSlug: "campus-life", status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.page.findUnique({
+        where: { slug: "campus-life" },
+        include: { seo: true },
+      }),
+    ]);
+
+    const sectionMap: Record<string, any> = {};
+    sections.forEach((sec: any) => {
+      sectionMap[sec.sectionKey] = getLocalizedBody(sec.body, sec.translations, locale);
+    });
+
+    const localizedSeo = pageRecord?.seo
+      ? {
+          ...pageRecord.seo,
+          title: getLocalizedField(pageRecord.seo, "title", locale),
+          description: getLocalizedField(pageRecord.seo, "description", locale),
+          ogTitle: getLocalizedField(pageRecord.seo, "ogTitle", locale),
+        }
+      : null;
+
+    return {
+      sections: sectionMap,
+      seo: localizedSeo,
+    };
+  } catch (err: any) {
+    console.error("[CMS DB ERROR] getPublishedCampusLifePage failed:", err);
+    return { sections: {}, seo: null };
+  }
+}
+
+export async function getPublishedPlacementsPage(locale: string = DEFAULT_LOCALE) {
+  try {
+    const [sections, pageRecord] = await Promise.all([
+      prisma.pageSection.findMany({
+        where: { pageSlug: "placements", status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.page.findUnique({
+        where: { slug: "placements" },
+        include: { seo: true },
+      }),
+    ]);
+
+    const sectionMap: Record<string, any> = {};
+    sections.forEach((sec: any) => {
+      sectionMap[sec.sectionKey] = getLocalizedBody(sec.body, sec.translations, locale);
+    });
+
+    const localizedSeo = pageRecord?.seo
+      ? {
+          ...pageRecord.seo,
+          title: getLocalizedField(pageRecord.seo, "title", locale),
+          description: getLocalizedField(pageRecord.seo, "description", locale),
+          ogTitle: getLocalizedField(pageRecord.seo, "ogTitle", locale),
+        }
+      : null;
+
+    return {
+      sections: sectionMap,
+      seo: localizedSeo,
+    };
+  } catch (err: any) {
+    console.error("[CMS DB ERROR] getPublishedPlacementsPage failed:", err);
+    return { sections: {}, seo: null };
+  }
+}
+
+
 

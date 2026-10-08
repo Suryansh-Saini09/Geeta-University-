@@ -14,6 +14,8 @@ import {
   Inbox,
   ScrollText,
   Shield,
+  Sparkles,
+  Trophy,
   Users,
   UserCog,
 } from "lucide-react";
@@ -28,6 +30,8 @@ const navigation = [
   { label: "About CMS", href: "/admin/about", icon: FileText },
   { label: "Admissions CMS", href: "/admin/admissions", icon: GraduationCap },
   { label: "GU Edge CMS", href: "/admin/gu-edge", icon: BookOpen },
+  { label: "Campus Life CMS", href: "/admin/campus-life", icon: Sparkles },
+  { label: "Placements CMS", href: "/admin/placements", icon: Trophy },
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "Departments", href: "/admin/departments", icon: GraduationCap },
   { label: "Programs", href: "/admin/programs", icon: BookOpen },
