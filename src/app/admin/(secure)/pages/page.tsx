@@ -138,7 +138,17 @@ export default async function PagesPage({
                     "cuet",
                     "faq",
                   ];
+                  const guEdgeSlugs = [
+                    "dyod",
+                    "gfs",
+                    "gth",
+                    "nep",
+                    "vocational-skills",
+                    "gu-global-edge",
+                    "xedge",
+                  ];
                   const isAdmissions = admissionsSlugs.includes(page.slug);
+                  const isGuEdge = guEdgeSlugs.includes(page.slug);
 
                   return (
                     <tr key={page.id}>
@@ -181,6 +191,13 @@ export default async function PagesPage({
                           >
                             Admissions CMS <ArrowRight className="h-3 w-3" />
                           </Link>
+                        ) : isGuEdge ? (
+                          <Link
+                            href={`/admin/gu-edge?page=${page.slug}`}
+                            className="inline-flex items-center gap-1 font-bold text-[#E8871A] hover:underline"
+                          >
+                            GU Edge CMS <ArrowRight className="h-3 w-3" />
+                          </Link>
                         ) : (
                           <span className="font-semibold text-slate-600">Generic Pages CMS</span>
                         )}
@@ -210,6 +227,13 @@ export default async function PagesPage({
                               className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 hover:bg-amber-100"
                             >
                               Open Admissions CMS
+                            </Link>
+                          ) : isGuEdge ? (
+                            <Link
+                              href={`/admin/gu-edge?page=${page.slug}`}
+                              className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 hover:bg-amber-100"
+                            >
+                              Open GU Edge CMS
                             </Link>
                           ) : (
                             <Link
