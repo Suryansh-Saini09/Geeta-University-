@@ -142,6 +142,9 @@ export async function updatePageSectionAction(
       revalidatePath("/nep");
     } else if (pageSlug === "xedge") {
       revalidatePath("/xedge");
+    } else if (pageSlug === "library") {
+      revalidatePath("/library");
+      revalidatePath("/knowledge-resource-centre-library");
     } else {
       revalidatePath(pageSlug === "home" ? "/" : `/${pageSlug}`);
     }

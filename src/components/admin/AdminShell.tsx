@@ -18,6 +18,8 @@ import {
   Trophy,
   Users,
   UserCog,
+  Library,
+  Medal,
 } from "lucide-react";
 
 import type { AdminSessionUser } from "@/server/auth/session";
@@ -32,6 +34,14 @@ const navigation = [
   { label: "GU Edge CMS", href: "/admin/gu-edge", icon: BookOpen },
   { label: "Campus Life CMS", href: "/admin/campus-life", icon: Sparkles },
   { label: "Placements CMS", href: "/admin/placements", icon: Trophy },
+  { label: "Library CMS", href: "/admin/library", icon: Library },
+  { label: "Advisory Board CMS", href: "/admin/advisory-board", icon: Users },
+  { label: "Medal Policy CMS", href: "/admin/medal-policy", icon: Medal },
+  { label: "Careers CMS", href: "/admin/careers", icon: FileText },
+  { label: "Contact Us CMS", href: "/admin/contact-us", icon: FileText },
+  { label: "UGC Documents CMS", href: "/admin/ugc", icon: FileText },
+  { label: "Teaching Practices CMS", href: "/admin/teaching-learning-practices", icon: BookOpen },
+  { label: "Geeta in News CMS", href: "/admin/geeta-in-news", icon: Newspaper },
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "Departments", href: "/admin/departments", icon: GraduationCap },
   { label: "Programs", href: "/admin/programs", icon: BookOpen },
@@ -45,6 +55,7 @@ const navigation = [
   { label: "Activity", href: "/admin/activity", icon: ScrollText },
   { label: "Settings", href: "/admin/settings", icon: Settings },
 ];
+
 
 export default function AdminShell({
   user,
