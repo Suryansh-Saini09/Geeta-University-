@@ -1,7 +1,33 @@
 import { prisma } from "@/server/db/client";
 
+async function queryStatsBatch() {
+  return prisma.$transaction([
+    prisma.page.count(),
+    prisma.department.count(),
+    prisma.program.count(),
+    prisma.facultyMember.count(),
+    prisma.notice.count(),
+    prisma.newsArticle.count(),
+    prisma.event.count(),
+    prisma.galleryAlbum.count(),
+    prisma.contactSubmission.count(),
+    prisma.mediaAsset.count(),
+    prisma.adminUser.count(),
+  ]);
+}
+
 export async function getAdminDashboardStats() {
   try {
+    let results;
+    try {
+      results = await queryStatsBatch();
+    } catch (firstError) {
+      console.warn("First attempt to query admin dashboard stats failed, retrying...", firstError);
+      // Wait briefly before retrying in case of a transient connection drop
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      results = await queryStatsBatch();
+    }
+
     const [
       pages,
       departments,
@@ -14,19 +40,7 @@ export async function getAdminDashboardStats() {
       submissions,
       mediaAssets,
       adminUsers,
-    ] = await Promise.all([
-      prisma.page.count(),
-      prisma.department.count(),
-      prisma.program.count(),
-      prisma.facultyMember.count(),
-      prisma.notice.count(),
-      prisma.newsArticle.count(),
-      prisma.event.count(),
-      prisma.galleryAlbum.count(),
-      prisma.contactSubmission.count(),
-      prisma.mediaAsset.count(),
-      prisma.adminUser.count(),
-    ]);
+    ] = results;
 
     return {
       pages,
@@ -58,3 +72,4 @@ export async function getAdminDashboardStats() {
     };
   }
 }
+

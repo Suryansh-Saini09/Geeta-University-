@@ -6,19 +6,39 @@ import Image from "next/image";
 interface LegacyEcosystemProps {
   id?: string;
   contextText?: string;
+  data?: {
+    heading?: string;
+    contextText?: string;
+    description?: string;
+    items?: Array<{ name: string; detail: string; color: string }>;
+    footerText?: string;
+    image?: string;
+  } | null;
 }
 
 export default function LegacyEcosystem({
   id = "legacy-ecosystem",
   contextText = "Students benefit from the integrated ecosystem of:",
+  data,
 }: LegacyEcosystemProps) {
+  const headingText = data?.heading || "Legacy & Ecosystem";
+  const context = data?.contextText || contextText;
+  const desc = data?.description || "Founded in 1985, the Geeta Group of Institutions has emerged as a major educational hub with institutions spanning school education to doctoral programs.";
+  const itemList = data?.items && data.items.length > 0 ? data.items : [
+    { name: "Geeta University", detail: "AI-enabled multidisciplinary campus", color: "#E85C2D" },
+    { name: "Geeta Finishing School (GFS)", detail: "Communication & Corporate Readiness", color: "#07589f" },
+    { name: "Geeta Technical Hub (GTH)", detail: "Advanced Technology, Certifications, and Industry Skills", color: "#013d55" },
+  ];
+  const footerText = data?.footerText || "Together, they form a holistic, future-ready talent development ecosystem.";
+  const imageSrc = data?.image || "/campus-life/ecosystem-campus.webp";
+
   return (
     <section id={id} className="scroll-mt-[190px] bg-white py-12 md:py-16 border-t border-[#E2E8F0]">
       <div className="gu-container">
         {/* Section Header with exact site typography */}
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-16">
           <h2 className="font-serif text-[42px] font-black leading-[1.05] tracking-[-1.5px] text-[#0A1F44] sm:text-[50px] md:text-[58px]">
-            Legacy &amp; <span className="text-[#E8871A]">Ecosystem</span>
+            {headingText}
           </h2>
         </div>
 
@@ -27,60 +47,31 @@ export default function LegacyEcosystem({
           {/* Left Content Column */}
           <div className="lg:col-span-6 xl:col-span-6">
             <p className="text-[16px] leading-[1.8] text-[#64748B] md:text-[17px]">
-              Founded in 1985, the{" "}
-              <strong className="font-bold text-[#0A1F44]">
-                Geeta Group of Institutions
-              </strong>{" "}
-              has emerged as a major educational hub with institutions spanning
-              school education to doctoral programs. {contextText}
+              {desc} {context}
             </p>
 
             {/* List of 3 Ecosystem Cards */}
             <div className="mt-8 flex flex-col gap-4">
-              {/* Item 1: Orange */}
-              <div className="group flex items-stretch gap-2.5">
-                <div className="flex-1 rounded-[14px] bg-[#E85C2D] p-5 shadow-[0_4px_12px_rgba(232,92,45,0.18)] transition-transform duration-200 group-hover:-translate-y-0.5 sm:p-6">
-                  <h3 className="font-serif text-[22px] font-black text-white">
-                    Geeta University
-                  </h3>
-                  <p className="mt-1 text-[14.5px] font-medium leading-[1.6] text-[#fff5f2]">
-                    AI-enabled multidisciplinary campus
-                  </p>
+              {itemList.map((item, idx) => (
+                <div key={`${item.name}-${idx}`} className="group flex items-stretch gap-2.5">
+                  <div
+                    className="flex-1 rounded-[14px] p-5 shadow-sm transition-transform duration-200 group-hover:-translate-y-0.5 sm:p-6"
+                    style={{ backgroundColor: item.color }}
+                  >
+                    <h3 className="font-serif text-[22px] font-black text-white">
+                      {item.name}
+                    </h3>
+                    <p className="mt-1 text-[14.5px] font-medium leading-[1.6] text-white/90">
+                      {item.detail}
+                    </p>
+                  </div>
+                  <div className="w-1.5 shrink-0 rounded-full" style={{ backgroundColor: item.color }} />
                 </div>
-                <div className="w-1.5 shrink-0 rounded-full bg-[#E85C2D]" />
-              </div>
-
-              {/* Item 2: Blue */}
-              <div className="group flex items-stretch gap-2.5">
-                <div className="flex-1 rounded-[14px] bg-[#07589f] p-5 shadow-[0_4px_12px_rgba(7,88,159,0.18)] transition-transform duration-200 group-hover:-translate-y-0.5 sm:p-6">
-                  <h3 className="font-serif text-[22px] font-black text-white">
-                    Geeta Finishing School (GFS)
-                  </h3>
-                  <p className="mt-1 text-[14.5px] font-medium leading-[1.6] text-[#e6f0fa]">
-                    Communication &amp; Corporate Readiness
-                  </p>
-                </div>
-                <div className="w-1.5 shrink-0 rounded-full bg-[#07589f]" />
-              </div>
-
-              {/* Item 3: Teal */}
-              <div className="group flex items-stretch gap-2.5">
-                <div className="flex-1 rounded-[14px] bg-[#013d55] p-5 shadow-[0_4px_12px_rgba(1,61,85,0.18)] transition-transform duration-200 group-hover:-translate-y-0.5 sm:p-6">
-                  <h3 className="font-serif text-[22px] font-black text-white">
-                    Geeta Technical Hub (GTH)
-                  </h3>
-                  <p className="mt-1 text-[14.5px] font-medium leading-[1.6] text-[#e0f7fa]">
-                    Advanced Technology, Certifications, and Industry Skills
-                  </p>
-                </div>
-                <div className="w-1.5 shrink-0 rounded-full bg-[#013d55]" />
-              </div>
+              ))}
             </div>
 
             <p className="mt-6 text-[15.5px] font-medium leading-[1.7] text-[#64748B]">
-              Together, they form a holistic,{" "}
-              <br className="hidden sm:inline" />
-              future-ready talent development ecosystem.
+              {footerText}
             </p>
           </div>
 
@@ -88,7 +79,7 @@ export default function LegacyEcosystem({
           <div className="lg:col-span-6 xl:col-span-6">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[22px] border border-[#E2E8F0] shadow-[0_15px_40px_rgba(0,0,0,0.10)] sm:min-h-[420px]">
               <Image
-                src="/campus-life/ecosystem-campus.webp"
+                src={imageSrc}
                 alt="Geeta Group Campus"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

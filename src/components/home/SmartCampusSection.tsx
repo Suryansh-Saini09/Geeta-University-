@@ -75,7 +75,21 @@ const itemVariants: Variants = {
   },
 };
 
-export default function SmartCampusSection() {
+interface SmartCampusSectionProps {
+  data?: {
+    heading?: string;
+    eyebrow?: string;
+    description?: string;
+    features?: CampusFeature[];
+  } | null;
+}
+
+export default function SmartCampusSection({ data }: SmartCampusSectionProps) {
+  const heading = data?.heading || "NextGen Smart Campus";
+  const eyebrowText = data?.eyebrow || "WELCOME TO THE WORLD OF GEETA UNIVERSITY";
+  const descText = data?.description || "It covers 40 acres of land. Geeta University carries the powerful tradition of the Geeta Group of Institutions. Based on the tanets of Karma along with a global outlook, GU blends academic excellence with cutting-edge technology to create an advanced and future-proof learning environment. From ICT-enabled classrooms to smart classes, learning platforms, and transparent digital systems, each interaction at GU is created to be effortless, creative and centred around students. Geeta University stands as the culmination of aspiration, ambition and a commitment to an elite, technology-driven education that prepares students for the jobs of the future.";
+  const featureList = data?.features && data.features.length > 0 ? data.features : features;
+
   return (
     <section
       aria-labelledby="smart-campus-heading"
@@ -112,7 +126,7 @@ export default function SmartCampusSection() {
                 color: "var(--gu-navy)",
               }}
             >
-              NextGen Smart Campus
+              {heading}
             </h2>
 
             <div
@@ -128,14 +142,14 @@ export default function SmartCampusSection() {
                 className="text-xs font-bold uppercase tracking-[2px]"
                 style={{ color: "var(--gu-gold)" }}
               >
-                WELCOME TO THE WORLD OF GEETA UNIVERSITY
+                {eyebrowText}
               </span>
 
               <p
                 className="mx-auto mt-4 max-w-4xl text-base leading-8 sm:text-lg"
                 style={{ color: "var(--gu-text-muted)" }}
               >
-                It covers 40 acres of land. Geeta University carries the powerful tradition of the Geeta Group of Institutions. Based on the tanets of Karma along with a global outlook, GU blends academic excellence with cutting-edge technology to create an advanced and future-proof learning environment. From ICT-enabled classrooms to smart classes, learning platforms, and transparent digital systems, each interaction at GU is created to be effortless, creative and centred around students. Geeta University stands as the culmination of aspiration, ambition and a commitment to an elite, technology-driven education that prepares students for the jobs of the future.
+                {descText}
               </p>
             </div>
           </motion.div>
@@ -145,7 +159,7 @@ export default function SmartCampusSection() {
             variants={itemVariants}
             className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 md:mt-16"
           >
-            {features.map((feature, index) => (
+            {featureList.map((feature, index) => (
               <motion.div
                 key={feature.id}
                 initial={{ opacity: 0, y: 20 }}

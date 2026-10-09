@@ -9,7 +9,19 @@ import {
   X,
 } from "lucide-react";
 
-import { leadership, type Leader } from "@/data/leadership";
+export interface Leader {
+  id: number | string;
+  name: string;
+  role: string;
+  image: string;
+  message: string;
+  quote?: string | null;
+  featured?: boolean;
+}
+
+interface LeadershipSectionProps {
+  data?: Leader[] | null;
+}
 
 const fadeUp: Variants = {
   hidden: {
@@ -26,15 +38,16 @@ const fadeUp: Variants = {
   },
 };
 
-export default function LeadershipSection() {
-  const [activeLeaderId, setActiveLeaderId] = useState<number | null>(null);
+export default function LeadershipSection({ data }: LeadershipSectionProps) {
+  const [activeLeaderId, setActiveLeaderId] = useState<number | string | null>(null);
+  const leaderList = data && data.length > 0 ? data : [];
 
-  const featuredLeader = leadership.find(
+  const featuredLeader = leaderList.find(
     (leader) => leader.featured
-  );
+  ) || leaderList[0];
 
-  const otherLeaders = leadership.filter(
-    (leader) => !leader.featured
+  const otherLeaders = leaderList.filter(
+    (leader) => leader.id !== featuredLeader?.id
   );
 
   const selectedLeader = otherLeaders.find(
@@ -527,7 +540,7 @@ function LeaderModal({
 
   return (
     // The outermost div acts as the scrollable viewport.
-    <div className="fixed inset-0 z-50 overflow-y-auto overscroll-none">
+    <div className="fixed inset-0 z-[99999] overflow-y-auto overscroll-none">
       {/* 
         This wrapper uses flex to vertically center the modal. 
         min-h-full forces the wrapper to stretch so we can click below the modal to close it.

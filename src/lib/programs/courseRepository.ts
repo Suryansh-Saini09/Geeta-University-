@@ -35,6 +35,19 @@ import { phdPharmacy } from "@/data/programs/courses/pharmacy/phd-pharmacy";
 import { diplomaHotelManagement } from "@/data/programs/courses/hospitality/diploma-in-hotel-management";
 import { bscHotelManagement } from "@/data/programs/courses/hospitality/bsc-hotel-management";
 import { btechCse } from "@/data/programs/courses/computer-science-and-engineering/btech-cse";
+import { btechArtificialIntelligenceAndMachineLearning } from "@/data/programs/courses/computer-science-and-engineering/btech-artificial-intelligence-and-machine-learning";
+import { btechCyberSecurity } from "@/data/programs/courses/computer-science-and-engineering/btech-cyber-security";
+import { btechDataScienceAndBusinessAnalytics } from "@/data/programs/courses/computer-science-and-engineering/btech-data-science-and-business-analytics";
+import { btechFullStackWebDevelopment } from "@/data/programs/courses/computer-science-and-engineering/btech-full-stack-web-development";
+import { btechQuantumComputing } from "@/data/programs/courses/computer-science-and-engineering/btech-quantum-computing";
+import { bca } from "@/data/programs/courses/computer-science-and-engineering/bca";
+import { bcaAIML } from "@/data/programs/courses/computer-science-and-engineering/bca-artificial-intelligence-and-machine-learning";
+import { bcaCyberSecurity } from "@/data/programs/courses/computer-science-and-engineering/bca-cyber-security";
+import { bcaDataScienceAndBusinessAnalytics } from "@/data/programs/courses/computer-science-and-engineering/bca-data-science-and-business-analytics";
+import { mtechCse } from "@/data/programs/courses/computer-science-and-engineering/mtech-cse";
+import { mca } from "@/data/programs/courses/computer-science-and-engineering/mca";
+import { phdComputerApplication } from "@/data/programs/courses/computer-science-and-engineering/phd-computer-application";
+import { phdComputerScience } from "@/data/programs/courses/computer-science-and-engineering/phd-computer-science";
 
 const courses: CoursePageData[] = [
   bscAgriculture,
@@ -73,6 +86,19 @@ const courses: CoursePageData[] = [
   diplomaHotelManagement,
   bscHotelManagement,
   btechCse,
+  btechArtificialIntelligenceAndMachineLearning,
+  btechCyberSecurity,
+  btechDataScienceAndBusinessAnalytics,
+  btechFullStackWebDevelopment,
+  btechQuantumComputing,
+  bca,
+  bcaAIML,
+  bcaCyberSecurity,
+  bcaDataScienceAndBusinessAnalytics,
+  mtechCse,
+  mca,
+  phdComputerApplication,
+  phdComputerScience,
 ];
 
 // Helper to normalize school slug for comparison (handling aliases)
@@ -111,6 +137,80 @@ function normalizeCourseSlug(slug: string): string {
     s === "mba-logistics"
   )
     return "mba-supply-chain-management-and-logistics";
+  if (
+    s === "btech-aiml" ||
+    s === "btech-ai-and-ml" ||
+    s === "btech-ai-ml" ||
+    s === "btech-cse-ai-ml"
+  )
+    return "btech-artificial-intelligence-and-machine-learning";
+  if (
+    s === "btech-cybersecurity" ||
+    s === "btech-cse-cyber-security" ||
+    s === "btech-cse-cybersecurity"
+  )
+    return "btech-cyber-security";
+  if (s === "bca-cybersecurity" || s === "bca-cyber")
+    return "bca-cyber-security";
+  if (
+    s === "btech-data-science" ||
+    s === "btech-data-science-and-business-analytics-with-hcl" ||
+    s === "btech-cse-data-science" ||
+    s === "btech-data-science-business-analytics"
+  )
+    return "btech-data-science-and-business-analytics";
+  if (
+    s === "bca-data-science" ||
+    s === "bca-data-science-business-analytics" ||
+    s === "bca-data-science-and-business-analytic" ||
+    s === "bca-ds"
+  )
+    return "bca-data-science-and-business-analytics";
+  if (
+    s === "btech-full-stack" ||
+    s === "btech-full-stack-development" ||
+    s === "btech-cse-full-stack" ||
+    s === "btech-cse-full-stack-web-development" ||
+    s === "full-stack-web-development"
+  )
+    return "btech-full-stack-web-development";
+  if (
+    s === "btech-quantum" ||
+    s === "btech-quantum-computing" ||
+    s === "btech-cse-quantum-computing" ||
+    s === "quantum-computing"
+  )
+    return "btech-quantum-computing";
+  if (
+    s === "m-tech-cse" ||
+    s === "mtech-computer-science" ||
+    s === "mtech-computer-science-and-engineering" ||
+    s === "m-tech-in-computer-science-and-engineering"
+  )
+    return "mtech-cse";
+  if (
+    s === "master-of-computer-applications" ||
+    s === "mca-program" ||
+    s === "mca-general"
+  )
+    return "mca";
+  if (
+    s === "phd-computer-application" ||
+    s === "phd-computer-applications" ||
+    s === "phd-in-computer-application" ||
+    s === "phd-in-computer-applications" ||
+    s === "phd-computer-application-and-computer-science" ||
+    s === "phd-in-computer-application-and-computer-science"
+  )
+    return "phd-computer-application";
+  if (
+    s === "phd-cse" ||
+    s === "phd-computer-science" ||
+    s === "phd-in-computer-science" ||
+    s === "phd-computer-science-and-engineering" ||
+    s === "phd-in-computer-science-and-engineering"
+  )
+    return "phd-cse";
   return s;
 }
 
@@ -125,6 +225,18 @@ export function getCourseBySlug(
     (c) =>
       normalizeSchoolSlug(c.schoolSlug) === normSchool &&
       normalizeCourseSlug(c.slug) === normCourse
+  );
+}
+
+export function getCourseByDirectSlug(
+  courseSlug: string
+): CoursePageData | undefined {
+  const normCourse = normalizeCourseSlug(courseSlug);
+  return courses.find(
+    (c) =>
+      normalizeCourseSlug(c.slug) === normCourse ||
+      c.slug.toLowerCase() === courseSlug.toLowerCase() ||
+      c.id.toLowerCase() === courseSlug.toLowerCase()
   );
 }
 
@@ -223,6 +335,96 @@ export function getAllCourseParams(): { schoolSlug: string; courseSlug: string }
       params.push({
         schoolSlug: c.schoolSlug,
         courseSlug: "phd-pharmaceutical-sciences",
+      });
+    }
+
+    if (c.slug === "btech-artificial-intelligence-and-machine-learning") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-aiml",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-ai-and-ml",
+      });
+    }
+
+    if (c.slug === "btech-cyber-security") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-cybersecurity",
+      });
+    }
+
+    if (c.slug === "btech-data-science-and-business-analytics") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-data-science",
+      });
+    }
+
+    if (c.slug === "btech-full-stack-web-development") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-full-stack",
+      });
+    }
+
+    if (c.slug === "btech-quantum-computing") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "btech-quantum",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "quantum-computing",
+      });
+    }
+
+    if (c.slug === "bca-data-science-and-business-analytics") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "bca-data-science",
+      });
+    }
+
+    if (c.slug === "mtech-cse") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "m-tech-cse",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "mtech-computer-science",
+      });
+    }
+
+    if (c.slug === "mca") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "master-of-computer-applications",
+      });
+    }
+
+    if (c.slug === "phd-computer-application") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-applications",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-application-and-computer-science",
+      });
+    }
+
+    if (c.slug === "phd-cse") {
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-science",
+      });
+      params.push({
+        schoolSlug: c.schoolSlug,
+        courseSlug: "phd-computer-science-and-engineering",
       });
     }
   });

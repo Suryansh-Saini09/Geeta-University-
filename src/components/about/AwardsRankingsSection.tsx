@@ -3,11 +3,22 @@
 import React from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { awards } from "@/data/awards";
 import ImpactRankings from "@/components/about/ImpactRankings";
 import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
 
-export default function AwardsRankingsSection() {
+interface AwardsRankingsSectionProps {
+  data?: Array<{
+    id: string | number;
+    title: string;
+    presentedBy?: string | null;
+    designation?: string | null;
+    presenters?: any;
+    image: string;
+  }> | null;
+}
+export default function AwardsRankingsSection({ data }: AwardsRankingsSectionProps) {
+  const awardList = data && data.length > 0 ? data : [];
+
   const {
     containerRef,
     currentIndex,
@@ -25,7 +36,7 @@ export default function AwardsRankingsSection() {
     handleTouchMove,
     handleTouchEnd,
   } = useFiniteCarousel({
-    totalItems: awards.length,
+    totalItems: awardList.length,
     autoplayInterval: 3000,
     enableAutoplay: true,
   });
@@ -84,7 +95,7 @@ export default function AwardsRankingsSection() {
             onTouchEnd={handleTouchEnd}
             className="flex w-full gap-5 overflow-x-auto pb-6 pt-2 cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {awards.map((award) => (
+            {awardList.map((award) => (
               <div
                 key={award.id}
                 className="w-[280px] sm:w-[310px] md:w-[340px] shrink-0"
@@ -121,7 +132,7 @@ export default function AwardsRankingsSection() {
                           Presented By
                         </p>
                         <div className="flex flex-col gap-2">
-                          {award.presenters.map((presenter, pIdx) => (
+                          {award.presenters.map((presenter: any, pIdx: number) => (
                             <div
                               key={pIdx}
                               className={

@@ -11,8 +11,11 @@ import {
   Megaphone,
   Newspaper,
   Settings,
+  Inbox,
   ScrollText,
   Shield,
+  Sparkles,
+  Trophy,
   Users,
   UserCog,
 } from "lucide-react";
@@ -23,15 +26,21 @@ import { logoutAction } from "@/features/admin/auth/actions";
 
 const navigation = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
+  { label: "Home CMS", href: "/admin/home", icon: FileText },
+  { label: "About CMS", href: "/admin/about", icon: FileText },
+  { label: "Admissions CMS", href: "/admin/admissions", icon: GraduationCap },
+  { label: "GU Edge CMS", href: "/admin/gu-edge", icon: BookOpen },
+  { label: "Campus Life CMS", href: "/admin/campus-life", icon: Sparkles },
+  { label: "Placements CMS", href: "/admin/placements", icon: Trophy },
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "Departments", href: "/admin/departments", icon: GraduationCap },
   { label: "Programs", href: "/admin/programs", icon: BookOpen },
-  { label: "Faculty", href: "/admin/faculty", icon: Users },
   { label: "Notices", href: "/admin/notices", icon: Megaphone },
   { label: "News", href: "/admin/news", icon: Newspaper },
   { label: "Events", href: "/admin/events", icon: CalendarDays },
   { label: "Gallery", href: "/admin/gallery", icon: GalleryHorizontalEnd },
   { label: "Media", href: "/admin/media", icon: Image },
+  { label: "Submissions", href: "/admin/submissions", icon: Inbox },
   { label: "Users", href: "/admin/users", icon: UserCog },
   { label: "Activity", href: "/admin/activity", icon: ScrollText },
   { label: "Settings", href: "/admin/settings", icon: Settings },
@@ -61,7 +70,13 @@ export default function AdminShell({
           </div>
 
           <nav className="space-y-1 p-4">
-            {navigation.filter((item) => !["/admin/users", "/admin/activity"].includes(item.href) || hasPermission(user.role, "manageUsers")).map((item) => {
+            {navigation.filter((item) => {
+              if (item.href === "/admin/users") return hasPermission(user.role, "manageUsers");
+              if (item.href === "/admin/activity") return hasPermission(user.role, "viewAuditLogs");
+              if (item.href === "/admin/submissions") return hasPermission(user.role, "viewSubmissions");
+              if (item.href === "/admin/settings") return hasPermission(user.role, "manageSettings");
+              return true;
+            }).map((item) => {
               const Icon = item.icon;
 
               return (

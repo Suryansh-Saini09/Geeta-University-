@@ -1,5 +1,5 @@
-"use client";
-
+import { getPublishedHomePage } from "@/server/services/pages";
+import { getLocale } from "@/lib/i18n/getLocale";
 import HomeHeroSection from "@/components/home/HomeHeroSection";
 import SmartCampusSection from "@/components/home/SmartCampusSection";
 import HomeStatsSection from "@/components/home/HomeStatsSection";
@@ -16,38 +16,82 @@ import ScholarshipsSection from "@/components/home/ScholarshipsSection";
 import IndustryIntegrationSection from "@/components/home/IndustryIntegrationSection";
 import StarPerformancesSection from "@/components/home/StarPerformancesSection";
 
-export default function Home() {
+import type { Metadata } from "next";
+
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const homeData = await getPublishedHomePage(locale);
+  const seo: any = homeData.seo || {};
+
+  const keywords = typeof seo.keywords === "string"
+    ? seo.keywords.split(",").map((k: string) => k.trim())
+    : Array.isArray(seo.keywords)
+    ? seo.keywords
+    : undefined;
+
+  const canonical = locale === "en" ? "https://geetauniversity.edu.in" : `https://geetauniversity.edu.in/${locale}`;
+
+  return {
+    title: seo.title || seo.metaTitle || "Geeta University | Top Private University in Haryana",
+    description: seo.description || seo.metaDescription || "Geeta University offers industry-ready degree programs with modern labs, top faculty and placement support.",
+    keywords,
+    alternates: {
+      canonical,
+      languages: {
+        "en": "https://geetauniversity.edu.in",
+        "hi": "https://geetauniversity.edu.in/hi",
+        "fr": "https://geetauniversity.edu.in/fr",
+        "x-default": "https://geetauniversity.edu.in",
+      },
+    },
+    openGraph: {
+      title: seo.ogTitle || seo.title || "Geeta University | Top Private University in Haryana",
+      description: seo.ogDescription || seo.description || "Geeta University offers industry-ready degree programs with modern labs and placement support.",
+      images: seo.ogImage ? [{ url: seo.ogImage }] : undefined,
+    },
+  };
+}
+
+export default async function Home() {
+  const locale = await getLocale();
+  const homeData = await getPublishedHomePage(locale);
+
   return (
     <main className="bg-white">
-      <HomeHeroSection />
+      <HomeHeroSection data={homeData.hero} />
 
-      <SmartCampusSection />
+      <SmartCampusSection data={homeData.smartCampus} />
 
-      <HomeStatsSection />
+      <HomeStatsSection data={homeData.stats} />
 
       <TopRecruitersSection />
 
-      <HomeProgramsSection />
+      <HomeProgramsSection data={homeData.programsOffered} />
 
-      <AwardsRankingsSection />
+      <AwardsRankingsSection data={homeData.awards} />
 
-      <HomeFeedbackSection />
+      <HomeFeedbackSection data={homeData.testimonials} />
 
-      <HomeGlobalEducationSection />
+      <HomeGlobalEducationSection data={homeData.globalEducation} />
 
-      <HomeUniverseSection />
+      <HomeUniverseSection data={homeData.universe} />
 
-      <HomeUpdatesSection />
+      <HomeUpdatesSection data={homeData.updates} />
 
-      <WhyJoinGeetaSection />
+      <WhyJoinGeetaSection data={homeData.whyJoinGeeta} />
 
-      <ScholarshipsSection />
+      <ScholarshipsSection data={homeData.scholarships} />
 
-      <IndustryIntegrationSection />
+      <IndustryIntegrationSection data={homeData.industryPartners} />
 
-      <VirtualCampusTourSection />
-      
-      <StarPerformancesSection />
+      <VirtualCampusTourSection data={homeData.virtualTour} />
+
+      <StarPerformancesSection
+        data={homeData.starPerformances}
+        ctaData={homeData.starPerformancesCta}
+      />
     </main>
   );
 }

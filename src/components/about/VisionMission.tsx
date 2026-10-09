@@ -1,6 +1,12 @@
-import { mission, vision } from "@/data/about";
+interface VisionMissionProps {
+  vision?: string;
+  mission?: string[];
+}
 
-export default function VisionMission() {
+export default function VisionMission({ vision, mission }: VisionMissionProps) {
+  const visionText = vision || "";
+  const missionList = mission || [];
+
   return (
     <>
       <section className="w-full">
@@ -26,7 +32,7 @@ export default function VisionMission() {
             </h2>
 
             <p className="text-base leading-8 text-slate-600">
-              “{vision}”
+              “{visionText}”
             </p>
           </article>
 
@@ -40,7 +46,7 @@ export default function VisionMission() {
             </h2>
 
             <ul className="space-y-4 text-base leading-7 text-slate-600">
-              {mission.map((item) => (
+              {missionList.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#E8871A]" />
                   <span>{item}</span>

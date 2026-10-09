@@ -7,6 +7,9 @@ import {
   getAllCourseParams,
 } from "@/lib/programs/courseRepository";
 import { getProgramBySlug } from "@/lib/programs/programRepository";
+import { getLocale } from "@/lib/i18n/getLocale";
+
+export const dynamic = "force-dynamic";
 
 interface PageProps {
   params: Promise<{
@@ -27,6 +30,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug, courseSlug } = await params;
+  const locale = await getLocale();
 
   const course = getCourseBySlug(slug, courseSlug);
 
@@ -34,12 +38,22 @@ export async function generateMetadata({
     return {};
   }
 
+  const canonical = locale === "en"
+    ? `https://geetauniversity.edu.in/programs/${slug}/${courseSlug}`
+    : `https://geetauniversity.edu.in/${locale}/programs/${slug}/${courseSlug}`;
+
   return {
     title: course.seo.title,
     description: course.seo.description,
     keywords: course.seo.keywords,
     alternates: {
-      canonical: course.seo.canonical,
+      canonical,
+      languages: {
+        "en": `https://geetauniversity.edu.in/programs/${slug}/${courseSlug}`,
+        "hi": `https://geetauniversity.edu.in/hi/programs/${slug}/${courseSlug}`,
+        "fr": `https://geetauniversity.edu.in/fr/programs/${slug}/${courseSlug}`,
+        "x-default": `https://geetauniversity.edu.in/programs/${slug}/${courseSlug}`,
+      },
     },
     openGraph: {
       title: course.seo.title,
@@ -51,6 +65,7 @@ export async function generateMetadata({
 
 export default async function CourseRoute({ params }: PageProps) {
   const { slug, courseSlug } = await params;
+  const locale = await getLocale();
 
   const course = getCourseBySlug(slug, courseSlug);
 
@@ -58,7 +73,7 @@ export default async function CourseRoute({ params }: PageProps) {
     notFound();
   }
 
-  const school = getProgramBySlug(slug);
+  const school = await getProgramBySlug(slug, locale);
 
   return <CoursePage course={course} school={school} />;
 }

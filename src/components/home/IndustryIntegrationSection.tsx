@@ -2,10 +2,14 @@
 
 import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { industryPartners } from "@/data/industryPartners";
 import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
+interface IndustryIntegrationSectionProps {
+  data?: Array<{ id: string | number; name: string; image: string }> | null;
+}
 
-export default function IndustryIntegrationSection() {
+export default function IndustryIntegrationSection({ data }: IndustryIntegrationSectionProps) {
+  const partnerList = data && data.length > 0 ? data : [];
+
   const {
     containerRef,
     maxIndex,
@@ -21,7 +25,7 @@ export default function IndustryIntegrationSection() {
     handleTouchMove,
     handleTouchEnd,
   } = useFiniteCarousel({
-    totalItems: industryPartners.length,
+    totalItems: partnerList.length,
     autoplayInterval: 2500,
     enableAutoplay: true,
   });
@@ -101,7 +105,7 @@ export default function IndustryIntegrationSection() {
               className="flex w-full overflow-x-auto scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               <div className="flex w-max items-center">
-                {industryPartners.map((partner, index) => (
+                {partnerList.map((partner, index) => (
                   <div
                     key={`${partner.image}-${index}`}
                     className="group/item mx-3 flex h-28 w-44 shrink-0 items-center justify-center rounded-2xl border border-[#E1E8EE] bg-white px-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#F28C18]/40 hover:shadow-lg sm:mx-4 sm:h-32 sm:w-52"

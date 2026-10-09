@@ -68,7 +68,7 @@ export default function TopRecruitersSection() {
           whileInView="visible"
           viewport={{
             once: true,
-            amount: 0.15,
+            amount: 0,
           }}
         >
           {/* Section heading */}

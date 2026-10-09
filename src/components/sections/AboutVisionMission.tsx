@@ -10,7 +10,33 @@ const MISSION_POINTS = [
   "To nurture entrepreneurship and support the innovative ideas of students.",
 ];
 
-export default function AboutVisionMission() {
+interface AboutVisionMissionProps {
+  data?: {
+    bannerImage?: string;
+    visionHeading?: string;
+    visionStatement?: string;
+    missionHeading?: string;
+    missionPoints?: string[];
+    identityTitle?: string;
+    identityDescription?: string;
+    saffronText?: string;
+    blueText?: string;
+    crestStatement?: string;
+  } | null;
+}
+
+export default function AboutVisionMission({ data }: AboutVisionMissionProps) {
+  const banner = data?.bannerImage || "/about/8.webp";
+  const visionTitle = data?.visionHeading || "Our Vision";
+  const visionStmt = data?.visionStatement || "“To reach the pinnacle of academic excellence and nurture the dreams and aspirations of students aspiring to evolve into well-rounded technocrats, professionals, scientists, leaders, and entrepreneurs dedicated to nation-building.”";
+  const missionTitle = data?.missionHeading || "Our Mission";
+  const missionList = data?.missionPoints && data.missionPoints.length > 0 ? data.missionPoints : MISSION_POINTS;
+  const idTitle = data?.identityTitle || "Our Identity: Rooted In Legacy, Shaping The Future";
+  const idDesc = data?.identityDescription || "At Geeta University, we offer a combination of a bold futuristic vision and the wisdom of the past. Our integration of innovation, technology, and global academic standards helps carry forward the legacy of India’s rich educational heritage.";
+  const saffron = data?.saffronText || "Saffron symbolises the timeless knowledge of Indian saints — a nod to our deep-rooted cultural legacy.";
+  const blue = data?.blueText || "Blue represents the future — driven by technology, openness, and the pursuit of academic excellence.";
+  const crest = data?.crestStatement || "Our crest stands for courage, ambition, and transformation. It reflects Geeta University's commitment to being more than an institution. It presents Geeta University as a hub of knowledge where the future is imagined, nurtured, and realised. Here, students are not just prepared for the future — they learn to shape it.";
+
   return (
     <>
       {/* =========================================================
@@ -20,7 +46,7 @@ export default function AboutVisionMission() {
       <section className="relative overflow-hidden bg-[#0A1F44]">
         <div className="relative h-[200px] w-full sm:h-[260px] md:h-[320px]">
           <Image
-            src="/about/8.webp"
+            src={banner}
             alt="Powering Education at Geeta University"
             fill
             className="object-cover"
@@ -49,17 +75,14 @@ export default function AboutVisionMission() {
               <div className="flex items-center gap-2.5">
                 <span className="h-2 w-2 rounded-full bg-[#E8871A]" />
                 <h2 className="text-xl font-bold uppercase tracking-wider text-white sm:text-2xl">
-                  Our Vision
+                  {visionTitle}
                 </h2>
               </div>
 
               <div className="mt-2 h-1 w-12 rounded-full bg-[#E8871A]" />
 
               <blockquote className="mt-5 text-base sm:text-lg font-medium leading-relaxed text-white/90">
-                “To reach the pinnacle of academic excellence and nurture
-                the dreams and aspirations of students aspiring to evolve
-                into well-rounded technocrats, professionals, scientists,
-                leaders, and entrepreneurs dedicated to nation-building.”
+                {visionStmt}
               </blockquote>
             </article>
 
@@ -69,14 +92,14 @@ export default function AboutVisionMission() {
               <div className="flex items-center gap-2.5">
                 <span className="h-2 w-2 rounded-full bg-[#E8871A]" />
                 <h2 className="text-xl font-bold uppercase tracking-wider text-[#0A1F44] sm:text-2xl">
-                  Our Mission
+                  {missionTitle}
                 </h2>
               </div>
 
               <div className="mt-2 h-1 w-12 rounded-full bg-[#E8871A]" />
 
               <div className="mt-5 space-y-3">
-                {MISSION_POINTS.map((point) => (
+                {missionList.map((point) => (
                   <div key={point} className="flex items-start gap-3">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#E8871A]" />
                     <p className="text-sm sm:text-base font-medium leading-relaxed text-[#334155]">
@@ -102,13 +125,11 @@ export default function AboutVisionMission() {
           {/* Heading */}
           <div className="mx-auto mb-10 max-w-[900px] text-center">
             <h2 className="font-serif text-3xl font-bold tracking-tight text-[#0A1F44] sm:text-4xl md:text-[40px]">
-              Our Identity: Rooted In Legacy, Shaping The Future
+              {idTitle}
             </h2>
 
             <p className="mx-auto mt-6 max-w-[820px] text-base leading-relaxed text-[#4A5568] sm:text-lg">
-              At Geeta University, we offer a combination of a bold futuristic vision and the wisdom of the past. Our
-              integration of innovation, technology, and global academic standards helps carry forward the legacy of India’s
-              rich educational heritage.
+              {idDesc}
             </p>
           </div>
 
@@ -118,16 +139,14 @@ export default function AboutVisionMission() {
               {/* Saffron side */}
               <div className="flex items-center justify-center bg-[#EA5823] p-8 sm:p-12 md:pr-24">
                 <p className="text-center text-base sm:text-lg leading-relaxed text-white md:text-left">
-                  <span className="font-bold italic">Saffron</span> symbolises the timeless
-                  knowledge of Indian saints — a nod to our deep-rooted cultural legacy.
+                  {saffron}
                 </p>
               </div>
 
               {/* Blue side */}
               <div className="flex items-center justify-center bg-[#092540] p-8 sm:p-12 md:pl-24">
                 <p className="text-center text-base sm:text-lg leading-relaxed text-white md:text-left">
-                  <span className="font-bold italic">Blue</span> represents the future — driven by
-                  technology, openness, and the pursuit of academic excellence.
+                  {blue}
                 </p>
               </div>
             </div>
@@ -143,9 +162,7 @@ export default function AboutVisionMission() {
           {/* Crest statement */}
           <div className="mx-auto mt-12 max-w-[880px] text-center">
             <p className="text-base leading-relaxed text-[#4A5568] sm:text-lg md:text-[19px]">
-              Our crest stands for courage, ambition, and transformation. It reflects Geeta University's commitment to being
-              more than an institution. It presents Geeta University as a hub of knowledge where the future is imagined,
-              nurtured, and realised. Here, students are not just prepared for the future — they learn to shape it.
+              {crest}
             </p>
           </div>
         </div>

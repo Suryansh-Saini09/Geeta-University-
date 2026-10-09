@@ -33,3 +33,25 @@ export function getPublishedEvents(page = 1) {
 export function getPublishedEventBySlug(slug: string) {
   return prisma.event.findFirst({ where: { slug, status: ContentStatus.PUBLISHED, publishedAt: { not: null, lte: new Date() } }, include: { seo: true } });
 }
+
+export async function getHomepageEvents() {
+  try {
+    const now = new Date();
+    return await prisma.event.findMany({
+      where: {
+        status: ContentStatus.PUBLISHED,
+        publishedAt: { not: null, lte: now },
+        OR: [
+          { startsAt: { gte: now } },
+          { endsAt: { gte: now } },
+        ],
+      },
+      orderBy: [{ startsAt: "asc" }, { id: "asc" }],
+      take: 10,
+      select: { title: true, slug: true, startsAt: true, endsAt: true },
+    });
+  } catch (error) {
+    console.error("Failed to fetch homepage events:", error);
+    return [];
+  }
+}

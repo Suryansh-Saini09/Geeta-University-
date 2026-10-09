@@ -2,10 +2,22 @@
 
 import Image from "next/image";
 
-export default function HomeGlobalEducationSection() {
+interface HomeGlobalEducationSectionProps {
+  data?: {
+    title?: string;
+    image?: string;
+    altText?: string;
+  } | null;
+}
+
+export default function HomeGlobalEducationSection({ data }: HomeGlobalEducationSectionProps) {
+  const title = data?.title || "Globally benchmarked education reach";
+  const image = data?.image || "/home/global-benchmark.png";
+  const altText = data?.altText || "Geeta University global education reach map";
+
   return (
     <section
-      aria-label="Globally benchmarked education reach"
+      aria-label={title}
       className="relative overflow-hidden bg-white py-8 md:py-12"
     >
       <div className="relative mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
@@ -28,8 +40,8 @@ export default function HomeGlobalEducationSection() {
           {/* Map container with full width display */}
           <div className="relative mx-auto flex w-full items-center justify-center p-2 sm:p-4 md:p-6">
             <Image
-              src="/home/global-benchmark.png"
-              alt="Geeta University global education reach map"
+              src={image}
+              alt={altText}
               width={1600}
               height={750}
               sizes="100vw"

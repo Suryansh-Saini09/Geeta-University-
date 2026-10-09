@@ -3,10 +3,19 @@
 import Image from "next/image";
 import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { homeFeedback } from "@/data/homeFeedback";
 import { useFiniteCarousel } from "@/hooks/useFiniteCarousel";
+interface HomeFeedbackSectionProps {
+  data?: Array<{
+    name: string;
+    package?: string | null;
+    testimonial: string;
+    image: string;
+  }> | null;
+}
 
-export default function HomeFeedbackSection() {
+export default function HomeFeedbackSection({ data }: HomeFeedbackSectionProps) {
+  const feedbackList = data && data.length > 0 ? data : [];
+
   const {
     containerRef,
     currentIndex,
@@ -24,7 +33,7 @@ export default function HomeFeedbackSection() {
     handleTouchMove,
     handleTouchEnd,
   } = useFiniteCarousel({
-    totalItems: homeFeedback.length,
+    totalItems: feedbackList.length,
     autoplayInterval: 3000,
     enableAutoplay: true,
   });
@@ -92,7 +101,7 @@ export default function HomeFeedbackSection() {
             onTouchEnd={handleTouchEnd}
             className="flex w-full gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-          {homeFeedback.map((student, index) => (
+          {feedbackList.map((student, index) => (
             <article
               key={`${student.name}-${index}`}
               className={`group relative flex w-[300px] sm:w-[350px] md:w-[380px] shrink-0 flex-col overflow-hidden rounded-3xl border bg-white p-7 pb-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
