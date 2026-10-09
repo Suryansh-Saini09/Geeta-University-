@@ -4,8 +4,12 @@ import type { Metadata } from "next";
 import TeachingHero from "@/components/teaching-learning-practices/TeachingHero";
 import TeachingOverviewSection from "@/components/teaching-learning-practices/TeachingOverviewSection";
 import TeachingPedagogyGrid from "@/components/teaching-learning-practices/TeachingPedagogyGrid";
+import TeachingStats from "@/components/teaching-learning-practices/TeachingStats";
 import IndustryEcosystemSection from "@/components/industry-integration/IndustryEcosystemSection";
 import TeachingCTA from "@/components/teaching-learning-practices/TeachingCTA";
+import { getPageSectionsAdmin } from "@/server/services/pages";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://geetauniversity.edu.in"),
@@ -29,23 +33,34 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TeachingLearningPracticesPage() {
+export default async function TeachingLearningPracticesPage() {
+  const { sections } = await getPageSectionsAdmin("teaching-learning-practices");
+  const heroData = sections.hero?.body;
+  const overviewData = sections.overview?.body;
+  const pedagogyData = sections.pedagogy?.body;
+  const statsData = sections.stats?.body;
+  const ctaData = sections.cta?.body;
+
   return (
     <main className="min-h-screen bg-[#F7F9FC] text-[#0A1F44]">
       {/* Hero Section */}
-      <TeachingHero />
+      <TeachingHero data={heroData} />
 
       {/* Main Teaching Practice Overview */}
-      <TeachingOverviewSection />
+      <TeachingOverviewSection data={overviewData} />
 
       {/* Grid of 7 Pedagogical Methods */}
-      <TeachingPedagogyGrid />
+      <TeachingPedagogyGrid data={pedagogyData} />
+
+      {/* Teaching Statistics */}
+      {statsData && <TeachingStats data={statsData} />}
 
       {/* Group Ecosystem */}
       <IndustryEcosystemSection />
 
       {/* Call to Action */}
-      <TeachingCTA />
+      <TeachingCTA data={ctaData} />
     </main>
   );
 }
+

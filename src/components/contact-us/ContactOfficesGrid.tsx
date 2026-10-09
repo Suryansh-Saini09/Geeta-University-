@@ -2,22 +2,25 @@ import React from "react";
 import { Building2, MapPin } from "lucide-react";
 import { admissionOfficesList } from "@/data/contactUsData";
 
-export default function ContactOfficesGrid() {
+export default function ContactOfficesGrid({ data }: { data?: any }) {
+  const title = data?.title || "Our Regional Admission Offices";
+  const offices = data?.offices || admissionOfficesList;
+
   return (
     <section className="w-full bg-white py-10 md:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16">
           <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-[#0A1F44] sm:text-4xl">
-            Our Regional Admission Offices
+            {title}
           </h2>
         </div>
 
         {/* Offices Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {admissionOfficesList.map((office) => (
+          {offices.map((office: any, idx: number) => (
             <div
-              key={office.id}
+              key={office.id || idx}
               className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-[#F7F9FC] p-6 transition-all duration-300 hover:border-[#E8871A]/50 hover:bg-white hover:shadow-xl"
             >
               <div>

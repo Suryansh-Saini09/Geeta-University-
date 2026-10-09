@@ -5,8 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { CAREER_FAQS } from "@/data/careers";
 
-export default function CareersFAQ() {
+export default function CareersFAQ({ data }: { data?: any }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const title = data?.title || "Frequently Asked Questions";
+  const subtitle =
+    data?.subtitle ||
+    "Find quick answers to common queries regarding recruitment, eligibility, and working at Geeta University.";
+  const faqs = data?.faqs || CAREER_FAQS;
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -24,20 +30,28 @@ export default function CareersFAQ() {
             </span>
           </div>
           <h2 className="font-serif text-[36px] font-black text-[#0A1F44] sm:text-[44px]">
-            Frequently Asked <span className="text-[#E8871A]">Questions</span>
+            {title.includes("Questions") ? (
+              <>
+                {title.split("Questions")[0]}
+                <span className="text-[#E8871A]">Questions</span>
+                {title.split("Questions")[1]}
+              </>
+            ) : (
+              title
+            )}
           </h2>
           <p className="mt-3 text-[16px] text-[#64748B]">
-            Find quick answers to common queries regarding recruitment, eligibility, and working at Geeta University.
+            {subtitle}
           </p>
         </div>
 
         {/* FAQ Accordion */}
         <div className="mx-auto max-w-4xl space-y-4">
-          {CAREER_FAQS.map((faq, index) => {
+          {faqs.map((faq: any, index: number) => {
             const isOpen = openIndex === index;
             return (
               <div
-                key={faq.question}
+                key={faq.question || index}
                 className="overflow-hidden rounded-[16px] border border-[#E2E8F0] bg-white shadow-[0_4px_15px_rgba(10,31,68,0.03)] transition-all duration-200 hover:border-[#E8871A]/40"
               >
                 <button

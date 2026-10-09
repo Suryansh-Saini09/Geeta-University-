@@ -65,21 +65,24 @@ const initialFormState: FormDataState = {
   reference_source: "",
 };
 
-export default function CareersForm() {
+export default function CareersForm({ data }: { data?: any }) {
   const [formData, setFormData] = useState<FormDataState>(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const categories = data?.categories || JOB_CATEGORIES;
+  const departmentsList = data?.departments || DEPARTMENTS;
+
   // Filter available departments dynamically based on chosen job application category
   const filteredDepartments = useMemo(() => {
-    if (!formData.job_application_for) return DEPARTMENTS;
-    return DEPARTMENTS.filter((dept) =>
+    if (!formData.job_application_for) return departmentsList;
+    return departmentsList.filter((dept: any) =>
       dept.categories.includes(
         formData.job_application_for as "Teaching" | "Non Teaching" | "Admissions & Marketing" | "Essentials"
       )
     );
-  }, [formData.job_application_for]);
+  }, [formData.job_application_for, departmentsList]);
 
   const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const category = e.target.value;
@@ -587,11 +590,12 @@ export default function CareersForm() {
                               ? `Select Department (${filteredDepartments.length} available)`
                               : "Select Job Category First"}
                           </option>
-                          {filteredDepartments.map((dept) => (
+                          {filteredDepartments.map((dept: any) => (
                             <option key={dept.value} value={dept.value}>
                               {dept.label}
                             </option>
                           ))}
+
                         </select>
                       </div>
 

@@ -6,6 +6,10 @@ import UGCDocumentsGrid from "@/components/ugc/UGCDocumentsGrid";
 import IndustryEcosystemSection from "@/components/industry-integration/IndustryEcosystemSection";
 import UGCCalloutCTA from "@/components/ugc/UGCCalloutCTA";
 
+import { getPageSectionsAdmin } from "@/server/services/pages";
+
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://geetauniversity.edu.in"),
   title: "UGC-Approved University | Geeta University Accreditation & Recognition",
@@ -27,20 +31,28 @@ export const metadata: Metadata = {
   },
 };
 
-export default function UGCPage() {
+export default async function UGCPage() {
+  const { sections } = await getPageSectionsAdmin("ugc");
+
+  const heroSec = sections.hero?.body;
+  const docsSec = sections.documents?.body;
+  const approvalsSec = sections.approvals?.body;
+  const ctaSec = sections.callout_cta?.body;
+
+
   return (
     <main className="min-h-screen bg-[#F7F9FC] text-[#0A1F44]">
       {/* Hero Section */}
-      <UGCHero />
+      <UGCHero data={heroSec} />
 
-      {/* Official Inspection Documents & Downloads */}
-      <UGCDocumentsGrid />
+      {/* Official Inspection Documents & Statutory Approvals Grid */}
+      <UGCDocumentsGrid docsData={docsSec} approvalsData={approvalsSec} />
 
       {/* Legacy & Ecosystem Section */}
       <IndustryEcosystemSection />
 
       {/* Contact & Statutory Callout Banner */}
-      <UGCCalloutCTA />
+      <UGCCalloutCTA data={ctaSec} />
     </main>
   );
 }

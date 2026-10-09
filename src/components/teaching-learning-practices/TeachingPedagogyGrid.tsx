@@ -10,7 +10,7 @@ import {
   Users,
   UserCheck,
 } from "lucide-react";
-import { pedagogicalMethods } from "@/data/teachingLearningPractices";
+import { pedagogicalMethods as defaultMethods } from "@/data/teachingLearningPractices";
 
 const iconMap: Record<string, React.ElementType> = {
   Zap,
@@ -22,7 +22,10 @@ const iconMap: Record<string, React.ElementType> = {
   UserCheck,
 };
 
-export default function TeachingPedagogyGrid() {
+export default function TeachingPedagogyGrid({ data }: { data?: any }) {
+  const methods = Array.isArray(data) && data.length > 0 ? data : defaultMethods;
+
+
   return (
     <section id="pedagogy-grid" className="w-full bg-[#F7F9FC] py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -35,12 +38,12 @@ export default function TeachingPedagogyGrid() {
 
         {/* Masonry / Natural Flow Layout */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {pedagogicalMethods.map((method) => {
-            const IconComponent = iconMap[method.icon];
+          {methods.map((method: any) => {
+            const IconComponent = iconMap[method.icon] || Zap;
 
             return (
               <div
-                key={method.id}
+                key={method.id || method.title}
                 className="break-inside-avoid group overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#E8871A]/40 hover:shadow-xl hover:shadow-slate-200/50"
               >
                 {/* Header with Icon & Title */}
@@ -61,7 +64,7 @@ export default function TeachingPedagogyGrid() {
                   <div className="mb-4 overflow-hidden rounded-xl border border-slate-100">
                     <img
                       src={method.image}
-                      alt={method.title}
+                      alt={method.title || "Pedagogical Method"}
                       className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
@@ -79,3 +82,4 @@ export default function TeachingPedagogyGrid() {
     </section>
   );
 }
+

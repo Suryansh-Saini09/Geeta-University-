@@ -6,6 +6,7 @@ import ContactMainCards from "@/components/contact-us/ContactMainCards";
 import ContactOfficesGrid from "@/components/contact-us/ContactOfficesGrid";
 import ContactMapSection from "@/components/contact-us/ContactMapSection";
 import IndustryEcosystemSection from "@/components/industry-integration/IndustryEcosystemSection";
+import { getPageSectionsAdmin } from "@/server/services/pages";
 import { getContactSettings } from "@/server/services/siteSettings";
 
 export const dynamic = "force-dynamic";
@@ -32,20 +33,31 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactUsPage() {
-  const contact = await getContactSettings();
+  const [pageData, contact] = await Promise.all([
+    getPageSectionsAdmin("contact-us"),
+    getContactSettings(),
+  ]);
+
+  const sections = pageData.sections;
+  const heroSec = sections.hero?.body;
+  const mainCardsSec = sections.main_info?.body || contact;
+  const officesSec = sections.offices?.body;
+  const mapSec = sections.map?.body;
+
+
   return (
     <main className="min-h-screen bg-[#F7F9FC] text-[#0A1F44]">
       {/* Hero Section */}
-      <ContactHero />
+      <ContactHero data={heroSec} />
 
       {/* Main Info Cards (Location, Phone, Email) */}
-      <ContactMainCards contact={contact} />
+      <ContactMainCards contact={mainCardsSec} />
 
       {/* Regional Admission Offices Grid */}
-      <ContactOfficesGrid />
+      <ContactOfficesGrid data={officesSec} />
 
       {/* Google Maps Location */}
-      <ContactMapSection />
+      <ContactMapSection data={mapSec} />
 
       {/* Legacy & Ecosystem Section */}
       <IndustryEcosystemSection />
