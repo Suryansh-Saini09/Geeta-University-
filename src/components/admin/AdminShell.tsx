@@ -18,6 +18,8 @@ import {
   Trophy,
   Users,
   UserCog,
+  Library,
+  Medal,
 } from "lucide-react";
 
 import type { AdminSessionUser } from "@/server/auth/session";
@@ -32,6 +34,9 @@ const navigation = [
   { label: "GU Edge CMS", href: "/admin/gu-edge", icon: BookOpen },
   { label: "Campus Life CMS", href: "/admin/campus-life", icon: Sparkles },
   { label: "Placements CMS", href: "/admin/placements", icon: Trophy },
+  { label: "Library CMS", href: "/admin/library", icon: Library },
+  { label: "Advisory Board CMS", href: "/admin/advisory-board", icon: Users },
+  { label: "Medal Policy CMS", href: "/admin/medal-policy", icon: Medal },
   { label: "Pages", href: "/admin/pages", icon: FileText },
   { label: "Departments", href: "/admin/departments", icon: GraduationCap },
   { label: "Programs", href: "/admin/programs", icon: BookOpen },

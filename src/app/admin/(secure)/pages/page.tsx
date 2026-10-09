@@ -149,6 +149,17 @@ export default async function PagesPage({
                   ];
                   const isAdmissions = admissionsSlugs.includes(page.slug);
                   const isGuEdge = guEdgeSlugs.includes(page.slug);
+                  const isLibrary = page.slug === "library";
+                  const isAdvisory = page.slug === "advisory-board";
+                  const isMedalPolicy = page.slug === "medal-policy";
+                  const institutionalSlugs = [
+                    "careers",
+                    "contact-us",
+                    "ugc",
+                    "teaching-learning-practices",
+                    "geeta-in-news",
+                  ];
+                  const isInstitutional = institutionalSlugs.includes(page.slug);
 
                   return (
                     <tr key={page.id}>
@@ -198,6 +209,34 @@ export default async function PagesPage({
                           >
                             GU Edge CMS <ArrowRight className="h-3 w-3" />
                           </Link>
+                        ) : isLibrary ? (
+                          <Link
+                            href="/admin/library"
+                            className="inline-flex items-center gap-1 font-bold text-[#E8871A] hover:underline"
+                          >
+                            Central Library CMS <ArrowRight className="h-3 w-3" />
+                          </Link>
+                        ) : isAdvisory ? (
+                          <Link
+                            href="/admin/advisory-board"
+                            className="inline-flex items-center gap-1 font-bold text-[#E8871A] hover:underline"
+                          >
+                            Advisory Board CMS <ArrowRight className="h-3 w-3" />
+                          </Link>
+                        ) : isMedalPolicy ? (
+                          <Link
+                            href="/admin/medal-policy"
+                            className="inline-flex items-center gap-1 font-bold text-[#E8871A] hover:underline"
+                          >
+                            Medal Policy CMS <ArrowRight className="h-3 w-3" />
+                          </Link>
+                        ) : isInstitutional ? (
+                          <Link
+                            href={`/admin/pages/institutional?page=${page.slug}`}
+                            className="inline-flex items-center gap-1 font-bold text-[#E8871A] hover:underline"
+                          >
+                            Institutional CMS <ArrowRight className="h-3 w-3" />
+                          </Link>
                         ) : (
                           <span className="font-semibold text-slate-600">Generic Pages CMS</span>
                         )}
@@ -234,6 +273,34 @@ export default async function PagesPage({
                               className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 hover:bg-amber-100"
                             >
                               Open GU Edge CMS
+                            </Link>
+                          ) : isLibrary ? (
+                            <Link
+                              href="/admin/library"
+                              className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 hover:bg-amber-100"
+                            >
+                              Open Library CMS
+                            </Link>
+                          ) : isAdvisory ? (
+                            <Link
+                              href="/admin/advisory-board"
+                              className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 hover:bg-amber-100"
+                            >
+                              Open Advisory CMS
+                            </Link>
+                          ) : isMedalPolicy ? (
+                            <Link
+                              href="/admin/medal-policy"
+                              className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 hover:bg-amber-100"
+                            >
+                              Open Medal Policy CMS
+                            </Link>
+                          ) : isInstitutional ? (
+                            <Link
+                              href={`/admin/pages/institutional?page=${page.slug}`}
+                              className="inline-flex items-center gap-1 rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-900 hover:bg-amber-100"
+                            >
+                              Open Section CMS
                             </Link>
                           ) : (
                             <Link
