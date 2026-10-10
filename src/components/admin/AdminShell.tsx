@@ -25,6 +25,7 @@ import {
 import type { AdminSessionUser } from "@/server/auth/session";
 import { hasPermission } from "@/server/auth/permissions";
 import { logoutAction } from "@/features/admin/auth/actions";
+import { AdminSidebarNav } from "./AdminSidebarNav";
 
 const navigation = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
@@ -74,28 +75,15 @@ export default function AdminShell({
             </div>
           </div>
 
-          <nav className="space-y-1 p-4">
-            {navigation.filter((item) => {
+          <AdminSidebarNav
+            items={navigation.filter((item) => {
               if (item.href === "/admin/users") return hasPermission(user.role, "manageUsers");
               if (item.href === "/admin/activity") return hasPermission(user.role, "viewAuditLogs");
               if (item.href === "/admin/submissions") return hasPermission(user.role, "viewSubmissions");
               if (item.href === "/admin/settings") return hasPermission(user.role, "manageSettings");
               return true;
-            }).map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-white/78 transition-colors hover:bg-white/10 hover:text-white"
-                >
-                  <Icon className="h-4 w-4 text-[#E8871A]" />
-                  {item.label}
-                </Link>
-              );
             })}
-          </nav>
+          />
         </aside>
 
         <div className="flex min-w-0 flex-col">
