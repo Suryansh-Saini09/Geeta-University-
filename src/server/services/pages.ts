@@ -784,5 +784,154 @@ export async function getPublishedGeetaInNewsPage(locale: string = DEFAULT_LOCAL
   }
 }
 
+export async function getPublishedHowToReachUsPage(locale: string = DEFAULT_LOCALE) {
+  try {
+    const [sections, pageRecord] = await Promise.all([
+      prisma.pageSection.findMany({
+        where: { pageSlug: "how-to-reach-us", status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.page.findUnique({
+        where: { slug: "how-to-reach-us" },
+        include: { seo: true },
+      }),
+    ]);
+
+    const sectionMap: Record<string, any> = {};
+    sections.forEach((sec: any) => {
+      sectionMap[sec.sectionKey] = getLocalizedBody(sec.body, sec.translations, locale);
+    });
+
+    const localizedSeo = pageRecord?.seo
+      ? {
+          ...pageRecord.seo,
+          title: getLocalizedField(pageRecord.seo, "title", locale),
+          description: getLocalizedField(pageRecord.seo, "description", locale),
+          ogTitle: getLocalizedField(pageRecord.seo, "ogTitle", locale),
+        }
+      : null;
+
+    return {
+      sections: sectionMap,
+      hero: sectionMap.hero || null,
+      map: sectionMap.map || null,
+      legacyEcosystem: sectionMap.legacy_ecosystem || null,
+      seo: localizedSeo,
+    };
+  } catch (err: any) {
+    console.error("[CMS DB ERROR] getPublishedHowToReachUsPage failed:", err);
+    return {
+      sections: {},
+      hero: null,
+      map: null,
+      legacyEcosystem: null,
+      seo: null,
+    };
+  }
+}
+
+export async function getPublishedAboutPanipatPage(locale: string = DEFAULT_LOCALE) {
+  try {
+    const [sections, pageRecord] = await Promise.all([
+      prisma.pageSection.findMany({
+        where: { pageSlug: "about-panipat", status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.page.findUnique({
+        where: { slug: "about-panipat" },
+        include: { seo: true },
+      }),
+    ]);
+
+    const sectionMap: Record<string, any> = {};
+    sections.forEach((sec: any) => {
+      sectionMap[sec.sectionKey] = getLocalizedBody(sec.body, sec.translations, locale);
+    });
+
+    const localizedSeo = pageRecord?.seo
+      ? {
+          ...pageRecord.seo,
+          title: getLocalizedField(pageRecord.seo, "title", locale),
+          description: getLocalizedField(pageRecord.seo, "description", locale),
+          ogTitle: getLocalizedField(pageRecord.seo, "ogTitle", locale),
+        }
+      : null;
+
+    return {
+      sections: sectionMap,
+      hero: sectionMap.hero || null,
+      battles: sectionMap.battles || null,
+      landmarks: sectionMap.landmarks || null,
+      geographyDemographics: sectionMap.geography_demographics || null,
+      legacyEcosystem: sectionMap.legacy_ecosystem || null,
+      seo: localizedSeo,
+    };
+  } catch (err: any) {
+    console.error("[CMS DB ERROR] getPublishedAboutPanipatPage failed:", err);
+    return {
+      sections: {},
+      hero: null,
+      battles: null,
+      landmarks: null,
+      geographyDemographics: null,
+      legacyEcosystem: null,
+      seo: null,
+    };
+  }
+}
+
+export async function getPublishedAntiRaggingPage(locale: string = DEFAULT_LOCALE) {
+  try {
+    const [sections, pageRecord] = await Promise.all([
+      prisma.pageSection.findMany({
+        where: { pageSlug: "anti-ragging-committee", status: "PUBLISHED" },
+        orderBy: { sortOrder: "asc" },
+      }),
+      prisma.page.findUnique({
+        where: { slug: "anti-ragging-committee" },
+        include: { seo: true },
+      }),
+    ]);
+
+    const sectionMap: Record<string, any> = {};
+    sections.forEach((sec: any) => {
+      sectionMap[sec.sectionKey] = getLocalizedBody(sec.body, sec.translations, locale);
+    });
+
+    const localizedSeo = pageRecord?.seo
+      ? {
+          ...pageRecord.seo,
+          title: getLocalizedField(pageRecord.seo, "title", locale),
+          description: getLocalizedField(pageRecord.seo, "description", locale),
+          ogTitle: getLocalizedField(pageRecord.seo, "ogTitle", locale),
+        }
+      : null;
+
+    return {
+      sections: sectionMap,
+      hero: sectionMap.hero || null,
+      actionCards: sectionMap.action_cards || null,
+      nationalHelpline: sectionMap.national_helpline || null,
+      ugcMonitoringAgency: sectionMap.ugc_monitoring_agency || null,
+      regulatoryWarning: sectionMap.regulatory_warning || null,
+      nodalOfficers: sectionMap.nodal_officers || null,
+      seo: localizedSeo,
+    };
+  } catch (err: any) {
+    console.error("[CMS DB ERROR] getPublishedAntiRaggingPage failed:", err);
+    return {
+      sections: {},
+      hero: null,
+      actionCards: null,
+      nationalHelpline: null,
+      ugcMonitoringAgency: null,
+      regulatoryWarning: null,
+      nodalOfficers: null,
+      seo: null,
+    };
+  }
+}
+
+
 
 

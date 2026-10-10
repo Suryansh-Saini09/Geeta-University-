@@ -158,6 +158,9 @@ export default async function PagesPage({
                     "ugc",
                     "teaching-learning-practices",
                     "geeta-in-news",
+                    "how-to-reach-us",
+                    "about-panipat",
+                    "anti-ragging-committee",
                   ];
                   const isInstitutional = institutionalSlugs.includes(page.slug);
 
